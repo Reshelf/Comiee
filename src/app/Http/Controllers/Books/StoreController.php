@@ -21,11 +21,6 @@ class StoreController extends Controller
         $this->authorize('create', $book);
         // $book->fill($r900equest->except('story'));
 
-        // 識別コード
-        do {
-            $code = Str::random(30);
-        } while (Book::where('code', $code)->exists());
-        $book->code = $code;
         // 作品タイトル
         $book->title = $request->title;
         // 原作

@@ -15,7 +15,7 @@ class EditController extends Controller
      */
     public function __invoke(Book $book, Episode $episode)
     {
-        $episode = Episode::where('code', $episode)->first();
+        $episode = Episode::where('id', $episode)->first();
         return view('books.episode.edit', compact('episode'));
     }
 }

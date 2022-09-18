@@ -64,7 +64,7 @@
                             @guest
                                 <li>@include('auth._login')</li>
                             @endguest
-                            @auth
+                            @if (Auth::user())
                                 <li>
                                     <a href="" class="mr-8 hover:text-primary">ポイント</a>
                                 </li>
@@ -97,7 +97,8 @@
                                                     d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
                                                     stroke="#333333" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" class="dark:stroke-white" />
-                                                <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22"
+                                                <path
+                                                    d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22"
                                                     stroke="#333333" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" class="dark:stroke-white" />
                                             </svg>
@@ -123,7 +124,7 @@
                                         </a>
 
                                         {{-- ダークモード --}}
-                                        <div href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
+                                        <div
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <theme-toggle></theme-toggle>
                                         </div>
@@ -134,7 +135,8 @@
                                         <div>
                                             <button form="logout-button" type="submit"
                                                 class="flex items-center w-full text-left cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                                    fill="none">
                                                     <path
                                                         d="M8.89999 7.55999C9.20999 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.23999 20.08 8.90999 16.54"
                                                         stroke="#333333" stroke-width="1.5" stroke-linecap="round"
@@ -143,8 +145,8 @@
                                                         stroke-linecap="round" stroke-linejoin="round"
                                                         class="dark:stroke-white" />
                                                     <path d="M12.65 8.65002L16 12L12.65 15.35" stroke="#333333"
-                                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="dark:stroke-white" />
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="dark:stroke-white" />
                                                 </svg>
 
                                                 <span class="pl-5">ログアウト</span>
@@ -155,7 +157,7 @@
                                         </div>
                                     </header-user-modal>
                                 </li>
-                            @endauth
+                            @endif
                         </ul>
                     </nav>
                 </div>

@@ -36,7 +36,7 @@ class BookPolicy
     }
 
     /**
-     * ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればOK
+     * ログイン中のユーザーのIDと作品モデルのユーザーIDが一致すればOK
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
@@ -47,7 +47,7 @@ class BookPolicy
     }
 
     /**
-     * ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればOK
+     * ログイン中のユーザーのIDと作品モデルのユーザーIDが一致すればOK
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Book  $book
@@ -59,7 +59,7 @@ class BookPolicy
     }
 
     /**
-     * ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればOK
+     * ログイン中のユーザーのIDと作品モデルのユーザーIDが一致すればOK
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Book  $book
@@ -71,7 +71,7 @@ class BookPolicy
     }
 
     /**
-     * ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればOK
+     * ログイン中のユーザーのIDと作品モデルのユーザーIDが一致すればOK
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Book  $book
@@ -83,7 +83,7 @@ class BookPolicy
     }
 
     /**
-     * ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればOK
+     * ログイン中のユーザーのIDと作品モデルのユーザーIDが一致すればOK
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Book  $book

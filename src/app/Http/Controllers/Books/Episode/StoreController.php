@@ -19,15 +19,11 @@ class StoreController extends Controller
     public function __invoke(Request $request, Episode $episode)
     {
         $episode->book_id = $request->book_id;
-        do {
-            $code = Str::random(30);
-        } while (Episode::where('code', $code)->exists());
-        $episode->code = $code;
         $episode->save();
 
         // 作成後のページ遷移に必要なのでidを渡す
         return response()->json([
-            'episode_code' => $episode->code,
+            'episode_id' => $episode->id,
         ]);
     }
 }

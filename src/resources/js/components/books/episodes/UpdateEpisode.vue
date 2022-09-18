@@ -54,7 +54,7 @@
     </div>
 </template>
 <script>
-import ToastModal from "../../atoms/ToastModal";
+import ToastModal from "../../atoms/ToastModal.vue";
 export default {
     data() {
         return {

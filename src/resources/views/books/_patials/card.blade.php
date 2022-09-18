@@ -2,8 +2,9 @@
     @empty($book->thumbnail)
         <img src="{{ asset('/img/bg.svg') }}" alt="" class="w-[250px] h-[250px] object-cover flex-shrink-0">
     @else
-        <a href="{{ route('book.show', ['book' => $book->code]) }}">
-            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+        <a href="{{ route('book.show', ['book' => $book->id]) }}">
+            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
+                class="w-[250px] h-[250px] object-cover flex-shrink-0">
             {{-- @endempty --}}
             <span class="thumbnail-title">{{ $book->title }}</span>
         </a>

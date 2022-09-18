@@ -23,13 +23,14 @@
                 @endempty
 
                 {{-- 作品タイトル --}}
-                <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
+                <a href="{{ route('book.show', ['book' => $book->id]) }}"
+                    class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</a>
 
                 {{-- 再生数 --}}
                 {{-- @empty(!$book) --}}
                 <div class="w-full flex items-center px-2 mb-2">
                     <div class="flex items-center">
-                        <span class="text-666 text-lg">1,322,200</span>
+                        <span class="text-666 text-lg">{{ $book_views }}</span>
                         <span class=" text-aaa pl-2">回再生</span>
                     </div>
                 </div>
@@ -88,7 +89,7 @@
                                 @foreach ($episodes as $episode)
                                     <div
                                         class=" hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                        <a href="{{ route('book.episode.show', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
@@ -107,7 +108,17 @@
 
                                                 <div class="w-full flex justify-between items-center">
                                                     {{-- 話数 --}}
-                                                    <span class="">第{{ $counts-- }}話</span>
+                                                    {{-- 既読 --}}
+                                                    <div class="flex flex-col">
+                                                        <span class="">第{{ $counts-- }}話</span>
+                                                        @if ($book->user->id !== Auth::user()->id)
+                                                            @if ($episode->is_read)
+                                                                <span class="inline-block text-xs text-666 mt-1">既読</span>
+                                                            @else
+                                                                <span class="inline-block text-xs text-666 mt-1">未読</span>
+                                                            @endif
+                                                        @endif
+                                                    </div>
                                                     {{-- 値段 --}}
                                                     <div class="flex items-center ml-4">
                                                         @if ($episode->is_free)
@@ -138,7 +149,7 @@
                                                         </svg>
                                                     </div>
                                                 </template>
-                                                {{-- <a href="{{ route('book.episode.edit', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                {{-- <a href="{{ route('book.episode.edit', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                                     class="">
                                                     <svg class="h-5 w-5 cursor-pointer hover:text-primary" fill="none"
                                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -146,6 +157,8 @@
                                                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                     </svg>
                                                 </a> --}}
+
+                                                {{-- エピソードの削除 --}}
                                                 <div class="flex flex-col">
                                                     <span
                                                         class="inline-block whitespace-nowrap cursor-pointer hover:text-primary mb-2">編集する</span>
@@ -156,7 +169,7 @@
                                                         </template>
                                                         <template #header>エピソードの削除</template>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->code, 'episode' => $episode->code]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book' => $book->id, 'episode' => $episode->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')
@@ -246,7 +259,7 @@
                     </book-tab>
 
 
-                    <div class="w-fullmx-auto flex flex-col">
+                    <div class="w-full mx-auto flex flex-col">
                         {{-- コメント --}}
                         <div class="flex flex-col mb-8 pb-8">
                             <div class="flex justify-between items-center">
@@ -311,9 +324,6 @@
                                 @endif
                             @endforeach
                         </div>
-
-                        {{-- @endif --}}
-
                     </div>
 
                 </div>

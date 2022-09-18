@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class UpdateController extends Controller
 {
     /**
-     * 記事の更新
+     * 作品の更新
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Request $request, User $user)

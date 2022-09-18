@@ -12,3 +12,4 @@ src/public/img/book/thumbnail/*
 src/package-lock.json
 src/package-lock.json
 src/composer.lock
+src/public/build/assets/*

@@ -23,9 +23,9 @@ export default {
   methods: {
     async addEpisode() {
       await axios
-        .post(`/api/books/${this.book.code}/episode`, this.form)
+        .post(`/api/books/${this.book.id}/episode`, this.form)
         .then(({ data }) => {
-          window.location = `/books/${this.book.code}/${data.episode_code}/edit`;
+          window.location = `/books/${this.book.id}/${data.episode_id}/edit`;
         })
         .catch((err) => {
           console.log(err);

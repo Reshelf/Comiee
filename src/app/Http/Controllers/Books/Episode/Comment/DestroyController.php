@@ -17,10 +17,7 @@ class DestroyController extends Controller
     {
         $comment = Comment::find($request->comment_id);
         $comment->delete();
-        // 作成後のページ遷移に必要なのでidを渡す
-        // return response()->json([
-        //     'episode_code' => $episode->code,
-        // ]);
+
         return redirect()->back();
     }
 }

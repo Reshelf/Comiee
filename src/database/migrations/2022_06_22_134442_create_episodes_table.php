@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique(); // 識別コード
             $table->json('contents')->nullable(); // 漫画のコンテンツ
             $table->integer('price')->default(0); // 値段
             $table->integer('views')->default(0); // 再生数

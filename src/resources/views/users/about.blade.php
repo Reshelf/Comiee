@@ -42,8 +42,8 @@
                         </svg>
                         <span class="pl-2">Link</span>
                     </p>
-                    <a class="text-sm leading-2 flex items-center text-primary" href="{{ $user->website }}" target="_blank"
-                        rel="noreferrer noopener">{{ $user->website }}</a>
+                    <a class="text-sm leading-2 flex items-center text-primary"
+                        href="{{ $user->website }}">{{ $user->website }}</a>
                 </div>
 
             </div>

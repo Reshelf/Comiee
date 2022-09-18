@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UnlikeController extends Controller
 {
     /**
-     * 記事へのいいね解除
+     * 作品へのいいね解除
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Request $request, Book $book)

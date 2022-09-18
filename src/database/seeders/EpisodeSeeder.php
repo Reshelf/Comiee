@@ -25,8 +25,7 @@ class EpisodeSeeder extends Seeder
 
             $param = [
                 'title' => $faker->text(15),
-                'code' => $i,
-                'price' => ,
+                'price' => 0,
                 'author' => $author->name,
                 'manga_artist' => $manga_artist->name,
                 'user_id' => random_int(1, 100),

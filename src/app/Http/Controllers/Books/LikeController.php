@@ -9,13 +9,16 @@ use Illuminate\Http\Request;
 class LikeController extends Controller
 {
     /**
-     * 記事へのいいね
+     * 作品へのいいね
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Request $request, Book $book)
     {
-        $book->likes()->detach($request->user()->id);
-        $book->likes()->attach($request->user()->id);
+        // 作者以外のユーザー
+        if ($book->user->id !== $request->user()->id) {
+            $book->likes()->detach($request->user()->id);
+            $book->likes()->attach($request->user()->id);
+        }
 
         return [
             'id' => $book->id,

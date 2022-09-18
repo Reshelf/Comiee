@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class EditController extends Controller
 {
     /**
-     * 記事の編集
+     * 作品の編集
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Book $book, Request $request)

@@ -8,7 +8,7 @@ use App\Models\Episode;
 class DestroyController extends Controller
 {
     /**
-     * 記事の削除
+     * 作品の削除
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(Episode $episode)

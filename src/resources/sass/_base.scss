@@ -314,3 +314,6 @@ button[disabled] {
 .ti-new-tag-input {
     @apply dark:bg-dark;
 }
+.ti-selected-item {
+    background: var(--primary) !important;
+}

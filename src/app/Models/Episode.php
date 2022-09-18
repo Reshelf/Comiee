@@ -12,11 +12,17 @@ class Episode extends Model
         'book_id',
     ];
 
+    /**
+     * エピソードの作品
+     */
     public function book(): BelongsTo
     {
         return $this->belongsTo('App\Models\Book');
     }
 
+    /**
+     * エピソードへのコメント
+     */
     public function comments(): HasMany
     {
         return $this->hasMany('App\Models\Comment');

@@ -28,7 +28,7 @@ class StoreController extends Controller
 
         // 作成後のページ遷移に必要なのでidを渡す
         // return response()->json([
-        //     'episode_code' => $episode->code,
+        //     'episode_id' => $episode->id,
         // ]);
         return redirect()->back();
     }

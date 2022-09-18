@@ -32,8 +32,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="list-item">
-                                    <a href="{{ route('book.show', ['book' => $book->code]) }}" target="_blank"
-                                        rel="noopener noreferrer">
+                                    <a href="{{ route('book.show', ['book' => $book->id]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -59,7 +58,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="list-item">
-                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->id]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -85,7 +84,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="list-item">
-                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->id]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
@@ -111,7 +110,7 @@
                         @if (!empty($books))
                             @foreach ($books as $book)
                                 <div class="list-item">
-                                    <a href="{{ route('book.show', ['book' => $book->code]) }}">
+                                    <a href="{{ route('book.show', ['book' => $book->id]) }}">
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>

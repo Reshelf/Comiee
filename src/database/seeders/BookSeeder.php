@@ -24,7 +24,6 @@ class BookSeeder extends Seeder
 
             $param = [
                 'title' => $faker->text(15),
-                'code' => $i,
                 'story' => $faker->text(400),
                 'author' => $author->name,
                 'manga_artist' => $manga_artist->name,

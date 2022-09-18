@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique(); // 識別コード
             $table->string('title'); // 作品名
             $table->string('author')->nullable(); // 原作者
             $table->string('manga_artist')->nullable(); // 漫画家

@@ -10,7 +10,7 @@ use App\Http\Requests\BookRequest;
 class UpdateController extends Controller
 {
     /**
-     * 記事の更新
+     * 作品の更新
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
     public function __invoke(BookRequest $request, Book $book)

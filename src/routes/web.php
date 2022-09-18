@@ -17,6 +17,23 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
+| Others
+|--------------------------------------------------------------------------
+|
+*/
+// 利用規約
+Route::get('/terms_of_service', 'App\Http\Controllers\Others\TermsOfServiceController')->name('others.terms');
+// プライバシーポリシー
+Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyController')->name('others.privacy');
+// 特許商取引
+Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
+// お問い合せ
+Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
+
+
+
+/*
+|--------------------------------------------------------------------------
 | Books Routes
 |--------------------------------------------------------------------------
 | 投稿
@@ -26,16 +43,15 @@ Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index'
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
-        Route::get('/create', 'App\Http\Controllers\Books\CreateController')->name('create');
         Route::delete('/{book}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book}', 'App\Http\Controllers\Books\UpdateController')->name('update');
-        Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
+        // Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
         Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // チャプター
         Route::get('/{book}/{episode}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
-        Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
+        // Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
         Route::delete('/{book}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
         // コメント
         Route::post('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->name('episode.comment.store');
