@@ -131,4 +131,16 @@ class User extends Authenticatable
     {
         return $this->followings->count();
     }
+
+    /**
+     * コメント
+     *
+     */
+    public function hasComments()
+    {
+        return $this->hasMany(Book::class)
+            ->has('episodes.comments')
+            ->with(['episodes.comments', 'user'])
+            ->get();
+    }
 }

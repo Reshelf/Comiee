@@ -106,7 +106,7 @@
                                                     {{-- 話数 --}}
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
-                                                        <span class="">第{{ $counts-- }}話</span>
+                                                        <span class="">第{{ $episode->number }}話</span>
                                                         @if ($book->user->id !== Auth::user()->id)
                                                             @if ($episode->is_read)
                                                                 <span class="inline-block text-xs text-666 mt-1">既読</span>

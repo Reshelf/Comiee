@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $book->title)
+@section('title', $episode->number . '話' . ' - ' . $book->title)
 
 @section('content')
     @include('_patials._episode_nav')
@@ -110,7 +110,7 @@
                                                     {{-- 話数 --}}
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
-                                                        <span class="">第{{ $counts-- }}話</span>
+                                                        <span class="">第{{ $episode->number }}話</span>
                                                         @if ($book->user->id !== Auth::user()->id)
                                                             @if ($episode->is_read)
                                                                 <span class="inline-block text-xs text-666 mt-1">既読</span>
@@ -271,6 +271,7 @@
                                         action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}">
                                         @csrf
                                         <input value="{{ $episode->id }}" type="hidden" name="episode_id" />
+                                        <input value="{{ $episode->number }}" type="hidden" name="number" />
                                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                                         <textarea class="w-full h-[250px] rounded-[3px]"
                                             placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"
