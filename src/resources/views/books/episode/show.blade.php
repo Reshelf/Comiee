@@ -268,7 +268,7 @@
                                     <template #trigger>コメントをする</template>
                                     <template #header>コメントを投稿する</template>
                                     <form id="submit-form" method="POST"
-                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}">
+                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $episode->number]) }}">
                                         @csrf
                                         <input value="{{ $episode->id }}" type="hidden" name="episode_id" />
                                         <input value="{{ $episode->number }}" type="hidden" name="number" />
