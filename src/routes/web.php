@@ -50,7 +50,7 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // チャプター
-        Route::get('/{book}/{episode}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
+        Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
         // Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
         Route::delete('/{book}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
         // コメント

@@ -85,7 +85,7 @@
                                 @foreach ($episodes as $episode)
                                     <div
                                         class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                        <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
@@ -137,7 +137,7 @@
                                         <div class="flex items-center pr-4">
                                             @if (Auth::id() === $book->user_id)
                                                 <div class="flex items-center">
-                                                    {{-- <a href="{{ route('book.episode.edit', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                                    {{-- <a href="{{ route('book.episode.edit', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
                                                         class="mr-2">
                                                         <svg class="h-5 w-5 cursor-pointer hover:text-primary"
                                                             fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -148,7 +148,7 @@
                                                     </a> --}}
                                                     <delete-modal>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')

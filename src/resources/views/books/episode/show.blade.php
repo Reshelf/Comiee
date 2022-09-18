@@ -89,7 +89,7 @@
                                 @foreach ($episodes as $episode)
                                     <div
                                         class=" hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                        <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
@@ -169,7 +169,7 @@
                                                         </template>
                                                         <template #header>エピソードの削除</template>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')
