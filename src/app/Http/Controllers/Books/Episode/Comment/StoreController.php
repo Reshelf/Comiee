@@ -19,11 +19,10 @@ class StoreController extends Controller
      * コメントの保存
      *
      */
-    public function __invoke(Request $request)
+    public function __invoke(Comment $comment, Request $request)
     {
-        $comment = new Comment();
         $comment->comment = $request->comment;
-        $comment->number = $request->number;
+        $comment->number = $request->episode_number;
 
         $comment->episode_id = $request->episode_id;
         $comment->user_id = Auth::user()->id;

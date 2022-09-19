@@ -90,7 +90,7 @@
                                         </template>
 
                                         {{-- マイページ --}}
-                                        <a href="/{{ Auth::user()->username }}"
+                                        <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -105,7 +105,7 @@
                                         </a>
 
                                         {{-- 設定 --}}
-                                        <a href="/{{ Auth::user()->username }}"
+                                        <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -123,7 +123,7 @@
                                         </a>
 
                                         {{-- ダークモード --}}
-                                        <div
+                                        <div href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
                                             class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <theme-toggle></theme-toggle>
                                         </div>

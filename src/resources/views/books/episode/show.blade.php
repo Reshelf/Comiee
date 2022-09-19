@@ -79,12 +79,15 @@
                         <template #episode>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
-                                    <div
-                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 rounded-[3px] border-dotted border-2 border-ccc hover:border-aaa">
-                                        <episode-list :book='@json($book)'>
-                                            エピソードを追加する
-                                        </episode-list>
-                                    </div>
+                                    <episode-list>
+                                        <template #trigger>エピソードを追加する</template>
+                                        <template #header>エピソードを追加する</template>
+                                        <form id="submit-form" method="POST"
+                                            action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
+                                            @csrf
+                                            <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                        </form>
+                                    </episode-list>
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
@@ -268,10 +271,8 @@
                                     <template #trigger>コメントをする</template>
                                     <template #header>コメントを投稿する</template>
                                     <form id="submit-form" method="POST"
-                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $episode->number]) }}">
+                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->number, 'episode_number' => $episode->number]) }}">
                                         @csrf
-                                        <input value="{{ $episode->id }}" type="hidden" name="episode_id" />
-                                        <input value="{{ $episode->number }}" type="hidden" name="number" />
                                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                                         <textarea class="w-full h-[250px] rounded-[3px]"
                                             placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"

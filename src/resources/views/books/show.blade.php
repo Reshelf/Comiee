@@ -75,12 +75,15 @@
                         <template #episode>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
-                                    <div
-                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa  dark:border-dark-1">
-                                        <episode-list :book='@json($book)'>
-                                            エピソードを追加する
-                                        </episode-list>
-                                    </div>
+                                    <episode-list>
+                                        <template #trigger>エピソードを追加する</template>
+                                        <template #header>エピソードを追加する</template>
+                                        <form id="submit-form" method="POST"
+                                            action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
+                                            @csrf
+                                            <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                        </form>
+                                    </episode-list>
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
