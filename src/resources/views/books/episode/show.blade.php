@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $episode->number . '話' . ' - ' . $book->title)
+@section('title', $episode_story->number . '話' . ' - ' . $book->title)
 
 @section('content')
     @include('_patials._episode_nav')
@@ -89,23 +89,23 @@
                                         </form>
                                     </episode-list>
                                 @endif
-                                @foreach ($episodes as $episode)
+                                @foreach ($episodes as $episode_story)
                                     <div
                                         class=" hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
+                                        <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}"
                                             class="flex items-center w-full cursor-pointer">
-                                            @empty($book->thumbnail)
+                                            @empty($episode_story->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
                                                     class="w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @else
-                                                <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
+                                                <img src="{{ asset('/img/book/thumbnail/' . $episode_story->thumbnail) }}" alt=""
                                                     class="w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @endempty
 
                                             {{-- タイトル --}}
                                             <div class="w-full flex flex-col px-4">
                                                 {{-- 日付 --}}
-                                                <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
+                                                <div class="text-666 text-xs">{{ $episode_story->created_at->format('Y/m/d') }}
                                                 </div>
 
 
@@ -113,9 +113,9 @@
                                                     {{-- 話数 --}}
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
-                                                        <span class="">第{{ $episode->number }}話</span>
+                                                        <span class="">第{{ $episode_story->number }}話</span>
                                                         @if ($book->user->id !== Auth::user()->id)
-                                                            @if ($episode->is_read)
+                                                            @if ($episode_story->is_read)
                                                                 <span class="inline-block text-xs text-666 mt-1">既読</span>
                                                             @else
                                                                 <span class="inline-block text-xs text-666 mt-1">未読</span>
@@ -124,12 +124,12 @@
                                                     </div>
                                                     {{-- 値段 --}}
                                                     <div class="flex items-center ml-4">
-                                                        @if ($book->is_free)
+                                                        @if ($episode_story->is_free)
                                                             <span
                                                                 class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
                                                         @else
                                                             <span
-                                                                class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">{{ $episode->price }}
+                                                                class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">{{ $episode_story->price }}
                                                                 pt</span>
                                                         @endif
                                                     </div>
@@ -172,7 +172,7 @@
                                                         </template>
                                                         <template #header>エピソードの削除</template>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')
@@ -271,10 +271,11 @@
                                     <template #trigger>コメントをする</template>
                                     <template #header>コメントを投稿する</template>
                                     <form id="submit-form" method="POST"
-                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_id' => $episode->number, 'episode_number' => $episode->number]) }}">
+                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
                                         @csrf
                                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                                         <textarea class="w-full h-[250px] rounded-[3px]"
+                                        value="{{ $episode_story->number }}"
                                             placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"
                                             type="text" name="comment" maxlength="400" required></textarea>
                                         <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
@@ -282,13 +283,12 @@
                                 </comment-post-modal>
                             </div>
 
-                            {{-- @if (!$episode->comments->count() > 0)
+                            {{-- @if (!$episode_story->comments->count() > 0)
                                 このエピソードに応援コメントをしよう！
                             @else --}}
                             <div class="max-h-[500px] overflow-y-auto scroll-none ">
-                                @foreach ($episode->comments as $comment)
-                                    @if ($comment->episode_id === $episode->id)
-                                        <div id="comment-episode-{{ $episode->id }}"
+                                @foreach ($episode_comments as $comment)
+                                        <div id="comment-episode-{{ $episode_story->number }}"
                                             class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
                                             <div class="flex items-center justify-between">
                                                 <div class="flex items-center">
@@ -312,7 +312,7 @@
                                             <div class="">
                                                 @if ($comment->user->id == Auth::id())
                                                     <form method="POST"
-                                                        action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
+                                                        action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
                                                         class="text-xs text-666">
                                                         @csrf
                                                         @method('DELETE')
@@ -323,7 +323,6 @@
                                         </div>
                                         <div class="px-4 pt-4 text-666">{!! nl2br($comment->comment) !!}</div>
                                     </div>
-                                @endif
                             @endforeach
                         </div>
                     </div>

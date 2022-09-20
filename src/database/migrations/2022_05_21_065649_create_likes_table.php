@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedbigInteger('book_id');
-            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->unsignedbigInteger('user_id'); // ユーザー
+            $table->unsignedbigInteger('book_id'); // 作品
+
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 

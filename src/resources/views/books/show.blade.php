@@ -121,7 +121,7 @@
                                                     </div>
                                                     {{-- 値段 --}}
                                                     <div class="flex items-center ml-4">
-                                                        @if ($book->is_free)
+                                                        @if ($episode->is_free)
                                                             <span
                                                                 class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
                                                         @else

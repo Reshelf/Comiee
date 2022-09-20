@@ -21,11 +21,10 @@ class StoreController extends Controller
      */
     public function __invoke(Comment $comment, Request $request)
     {
-        $comment->comment = $request->comment;
-        $comment->number = $request->episode_number;
-
-        $comment->episode_id = $request->episode_id;
         $comment->user_id = Auth::user()->id;
+        $comment->episode_id = $request->episode_number;
+
+        $comment->comment = $request->comment;
         $comment->save();
 
         return redirect()->back();

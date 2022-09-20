@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_free')->default(false); // 無料フラグ
+            $table->unsignedbigInteger('user_id'); // ユーザー
             $table->boolean('is_complete')->default(false); // 完結作品フラグ
 
             $table->string('title'); // 作品名
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('thumbnail')->nullable(); // 作品サムネイル
 
             $table->timestamps();
-            $table->unsignedbigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

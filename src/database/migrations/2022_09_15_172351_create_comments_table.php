@@ -15,21 +15,16 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); // ユーザー
+            $table->integer('episode_id'); // エピソード
+
             $table->text('comment', 400);
-            $table->integer('number')->nullable(); // コメント番号
 
-            $table->unsignedBigInteger('episode_id');
-            $table->foreign('episode_id')
-                ->references('id')
-                ->on('episodes')
-                ->onDelete('cascade');
-
-            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
