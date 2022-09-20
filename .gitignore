@@ -1,15 +1,11 @@
 .idea
 .vscode
 .env
-memo.txt
 src/public/mix-manifest.json
-src/package-lock.json
 src/public/js/app.js
 src/public/css/app.css
 src/public/img/users/avatar/*
 src/public/img/users/thumbnail/*
 src/public/img/book/thumbnail/*
-src/package-lock.json
-src/package-lock.json
 src/composer.lock
 src/public/build/assets/*
