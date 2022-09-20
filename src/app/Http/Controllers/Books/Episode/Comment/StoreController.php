@@ -23,7 +23,6 @@ class StoreController extends Controller
     {
         $comment->user_id = Auth::user()->id;
         $comment->episode_id = $request->episode_number;
-        dd($comment->episode_id);
         $comment->comment = $request->comment;
         $comment->save();
 

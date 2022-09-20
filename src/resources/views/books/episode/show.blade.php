@@ -282,9 +282,7 @@
                                 </comment-post-modal>
                             </div>
 
-                            {{-- @if (!$episode_story->comments->count() > 0)
-                                このエピソードに応援コメントをしよう！
-                            @else --}}
+
                             <div class="max-h-[500px] overflow-y-auto scroll-none ">
                                 @foreach ($episode_comments as $comment)
                                         <div id="comment-episode-{{ $episode_story->number }}"
