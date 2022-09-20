@@ -22,7 +22,7 @@ run:
 migrate:
 	php artisan migrate
 fresh:
-	php artisan migrate:fresh --seed
+	php artisan migrate:fresh
 refresh:
 	php artisan migrate:refresh --seed
 seed:

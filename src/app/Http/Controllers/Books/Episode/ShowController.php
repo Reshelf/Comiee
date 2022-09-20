@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Episode;
 use App\Models\Book;
 use App\Models\Tag;
-use App\Models\EpisodeRead;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class ShowController extends Controller
@@ -18,12 +18,12 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($book, $episode)
+    public function __invoke($book, Request $request)
     {
         $book = Book::where('id', $book)->first();
         $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
-        $story = Episode::where('id', $episode)->first();
-        $counts = count($episodes); // 話数の番号
+        $episode_story = Episode::where('number', $request->episode_number)->first();
+        $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
         $book_views = count($book->episodes()->where('is_read', true)->get());
 
         $tagNames = $book->tags->map(function ($tag) {
@@ -35,17 +35,17 @@ class ShowController extends Controller
 
         // 作者以外で未読なら
         if ($book->user->id !== Auth::user()->id) {
-            if (!is_null($story->is_read)) {
-                $story->is_read = true;
-                $story->save();
+            if (!is_null($episode_story->is_read)) {
+                $episode_story->is_read = true;
+                $episode_story->save();
             }
         }
 
         return view('books.episode.show', [
             'book' => $book,
             'episodes' => $episodes,
-            'episode' => $story,
-            'counts' => $counts,
+            'episode_story' => $episode_story,
+            'episode_comments' => $episode_comments,
             'tagNames' => $tagNames,
             'allTagNames' => $allTagNames,
             'book_views' => $book_views

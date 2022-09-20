@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Episode extends Model
 {
     protected $fillable = [
+        'number',
+        'price',
+        'views',
         'book_id',
     ];
 

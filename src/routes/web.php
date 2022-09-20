@@ -43,18 +43,19 @@ Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index'
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
-        Route::delete('/{book}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
+        Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book}', 'App\Http\Controllers\Books\UpdateController')->name('update');
         // Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
         Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
-        // チャプター
-        Route::get('/{book}/{episode}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
-        // Route::get('/{book}/{episode}/edit', 'App\Http\Controllers\Books\Episode\EditController')->name('episode.edit');
-        Route::delete('/{book}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
+        // エピソード
+        Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
+        Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')->name('episode.store');
+        Route::patch('/{book_id}/{episode_id}/edit', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
+        Route::delete('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
         // コメント
-        Route::post('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->name('episode.comment.store');
+        Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->name('episode.comment.store');
         Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');

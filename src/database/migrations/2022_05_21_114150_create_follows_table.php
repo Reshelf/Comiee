@@ -15,17 +15,12 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('follower_id');
-            $table->foreign('follower_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->unsignedbigInteger('followee_id');
-            $table->foreign('followee_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->unsignedbigInteger('followee_id'); // フォロー
+            $table->unsignedbigInteger('follower_id'); // フォロワー
+
             $table->timestamps();
+            $table->foreign('followee_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

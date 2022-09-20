@@ -15,17 +15,12 @@ return new class extends Migration
     {
         Schema::create('book_tag', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('book_id');
-            $table->foreign('book_id')
-                ->references('id')
-                ->on('books')
-                ->onDelete('cascade');
-            $table->unsignedbigInteger('tag_id');
-            $table->foreign('tag_id')
-                ->references('id')
-                ->on('tags')
-                ->onDelete('cascade');
+            $table->unsignedbigInteger('book_id'); // 作品
+            $table->unsignedbigInteger('tag_id'); // タグ
+
             $table->timestamps();
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 

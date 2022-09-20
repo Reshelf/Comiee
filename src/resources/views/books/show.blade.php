@@ -75,17 +75,20 @@
                         <template #episode>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
-                                    <div
-                                        class="w-full flex justify-end py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa  dark:border-dark-1">
-                                        <episode-list :book='@json($book)'>
-                                            エピソードを追加する
-                                        </episode-list>
-                                    </div>
+                                    <episode-list>
+                                        <template #trigger>エピソードを追加する</template>
+                                        <template #header>エピソードを追加する</template>
+                                        <form id="submit-form" method="POST"
+                                            action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
+                                            @csrf
+                                            <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                        </form>
+                                    </episode-list>
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
                                         class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
-                                        <a href="{{ route('book.episode.show', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                        <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
@@ -106,7 +109,7 @@
                                                     {{-- 話数 --}}
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
-                                                        <span class="">第{{ $counts-- }}話</span>
+                                                        <span class="">第{{ $episode->number }}話</span>
                                                         @if ($book->user->id !== Auth::user()->id)
                                                             @if ($episode->is_read)
                                                                 <span class="inline-block text-xs text-666 mt-1">既読</span>
@@ -137,7 +140,7 @@
                                         <div class="flex items-center pr-4">
                                             @if (Auth::id() === $book->user_id)
                                                 <div class="flex items-center">
-                                                    {{-- <a href="{{ route('book.episode.edit', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                                    {{-- <a href="{{ route('book.episode.edit', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
                                                         class="mr-2">
                                                         <svg class="h-5 w-5 cursor-pointer hover:text-primary"
                                                             fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -148,7 +151,7 @@
                                                     </a> --}}
                                                     <delete-modal>
                                                         <form method="POST"
-                                                            action="{{ route('book.episode.destroy', ['book' => $book->id, 'episode' => $episode->id]) }}"
+                                                            action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id]) }}"
                                                             class="p-2 rounded">
                                                             @csrf
                                                             @method('DELETE')

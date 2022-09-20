@@ -1,36 +1,78 @@
 <template>
-  <form @submit.prevent="addEpisode" class="w-full h-full">
-    <button id="submit-btn" type="submit" class="w-full h-full">
-      <slot></slot>
-    </button>
-  </form>
+    <div @click.self="open = false">
+        <button @click="open = true" class="w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa  dark:border-dark-1">
+            <slot name="trigger"></slot>
+        </button>
+        <transition name="modal" appear>
+            <div v-show="open" class="overlay" @click.self="open = false">
+                <div class="window">
+                    <div class="header">
+                        <button class="close" @click="open = false">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="#333"
+                            >
+                                <path
+                                    d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <div class="title"><slot name="header"></slot></div>
+                    </div>
+                    <div class="p-6 max-h-[60vh] overflow-y-scroll scroll-none">
+                        <slot></slot>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      form: {
-        book_id: this.book.id,
-      },
-    };
-  },
-  props: {
-    book: {
-      type: Object,
-      defalut: {},
+    data() {
+        return {
+            open: false,
+        };
     },
-  },
-  methods: {
-    async addEpisode() {
-      await axios
-        .post(`/api/books/${this.book.id}/episode`, this.form)
-        .then(({ data }) => {
-          window.location = `/books/${this.book.id}/${data.episode_id}/edit`;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-  },
 };
 </script>
+<style lang="scss" scoped>
+.header {
+    @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
+}
+.title {
+    @apply text-[#5A5777] dark:text-ddd;
+    animation: slide-in 0.3s;
+}
+@keyframes bounce-in {
+    // 0% {
+    //   transform: scale(0);
+    // }
+    // 50% {
+    //   transform: scale(1.1);
+    // }
+    // 100% {
+    //   transform: scale(1);
+    // }
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes slide-in {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+</style>
