@@ -20,10 +20,19 @@ class ShowController extends Controller
      */
     public function __invoke($book, Request $request)
     {
-        $book = Book::where('id', $book)->first();
+        // 作品
+        $book = Book::where('id', $request->book_id)->first();
+        // エピソード全体
         $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
+        // エピソード
         $episode_story = Episode::where('number', $request->episode_number)->first();
+        // dd($request->episode_number);
+        // エピソードのコメント
         $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
+        // dd($episode_comments);
+
+
+        // 再生回数
         $book_views = count($book->episodes()->where('is_read', true)->get());
 
         $tagNames = $book->tags->map(function ($tag) {

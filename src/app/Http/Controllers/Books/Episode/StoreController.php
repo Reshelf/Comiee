@@ -19,6 +19,8 @@ class StoreController extends Controller
     public function __invoke(Request $request, Episode $episode)
     {
         $episode->book_id = $request->book_id;
+
+        // エピソードの話数
         $episode->number = $episode->where('book_id', $request->book_id)->count() + 1;
         $episode->save();
 
