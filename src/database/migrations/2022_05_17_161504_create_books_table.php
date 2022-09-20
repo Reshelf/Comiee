@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_free')->default(true); // 無料フラグ
+            $table->boolean('is_complete')->default(false); // 完結作品フラグ
+
             $table->string('title'); // 作品名
             $table->string('author')->nullable(); // 原作者
             $table->string('manga_artist')->nullable(); // 漫画家
