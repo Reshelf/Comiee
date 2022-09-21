@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center w-full h-full" @click="changeTheme">
+    <div class="flex items-center w-full h-full p-3" @click="changeTheme">
         <label class="sr-only" id="headlessui-listbox-label-3"> Theme </label>
         <button
             type="button"

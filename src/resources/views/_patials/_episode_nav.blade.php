@@ -121,7 +121,7 @@
 
                                         {{-- ダークモード --}}
                                         <div href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
-                                            class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
+                                            class="flex items-center text-sm cursor-pointer rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                             <theme-toggle></theme-toggle>
                                         </div>
 
