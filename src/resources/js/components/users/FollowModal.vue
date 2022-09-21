@@ -1,3 +1,17 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+
+function close() {
+    this.open = false;
+    window.history.back();
+}
+
+const props = defineProps({
+    userName: String,
+});
+</script>
 <template>
     <div @click.self="close">
         <button @click="open = true">
@@ -29,26 +43,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: true,
-        };
-    },
-    props: {
-        userName: {
-            type: String,
-        },
-    },
-    methods: {
-        close() {
-            this.open = false;
-            window.history.back();
-        },
-    },
-};
-</script>
 <style lang="scss" scoped>
 .header {
     @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;

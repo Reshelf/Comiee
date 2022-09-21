@@ -1,3 +1,18 @@
+<script setup>
+function changeTheme() {
+    if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "light";
+    } else {
+        document.documentElement.classList.add("dark");
+        localStorage.theme = "dark";
+    }
+}
+</script>
 <template>
     <div class="flex items-center w-full h-full p-3" @click="changeTheme">
         <label class="sr-only" id="headlessui-listbox-label-3"> Theme </label>
@@ -49,22 +64,3 @@
         <span class="pl-5">ダークモード</span>
     </div>
 </template>
-<script>
-export default {
-    methods: {
-        changeTheme() {
-            if (
-                localStorage.theme === "dark" ||
-                (!("theme" in localStorage) &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                document.documentElement.classList.remove("dark");
-                localStorage.theme = "light";
-            } else {
-                document.documentElement.classList.add("dark");
-                localStorage.theme = "dark";
-            }
-        },
-    },
-};
-</script>

@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+</script>
 <template>
     <div @click.self="open = false">
         <button @click="open = true" class="">
@@ -29,15 +34,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-};
-</script>
 <style lang="scss" scoped>
 .header {
     @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;

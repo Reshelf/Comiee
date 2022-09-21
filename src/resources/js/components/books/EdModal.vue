@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+</script>
 <template>
     <div @click.self="open = false">
         <div @click="open = true" class="btn">投稿する</div>
@@ -10,15 +15,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-};
-</script>
 <style lang="scss" scoped>
 .overlay {
     display: flex;

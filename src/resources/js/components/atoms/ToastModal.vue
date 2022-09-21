@@ -1,3 +1,14 @@
+<script setup>
+import { ref } from "vue";
+
+const show = ref(true);
+
+const props = defineProps({
+    error: Boolean,
+    success: Boolean,
+    message: String,
+});
+</script>
 <template>
     <div class="toast-wrapper">
         <transition name="toast">
@@ -69,26 +80,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            show: true,
-        };
-    },
-    props: {
-        error: {
-            type: Boolean,
-        },
-        success: {
-            type: Boolean,
-        },
-        message: {
-            type: String,
-        },
-    },
-};
-</script>
 <style lang="scss" scoped>
 .toast {
     @apply ml-auto flex bg-white items-center w-full justify-between p-4 shadow-lg;

@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+</script>
 <template>
     <div class="relative" @mouseleave="open = false">
         <button
@@ -13,15 +18,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-};
-</script>
 <style lang="scss" scoped>
 .dropdown {
     @apply absolute shadow-lg right-0 top-10 z-[999] rounded p-2 bg-white dark:bg-dark-1;

@@ -1,3 +1,13 @@
+<script setup>
+import { ref } from "vue";
+
+const show = ref(true);
+
+const props = defineProps({
+    success: Boolean,
+    error: Boolean,
+});
+</script>
 <template>
     <div class="reshelf-toast-wrapper">
         <transition name="reshelf-toast">
@@ -72,29 +82,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    props: {
-        success: {
-            type: Boolean,
-        },
-        error: {
-            type: Boolean,
-        },
-    },
-    data() {
-        return {
-            show: true,
-        };
-    },
-    // mounted() {
-    //   let vid = document.getElementById('check')
-    //   if (vid) {
-    //     vid.playbackRate = 0.5
-    //   }
-    // },
-};
-</script>
 <style lang="scss" scoped>
 .reshelf-toast {
     @apply rounded ml-auto -lg flex items-center w-full justify-between p-6;

@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+const isLoginTab = ref(true);
+</script>
 <template>
     <div @click.self="open = false">
         <span @click="open = true" class="btn-border">ログイン</span>
@@ -28,16 +34,6 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-            isLoginTab: true,
-        };
-    },
-};
-</script>
 <style lang="scss" scoped>
 .window {
     @apply p-6;

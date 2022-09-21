@@ -1,3 +1,12 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+
+const props = defineProps({
+    avatar: String,
+});
+</script>
 <template>
     <div>
         <span @click="open = true" class="cursor-pointer">
@@ -16,17 +25,3 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-    props: {
-        avatar: {
-            type: String,
-        },
-    },
-};
-</script>

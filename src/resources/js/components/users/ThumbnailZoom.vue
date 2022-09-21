@@ -1,3 +1,12 @@
+<script setup>
+import { ref } from "vue";
+
+const open = ref(false);
+
+const props = defineProps({
+    thumbnail: String,
+});
+</script>
 <template>
     <div>
         <div @click="open = true" class="cursor-pointer">
@@ -16,17 +25,3 @@
         </transition>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            open: false,
-        };
-    },
-    props: {
-        thumbnail: {
-            type: String,
-        },
-    },
-};
-</script>
