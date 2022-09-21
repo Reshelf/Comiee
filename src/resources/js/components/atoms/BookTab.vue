@@ -1,23 +1,21 @@
 <template>
     <div class="tab">
         <ul class="tabMenu">
-            <li
-                @click="isSelect('1')"
-                v-bind:class="{ active: isActive === '1' }"
-            >
+            <li @click="isSelect('1')" :class="{ active: isActive === '1' }">
                 エピソード
             </li>
-            <li
-                @click="isSelect('2')"
-                v-bind:class="{ active: isActive === '2' }"
-            >
+            <li @click="isSelect('2')" :class="{ active: isActive === '2' }">
                 あらすじ
             </li>
-            <li
-                @click="isSelect('3')"
-                v-bind:class="{ active: isActive === '3' }"
-            >
+            <li @click="isSelect('3')" :class="{ active: isActive === '3' }">
                 作品情報
+            </li>
+            <li
+                v-if="is_comment"
+                @click="isSelect('4')"
+                :class="{ active: isActive === '4' }"
+            >
+                コメント
             </li>
         </ul>
         <div class="tabContents">
@@ -30,6 +28,9 @@
             <div v-else-if="isActive === '3'">
                 <slot name="info"></slot>
             </div>
+            <div v-else-if="isActive === '4'">
+                <slot name="comment"></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -39,6 +40,12 @@ export default {
         return {
             isActive: "1",
         };
+    },
+    props: {
+        is_comment: {
+            type: Boolean,
+            default: false,
+        },
     },
     methods: {
         isSelect: function (num) {

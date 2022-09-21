@@ -75,7 +75,7 @@
             <div class="w-full flex">
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
-                    <book-tab>
+                    <book-tab :is_comment="true">
                         <template #episode>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)
@@ -98,8 +98,8 @@
                                                 <img src="/img/bg.svg" alt="thumbnail"
                                                     class="w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @else
-                                                <img src="{{ asset('/img/book/thumbnail/' . $episode->thumbnail) }}" alt=""
-                                                    class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                <img src="{{ asset('/img/book/thumbnail/' . $episode->thumbnail) }}"
+                                                    alt="" class="w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @endempty
 
                                             {{-- タイトル --}}
@@ -259,78 +259,77 @@
                                 </div>
                             @endempty
                         </template>
-                    </book-tab>
+                        <template #comment>
+                            <div class="flex flex-col">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-lg font-semibold mb-4">エピソードへの応援コメント</h3>
+                                    <comment-post-modal>
+                                        <template #trigger>コメントをする</template>
+                                        <template #header>コメントを投稿する</template>
+                                        <form id="submit-form" method="POST"
+                                            action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
+                                            @csrf
+                                            <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                                            <textarea class="w-full h-[250px] rounded-[3px]"
+                                                placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"
+                                                type="text" name="comment" maxlength="400" required></textarea>
+                                            <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                        </form>
+                                    </comment-post-modal>
+                                </div>
 
 
-                    <div class="w-full mx-auto flex flex-col">
-                        {{-- コメント --}}
-                        <div class="flex flex-col mb-8 pb-8">
-                            <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-semibold mb-4">エピソードへの応援コメント</h3>
-                                <comment-post-modal>
-                                    <template #trigger>コメントをする</template>
-                                    <template #header>コメントを投稿する</template>
-                                    <form id="submit-form" method="POST"
-                                        action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
-                                        @csrf
-                                        <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                                        <textarea class="w-full h-[250px] rounded-[3px]"
-                                            placeholder="コメントを書いて作品を応援しよう！暴言・誹謗中傷は禁止です。違反した場合はアカウント凍結になりますのでご注意ください。" autocomplete="off" autofocus="on"
-                                            type="text" name="comment" maxlength="400" required></textarea>
-                                        <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
-                                    </form>
-                                </comment-post-modal>
-                            </div>
-
-
-                            <div class="max-h-[500px] overflow-y-auto scroll-none ">
-                                @foreach ($episode_comments as $comment)
+                                <div class="max-h-[500px] overflow-y-auto scroll-none ">
+                                    @foreach ($episode_comments as $comment)
                                         <div id="comment-episode-{{ $episode_story->number }}"
                                             class="mb-2 pt-2 px-2 pb-4 border-b border-ccc">
                                             <div class="flex items-center justify-between">
                                                 <div class="flex items-center">
                                                     <a href="{{ route('users.show', ['username' => $comment->user->username]) }}"
                                                         class="flex items-center">
-                                                    @empty($comment->user->avatar)
-                                                        <img src="{{ asset('/img/bg.svg') }}" alt=""
-                                                            class="h-8 w-8 rounded-full">
-                                                    @else
-                                                        <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}"
-                                                            alt="" class="h-8 w-8 rounded-full">
-                                                    @endempty
-                                                    <div class="flex flex-col ml-2">
-                                                        <span>{{ $comment->user->name }}</span>
-                                                        <span
-                                                            class="text-xs text-666 dark:text-ddd">{{ $comment->created_at->format('Y/m/d H:i') }}</span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                        @empty($comment->user->avatar)
+                                                            <img src="{{ asset('/img/bg.svg') }}" alt=""
+                                                                class="h-8 w-8 rounded-full">
+                                                        @else
+                                                            <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}"
+                                                                alt="" class="h-8 w-8 rounded-full">
+                                                        @endempty
+                                                        <div class="flex flex-col ml-2">
+                                                            <span>{{ $comment->user->name }}</span>
+                                                            <span
+                                                                class="text-xs text-666 dark:text-ddd">{{ $comment->created_at->format('Y/m/d H:i') }}</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
 
-                                            <div class="">
-                                                @if ($comment->user->id == Auth::id())
-                                                    <form method="POST"
-                                                        action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
-                                                        class="text-xs text-666">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="text-xs text-666">削除する</button>
-                                                    </form>
-                                                @endif
+                                                <div class="">
+                                                    @if ($comment->user->id == Auth::id())
+                                                        <form method="POST"
+                                                            action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
+                                                            class="text-xs text-666">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="text-xs text-666">削除する</button>
+                                                        </form>
+                                                    @endif
+                                                </div>
                                             </div>
+                                            <div class="px-4 pt-4 text-666">{!! nl2br($comment->comment) !!}</div>
                                         </div>
-                                        <div class="px-4 pt-4 text-666">{!! nl2br($comment->comment) !!}</div>
-                                    </div>
-                            @endforeach
-                        </div>
-                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </template>
+                    </book-tab>
+
+
 
                 </div>
-            </div>
 
-            {{-- 右サイドバー --}}
-            <div class="pl-4 lg:w-1/3">
-                {{-- こんな作品はいかがですか？ --}}
-                {{-- <div class="flex flex-col mb-8 pb-8">
+                {{-- 右サイドバー --}}
+                <div class="pl-4 lg:w-1/3">
+                    {{-- こんな作品はいかがですか？ --}}
+                    {{-- <div class="flex flex-col mb-8 pb-8">
                         <h3 class="text-lg font-semibold">オススメの作品</h3>
                         <div class="p-8">
                             <div class="w-full flex flex-col">
@@ -347,37 +346,37 @@
                             </div>
                         </div>
                     </div> --}}
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="w-full mx-auto">
-        <div class="book-show">
-            <div class="book-show-contents">
-                {{-- サムネイル --}}
-                @empty($book->thumbnail)
-                    <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
-                @else
-                    <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
-                        class="w-[250px] h-[250px] object-cover flex-shrink-0">
-                @endempty
+        <div class="w-full mx-auto">
+            <div class="book-show">
+                <div class="book-show-contents">
+                    {{-- サムネイル --}}
+                    @empty($book->thumbnail)
+                        <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                    @else
+                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
+                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                    @endempty
 
-                <div class="flex flex-col max-w-lg ml-16">
-                    <p class="w-full flex flex-wrap text-4xl whitespace-pre-line text-white font-semibold">
-                        {{ $book->title }}</p>
-                    <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
-                        class="flex items-center my-4">
-                        <span class="text-xl text-white">{{ $book->user->name }}</span>
-                    </a>
+                    <div class="flex flex-col max-w-lg ml-16">
+                        <p class="w-full flex flex-wrap text-4xl whitespace-pre-line text-white font-semibold">
+                            {{ $book->title }}</p>
+                        <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
+                            class="flex items-center my-4">
+                            <span class="text-xl text-white">{{ $book->user->name }}</span>
+                        </a>
 
-                    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-                        :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                        endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true'
-                        class="text-white">
-                    </book-like>
+                        <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                            :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
+                            endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true'
+                            class="text-white">
+                        </book-like>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
