@@ -32,7 +32,7 @@ init:
 	docker compose exec app php artisan storage:link --force
 	docker compose exec app chmod -R 777 storage bootstrap/cache
 	@make cache
-	docker compose exec app php artisan migrate --seed
+	docker compose exec app php artisan migrate
 remake:
 	@make destroy
 	@make init
@@ -74,7 +74,7 @@ app:
 migrate:
 	docker compose exec app php artisan migrate
 fresh:
-	docker compose exec app php artisan migrate:fresh --seed
+	docker compose exec app php artisan migrate:fresh
 seed:
 	docker compose exec app php artisan db:seed
 dacapo:
