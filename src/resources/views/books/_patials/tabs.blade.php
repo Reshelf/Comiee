@@ -6,7 +6,7 @@
     </a>
     <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
         aria-current="page">
-        よくある質問
+        よくあるご質問
     </a>
     <a href="{{ route('others.contact') }}"
         class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
