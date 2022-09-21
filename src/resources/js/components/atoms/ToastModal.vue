@@ -58,7 +58,7 @@ const props = defineProps({
                             </svg>
                         </template>
                     </div>
-                    <div class="mx-4 font-bold text-xs">
+                    <div class="mx-4 font-semibold">
                         {{ message }}
                     </div>
                     <div class="cursor-pointer" @click="show = false">
@@ -82,9 +82,9 @@ const props = defineProps({
 </template>
 <style lang="scss" scoped>
 .toast {
-    @apply ml-auto flex bg-white items-center w-full justify-between p-4 shadow-lg;
+    @apply ml-auto flex bg-white items-center w-full justify-between p-6 shadow-lg;
     &-wrapper {
-        @apply fixed z-50 bottom-[20px] right-[20px];
+        @apply fixed z-50 bottom-[20px] left-[20px];
     }
 }
 
@@ -95,7 +95,7 @@ const props = defineProps({
 /* leave transitions */
 .toast-leave-to {
     @apply opacity-0;
-    transform: translateY(60px) !important;
+    transform: translateX(-60px) !important;
 }
 .toast-leave-active {
     transition: all 0.2s ease !important;
@@ -103,31 +103,31 @@ const props = defineProps({
 
 @keyframes wobble {
     0% {
-        transform: translateY(50px);
+        transform: translateX(50px);
         opacity: 0;
     }
     50% {
-        transform: translateY(0px);
+        transform: translateX(0px);
         opacity: 1;
     }
     60% {
-        transform: translateY(8px);
+        transform: translateX(8px);
         opacity: 1;
     }
     70% {
-        transform: translateY(-8px);
+        transform: translateX(-8px);
         opacity: 1;
     }
     80% {
-        transform: translateY(4px);
+        transform: translateX(4px);
         opacity: 1;
     }
     90% {
-        transform: translateY(-4px);
+        transform: translateX(-4px);
         opacity: 1;
     }
     100% {
-        transform: translateY(0px);
+        transform: translateX(0px);
         opacity: 1;
     }
 }
