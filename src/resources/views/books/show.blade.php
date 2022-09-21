@@ -101,7 +101,8 @@
                                             {{-- タイトル --}}
                                             <div class="w-full flex flex-col px-4">
                                                 {{-- 日付 --}}
-                                                <div class="text-666 text-xs">{{ $episode->created_at->format('Y/m/d') }}
+                                                <div class="text-666 text-xs">
+                                                    {{ $episode->created_at->format('Y/m/d') }}
                                                 </div>
 
 
@@ -110,26 +111,34 @@
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
                                                         <span class="">第{{ $episode->number }}話</span>
-                                                        @if ($book->user->id !== Auth::user()->id)
-                                                            @if ($episode->is_read)
-                                                                <span class="inline-block text-xs text-666 mt-1">既読</span>
+
+                                                        <div class="flex items-center mt-1">
+                                                            {{-- 値段 --}}
+                                                            @if ($episode->is_free)
+                                                                <span
+                                                                    class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">
+                                                                    無料
+                                                                </span>
                                                             @else
-                                                                <span class="inline-block text-xs text-666 mt-1">未読
+                                                                <span
+                                                                    class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">
+                                                                    {{ $episode->price }}pt
                                                                 </span>
                                                             @endif
-                                                        @endif
+                                                            @if ($book->user->id !== Auth::user()->id)
+                                                                @if ($episode->is_read)
+                                                                    <span class="inline-block text-xs text-666 ml-2">
+                                                                        既読
+                                                                    </span>
+                                                                @else
+                                                                    <span class="inline-block text-xs text-666 ml-2">
+                                                                        未読
+                                                                    </span>
+                                                                @endif
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                    {{-- 値段 --}}
-                                                    <div class="flex items-center ml-4">
-                                                        @if ($episode->is_free)
-                                                            <span
-                                                                class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">無料</span>
-                                                        @else
-                                                            <span
-                                                                class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">{{ $episode->price }}
-                                                                pt</span>
-                                                        @endif
-                                                    </div>
+
                                                 </div>
 
                                                 <div class="flex mt-1"></div>
