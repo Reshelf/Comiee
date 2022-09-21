@@ -4,8 +4,9 @@ import { ref } from "vue";
 const open = ref(false);
 </script>
 <template>
-    <div @click.self="open = false">
-        <button @click="open = true" class="btn-border px-4 text-xs">
+    <div @click.self="open = false" class="flex items-center">
+        <button @click="open = true" class="text-xs">
+            <slot name="btn-trigger"></slot>
             <slot name="trigger"></slot>
         </button>
         <transition name="modal" appear>

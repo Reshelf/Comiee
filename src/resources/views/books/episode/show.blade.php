@@ -261,10 +261,12 @@
                         </template>
                         <template #comment>
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-center">
+                                <div class="flex justify-between items-center mb-4">
                                     <h3 class="text-lg font-semibold mb-4">エピソードへの応援コメント</h3>
                                     <comment-post-modal>
-                                        <template #trigger>コメントをする</template>
+                                        <template #btn-trigger>
+                                            <span class="btn-border px-4 text-xs">コメントをする</span>
+                                        </template>
                                         <template #header>応援コメントを投稿する</template>
                                         <form id="submit-form" method="POST"
                                             action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
@@ -313,14 +315,31 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="">
+                                                <div class="flex items-center">
+                                                    <comment-post-modal>
+                                                        <template #trigger>
+                                                            <span class="text-666 leading-4">返信する</span>
+                                                        </template>
+                                                        <template #header>{{ $comment->user->username }}さんに返信する</template>
+                                                        <form id="submit-form" method="POST"
+                                                            action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
+                                                            @csrf
+                                                            <input value="{{ Auth::id() }}" type="hidden"
+                                                                name="user_id" />
+                                                            <textarea class="w-full h-[250px] rounded-[3px]"
+                                                                placeholder="ここはエピソードへの応援コメントを投稿できる場所です！&#10;&#10;作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！&#10;&#10;不適切なコメントを見つけた場合は通報をお願いいたします！&#10;&#10;ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。"
+                                                                autocomplete="off" autofocus="on" type="text" name="comment" maxlength="400" required></textarea>
+                                                            <button id="submit-btn" type="submit"
+                                                                class="btn w-full">投稿する</button>
+                                                        </form>
+                                                    </comment-post-modal>
                                                     @if ($comment->user->id == Auth::id())
                                                         <form method="POST"
                                                             action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
-                                                            class="text-xs text-666">
+                                                            class="text-xs text-666 ml-2 leading-4">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="text-xs text-666">削除する</button>
+                                                            <button type="submit" class="leading-4">削除する</button>
                                                         </form>
                                                     @endif
                                                 </div>
@@ -337,13 +356,13 @@
                 {{-- 右サイドバー --}}
                 <div class="pl-4 lg:w-1/3">
                     <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center">
-                        広告１
+                        広告４
                     </div>
                     <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告2
+                        広告５
                     </div>
                     <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告3
+                        広告６
                     </div>
                 </div>
             </div>

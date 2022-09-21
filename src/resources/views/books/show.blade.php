@@ -254,10 +254,10 @@
                         広告１
                     </div>
                     <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告2
+                        広告２
                     </div>
                     <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告3
+                        広告３
                     </div>
                 </div>
             </div>
