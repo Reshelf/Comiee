@@ -140,21 +140,6 @@ img {
     }
 }
 
-.tag-hero {
-    @apply relative flex w-full mx-auto justify-center items-center overflow-hidden;
-    &-img {
-        @apply w-full relative lg:h-[350px];
-        &-bg {
-            @apply absolute top-0 right-0 left-0 bottom-0 mx-[-200px] px-[200px] overflow-hidden;
-            border-bottom-left-radius: 2000px 350px;
-            border-bottom-right-radius: 2000px 350px;
-            img {
-                @apply min-w-[2000px] min-h-[1000px] absolute top-0 right-0 left-0 bottom-0 w-full h-full object-cover;
-            }
-        }
-    }
-}
-
 .form-textarea {
     @apply w-full h-full text-base;
     min-height: 300px;

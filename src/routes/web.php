@@ -33,7 +33,7 @@ Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sc
 // お問い合せ
 Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
 // タグ
-Route::get('/tags/{name}', 'App\Http\Controllers\Others\TagController')->name('tags.show');
+Route::get('/tags/{name}', 'App\Http\Controllers\Others\TagController')->name('search.tag_name');
 
 
 

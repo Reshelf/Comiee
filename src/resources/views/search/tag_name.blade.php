@@ -3,18 +3,13 @@
 @section('title', $tag->hashtag)
 
 @section('content')
-    @include('_patials._transparent_nav')
-    <div class="tag-hero">
-        <div class="z-30 absolute text-white font-semibold flex flex-col items-center justify-center">
+    @include('_patials._nav')
+    <div class="relative bg-[#0A2140] dark:bg-dark bg-opacity-50 flex w-full mx-auto py-12 items-center">
+        <div class="max-w-6xl w-full mx-auto text-white font-semibold flex flex-col">
             <h2 class="text-4xl my-4">{{ $tag->hashtag }}</h2>
             <span class="inline-block text-2xl">
-                {{ $tag->books->count() }}件
+                検索結果：{{ $tag->books->count() }}件
             </span>
-        </div>
-        <div class="tag-hero-img">
-            <div class="tag-hero-img-bg">
-                <img class="" src="/img/bg-2.svg" alt="">
-            </div>
         </div>
     </div>
 

@@ -256,7 +256,7 @@
                                         @foreach ($book->tags as $tag)
                                             @if ($loop->first)
                                             @endif
-                                            <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
+                                            <a href="{{ route('search.tag_name', ['name' => $tag->name]) }}"
                                                 class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
                                                 {{ $tag->hashtag }}
                                             </a>

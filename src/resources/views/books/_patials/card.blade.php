@@ -45,7 +45,7 @@
                 <div class="">
                     <div class="">
             @endif
-            <a href="{{ route('tags.show', ['name' => $tag->name]) }}"
+            <a href="{{ route('search.tag_name', ['name' => $tag->name]) }}"
                 class="inline-block text-xs btn-border p-1.5 px-2 m-1">
                 {{ $tag->hashtag }}
             </a>

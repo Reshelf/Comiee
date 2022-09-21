@@ -12,6 +12,6 @@ class TagController extends Controller
     {
         $tag = Tag::where('name', $name)->latest()->first();
 
-        return view('tags.show', ['tag' => $tag]);
+        return view('search.tag_name', ['tag' => $tag]);
     }
 }
