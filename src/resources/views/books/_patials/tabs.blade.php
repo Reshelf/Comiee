@@ -1,15 +1,15 @@
 <div class="w-full flex flex-col items-start justify-center p-2 mb-4">
     <h3 class="font-semibold mb-2">Starbooksを楽しもう</h3>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
+    <a href="{{ route('others.user_guide') }}"
+        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         ご利用ガイド
     </a>
     <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
         aria-current="page">
         よくある質問
     </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
+    <a href="{{ route('others.contact') }}"
+        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         お問い合わせ
     </a>
 </div>

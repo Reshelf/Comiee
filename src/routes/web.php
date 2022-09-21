@@ -21,6 +21,9 @@ Auth::routes();
 |--------------------------------------------------------------------------
 |
 */
+
+// ご利用ガイド
+Route::get('/user_guide', 'App\Http\Controllers\Others\UserGuideController')->name('others.user_guide');
 // 利用規約
 Route::get('/terms_of_service', 'App\Http\Controllers\Others\TermsOfServiceController')->name('others.terms');
 // プライバシーポリシー
@@ -29,6 +32,8 @@ Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyControll
 Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
 // お問い合せ
 Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
+// タグ
+Route::get('/tags/{name}', 'App\Http\Controllers\Others\TagController')->name('tags.show');
 
 
 
@@ -60,9 +65,6 @@ Route::prefix('books')->name('book.')->group(function () {
     });
     Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });
-// タグ
-Route::get('/tags/{name}', 'App\Http\Controllers\TagController')->name('tags.show');
-
 
 
 /*
