@@ -18,15 +18,12 @@ const props = defineProps({
                 エピソード
             </li>
             <li @click="isSelect(2)" :class="{ active: isActive === 2 }">
-                あらすじ
-            </li>
-            <li @click="isSelect(3)" :class="{ active: isActive === 3 }">
                 作品情報
             </li>
             <li
                 v-if="is_comment"
-                @click="isSelect(4)"
-                :class="{ active: isActive === 4 }"
+                @click="isSelect(3)"
+                :class="{ active: isActive === 3 }"
             >
                 コメント
             </li>
@@ -36,12 +33,9 @@ const props = defineProps({
                 <slot name="episode"></slot>
             </div>
             <div v-else-if="isActive === 2">
-                <slot name="story"></slot>
-            </div>
-            <div v-else-if="isActive === 3">
                 <slot name="info"></slot>
             </div>
-            <div v-else-if="isActive === 4">
+            <div v-else-if="isActive === 3">
                 <slot name="comment"></slot>
             </div>
         </div>

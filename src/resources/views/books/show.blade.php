@@ -175,10 +175,16 @@
                                 @endforeach
                             </div>
                         </template>
-                        <template #story>
-                            {!! nl2br($book->story) !!}
-                        </template>
                         <template #info>
+                            {{-- あらすじ --}}
+                            @empty(!$book->author)
+                                <div class="w-full flex items-center mb-4 pl-2">
+                                    <div class="w-1/2">あらすじ</div>
+                                    <div class="w-1/2">
+                                        {!! nl2br($book->story) !!}
+                                    </div>
+                                </div>
+                            @endempty
 
                             {{-- 原作 --}}
                             @empty(!$book->author)
