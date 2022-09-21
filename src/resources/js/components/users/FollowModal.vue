@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const open = ref(false);
+const open = ref(true);
 
 function close() {
     this.open = false;
@@ -13,15 +13,15 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div @click.self="close">
+    <div @click.self="close()">
         <button @click="open = true">
             <slot name="trigger"></slot>
         </button>
         <transition name="modal" appear>
-            <div v-show="open" class="overlay" @click.self="close">
+            <div v-show="open" class="overlay" @click.self="close()">
                 <div class="window">
                     <div class="header">
-                        <button class="close" @click="close">
+                        <button class="close" @click="close()">
                             <svg
                                 width="24"
                                 height="24"
