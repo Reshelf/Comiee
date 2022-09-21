@@ -28,4 +28,5 @@
         </div>
     </div>
 
+    @include('_patials._footer')
 @endsection

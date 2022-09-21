@@ -321,31 +321,19 @@
                             </div>
                         </template>
                     </book-tab>
-
-
-
                 </div>
 
                 {{-- 右サイドバー --}}
                 <div class="pl-4 lg:w-1/3">
-                    {{-- こんな作品はいかがですか？ --}}
-                    {{-- <div class="flex flex-col mb-8 pb-8">
-                        <h3 class="text-lg font-semibold">オススメの作品</h3>
-                        <div class="p-8">
-                            <div class="w-full flex flex-col">
-                                @empty($book->thumbnail)
-                                    <img src="/img/bg.svg" alt="thumbnail"
-                                        class="block dark:hidden w-[200px] h-[200px] object-cover flex-shrink-0">
-                                    <img src="/img/bg-dark.svg" alt="thumbnail"
-                                        class="hidden dark:block w-[200px] h-[200px] object-cover flex-shrink-0">
-                                @else
-                                    <img src="/img/{{ $book->thumbnail }}" alt=""
-                                        class="thumbnail">
-                                @endempty
-                                <h2 class="text-lg font-semibold my-2 px-2">{{ $book->title }}</h2>
-                            </div>
-                        </div>
-                    </div> --}}
+                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center">
+                        広告１
+                    </div>
+                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
+                        広告2
+                    </div>
+                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
+                        広告3
+                    </div>
                 </div>
             </div>
         </div>
@@ -379,4 +367,6 @@
             </div>
         </div>
     </div>
+
+    @include('_patials._footer')
 @endsection

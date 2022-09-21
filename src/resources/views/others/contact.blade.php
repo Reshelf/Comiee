@@ -9,4 +9,6 @@
     <div class="container my-8">
         <h2 class="text-3xl font-semibold">お問い合せ</h2>
     </div>
+
+    @include('_patials._footer')
 @endsection

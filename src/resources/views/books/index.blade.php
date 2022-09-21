@@ -5,15 +5,6 @@
 @section('content')
     @include('_patials._nav')
     @include('_patials._genre_nav')
-    {{-- <div class="w-full mx-auto">
-        <div class="st-show">
-            <img class="st-show-bg-img" src="/img/manga.jpeg" alt="">
-            <div class="st-show-bg"></div>
-            <div class="st-show-contents">
-                <h1 class="st text-6xl text-white">世はまさに漫画時代。</h1>
-            </div>
-        </div>
-    </div> --}}
 
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto p-4 lg:p-8 mb-8">
@@ -130,4 +121,6 @@
             </div>
         </div>
     </div>
+
+    @include('_patials._footer')
 @endsection
