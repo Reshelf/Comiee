@@ -71,9 +71,7 @@
                                 <li>
                                     <a href="" class="mr-8 hover:text-primary">本棚</a>
                                 </li>
-                                <li>
-                                    <a href="" class="mr-8 hover:text-primary">カート</a>
-                                </li>
+
                                 <li>
                                     <a href="" class="mr-8 hover:text-primary">通知</a>
                                 </li>
