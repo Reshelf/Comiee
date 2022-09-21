@@ -196,9 +196,8 @@
                         <template #info>
                             {{-- あらすじ --}}
                             @empty(!$book->story)
-                                <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2">あらすじ</div>
-                                    <div class="w-1/2">
+                                <div class="w-full flex flex-col border-b border-ccc pb-4 mb-4 pl-2">
+                                    <div class="text-sm">
                                         {!! nl2br($book->story) !!}
                                     </div>
                                 </div>
