@@ -71,7 +71,7 @@ img {
     border-radius: 3px;
 }
 .btn-sub {
-    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-dark bg-white hover:bg-eee rounded-sm py-2 px-4;
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc bg-white hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
     // background: ;
     // &:hover {
     //     background: #e4e6eb;
@@ -161,7 +161,7 @@ img {
 }
 
 .overlay {
-    @apply fixed top-0 left-0 flex bg-[#0A2140] bg-opacity-50 items-center justify-center w-full h-full;
+    @apply fixed top-0 left-0 flex bg-[#0A2140] dark:bg-dark bg-opacity-50 dark:bg-opacity-50 items-center justify-center w-full h-full;
     z-index: 9999 !important;
 }
 

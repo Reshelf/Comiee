@@ -32,7 +32,15 @@
     <div class="flex mx-12 pb-4 border-b border-ccc">
         <div class="text-dark z-10 -mt-8">
             @empty($user->avatar)
-                <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
+                <svg class="avatar" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                    <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-[#dfdfdf]" />
+                    <path class="stroke-white dark:stroke-ccc"
+                        d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M29.5901 31C29.5901 27.13 25.7402 24 21.0002 24C16.2602 24 12.4102 27.13 12.4102 31"
+                        class="stroke-white dark:stroke-ccc" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
             @else
                 <avatar-zoom :avatar='@json($user->avatar)'>
                     <template #avatar>
