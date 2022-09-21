@@ -126,17 +126,19 @@
                                                                     {{ $episode->price }}pt
                                                                 </span>
                                                             @endif
-                                                            @if ($book->user->id !== Auth::user()->id)
-                                                                @if ($episode->is_read)
-                                                                    <span class="inline-block text-xs text-666 ml-2">
-                                                                        既読
-                                                                    </span>
-                                                                @else
-                                                                    <span class="inline-block text-xs text-666 ml-2">
-                                                                        未読
-                                                                    </span>
+                                                            @auth
+                                                                @if ($book->user->id !== Auth::user()->id)
+                                                                    @if ($episode->is_read)
+                                                                        <span class="inline-block text-xs text-666 ml-2">
+                                                                            既読
+                                                                        </span>
+                                                                    @else
+                                                                        <span class="inline-block text-xs text-666 ml-2">
+                                                                            未読
+                                                                        </span>
+                                                                    @endif
                                                                 @endif
-                                                            @endif
+                                                            @endauth
                                                         </div>
                                                     </div>
 

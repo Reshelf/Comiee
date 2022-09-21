@@ -8,6 +8,11 @@ use App\Models\Episode;
 
 class UpdateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Handle the incoming request.
      *

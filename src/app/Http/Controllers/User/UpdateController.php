@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UpdateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * 作品の更新
      * ポリシー(src/app/Policies/BookPolicy.php)

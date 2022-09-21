@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class UnlikeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * 作品へのいいね解除
      * ポリシー(src/app/Policies/BookPolicy.php)

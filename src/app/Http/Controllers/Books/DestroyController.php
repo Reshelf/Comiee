@@ -7,6 +7,11 @@ use App\Models\Book;
 
 class DestroyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * 作品の削除
      * ポリシー(src/app/Policies/BookPolicy.php)

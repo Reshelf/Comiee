@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ShowController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Handle the incoming request.
      *
@@ -43,10 +48,12 @@ class ShowController extends Controller
         });
 
         // 作者以外で未読なら
-        if ($book->user->id !== Auth::user()->id) {
-            if (!is_null($episode_story->is_read)) {
-                $episode_story->is_read = true;
-                $episode_story->save();
+        if (Auth::user()) {
+            if ($book->user->id !== Auth::user()->id) {
+                if (!is_null($episode_story->is_read)) {
+                    $episode_story->is_read = true;
+                    $episode_story->save();
+                }
             }
         }
 

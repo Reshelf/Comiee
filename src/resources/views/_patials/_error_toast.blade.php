@@ -8,3 +8,8 @@
         @endforeach
     </ul>
 @endif
+
+@if (session('flash_message'))
+    <toast-modal :error="false" :success="true" :message='@json(session('flash_message'))'>
+    </toast-modal>
+@endif

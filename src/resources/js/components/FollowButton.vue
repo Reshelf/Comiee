@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button :class="buttonColor" @click="clickFollow">
+        <button :class="buttonColor" @click="clickFollow" class="text-xs">
             {{ buttonText }}
         </button>
     </div>

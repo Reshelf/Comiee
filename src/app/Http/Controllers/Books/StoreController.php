@@ -11,6 +11,11 @@ use App\Models\User;
 
 class StoreController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * 投稿の保存
      * ポリシー(src/app/Policies/BookPolicy.php)

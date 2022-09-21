@@ -7,6 +7,11 @@ use App\Models\User;
 
 class FollowersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Handle the incoming request.
      *

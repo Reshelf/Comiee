@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 class SctController extends Controller
 {
     /**
-     * 利用規約ページを返す
+     * 特許商取引
      */
     public function __invoke()
     {

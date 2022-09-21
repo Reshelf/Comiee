@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Others;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UserGuideController extends Controller
 {
     /**
-     * お問い合わせ
+     * ご利用ガイド
      */
     public function __invoke()
     {
-        return view('others.contact');
+        return view('others.user_guide');
     }
 }

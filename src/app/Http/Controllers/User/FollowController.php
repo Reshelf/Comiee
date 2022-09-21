@@ -8,6 +8,11 @@ use App\Models\User;
 
 class FollowController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Handle the incoming request.
      *
@@ -18,8 +23,7 @@ class FollowController extends Controller
     {
         $user = User::where('username', $username)->first();
 
-        if ($user->id === $request->user()->id)
-        {
+        if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');
         }
 

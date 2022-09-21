@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 class PrivacyPolicyController extends Controller
 {
     /**
-     * 利用規約ページを返す
+     * プライバシーポリシー
      */
     public function __invoke()
     {

@@ -114,13 +114,16 @@
                                                     {{-- 既読 --}}
                                                     <div class="flex flex-col">
                                                         <span class="">第{{ $episode->number }}話</span>
-                                                        @if ($book->user->id !== Auth::user()->id)
-                                                            @if ($episode->is_read)
-                                                                <span class="inline-block text-xs text-666 mt-1">既読</span>
-                                                            @else
-                                                                <span class="inline-block text-xs text-666 mt-1">未読</span>
+                                                        @auth
+                                                            @if ($book->user->id !== Auth::user()->id)
+                                                                @if ($episode->is_read)
+                                                                    <span class="inline-block text-xs text-666 mt-1">既読</span>
+                                                                @else
+                                                                    <span class="inline-block text-xs text-666 mt-1">未読</span>
+                                                                @endif
                                                             @endif
-                                                        @endif
+                                                        @endauth
+
                                                     </div>
                                                     {{-- 値段 --}}
                                                     <div class="flex items-center ml-4">
