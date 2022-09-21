@@ -179,7 +179,7 @@
                         </template>
                         <template #info>
                             {{-- あらすじ --}}
-                            @empty(!$book->author)
+                            @empty(!$book->story)
                                 <div class="w-full flex items-center mb-4 pl-2">
                                     <div class="w-1/2">あらすじ</div>
                                     <div class="w-1/2">
