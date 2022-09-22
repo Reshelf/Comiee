@@ -15,12 +15,32 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    @include('search._patials._tabs', [
-                        'ranking' => false,
-                        'todays_new' => false,
-                        'like' => false,
-                        'following' => true,
-                    ])
+
+                    {{-- 並び替え --}}
+                    <div class="w-full max-w-8xl mx-auto mb-4">
+                        <div class="relative flex items-center justify-between">
+                            @include('search._patials._tabs', [
+                                'ranking' => false,
+                                'todays_new' => false,
+                                'like' => false,
+                                'following' => true,
+                            ])
+                            <ranking-sort-modal class="flex justify-end mr-4">
+                                <template #trigger>フォローの並び替え</template>
+                                <template #header>フォローの並び替えをする</template>
+                                @include('_patials._error_card_list')
+                                <form id="submit-form" method="POST" enctype="multipart/form-data"
+                                    action="{{ route('ranking.search') }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    @include('books._patials.form')
+                                    <div class="w-full flex justify-end">
+                                        <button id="submit-btn" type="submit" class="btn">並び替える</button>
+                                    </div>
+                                </form>
+                            </ranking-sort-modal>
+                        </div>
+                    </div>
 
                     <div class="w-full flex flex-wrap justify-start">
                         @empty(!$books)
