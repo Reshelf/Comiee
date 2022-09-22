@@ -4,7 +4,6 @@
 
 @section('content')
     @include('_patials._nav')
-    @include('_patials._genre_nav')
 
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-12 flex justify-between">
@@ -252,7 +251,6 @@
                             @endif
                         </template>
                     </book-tab>
-
                 </div>
 
                 {{-- 右サイドバー --}}
