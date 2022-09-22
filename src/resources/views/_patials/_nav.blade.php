@@ -117,7 +117,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round"
                                                     class="dark:stroke-white" />
                                             </svg>
-                                            <span class="pl-5">アカウントサービス</span>
+                                            <span class="pl-5">設定</span>
                                         </a>
 
                                         {{-- ダークモード --}}
