@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Search\TodaysNew;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Book;
+
 class IndexController extends Controller
 {
     /**
@@ -15,6 +17,8 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        $books = Book::orderBy('created_at')->paginate(50);
+
+        return view('search.todays_new', compact('books'));
     }
 }

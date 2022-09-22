@@ -95,8 +95,6 @@
                     class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">作品</a>
                 @if (Auth::id() === $user->id)
                     <a href=""
-                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">本棚</a>
-                    <a href=""
                         class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">アカウントサービス</a>
                 @endif
             </div>

@@ -15,7 +15,12 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    @include('search._patials._tabs')
+                    @include('search._patials._tabs', [
+                        'ranking' => false,
+                        'todays_new' => false,
+                        'like' => true,
+                        'following' => false,
+                    ])
 
                     <div class="w-full flex flex-wrap justify-start">
                         @empty(!$books)
