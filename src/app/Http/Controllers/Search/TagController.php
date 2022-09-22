@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Others;
+namespace App\Http\Controllers\Search;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\Tag;
 
 class TagController extends Controller

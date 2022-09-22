@@ -22,7 +22,8 @@ Auth::routes();
 */
 
 Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
-
+// タグ
+Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
 
 
 /*
@@ -42,9 +43,6 @@ Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyControll
 Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
 // お問い合せ
 Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
-// タグ
-Route::get('/tags/{name}', 'App\Http\Controllers\Others\TagController')->name('search.tag_name');
-
 
 
 /*
