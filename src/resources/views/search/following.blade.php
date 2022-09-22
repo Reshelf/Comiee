@@ -15,22 +15,8 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    <div class="w-full mb-4 flex-none">
-                        <div class="max-w-8xl mx-auto">
-                            <div class="relative flex items-center">
-                                <a href="/"
-                                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">ランキング</a>
-                                <a href="/"
-                                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">今日の新作</a>
-                                @if (Auth::user())
-                                    <a href="/"
-                                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">お気に入り</a>
-                                    <a href="/"
-                                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">フォロー中</a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                    @include('search._patials._tabs')
+
                     <div class="w-full flex flex-wrap justify-start">
                         @empty(!$books)
                             @foreach ($books as $book)

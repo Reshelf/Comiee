@@ -20,15 +20,23 @@ Auth::routes();
 |--------------------------------------------------------------------------
 |
 */
+// トップページ（ランキング）
+Route::get('/', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
 
-Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
-// タグ
-Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
-
+Route::prefix('search')->name('search.')->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/following', 'App\Http\Controllers\Search\Following\IndexController')->name('following');
+        Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('like');
+    });
+    // 今日の新作
+    Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
+    // タグ
+    Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('tag_name');
+});
 
 /*
 |--------------------------------------------------------------------------
-| Others
+| その他
 |--------------------------------------------------------------------------
 |
 */
