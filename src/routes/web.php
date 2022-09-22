@@ -5,14 +5,24 @@ use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
-| Auth Routes
-|--------------------------------------------------------------------------
 | 認証
+|--------------------------------------------------------------------------
+|
 */
 
 Auth::routes();
 // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
 // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
+
+/*
+|--------------------------------------------------------------------------
+| 検索
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
+
 
 
 /*
@@ -39,12 +49,11 @@ Route::get('/tags/{name}', 'App\Http\Controllers\Others\TagController')->name('s
 
 /*
 |--------------------------------------------------------------------------
-| Books Routes
+| 作品
 |--------------------------------------------------------------------------
-| 投稿
+|
 */
 
-Route::get('/', 'App\Http\Controllers\Books\IndexController')->name('book.index');
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
@@ -69,9 +78,9 @@ Route::prefix('books')->name('book.')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| User Routes
-|--------------------------------------------------------------------------
 | ユーザー
+|--------------------------------------------------------------------------
+|
 */
 
 Route::middleware('auth')->group(function () {
