@@ -1,14 +1,14 @@
 @extends('app')
 
-@section('title', $user->name . 'さんのプロフィール')
+@section('title', 'サービス設定')
 
 @section('content')
     @include('_patials._nav')
     <div class="bg-white dark:bg-dark">
         @include('users._patials.user', [
-            'mypage' => true,
-            'setting' => false,
-        ])
+                'mypage' => false,
+                'setting' => true,
+            ])
     </div>
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
         <div class="w-full mx-12">

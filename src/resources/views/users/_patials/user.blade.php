@@ -91,11 +91,11 @@
     <div class="bg-white dark:bg-dark w-full mx-12 flex-none lg:z-20">
         <div class="max-w-8xl mx-auto">
             <div class="relative flex items-center">
-                <a href=""
-                    class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">作品</a>
+                <a href="{{ route('users.show', ['username' => $user->username]) }}"
+                    class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
                 @if (Auth::id() === $user->id)
-                    <a href=""
-                        class="py-3 px-6 border-b-2 border-white dark:border-dark dark:hover:border-primary hover:border-primary hover:text-primary hover:font-semibold">設定</a>
+                    <a href="{{ route('users.setting', ['username' => $user->username]) }}"
+                        class="{{ $setting ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
                 @endif
             </div>
         </div>

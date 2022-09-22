@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
+    Route::get('/{username}/setting', 'App\Http\Controllers\User\Setting\IndexController')->name('users.setting');
 });
 Route::get('/{username}', 'App\Http\Controllers\User\ShowController')->name('users.show');
 Route::get('/{username}/likes', 'App\Http\Controllers\User\LikesController')->name('users.likes');
