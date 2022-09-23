@@ -14,6 +14,7 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
+                    {{-- たぶ --}}
 
                     {{-- 並び替え --}}
                     <div class="w-full max-w-8xl mx-auto mb-4">
@@ -25,16 +26,16 @@
                                 'following' => false,
                             ])
                             <ranking-sort-modal class="flex justify-end mr-4">
-                                <template #trigger>ランキングの並び替え</template>
-                                <template #header>ランキングの並び替えをする</template>
+                                <template #trigger>並び替えをする</template>
+                                <template #header>並び替えをする</template>
                                 @include('_patials._error_card_list')
                                 <form id="submit-form" method="POST" enctype="multipart/form-data"
                                     action="{{ route('ranking.search') }}">
                                     @csrf
                                     @method('PATCH')
                                     @include('search._patials._form')
-                                    <div class="w-full flex justify-end">
-                                        <button id="submit-btn" type="submit" class="btn">並び替える</button>
+                                    <div class="w-full flex p-2">
+                                        <button id="submit-btn" type="submit" class="btn w-full">並び替える</button>
                                     </div>
                                 </form>
                             </ranking-sort-modal>

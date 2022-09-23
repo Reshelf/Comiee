@@ -302,3 +302,19 @@ button[disabled] {
 .ti-selected-item {
     background: var(--primary) !important;
 }
+
+// 並び替え検索
+.sort-select {
+    @apply relative;
+    &::after {
+        @apply absolute right-[9px] top-[17px];
+        content: "";
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4.5px solid #bbb;
+        width: 0;
+    }
+    select {
+        @apply appearance-none outline-none rounded-[3px] cursor-pointer w-full p-2 border border-bbb;
+    }
+}
