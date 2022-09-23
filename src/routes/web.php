@@ -20,19 +20,19 @@ Auth::routes();
 |--------------------------------------------------------------------------
 |
 */
-// トップページ（ランキング）
-Route::get('/', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
 
-Route::prefix('search')->name('search.')->group(function () {
-    Route::middleware('auth')->group(function () {
-        Route::get('/following', 'App\Http\Controllers\Search\Following\IndexController')->name('following');
-        Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('like');
-    });
-    // 今日の新作
-    Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
-    // タグ
-    Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('tag_name');
+Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
+Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search.todays_new');
+    Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
+    Route::get('/following', 'App\Http\Controllers\Search\Following\IndexController')->name('search.following');
+    Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
 });
+
+Route::post('/search', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
+
 
 /*
 |--------------------------------------------------------------------------

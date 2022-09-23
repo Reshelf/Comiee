@@ -32,7 +32,7 @@
                                     action="{{ route('ranking.search') }}">
                                     @csrf
                                     @method('PATCH')
-                                    @include('books._patials.form')
+                                    @include('search._patials._form')
                                     <div class="w-full flex justify-end">
                                         <button id="submit-btn" type="submit" class="btn">並び替える</button>
                                     </div>
