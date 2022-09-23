@@ -23,7 +23,7 @@ class BookSeeder extends Seeder
             $manga_artist = User::findOrFail(random_int(1, 100));
 
             $param = [
-                'title' => $faker->text(15),
+                'title' => $i,
                 'story' => $faker->text(400),
                 'author' => $author->name,
                 'manga_artist' => $manga_artist->name,

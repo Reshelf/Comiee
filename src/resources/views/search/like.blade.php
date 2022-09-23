@@ -38,7 +38,7 @@
                                         'following' => false,
                                     ])
                                     <div class="w-full flex justify-end">
-                                        <button id="submit-btn" type="submit" class="btn">並び替える</button>
+                                        <button id="submit-btn" type="submit" class="btn w-full">並び替える</button>
                                     </div>
                                 </form>
                             </ranking-sort-modal>
