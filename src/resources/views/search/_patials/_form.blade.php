@@ -11,41 +11,74 @@
             </select>
         </div>
     </div>
-    <div class="flex w-full mt-4">
-        <div class="w-1/2 font-semibold flex items-center">期間</div>
-        <div class="sort-select w-1/2">
-            <select name="time">
-                <option class="w-full" value="すべての期間" selected>すべての期間</option>
-                <option class="w-full" value="年間">年間</option>
-                <option class="w-full" value="月間">月間</option>
-                <option class="w-full" value="週間">週間</option>
-            </select>
-        </div>
-    </div>
-    <div class="flex w-full mt-4">
-        <div class="w-1/2 font-semibold flex items-center">完結作品</div>
-        <div class="sort-select w-1/2">
-            <select name="time">
-                <option class="w-full" value="すべての作品" selected>すべての作品</option>
-                <option class="w-full" value="完結作品に絞る">完結作品に絞る</option>
-            </select>
-        </div>
-    </div>
-    @auth
+    {{-- @if ($ranking)
+    @endif --}}
+    @if ($ranking)
         <div class="flex w-full mt-4">
-            <div class="w-1/2 font-semibold flex items-center">読了作品</div>
+            <div class="w-1/2 font-semibold flex items-center">期間</div>
             <div class="sort-select w-1/2">
                 <select name="time">
-                    <option class="w-full" value="すべての作品" selected>すべての作品</option>
-                    <option class="w-full" value="読了作品は除く">読了作品は除く</option>
+                    <option class="w-full" value="すべての期間" selected>すべての期間</option>
+                    <option class="w-full" value="年間">年間</option>
+                    <option class="w-full" value="月間">月間</option>
+                    <option class="w-full" value="週間">週間</option>
                 </select>
             </div>
         </div>
+    @endif
+
+    @if (!$todays_new)
+        <div class="flex w-full mt-4">
+            <div class="w-1/2 font-semibold flex items-center">完結作品</div>
+            <div class="sort-select w-1/2">
+                <select name="time">
+                    <option class="w-full" value="指定なし" selected>指定なし</option>
+                    <option class="w-full" value="完結作品に絞る">完結作品に絞る</option>
+                </select>
+            </div>
+        </div>
+    @endif
+
+    @auth
+        @if ($like)
+            <div class="flex w-full mt-4">
+                <div class="w-1/2 font-semibold flex items-center">未読作品</div>
+                <div class="sort-select w-1/2">
+                    <select name="time">
+                        <option class="w-full" value="指定なし" selected>指定なし</option>
+                        <option class="w-full" value="未読作品のみ">未読作品のみ</option>
+                    </select>
+                </div>
+            </div>
+        @endif
+        @if ($like)
+            <div class="flex w-full mt-4">
+                <div class="w-1/2 font-semibold flex items-center">追加順</div>
+                <div class="sort-select w-1/2">
+                    <select name="time">
+                        <option class="w-full" value="指定なし" selected>指定なし</option>
+                        <option class="w-full" value="追加順">追加順</option>
+                    </select>
+                </div>
+            </div>
+        @endif
+        @if (!$todays_new)
+            <div class="flex w-full mt-4">
+                <div class="w-1/2 font-semibold flex items-center">読了作品</div>
+                <div class="sort-select w-1/2">
+                    <select name="time">
+                        <option class="w-full" value="指定なし" selected>指定なし</option>
+                        <option class="w-full" value="読了作品のみ">読了作品のみ</option>
+                    </select>
+                </div>
+            </div>
+        @endif
+
         <div class="flex w-full mt-4">
             <div class="w-1/2 font-semibold flex items-center">非表示作品</div>
             <div class="sort-select w-1/2">
                 <select name="time">
-                    <option class="w-full" value="すべての作品" selected>すべての作品</option>
+                    <option class="w-full" value="指定なし" selected>指定なし</option>
                     <option class="w-full" value="非表示作品は除く">非表示作品は除く</option>
                 </select>
             </div>

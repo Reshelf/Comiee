@@ -24,16 +24,20 @@
                                 'following' => false,
                             ])
                             <ranking-sort-modal class="flex justify-end mr-4">
-                                <template #trigger>今日の新作の並び替え</template>
-                                <template #header>今日の新作の並び替えをする</template>
+                                <template #trigger>並び替えをする</template>
                                 @include('_patials._error_card_list')
                                 <form id="submit-form" method="POST" enctype="multipart/form-data"
                                     action="{{ route('ranking.search') }}">
                                     @csrf
                                     @method('PATCH')
-                                    @include('books._patials.form')
+                                    @include('search._patials._form', [
+                                        'ranking' => false,
+                                        'todays_new' => true,
+                                        'like' => false,
+                                        'following' => false,
+                                    ])
                                     <div class="w-full flex justify-end">
-                                        <button id="submit-btn" type="submit" class="btn">並び替える</button>
+                                        <button id="submit-btn" type="submit" class="btn w-full">並び替える</button>
                                     </div>
                                 </form>
                             </ranking-sort-modal>
