@@ -24,7 +24,7 @@
                                 'following' => false,
                             ])
                             <ranking-sort-modal class="flex justify-end mr-4">
-                                <template #trigger>並び替えをする</template>
+                                <template #trigger>並び替え</template>
                                 @include('_patials._error_card_list')
                                 <form method="POST" action="{{ route('todays_new.search') }}">
                                     @csrf

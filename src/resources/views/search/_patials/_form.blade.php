@@ -56,7 +56,7 @@
                 <div class="sort-select w-1/2">
                     <select name="sort_add">
                         <option value="指定なし">指定なし</option>
-                        <option value="追加順">追加順</option>
+                        <option value="追加順">お気に入りへの追加順</option>
                     </select>
                 </div>
             </div>

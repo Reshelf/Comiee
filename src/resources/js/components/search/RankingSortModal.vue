@@ -10,39 +10,18 @@ const open = ref(false);
             class="inline-flex items-center btn-border rounded-[3px] px-2 py-1.5 font-semibold cursor-pointer"
         >
             <svg
-                class="w-[20px] h-[20px] stroke-primary"
-                viewBox="0 0 24 24"
                 fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                class="w-[20px] h-[20px] stroke-primary mr-2"
             >
                 <path
-                    d="M9.00999 20.5L3.98999 15.49"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                />
-                <path
-                    d="M9.01001 3.5V20.5"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-                <path
-                    d="M14.99 3.5L20.01 8.51"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-                <path
-                    d="M14.99 20.5V3.5"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
                 />
             </svg>
+
             <slot name="trigger"></slot>
         </button>
         <transition appear>
