@@ -71,8 +71,8 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book_id}', 'App\Http\Controllers\Books\UpdateController')->name('update');
         // Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
-        Route::put('/{book_id}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
-        Route::delete('/{book_id}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
+        Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
+        Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // エピソード
         Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
