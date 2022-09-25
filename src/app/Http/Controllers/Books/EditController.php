@@ -13,7 +13,7 @@ class EditController extends Controller
      * 作品の編集
      * ポリシー(src/app/Policies/BookPolicy.php)
      */
-    public function __invoke(Book $book, Tag $tag Request $request)
+    public function __invoke(Book $book, Tag $tag, Request $request)
     {
         $this->authorize('update', $book);
 
