@@ -2,7 +2,7 @@
     @empty($book->thumbnail)
         <img src="{{ asset('/img/bg.svg') }}" alt="" class="w-[250px] h-[250px] object-cover flex-shrink-0">
     @else
-        <a href="{{ route('book.show', ['book' => $book->id]) }}">
+        <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
             <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
                 class="w-[250px] h-[250px] object-cover flex-shrink-0">
             {{-- @endempty --}}
@@ -18,7 +18,7 @@
             <edit-modal class="mr-2">
                 @include('_patials._error_card_list')
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                <form id="submit-form" method="POST" action="{{ route('book.update', ['book' => $book->id]) }}">
+                <form id="submit-form" method="POST" action="{{ route('book.update', ['book_id' => $book->id]) }}">
                     @csrf
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                     @method('PATCH')
@@ -27,7 +27,7 @@
                 </form>
             </edit-modal>
             <delete-modal>
-                <form method="POST" action="{{ route('book.episode.destroy', ['book' => $book->id]) }}"
+                <form method="POST" action="{{ route('book.episode.destroy', ['book_id' => $book->id]) }}"
                     class="p-2 rounded">
                     @csrf
                     @method('DELETE')
@@ -59,7 +59,7 @@
     <div class="card-text">
         <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
             :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-            endpoint="{{ route('book.like', ['book' => $book]) }}">
+            endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">
         </book-like>
     </div>
 </div>

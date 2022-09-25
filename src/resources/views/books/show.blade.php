@@ -36,7 +36,7 @@
                 <div class="w-full flex items-center px-2 mb-4">
                     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                        endpoint="{{ route('book.like', ['book' => $book]) }}">
+                        endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">
                     </book-like>
                 </div>
 
@@ -55,7 +55,7 @@
                             @include('_patials._error_card_list')
                             {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
                             <form id="submit-form" method="POST" enctype="multipart/form-data"
-                                action="{{ route('book.update', ['book' => $book->id]) }}">
+                                action="{{ route('book.update', ['book_id' => $book->id]) }}">
                                 @csrf
                                 {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                                 @method('PATCH')
@@ -289,7 +289,7 @@
 
                         <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                             :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                            endpoint="{{ route('book.like', ['book' => $book]) }}" :big='true'
+                            endpoint="{{ route('book.like', ['book_id' => $book->id]) }}" :big='true'
                             class="text-white">
                         </book-like>
                     </div>

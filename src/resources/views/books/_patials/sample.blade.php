@@ -8,14 +8,14 @@
         @if (!empty($books))
             @foreach ($books as $book)
                 <div class="list-item">
-                    <a href="{{ route('book.show', ['book' => $book->id]) }}">
+                    <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                         <span class="thumbnail-title">{{ $book->title }}</span>
                     </a>
 
                     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
                         :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                        endpoint="{{ route('book.like', ['book' => $book]) }}">
+                        endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">
                     </book-like>
                 </div>
             @endforeach

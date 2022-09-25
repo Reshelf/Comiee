@@ -69,10 +69,10 @@ Route::prefix('books')->name('book.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')->name('store');
         Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
-        Route::patch('/{book}', 'App\Http\Controllers\Books\UpdateController')->name('update');
+        Route::patch('/{book_id}', 'App\Http\Controllers\Books\UpdateController')->name('update');
         // Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
-        Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
-        Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
+        Route::put('/{book_id}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
+        Route::delete('/{book_id}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // エピソード
         Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
@@ -83,7 +83,7 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->name('episode.comment.store');
         Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
     });
-    Route::get('/{book}', 'App\Http\Controllers\Books\ShowController')->name('show');
+    Route::get('/{book_id}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });
 
 

@@ -1,5 +1,5 @@
 <div class="list-item">
-    <a href="{{ route('book.show', ['book' => $book->id]) }}">
+    <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
         @empty($book->thumbnail)
             <img src="{{ asset('/img/bg.svg') }}" alt="" class="h-[200px] w-[200px] object-cover flex-shrink-0">
         @else
