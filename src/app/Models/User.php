@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 use App\Mail\BareMail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Notifications\PasswordResetNotification;
@@ -45,7 +47,7 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | 作品
+    | 作品　　：　　リレーション
     |--------------------------------------------------------------------------
     */
     public function books(): HasMany
@@ -55,7 +57,7 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | フォロワー
+    | フォロワー　　：　　リレーション
     |--------------------------------------------------------------------------
     */
     public function followers(): BelongsToMany
@@ -65,7 +67,7 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | フォロー
+    | フォロー　　：　　リレーション
     |--------------------------------------------------------------------------
     */
     public function followings(): BelongsToMany
@@ -75,7 +77,7 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | コメント
+    | コメント　　：　　リレーション
     |--------------------------------------------------------------------------
     */
     public function comments(): HasMany
@@ -85,12 +87,36 @@ class User extends Authenticatable
 
     /*
     |--------------------------------------------------------------------------
-    | お気に入り
+    | お気に入り　　：　　リレーション
     |--------------------------------------------------------------------------
     */
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Book', 'likes')->withTimestamps();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | フォロワーの数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function countFollowers(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => $this->followers->count()
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | フォローの数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function countFollowings(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => $this->followings->count()
+        );
     }
 
     /*
@@ -103,26 +129,6 @@ class User extends Authenticatable
         return $user
             ? (bool)$this->followers->where('id', $user->id)->count()
             : false;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | フォロワーの数
-    |--------------------------------------------------------------------------
-    */
-    public function getCountFollowersAttribute(): int
-    {
-        return $this->followers->count();
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | フォローの数
-    |--------------------------------------------------------------------------
-    */
-    public function getCountFollowingsAttribute(): int
-    {
-        return $this->followings->count();
     }
 
     /*

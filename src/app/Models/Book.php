@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -60,6 +62,45 @@ class Book extends Model
 
     /*
     |--------------------------------------------------------------------------
+    | 作品再生回数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function bookViews(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => $this->episodes()->where('is_read', true)->count()
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 作品のタグ　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function tagNames(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => 
+                $this->tags->map(function ($tag) {
+                    return ['text' => $tag->name];
+                })
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | お気に入りの数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function countLikes(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => $this->likes->count()
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     | 誰にお気に入りされているか
     |--------------------------------------------------------------------------
     */
@@ -70,13 +111,5 @@ class Book extends Model
             : false;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | お気に入りの数
-    |--------------------------------------------------------------------------
-    */
-    public function getCountLikesAttribute(): int
-    {
-        return $this->likes->count();
-    }
+    
 }

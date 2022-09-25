@@ -36,17 +36,6 @@ class ShowController extends Controller
         $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
         // dd($episode_comments);
 
-
-        // 再生回数
-        $book_views = count($book->episodes()->where('is_read', true)->get());
-
-        $tagNames = $book->tags->map(function ($tag) {
-            return ['text' => $tag->name];
-        });
-        $allTagNames = Tag::all()->map(function ($tag) {
-            return ['text' => $tag->name];
-        });
-
         // 作者以外で未読なら
         if (Auth::user()) {
             if ($book->user->id !== Auth::user()->id) {
@@ -62,9 +51,9 @@ class ShowController extends Controller
             'episodes' => $episodes,
             'episode_story' => $episode_story,
             'episode_comments' => $episode_comments,
-            'tagNames' => $tagNames,
-            'allTagNames' => $allTagNames,
-            'book_views' => $book_views
+            'tagNames' => $book->tag_names,
+            'allTagNames' => $tag->all_tag_names,
+            'book_views' => $book->book_views
         ]);
     }
 }
