@@ -28,13 +28,14 @@ Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->n
 Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 // 今日の新作
 Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search.todays_new');
+Route::post('/todays_new/search/result', 'App\Http\Controllers\Search\TodaysNew\SearchController')->name('todays_new.search');
 // タグ検索
 Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
 
 Route::middleware('auth')->group(function () {
     // お気に入り
     Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
-    // Route::get('/following', 'App\Http\Controllers\Search\Following\IndexController')->name('search.following');
+    Route::post('/like/search/result', 'App\Http\Controllers\Search\Like\SearchController')->name('like.search');
 });
 
 
