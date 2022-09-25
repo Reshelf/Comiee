@@ -18,11 +18,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'username',
@@ -34,21 +29,11 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -58,55 +43,61 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token, new BareMail()));
     }
 
-    /**
-     * 作品
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品
+    |--------------------------------------------------------------------------
+    */
     public function books(): HasMany
     {
         return $this->hasMany('App\Models\Book');
     }
 
-    /**
-     * フォロワー
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォロワー
+    |--------------------------------------------------------------------------
+    */
     public function followers(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
     }
 
-    /**
-     * フォロー
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォロー
+    |--------------------------------------------------------------------------
+    */
     public function followings(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
-    /**
-     * コメント
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | コメント
+    |--------------------------------------------------------------------------
+    */
     public function comments(): HasMany
     {
         return $this->hasMany('App\Models\Comment', 'comments')->withTimestamps();
     }
 
-    /**
-     * お気に入り
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | お気に入り
+    |--------------------------------------------------------------------------
+    */
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Book', 'likes')->withTimestamps();
     }
 
-    /**
-     * フォローされているか
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォローされているか
+    |--------------------------------------------------------------------------
+    */
     public function isFollowedBy(?User $user): bool
     {
         return $user
@@ -114,28 +105,31 @@ class User extends Authenticatable
             : false;
     }
 
-    /**
-     * フォロワーの数
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォロワーの数
+    |--------------------------------------------------------------------------
+    */
     public function getCountFollowersAttribute(): int
     {
         return $this->followers->count();
     }
 
-    /**
-     * フォローの数
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォローの数
+    |--------------------------------------------------------------------------
+    */
     public function getCountFollowingsAttribute(): int
     {
         return $this->followings->count();
     }
 
-    /**
-     * コメント
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | コメント
+    |--------------------------------------------------------------------------
+    */
     public function hasComments()
     {
         return $this->hasMany(Book::class)

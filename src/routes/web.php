@@ -25,6 +25,7 @@ Auth::routes();
 Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
 // ランキング
 Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
+Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 // 今日の新作
 Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search.todays_new');
 // タグ検索
@@ -36,7 +37,6 @@ Route::middleware('auth')->group(function () {
     // Route::get('/following', 'App\Http\Controllers\Search\Following\IndexController')->name('search.following');
 });
 
-Route::post('/search', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 
 
 /*

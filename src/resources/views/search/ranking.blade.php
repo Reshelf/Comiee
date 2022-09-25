@@ -14,31 +14,31 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    {{-- たぶ --}}
-
-                    {{-- 並び替え --}}
                     <div class="w-full max-w-8xl mx-auto mb-4">
                         <div class="relative flex items-center justify-between">
+
+                            {{-- たぶ --}}
                             @include('search._patials._tabs', [
                                 'ranking' => true,
                                 'todays_new' => false,
                                 'like' => false,
                                 'following' => false,
                             ])
+
+                            {{-- 並び替え --}}
                             <ranking-sort-modal class="flex justify-end mr-4">
                                 <template #trigger>並び替えをする</template>
                                 @include('_patials._error_card_list')
-                                <form id="submit-form" method="POST" enctype="multipart/form-data"
-                                    action="{{ route('ranking.search') }}">
+                                <form method="POST" action="{{ route('ranking.search') }}">
                                     @csrf
-                                    @method('PATCH')
                                     @include('search._patials._form', [
                                         'ranking' => true,
                                         'todays_new' => false,
                                         'like' => false,
                                         'following' => false,
-                                    ]) <div class="w-full flex p-2">
-                                        <button id="submit-btn" type="submit" class="btn w-full">並び替える</button>
+                                    ])
+                                    <div class="w-full flex p-2">
+                                        <button type="submit" class="btn w-full">並び替える</button>
                                     </div>
                                 </form>
                             </ranking-sort-modal>

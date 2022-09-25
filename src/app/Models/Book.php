@@ -17,21 +17,52 @@ class Book extends Model
         'story',
         'thumbnail',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | ユーザー
+    |--------------------------------------------------------------------------
+    */
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\Models\User');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | エピソード
+    |--------------------------------------------------------------------------
+    */
     public function episodes(): HasMany
     {
         return $this->hasMany('App\Models\Episode');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | お気に入り
+    |--------------------------------------------------------------------------
+    */
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | タグ
+    |--------------------------------------------------------------------------
+    */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 誰にお気に入りされているか
+    |--------------------------------------------------------------------------
+    */
     public function isLikedBy(?User $user): bool
     {
         return $user
@@ -39,13 +70,13 @@ class Book extends Model
             : false;
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | お気に入りの数
+    |--------------------------------------------------------------------------
+    */
     public function getCountLikesAttribute(): int
     {
         return $this->likes->count();
-    }
-
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
 }

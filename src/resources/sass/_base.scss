@@ -316,5 +316,8 @@ button[disabled] {
     }
     select {
         @apply appearance-none outline-none rounded-[3px] cursor-pointer w-full p-2 border border-bbb;
+        option {
+            @apply w-full;
+        }
     }
 }
