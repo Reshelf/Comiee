@@ -27,14 +27,10 @@ class ShowController extends Controller
     {
         // 作品
         $book = Book::where('id', $request->book_id)->first();
-        // エピソード全体
-        $episodes = $book->episodes()->orderBy('created_at', 'desc')->get(); // 新しい順でチャプターを取得
         // エピソード
         $episode_story = Episode::where('number', $request->episode_number)->first();
-        // dd($request->episode_number);
         // エピソードのコメント
         $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
-        // dd($episode_comments);
 
         // 作者以外で未読なら
         if (Auth::user()) {
@@ -48,7 +44,7 @@ class ShowController extends Controller
 
         return view('books.episode.show', [
             'book' => $book,
-            'episodes' => $episodes,
+            'episodes' => $book->book_episodes,
             'episode_story' => $episode_story,
             'episode_comments' => $episode_comments,
             'tagNames' => $book->tag_names,
