@@ -14,12 +14,12 @@ class IndexController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | お気に入り : トップ
+    |--------------------------------------------------------------------------
+    |
+    */
     public function __invoke(Request $request)
     {
         $books = Book::orderBy('created_at')->paginate(50);

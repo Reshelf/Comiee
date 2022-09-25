@@ -6,7 +6,6 @@
             {{-- <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
                 class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded"> --}}
             <select name="sort_basis">
-                <option value="指定なし">指定なし</option>
                 <option value="お気に入り数">お気に入り数</option>
                 <option value="再生回数">再生回数</option>
             </select>

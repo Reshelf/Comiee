@@ -3,17 +3,20 @@
 namespace App\Http\Controllers\Search\Ranking;
 
 use App\Http\Controllers\Controller;
+
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use App\Models\Book;
 
 class SearchController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | ランキングのソート
+    |--------------------------------------------------------------------------
+    |
+    */
     public function __invoke(Book $book, Request $request)
     {
         // 検索結果を１度に返すクエリを宣言
@@ -40,14 +43,17 @@ class SearchController extends Controller
 
         // 期間
         if ($sort_time != null) {
-            if ($sort_time === 'すべての期間') {
-                // $query->where('id', $sort_time)->get();
-            } elseif ($sort_time === '年間') {
-                
+            if ($sort_time === '年間') {
+                $year = Carbon::today()->subDay(365);
+                $query->whereDate('created_at', $year)->get();
+            
             } elseif ($sort_time === '月間') {
-                
+                $month = Carbon::today()->subDay(30);
+                $query->whereDate('created_at', $month)->get();
+            
             } elseif ($sort_time === '週間') {
-                
+                $week = Carbon::today()->subDay(7);
+                $query->whereDate('created_at', $week)->get();
             }
         }
 
@@ -62,17 +68,13 @@ class SearchController extends Controller
 
         // 読了作品のカラム取得
         if ($sort_read != null) {
-            if ($sort_read === '読了作品のみ') {
-
-            }
+            if ($sort_read === '読了作品のみ') {}
         }
 
 
         // 非表示作品のカラム取得
         if ($sort_hidden != null) {
-            if ($sort_hidden === '読了作品のみ') {
-
-            }
+            if ($sort_hidden === '非表示作品は除く') {}
         }
 
 
