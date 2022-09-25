@@ -23,7 +23,7 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke($book, Request $request)
+    public function __invoke(Tag $tag, Request $request)
     {
         // 作品
         $book = Book::where('id', $request->book_id)->first();
