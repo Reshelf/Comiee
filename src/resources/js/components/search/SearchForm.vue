@@ -1,23 +1,22 @@
 <script setup>
-import { computed, reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref } from "vue";
 
 const open = ref(false);
 const state = reactive({
     search: null,
-    array: [
-        { id: 1, title: "Thanos", content: "123" },
-        { id: 2, title: "Deadpool", content: "456" },
-        { id: 3, title: "Batman", content: "789" },
-    ],
+    array: [],
 });
 
 const filter = computed(() => {
     if (state.search) {
-        return state.array.filter((item) => {
+        return Object.values(state.array).filter((item) => {
+            // 検索ワード
+            let word = item.title.concat(item.user.name);
+
             return state.search
                 .toLowerCase()
                 .split(" ")
-                .every((v) => item.title.toLowerCase().includes(v));
+                .every((v) => word.toLowerCase().includes(v));
         });
     } else {
         return state.array;
@@ -25,15 +24,16 @@ const filter = computed(() => {
 });
 
 const getData = async () => {
-    let result = await axios.get(url);
-    data.mydata = result.data;
+    let result = await axios.get("/api/search-words");
+    state.array = result.data;
 };
-// onMounted(() => {
-//     getData();
-// });
-// onMounted(() => {
-//     console.log("Component is mounted!");
-// });
+onMounted(() => {
+    getData();
+});
+
+function locate(item) {
+    location.href = "/books/" + item.id;
+}
 </script>
 <template>
     <div class="header-search-input relative flex items-center mx-auto">
@@ -41,7 +41,6 @@ const getData = async () => {
             type="text"
             v-model="state.search"
             @focus="open = true"
-            @blur="open = false"
             placeholder="検索"
             class="py-2 px-4 border border-ddd dark:bg-dark-1 dark:border-dark"
         />
@@ -65,17 +64,33 @@ const getData = async () => {
         </button>
         <div
             v-if="open && state.search.length > 0"
-            class="absolute top-[30px] bg-white shadow-lg z-[999] rounded-[3px] p-2"
+            class="absolute top-[30px] bg-white shadow-lg z-[999] overflow-y-auto max-h-[500px] scroll-none rounded-[3px] p-2"
         >
-            <div
+            <a
                 v-for="item in filter"
                 :key="item"
-                class="flex items-center p-4 cursor-pointer hover:bg-[#e8e8e8] rounded"
+                @click="locate(item)"
+                class="flex items-center p-4 cursor-pointer hover:bg-[#f5f5f5] rounded"
             >
-                <div class="">{{ item.id }}}</div>
-                <div class="">{{ item.title }}}</div>
-                <div class="">{{ item.content }}}</div>
-            </div>
+                <div class="flex items-center">
+                    <img
+                        v-if="item.thumbnail"
+                        :src="'/img/book/thumbnail/' + item.thumbnail"
+                        class="w-[80px] h-[80px] object-cover"
+                    />
+                    <img
+                        v-else
+                        src="/img/bg.svg"
+                        class="w-[80px] h-[80px] object-cover"
+                    />
+                    <div class="ml-4 w-[200px]">
+                        <div class="text-xl font-semibold">
+                            {{ item.title }}
+                        </div>
+                        <div class="text-666">{{ item.user.name }}</div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </template>

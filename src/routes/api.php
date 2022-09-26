@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::get('/search-words', 'App\Http\Controllers\Api\Search\SearchWordController');
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');
