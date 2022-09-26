@@ -34,33 +34,45 @@ onMounted(() => {
 function locate(item) {
     location.href = "/books/" + item.id;
 }
+function reset() {
+    state.search = "";
+}
 </script>
 <template>
     <div class="header-search-input relative flex items-center mx-auto">
         <input
             type="text"
             v-model="state.search"
+            ref="anyName"
             @focus="open = true"
             placeholder="検索"
-            class="py-2 px-4 border border-ddd dark:bg-dark-1 dark:border-dark"
+            class="py-2 px-4 border border-ccc dark:bg-dark-1 dark:border-dark"
         />
         <button class="absolute right-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                    d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z"
-                    stroke="#AAAAAA"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-                <path
-                    d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                    stroke="#AAAAAA"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-            </svg>
+            <template v-if="open && state.search.length > 0">
+                <svg
+                    @click="reset()"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+                    <path
+                        d="M5.00098 5L19 18.9991"
+                        stroke="#aaa"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M4.99996 18.9991L18.999 5"
+                        stroke="#aaa"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </template>
         </button>
         <div
             v-if="open && state.search.length > 0"
