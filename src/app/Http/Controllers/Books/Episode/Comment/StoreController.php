@@ -15,15 +15,22 @@ class StoreController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * コメントの保存
-     *
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | コメントの保存
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Comment $comment, Request $request)
     {
         $comment->user_id = Auth::user()->id;
         $comment->episode_id = $request->episode_number;
         $comment->comment = $request->comment;
+
+        // コメントへのリプライなら
+        if ($request->parent_id) {
+            $comment->parent_id = $request->parent_id;
+        };
+
         $comment->save();
 
         return redirect()->back();

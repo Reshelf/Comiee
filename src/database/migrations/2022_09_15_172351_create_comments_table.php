@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id'); // ユーザー
             $table->integer('episode_id'); // エピソード
+            $table->integer('parent_id')->nullable(); // リプライ用
 
             $table->text('comment', 400);
 
