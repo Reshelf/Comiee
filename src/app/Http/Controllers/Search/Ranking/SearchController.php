@@ -36,7 +36,9 @@ class SearchController extends Controller
             if ($sort_basis === 'お気に入り数') {
                 $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
             } elseif ($sort_basis === '再生回数') {
-                # code...
+                // この中で再生回数取得処理を書く
+                // $test = "テスト";
+                // dd($test);
             }
         }
 
@@ -46,11 +48,9 @@ class SearchController extends Controller
             if ($sort_time === '年間') {
                 $year = Carbon::today()->subDay(365);
                 $query->whereDate('created_at', $year)->get();
-            
             } elseif ($sort_time === '月間') {
                 $month = Carbon::today()->subDay(30);
                 $query->whereDate('created_at', $month)->get();
-            
             } elseif ($sort_time === '週間') {
                 $week = Carbon::today()->subDay(7);
                 $query->whereDate('created_at', $week)->get();
@@ -66,15 +66,22 @@ class SearchController extends Controller
         }
 
 
-        // 読了作品のカラム取得
+        // 読了作品のカラム取得 → 中間テーブル
         if ($sort_read != null) {
-            if ($sort_read === '読了作品のみ') {}
+            if ($sort_read === '読了作品のみ') {
+            }
         }
+        // ユーザー = users、 作品 = books
+        // 「読了」 は多対多なので 中間テーブルが必要
+        // php artisan make:migration 〇〇〜 で中間テーブルを作成
+        // 中間テーブルでuser_idとbook_idを取得して ＋ 読了フラグをつける
+        // https://qiita.com/morikuma709/items/9fde633db9171b36a068
 
 
-        // 非表示作品のカラム取得
+        // 非表示作品のカラム取得 → 中間テーブル
         if ($sort_hidden != null) {
-            if ($sort_hidden === '非表示作品は除く') {}
+            if ($sort_hidden === '非表示作品は除く') {
+            }
         }
 
 
