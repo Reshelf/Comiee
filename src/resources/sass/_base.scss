@@ -321,3 +321,15 @@ button[disabled] {
         }
     }
 }
+
+.tooltip {
+    @apply relative;
+    .tooltip-item {
+        @apply hidden;
+    }
+    &:hover {
+        .tooltip-item {
+            @apply absolute block top-[35px] rounded-[3px] p-2 text-white bg-dark whitespace-nowrap;
+        }
+    }
+}
