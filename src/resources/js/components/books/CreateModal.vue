@@ -4,55 +4,35 @@ import { ref } from "vue";
 const open = ref(false);
 </script>
 <template>
-    <div @click.self="open = false" class="list-item">
-        <div @click="open = true" class="flex flex-col cursor-pointer">
-            <!-- <svg
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
+    <div @click.self="open = false" class="">
+        <div @click="open = true" class="tooltip cursor-pointer">
+            <svg
+                class="w-[28px] h-[28px] stroke-[#606060]"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
                 fill="none"
-                class="list-item-img rounded-sm border-2 border-eee hover:border-ddd"
             >
-                <rect width="200" height="200" fill="white" />
-                <rect x="95" y="70" width="10" height="60" fill="#DDDDDD" />
-                <rect
-                    x="70"
-                    y="105"
-                    width="10"
-                    height="60"
-                    transform="rotate(-90 70 105)"
-                    fill="#D9D9D9"
+                <path
+                    d="M8 12H16"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                 />
-            </svg> -->
-            <div
-                class="circle bg-white dark:bg-dark-1 rounded-[3px] w-[200px] min-w-[200px] max-w-[200px] h-[200px] min-h-200[px] max-h-[200px] flex items-center justify-center"
-            >
-                <div
-                    class="dotted flex items-center justify-center rounded-full h-[100px] w-[100px] border-4 border-dotted border-ccc"
-                >
-                    <div
-                        class="bg-primary rounded-full h-[60px] w-[60px] flex items-center justify-center"
-                    >
-                        <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 60 60"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <rect x="25" width="10" height="60" fill="white" />
-                            <rect
-                                y="35"
-                                width="10"
-                                height="60"
-                                transform="rotate(-90 0 35)"
-                                fill="white"
-                            />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <span class="mt-2">新しく作品を追加する</span>
+                <path
+                    d="M12 16V8"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+            <span class="tooltip-item right-[-40px]">新しく作品を追加する</span>
         </div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">

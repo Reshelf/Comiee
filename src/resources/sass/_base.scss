@@ -323,13 +323,13 @@ button[disabled] {
 }
 
 .tooltip {
-    @apply relative;
+    @apply relative block h-full;
     .tooltip-item {
         @apply hidden;
     }
     &:hover {
         .tooltip-item {
-            @apply absolute block top-[35px] rounded-[3px] p-2 text-white bg-dark whitespace-nowrap;
+            @apply absolute block top-[35px] z-[999] rounded-[3px] p-2 text-white bg-dark whitespace-nowrap;
         }
     }
 }

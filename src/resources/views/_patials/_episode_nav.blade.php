@@ -69,19 +69,18 @@
                                     0 pt
                                     <span class="tooltip-item right-[-40px]">ポイントを追加する</span>
                                 </a>
-                                <a href="" class="tooltip h-full block mr-8">
-                                    <svg class="w-[28px] h-[28px] stroke-[#606060]" width="28" height="28"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <path d="M8 12H16" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 16V8" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <path
-                                            d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <span class="tooltip-item right-[-40px]">作品を投稿する</span>
-                                </a>
+                                <div class="flex items-center h-full mr-8">
+                                    <create-modal>
+                                        <template #header>新しく作品を追加する</template>
+                                        @include('_patials._error_card_list')
+                                        <form method="POST" action="{{ route('book.store') }}"
+                                            enctype="multipart/form-data">
+                                            @include('books._patials.form')
+                                            <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                                    class="btn">投稿する</button></div>
+                                        </form>
+                                    </create-modal>
+                                </div>
                                 <header-user-modal>
                                     <template #avatar>
                                         @if (empty(Auth::user()->avatar))
