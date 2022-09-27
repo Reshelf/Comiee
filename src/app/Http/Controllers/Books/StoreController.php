@@ -16,10 +16,11 @@ class StoreController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 投稿の保存
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の投稿
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(BookRequest $request, Book $book)
     {
         // ポリシー

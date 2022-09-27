@@ -13,12 +13,11 @@ class UpdateController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | エピソードの更新
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request, $id)
     {
         $update = [

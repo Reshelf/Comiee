@@ -13,10 +13,11 @@ class UnlikeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 作品へのいいね解除
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品のお気に入りを解除する
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request, Book $book)
     {
         $book->likes()->detach($request->user()->id);

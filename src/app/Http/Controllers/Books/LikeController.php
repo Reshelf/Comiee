@@ -13,10 +13,11 @@ class LikeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 作品へのいいね
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品をお気に入りに追加する
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request, Book $book)
     {
         // 作者以外のユーザー

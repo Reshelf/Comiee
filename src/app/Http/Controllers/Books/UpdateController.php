@@ -14,10 +14,11 @@ class UpdateController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 作品の更新
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の更新
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(BookRequest $request, Book $book)
     {
         // ポリシー

@@ -10,9 +10,11 @@ use Faker\Core\Number;
 
 class EditController extends Controller
 {
-    /**
-     * $episodeにはチャプターコードが入ってきてます
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | チャプター編集
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Book $book, Episode $episode)
     {
         $episode = Episode::where('id', $episode)->first();

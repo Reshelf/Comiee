@@ -12,10 +12,11 @@ class DestroyController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * 作品の削除
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の削除
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Episode $episode)
     {
         // $this->authorize('delete', $episode);

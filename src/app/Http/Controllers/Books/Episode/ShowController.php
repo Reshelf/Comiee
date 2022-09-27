@@ -17,12 +17,11 @@ class ShowController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | エピソードの詳細
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Tag $tag, Request $request)
     {
         // 作品

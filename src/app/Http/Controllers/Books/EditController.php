@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    /**
-     * 作品の編集
-     * ポリシー(src/app/Policies/BookPolicy.php)
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の編集
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Book $book, Tag $tag, Request $request)
     {
         $this->authorize('update', $book);
