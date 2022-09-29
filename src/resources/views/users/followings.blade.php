@@ -5,7 +5,10 @@
 @section('content')
     @include('_patials._nav')
     <div class="">
-        @include('users._patials.user')
+        @include('users._patials.user', [
+            'mypage' => false,
+            'setting' => false,
+        ])
     </div>
     <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
         <div class="py-8 w-full">

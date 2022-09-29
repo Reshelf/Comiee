@@ -99,10 +99,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
-    Route::get('/{username}/setting', 'App\Http\Controllers\User\Setting\IndexController')->name('users.setting');
+    Route::get('/{username}/settings', 'App\Http\Controllers\User\Setting\IndexController')->name('users.settings');
 });
 Route::get('/{username}', 'App\Http\Controllers\User\ShowController')->name('users.show');
 Route::get('/{username}/likes', 'App\Http\Controllers\User\LikesController')->name('users.likes');
-Route::get('/{username}/about', 'App\Http\Controllers\User\AboutController')->name('users.about');
 Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('users.followings');
 Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('users.followers');
