@@ -54,12 +54,28 @@
                                         <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
+                                    <div class="flex items-center mr-3">
+                                        {{-- お気に入り数 --}}
+                                        <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
+                                            :initial-count-likes='@json($book->count_likes)'
+                                            :authorized='@json(Auth::check())'
+                                            endpoint="{{ route('book.like', ['book' => $book]) }}">
+                                        </book-like>
+                                        {{-- 再生回数 --}}
+                                        <div class="flex items-center text-aaa ml-4">
+                                            <svg class="stroke-666 w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none">
+                                                <path d="M16.5 9.5L12.3 13.7L10.7 11.3L7.5 14.5" stroke="#292D32"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14.5 9.5H16.5V11.5" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
 
-                                    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-                                        :initial-count-likes='@json($book->count_likes)'
-                                        :authorized='@json(Auth::check())'
-                                        endpoint="{{ route('book.like', ['book' => $book]) }}">
-                                    </book-like>
+                                            <span class="pl-2">{{ $book->views }}回</span>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         @endempty
