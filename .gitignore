@@ -2,10 +2,6 @@
 .vscode
 .env
 src/public/mix-manifest.json
-src/public/js/app.js
-src/public/css/app.css
 src/public/img/users/avatar/*
 src/public/img/users/thumbnail/*
 src/public/img/book/thumbnail/*
-src/composer.lock
-src/public/build/assets/*
