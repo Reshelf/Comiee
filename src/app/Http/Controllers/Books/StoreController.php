@@ -29,12 +29,6 @@ class StoreController extends Controller
 
         // 作品タイトル
         $book->title = $request->title;
-        // 原作
-        $book->author = $request->author;
-        // 漫画家
-        $book->manga_artist = $request->manga_artist;
-        // アシスタント
-        $book->assistant = $request->assistant;
         // あらすじ
         $book->story = $request->story;
         // サムネイル

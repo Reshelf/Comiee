@@ -30,7 +30,7 @@
                 {{-- @empty(!$book) --}}
                 <div class="w-full flex items-center px-2 mb-2">
                     <div class="flex items-center">
-                        <span class="text-666 text-lg">{{ $book_views }}</span>
+                        <span class="text-666 text-lg">{{ $book->views }}</span>
                         <span class=" text-aaa pl-2">回再生</span>
                     </div>
                 </div>
@@ -203,40 +203,12 @@
                                 </div>
                             @endempty
 
-                            {{-- 原作 --}}
-                            @empty(!$book->author)
+                            {{-- 作者 --}}
+                            @empty(!$book->user->name)
                                 <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2">原作</div>
+                                    <div class="w-1/2">作者</div>
                                     <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
-                                        class="w-1/2 hover:text-primary">{{ $book->author }}</a>
-                                </div>
-                            @endempty
-
-                            {{-- 漫画 --}}
-                            @empty(!$book->manga_artist)
-                                <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2">漫画</div>
-                                    <a href="" class="w-1/2 hover:text-primary">{{ $book->manga_artist }}</a>
-                                </div>
-                            @endempty
-
-                            {{-- アシスタント --}}
-                            @empty(!$book->assistant)
-                                <div class="w-full flex items-start mb-4 pl-2">
-                                    <div class="w-1/2">アシスタント</div>
-                                    <ul class="w-1/2 flex flex-col">
-                                        @foreach ($book->assistant as $assistant)
-                                            @if ($loop->first)
-                                            @endif
-                                            <li class="mb-1">
-                                                <a href="" class="hover:text-primary">
-                                                    {{ $assistant->name }}
-                                                </a>
-                                            </li>
-                                            @if ($loop->last)
-                                            @endif
-                                        @endforeach
-                                    </ul>
+                                        class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
                                 </div>
                             @endempty
 

@@ -19,9 +19,7 @@ return new class extends Migration
             $table->boolean('is_complete')->default(false); // 完結作品フラグ
 
             $table->string('title'); // 作品名
-            $table->string('author')->nullable(); // 原作者
-            $table->string('manga_artist')->nullable(); // 漫画家
-            $table->json('assistant')->nullable(); // アシスタント
+            $table->integer('views')->default(0); // 再生回数
             $table->text('story', 400)->nullable(); // あらすじ
             $table->string('thumbnail')->nullable(); // 作品サムネイル
 

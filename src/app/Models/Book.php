@@ -13,9 +13,6 @@ class Book extends Model
 {
     protected $fillable = [
         'title',
-        'author',
-        'manga_artist',
-        'assistant',
         'story',
         'thumbnail',
     ];
@@ -92,10 +89,10 @@ class Book extends Model
     public function tagNames(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => 
-                $this->tags->map(function ($tag) {
-                    return ['text' => $tag->name];
-                })
+            get: fn ($value) =>
+            $this->tags->map(function ($tag) {
+                return ['text' => $tag->name];
+            })
         );
     }
 
@@ -122,6 +119,4 @@ class Book extends Model
             ? (bool)$this->likes->where('id', $user->id)->count()
             : false;
     }
-
-    
 }

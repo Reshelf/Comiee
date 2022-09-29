@@ -19,14 +19,9 @@ class BookSeeder extends Seeder
         $faker = Faker::create('en_US');
 
         for ($i = 0; $i < 1000; $i++) {
-            $author = User::findOrFail(random_int(1, 100));
-            $manga_artist = User::findOrFail(random_int(1, 100));
-
             $param = [
                 'title' => $i,
                 'story' => $faker->text(400),
-                'author' => $author->name,
-                'manga_artist' => $manga_artist->name,
                 'user_id' => random_int(1, 100),
             ];
             Book::create($param);
