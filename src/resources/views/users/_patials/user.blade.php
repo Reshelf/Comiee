@@ -94,8 +94,8 @@
                 <a href="{{ route('users.show', ['username' => $user->username]) }}"
                     class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
                 @if (Auth::id() === $user->id)
-                    <a href="{{ route('users.setting', ['username' => $user->username]) }}"
-                        class="{{ $setting ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                    <a href="{{ route('users.settings', ['username' => $user->username]) }}"
+                        class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
                 @endif
             </div>
         </div>
