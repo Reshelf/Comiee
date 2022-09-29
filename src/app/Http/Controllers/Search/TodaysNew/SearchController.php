@@ -31,7 +31,7 @@ class SearchController extends Controller
             if ($sort_basis === 'お気に入り数') {
                 $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
             } elseif ($sort_basis === '再生回数') {
-                # code...
+                $query->orderBy('views', 'desc')->get();
             }
         }
 

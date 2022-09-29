@@ -36,9 +36,7 @@ class SearchController extends Controller
             if ($sort_basis === 'お気に入り数') {
                 $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
             } elseif ($sort_basis === '再生回数') {
-                // この中で再生回数取得処理を書く
-                // $test = "テスト";
-                // dd($test);
+                $query->orderBy('views', 'desc')->get();
             }
         }
 
