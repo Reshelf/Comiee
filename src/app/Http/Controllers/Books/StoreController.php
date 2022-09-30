@@ -49,6 +49,9 @@ class StoreController extends Controller
             $book->tags()->attach($tag);
         });
 
+        // 二重送信防止
+        $request->session()->regenerateToken();
+
         // リダイレクト
         return redirect()
             ->route('users.show', ['username' => $book->user->username])

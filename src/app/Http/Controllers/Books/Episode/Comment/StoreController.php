@@ -33,6 +33,9 @@ class StoreController extends Controller
 
         $comment->save();
 
+        // 二重送信防止
+        $request->session()->regenerateToken();
+
         return redirect()->back();
     }
 }

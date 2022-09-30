@@ -28,6 +28,9 @@ class StoreController extends Controller
         $episode->number = $episode->where('book_id', $request->book_id)->count() + 1;
         $episode->save();
 
+        // 二重送信防止
+        $request->session()->regenerateToken();
+
         return redirect()->back();
     }
 }
