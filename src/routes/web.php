@@ -56,7 +56,7 @@ Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyControll
 // 特許商取引
 Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
 // お問い合せ
-Route::get('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
+Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
 
 
 /*
