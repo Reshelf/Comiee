@@ -73,7 +73,7 @@
                                                 class="w-full text-left cursor-pointer p-3 rounded hover:bg-slate-100 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
                                                 ログアウト
                                             </button>
-                                            <form method="POST" action="{{ route('logout') }}">
+                                            <form id="logout-button" method="POST" action="{{ route('logout') }}">
                                                 @csrf
                                             </form>
                                         </div>
