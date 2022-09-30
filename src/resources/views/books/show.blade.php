@@ -54,13 +54,14 @@
                             <template #header>作品内容の更新</template>
                             @include('_patials._error_card_list')
                             {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                            <form id="submit-form" method="POST" enctype="multipart/form-data"
+                            <form method="POST" enctype="multipart/form-data"
                                 action="{{ route('book.update', ['book_id' => $book->id]) }}">
                                 @csrf
                                 {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                                 @method('PATCH')
                                 @include('books._patials.form')
-                                <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                <div class="w-full flex justify-end"><button
+                                        onclick="this.disabled='disabled'; this.form.submit();" type="submit"
                                         class="btn">更新する</button></div>
                             </form>
                         </book-edit-modal>
@@ -78,10 +79,11 @@
                                     <episode-list>
                                         <template #trigger>エピソードを追加する</template>
                                         <template #header>エピソードを追加する</template>
-                                        <form id="submit-form" method="POST"
+                                        <form method="POST"
                                             action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
                                             @csrf
-                                            <button id="submit-btn" type="submit" class="btn w-full">投稿する</button>
+                                            <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
+                                                class="btn w-full">投稿する</button>
                                         </form>
                                     </episode-list>
                                 @endif

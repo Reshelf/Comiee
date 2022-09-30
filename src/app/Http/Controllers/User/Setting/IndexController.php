@@ -22,6 +22,6 @@ class IndexController extends Controller
         // $user = DB::select("select * from users where username = $username limit 1");
         // $books = DB::select("select * from `books` where `books`.`user_id` = 1 and `books`.`user_id` is not null order by `created_at` desc");
 
-        return view('users.setting.index', compact('user', 'books'));
+        return view('users.settings.index', compact('user', 'books'));
     }
 }

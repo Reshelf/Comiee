@@ -1,7 +1,7 @@
 <book-edit-modal>
     <template #trigger>ログイン</template>
     <template #header>ログイン</template>
-    <form id="submit-form" method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="w-full mb-3">
             <div class="w-full mb-1 text-xs">メールアドレス</div>
@@ -14,7 +14,7 @@
                 name="password" required>
         </div>
         <input type="hidden" name="remember" value="on">
-        <button id="submit-btn" type="submit"
+        <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
             class=" bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4">ログイン</button>
     </form>
     <div class="w-full flex justify-between">
@@ -22,7 +22,3 @@
         <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
     </div>
 </book-edit-modal>
-
-@section('scripts')
-    @include('_patials._submit')
-@endsection
