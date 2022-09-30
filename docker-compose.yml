@@ -65,3 +65,8 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
+
+  container_mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
