@@ -76,7 +76,9 @@ migrate:
 fresh:
 	docker compose exec app php artisan migrate:fresh
 seed:
-	docker compose exec app php artisan db:seed
+	docker compose exec app php artisan migrate:fresh
+	docker compose exec app php artisan db:seed --class UserSeeder
+	docker compose exec app php artisan db:seed --class BookSeeder
 dacapo:
 	docker compose exec app php artisan dacapo
 refresh:
