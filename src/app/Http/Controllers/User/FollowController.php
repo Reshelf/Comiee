@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\user\NewFollowedUserMail;
+use Illuminate\Support\Facades\Auth;
+
 class FollowController extends Controller
 {
     public function __construct()
@@ -29,6 +33,11 @@ class FollowController extends Controller
 
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
+
+        // フォローされたらメール通知を送る
+        $email = $user->email;
+        Mail::to($email)->send(new NewFollowedUserMail($request->user()));
+
 
         return ['username' => $username];
     }
