@@ -36,7 +36,8 @@
                                         'following' => false,
                                     ])
                                     <div class="w-full flex justify-end">
-                                        <button type="submit" class="btn w-full">並び替える</button>
+                                        <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
+                                            class="btn w-full">並び替える</button>
                                     </div>
                                 </form>
                             </ranking-sort-modal>

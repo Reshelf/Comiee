@@ -76,7 +76,8 @@
                                         <form method="POST" action="{{ route('book.store') }}"
                                             enctype="multipart/form-data">
                                             @include('books._patials.form')
-                                            <div class="w-full flex justify-end"><button id="submit-btn" type="submit"
+                                            <div class="w-full flex justify-end"><button
+                                                    onclick="this.disabled='disabled'; this.form.submit();" type="submit"
                                                     class="btn">投稿する</button></div>
                                         </form>
                                     </create-modal>
@@ -152,7 +153,7 @@
 
                                             <span class="pl-5">ログアウト</span>
                                         </button>
-                                        <form id="logout-button" method="POST" action="{{ route('logout') }}">
+                                        <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                         </form>
                                     </div>

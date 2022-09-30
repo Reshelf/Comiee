@@ -184,7 +184,8 @@
 
                                                             <span>本当に削除してよろしいですか？</span>
                                                             <span>一度削除したら戻すことができません。</span>
-                                                            <button type="submit" class="btn-danger mt-4">削除する</button>
+                                                            <button onclick="this.disabled='disabled'; this.form.submit();"
+                                                                type="submit" class="btn-danger mt-4">削除する</button>
                                                         </form>
                                                     </delete-modal>
                                                 </div>
@@ -322,7 +323,8 @@
                                                             class="text-xs text-666 ml-2 leading-4">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="leading-4">削除する</button>
+                                                            <button onclick="this.disabled='disabled'; this.form.submit();"
+                                                                type="submit" class="leading-4">削除する</button>
                                                         </form>
                                                     @endif
                                                 </div>
@@ -389,7 +391,8 @@
                                                             class="text-xs text-666 ml-2 leading-4">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="leading-4">削除する</button>
+                                                            <button onclick="this.disabled='disabled'; this.form.submit();"
+                                                                type="submit" class="leading-4">削除する</button>
                                                         </form>
                                                     @endif
                                                 </div>

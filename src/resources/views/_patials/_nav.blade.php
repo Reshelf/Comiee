@@ -143,7 +143,7 @@
 
                                             <span class="pl-5">ログアウト</span>
                                         </button>
-                                        <form id="logout-button" method="POST" action="{{ route('logout') }}">
+                                        <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                         </form>
                                     </div>
