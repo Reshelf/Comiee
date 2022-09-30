@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\user\RegisterdUserMail;
+
 class RegisterController extends Controller
 {
     /*
@@ -67,11 +70,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $name = $data['name'];
+        $username = $data['username'];
+        $email = $data['email'];
+        $password = Hash::make($data['password']);
+
+        // メール送信
+        Mail::to($email)->send(new RegisterdUserMail($name));
+
         return User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $name,
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
         ]);
     }
 
