@@ -50,6 +50,11 @@
                     />
                 </svg>
             </button>
+
+            <div id="bg" style="display: none">
+                このページの画面操作はできません<br />
+                ページをリロードしてください
+            </div>
         </div>
 
         <!-- 2段目 -->
@@ -210,6 +215,16 @@ export default {
                 content.scrollLeft -= window_width;
             }
         };
+
+        // スクショブロック
+        let map = {};
+        onkeydown = onkeyup = function (e) {
+            map[e.keyCode] = e.type == "keydown";
+            let style = document.getElementById("bg").style;
+            if (e.metaKey) {
+                style.display = "flex";
+            }
+        };
     },
 };
 </script>
@@ -243,5 +258,22 @@ export default {
             }
         }
     }
+}
+
+#bg {
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    position: fixed;
+    font-size: 40px;
+    font-weight: 700;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 </style>
