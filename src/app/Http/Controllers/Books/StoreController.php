@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Tag;
 use App\Http\Requests\BookRequest;
-use Illuminate\Support\Str;
-use App\Models\User;
+
+// メール
+use Illuminate\Support\Facades\Mail;
+use App\Mail\books\AddNewBookMail;
 
 class StoreController extends Controller
 {
@@ -51,6 +53,12 @@ class StoreController extends Controller
 
         // 二重送信防止
         $request->session()->regenerateToken();
+
+
+        // フォロワー全員にメール通知
+        $followers = $request->user()->followers;
+        $followersMails = $followers->pluck("email");
+        Mail::to($followersMails)->send(new AddNewBookMail($request->user()));
 
         // リダイレクト
         return redirect()
