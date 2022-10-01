@@ -14,14 +14,11 @@
                                 <tr>
                                     <td style="padding:0 0 20px 0;color:#153643;">
                                         <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            Welcome to Starbooks!</h1>
+                                            {{ $user->name }}さんが<br>
+                                            あなたの作品をお気に入りに登録しました！</h1>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
-                                            {{ $name }}さん ようこそ！<br><br>
-                                            Starbooksは漫画のグローバルプラットフォームです。<br>
-                                            読者として新しい漫画と出会い、作者として漫画を投稿することができます。<br>
-                                            作品との新しい出会いとあなたの作品を世界に届けるプラットフォームとしてStarbooksをご利用ください！<br><br>
-                                            それではプラットフォームでお会いしましょう！
+                                            すぐに確認してみましょう！<br>
                                         </p>
                                     </td>
                                 </tr>
