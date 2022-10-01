@@ -214,17 +214,63 @@ export default {
             if (e.key === "ArrowLeft") {
                 content.scrollLeft -= window_width;
             }
-        };
 
-        // スクショブロック
-        let map = {};
-        onkeydown = onkeyup = function (e) {
-            map[e.keyCode] = e.type == "keydown";
-            let style = document.getElementById("bg").style;
-            if (e.metaKey) {
-                style.display = "flex";
+            // スクショブロック
+            let bg = document.getElementById("bg").style;
+            if (
+                e.metaKey ||
+                e.key == "RightCommand" ||
+                e.key == "LeftCommand" ||
+                e.key == "F12"
+            ) {
+                bg.display = "flex";
             }
         };
+
+        window.oncontextmenu = function () {
+            return false;
+        };
+        document.addEventListener(
+            "keydown",
+            function (event) {
+                var key = event.key || event.keyCode;
+
+                if (key == 123) {
+                    return false;
+                } else if (
+                    (event.ctrlKey && event.shiftKey && key == 73) ||
+                    (event.ctrlKey && event.shiftKey && key == 74)
+                ) {
+                    return false;
+                }
+            },
+            false
+        );
+
+        document.addEventListener("keyup", function (e) {
+            var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+        function stopPrntScr() {
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+        function AccessClipboardData() {
+            try {
+                window.clipboardData.setData("text", "Access   Restricted");
+            } catch (err) {}
+        }
+        setInterval("AccessClipboardData()", 300);
     },
 };
 </script>
