@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Others;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\others\ContactMail;
 
 class ContactController extends Controller
 {
     /**
      * お問い合わせ
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return view('others.contact');
+
+        $email = 'info@starbooks.com';
+
+        Mail::to($email)->send(new ContactMail($request->user(), $request->body));
+
+        return back();
     }
 }
