@@ -98,7 +98,9 @@
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($episode->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
-                                                    class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                    class="block dark:hidden w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                <img src="/img/bg-dark.svg" alt="thumbnail"
+                                                    class="hidden dark:block w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @else
                                                 <img src="{{ asset('/img/book/thumbnail/' . $episode->thumbnail) }}"
                                                     alt="" class="w-[160px] h-[80px] object-cover flex-shrink-0">
@@ -275,7 +277,9 @@
                                                         class="flex items-center">
                                                         @empty($comment->user->avatar)
                                                             <img src="{{ asset('/img/bg.svg') }}" alt=""
-                                                                class="h-8 w-8 rounded-full">
+                                                                class="block dark:hidden h-8 w-8 rounded-full">
+                                                            <img src="{{ asset('/img/bg-dark.svg') }}" alt=""
+                                                                class="hidden dark:block h-8 w-8 rounded-full">
                                                         @else
                                                             <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}"
                                                                 alt="" class="h-8 w-8 rounded-full">
@@ -343,7 +347,9 @@
                                                         class="flex items-center">
                                                         @empty($comment->user->avatar)
                                                             <img src="{{ asset('/img/bg.svg') }}" alt=""
-                                                                class="h-8 w-8 rounded-full">
+                                                                class="block dark:hidden h-8 w-8 rounded-full">
+                                                            <img src="{{ asset('/img/bg-dark.svg') }}" alt=""
+                                                                class="hidden dark:block h-8 w-8 rounded-full">
                                                         @else
                                                             <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}"
                                                                 alt="" class="h-8 w-8 rounded-full">
@@ -426,7 +432,10 @@
                 <div class="book-show-contents">
                     {{-- サムネイル --}}
                     @empty($book->thumbnail)
-                        <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="/img/bg.svg" alt="thumbnail"
+                            class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="/img/bg-dark.svg" alt="thumbnail"
+                            class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
                     @else
                         <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
                             class="w-[250px] h-[250px] object-cover flex-shrink-0">

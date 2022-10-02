@@ -94,7 +94,9 @@
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($book->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
-                                                    class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                    class="block dark:hidden w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                <img src="/img/bg-dark.svg" alt="thumbnail"
+                                                    class="hidden dark:block w-[160px] h-[80px] object-cover flex-shrink-0">
                                             @else
                                                 <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
                                                     class="w-[160px] h-[80px] object-cover flex-shrink-0">
@@ -249,7 +251,10 @@
                 <div class="book-show-contents">
                     {{-- サムネイル --}}
                     @empty($book->thumbnail)
-                        <img src="/img/bg.svg" alt="thumbnail" class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="/img/bg.svg" alt="thumbnail"
+                            class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="/img/bg-dark.svg" alt="thumbnail"
+                            class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
                     @else
                         <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
                             class="w-[250px] h-[250px] object-cover flex-shrink-0">

@@ -93,7 +93,7 @@ function reset() {
                     <img
                         v-else
                         src="/img/bg.svg"
-                        class="w-[70px] h-[70px] object-cover"
+                        class="dark:fill-dark w-[70px] h-[70px] object-cover"
                     />
                     <div class="ml-4 w-[200px]">
                         <div class="text-xl font-semibold">

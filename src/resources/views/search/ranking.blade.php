@@ -52,7 +52,13 @@
                             @foreach ($books as $book)
                                 <div class="list-item">
                                     <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
-                                        <img src="/img/bg.svg" alt="thumbnail" class="list-item-img">
+                                        @empty($book->thumbnail)
+                                            <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden list-item-img">
+                                            <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block list-item-img">
+                                        @else
+                                            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
+                                                class="list-item-img">
+                                        @endempty
                                         <span class="thumbnail-title">{{ $book->title }}</span>
                                     </a>
                                     <div class="flex items-center mr-3">
