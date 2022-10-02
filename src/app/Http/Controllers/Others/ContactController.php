@@ -15,11 +15,9 @@ class ContactController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-        $email = 'info@starbooks.com';
+        $email = 'info@starbooks.one';
 
         Mail::to($email)->send(new ContactMail($request->user(), $request->body));
-
         return back();
     }
 }
