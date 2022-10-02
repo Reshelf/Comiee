@@ -76,13 +76,13 @@ function reset() {
         </button>
         <div
             v-if="open && state.search.length > 0"
-            class="absolute top-[30px] bg-white shadow-lg z-[999] overflow-y-auto max-h-[500px] scroll-none rounded-[3px] p-2"
+            class="absolute dark:bg-dark top-[30px] bg-white shadow-lg z-[999] overflow-y-auto max-h-[500px] scroll-none rounded-[3px] p-2"
         >
             <a
                 v-for="item in filter"
                 :key="item"
                 @click="locate(item)"
-                class="flex items-center p-4 cursor-pointer hover:bg-[#f5f5f5] rounded"
+                class="flex items-center p-4 cursor-pointer dark:hover:bg-dark-1 hover:bg-[#f5f5f5] rounded"
             >
                 <div class="flex items-center">
                     <img
