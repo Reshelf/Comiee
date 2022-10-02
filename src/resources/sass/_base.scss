@@ -184,19 +184,22 @@ img {
             max-width: 90%;
         }
     }
-}
 
-.close {
-    @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-2 rounded duration-300 cursor-pointer shadow;
-    top: -10px;
-    right: -10px;
-    &:hover {
-        @apply shadow-lg;
-        top: -7px;
-        right: -7px;
+    .header {
+        @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark-1 text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
     }
-    svg {
-        @apply dark:fill-ddd;
+
+    .close {
+        @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-2 rounded duration-300 cursor-pointer shadow dark:shadow-dark dark:shadow-xl hover:shadow-lg;
+        top: -10px;
+        right: -10px;
+        &:hover {
+            top: -7px;
+            right: -7px;
+        }
+        svg {
+            @apply dark:fill-ddd;
+        }
     }
 }
 
