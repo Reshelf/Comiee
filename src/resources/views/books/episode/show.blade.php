@@ -414,15 +414,7 @@
 
                 {{-- 右サイドバー --}}
                 <div class="pl-4 lg:w-1/3">
-                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center">
-                        広告４
-                    </div>
-                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告５
-                    </div>
-                    <div class="w-[300px] h-[300px] bg-eee text-2xl flex items-center justify-center mt-2">
-                        広告６
-                    </div>
+
                 </div>
             </div>
         </div>
