@@ -5,9 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+// メール
 use Illuminate\Support\Facades\Mail;
 use App\Mail\user\NewFollowedUserMail;
+
 use Illuminate\Support\Facades\Auth;
 
 class FollowController extends Controller
