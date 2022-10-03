@@ -93,7 +93,7 @@
                                 @endif
                                 @foreach ($episodes as $episode)
                                     <div
-                                        class=" hover:bg-f5 my-2 py-2 border-b border-ddd flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                                        class="dark:hover:bg-dark-1 hover:bg-f5 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                                         <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($episode->thumbnail)
@@ -201,7 +201,7 @@
                         <template #info>
                             {{-- あらすじ --}}
                             @empty(!$book->story)
-                                <div class="w-full flex flex-col border-b border-ccc pb-6 mb-6 pl-2">
+                                <div class="w-full flex flex-col border-b border-ccc dark:border-dark-1 pb-6 mb-6 pl-2">
                                     <div class="text-sm">
                                         {!! nl2br($book->story) !!}
                                     </div>

@@ -7,7 +7,7 @@ const open = ref(false);
     <div @click.self="open = false" class="">
         <div @click="open = true" class="tooltip cursor-pointer">
             <svg
-                class="w-[28px] h-[28px] stroke-[#606060]"
+                class="w-[28px] h-[28px] stroke-[#606060] dark:stroke-ddd"
                 width="28"
                 height="28"
                 viewBox="0 0 24 24"
