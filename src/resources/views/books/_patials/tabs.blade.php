@@ -30,8 +30,10 @@
     @endauth
 </div>
 <div class="w-full flex flex-col items-start justify-center p-2 mb-4">
-    <h3 class="font-semibold mb-2">ジャンルからさがす</h3>
-    <h3 class="font-semibold mb-2">カテゴリーからさがす</h3>
+    <h3 class="mb-4 hover:text-primary cursor-pointer">ジャンルからさがす</h3>
+    <tag-search-modal>
+        <template #trigger>タグからさがす</template>
+    </tag-search-modal>
     {{-- <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
         aria-current="page">
         恋愛

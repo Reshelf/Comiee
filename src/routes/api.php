@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('/search-words', 'App\Http\Controllers\Api\Search\SearchWordController');
+Route::get('/search-tags', 'App\Http\Controllers\Api\Search\SearchTagsController');
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');

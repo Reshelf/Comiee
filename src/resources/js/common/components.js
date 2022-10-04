@@ -24,6 +24,8 @@ import Modal from "../components/Modal.vue";
 // search
 import RankingSortModal from "../components/search/RankingSortModal.vue";
 import SearchForm from "../components/search/SearchForm.vue";
+import TagSearchModal from "../components/search/TagSearchModal.vue";
+//
 import ThemeToggle from "../components/ThemeToggle.vue";
 // users
 import AvatarZoom from "../components/users/AvatarZoom.vue";
@@ -33,6 +35,7 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 
 export default {
     BasicModal,
+    TagSearchModal,
     SearchForm,
     RankingSortModal,
     BookTab,

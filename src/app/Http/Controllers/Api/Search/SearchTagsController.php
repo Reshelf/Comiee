@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Api\Search;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
+use App\Models\Tag;
 
-class SearchWordController extends Controller
+class SearchTagsController extends Controller
 {
 
     /*
     |--------------------------------------------------------------------------
-    | キーワード検索
+    | タグ検索
     |--------------------------------------------------------------------------
     */
-    public function __invoke(Book $book)
+    public function __invoke(Tag $tag)
     {
-        $all = Book::all()->sortByDesc('created_at')->load(['user']);
+        $allTags = $tag->all_tag_names;
 
-        return response()->json($all);
+        return response()->json($allTags);
     }
 }
