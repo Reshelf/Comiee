@@ -30,88 +30,10 @@
     @endauth
 </div>
 <div class="w-full flex flex-col items-start justify-center p-2 mb-4">
-    <h3 class="mb-4 hover:text-primary cursor-pointer">ジャンルからさがす</h3>
+    <genre-search class="mb-4">
+        <template #trigger>ジャンルから探す</template>
+    </genre-search>
     <tag-search-modal>
         <template #trigger>タグからさがす</template>
     </tag-search-modal>
-    {{-- <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        恋愛
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        ヒューマンドラマ
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        ギャグ・コメディー
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        職業・ビジネス
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        サスペンス・ヒストリー
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        歴史・時代劇
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        スポーツ
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        動物・ペット
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        アドベンチャー
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        ホラー
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        SF・ファンタジー
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        グルメ
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        医療・病院系
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        裏社会・アングラ
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        ヤンキー・極道・任侠
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        青春・学園
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        格闘・アクション
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        子育て・夫婦・姑
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        エッセイ
-    </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
-        雑誌
-    </a> --}}
 </div>

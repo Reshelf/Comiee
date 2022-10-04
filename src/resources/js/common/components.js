@@ -22,6 +22,7 @@ import HeaderUserModal from "../components/HeaderUserModal.vue";
 import HoverMenu from "../components/HoverMenu.vue";
 import Modal from "../components/Modal.vue";
 // search
+import GenreSearch from "../components/search/GenreSearch.vue";
 import RankingSortModal from "../components/search/RankingSortModal.vue";
 import SearchForm from "../components/search/SearchForm.vue";
 import TagSearchModal from "../components/search/TagSearchModal.vue";
@@ -36,6 +37,7 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 export default {
     BasicModal,
     TagSearchModal,
+    GenreSearch,
     SearchForm,
     RankingSortModal,
     BookTab,
