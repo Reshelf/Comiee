@@ -59,7 +59,7 @@
 
         <!-- 2段目 -->
         <div class="w-full bg-dark-1 px-4 py-2 flex justify-between">
-            <div class="">レビューを書く</div>
+            <div class="text-eee"></div>
             <div class="flex text-ccc">
                 <div
                     v-if="!fullScreen"
@@ -131,7 +131,7 @@
                     <span class="pl-2 text-xs">通常</span>
                 </div>
             </div>
-            <div>SNSシェア</div>
+            <div class="text-eee">SNSシェア</div>
         </div>
     </div>
 </template>

@@ -55,7 +55,6 @@ onMounted(() => {
                         <input
                             type="text"
                             v-model="state.search"
-                            ref="anyName"
                             @focus="open = true"
                             placeholder="検索"
                             class="py-2 px-4 border w-full border-bbb rounded dark:bg-dark-1 dark:border-dark"
