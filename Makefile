@@ -2,8 +2,10 @@ up:
 	./vendor/bin/sail up -d
 deploy:
 	serverless deploy
+remove:
+	serverless remove
 down:
-	./vendor/bin/sail down
+	./vendor/bin/sail down --rmi all -v
 destroy:
 	./vendor/bin/sail down --rmi all --volumes --remove-orphans
 logs:
