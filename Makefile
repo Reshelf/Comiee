@@ -12,6 +12,8 @@ deploy:
 	./vendor/bin/sail artisan config:clear && serverless deploy
 remove:
 	serverless remove
+share:
+	./vendor/bin/sail share
 logs:
 	./vendor/bin/sail logs
 ci:

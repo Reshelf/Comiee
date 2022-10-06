@@ -8,7 +8,12 @@
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto p-4 lg:p-8 mb-8">
             <div class="mb-4">
-                @include('books._patials.tabs')
+                @include('books._patials.tabs', [
+                    'ranking' => false,
+                    'todays_new' => true,
+                    'like' => false,
+                    'following' => false,
+                ])
             </div>
 
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
@@ -17,13 +22,13 @@
                     {{-- 並び替え --}}
                     <div class="w-full max-w-8xl mx-auto mb-4">
                         <div class="relative flex items-center justify-between">
-                            @include('search._patials._tabs', [
+                            @include('search._patials._term_tabs', [
                                 'ranking' => false,
                                 'todays_new' => true,
                                 'like' => false,
                                 'following' => false,
                             ])
-                            <ranking-sort-modal class="flex justify-end mr-4">
+                            <ranking-sort-modal class="flex justify-end ml-auto mr-4">
                                 <template #trigger>並び替え</template>
                                 @include('_patials._error_card_list')
                                 <form method="POST" action="{{ route('todays_new.search') }}">

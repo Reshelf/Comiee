@@ -8,7 +8,12 @@
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto p-4 lg:p-8 mb-8">
             <div class="mb-4">
-                @include('books._patials.tabs')
+                @include('books._patials.tabs', [
+                    'ranking' => true,
+                    'todays_new' => false,
+                    'like' => false,
+                    'following' => false,
+                ])
             </div>
 
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
@@ -18,7 +23,7 @@
                         <div class="relative flex items-center justify-between">
 
                             {{-- たぶ --}}
-                            @include('search._patials._tabs', [
+                            @include('search._patials._term_tabs', [
                                 'ranking' => true,
                                 'todays_new' => false,
                                 'like' => false,
