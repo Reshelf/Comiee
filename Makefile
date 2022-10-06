@@ -1,17 +1,23 @@
 up:
 	./vendor/bin/sail up -d
+down:
+	./vendor/bin/sail down
+init:
+	./vendor/bin/sail up -d
+	@make migrate
+	@make seed
+destroy:
+	docker system prune --volumes -f
 deploy:
-	serverless deploy
+	./vendor/bin/sail artisan config:clear && serverless deploy
 remove:
 	serverless remove
-down:
-	./vendor/bin/sail down --rmi all -v
-destroy:
-	./vendor/bin/sail down --rmi all --volumes --remove-orphans
 logs:
 	./vendor/bin/sail logs
 ci:
 	./vendor/bin/sail composer update && ./vendor/bin/sail composer install
+dev-container:
+	./vendor/bin/sail artisan sail:install --devcontainer
 master:
 	git fetch && git pull origin master && git push
 logs-watch:
@@ -35,7 +41,6 @@ migrate:
 fresh:
 	./vendor/bin/sail artisan migrate:fresh
 seed:
-	./vendor/bin/sail artisan migrate:fresh
 	./vendor/bin/sail artisan db:seed --class UserSeeder
 	./vendor/bin/sail artisan db:seed --class BookSeeder
 dacapo:
