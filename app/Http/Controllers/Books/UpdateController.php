@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers\Books;
+
+use App\Http\Controllers\Controller;
+use App\Models\Book;
+use App\Models\Tag;
+use App\Http\Requests\BookRequest;
+
+class UpdateController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の更新
+    |--------------------------------------------------------------------------
+    */
+    public function __invoke(BookRequest $request, Book $book)
+    {
+        // ポリシー
+        $this->authorize('update', $book);
+
+        // 作品タイトル
+        $book->title = $request->title;
+        // あらすじ
+        $book->story = $request->story;
+        // サムネイル
+        if ($request->has('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/book/thumbnail'), $filename);
+            $book->thumbnail = $request->file('thumbnail')->getClientOriginalName();
+        }
+        // タグ
+        $book->tags()->detach();
+        $request->tags->each(function ($tagName) use ($book) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $book->tags()->attach($tag);
+        });
+        // 保存
+        $book->save();
+
+        // リロード
+        return back();
+    }
+}

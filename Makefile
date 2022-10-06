@@ -1,125 +1,88 @@
 up:
-	docker compose up -d
-build:
-	docker compose build --no-cache --force-rm
-laravel-install:
-	docker compose exec app composer create-project --prefer-dist laravel/laravel .
-create-project:
-	mkdir -p src
-	@make build
-	@make up
-	@make laravel-install
-	docker compose exec app php artisan key:generate
-	docker compose exec app php artisan storage:link --force
-	docker compose exec app chmod -R 777 storage bootstrap/cache
-	@make fresh
-install-recommend-packages:
-	docker compose exec app composer require doctrine/dbal
-	docker compose exec app composer require --dev ucan-lab/laravel-dacapo
-	docker compose exec app composer require --dev barryvdh/laravel-ide-helper
-	docker compose exec app composer require --dev beyondcode/laravel-dump-server
-	docker compose exec app composer require --dev barryvdh/laravel-debugbar
-	docker compose exec app composer require --dev roave/security-advisories:dev-master
-	docker compose exec app php artisan vendor:publish --provider="BeyondCode\DumpServer\DumpServerServiceProvider"
-	docker compose exec app php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
-init:
-	docker compose up -d --build
-	docker compose exec app composer self-update
-	docker compose exec app composer update
-	docker compose exec app composer install
-	docker compose exec app cp .env.example .env
-	docker compose exec app php artisan key:generate
-	docker compose exec app php artisan storage:link --force
-	docker compose exec app chmod -R 777 storage bootstrap/cache
-	@make cache
-	docker compose exec app php artisan migrate
-remake:
-	@make destroy
-	@make init
-stop:
-	docker compose stop
+	./vendor/bin/sail up -d
+deploy:
+	serverless deploy
 down:
-	docker compose down --remove-orphans
-down-v:
-	docker compose down --remove-orphans --volumes
-restart:
-	@make down
-	@make up
+	./vendor/bin/sail down
 destroy:
-	docker compose down --rmi all --volumes --remove-orphans
-ps:
-	docker compose ps
+	./vendor/bin/sail down --rmi all --volumes --remove-orphans
 logs:
-	docker compose logs
+	./vendor/bin/sail logs
+ci:
+	./vendor/bin/sail composer update && ./vendor/bin/sail composer install
 master:
 	git fetch && git pull origin master && git push
 logs-watch:
-	docker compose logs --follow
+	./vendor/bin/sail logs --follow
 log-web:
-	docker compose logs web
+	./vendor/bin/sail logs web
 log-web-watch:
-	docker compose logs --follow web
+	./vendor/bin/sail logs --follow web
 log-app:
-	docker compose logs app
+	./vendor/bin/sail logs app
 log-app-watch:
-	docker compose logs --follow app
+	./vendor/bin/sail logs --follow app
 log-db:
-	docker compose logs db
+	./vendor/bin/sail logs db
 log-db-watch:
-	docker compose logs --follow db
-web:
-	docker compose exec web bash
+	./vendor/bin/sail logs --follow db
 app:
-	docker compose exec app bash
+	./vendor/bin/sail bash
 migrate:
-	docker compose exec app php artisan migrate
+	./vendor/bin/sail artisan migrate
 fresh:
-	docker compose exec app php artisan migrate:fresh
+	./vendor/bin/sail artisan migrate:fresh
 seed:
-	docker compose exec app php artisan migrate:fresh
-	docker compose exec app php artisan db:seed --class UserSeeder
-	docker compose exec app php artisan db:seed --class BookSeeder
+	./vendor/bin/sail artisan migrate:fresh
+	./vendor/bin/sail artisan db:seed --class UserSeeder
+	./vendor/bin/sail artisan db:seed --class BookSeeder
 dacapo:
-	docker compose exec app php artisan dacapo
+	./vendor/bin/sail artisan dacapo
 refresh:
-	docker compose exec app php artisan migrate:refresh
+	./vendor/bin/sail artisan migrate:refresh
 tinker:
-	docker compose exec app php artisan tinker
+	./vendor/bin/sail artisan tinker
 test:
-	docker compose exec app php artisan test
+	./vendor/bin/sail artisan test
 optimize:
-	docker compose exec app php artisan optimize
+	./vendor/bin/sail artisan optimize
 optimize-clear:
-	docker compose exec app php artisan optimize:clear
+	./vendor/bin/sail artisan optimize:clear
 cache:
-	docker compose exec app composer dump-autoload -o
 	@make optimize
-	docker compose exec app php artisan event:cache
-	docker compose exec app php artisan view:cache
-cache-clear:
-	docker compose exec app composer clear-cache
 	@make optimize-clear
-	docker compose exec app php artisan event:clear
+	./vendor/bin/sail composer dump-autoload -o
+	./vendor/bin/sail artisan event:cache
+	./vendor/bin/sail artisan event:clear
+	./vendor/bin/sail artisan view:cache
+	./vendor/bin/sail artisan view:clear
+	./vendor/bin/sail composer dump-autoload
+	./vendor/bin/sail artisan clear-compiled
+	./vendor/bin/sail artisan cache:clear
+	./vendor/bin/sail artisan config:cache
+	./vendor/bin/sail artisan config:clear
+	./vendor/bin/sail artisan route:cache
+	./vendor/bin/sail artisan route:clear
+	./vendor/bin/sail composer clear-cache
 db:
-	docker compose exec db bash
+	./vendor/bin/sail exec db bash
 sql:
-	docker compose exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
+	./vendor/bin/sail exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
-	docker compose exec redis redis-cli
+	./vendor/bin/sail exec redis redis-cli
 composer-clear:
-	docker compose exec app rm -Rf vendor/
-	docker compose exec app rm composer.lock
-	docker compose exec app composer self-update
-	docker compose exec app composer update
-	docker compose exec app composer install
+	./vendor/bin/sail rm -Rf vendor/
+	./vendor/bin/sail rm composer.lock
+	./vendor/bin/sail composer self-update
+	./vendor/bin/sail composer update
+	./vendor/bin/sail composer install
 reset:
 	rm -rf node_modules
 	rm package-lock.json
 	npm cache clear --force
 	npm cache clean --force
 	npm i
-ide-helper:
-	docker compose exec app php artisan clear-compiled
-	docker compose exec app php artisan ide-helper:generate
-	docker compose exec app php artisan ide-helper:meta
-	docker compose exec app php artisan ide-helper:models --nowrite
+dev:
+	npm run dev
+build:
+	npm run build

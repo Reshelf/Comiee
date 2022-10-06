@@ -1,0 +1,352 @@
+* {
+    box-sizing: border-box !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap");
+
+@media print {
+    html,
+    body {
+        display: none !important;
+    }
+}
+
+body {
+    @apply bg-white-1 dark:bg-dark text-t-color dark:text-t-d-color;
+    font-family: "Noto Sans JP";
+    font-size: 14px;
+}
+
+input,
+textarea {
+    @apply outline-none;
+}
+
+h1 {
+    font-family: "Josefin Sans", sans-serif;
+    // font-family: "Lobster", cursive;
+}
+
+// ダウンロードブロック
+img {
+    pointer-events: none !important;
+    -webkit-touch-callout: none !important;
+    -moz-touch-callout: none !important;
+    touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+    -khtml-user-select: none !important;
+}
+
+.st {
+    font-family: "Reggae One", cursive;
+}
+
+.sr-only {
+    @apply absolute p-0 overflow-hidden whitespace-nowrap;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
+}
+
+.scroll-none {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    list-style: none !important;
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #a8bbbf;
+    }
+}
+
+.profile-img {
+    @apply object-cover max-w-full min-w-full rounded-sm;
+    @screen md {
+        min-height: 250px;
+        max-height: 250px;
+    }
+}
+
+.btn {
+    @apply cursor-pointer font-semibold whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-2 px-6;
+    border-radius: 3px;
+}
+.btn-primary {
+    @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white py-2 px-6;
+    border-radius: 3px;
+}
+.btn-border {
+    @apply cursor-pointer whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-2 px-6;
+    border-radius: 3px;
+}
+.btn-sub {
+    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc bg-white hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
+    // background: ;
+    // &:hover {
+    //     background: #e4e6eb;
+    // }
+}
+.btn-danger {
+    @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded-sm py-2 px-6;
+}
+
+.top-hero {
+    @apply relative flex max-w-4xl w-full mx-auto px-8 justify-center items-center;
+    &-img {
+        @apply max-w-4xl w-full relative rounded;
+        img {
+            @apply w-full mx-auto object-cover rounded;
+            max-height: 200px;
+        }
+        &-bg {
+            @apply absolute bg-yellow bg-opacity-50 top-0 right-0 left-0 bottom-0 w-full h-full rounded;
+        }
+    }
+}
+.top-authed-hero {
+    @apply relative bg-white dark:bg-dark flex w-full mx-auto py-24 px-8 justify-center items-center;
+    img {
+        @apply absolute z-10 object-contain;
+        max-height: 500px;
+        margin-left: 85px;
+    }
+
+    .heart {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        animation: heart 3s infinite;
+    }
+
+    .heart::before {
+        content: "";
+        position: absolute;
+        left: 150px; /* x位置 */
+        top: 0; /* y位置 */
+        width: 150px; /* 幅 */
+        height: 250px; /* 高さ */
+        background: #ff3266; /* 色 */
+        // animation: change-color-anim 60s linear infinite;
+        transform: rotate(-45deg);
+        transform-origin: 0% 100%;
+        border-radius: 100px 60px 0 0; /* 丸み */
+        opacity: 0.75;
+    }
+
+    .heart::after {
+        content: "";
+        position: absolute;
+        left: 0; /* x位置 */
+        top: 0; /* y位置 */
+        width: 150px; /* 幅 */
+        height: 250px; /* 高さ */
+        background: #e5305c; /* 色 */
+        transform: rotate(45deg); /* 角度調整 */
+        transform-origin: 100% 100%; /* 回転の基準点 */
+        // animation: light-heart 1s infinite;
+        border-radius: 60px 100px 0 0; /* 丸み */
+        // opacity: 0.75;
+    }
+}
+
+.form-textarea {
+    @apply w-full h-full text-base;
+    min-height: 300px;
+}
+
+.overlay {
+    @apply fixed top-0 left-0 flex bg-[#0A2140] dark:bg-dark bg-opacity-50 dark:bg-opacity-50 items-center justify-center w-full h-full;
+    z-index: 9999 !important;
+}
+
+.window {
+    @apply absolute rounded-sm bg-white dark:bg-dark-1;
+    max-width: 600px;
+    @screen lg {
+        width: 600px;
+    }
+    @media screen and (max-width: 767px) {
+        max-width: 90%;
+    }
+
+    &-avatar {
+        @apply absolute dark:bg-dark-2;
+        max-width: 600px;
+        img {
+            @apply rounded;
+        }
+        @media screen and (max-width: 767px) {
+            max-width: 90%;
+        }
+    }
+
+    .header {
+        @apply relative min-h-[30px] bg-[#F2F2F2] dark:bg-dark-1 text-left rounded-t text-lg font-semibold py-3 pl-3 pr-8;
+    }
+
+    .close {
+        @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-2 rounded duration-300 cursor-pointer shadow dark:shadow-dark dark:shadow-xl hover:shadow-lg;
+        top: -10px;
+        right: -10px;
+        &:hover {
+            top: -7px;
+            right: -7px;
+        }
+        svg {
+            @apply dark:fill-ddd;
+        }
+    }
+}
+
+.avatar {
+    @apply rounded-full object-cover flex flex-shrink-0 border-4 border-white dark:border-dark;
+    min-width: 170px;
+    min-height: 170px;
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.card-body {
+    @apply p-4 break-words whitespace-pre-line;
+    a {
+        @apply inline-block text-primary my-2;
+    }
+}
+
+// $img-h: 250px;
+// $img-w: calc($img-h * 0.7);
+$img-h: 200px;
+$img-w: 200px;
+.thumbnail {
+    @apply object-cover cursor-pointer;
+    height: $img-h;
+    width: $img-w;
+    &-title {
+        @apply w-full cursor-pointer font-semibold mt-2;
+        width: $img-w;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+}
+
+.book-show {
+    @apply w-full h-full bg-white relative overflow-hidden flex items-center justify-center;
+    &-contents {
+        @apply z-10 absolute flex items-center justify-center mx-auto;
+        img {
+            // @apply;
+            height: 350px;
+            width: calc(350px * 0.7);
+        }
+    }
+}
+
+.st-show {
+    @apply w-full relative overflow-hidden flex items-center justify-center;
+    height: 500px;
+    &-bg {
+        @apply absolute w-full h-full;
+        background: rgba(0, 0, 0, 0.6);
+        &-img {
+            @apply w-full h-full object-cover;
+            filter: blur(10px);
+        }
+    }
+    &-contents {
+        @apply z-10 absolute flex items-center justify-center mx-auto;
+        img {
+            // @apply;
+            height: 350px;
+            width: calc(350px * 0.7);
+        }
+    }
+}
+
+button:disabled,
+button[disabled] {
+    @apply cursor-not-allowed duration-200 border-none;
+    background-color: #eee !important;
+    color: white !important;
+}
+
+.header-search-input {
+    input {
+        width: 400px;
+        border-radius: 3px;
+    }
+}
+
+.list-item {
+    @apply relative mb-4 list-none;
+    width: calc(20% - 10px);
+    margin-right: 5px;
+    margin-left: 5px;
+    &-img {
+        @apply w-[200px] h-[200px] object-cover flex-shrink-0;
+        @media screen and (min-width: 1600px) {
+            @apply w-[230px] h-[230px];
+        }
+        @media screen and (min-width: 1700px) {
+            @apply w-[240px] h-[240px];
+        }
+        @media screen and (min-width: 1800px) {
+            @apply w-[250px] h-[250px];
+        }
+        @media screen and (min-width: 1900px) {
+            @apply w-[260px] h-[260px];
+        }
+        @media screen and (min-width: 2000px) {
+            @apply w-[270px] h-[270px];
+        }
+    }
+}
+
+.ti-input {
+    @apply dark:bg-dark;
+    border: none !important;
+}
+.ti-valid,
+.ti-new-tag-input {
+    @apply dark:bg-dark;
+}
+.ti-selected-item {
+    background: var(--primary) !important;
+}
+
+// 並び替え検索
+.sort-select {
+    @apply relative;
+    &::after {
+        @apply absolute right-[9px] top-[17px];
+        content: "";
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4.5px solid #bbb;
+        width: 0;
+    }
+    select {
+        @apply appearance-none outline-none rounded-[3px] cursor-pointer w-full p-2 border border-bbb;
+        option {
+            @apply w-full;
+        }
+    }
+}
+
+.tooltip {
+    @apply relative block h-full;
+    .tooltip-item {
+        @apply hidden;
+    }
+    &:hover {
+        .tooltip-item {
+            @apply absolute block top-[35px] z-[999] rounded-[3px] p-2 text-white bg-dark whitespace-nowrap;
+        }
+    }
+}
