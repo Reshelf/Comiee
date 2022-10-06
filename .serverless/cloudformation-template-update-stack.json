@@ -167,7 +167,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/starbooks/dev/1665023958034-2022-10-06T02:39:18.034Z/starbooks.zip"
+          "S3Key": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z/starbooks.zip"
         },
         "Handler": "public/index.php",
         "Runtime": "provided.al2",
@@ -181,7 +181,7 @@
           ]
         },
         "Layers": [
-          "arn:aws:lambda:ap-northeast-1:209497400698:layer:php-80-fpm:44"
+          "arn:aws:lambda:ap-northeast-1:209497400698:layer:php-82-fpm:6"
         ]
       },
       "DependsOn": [
@@ -195,7 +195,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/starbooks/dev/1665023958034-2022-10-06T02:39:18.034Z/starbooks.zip"
+          "S3Key": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z/starbooks.zip"
         },
         "Handler": "artisan",
         "Runtime": "provided.al2",
@@ -209,7 +209,7 @@
           ]
         },
         "Layers": [
-          "arn:aws:lambda:ap-northeast-1:209497400698:layer:php-80:44",
+          "arn:aws:lambda:ap-northeast-1:209497400698:layer:php-82:6",
           "arn:aws:lambda:ap-northeast-1:209497400698:layer:console:69"
         ]
       },
@@ -217,24 +217,24 @@
         "ArtisanLogGroup"
       ]
     },
-    "WebLambdaVersionGyrZ4wVFmYS4l77I95NVMPqLVD5VdNBf4hjgXGq224": {
+    "WebLambdaVersioniRNUGc49wpMJZynh6nnGXXbfa4g1RaNyKA9hPhwwQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebLambdaFunction"
         },
-        "CodeSha256": "sBEYpEd97Z3NSaCeHznLu4ttpdEpDdTdH2e9MQ2cVws="
+        "CodeSha256": "cg9/+tBkvTVNtFFBjR5zMFzGm48KJMvZYfVpSBDaUDs="
       }
     },
-    "ArtisanLambdaVersionK95Xct8Hrtwg1DipXIvklzEGUDqI9mzAeThmRUumoU": {
+    "ArtisanLambdaVersion8ustdIpqbHQXEK71hlhH400MMs3yPl00oZhG099Y1A": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ArtisanLambdaFunction"
         },
-        "CodeSha256": "sBEYpEd97Z3NSaCeHznLu4ttpdEpDdTdH2e9MQ2cVws="
+        "CodeSha256": "cg9/+tBkvTVNtFFBjR5zMFzGm48KJMvZYfVpSBDaUDs="
       }
     },
     "HttpApi": {
@@ -344,7 +344,7 @@
     "WebLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebLambdaVersionGyrZ4wVFmYS4l77I95NVMPqLVD5VdNBf4hjgXGq224"
+        "Ref": "WebLambdaVersioniRNUGc49wpMJZynh6nnGXXbfa4g1RaNyKA9hPhwwQ"
       },
       "Export": {
         "Name": "sls-starbooks-dev-WebLambdaFunctionQualifiedArn"
@@ -353,7 +353,7 @@
     "ArtisanLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ArtisanLambdaVersionK95Xct8Hrtwg1DipXIvklzEGUDqI9mzAeThmRUumoU"
+        "Ref": "ArtisanLambdaVersion8ustdIpqbHQXEK71hlhH400MMs3yPl00oZhG099Y1A"
       },
       "Export": {
         "Name": "sls-starbooks-dev-ArtisanLambdaFunctionQualifiedArn"
