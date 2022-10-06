@@ -14,7 +14,7 @@
                                 <tr>
                                     <td style="padding:0 0 20px 0;color:#153643;">
                                         <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            {{ $user->name }}さんが新しい作品を投稿しました！</h1>
+                                            {{ $mailData['user']->name }}さんが新しい作品を投稿しました！</h1>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             すぐに確認してみましょう！<br>

@@ -55,8 +55,14 @@ class StoreController extends Controller
 
         // フォロワー全員にメール通知
         $followers = $request->user()->followers;
-        $followersMails = $followers->pluck("email");
-        Mail::to($followersMails)->send(new AddNewBookMail($request->user()));
+        if ($followers->count() > 0) {
+            $mailData = [
+                'user' => $request->user(),
+                'followers' => $followers,
+                'followersMails' => $followers->pluck("email")
+            ];
+            Mail::to($mailData['followers'])->send(new AddNewBookMail($mailData));
+        };
 
         // リダイレクト
         return redirect()

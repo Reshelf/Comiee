@@ -10,16 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class AddNewBookMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    public $mailData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($mailData)
     {
-        $this->user = $user;
+        $this->mailData = $mailData;
     }
 
     /**
@@ -29,8 +29,11 @@ class AddNewBookMail extends Mailable
      */
     public function build()
     {
+        $mailData = $this->mailData;
+
         return $this
             ->from(env('MAIL_FROM_ADDRESS'))
+            ->to($mailData['followers'])
             ->view('emails.books.newBook')
             ->subject('フォローしているユーザーの新しい作品が投稿されました！');
     }
