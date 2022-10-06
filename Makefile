@@ -42,8 +42,9 @@ refresh:
 	./vendor/bin/sail artisan migrate:refresh
 tinker:
 	./vendor/bin/sail artisan tinker
-test:
-	./vendor/bin/sail artisan test
+key:
+	cp .env.example .env
+	./vendor/bin/sail artisan key:generate
 optimize:
 	./vendor/bin/sail artisan optimize
 optimize-clear:
