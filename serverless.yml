@@ -2,16 +2,13 @@ service: starbooks
 
 provider:
   name: aws
-  # The AWS region in which to deploy (us-east-1 is the default)
-  region: ap-northeast-1
-  # The stage of the application, e.g. dev, production, staging… ('dev' is the default)
-  stage: dev
+  region: ap-northeast-1 # デプロイする AWS地域 (us-east-1 がデフォルト)
+  stage: dev # アプリケーションの段階 dev、production、staging… ('dev' がデフォルト)
   runtime: provided.al2
   lambdaHashingVersion: 20201221
 
 package:
-  # Directories to exclude from deployment
-  patterns:
+  patterns: # デプロイから除外するディレクトリ
     - "!node_modules/**"
     - "!public/storage"
     - "!resources/assets/**"
@@ -19,15 +16,14 @@ package:
     - "!tests/**"
 
 functions:
-  # This function runs the Laravel website/API
-  web:
-    handler: public/index.php
-    timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+  web: # この関数は、Laravel Webサイト/API を実行します
+    handler: public/index.php # HTTP 要求が着信したときに呼び出されるファイル
+    timeout: 28 # 秒単位 (API Gateway のタイムアウトは 29 秒)
     layers:
       - ${bref:layer.php-82-fpm}
     events:
       - httpApi: "*"
-  # This function lets us run artisan commands in Lambda
+  # この関数により、Lambdaでartisanコマンドを実行できます
   artisan:
     handler: artisan
     timeout: 120 # in seconds
@@ -36,5 +32,11 @@ functions:
       - ${bref:layer.console} # The "console" layer
 
 plugins:
-  # We need to include the Bref plugin
-  - ./vendor/bref/bref
+  - ./vendor/bref/bref # Bref プラグインを含める必要があります
+
+resources:
+    Resources:
+        MyBucket:
+            Type: AWS::S3::Bucket
+            Properties:
+                BucketName: 'starbooks-bucket'
