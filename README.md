@@ -1,66 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/vueuse/vueuse#gh-light-mode-only">
+  <img src="https://raw.githubusercontent.com/vueuse/vueuse/main/packages/public/logo-vertical.png#gh-light-mode-only" alt="VueUse - Collection of essential Vue Composition Utilities" width="300">
+</a>
+<a href="https://github.com/vueuse/vueuse#gh-dark-mode-only">
+  <img src="https://raw.githubusercontent.com/vueuse/vueuse/main/packages/public/logo-vertical-dark.png#gh-dark-mode-only" alt="VueUse - Collection of essential Vue Composition Utilities" width="300">
+</a>
+<br>
+Collection of essential Vue Composition Utilities
 </p>
 
-## About Laravel
+<p align="center">
+<a href="https://www.npmjs.com/package/@vueuse/core" target="__blank"><img src="https://img.shields.io/npm/v/@vueuse/core?color=a1b858&label=" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/@vueuse/core" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vueuse/core?color=50a36f&label="></a>
+<a href="https://vueuse.org" target="__blank"><img src="https://img.shields.io/static/v1?label=&message=docs%20%26%20demos&color=1e8a7a" alt="Docs & Demos"></a>
+<img alt="Function Count" src="https://vueuse.org/badge-function-count.svg">
+<br>
+<a href="https://github.com/vueuse/vueuse" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/vueuse/vueuse?style=social"></a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
+    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'>
+  </a>
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   🎪 [**Interactive docs & demos**](https://vueuse.org)
+-   🕶 **Seamless migration**: Works for **both** Vue 3 and 2
+-   ⚡ **Fully tree shakeable**: Only take what you want, [bundle size](https://vueuse.org/export-size)
+-   🦾 **Type Strong**: Written in [TypeScript](https://www.typescriptlang.org/), with [TS Docs](https://github.com/microsoft/tsdoc)
+-   🔋 **SSR Friendly**
+-   🌎 **No bundler required**: Usable via CDN
+-   🔩 **Flexible**: Configurable event filters and targets
+-   🔌 **Optional [Add-ons](https://vueuse.org/add-ons)**: Router, Firebase, RxJS, etc.
 
-## Learning Laravel
+## 🦄 Usage
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```ts
+import { useLocalStorage, useMouse, usePreferredDark } from "@vueuse/core";
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+export default {
+    setup() {
+        // tracks mouse position
+        const { x, y } = useMouse();
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+        // is user prefers dark theme
+        const isDark = usePreferredDark();
 
-## Laravel Sponsors
+        // persist state in localStorage
+        const store = useLocalStorage("my-storage", {
+            name: "Apple",
+            color: "red",
+        });
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+        return { x, y, isDark, store };
+    },
+};
+```
 
-### Premium Partners
+Refer to [functions list](https://vueuse.org/functions) or [documentations](https://vueuse.org/) for more details.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 📦 Install
 
-## Contributing
+> 🎩 From v4.0, it works for Vue 2 & 3 **within a single package** by the power of [vue-demi](https://github.com/vueuse/vue-demi)!
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+npm i @vueuse/core
+```
 
-## Code of Conduct
+[Add ons](https://vueuse.org/add-ons.html) | [Nuxt Module](https://vueuse.org/guide/index.html#nuxt)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> From v6.0, VueUse requires `vue` >= v3.2 or `@vue/composition-api` >= v1.1
 
-## Security Vulnerabilities
+###### Demos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-   [Vite + Vue 3](https://github.com/vueuse/vueuse-vite-starter)
+-   [Nuxt 3 + Vue 3](https://github.com/antfu/vitesse-nuxt3)
+-   [Webpack + Vue 3](https://github.com/vueuse/vueuse-vue3-example)
+-   [Nuxt 2 + Vue 2](https://github.com/antfu/vitesse-nuxt-bridge)
+-   [Vue CLI + Vue 2](https://github.com/vueuse/vueuse-vue2-example)
 
-## License
+### CDN
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```html
+<script src="https://unpkg.com/@vueuse/shared"></script>
+<script src="https://unpkg.com/@vueuse/core"></script>
+```
+
+It will be exposed to global as `window.VueUse`
+
+## 🪴 Project Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/a406ba7461a6a087dbdb14d4395046c948d44c51.svg "Repobeats analytics image")
+
+## 🧱 Contribute
+
+See the [**Contributing Guide**](https://vueuse.org/contributing)
+
+## 🌸 Thanks
+
+This project is heavily inspired by the following awesome projects.
+
+-   [streamich/react-use](https://github.com/streamich/react-use)
+-   [u3u/vue-hooks](https://github.com/u3u/vue-hooks)
+-   [logaretm/vue-use-web](https://github.com/logaretm/vue-use-web)
+-   [kripod/react-hooks](https://github.com/kripod/react-hooks)
+
+And thanks to [all the contributors on GitHub](https://github.com/vueuse/vueuse/graphs/contributors)!
+
+## 👨‍🚀 Contributors
+
+### Financial Contributors on Open Collective
+
+<a href="https://opencollective.com/vueuse"><img src="https://opencollective.com/vueuse/individuals.svg?width=890"></a>
+
+## 📄 License
+
+[MIT License](https://github.com/vueuse/vueuse/blob/main/LICENSE) © 2019-PRESENT [Anthony Fu](https://github.com/antfu)
