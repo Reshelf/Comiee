@@ -7,6 +7,7 @@ init:
 	@make migrate
 	@make seed
 destroy:
+	@make down
 	docker system prune --volumes -f
 deploy:
 	./vendor/bin/sail artisan config:clear && serverless deploy
@@ -52,6 +53,7 @@ refresh:
 tinker:
 	./vendor/bin/sail artisan tinker
 key:
+	rm .env
 	cp .env.example .env
 	./vendor/bin/sail artisan key:generate
 optimize:
