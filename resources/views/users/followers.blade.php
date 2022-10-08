@@ -3,7 +3,12 @@
 @section('title', $user->name . 'さんのフォロワー')
 
 @section('content')
-    @include('_patials._nav')
+    @include('_patials._nav', [
+        'ranking' => false,
+        'todays_new' => false,
+        'like' => false,
+        'following' => false,
+    ])
     <div class="">
         @include('users._patials.user', [
             'mypage' => false,

@@ -3,7 +3,12 @@
 @section('title', 'ご利用ガイド - Starbooks')
 
 @section('content')
-    @include('_patials._nav')
+    @include('_patials._nav', [
+        'ranking' => false,
+        'todays_new' => false,
+        'like' => false,
+        'following' => false,
+    ])
 
     <div class="container my-8">
         <h2 class="text-3xl font-semibold">ご利用ガイド</h2>

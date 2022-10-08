@@ -3,7 +3,12 @@
 @section('title', $tag->hashtag)
 
 @section('content')
-    @include('_patials._nav')
+    @include('_patials._nav', [
+        'ranking' => false,
+        'todays_new' => false,
+        'like' => false,
+        'following' => false,
+    ])
     <div class="relative bg-[#0A2140] dark:bg-dark bg-opacity-50 flex w-full mx-auto py-12 items-center">
         <div class="max-w-6xl w-full mx-auto text-white font-semibold flex items-center">
             <h2 class="text-3xl">「{{ $tag->hashtag }}」の検索結果</h2>
