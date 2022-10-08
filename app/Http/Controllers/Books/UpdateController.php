@@ -19,11 +19,15 @@ class UpdateController extends Controller
     | 作品の更新
     |--------------------------------------------------------------------------
     */
-    public function __invoke(BookRequest $request, Book $book)
+    public function __invoke(BookRequest $request)
     {
+        $book = Book::where('id', $request->book_id)->first();
+
         // ポリシー
         $this->authorize('update', $book);
 
+        // 投稿ユーザー
+        $book->user_id = $request->user()->id;
         // 作品タイトル
         $book->title = $request->title;
         // あらすじ
@@ -41,10 +45,11 @@ class UpdateController extends Controller
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $book->tags()->attach($tag);
         });
+
         // 保存
         $book->save();
 
         // リロード
-        return back();
+        return redirect()->back();
     }
 }
