@@ -50,7 +50,7 @@ module.exports = {
             'dark-2': '#181A1F',
             'dark-blue': '#022f61',
             //color
-            't-color': '#7c7c7c',
+            't-color': '#3e3e3e',
             't-color-2': '#565659',
             't-color-3': '#8f8f90',
             // 't-color': '#455078',
