@@ -12,20 +12,6 @@
         </div>
     </div>
 
-    @if ($ranking)
-        <div class="flex w-full mt-4">
-            <div class="w-1/2 font-semibold flex items-center">期間</div>
-            <div class="sort-select w-1/2">
-                <select name="sort_time">
-                    <option value="すべての期間">すべての期間</option>
-                    <option value="年間">年間</option>
-                    <option value="月間">月間</option>
-                    <option value="週間">週間</option>
-                </select>
-            </div>
-        </div>
-    @endif
-
     @if (!$todays_new)
         <div class="flex w-full mt-4">
             <div class="w-1/2 font-semibold flex items-center">完結作品</div>
@@ -46,28 +32,6 @@
                     <select name="sort_unread">
                         <option value="指定なし">指定なし</option>
                         <option value="未読作品のみ">未読作品のみ</option>
-                    </select>
-                </div>
-            </div>
-        @endif
-        @if ($like)
-            <div class="flex w-full mt-4">
-                <div class="w-1/2 font-semibold flex items-center">追加順</div>
-                <div class="sort-select w-1/2">
-                    <select name="sort_add">
-                        <option value="指定なし">指定なし</option>
-                        <option value="追加順">お気に入りへの追加順</option>
-                    </select>
-                </div>
-            </div>
-        @endif
-        @if (!$todays_new)
-            <div class="flex w-full mt-4">
-                <div class="w-1/2 font-semibold flex items-center">読了作品</div>
-                <div class="sort-select w-1/2">
-                    <select name="sort_read">
-                        <option value="指定なし">指定なし</option>
-                        <option value="読了作品のみ">読了作品のみ</option>
                     </select>
                 </div>
             </div>
