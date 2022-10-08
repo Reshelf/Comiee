@@ -3,7 +3,12 @@
 @section('title', $episode_story->number . '話' . ' - ' . $book->title)
 
 @section('content')
-    @include('_patials._episode_nav')
+    @include('_patials._episode_nav', [
+        'ranking' => false,
+        'todays_new' => false,
+        'like' => false,
+        'following' => false,
+    ])
 
     {{-- エピソードスクリーン --}}
     <episode-screen></episode-screen>
