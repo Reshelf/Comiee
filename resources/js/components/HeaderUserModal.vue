@@ -4,7 +4,7 @@ import { ref } from "vue";
 const open = ref(false);
 </script>
 <template>
-    <div class="relative" @mouseleave="open = false">
+    <div class="relative tracking-widest" @mouseleave="open = false">
         <button
             @mouseover="open = true"
             class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto shadow"
