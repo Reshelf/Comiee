@@ -71,6 +71,7 @@
                                     <div class="flex items-center h-full mr-8">
                                         <create-modal>
                                             <template #header>新しく作品を追加する</template>
+
                                             @include('_patials._error_card_list')
                                             <form method="POST" action="{{ route('book.store') }}"
                                                 enctype="multipart/form-data">
