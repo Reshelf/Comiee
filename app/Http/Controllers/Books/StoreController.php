@@ -61,7 +61,7 @@ class StoreController extends Controller
                 'followers' => $followers,
                 'followersMails' => $followers->pluck("email")
             ];
-            Mail::to($mailData['followers'])->send(new AddNewBookMail($mailData));
+            Mail::send(new AddNewBookMail($mailData));
         };
 
         // リダイレクト
