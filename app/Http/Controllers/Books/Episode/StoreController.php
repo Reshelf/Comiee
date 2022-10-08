@@ -38,8 +38,15 @@ class StoreController extends Controller
         // 作品をお気に入りに追加してる人に新着エピソードのメール通知
         $book = Book::where('id', $request->book_id)->first();
         $book_likes_users = $book->likes()->where('book_id', $book->id)->get();
-        $book_likes_users_emails = $book_likes_users->pluck("email");
-        Mail::to($book_likes_users_emails)->send(new AddNewEpisodeMail($request->user()));
+        if ($book_likes_users->count() > 0) {
+            $mailData = [
+                'book' => $book,
+                'episodeNumber' => $episode->number,
+                'user' => $request->user(),
+                'bookLikesUserEmails' => $book_likes_users->pluck("email")
+            ];
+            Mail::send(new AddNewEpisodeMail($mailData));
+        };
 
         return redirect()->back();
     }
