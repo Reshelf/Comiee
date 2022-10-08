@@ -305,7 +305,7 @@
 
                                                 <div class="flex items-center">
                                                     {{-- 通報 --}}
-                                                    @if ($book->user->id === Auth::user()->id)
+                                                    @if ($book->user->id !== $comment->user->id)
                                                         <comment-post-modal>
                                                             <template #trigger>
                                                                 <span class="text-666 leading-4 pr-4">通報する</span>
