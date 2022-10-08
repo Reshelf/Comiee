@@ -14,10 +14,19 @@
                                 <tr>
                                     <td style="padding:0 0 20px 0;color:#153643;">
                                         <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            {{ $user->name }}さんが新しいエピソードを投稿しました！</h1>
-                                        <p
-                                            style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
-                                            すぐに確認してみましょう！<br>
+                                            {{ $mailData['user']->name }}さんが新しいエピソードを投稿しました！</h1>
+
+                                        @empty($mailData['book']->thumbnail)
+                                            <img style="width:200px;height:200px;object-fit:cover;"
+                                                src="{{ asset('/img/bg.svg') }}" alt="">
+                                        @else
+                                            <img style="width:200px;height:200px;object-fit:cover;"
+                                                src="{{ asset('/img/book/thumbnail/' . $mailData['book']->thumbnail) }}"
+                                                alt="">
+                                        @endempty
+
+                                        <p>{{ $mailData['book']->title }}</p>
+                                        <p>{{ $mailData['episodeNumber'] }}話</p>
                                         </p>
                                     </td>
                                 </tr>
@@ -26,7 +35,7 @@
                                         style="background:#2473E1;border-radius:3px;box-shadow:0 10px 20px -10px rgba(#2473E1,0.5);">
                                         <a href="http://localhost/"
                                             style="padding:20px 0;display:block;color:#fff;text-decoration:none;width:100%;height:100%;">
-                                            プラットフォームに移動する
+                                            {{ $mailData['episodeNumber'] }}話を読む
                                         </a>
                                     </td>
                                 </tr>
