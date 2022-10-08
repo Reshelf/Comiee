@@ -47,7 +47,7 @@ const props = defineProps({
     .tabMenu {
         @apply flex bg-white dark:bg-dark;
         li {
-            @apply w-auto cursor-pointer py-2 px-4 border-b border-ddd dark:border-dark-1;
+            @apply w-auto cursor-pointer py-2 px-4 hover:text-primary;
             &.active {
                 @apply font-semibold text-primary border-b-2 border-primary;
             }

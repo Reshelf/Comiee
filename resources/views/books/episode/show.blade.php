@@ -234,7 +234,7 @@
                                             @if ($loop->first)
                                             @endif
                                             <a href="{{ route('search.tag_name', ['name' => $tag->name]) }}"
-                                                class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[3px] border border-aaa hover:border-primary hover:text-primary p-1.5 px-2">
+                                                class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[3px] border border-aaa  hover:text-primary p-1.5 px-2">
                                                 {{ $tag->hashtag }}
                                             </a>
                                             @if ($loop->last)
@@ -305,7 +305,7 @@
 
                                                 <div class="flex items-center">
                                                     {{-- 通報 --}}
-                                                    @if ($book->user->id !== Auth::user()->id)
+                                                    @if ($book->user->id === Auth::user()->id)
                                                         <comment-post-modal>
                                                             <template #trigger>
                                                                 <span class="text-666 leading-4 pr-4">通報する</span>

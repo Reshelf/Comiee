@@ -7,13 +7,13 @@ const open = ref(false);
     <div class="relative" @mouseleave="open = false">
         <button
             @mouseover="open = true"
-            class="inline-flex items-center btn-border rounded-[3px] px-2 py-1.5 font-semibold cursor-pointer"
+            class="inline-flex items-center border rounded-[3px] px-2 py-1.5 font-semibold cursor-pointer"
         >
             <svg
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                class="w-[20px] h-[20px] stroke-primary mr-2"
+                class="w-[20px] h-[20px] stroke-t-color dark:stroke-eee mr-2"
             >
                 <path
                     stroke-linecap="round"

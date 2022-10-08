@@ -34,7 +34,7 @@
         <div class="text-dark z-10 -mt-8">
             @empty($user->avatar)
                 <svg class="avatar" width="42" height="42" viewBox="0 0 42 42" fill="none">
-                    <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-[#dfdfdf]" />
+                    <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-eee" />
                     <path class="stroke-white dark:stroke-ccc"
                         d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"
                         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -93,10 +93,10 @@
         <div class="max-w-8xl mx-auto">
             <div class="relative flex items-center">
                 <a href="{{ route('users.show', ['username' => $user->username]) }}"
-                    class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
+                    class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
                 @if (Auth::id() === $user->id)
                     <a href="{{ route('users.settings', ['username' => $user->username]) }}"
-                        class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold hover:border-primary dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                        class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
                 @endif
             </div>
         </div>
