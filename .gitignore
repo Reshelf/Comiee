@@ -2,6 +2,9 @@
 /public/build
 /public/hot
 /public/storage
+/public/img/book/*
+/public/img/users/*
+
 /storage/*.key
 /vendor
 .env
