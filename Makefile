@@ -2,6 +2,8 @@ sail-init:
 	alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 up:
 	./vendor/bin/sail up -d
+sail-build:
+	./vendor/bin/sail build --no-cache && ./vendor/bin/sail up -d
 down:
 	./vendor/bin/sail down
 init:
@@ -36,9 +38,9 @@ log-app:
 log-app-watch:
 	./vendor/bin/sail logs --follow app
 log-db:
-	./vendor/bin/sail logs db
+	./vendor/bin/sail logs mysql
 log-db-watch:
-	./vendor/bin/sail logs --follow db
+	./vendor/bin/sail logs --follow mysql
 app:
 	./vendor/bin/sail bash
 migrate:
@@ -79,9 +81,9 @@ cache:
 	./vendor/bin/sail artisan route:clear
 	./vendor/bin/sail composer clear-cache
 db:
-	./vendor/bin/sail exec db bash
+	./vendor/bin/sail exec mysql bash
 sql:
-	./vendor/bin/sail exec db bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
+	./vendor/bin/sail exec mysql bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
 	./vendor/bin/sail exec redis redis-cli
 composer-clear:
