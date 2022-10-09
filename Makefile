@@ -57,7 +57,6 @@ refresh:
 tinker:
 	./vendor/bin/sail artisan tinker
 key:
-	rm .env
 	cp .env.example .env
 	./vendor/bin/sail artisan key:generate
 optimize:
