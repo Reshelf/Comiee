@@ -7,9 +7,13 @@ sail-build:
 down:
 	./vendor/bin/sail down
 init:
-	./vendor/bin/sail up -d
-	@make migrate
+	@make ci
+	@make key
+	@make sail-build
+	@make fresh
 	@make seed
+	npm i
+	@make build
 destroy:
 	@make down
 	docker system prune --volumes -f
@@ -22,7 +26,7 @@ share:
 logs:
 	./vendor/bin/sail logs
 ci:
-	./vendor/bin/sail composer update && ./vendor/bin/sail composer install
+	composer update && composer install
 dev-container:
 	./vendor/bin/sail artisan sail:install --devcontainer
 master:
@@ -58,7 +62,7 @@ tinker:
 	./vendor/bin/sail artisan tinker
 key:
 	cp .env.example .env
-	./vendor/bin/sail artisan key:generate
+	php artisan key:generate
 optimize:
 	./vendor/bin/sail artisan optimize
 optimize-clear:
