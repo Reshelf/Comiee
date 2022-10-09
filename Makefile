@@ -1,3 +1,5 @@
+sail-init:
+	alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 up:
 	./vendor/bin/sail up -d
 down:
