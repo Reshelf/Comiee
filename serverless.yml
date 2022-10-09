@@ -6,6 +6,11 @@ provider:
   stage: dev # アプリケーションの段階 dev、production、staging… ('dev' がデフォルト)
   runtime: provided.al2
   lambdaHashingVersion: 20201221
+  apiGateway:
+    binaryMediaTypes:
+      - "*/*"
+    environment:
+      BREF_BINARY_RESPONSES: "1"
 
 package:
   patterns: # デプロイから除外するディレクトリ
@@ -35,8 +40,8 @@ plugins:
   - ./vendor/bref/bref # Bref プラグインを含める必要があります
 
 resources:
-    Resources:
-        MyBucket:
-            Type: AWS::S3::Bucket
-            Properties:
-                BucketName: 'starbooks-bucket'
+  Resources:
+    MyBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: "starbooks-bucket"

@@ -180,7 +180,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z/starbooks.zip"
+                "S3Key": "serverless/starbooks/dev/1665138422005-2022-10-07T10:27:02.005Z/starbooks.zip"
               },
               "Handler": "public/index.php",
               "Runtime": "provided.al2",
@@ -208,7 +208,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z/starbooks.zip"
+                "S3Key": "serverless/starbooks/dev/1665138422005-2022-10-07T10:27:02.005Z/starbooks.zip"
               },
               "Handler": "artisan",
               "Runtime": "provided.al2",
@@ -230,24 +230,24 @@
               "ArtisanLogGroup"
             ]
           },
-          "WebLambdaVersioniRNUGc49wpMJZynh6nnGXXbfa4g1RaNyKA9hPhwwQ": {
+          "WebLambdaVersionNmQV8CDl5QDniTi5HBCPE7e4EzmVLYBNYp609Qelb8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebLambdaFunction"
               },
-              "CodeSha256": "cg9/+tBkvTVNtFFBjR5zMFzGm48KJMvZYfVpSBDaUDs="
+              "CodeSha256": "jaWoY2+Hmmiwe9FPwqrsDXijXmOlA1vV9WnqAOBhJgM="
             }
           },
-          "ArtisanLambdaVersion8ustdIpqbHQXEK71hlhH400MMs3yPl00oZhG099Y1A": {
+          "ArtisanLambdaVersionlC7RBPTjlike4jg16lpOu36gmkl1LiqbnVh7ArJDU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ArtisanLambdaFunction"
               },
-              "CodeSha256": "cg9/+tBkvTVNtFFBjR5zMFzGm48KJMvZYfVpSBDaUDs="
+              "CodeSha256": "jaWoY2+Hmmiwe9FPwqrsDXijXmOlA1vV9WnqAOBhJgM="
             }
           },
           "HttpApi": {
@@ -340,6 +340,12 @@
               }
             },
             "DependsOn": "HttpApiIntegrationWeb"
+          },
+          "MyBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketName": "starbooks-bucket"
+            }
           }
         },
         "Outputs": {
@@ -354,7 +360,7 @@
           "WebLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebLambdaVersioniRNUGc49wpMJZynh6nnGXXbfa4g1RaNyKA9hPhwwQ"
+              "Ref": "WebLambdaVersionNmQV8CDl5QDniTi5HBCPE7e4EzmVLYBNYp609Qelb8"
             },
             "Export": {
               "Name": "sls-starbooks-dev-WebLambdaFunctionQualifiedArn"
@@ -363,7 +369,7 @@
           "ArtisanLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ArtisanLambdaVersion8ustdIpqbHQXEK71hlhH400MMs3yPl00oZhG099Y1A"
+              "Ref": "ArtisanLambdaVersionlC7RBPTjlike4jg16lpOu36gmkl1LiqbnVh7ArJDU"
             },
             "Export": {
               "Name": "sls-starbooks-dev-ArtisanLambdaFunctionQualifiedArn"
@@ -514,7 +520,7 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "WebLambdaVersioniRNUGc49wpMJZynh6nnGXXbfa4g1RaNyKA9hPhwwQ"
+        "versionLogicalId": "WebLambdaVersionNmQV8CDl5QDniTi5HBCPE7e4EzmVLYBNYp609Qelb8"
       },
       "artisan": {
         "handler": "artisan",
@@ -528,8 +534,19 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "ArtisanLambdaVersion8ustdIpqbHQXEK71hlhH400MMs3yPl00oZhG099Y1A"
+        "versionLogicalId": "ArtisanLambdaVersionlC7RBPTjlike4jg16lpOu36gmkl1LiqbnVh7ArJDU"
       }
+    },
+    "resources": {
+      "Resources": {
+        "MyBucket": {
+          "Type": "AWS::S3::Bucket",
+          "Properties": {
+            "BucketName": "starbooks-bucket"
+          }
+        }
+      },
+      "Outputs": {}
     },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
@@ -548,13 +565,16 @@
         ],
         "artifactsS3KeyDirname": "serverless/starbooks/dev/code-artifacts",
         "artifact": "/Users/st/Documents/starbooks/.serverless/starbooks.zip",
-        "artifactDirectoryName": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z"
+        "artifactDirectoryName": "serverless/starbooks/dev/1665138422005-2022-10-07T10:27:02.005Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
       },
       "plugins": {
         "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "resources": {
+        "$ref": "$[\"service\"][\"resources\"]"
       }
     },
     "layers": {},
@@ -562,7 +582,7 @@
     "artifact": "/Users/st/Documents/starbooks/.serverless/starbooks.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/starbooks/dev/1665054077059-2022-10-06T11:01:17.059Z",
+    "artifactDirectoryName": "serverless/starbooks/dev/1665138422005-2022-10-07T10:27:02.005Z",
     "artifact": "starbooks.zip"
   }
 }
