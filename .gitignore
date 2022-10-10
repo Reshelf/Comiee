@@ -21,3 +21,5 @@ yarn-error.log
 /.idea
 /.vscode
 *node_modules
+.env.prod
+.env.test
