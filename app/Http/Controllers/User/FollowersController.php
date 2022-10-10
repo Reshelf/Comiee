@@ -20,8 +20,7 @@ class FollowersController extends Controller
      */
     public function __invoke(string $username)
     {
-        $user = User::where('username', $username)->first()
-            ->load('followers.followers');
+        $user = User::where('username', $username)->first();
 
         $followers = $user->followers->sortByDesc('created_at');
 
