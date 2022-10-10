@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # envの環境切り替え
+    SetEnvIf Host "starbooks.one" APP_ENV=prod
+    SetEnvIf Host "test.starbooks.one" APP_ENV=test
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
