@@ -2,7 +2,7 @@
     フッター
 </div> --}}
 
-<div class="w-full mt-16 bg-f8 py-16 text-[#7c7c7c]">
+<div class="w-full mt-16 bg-f8 dark:bg-dark-1 py-16 text-[#7c7c7c] dark:text-[#939599]">
     <div class="max-w-5xl mx-auto flex pb-12 border-b border-[#7c7c7c]">
         <div class="w-2/5 flex flex-col items-start">
             <svg height="40" viewBox="0 0 237 40" fill="none">
@@ -35,7 +35,7 @@
                 </g>
             </svg>
             <div class="mt-16">
-                <div class="text-xs cursor-default">フォローする</div>
+                <div class="text-xs cursor-default dark:text-[#c9cacc]">フォローする</div>
                 <div class="flex items-center mt-4">
                     {{-- Twitter --}}
                     <a href="https://twitter.com/starbooks_one" target="_blank" rel="noopener noreferrer"
@@ -105,7 +105,7 @@
         </div>
         <div class="w-3/5 flex justify-between">
             <div class="w-1/2">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default">ヘルプ</h4>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ヘルプ</h4>
                 <a href="{{ route('others.user_guide') }}" class="block text-xs mb-2 hover:text-primary">ご利用ガイド</a>
                 <a href="" class="block text-xs mb-2 hover:text-primary">よくあるご質問</a>
                 @auth
@@ -127,19 +127,19 @@
                     </comment-post-modal>
                 @endauth
 
-                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default">プログラム</h4>
+                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">プログラム</h4>
                 <div class="text-xs mb-2">Developer Circles</div>
                 <div class="text-xs mb-2">F8</div>
                 <div class="text-xs mb-2">ThreatExchange</div>
             </div>
             <div class="w-1/2">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default">ニュース</h4>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ニュース</h4>
                 <div class="text-xs mb-2">ブログ</div>
                 <div class="text-xs mb-2">成功事例</div>
                 <div class="text-xs mb-2">動画</div>
                 <div class="text-xs mb-2">人工知能</div>
 
-                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default">利用規約とポリシー</h4>
+                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">利用規約とポリシー</h4>
                 <div class="text-xs mb-2">プラッムフォーム主導のハブ</div>
                 <div class="text-xs mb-2">プラットフォーム利用規約</div>
                 <div class="text-xs mb-2">開発者ポリシー</div>
