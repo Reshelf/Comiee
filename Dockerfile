@@ -11,7 +11,7 @@ RUN apt install -y vim
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 EXPOSE 8080
 COPY --from=build /app /var/www/
-COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN chmod 777 -R /var/www
 RUN echo "Listen 8080" >> /etc/apache2/ports.conf
 RUN chown -R www-data:www-data /var/www
