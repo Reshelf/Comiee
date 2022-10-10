@@ -7,7 +7,7 @@
                 class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded"> --}}
             <select name="sort_basis">
                 <option value="お気に入り数">お気に入り数</option>
-                <option value="再生回数">再生回数</option>
+                <option value="閲覧回数">閲覧回数</option>
             </select>
         </div>
     </div>

@@ -21,7 +21,7 @@ class ShowController extends Controller
     {
         $book = Book::where('id', $request->book_id)->first();
 
-        // 再生回数を更新
+        // 閲覧回数を更新
         $book->views = $book->book_views;
         $book->save();
 

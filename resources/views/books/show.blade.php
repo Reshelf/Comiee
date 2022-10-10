@@ -27,12 +27,12 @@
                 {{-- 作品タイトル --}}
                 <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
 
-                {{-- 再生数 --}}
+                {{-- 閲覧数 --}}
                 {{-- @empty(!$book) --}}
                 <div class="w-full flex items-center px-2 mb-2">
                     <div class="flex items-center">
                         <span class="text-666 text-lg">{{ $book->views }}</span>
-                        <span class=" text-aaa pl-2">回再生</span>
+                        <span class=" text-aaa pl-2">回閲覧</span>
                     </div>
                 </div>
                 {{-- @endempty --}}

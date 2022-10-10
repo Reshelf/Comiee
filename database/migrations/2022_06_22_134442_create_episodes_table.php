@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedInteger('number')->nullable(); // 話数
             $table->json('contents')->nullable(); // 漫画のコンテンツ
             $table->integer('price')->default(0); // 値段
-            $table->integer('views')->default(0); // 再生数
+            $table->integer('views')->default(0); // 閲覧数
 
             $table->timestamps();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');

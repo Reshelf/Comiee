@@ -15,7 +15,7 @@
                     name="name" required>
             </div>
             <div class="w-full mb-3">
-                <div class="w-full mb-1 text-xs">ユーザー名</div>
+                <div class="w-full mb-1 text-xs">ユーザーID</div>
                 <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="text"
                     name="username" required>
                 <small>英数字3〜16文字(登録後の変更はできません)</small>

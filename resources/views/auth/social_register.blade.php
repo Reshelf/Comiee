@@ -17,7 +17,7 @@
                                 @csrf
                                 <input type="hidden" name="token" value="{{ $token }}">
                                 <div class="md-form">
-                                    <label for="name">ユーザー名</label>
+                                    <label for="name">ユーザーID</label>
                                     <input class="form-control" type="text" id="name" name="name" required>
                                     <small>英数字3〜16文字(登録後の変更はできません)</small>
                                 </div>
