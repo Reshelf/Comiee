@@ -28,3 +28,9 @@
     <textarea required name="story" class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px]"
         placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
 </div>
+
+<div class="checkbox mb-8">
+    <label for="is_complete" class="text-sm">作品を完結にする</label>
+    <input id="is_complete" type="checkbox" required name="is_complete"
+        {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
+</div>

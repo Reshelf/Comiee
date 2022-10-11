@@ -11,7 +11,7 @@
             @method('PATCH')
             @include('books._patials.form')
             <div class="w-full flex justify-end"><button onclick="this.disabled='disabled'; this.form.submit();"
-                    type="submit" class="btn">更新する</button></div>
+                    type="submit" class="btn-primary w-full py-4">更新する</button></div>
         </form>
     </book-edit-modal>
 </div>

@@ -32,6 +32,14 @@ class UpdateController extends Controller
         $book->title = $request->title;
         // あらすじ
         $book->story = $request->story;
+        // 完結
+        if ($request->is_complete === null) {
+            $book->is_complete = false;
+        } else {
+            $book->is_complete = true;
+        };
+
+        // dd($request->is_complete);
         // サムネイル
         if ($request->has('thumbnail')) {
             $image = $request->file('thumbnail');
