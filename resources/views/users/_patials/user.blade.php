@@ -18,14 +18,14 @@
                 <template #trigger>プロフィールを編集</template>
                 <template #header>プロフィールの更新</template>
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                <form class="scroll-none overflow-y-auto max-h-[80vh]" method="POST"
-                    action="{{ route('users.update', ['username' => $user->username]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                     @method('PATCH')
                     @include('users._patials.form')
                     <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                        class="btn w-full py-4">更新する</button>
+                        class="btn-primary w-full py-4">更新する</button>
                 </form>
             </edit-user-modal>
         @endif

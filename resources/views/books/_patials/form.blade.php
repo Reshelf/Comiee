@@ -25,6 +25,6 @@
 </div>
 <div class="flex flex-col mb-4">
     <label for="story" class="text-xs text-666 dark:text-ddd">あらすじ</label>
-    <textarea name="story" class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px]"
-        placeholder="投稿できるのは400文字までです" maxlength="400" required>{{ $book->story ?? old('story') }}</textarea>
+    <textarea required name="story" class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px]"
+        placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
 </div>

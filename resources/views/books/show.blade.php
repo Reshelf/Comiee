@@ -25,7 +25,9 @@
                 @endempty
 
                 {{-- 作品タイトル --}}
-                <h2 class="text-2xl font-semibold my-2 px-2">{{ $book->title }}</h2>
+                <h2 class="text-2xl font-semibold my-2 px-2">
+                    {{ $book->title }}
+                </h2>
 
                 {{-- 閲覧数 --}}
                 {{-- @empty(!$book) --}}
@@ -36,6 +38,12 @@
                     </div>
                 </div>
                 {{-- @endempty --}}
+
+                {{-- 完結作品 --}}
+                @if ($book->is_complete)
+                    <div class="mb-2 inline-block text-[#e19324] text-xs border px-1 py-0.5 rounded-[3px] ml-2">完結</div>
+                @endif
+
 
                 {{-- お気に入り --}}
                 <div class="w-full flex items-center px-2 mb-4">
@@ -52,25 +60,8 @@
                         <button class="btn-primary py-3">全話をまとめて購入</button>
                     </div>
                 @else
-                    {{-- 作者だったら --}}
-                    <div class="mt-6 px-2 w-full">
-                        <book-edit-modal>
-                            <template #trigger>作品内容を更新する</template>
-                            <template #header>作品内容の更新</template>
-                            @include('_patials._error_card_list')
-                            {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-                            <form method="POST" enctype="multipart/form-data"
-                                action="{{ route('book.update', ['book_id' => $book->id]) }}">
-                                @csrf
-                                {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
-                                @method('PATCH')
-                                @include('books._patials.form')
-                                <div class="w-full flex justify-end"><button
-                                        onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                                        class="btn">更新する</button></div>
-                            </form>
-                        </book-edit-modal>
-                    </div>
+                    {{-- 作品内容の更新 --}}
+                    @include('books._patials.edit')
                 @endif
             </div>
 

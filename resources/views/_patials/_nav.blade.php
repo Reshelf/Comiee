@@ -75,9 +75,11 @@
                                             <form method="POST" action="{{ route('book.store') }}"
                                                 enctype="multipart/form-data">
                                                 @include('books._patials.form')
-                                                <div class="w-full flex justify-end"><button
+                                                <div class="w-full flex justify-end">
+                                                    <button type="submit"
                                                         onclick="this.disabled='disabled'; this.form.submit();"
-                                                        type="submit" class="btn">投稿する</button></div>
+                                                        class="btn-primary w-full py-4">投稿する</button>
+                                                </div>
                                             </form>
                                         </create-modal>
                                     </div>
