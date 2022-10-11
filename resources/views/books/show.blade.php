@@ -41,7 +41,9 @@
 
                 {{-- 完結作品 --}}
                 @if ($book->is_complete)
-                    <div class="mb-2 inline-block text-[#e19324] text-xs border px-1 py-0.5 rounded-[3px] ml-2">完結</div>
+                    <a href="{{ route('search.complete') }}"
+                        class="mb-2 inline-block text-[#e19324] dark:bg-[#e19324] dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
+                        完結</a>
                 @endif
 
 
