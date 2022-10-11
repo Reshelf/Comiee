@@ -7,20 +7,14 @@ sail-build:
 down:
 	./vendor/bin/sail down
 init:
-	@make ci
+	composer install
 	@make key
-	@make sail-build
+	@make up
+	@make migrate
 	@make fresh
-	@make seed
-	npm i
-	@make build
 destroy:
-	@make down
+	./vendor/bin/sail down --rmi all -v
 	docker system prune --volumes -f
-deploy:
-	./vendor/bin/sail artisan config:clear && serverless deploy
-remove:
-	serverless remove
 share:
 	./vendor/bin/sail share
 logs:
