@@ -11,7 +11,7 @@
     ])
     <div class="relative bg-[#0A2140] dark:bg-dark bg-opacity-50 flex w-full mx-auto py-12 items-center">
         <div class="max-w-6xl w-full mx-auto text-white font-semibold flex items-center">
-            <h2 class="text-3xl">「完結作品」の一覧</h2>
+            <h2 class="text-3xl">「完結」している作品の一覧</h2>
         </div>
     </div>
 
