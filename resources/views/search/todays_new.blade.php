@@ -20,23 +20,20 @@
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
                     <div class="w-full max-w-8xl mx-auto mb-4">
-                        <div class="relative flex items-center justify-between">
-
-                            <div class="w-full flex flex-col">
-                                @include('search._patials._term_tabs', [
-                                    'ranking' => false,
-                                    'todays_new' => true,
-                                    'like' => false,
-                                    'following' => false,
-                                ])
-                                {{-- フィルター --}}
-                                @include('search._patials._filter', [
-                                    'ranking' => false,
-                                    'todays_new' => true,
-                                    'like' => false,
-                                    'following' => false,
-                                ])
-                            </div>
+                        <div class="w-full flex flex-col">
+                            @include('search._patials._term_tabs', [
+                                'ranking' => false,
+                                'todays_new' => true,
+                                'like' => false,
+                                'following' => false,
+                            ])
+                            {{-- フィルター --}}
+                            @include('search._patials._filter', [
+                                'ranking' => false,
+                                'todays_new' => true,
+                                'like' => false,
+                                'following' => false,
+                            ])
                         </div>
                     </div>
 

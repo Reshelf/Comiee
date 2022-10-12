@@ -19,11 +19,16 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-
-                    {{-- 並び替え --}}
                     <div class="w-full max-w-8xl mx-auto mb-4">
-                        <div class="relative flex items-center justify-between">
+                        <div class="w-full flex flex-col">
                             @include('search._patials._term_tabs', [
+                                'ranking' => false,
+                                'todays_new' => false,
+                                'like' => true,
+                                'following' => false,
+                            ])
+                            {{-- フィルター --}}
+                            @include('search._patials._filter', [
                                 'ranking' => false,
                                 'todays_new' => false,
                                 'like' => true,
