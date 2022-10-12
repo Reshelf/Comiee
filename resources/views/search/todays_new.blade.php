@@ -19,32 +19,24 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
-                    {{-- 並び替え --}}
                     <div class="w-full max-w-8xl mx-auto mb-4">
                         <div class="relative flex items-center justify-between">
-                            @include('search._patials._term_tabs', [
-                                'ranking' => false,
-                                'todays_new' => true,
-                                'like' => false,
-                                'following' => false,
-                            ])
-                            <ranking-sort-modal class="flex justify-end ml-auto mr-4">
-                                <template #trigger>並び替え</template>
-                                @include('_patials._error_card_list')
-                                <form method="POST" action="{{ route('todays_new.search') }}">
-                                    @csrf
-                                    @include('search._patials._form', [
-                                        'ranking' => false,
-                                        'todays_new' => true,
-                                        'like' => false,
-                                        'following' => false,
-                                    ])
-                                    <div class="w-full flex justify-end">
-                                        <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                                            class="btn w-full">並び替える</button>
-                                    </div>
-                                </form>
-                            </ranking-sort-modal>
+
+                            <div class="w-full flex flex-col">
+                                @include('search._patials._term_tabs', [
+                                    'ranking' => false,
+                                    'todays_new' => true,
+                                    'like' => false,
+                                    'following' => false,
+                                ])
+                                {{-- フィルター --}}
+                                @include('search._patials._filter', [
+                                    'ranking' => false,
+                                    'todays_new' => true,
+                                    'like' => false,
+                                    'following' => false,
+                                ])
+                            </div>
                         </div>
                     </div>
 

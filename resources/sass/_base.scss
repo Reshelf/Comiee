@@ -499,3 +499,27 @@ button[disabled] {
         --s: 0.5;
     }
 }
+
+.inline-radio {
+    @apply flex w-[210px] overflow-hidden rounded-full;
+    div {
+        @apply relative flex-1;
+    }
+    input {
+        @apply w-full opacity-0 h-[35px] cursor-pointer;
+    }
+    label {
+        @apply absolute top-0 left-0 text-aaa text-xs w-full h-full bg-white flex items-center justify-center pointer-events-none border border-aaa;
+    }
+
+    input:checked + label {
+        @apply bg-primary text-white border-none;
+    }
+}
+
+.acd-content {
+    @apply h-0 opacity-0 invisible duration-300;
+}
+.acd-check:checked + .acd-label + .acd-content {
+    @apply h-[200px] opacity-100 visible;
+}
