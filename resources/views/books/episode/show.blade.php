@@ -304,8 +304,8 @@
                                                                 @csrf
                                                                 <input value="{{ Auth::id() }}" type="hidden"
                                                                     name="user_id" />
-                                                                <textarea class="dark:bg-dark-1 p-4 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。"
-                                                                    autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                                                                <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                                                                    autofocus="on" type="text" name="body" maxlength="400" required></textarea>
                                                                 <button onclick="this.disabled='disabled'; this.form.submit();"
                                                                     type="submit" class="btn w-full">送信する</button>
                                                             </form>
