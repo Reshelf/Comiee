@@ -28,3 +28,8 @@ window.Echo = new Echo({
 
 
 window.csrf_token = "{{ csrf_token() }}";
+
+// ページ遷移後はスクロール位置をトップにする
+window.addEventListener('load', event => {
+        window.scrollTo(0,0);
+    })
