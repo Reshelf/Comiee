@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedbigInteger('user_id'); // ユーザー
             $table->boolean('is_complete')->default(false); // 完結作品フラグ
+            $table->boolean('is_new')->default(false); // 今日の新作フラグ
 
             $table->string('title'); // 作品名
             $table->integer('views')->default(0); // 閲覧回数
