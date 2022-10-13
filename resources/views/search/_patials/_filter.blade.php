@@ -45,7 +45,7 @@
 
         @if ($ranking || $like)
             <div class="checkbox ml-4">
-                <label for="is_complete" class="text-sm">完結作品</label>
+                <label for="is_complete" class="text-sm">完結作品のみ</label>
                 <input id="is_complete" type="checkbox" required name="is_complete"
                     {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
 
