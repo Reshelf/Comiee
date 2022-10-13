@@ -48,7 +48,6 @@ class ShowController extends Controller
             'episode_comments' => $episode_comments,
             'tagNames' => $book->tag_names,
             'allTagNames' => $tag->all_tag_names,
-            'book_views' => $book->book_views
         ]);
     }
 }
