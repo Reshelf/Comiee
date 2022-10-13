@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Search\TodaysNew;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
@@ -17,11 +16,11 @@ class IndexController extends Controller
     |--------------------------------------------------------------------------
     |
     */
-    public function __invoke(Request $request)
+    public function __invoke(Book $book)
     {
-        // 今日投稿された作品
-        $books = Book::whereDate('created_at', Carbon::today())->paginate(50);
-
-        return view('search.todays_new', compact('books'));
+        // 今日の新作
+        $books = Book::where('is_new', true)->orderBy('created_at')->get();
+        // dd($books);
+        return view('search.todays_new', ['books' => $books]);
     }
 }

@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="w-full flex justify-center mt-8">{{ $books->links() }}</div>
+                {{-- <div class="w-full flex justify-center mt-8">{{ $books->links() }}</div> --}}
             </div>
         </div>
     </div>
