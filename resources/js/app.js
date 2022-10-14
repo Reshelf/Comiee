@@ -4,7 +4,7 @@ import components from "./common/components";
 import "./common/theme";
 
 const app = createApp({
-    components,
+  components,
 });
 
 app.mount("#app");
