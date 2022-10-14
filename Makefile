@@ -72,7 +72,6 @@ cache:
 	./vendor/bin/sail composer dump-autoload
 	./vendor/bin/sail artisan clear-compiled
 	./vendor/bin/sail artisan cache:clear
-	./vendor/bin/sail artisan config:cache
 	./vendor/bin/sail artisan config:clear
 	./vendor/bin/sail artisan route:cache
 	./vendor/bin/sail artisan route:clear
@@ -103,5 +102,9 @@ lint:
 	watch 'npm run lint'
 cron:
 	crontab -e
-schedule-local:
-	php artisan schedule:work
+sche-run:
+	./vendor/bin/sail artisan schedule:run
+sche-list:
+	./vendor/bin/sail artisan schedule:list
+sche-work:
+	./vendor/bin/sail artisan schedule:work
