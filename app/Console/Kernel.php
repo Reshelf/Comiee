@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:is_new_off')->dailyAt('00:00');
+        // 毎日0時に今日の新作をリセットする
+        $schedule->call(new \App\Http\Controllers\Search\TodaysNew\OffController($schedule))->daily();
     }
 
     /**
