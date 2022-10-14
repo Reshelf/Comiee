@@ -41,21 +41,21 @@ function reset() {
 <template>
     <div class="header-search-input relative flex items-center mx-auto">
         <input
-            type="text"
-            v-model="state.search"
             ref="anyName"
-            @focus="open = true"
+            v-model="state.search"
+            type="text"
             placeholder="検索"
             class="py-2 px-4 border border-ccc dark:bg-dark-1 dark:border-dark"
+            @focus="open = true"
         />
         <button class="absolute right-2">
             <template v-if="open && state.search.length > 0">
                 <svg
-                    @click="reset()"
                     width="18"
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
+                    @click="reset()"
                 >
                     <path
                         d="M5.00098 5L19 18.9991"
@@ -81,8 +81,8 @@ function reset() {
             <a
                 v-for="item in filter"
                 :key="item"
-                @click="locate(item)"
                 class="flex items-center p-4 cursor-pointer dark:hover:bg-dark-1 hover:bg-[#f5f5f5] rounded"
+                @click="locate(item)"
             >
                 <div class="flex items-center">
                     <img

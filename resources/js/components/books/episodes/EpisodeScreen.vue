@@ -63,8 +63,8 @@
             <div class="flex text-ccc">
                 <div
                     v-if="!fullScreen"
-                    @click="fullScreen = true"
                     class="cursor-pointer flex items-center"
+                    @click="fullScreen = true"
                 >
                     <svg
                         x="0px"
@@ -102,9 +102,9 @@
                 </div>
                 <div
                     v-if="fullScreen"
+                    class="cursor-pointer flex items-center"
                     @keydown.esc="fullScreen = false"
                     @click="fullScreen = false"
-                    class="cursor-pointer flex items-center"
                 >
                     <svg
                         x="0px"
@@ -165,22 +165,6 @@ export default {
         },
         isNormalScreen() {
             return this.fullScreen ? "max-h-[85vh]" : "max-h-[100vh]";
-        },
-    },
-    methods: {
-        scroll_next() {
-            let window_width = window.innerWidth;
-            let content = document.querySelector(".screen");
-            content.scrollLeft -= window_width;
-        },
-        scroll_prev() {
-            let window_width = window.innerWidth;
-            let content = document.querySelector(".screen");
-            content.scrollLeft += window_width;
-        },
-        // フルスクリーン解除
-        clear_fullscreen() {
-            this.fullScreen = false;
         },
     },
     created() {
@@ -271,6 +255,22 @@ export default {
         //     } catch (err) {}
         // }
         // setInterval("AccessClipboardData()", 300);
+    },
+    methods: {
+        scroll_next() {
+            let window_width = window.innerWidth;
+            let content = document.querySelector(".screen");
+            content.scrollLeft -= window_width;
+        },
+        scroll_prev() {
+            let window_width = window.innerWidth;
+            let content = document.querySelector(".screen");
+            content.scrollLeft += window_width;
+        },
+        // フルスクリーン解除
+        clear_fullscreen() {
+            this.fullScreen = false;
+        },
     },
 };
 </script>

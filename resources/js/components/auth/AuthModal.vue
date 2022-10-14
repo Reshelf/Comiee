@@ -6,7 +6,7 @@ const isLoginTab = ref(true);
 </script>
 <template>
     <div @click.self="open = false">
-        <span @click="open = true" class="btn-border">ログイン</span>
+        <span class="btn-border" @click="open = true">ログイン</span>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window">
@@ -15,8 +15,8 @@ const isLoginTab = ref(true);
                         <div class="w-full flex justify-between items-center">
                             <slot name="login-footer"></slot>
                             <span
-                                @click="isLoginTab = !isLoginTab"
                                 class="text-xs cursor-pointer"
+                                @click="isLoginTab = !isLoginTab"
                                 >または新規登録</span
                             >
                         </div>
@@ -24,8 +24,8 @@ const isLoginTab = ref(true);
                     <template v-else>
                         <slot name="register"></slot>
                         <span
-                            @click="isLoginTab = !isLoginTab"
                             class="w-full text-right text-xs cursor-pointer"
+                            @click="isLoginTab = !isLoginTab"
                             >またはログイン</span
                         >
                     </template>

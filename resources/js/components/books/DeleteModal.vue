@@ -5,7 +5,7 @@ const open = ref(false);
 </script>
 <template>
     <div @click.self="open = false">
-        <button @click="open = true" class="">
+        <button class="" @click="open = true">
             <slot name="trigger"></slot>
         </button>
         <transition name="modal" appear>

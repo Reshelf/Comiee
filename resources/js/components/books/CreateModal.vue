@@ -4,8 +4,8 @@ import { ref } from "vue";
 const open = ref(false);
 </script>
 <template>
-    <div @click.self="open = false" class="">
-        <div @click="open = true" class="tooltip cursor-pointer">
+    <div class="" @click.self="open = false">
+        <div class="tooltip cursor-pointer" @click="open = true">
             <svg
                 class="w-[28px] h-[28px] stroke-[#606060] dark:stroke-ddd"
                 width="28"

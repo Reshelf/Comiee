@@ -6,8 +6,8 @@ const open = ref(false);
 <template>
     <div class="relative tracking-widest" @mouseleave="open = false">
         <button
-            @mouseover="open = true"
             class="flex items-center justify-between w-full pl-3 pr-4 font-medium md:p-0 md:w-auto shadow"
+            @mouseover="open = true"
         >
             <slot name="avatar"></slot>
         </button>

@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 <template>
     <div>
-        <div @click="open = true" class="cursor-pointer">
+        <div class="cursor-pointer" @click="open = true">
             <slot name="thumbnail"></slot>
         </div>
 

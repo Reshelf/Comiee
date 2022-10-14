@@ -6,8 +6,8 @@ const open = ref(false);
 <template>
     <div class="relative" @mouseleave="open = false">
         <button
-            @mouseover="open = true"
             class="inline-flex items-center border rounded-[3px] px-2 py-1.5 font-semibold cursor-pointer"
+            @mouseover="open = true"
         >
             <svg
                 fill="none"

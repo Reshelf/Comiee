@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 <template>
     <div>
-        <span @click="open = true" class="cursor-pointer">
+        <span class="cursor-pointer" @click="open = true">
             <slot name="avatar"></slot>
         </span>
 

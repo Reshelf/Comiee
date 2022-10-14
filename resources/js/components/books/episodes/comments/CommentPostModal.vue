@@ -4,8 +4,8 @@ import { ref } from "vue";
 const open = ref(false);
 </script>
 <template>
-    <div @click.self="open = false" class="flex items-center">
-        <button @click="open = true" class="text-xs">
+    <div class="flex items-center" @click.self="open = false">
+        <button class="text-xs" @click="open = true">
             <slot name="btn-trigger"></slot>
             <slot name="trigger"></slot>
         </button>

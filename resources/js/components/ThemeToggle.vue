@@ -15,10 +15,10 @@ function changeTheme() {
 </script>
 <template>
     <div class="flex items-center w-full h-full p-3" @click="changeTheme">
-        <label class="sr-only" id="headlessui-listbox-label-3"> Theme </label>
+        <label id="headlessui-listbox-label-3" class="sr-only"> Theme </label>
         <button
-            type="button"
             id="headlessui-listbox-button-4"
+            type="button"
             aria-haspopup="true"
             aria-expanded="false"
             aria-labelledby="headlessui-listbox-label-3 headlessui-listbox-button-undefined"

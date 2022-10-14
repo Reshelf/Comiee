@@ -5,7 +5,7 @@ const open = ref(false);
 </script>
 <template>
     <div @click.self="open = false">
-        <div @click="open = true" class="btn">投稿する</div>
+        <div class="btn" @click="open = true">投稿する</div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
                 <div class="window absolute rounded p-4 bg-white dark:bg-dark">

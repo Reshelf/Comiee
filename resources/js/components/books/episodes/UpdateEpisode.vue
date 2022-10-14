@@ -3,8 +3,8 @@
         <toast-modal :success="success" :error="error"></toast-modal>
         <div class="w-full flex flex-col my-8">
             <input
-                type="text"
                 v-model.trim="name"
+                type="text"
                 placeholder="タイトル"
                 class="w-full text-3xl bg-white p-2 rounded"
                 maxlength="30"
@@ -29,9 +29,9 @@
 
         <div class="w-full flex flex-col items-center">
             <textarea
+                v-model.trim="body"
                 type="text"
                 minlength="1000"
-                v-model.trim="body"
                 placeholder="本文"
                 class="w-full p-4 bg-white whitespace-pre-line rounded h-full text-lg leading-9"
             ></textarea>
@@ -56,17 +56,6 @@
 <script>
 import ToastModal from "../../atoms/ToastModal.vue";
 export default {
-    data() {
-        return {
-            success: false,
-            error: false,
-            form: {
-                id: this.id,
-                name: this.name,
-                body: this.body,
-            },
-        };
-    },
     components: {
         ToastModal,
     },
@@ -80,6 +69,17 @@ export default {
         body: {
             type: String,
         },
+    },
+    data() {
+        return {
+            success: false,
+            error: false,
+            form: {
+                id: this.id,
+                name: this.name,
+                body: this.body,
+            },
+        };
     },
     watch: {
         name: {

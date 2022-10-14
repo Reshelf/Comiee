@@ -5,7 +5,7 @@ const open = ref(false);
 </script>
 <template>
     <div class="absolute right-0 top-0" @mouseleave="open = false">
-        <div @mouseover="open = true" class="">
+        <div class="" @mouseover="open = true">
             <slot name="avatar"></slot>
         </div>
         <transition>

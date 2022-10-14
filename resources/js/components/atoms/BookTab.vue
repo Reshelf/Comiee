@@ -14,16 +14,16 @@ const props = defineProps({
 <template>
     <div class="tab">
         <ul class="tabMenu">
-            <li @click="isSelect(1)" :class="{ active: isActive === 1 }">
+            <li :class="{ active: isActive === 1 }" @click="isSelect(1)">
                 エピソード
             </li>
-            <li @click="isSelect(2)" :class="{ active: isActive === 2 }">
+            <li :class="{ active: isActive === 2 }" @click="isSelect(2)">
                 作品情報
             </li>
             <li
                 v-if="is_comment"
-                @click="isSelect(3)"
                 :class="{ active: isActive === 3 }"
+                @click="isSelect(3)"
             >
                 コメント
             </li>

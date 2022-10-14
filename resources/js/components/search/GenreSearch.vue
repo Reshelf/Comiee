@@ -30,7 +30,7 @@ onMounted(() => {
 </script>
 <template>
     <div @click.self="open = false">
-        <div @click="open = true" class="trigger">
+        <div class="trigger" @click="open = true">
             <slot name="trigger"></slot>
         </div>
         <transition name="modal" appear>

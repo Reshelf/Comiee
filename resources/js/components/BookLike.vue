@@ -1,5 +1,5 @@
 <template>
-    <div @click="clickLike" class="book-like">
+    <div class="book-like" @click="clickLike">
         <svg
             :class="[{ clicked: isLikedBy }, iconClass]"
             class="mr-2"
@@ -12,7 +12,7 @@
         </svg>
         <count-animation
             :value="countLikes"
-            :isLikedBy="isLikedBy"
+            :is-liked-by="isLikedBy"
         ></count-animation>
     </div>
 </template>

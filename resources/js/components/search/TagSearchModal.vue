@@ -30,7 +30,7 @@ onMounted(() => {
 </script>
 <template>
     <div @click.self="open = false">
-        <div @click="open = true" class="trigger">
+        <div class="trigger" @click="open = true">
             <slot name="trigger"></slot>
         </div>
         <transition name="modal" appear>
@@ -53,18 +53,18 @@ onMounted(() => {
                     </div>
                     <div class="p-8 h-[60vh] overflow-y-scroll scroll-none">
                         <input
-                            type="text"
                             v-model="state.search"
-                            @focus="open = true"
+                            type="text"
                             placeholder="検索"
                             class="py-2 px-4 border w-full border-bbb rounded dark:bg-dark-1 dark:border-dark"
+                            @focus="open = true"
                         />
 
                         <div class="my-4">
                             <a
-                                :href="`/tags/${item.text}`"
                                 v-for="item in filter"
                                 :key="item"
+                                :href="`/tags/${item.text}`"
                                 class="inline-flex m-1 items-center px-4 py-2 cursor-pointer bg-primary hover:bg-opacity-90 text-white rounded-full"
                             >
                                 {{ item.text }}

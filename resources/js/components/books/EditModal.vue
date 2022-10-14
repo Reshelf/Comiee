@@ -6,12 +6,12 @@ const open = ref(false);
 <template>
     <div @click.self="open = false">
         <svg
-            @click="open = true"
             class="h-5 w-5 cursor-pointer hover:text-primary"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-width="2"
+            @click="open = true"
         >
             <path
                 stroke-linecap="round"
