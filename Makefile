@@ -99,5 +99,9 @@ dev:
 	npm run dev
 build:
 	npm run build
+lint:
+	watch 'npm run lint'
 cron:
 	crontab -e
+schedule-local:
+	php artisan schedule:work
