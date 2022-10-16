@@ -2,7 +2,7 @@
     フッター
 </div> --}}
 
-<div class="w-full mt-16 bg-f8 dark:bg-dark-1 py-16 text-[#7c7c7c] dark:text-[#939599]">
+<div class="w-full bg-f8 dark:bg-dark-1 py-16 text-[#7c7c7c] dark:text-[#939599]">
     <div class="max-w-5xl mx-auto flex pb-12 border-b border-[#7c7c7c]">
         <div class="w-2/5 flex flex-col items-start">
             <svg height="40" viewBox="0 0 237 40" fill="none">
@@ -119,8 +119,8 @@
                         <form method="POST" action="{{ route('others.contact', ['user' => Auth::user()]) }}">
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。"
-                                autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                                autofocus="on" type="text" name="body" maxlength="400" required></textarea>
                             <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
                                 class="btn w-full">送信する</button>
                         </form>
