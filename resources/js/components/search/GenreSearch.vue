@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 
 const open = ref(false);
 const state = reactive({
@@ -7,20 +7,8 @@ const state = reactive({
   array: [],
 });
 
-const filter = computed(() => {
-  if (state.search) {
-    return state.array.filter((item) => {
-      return state.search
-        .toLowerCase()
-        .split(" ")
-        .every((v) => item.text.toLowerCase().includes(v));
-    });
-  } else {
-    return state.array;
-  }
-});
-
 const getData = async () => {
+  /* eslint-disable */
   let result = await axios.get("/api/search-tags");
   state.array = result.data;
 };
@@ -63,7 +51,7 @@ onMounted(() => {
               TL
             </a>
             <a
-              class="box my-4 ml-auto mr-4 ml-auto mr-4 text-[#F1C521] border-[#F1C521] hover:bg-[#F1C521] hover:bg-opacity-10"
+              class="box my-4 ml-auto mr-4 text-[#F1C521] border-[#F1C521] hover:bg-[#F1C521] hover:bg-opacity-10"
             >
               BL
             </a>

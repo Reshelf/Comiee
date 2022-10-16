@@ -2,6 +2,7 @@
   <div>
     <toast-modal :success="success" :error="error"></toast-modal>
     <div class="w-full flex flex-col my-8">
+      <!-- eslint-disable -->
       <input
         v-model.trim="name"
         type="text"
@@ -62,12 +63,15 @@ export default {
   props: {
     id: {
       type: Number,
+      default: 0,
     },
     name: {
       type: String,
+      default: "",
     },
     body: {
       type: String,
+      default: "",
     },
   },
   data() {
@@ -83,21 +87,21 @@ export default {
   },
   watch: {
     name: {
-      // eslint-disable-next-line
+      /* eslint-disable */
       handler: _.debounce(function () {
         this.form.name = this.name;
       }, 0), // 更新されたら保存処理
       deep: true,
     },
     body: {
-      // eslint-disable-next-line
+      /* eslint-disable */
       handler: _.debounce(function () {
         this.form.body = this.body;
       }, 0), // 更新されたら保存処理
       deep: true,
     },
     form: {
-      // eslint-disable-next-line
+      //   eslint-disable-next-line
       handler: _.debounce(function () {
         this.update();
       }, 2000), // 更新されたら保存処理
@@ -106,6 +110,7 @@ export default {
   },
   methods: {
     async update() {
+      /* eslint-disable */
       await axios
         .patch(`/api/episode/${this.id}`, this.form)
         .then(() => {

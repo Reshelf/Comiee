@@ -18,6 +18,7 @@ export default {
     },
     endpoint: {
       type: String,
+      default: "",
     },
   },
   data() {
@@ -43,11 +44,13 @@ export default {
       this.isFollowedBy ? this.unfollow() : this.follow();
     },
     async follow() {
+      // eslint-disable-next-line
       const response = await axios.put(this.endpoint);
 
       this.isFollowedBy = true;
     },
     async unfollow() {
+      // eslint-disable-next-line
       const response = await axios.delete(this.endpoint);
 
       this.isFollowedBy = false;

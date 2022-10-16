@@ -20,7 +20,6 @@ import CountAnimation from "../components/CountAnimation.vue";
 import FollowButton from "../components/FollowButton.vue";
 import HeaderUserModal from "../components/HeaderUserModal.vue";
 import HoverMenu from "../components/HoverMenu.vue";
-import Modal from "../components/Modal.vue";
 // search
 import GenreSearch from "../components/search/GenreSearch.vue";
 import RankingSortModal from "../components/search/RankingSortModal.vue";
@@ -62,5 +61,4 @@ export default {
     BookLike,
     BookTagsInput,
     FollowButton,
-    Modal,
 };

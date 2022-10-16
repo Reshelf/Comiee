@@ -3,8 +3,12 @@ import { ref } from "vue";
 
 const open = ref(false);
 
+/* eslint-disable */
 const props = defineProps({
-  avatar: String,
+  avatar: {
+    type: String,
+    defalt: "",
+  },
 });
 </script>
 <template>

@@ -100,6 +100,8 @@ build:
 	npm run build
 lint:
 	watch 'npm run lint'
+format:
+	npm run format
 cron:
 	crontab -e
 sche-run:

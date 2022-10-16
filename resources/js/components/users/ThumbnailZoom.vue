@@ -3,8 +3,12 @@ import { ref } from "vue";
 
 const open = ref(false);
 
+/* eslint-disable */
 const props = defineProps({
-  thumbnail: String,
+  thumbnail: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 <template>

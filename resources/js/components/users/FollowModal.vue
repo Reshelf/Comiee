@@ -8,8 +8,12 @@ function close() {
   window.history.back();
 }
 
+/* eslint-disable */
 const props = defineProps({
-  userName: String,
+  userName: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 <template>

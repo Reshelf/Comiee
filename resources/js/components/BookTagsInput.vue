@@ -21,10 +21,12 @@ export default {
   props: {
     initialTags: {
       type: Array,
+      // eslint-disable-next-line
       default: [],
     },
     autocompleteItems: {
       type: Array,
+      // eslint-disable-next-line
       default: [],
     },
   },

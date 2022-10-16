@@ -3,10 +3,14 @@ import { ref } from "vue";
 
 const show = ref(true);
 
+//  eslint-disable-next-line
 const props = defineProps({
   error: Boolean,
   success: Boolean,
-  message: String,
+  message: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 <template>

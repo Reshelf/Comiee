@@ -24,6 +24,7 @@ const filter = computed(() => {
 });
 
 const getData = async () => {
+  /* eslint-disable */
   let result = await axios.get("/api/search-words");
   state.array = result.data;
 };

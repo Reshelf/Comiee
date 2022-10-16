@@ -21,6 +21,7 @@ const filter = computed(() => {
 });
 
 const getData = async () => {
+  /* eslint-disable */
   let result = await axios.get("/api/search-tags");
   state.array = result.data;
 };

@@ -7,8 +7,9 @@ function isSelect(num) {
   this.isActive = num;
 }
 
+// eslint-disable-next-line
 const props = defineProps({
-  is_comment: Boolean,
+  isComment: Boolean,
 });
 </script>
 <template>
@@ -19,7 +20,7 @@ const props = defineProps({
       </li>
       <li :class="{ active: isActive === 2 }" @click="isSelect(2)">作品情報</li>
       <li
-        v-if="is_comment"
+        v-if="isComment"
         :class="{ active: isActive === 3 }"
         @click="isSelect(3)"
       >
