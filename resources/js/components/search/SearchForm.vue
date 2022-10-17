@@ -11,7 +11,7 @@ const filter = computed(() => {
   if (state.search) {
     return Object.values(state.array).filter((item) => {
       // 検索ワード
-      let word = item.title.concat(item.user.name);
+      let word = item.title.concat(item.name);
 
       return state.search
         .toLowerCase()
@@ -100,7 +100,7 @@ function reset() {
             <div class="text-xl font-semibold">
               {{ item.title }}
             </div>
-            <div class="text-666">{{ item.user.name }}</div>
+            <div class="text-666">{{ item.name }}</div>
           </div>
         </div>
       </a>

@@ -15,7 +15,13 @@ class SearchWordController extends Controller
     */
     public function __invoke(Book $book)
     {
-        $all = Book::all()->sortByDesc('created_at')->load(['user']);
+        $all = Book::all()->load(['user'])->map(function ($book) {
+            return [
+                'title' => $book->title,
+                'thumbnail' => $book->thumbnail,
+                'name' => $book->user->name
+            ];
+        });
 
         return response()->json($all);
     }
