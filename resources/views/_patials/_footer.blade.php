@@ -127,19 +127,19 @@
                     </comment-post-modal>
                 @endauth
 
-                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">プログラム</h4>
+                {{-- <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">プログラム</h4>
                 <div class="text-xs mb-2">Developer Circles</div>
                 <div class="text-xs mb-2">F8</div>
-                <div class="text-xs mb-2">ThreatExchange</div>
+                <div class="text-xs mb-2">ThreatExchange</div> --}}
             </div>
             <div class="w-1/2">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ニュース</h4>
+                {{-- <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ニュース</h4>
                 <div class="text-xs mb-2">ブログ</div>
                 <div class="text-xs mb-2">成功事例</div>
                 <div class="text-xs mb-2">動画</div>
-                <div class="text-xs mb-2">人工知能</div>
+                <div class="text-xs mb-2">人工知能</div> --}}
 
-                <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">利用規約とポリシー</h4>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">利用規約とポリシー</h4>
                 <div class="text-xs mb-2">プラッムフォーム主導のハブ</div>
                 <div class="text-xs mb-2">プラットフォーム利用規約</div>
                 <div class="text-xs mb-2">開発者ポリシー</div>
