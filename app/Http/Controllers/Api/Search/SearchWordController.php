@@ -17,6 +17,7 @@ class SearchWordController extends Controller
     {
         $all = Book::all()->load(['user'])->map(function ($book) {
             return [
+                'id' => $book->id,
                 'title' => $book->title,
                 'thumbnail' => $book->thumbnail,
                 'name' => $book->user->name
