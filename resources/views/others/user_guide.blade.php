@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'ご利用ガイド - Starbooks')
+@section('title', 'ご利用ガイド | Starbooks')
 
 @section('content')
     @include('_patials._help_nav')
@@ -17,7 +17,7 @@
             </div>
 
             <div class=" flex items-center my-8">
-                <a href="{{ route('others.faq') }}"
+                <a href="{{ route('others.faq.1') }}"
                     class="block w-1/3 bg-white dark:bg-dark-1 p-12 rounded-[3px] border-2 border-transparent hover:text-primary hover:border-primary cursor-pointer">
                     <h3 class="tracking-widest text-[16px] font-semibold">よくあるご質問</h3>
                     <div class="mt-2">設定の変更方法など、わからないことがある場合はこちら</div>

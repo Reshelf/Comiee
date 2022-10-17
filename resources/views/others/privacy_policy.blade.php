@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'プライバシーポリシー - Starbooks')
+@section('title', 'プライバシーポリシー | Starbooks')
 
 @section('content')
     @include('_patials._nav', [

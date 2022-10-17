@@ -1,0 +1,41 @@
+<div class="">
+    <div class="">
+        <a href="{{ route('others.faq.1') }}"
+            class="{{ $faq_1 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            サービスについて</a>
+        <a href="{{ route('others.faq.2') }}"
+            class="{{ $faq_2 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            会員登録・ログインについて
+        </a>
+    </div>
+
+    <div class="my-16">
+        <h3 class="text-xs mb-6">読者の方からよくあるご質問</h3>
+        <a href="{{ route('others.faq.3') }}"
+            class="{{ $faq_3 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            ポイントについて</a>
+        <a href="{{ route('others.faq.4') }}"
+            class="{{ $faq_4 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            作品の購入について
+        </a>
+        <a href="{{ route('others.faq.5') }}"
+            class="{{ $faq_5 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            その他
+        </a>
+    </div>
+
+    <div class="">
+        <h3 class="text-xs mb-6">作者の方からよくあるご質問</h3>
+        <a href="{{ route('others.faq.6') }}"
+            class="{{ $faq_6 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            作品の投稿について</a>
+        <a href="{{ route('others.faq.7') }}"
+            class="{{ $faq_7 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            作品の収益化について
+        </a>
+        <a href="{{ route('others.faq.8') }}"
+            class="{{ $faq_8 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 mb-4 block">
+            その他
+        </a>
+    </div>
+</div>

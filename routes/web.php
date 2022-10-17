@@ -61,8 +61,14 @@ Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->name('
 // 通報
 Route::post('/report', 'App\Http\Controllers\Others\ReportController')->name('others.report');
 // 通報
-Route::get('/faq', 'App\Http\Controllers\Others\Faq\IndexController')->name('others.faq');
-
+Route::get('/faq/1', 'App\Http\Controllers\Others\Faq\OneController')->name('others.faq.1');
+Route::get('/faq/2', 'App\Http\Controllers\Others\Faq\TwoController')->name('others.faq.2');
+Route::get('/faq/3', 'App\Http\Controllers\Others\Faq\ThreeController')->name('others.faq.3');
+Route::get('/faq/4', 'App\Http\Controllers\Others\Faq\FourController')->name('others.faq.4');
+Route::get('/faq/5', 'App\Http\Controllers\Others\Faq\FiveController')->name('others.faq.5');
+Route::get('/faq/6', 'App\Http\Controllers\Others\Faq\SixController')->name('others.faq.6');
+Route::get('/faq/7', 'App\Http\Controllers\Others\Faq\SevenController')->name('others.faq.7');
+Route::get('/faq/8', 'App\Http\Controllers\Others\Faq\EightController')->name('others.faq.8');
 
 /*
 |--------------------------------------------------------------------------

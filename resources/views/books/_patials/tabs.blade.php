@@ -4,7 +4,7 @@
         class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         ご利用ガイド
     </a>
-    <a href="{{ route('others.faq') }}"
+    <a href="{{ route('others.faq.1') }}"
         class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         よくあるご質問
     </a>
