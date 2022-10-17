@@ -5,9 +5,9 @@
 @section('content')
     @include('_patials._help_nav')
 
-    <div class="w-full bg-[#0A2140] bg-opacity-50 h-[110px] flex items-center justify-center">
+    {{-- <div class="w-full bg-[#0A2140] bg-opacity-50 h-[110px] flex items-center justify-center">
 
-    </div>
+    </div> --}}
     <div class="w-full bg-f8 dark:bg-dark p-8">
         <div class="max-w-6xl mx-auto">
             <div
