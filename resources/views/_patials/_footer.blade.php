@@ -107,7 +107,7 @@
             <div class="w-1/2">
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ヘルプ</h4>
                 <a href="{{ route('others.user_guide') }}" class="block text-xs mb-2 hover:text-primary">ご利用ガイド</a>
-                <a href="" class="block text-xs mb-2 hover:text-primary">よくあるご質問</a>
+                <a href="{{ route('others.faq') }}" class="block text-xs mb-2 hover:text-primary">よくあるご質問</a>
                 @auth
                     <comment-post-modal>
                         <template #btn-trigger>

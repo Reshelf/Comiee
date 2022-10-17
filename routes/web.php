@@ -60,6 +60,8 @@ Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sc
 Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
 // 通報
 Route::post('/report', 'App\Http\Controllers\Others\ReportController')->name('others.report');
+// 通報
+Route::get('/faq', 'App\Http\Controllers\Others\Faq\IndexController')->name('others.faq');
 
 
 /*

@@ -18,7 +18,7 @@ class BookSeeder extends Seeder
     {
         $faker = Faker::create('en_US');
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 10000; $i++) {
             $param = [
                 'title' => $i,
                 'story' => $faker->text(400),

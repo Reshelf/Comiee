@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
 
         $faker = Faker::create('en_US');
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 1000; $i++) {
             $param = [
                 'name' => $faker->name,
                 'username' => $faker->numberBetween(1001, 9999999999999999),

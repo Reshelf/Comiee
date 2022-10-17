@@ -4,8 +4,8 @@
         class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         ご利用ガイド
     </a>
-    <a href="/" class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
-        aria-current="page">
+    <a href="{{ route('others.faq') }}"
+        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
         よくあるご質問
     </a>
 
