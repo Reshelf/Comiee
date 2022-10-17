@@ -1,10 +1,11 @@
 <div class="pr-8">
-    <div class="flex justify-start mb-12 text-xs">
+    {{-- <div class="flex justify-start mb-12 text-xs">
         <a href="{{ route('others.user_guide') }}" class="pr-2">Help Center</a>>
         <a href="{{ route('others.faq.1') }}" class="pl-2">よくあるご質問</a>
-    </div>
+    </div> --}}
 
-    <div class="">
+    <div class="my-12">
+        <h3 class="text-xs mb-2 pl-4 cursor-default">読者の方からよくあるご質問</h3>
         <a href="{{ route('others.faq.1') }}"
             class="{{ $faq_1 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
             サービスについて</a>
@@ -12,13 +13,9 @@
             class="{{ $faq_2 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
             会員登録・ログインについて
         </a>
-    </div>
-
-    <div class="my-16">
-        <h3 class="text-xs mb-2 pl-4 cursor-default">読者の方からよくあるご質問</h3>
         <a href="{{ route('others.faq.3') }}"
             class="{{ $faq_3 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
-            ポイントについて</a>
+            ポイントや作品の購入について</a>
         <a href="{{ route('others.faq.4') }}"
             class="{{ $faq_4 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
             作品の購入について
