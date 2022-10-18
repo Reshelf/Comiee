@@ -5,7 +5,7 @@
     </div>
 
     <div class="my-12">
-        <h3 class="text-xs mb-2 pl-4 cursor-default">読者の方からよくあるご質問</h3>
+        <h3 class="text-xs mb-4 cursor-default">読者の方からよくあるご質問</h3>
         <a href="{{ route('others.faq.1') }}"
             class="{{ $faq_1 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
             サービスについて</a>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="">
-        <h3 class="text-xs mb-2 pl-4 cursor-default">作者の方からよくあるご質問</h3>
+        <h3 class="text-xs mb-4 cursor-default">作者の方からよくあるご質問</h3>
         <a href="{{ route('others.faq.5') }}"
             class="{{ $faq_5 ? 'font-semibold border-l-4' : 'hover:text-primary' }} pl-4 py-2 mb-2 block">
             作品の投稿について</a>
