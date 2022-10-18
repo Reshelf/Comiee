@@ -9,7 +9,7 @@
         <div class="w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end">
             @include('others.faq.atoms.left_nav')
         </div>
-        <div class="w-[70%] py-8 px-20">
+        <div class="w-[70%] py-8 pl-20 pr-48">
             <h2 class="text-3xl font-semibold tracking-widest">ポイントや作品の購入について</h2>
             <span class="inline-block text-xs mt-3">2022/10/18</span>
 
