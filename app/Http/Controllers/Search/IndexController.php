@@ -21,12 +21,12 @@ class IndexController extends Controller
     {
         if (Auth::user()) {
             // 今日の新作
-            $books = Book::where('is_new', true)->orderBy('created_at')->get();
+            $books = Book::where('is_new', true)->orderBy('created_at')->paginate(15);
             return view('search.todays_new.index', compact('books'));
         }
 
         // ランキング 人気順
-        $likes = Book::withCount('likes')->orderBy('likes_count', 'desc')->take(500)->get();
+        $likes = Book::withCount('likes')->orderBy('likes_count', 'desc')->paginate(15);
         // お気に入り数が0の作品は除く
         $books = $likes->where('likes_count', '>', 0);
         return view('search.ranking.index', compact('books'));

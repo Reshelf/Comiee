@@ -20,7 +20,7 @@ class IndexController extends Controller
         // 人気順
         $likes = Book::withCount('likes')
             ->orderBy('likes_count', 'desc')
-            ->take(500)->get();
+            ->paginate(15);
 
         // お気に入り数が0の作品は除く
         $books = $likes->where('likes_count', '>', 0);
