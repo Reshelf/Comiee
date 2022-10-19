@@ -22,7 +22,7 @@ class IndexController extends Controller
         if (Auth::user()) {
             // 今日の新作
             $books = Book::where('is_new', true)->orderBy('created_at')->get();
-            return view('search.todays_new', compact('books'));
+            return view('search.todays_new.index', compact('books'));
         }
 
         // ランキング 人気順

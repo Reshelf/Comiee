@@ -21,6 +21,7 @@ class BookSeeder extends Seeder
         for ($i = 0; $i < 10000; $i++) {
             $param = [
                 'title' => $i,
+                'genre_id' => random_int(1, 5),
                 'story' => $faker->text(400),
                 'user_id' => random_int(1, 100),
             ];

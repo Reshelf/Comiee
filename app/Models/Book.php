@@ -119,4 +119,14 @@ class Book extends Model
             ? (bool)$this->likes->where('id', $user->id)->count()
             : false;
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ジャンル名　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function genreName(): Attribute
+    {
+        return config('genre.' . $this->genre_id);
+    }
 }

@@ -2,10 +2,6 @@ html {
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: inherit;
-}
-
 *:before,
 *:after {
   box-sizing: inherit;
@@ -473,8 +469,8 @@ button[disabled] {
 }
 
 .acd-content {
-  @apply h-0 opacity-0 invisible duration-200;
+  @apply h-0 opacity-0 invisible;
 }
 .acd-check:checked + .acd-label + .acd-content {
-  @apply h-[70px] p-4 opacity-100 visible;
+  @apply h-auto p-4 opacity-100 visible;
 }

@@ -22,10 +22,15 @@
                     <div class="w-full max-w-8xl mx-auto mb-4">
                         <div class="w-full flex flex-col">
                             @include('search._patials._term_tabs', [
-                                'ranking' => false,
                                 'todays_new' => true,
-                                'like' => false,
-                                'following' => false,
+                                'ranking' => false,
+                                // ソート
+                                'all' => false,
+                                'boys' => false,
+                                'youth' => true,
+                                'girls' => false,
+                                'woman' => false,
+                                'adult' => false,
                             ])
                             {{-- フィルター --}}
                             @include('search._patials._filter', [

@@ -1,4 +1,4 @@
-<div class="flex items-center border-b border-ddd dark:border-dark-1 pb-2">
+<div class="flex flex-col justify-center border-b border-ddd dark:border-dark-1 pb-2">
     <input id="acd-check1" class="acd-check hidden" type="checkbox">
     <label class="acd-label inline-block" for="acd-check1">
         <div
@@ -26,30 +26,34 @@
             フィルタ
         </div>
     </label>
-    <form class="acd-content flex items-center">
+    <form class="acd-content flex">
         @if ($ranking || $todays_new)
-            <div class="flex items-center">
-                <div class="{{ $like ? 'btn-primary' : 'btn-border' }} px-2 text-xs rounded-r-none">お気に入り順</div>
-                <div class="{{ $ranking ? 'btn-primary' : 'btn-border' }} px-2 text-xs rounded-l-none">閲覧回数順</div>
-            </div>
-        @endif
-
-        @if ($like)
-            <div class="checkbox ml-4">
-                <label for="is_complete" class="text-sm">未読エピソード</label>
-                <input id="is_complete" type="checkbox" required name="is_complete"
-                    {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
-
+            <div class="flex flex-col mr-12">
+                <h4 class="text-xs mb-4">並び替え</h4>
+                <a class="{{ $like ? 'font-semibold' : '' }} mb-2">お気に入り順</a>
+                <a class="{{ $ranking ? 'font-semibold' : '' }}">閲覧回数順</a>
             </div>
         @endif
 
         @if ($ranking || $like)
-            <div class="checkbox ml-4">
-                <label for="is_complete" class="text-sm">完結作品のみ</label>
-                <input id="is_complete" type="checkbox" required name="is_complete"
-                    {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
+            <div class="flex flex-col mr-12">
+                <h4 class="text-xs mb-4">特徴</h4>
+                <div class="checkbox mb-4">
+                    <label for="is_complete" class="text-sm">未読エピソード</label>
+                    <input id="is_complete" type="checkbox" required name="is_complete"
+                        {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
+                </div>
+                @if ($like)
+                    <div class="checkbox">
+                        <label for="is_complete" class="text-sm">完結作品のみ</label>
+                        <input id="is_complete" type="checkbox" required name="is_complete"
+                            {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
 
+                    </div>
+                @endif
             </div>
         @endif
+
+
     </form>
 </div>

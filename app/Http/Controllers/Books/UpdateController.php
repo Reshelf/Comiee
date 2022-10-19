@@ -30,6 +30,8 @@ class UpdateController extends Controller
         $book->user_id = $request->user()->id;
         // 作品タイトル
         $book->title = $request->title;
+        // ジャンル
+        $book->genre_id = $request->genre_id;
         // あらすじ
         $book->story = $request->story;
         // 完結

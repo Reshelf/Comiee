@@ -30,9 +30,9 @@
     @endauth
 </div>
 <div class="w-full flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
-    <genre-search class="mb-4">
+    {{-- <genre-search class="mb-4">
         <template #trigger>ジャンルから探す</template>
-    </genre-search>
+    </genre-search> --}}
     <tag-search-modal>
         <template #trigger>タグからさがす</template>
     </tag-search-modal>
