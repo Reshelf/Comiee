@@ -22,6 +22,7 @@
                     @include('users._patials.card')
                 @endforeach
             </div>
+            <div class="w-full flex justify-center mt-8">{{ $books->links() }}</div>
         </div>
     </div>
 

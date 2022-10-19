@@ -9,7 +9,7 @@ class CompleteController extends Controller
 {
     public function __invoke()
     {
-        $books = Book::where('is_complete', true)->latest()->get();
+        $books = Book::where('is_complete', true)->latest()->paginate(15);
 
         return view('search.complete', compact('books'));
     }
