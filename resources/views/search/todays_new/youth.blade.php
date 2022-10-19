@@ -76,7 +76,7 @@
                                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
 
-                                            <span class="pl-2">{{ $book->views }}回</span>
+                                            <span class="pl-2">{{ number_format($book->views) }}回</span>
                                         </div>
                                     </div>
                                 </div>
