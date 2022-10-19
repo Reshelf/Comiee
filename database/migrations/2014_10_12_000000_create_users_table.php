@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('avatar')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('website')->nullable();
+            $table->boolean('mail_type')->default(0);
             $table->text('body', 200)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
