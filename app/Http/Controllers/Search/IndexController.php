@@ -29,6 +29,6 @@ class IndexController extends Controller
         $likes = Book::withCount('likes')->orderBy('likes_count', 'desc')->take(500)->get();
         // お気に入り数が0の作品は除く
         $books = $likes->where('likes_count', '>', 0);
-        return view('search.ranking', compact('books'));
+        return view('search.ranking.index', compact('books'));
     }
 }

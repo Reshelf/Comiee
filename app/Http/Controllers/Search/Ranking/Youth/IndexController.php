@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Search\Ranking;
+namespace App\Http\Controllers\Search\Ranking\Youth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,6 +26,6 @@ class IndexController extends Controller
         $books = $likes->where('likes_count', '>', 0);
 
         // dd($books);
-        return view('search.ranking.index', compact('books'));
+        return view('search.ranking.youth', compact('books'));
     }
 }

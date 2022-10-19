@@ -25,6 +25,12 @@ Auth::routes();
 Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
 // ランキング
 Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
+Route::get('/ranking/boys', 'App\Http\Controllers\Search\Ranking\Boys\IndexController')->name('search.ranking.boys');
+Route::get('/ranking/youth', 'App\Http\Controllers\Search\Ranking\Youth\IndexController')->name('search.ranking.youth');
+Route::get('/ranking/girls', 'App\Http\Controllers\Search\Ranking\Girls\IndexController')->name('search.ranking.girls');
+Route::get('/ranking/woman', 'App\Http\Controllers\Search\Ranking\Woman\IndexController')->name('search.ranking.woman');
+Route::get('/ranking/adult', 'App\Http\Controllers\Search\Ranking\Adult\IndexController')->name('search.ranking.adult');
+
 Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 // 今日の新作
 Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search.todays_new');
