@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '漫画プラットホーム | Starbooks')
+@section('title', '少女マンガ - 今日の新作 | Starbooks')
 
 @section('content')
     @include('_patials._nav', [
