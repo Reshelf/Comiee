@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Search\TodaysNew\Adult;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\Book;
 
 class IndexController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | 今日の新作　：　ソート
+    | 今日の新作　：　オトナ
     |--------------------------------------------------------------------------
     |
     */
