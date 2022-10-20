@@ -20,23 +20,13 @@
 </div>
 <div class="mb-4">
     <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
-    <div class="cursor-default">
-        @if ($book->genre_id ?? old('genre_id') === 1)
-            少年
-        @endif
-        @if ($book->genre_id ?? old('genre_id') === 2)
-            青年
-        @endif
-        @if ($book->genre_id ?? old('genre_id') === 3)
-            少女
-        @endif
-        @if ($book->genre_id ?? old('genre_id') === 4)
-            女性
-        @endif
-        @if ($book->genre_id ?? old('genre_id') === 5)
-            オトナ
-        @endif
-    </div>
+    <select name="genre_id" class="flex flex-col items-center">
+        <option type="text" value="1" @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif>少年</option>
+        <option type="text" value="2" @if (2 === (int) old('genre_id', $book->genre_id)) selected @endif>青年</option>
+        <option type="text" value="3" @if (3 === (int) old('genre_id', $book->genre_id)) selected @endif>少女</option>
+        <option type="text" value="4" @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif>女性</option>
+        <option type="text" value="5" @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif>オトナ</option>
+    </select>
 </div>
 <div class="mb-4">
     <label for="tag" class="text-xs text-666 dark:text-ddd">タグ</label>
