@@ -3,12 +3,7 @@
 @section('title', '今日の新作 | Starbooks')
 
 @section('content')
-    @include('_patials._nav', [
-        'ranking' => false,
-        'todays_new' => true,
-        'like' => false,
-        'following' => false,
-    ])
+    @include('_patials._nav', ['tab' => 2])
 
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto p-4 lg:p-8 mb-8">

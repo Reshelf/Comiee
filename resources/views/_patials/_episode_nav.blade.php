@@ -51,7 +51,6 @@
                         'ranking' => $ranking,
                         'todays_new' => $todays_new,
                         'like' => $like,
-                        'following' => $following,
                     ])
                 </div>
 

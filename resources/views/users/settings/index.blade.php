@@ -3,12 +3,7 @@
 @section('title', '設定 | Starbooks')
 
 @section('content')
-    @include('_patials._nav', [
-        'ranking' => false,
-        'todays_new' => false,
-        'like' => false,
-        'following' => false,
-    ])
+    @include('_patials._nav', ['tab' => 0]))
     <div class="bg-white dark:bg-dark">
         @include('users._patials.user', [
             'mypage' => false,

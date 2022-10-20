@@ -47,12 +47,7 @@
 
                 <div class="flex items-center ml-16 mr-auto">
                     {{-- 検索フォーム --}}
-                    @include('search._patials._tabs', [
-                        'ranking' => $ranking,
-                        'todays_new' => $todays_new,
-                        'like' => $like,
-                        'following' => $following,
-                    ])
+                    @include('search._patials._tabs', ['tab' => $tab])
                 </div>
 
                 <div class="flex items-center ml-auto">

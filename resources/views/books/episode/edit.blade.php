@@ -3,12 +3,7 @@
 @section('title', $episode->name)
 
 @section('content')
-    @include('_patials._nav', [
-        'ranking' => false,
-        'todays_new' => false,
-        'like' => false,
-        'following' => false,
-    ])
+    @include('_patials._nav', ['tab' => 0]))
 
     <div class="max-w-md flex flex-col mx-auto container">
         <a href="{{ URL::previous() }}" class="inline-block text-xs cursor-pointer hover:text-primary mb-8">
