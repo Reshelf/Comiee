@@ -17,7 +17,8 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         // 検索結果を１度に返すクエリを宣言
-        $pickup = ['is_new' => true, 'genre_id' => 1];
+        $genre_id = 1;
+        $pickup = ['is_new' => true, 'genre_id' => $genre_id];
         $query = Book::where($pickup)->latest();
 
         //$request->input()で検索時に入力した項目を取得
@@ -27,6 +28,9 @@ class IndexController extends Controller
         if ($sort != null) {
             if ($sort === '閲覧回数') {
                 $query->orderBy('views', 'desc')->get();
+            }
+            if ($sort === 'お気に入り数') {
+                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
             }
         } else {
             $sort = 'お気に入り数';
@@ -38,7 +42,7 @@ class IndexController extends Controller
         return view('search.todays_new.adult', [
             'books' => $books,
             'sort' => $sort,
-            'genre_id' => 1
+            'genre_id' => $genre_id
         ]);
     }
 }
