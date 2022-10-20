@@ -35,7 +35,7 @@
 
                             {{-- フィルター --}}
                             @isset($books)
-                                <div class="flex flex-col justify-center border-b border-ddd dark:border-dark-1 pb-2">
+                                <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search._patials._filter')
                                     <form class="acd-content" method="POST" action="{{ route('todays_new.search') }}">
                                         @csrf
