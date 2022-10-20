@@ -21,19 +21,19 @@
 <div class="mb-4">
     <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
     <div class="cursor-default">
-        @if ($book->genre_id === 1)
+        @if ($book->genre_id ?? old('genre_id') === 1)
             少年
         @endif
-        @if ($book->genre_id === 2)
+        @if ($book->genre_id ?? old('genre_id') === 2)
             青年
         @endif
-        @if ($book->genre_id === 3)
+        @if ($book->genre_id ?? old('genre_id') === 3)
             少女
         @endif
-        @if ($book->genre_id === 4)
+        @if ($book->genre_id ?? old('genre_id') === 4)
             女性
         @endif
-        @if ($book->genre_id === 5)
+        @if ($book->genre_id ?? old('genre_id') === 5)
             オトナ
         @endif
     </div>
