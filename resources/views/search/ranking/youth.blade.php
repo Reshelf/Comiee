@@ -24,21 +24,9 @@
                             @include('search._patials._term_tabs', [
                                 'todays_new' => false,
                                 'ranking' => true,
-                                // ソート
-                                'all' => false,
-                                'boys' => false,
-                                'youth' => true,
-                                'girls' => false,
-                                'woman' => false,
-                                'adult' => false,
+                                'genre' => 2,
                             ])
-                            {{-- フィルター --}}
-                            @include('search._patials._filter', [
-                                'ranking' => true,
-                                'todays_new' => false,
-                                'like' => false,
-                                'following' => false,
-                            ])
+                            @include('search._patials._filter')
                         </div>
                     </div>
 

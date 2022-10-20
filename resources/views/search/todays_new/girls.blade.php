@@ -24,13 +24,7 @@
                             @include('search._patials._term_tabs', [
                                 'todays_new' => true,
                                 'ranking' => false,
-                                // ソート
-                                'all' => false,
-                                'boys' => false,
-                                'youth' => false,
-                                'girls' => true,
-                                'woman' => false,
-                                'adult' => false,
+                                'genre' => 3
                             ])
 
                             {{-- フィルター --}}
