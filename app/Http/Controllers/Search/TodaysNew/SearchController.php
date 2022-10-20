@@ -22,31 +22,23 @@ class SearchController extends Controller
 
 
         //$request->input()で検索時に入力した項目を取得
-        $sort_basis = $request->input('sort_basis');
-        $sort_hidden = $request->input('sort_hidden');
-
+        $sort = $request->input('sort');
 
         // ソートの基準
-        if ($sort_basis != null) {
-            if ($sort_basis === 'お気に入り数') {
+        if ($sort != null) {
+            if ($sort === 'お気に入り数') {
                 $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
-            } elseif ($sort_basis === '閲覧回数') {
+            } elseif ($sort === '閲覧回数') {
                 $query->orderBy('views', 'desc')->get();
             }
         }
 
 
-        // 非表示作品のカラム取得
-        if ($sort_hidden != null) {
-            if ($sort_hidden === '非表示作品は除く') {
-            }
-        }
-
-
         //1ページにつき100件ずつ表示
-        $books = $query->paginate(100);
+        $books = $query->paginate(15);
         return view('search.todays_new.index', [
             'books' => $books,
+            'sort' => $sort,
         ]);
     }
 }

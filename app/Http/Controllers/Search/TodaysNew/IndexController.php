@@ -18,7 +18,7 @@ class IndexController extends Controller
     */
     public function __invoke(Book $book)
     {
-        $books = Book::where('is_new', true)->orderBy('created_at')->paginate(15);
+        $books = Book::where('is_new', true)->latest()->paginate(15);
         return view('search.todays_new.index', ['books' => $books]);
     }
 }

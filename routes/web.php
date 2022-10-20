@@ -33,14 +33,15 @@ Route::get('/ranking/adult', 'App\Http\Controllers\Search\Ranking\Adult\IndexCon
 
 Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 // 今日の新作
-Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search.todays_new');
-Route::get('/todays_new/boys', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('search.todays_new.boys');
-Route::get('/todays_new/youth', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('search.todays_new.youth');
-Route::get('/todays_new/girls', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('search.todays_new.girls');
-Route::get('/todays_new/woman', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('search.todays_new.woman');
-Route::get('/todays_new/adult', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('search.todays_new.adult');
+Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
+Route::post('/todays_new/search', 'App\Http\Controllers\Search\TodaysNew\SearchController')->name('todays_new.search');
 
-Route::post('/todays_new/search/result', 'App\Http\Controllers\Search\TodaysNew\SearchController')->name('todays_new.search');
+Route::get('/todays_new/boys', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('todays_new.boys');
+Route::get('/todays_new/youth', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('todays_new.youth');
+Route::get('/todays_new/girls', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('todays_new.girls');
+Route::get('/todays_new/woman', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('todays_new.woman');
+Route::get('/todays_new/adult', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('todays_new.adult');
+
 // タグ検索
 Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
 // 完結作品

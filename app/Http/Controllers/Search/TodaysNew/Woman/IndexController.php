@@ -16,7 +16,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $pickup = ['is_new' => true, 'genre_id' => 4];
-        $books = Book::where($pickup)->orderBy('created_at')->paginate(15);
+        $books = Book::where($pickup)->latest()->paginate(15);
         return view('search.todays_new.woman', ['books' => $books]);
     }
 }
