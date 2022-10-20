@@ -19,7 +19,7 @@
                             @include('search._patials._term_tabs', [
                                 'todays_new' => true,
                                 'ranking' => false,
-                                'genre' => 4,
+                                'genre' => $genre_id,
                             ])
 
                             {{-- フィルター --}}
@@ -33,13 +33,13 @@
                                             <input class="visually-hidden" type="radio" name="sort" id="like"
                                                 value="お気に入り数"
                                                 @isset($sort)
-                                                    @if ($sort == 'お気に入り数') checked @endif
+                                                    @if ($sort === 'お気に入り数') checked @endif
                                                 @endisset />
                                             <label for="like" class="mt-4">お気に入り数</label>
                                             <input class="visually-hidden" type="radio" name="sort" id="view"
                                                 value="閲覧回数"
                                                 @isset($sort)
-                                                    @if ($sort == '閲覧回数') checked @endif
+                                                    @if ($sort === '閲覧回数') checked @endif
                                                 @endisset />
                                             <label for="view" class="mt-4">閲覧回数</label>
                                         </div>

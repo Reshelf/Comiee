@@ -38,6 +38,7 @@ class IndexController extends Controller
         return view('search.todays_new.adult', [
             'books' => $books,
             'sort' => $sort,
+            'genre_id' => 4
         ]);
     }
 }

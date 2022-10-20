@@ -19,7 +19,7 @@
                             @include('search._patials._term_tabs', [
                                 'todays_new' => false,
                                 'ranking' => true,
-                                'genre' => 0,
+                                'genre' => $genre_id,
                             ])
                             @include('search._patials._filter')
                         </div>

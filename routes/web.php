@@ -36,18 +36,17 @@ Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\Searc
 // 今日の新作
 Route::prefix('todays_new')->name('todays_new.')->group(function () {
     Route::get('/', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('top');
+    Route::post('/', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search');
     Route::get('/boys', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('boys');
+    Route::post('/boys', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('boys.search');
     Route::get('/youth', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('youth');
+    Route::post('/youth', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('youth.search');
     Route::get('/girls', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('girls');
+    Route::post('/girls', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('girls.search');
     Route::get('/woman', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('woman');
+    Route::post('/woman', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('woman.search');
     Route::get('/adult', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('adult');
-
-    Route::post('/search', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('search');
-    Route::post('/boys/search', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('boys.search');
-    Route::post('/youth/search', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('youth.search');
-    Route::post('/girls/search', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('girls.search');
-    Route::post('/woman/search', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('woman.search');
-    Route::post('/adult/search', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('adult.search');
+    Route::post('/adult', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('adult.search');
 });
 
 // タグ検索
