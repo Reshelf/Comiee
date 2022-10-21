@@ -29,8 +29,7 @@
                                     @include('search._patials._filter')
                                     <form class="acd-content" method="POST" action="{{ route('ranking.woman.search') }}">
                                         @csrf
-                                        @include('search.ranking._form', [
-                                            'sort' => $sort,
+                                        @include('search.like._form', [
                                             'feature' => $feature,
                                         ])
                                     </form>

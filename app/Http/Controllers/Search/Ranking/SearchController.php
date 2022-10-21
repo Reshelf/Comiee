@@ -45,7 +45,6 @@ class SearchController extends Controller
         }
 
 
-        //1ページにつき100件ずつ表示
         $books = $query->paginate(100);
         return view('search.ranking.index', [
             'books' => $books,

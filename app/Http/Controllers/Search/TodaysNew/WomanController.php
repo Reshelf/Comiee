@@ -37,7 +37,6 @@ class WomanController extends Controller
             $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
         }
 
-        //1ページにつき100件ずつ表示
         $books = $query->paginate(15);
         return view('search.todays_new.woman', [
             'books' => $books,

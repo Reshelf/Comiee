@@ -45,7 +45,6 @@ class YouthController extends Controller
             $feature = '全ての作品';
         }
 
-        //1ページにつき100件ずつ表示
         $books = $query->paginate(15);
         return view('search.ranking.youth', [
             'books' => $books,

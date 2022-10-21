@@ -25,14 +25,22 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();
+        $query = $user->likes();
 
-        // ユーザーのお気に入り
-        $books = $user->likes()->paginate(15);
+        $feature = $request->input('feature');
+        // $books = $likes->where('likes_count', '>', 0);
 
-        return view('search.like', [
+        if ($feature != null) {
+            if ($feature === '完結作品のみ') {
+                $query->where('is_complete', 1)->latest();
+            }
+        } else {
+            $feature = '全ての作品';
+        }
+
+        $books = $query->paginate(15);
+        return view('search.like.index', [
             'books' => $books,
-            'genre_id' => 0,
-            'sort' => 'お気に入り数',
             'feature' => '全ての作品'
         ]);
     }
