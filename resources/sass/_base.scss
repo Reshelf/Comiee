@@ -477,26 +477,34 @@ button[disabled] {
 
 .filters {
   label {
-    @apply duration-200 relative cursor-pointer pl-[35px];
+    @apply relative cursor-pointer pl-[35px] duration-[.25s];
   }
 
   label::before,
   label::after {
-    @apply block rounded-full absolute top-[50%];
+    @apply block rounded-full absolute top-[50%] duration-[.25s];
     content: "";
     transform: translateY(-50%);
   }
 
   label::before {
-    @apply bg-white border border-ddd rounded-full h-[20px] w-[20px] left-[5px];
+    @apply bg-white border border-[#c8c8c8] rounded-full h-[18px] w-[18px] left-[5px];
   }
 
   label::after {
-    @apply bg-primary rounded-full opacity-0 w-[14px] h-[14px] left-[8px];
+    @apply bg-primary rounded-full opacity-0 w-[18px] h-[18px] left-[5px];
+    box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
   }
 
   input:checked + label::after {
     @apply opacity-100;
+    transform: translateY(-50%);
+    animation-name: radioAnime;
+    animation-fill-mode: backwards;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-direction: normal;
   }
 
   .visually-hidden {
