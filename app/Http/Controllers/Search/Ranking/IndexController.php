@@ -26,6 +26,9 @@ class IndexController extends Controller
         // $books = $likes->where('likes_count', '>', 0);
 
         // dd($books);
-        return view('search.ranking.index', compact('books'));
+        return view('search.ranking.index', [
+            'books' => $books,
+            'genre_id' => 0
+        ]);
     }
 }

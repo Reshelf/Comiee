@@ -55,16 +55,6 @@
         </div>
     </label>
     <form class="acd-content flex">
-        @if ($ranking || $todays_new)
-            <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
-                class="w-1/5 flex flex-col pr-12">
-                @csrf
-                <h4 class="text-xs my-2 py-4 border-b border-ccc">並び替え</h4>
-                <a class="{{ $like ? 'font-semibold' : '' }} mt-4">お気に入り順</a>
-                <a class="{{ $ranking ? 'font-semibold' : '' }} mt-4">閲覧回数順</a>
-            </form>
-        @endif
-
         @if ($ranking || $like)
             <div class="flex flex-col pr-12">
                 <h4 class="text-xs mb-4">特徴</h4>

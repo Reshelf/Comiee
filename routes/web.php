@@ -24,14 +24,19 @@ Auth::routes();
 // トップページ
 Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
 // ランキング
-Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('search.ranking');
-Route::get('/ranking/boys', 'App\Http\Controllers\Search\Ranking\Boys\IndexController')->name('search.ranking.boys');
-Route::get('/ranking/youth', 'App\Http\Controllers\Search\Ranking\Youth\IndexController')->name('search.ranking.youth');
-Route::get('/ranking/girls', 'App\Http\Controllers\Search\Ranking\Girls\IndexController')->name('search.ranking.girls');
-Route::get('/ranking/woman', 'App\Http\Controllers\Search\Ranking\Woman\IndexController')->name('search.ranking.woman');
-Route::get('/ranking/adult', 'App\Http\Controllers\Search\Ranking\Adult\IndexController')->name('search.ranking.adult');
+Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking');
+Route::post('/ranking/search', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking.search');
+Route::get('/ranking/boys', 'App\Http\Controllers\Search\Ranking\BoysController')->name('ranking.boys');
+Route::post('/ranking/boys/search', 'App\Http\Controllers\Search\Ranking\BoysController')->name('ranking.boys.search');
+Route::get('/ranking/youth', 'App\Http\Controllers\Search\Ranking\YouthController')->name('ranking.youth');
+Route::post('/ranking/youth/search', 'App\Http\Controllers\Search\Ranking\YouthController')->name('ranking.youth.search');
+Route::get('/ranking/girls', 'App\Http\Controllers\Search\Ranking\GirlsController')->name('ranking.girls');
+Route::post('/ranking/girls/search', 'App\Http\Controllers\Search\Ranking\GirlsController')->name('ranking.girls.search');
+Route::get('/ranking/woman', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman');
+Route::post('/ranking/woman/search', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman.search');
+Route::get('/ranking/adult', 'App\Http\Controllers\Search\Ranking\AdultController')->name('ranking.adult');
+Route::post('/ranking/adult/search', 'App\Http\Controllers\Search\Ranking\AdultController')->name('ranking.adult.search');
 
-Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\SearchController')->name('ranking.search');
 
 // 今日の新作
 Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
