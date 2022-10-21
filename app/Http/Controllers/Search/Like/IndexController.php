@@ -27,8 +27,13 @@ class IndexController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
 
         // ユーザーのお気に入り
-        $books = $user->likes()->get();
+        $books = $user->likes()->paginate(15);
 
-        return view('search.like', compact('books'));
+        return view('search.like', [
+            'books' => $books,
+            'genre_id' => 0,
+            'sort' => 'お気に入り数',
+            'feature' => '全ての作品'
+        ]);
     }
 }

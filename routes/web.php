@@ -59,7 +59,7 @@ Route::get('/complete', 'App\Http\Controllers\Search\CompleteController')->name(
 Route::middleware('auth')->group(function () {
     // お気に入り
     Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
-    Route::post('/like/search/result', 'App\Http\Controllers\Search\Like\SearchController')->name('like.search');
+    Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
 });
 
 

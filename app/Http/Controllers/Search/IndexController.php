@@ -53,7 +53,9 @@ class IndexController extends Controller
         // $books = $likes->where('likes_count', '>', 0);
         return view('search.ranking.index', [
             'books' => $books,
-            'genre_id' => 0
+            'genre_id' => 0,
+            'sort' => 'お気に入り数',
+            'feature' => '全ての作品'
         ]);
     }
 }
