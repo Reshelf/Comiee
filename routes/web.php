@@ -36,16 +36,16 @@ Route::post('/ranking/search/result', 'App\Http\Controllers\Search\Ranking\Searc
 // 今日の新作
 Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
 Route::post('/todays_new/search', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new.search');
-Route::get('/todays_new/boys', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('todays_new.boys');
-Route::post('/todays_new/boys/search', 'App\Http\Controllers\Search\TodaysNew\Boys\IndexController')->name('todays_new.boys.search');
-Route::get('/todays_new/youth', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('todays_new.youth');
-Route::post('/todays_new/youth/search', 'App\Http\Controllers\Search\TodaysNew\Youth\IndexController')->name('todays_new.youth.search');
-Route::get('/todays_new/girls', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('todays_new.girls');
-Route::post('/todays_new/girls/search', 'App\Http\Controllers\Search\TodaysNew\Girls\IndexController')->name('todays_new.girls.search');
-Route::get('/todays_new/woman', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('todays_new.woman');
-Route::post('/todays_new/woman/search', 'App\Http\Controllers\Search\TodaysNew\Woman\IndexController')->name('todays_new.woman.search');
-Route::get('/todays_new/adult', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('todays_new.adult');
-Route::post('/todays_new/adult/search', 'App\Http\Controllers\Search\TodaysNew\Adult\IndexController')->name('todays_new.adult.search');
+Route::get('/todays_new/boys', 'App\Http\Controllers\Search\TodaysNew\BoysController')->name('todays_new.boys');
+Route::post('/todays_new/boys/search', 'App\Http\Controllers\Search\TodaysNew\BoysController')->name('todays_new.boys.search');
+Route::get('/todays_new/youth', 'App\Http\Controllers\Search\TodaysNew\YouthController')->name('todays_new.youth');
+Route::post('/todays_new/youth/search', 'App\Http\Controllers\Search\TodaysNew\YouthController')->name('todays_new.youth.search');
+Route::get('/todays_new/girls', 'App\Http\Controllers\Search\TodaysNew\GirlsController')->name('todays_new.girls');
+Route::post('/todays_new/girls/search', 'App\Http\Controllers\Search\TodaysNew\GirlsController')->name('todays_new.girls.search');
+Route::get('/todays_new/woman', 'App\Http\Controllers\Search\TodaysNew\WomanController')->name('todays_new.woman');
+Route::post('/todays_new/woman/search', 'App\Http\Controllers\Search\TodaysNew\WomanController')->name('todays_new.woman.search');
+Route::get('/todays_new/adult', 'App\Http\Controllers\Search\TodaysNew\AdultController')->name('todays_new.adult');
+Route::post('/todays_new/adult/search', 'App\Http\Controllers\Search\TodaysNew\AdultController')->name('todays_new.adult.search');
 
 // タグ検索
 Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');

@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Search\TodaysNew\Adult;
+namespace App\Http\Controllers\Search\TodaysNew;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
-class IndexController extends Controller
+class BoysController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | 今日の新作　：　オトナ
+    | 今日の新作　：　少年
     |--------------------------------------------------------------------------
     |
     */
     public function __invoke(Request $request)
     {
         // 検索結果を１度に返すクエリを宣言
-        $genre_id = 5;
+        $genre_id = 1;
         $pickup = ['is_new' => true, 'genre_id' => $genre_id];
         $query = Book::where($pickup)->latest();
 
@@ -39,7 +39,7 @@ class IndexController extends Controller
 
         //1ページにつき100件ずつ表示
         $books = $query->paginate(15);
-        return view('search.todays_new.adult', [
+        return view('search.todays_new.boys', [
             'books' => $books,
             'sort' => $sort,
             'genre_id' => $genre_id

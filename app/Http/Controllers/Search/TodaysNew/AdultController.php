@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Search\TodaysNew\Girls;
+namespace App\Http\Controllers\Search\TodaysNew;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
-class IndexController extends Controller
+class AdultController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | 今日の新作　：　少女
+    | 今日の新作　：　オトナ
     |--------------------------------------------------------------------------
     |
     */
     public function __invoke(Request $request)
     {
         // 検索結果を１度に返すクエリを宣言
-        $genre_id = 3;
+        $genre_id = 5;
         $pickup = ['is_new' => true, 'genre_id' => $genre_id];
         $query = Book::where($pickup)->latest();
 
