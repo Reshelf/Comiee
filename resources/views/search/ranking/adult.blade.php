@@ -26,42 +26,12 @@
                             @isset($books)
                                 <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search._patials._filter')
-                                    <form class="acd-content" method="POST" action="{{ route('todays_new.adult.search') }}">
+                                    <form class="acd-content" method="POST" action="{{ route('ranking.adult.search') }}">
                                         @csrf
-                                        <div class="w-full flex">
-                                            <div class="filters w-1/5 flex flex-col pr-12">
-                                                <h4 class="text-xs my-2 py-4 border-b border-ccc">並び替え</h4>
-                                                <input class="visually-hidden" type="radio" name="sort" id="like"
-                                                    value="お気に入り数"
-                                                    @isset($sort)
-                                                    @if ($sort === 'お気に入り数') checked @endif
-                                                @endisset />
-                                                <label for="like" class="mt-4">お気に入り数</label>
-                                                <input class="visually-hidden" type="radio" name="sort" id="view"
-                                                    value="閲覧回数"
-                                                    @isset($sort)
-                                                    @if ($sort === '閲覧回数') checked @endif
-                                                @endisset />
-                                                <label for="view" class="mt-4">閲覧回数</label>
-                                            </div>
-                                            <div class="filters w-1/5 flex flex-col pr-12">
-                                                <h4 class="text-xs my-2 py-4 border-b border-ccc">特徴</h4>
-                                                <input class="visually-hidden" type="radio" name="sort" id="like"
-                                                    value="お気に入り数"
-                                                    @isset($sort)
-                                                    @if ($sort === 'お気に入り数') checked @endif
-                                                @endisset />
-                                                <label for="like" class="mt-4">お気に入り数</label>
-                                                <input class="visually-hidden" type="radio" name="sort" id="view"
-                                                    value="閲覧回数"
-                                                    @isset($sort)
-                                                    @if ($sort === '閲覧回数') checked @endif
-                                                @endisset />
-                                                <label for="view" class="mt-4">閲覧回数</label>
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="btn-border mt-6">絞り込む</button>
+                                        @include('search.ranking._form', [
+                                            'sort' => $sort,
+                                            'feature' => $feature,
+                                        ])
                                     </form>
                                 </div>
                             @endisset

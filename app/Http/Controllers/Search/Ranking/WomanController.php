@@ -21,10 +21,10 @@ class WomanController extends Controller
         $pickup = ['genre_id' => $genre_id];
         $query = Book::where($pickup)->latest();
 
-        //$request->input()で検索時に入力した項目を取得
         $sort = $request->input('sort');
+        $feature = $request->input('feature');
+        // $books = $likes->where('likes_count', '>', 0);
 
-        // ソートの基準
         if ($sort != null) {
             if ($sort === '閲覧回数') {
                 $query->orderBy('views', 'desc')->get();
@@ -37,12 +37,21 @@ class WomanController extends Controller
             $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
         }
 
+        if ($feature != null) {
+            if ($feature === '完結作品のみ') {
+                $query->where('is_complete', 1)->latest();
+            }
+        } else {
+            $feature = '全ての作品';
+        }
+
         //1ページにつき100件ずつ表示
         $books = $query->paginate(15);
         return view('search.ranking.woman', [
             'books' => $books,
             'sort' => $sort,
-            'genre_id' => $genre_id
+            'genre_id' => $genre_id,
+            'feature' => $feature
         ]);
     }
 }

@@ -17,18 +17,38 @@ class IndexController extends Controller
     */
     public function __invoke(Request $request)
     {
-        // 人気順
-        $books = Book::withCount('likes')
-            ->orderBy('likes_count', 'desc')
-            ->paginate(15);
+        $query = Book::latest();
 
-        // お気に入り数が0の作品は除く
+        $sort = $request->input('sort');
+        $feature = $request->input('feature');
         // $books = $likes->where('likes_count', '>', 0);
 
-        // dd($books);
+        if ($sort != null) {
+            if ($sort === '閲覧回数') {
+                $query->orderBy('views', 'desc')->get();
+            }
+            if ($sort === 'お気に入り数') {
+                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+            }
+        } else {
+            $sort = 'お気に入り数';
+            $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+        }
+
+        if ($feature != null) {
+            if ($feature === '完結作品のみ') {
+                $query->where('is_complete', 1)->latest();
+            }
+        } else {
+            $feature = '全ての作品';
+        }
+
+        $books = $query->paginate(15);
         return view('search.ranking.index', [
             'books' => $books,
-            'genre_id' => 0
+            'genre_id' => 0,
+            'sort' => $sort,
+            'feature' => $feature
         ]);
     }
 }
