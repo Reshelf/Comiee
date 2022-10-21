@@ -43,6 +43,7 @@ class IndexController extends Controller
             return view('search.todays_new.index', [
                 'books' => $books,
                 'sort' => $sort,
+                'genre_id' => 0
             ]);
         }
 
@@ -50,6 +51,9 @@ class IndexController extends Controller
         $books = Book::withCount('likes')->orderBy('likes_count', 'desc')->paginate(15);
         // お気に入り数が0の作品は除く
         // $books = $likes->where('likes_count', '>', 0);
-        return view('search.ranking.index', compact('books'));
+        return view('search.ranking.index', [
+            'books' => $books,
+            'genre_id' => 0
+        ]);
     }
 }
