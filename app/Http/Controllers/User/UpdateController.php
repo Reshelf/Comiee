@@ -26,7 +26,7 @@ class UpdateController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->body = $request->body;
-        $user->website = $request->website;
+        // $user->website = $request->website;
 
         if ($request->has('avatar')) {
             $image = $request->file('avatar');
