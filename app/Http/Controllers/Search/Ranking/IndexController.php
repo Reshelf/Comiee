@@ -39,8 +39,6 @@ class IndexController extends Controller
             if ($feature === '完結作品のみ') {
                 $query->where('is_complete', 1)->latest();
             }
-        } else {
-            $feature = '全ての作品';
         }
 
         $books = $query->paginate(15);

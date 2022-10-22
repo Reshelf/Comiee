@@ -27,7 +27,7 @@
                             @isset($books)
                                 <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search._patials._filter')
-                                    <form class="acd-content" method="POST" action="{{ route('ranking.woman.search') }}">
+                                    <form class="acd-content" method="POST" action="{{ route('like.search') }}">
                                         @csrf
                                         @include('search.like._form', [
                                             'feature' => $feature,

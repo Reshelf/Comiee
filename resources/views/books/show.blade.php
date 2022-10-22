@@ -194,11 +194,18 @@
                             @endempty
 
 
-                            {{-- カテゴリー --}}
-                            @empty(!$book->category)
+                            {{-- ジャンル --}}
+                            @empty(!$book->genre_id)
                                 <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2">カテゴリー</div>
-                                    <div class="w-1/2">{{ $book->category }}</div>
+                                    <div class="w-1/2">ジャンル</div>
+                                    <div class="w-1/2">
+                                        <a href=""></a>
+                                        {{ $book->genre_id === 1 ? '少年' : '' }}
+                                        {{ $book->genre_id === 2 ? '青年' : '' }}
+                                        {{ $book->genre_id === 3 ? '少女' : '' }}
+                                        {{ $book->genre_id === 4 ? '女性' : '' }}
+                                        {{ $book->genre_id === 5 ? 'オトナ' : '' }}
+                                    </div>
                                 </div>
                             @endempty
 

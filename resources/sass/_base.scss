@@ -513,3 +513,32 @@ button[disabled] {
     clip-path: inset(50%);
   }
 }
+
+.light-checkbox {
+  @apply flex items-center cursor-pointer;
+  &:hover > .light-checkbox-DummyInput {
+    @apply bg-primary bg-opacity-10;
+  }
+  &-Input {
+    @apply m-0 w-0 opacity-0;
+  }
+  &-DummyInput {
+    @apply bg-white border border-[#c8c8c8] relative flex items-center justify-center w-[20px] h-[20px];
+    transform: rotate(-90deg);
+    svg {
+      @apply opacity-0;
+    }
+  }
+  &-LabelText {
+    @apply ml-[12px] block;
+  }
+}
+.light-checkbox-Input:checked + .light-checkbox-DummyInput {
+  @apply bg-primary border-none duration-200;
+  box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
+  transform: rotate(0deg);
+  svg {
+    @apply opacity-100;
+    animation: slide-in 0.25s;
+  }
+}

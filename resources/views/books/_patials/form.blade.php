@@ -18,18 +18,23 @@
         <input type="file" name="thumbnail" class="my-2 dark:text-gray">
     </div>
 </div>
-@isset($book)
-    <div class="mb-4">
-        <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
-        <select name="genre_id" class="flex flex-col items-center">
-            <option type="text" value="1" @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif>少年</option>
-            <option type="text" value="2" @if (2 === (int) old('genre_id', $book->genre_id)) selected @endif>青年</option>
-            <option type="text" value="3" @if (3 === (int) old('genre_id', $book->genre_id)) selected @endif>少女</option>
-            <option type="text" value="4" @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif>女性</option>
-            <option type="text" value="5" @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif>オトナ</option>
-        </select>
-    </div>
-@endisset
+
+<div class="mb-4">
+    <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
+    <select name="genre_id" class="flex flex-col items-center">
+        <option type="text" value="1"
+            @isset($book->genre_id) @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>少年</option>
+        <option type="text" value="2"
+            @isset($book->genre_id) @if (2 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>青年</option>
+        <option type="text" value="3"
+            @isset($book->genre_id) @if (3 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>少女</option>
+        <option type="text" value="4"
+            @isset($book->genre_id) @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>女性</option>
+        <option type="text" value="5"
+            @isset($book->genre_id) @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>オトナ
+        </option>
+    </select>
+</div>
 
 <div class="mb-4">
     <label for="tag" class="text-xs text-666 dark:text-ddd">タグ</label>

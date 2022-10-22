@@ -205,11 +205,11 @@
                                 </div>
                             @endempty
 
-                            {{-- カテゴリー --}}
-                            @empty(!$book->category)
+                            {{-- ジャンル --}}
+                            @empty(!$book->genre_id)
                                 <div class="w-full flex items-center mb-4 pl-2">
-                                    <div class="w-1/2">カテゴリー</div>
-                                    <div class="w-1/2">{{ $book->category }}</div>
+                                    <div class="w-1/2">ジャンル</div>
+                                    <div class="w-1/2">{{ $book->genre_id }}</div>
                                 </div>
                             @endempty
 
