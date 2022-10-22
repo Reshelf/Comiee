@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Book;
 use App\Models\Tag;
@@ -22,8 +21,14 @@ class ShowController extends Controller
         $book = Book::where('id', $request->book_id)->first();
 
         // 閲覧回数を更新
-        $book->views = $book->book_views;
-        $book->save();
+        if ($book->user->id !== Auth::user()->id) {
+            $episode_total_views = 0;
+            foreach ($book->episodes as $episode) {
+                $episode_total_views += $episode->views;
+            }
+            $book->views = $episode_total_views;
+            $book->save();
+        }
 
         return view('books.show', [
             'book' => $book,

@@ -69,6 +69,22 @@ class ShowController extends Controller
             }
         }
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | 閲覧回数を更新
+        |--------------------------------------------------------------------------
+        */
+        if ($book->user->id !== Auth::user()->id) {
+            $episode_total_views = 0;
+            foreach ($book->episodes as $episode) {
+                $episode_total_views += $episode->views;
+            }
+            $book->views = $episode_total_views;
+            $book->save();
+        }
+
+
         return view('books.episode.show', [
             'book' => $book,
             'episode_story' => $episode,
