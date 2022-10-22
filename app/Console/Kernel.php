@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // 毎日0時に今日の新作をリセットする
-        $schedule->call(new \App\Http\Controllers\Search\TodaysNew\OffController($schedule))->daily();
+        // $schedule->call(new \App\Http\Controllers\Search\TodaysNew\OffController($schedule))->daily();
     }
 
     /**
