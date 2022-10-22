@@ -10,6 +10,8 @@ use App\Models\Tag;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 class ShowController extends Controller
 {
     public function __construct()
@@ -30,6 +32,19 @@ class ShowController extends Controller
         $episode_story = Episode::where('number', $request->episode_number)->first();
         // エピソードのコメント
         $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | 今日の新作から削除 | エピソード投稿 + 1日後 < 今 だったら
+        |--------------------------------------------------------------------------
+        | エピソードが、１人にも読まれていない場合は今日の新作から削除しないようにする
+        */
+        $today = new Carbon('now');
+        $plus_oneday = new Carbon($episode_story->created_at->addDay());
+        if ($today->gt($plus_oneday)) {
+            $book->is_new = false;
+            $book->save();
+        }
 
         // 作者以外で未読なら
         if (Auth::user()) {
