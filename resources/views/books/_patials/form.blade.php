@@ -48,7 +48,15 @@
 </div>
 
 <div class="checkbox mb-8">
-    <label for="is_complete" class="text-sm">作品を完結にする</label>
-    <input id="is_complete" type="checkbox" required name="is_complete"
-        {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }} class="switch ml-4">
+    <label class="light-checkbox">
+        <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
+            class="light-checkbox-Input">
+        <span class="light-checkbox-DummyInput">
+            <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </span>
+        <span class="light-checkbox-LabelText">作品を完結にする</span>
+    </label>
 </div>

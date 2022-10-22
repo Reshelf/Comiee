@@ -19,7 +19,7 @@ class AdultController extends Controller
         // 検索結果を１度に返すクエリを宣言
         $genre_id = 5;
         $pickup = ['is_new' => true, 'genre_id' => $genre_id];
-        $query = Book::where($pickup)->latest();
+        $query = Book::where($pickup);
 
         //$request->input()で検索時に入力した項目を取得
         $sort = $request->input('sort');

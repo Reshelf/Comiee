@@ -19,7 +19,7 @@ class YouthController extends Controller
         // 検索結果を１度に返すクエリを宣言
         $genre_id = 2;
         $pickup = ['genre_id' => $genre_id];
-        $query = Book::where($pickup)->latest();
+        $query = Book::where($pickup);
 
         $sort = $request->input('sort');
         $feature = $request->input('feature');

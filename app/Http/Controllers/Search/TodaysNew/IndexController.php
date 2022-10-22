@@ -18,7 +18,7 @@ class IndexController extends Controller
     {
         // 検索結果を１度に返すクエリを宣言
         $pickup = ['is_new' => true];
-        $query = Book::where($pickup)->latest();
+        $query = Book::where($pickup);
 
         //$request->input()で検索時に入力した項目を取得
         $sort = $request->input('sort');

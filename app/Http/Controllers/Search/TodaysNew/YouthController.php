@@ -17,8 +17,9 @@ class YouthController extends Controller
     public function __invoke(Request $request)
     {
         // 検索結果を１度に返すクエリを宣言
-        $pickup = ['is_new' => true, 'genre_id' => (int)2];
-        $query = Book::where($pickup)->latest();
+        $genre_id = 2;
+        $pickup = ['is_new' => true, 'genre_id' => $genre_id];
+        $query = Book::where($pickup);
 
         //$request->input()で検索時に入力した項目を取得
         $sort = $request->input('sort');

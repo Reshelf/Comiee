@@ -17,7 +17,7 @@ class IndexController extends Controller
     */
     public function __invoke(Request $request)
     {
-        $query = Book::latest();
+        $query = Book::query();
 
         $sort = $request->input('sort');
         $feature = $request->input('feature');
