@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 
 class Episode extends Model
 {
@@ -33,5 +37,39 @@ class Episode extends Model
     public function comments(): HasMany
     {
         return $this->hasMany('App\Models\Comment');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 既読　　：　　リレーション
+    |--------------------------------------------------------------------------
+    */
+    function reads(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\User', 'episode_read')->withTimestamps(); // タイムスタンプ付き
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | エピソードの既読数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+    */
+    public function countReads(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => $this->reads->count()
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | エピソードが既読かどうか
+    |--------------------------------------------------------------------------
+    */
+    public function isReadBy(?User $user): bool
+    {
+        return $user
+            ? (bool)$this->reads->where('id', $user->id)->count()
+            : false;
     }
 }
