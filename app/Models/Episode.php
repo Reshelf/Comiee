@@ -46,7 +46,7 @@ class Episode extends Model
     */
     function reads(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\User', 'episode_read')->withTimestamps(); // タイムスタンプ付き
+        return $this->belongsToMany('App\Models\User', 'episode_read')->withTimestamps();
     }
 
     /*
@@ -63,7 +63,7 @@ class Episode extends Model
 
     /*
     |--------------------------------------------------------------------------
-    | エピソードが既読かどうか
+    | ユーザーにとってそのエピソードが既読かどうか
     |--------------------------------------------------------------------------
     */
     public function isReadBy(?User $user): bool
