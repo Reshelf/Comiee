@@ -11,6 +11,7 @@
                     <div class="card-body text-center">
                         <h2 class="h3 card-title text-center mt-2">新しいパスワードを設定</h2>
 
+                        {{-- エラー文 --}}
                         @include('_patials._error_card_list')
 
                         <div class="card-text">

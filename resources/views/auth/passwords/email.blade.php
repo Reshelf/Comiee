@@ -11,6 +11,7 @@
                     <div class="card-body text-center">
                         <h2 class="h3 card-title text-center mt-2">パスワード再設定</h2>
 
+                        {{-- エラー文 --}}
                         @include('_patials._error_card_list')
 
                         @if (session('status'))

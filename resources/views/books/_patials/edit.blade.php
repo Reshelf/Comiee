@@ -3,7 +3,10 @@
     <book-edit-modal>
         <template #trigger>作品内容を更新する</template>
         <template #header>作品内容の更新</template>
+
+        {{-- エラー文 --}}
         @include('_patials._error_card_list')
+
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['book_id' => $book->id]) }}">
             @csrf

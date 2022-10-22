@@ -13,7 +13,7 @@
 
 <body>
     <div id="app">
-        @include('_patials._error_toast')
+        {{-- @include('_patials._error_toast') --}}
         @yield('content')
     </div>
 

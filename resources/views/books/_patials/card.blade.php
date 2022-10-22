@@ -19,7 +19,10 @@
     @if (Auth::id() === $book->user_id)
         <div class="flex items-center">
             <edit-modal class="mr-2">
+
+                {{-- エラー文 --}}
                 @include('_patials._error_card_list')
+
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
                 <form method="POST" action="{{ route('book.update', ['book_id' => $book->id]) }}">
                     @csrf

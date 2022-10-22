@@ -71,7 +71,9 @@
                                         <create-modal>
                                             <template #header>新しく作品を追加する</template>
 
+                                            {{-- エラー文 --}}
                                             @include('_patials._error_card_list')
+
                                             <form method="POST" action="{{ route('book.store') }}"
                                                 enctype="multipart/form-data">
                                                 @include('books._patials.form')
