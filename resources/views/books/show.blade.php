@@ -199,12 +199,17 @@
                                 <div class="w-full flex items-center mb-4 pl-2">
                                     <div class="w-1/2">ジャンル</div>
                                     <div class="w-1/2">
-                                        <a href=""></a>
-                                        {{ $book->genre_id === 1 ? '少年' : '' }}
-                                        {{ $book->genre_id === 2 ? '青年' : '' }}
-                                        {{ $book->genre_id === 3 ? '少女' : '' }}
-                                        {{ $book->genre_id === 4 ? '女性' : '' }}
-                                        {{ $book->genre_id === 5 ? 'オトナ' : '' }}
+                                        @if ($book->genre_id === 1)
+                                            <a href="{{ route('ranking.boys') }}" class="hover:text-primary">少年</a>
+                                        @elseif($book->genre_id === 2)
+                                            <a href="{{ route('ranking.youth') }}" class="hover:text-primary">青年</a>
+                                        @elseif($book->genre_id === 3)
+                                            <a href="{{ route('ranking.girls') }}" class="hover:text-primary">少女</a>
+                                        @elseif($book->genre_id === 4)
+                                            <a href="{{ route('ranking.woman') }}" class="hover:text-primary">女性</a>
+                                        @elseif($book->genre_id === 5)
+                                            <a href="{{ route('ranking.adult') }}" class="hover:text-primary">オトナ</a>
+                                        @endif
                                     </div>
                                 </div>
                             @endempty

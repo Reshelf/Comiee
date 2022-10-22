@@ -11,7 +11,8 @@
     ])
 
     {{-- エピソードスクリーン --}}
-    <episode-screen></episode-screen>
+    <episode-screen>
+    </episode-screen>
 
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-12 flex justify-between">
@@ -188,33 +189,45 @@
                         </template>
                         <template #info>
                             {{-- あらすじ --}}
-                            @empty(!$book->story)
+                            @isset($book->story)
                                 <div class="w-full flex flex-col border-b border-ccc dark:border-dark-1 pb-6 mb-6 pl-2">
                                     <div class="text-sm">
                                         {!! nl2br($book->story) !!}
                                     </div>
                                 </div>
-                            @endempty
+                            @endisset
 
                             {{-- 作者 --}}
-                            @empty(!$book->user->name)
+                            @isset($book->user->name)
                                 <div class="w-full flex items-center mb-4 pl-2">
                                     <div class="w-1/2">作者</div>
                                     <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
                                         class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
                                 </div>
-                            @endempty
+                            @endisset
 
                             {{-- ジャンル --}}
-                            @empty(!$book->genre_id)
+                            @isset($book->genre_id)
                                 <div class="w-full flex items-center mb-4 pl-2">
                                     <div class="w-1/2">ジャンル</div>
-                                    <div class="w-1/2">{{ $book->genre_id }}</div>
+                                    <div class="w-1/2">
+                                        @if ($book->genre_id === 1)
+                                            <a href="{{ route('ranking.boys') }}" class="hover:text-primary">少年</a>
+                                        @elseif($book->genre_id === 2)
+                                            <a href="{{ route('ranking.youth') }}" class="hover:text-primary">青年</a>
+                                        @elseif($book->genre_id === 3)
+                                            <a href="{{ route('ranking.girls') }}" class="hover:text-primary">少女</a>
+                                        @elseif($book->genre_id === 4)
+                                            <a href="{{ route('ranking.woman') }}" class="hover:text-primary">女性</a>
+                                        @elseif($book->genre_id === 5)
+                                            <a href="{{ route('ranking.adult') }}" class="hover:text-primary">オトナ</a>
+                                        @endif
+                                    </div>
                                 </div>
-                            @endempty
+                            @endisset
 
                             {{-- タグ --}}
-                            @empty(!$book->tags)
+                            @isset($book->tags)
                                 <div class="w-full flex items-start pl-2">
                                     <div class="w-1/2">タグ</div>
                                     <div class="w-1/2 flex flex-wrap items-center">
@@ -230,7 +243,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                            @endempty
+                            @endisset
                         </template>
                         <template #comment>
                             <div class="flex flex-col">
