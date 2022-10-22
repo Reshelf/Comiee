@@ -3,16 +3,10 @@
 @section('title', $episode_story->number . '話' . ' - ' . $book->title)
 
 @section('content')
-    @include('_patials._episode_nav', [
-        'ranking' => false,
-        'todays_new' => false,
-        'like' => false,
-        'following' => false,
-    ])
+    @include('_patials._episode_nav', ['tab' => 0])
 
     {{-- エピソードスクリーン --}}
-    <episode-screen>
-    </episode-screen>
+    <episode-screen></episode-screen>
 
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-12 flex justify-between">

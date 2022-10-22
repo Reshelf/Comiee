@@ -52,13 +52,13 @@
         </div>
     </div>
 
-    <div class="flex w-full mb-8">
+    {{-- <div class="flex w-full mb-8">
         <div class="w-1/4 font-semibold mb-2">リンク</div>
         <div class="w-3/4 pl-4">
             <input type="text" name="website" value="{{ $user->website ?? old('website') }}"
                 class="w-full p-2 bg-white-1 dark:bg-dark-2 rounded">
         </div>
-    </div>
+    </div> --}}
 
     <div class="flex w-full mb-4">
         <div class="w-1/4 font-semibold mb-2">自己紹介</div>
