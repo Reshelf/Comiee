@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('book_id'); // 作品
-            $table->boolean('is_read')->default(false); // 既読フラグ
-            $table->boolean('is_free')->default(true); // 無料フラグ
+            $table->unsignedbigInteger('book_id')->comment('作品ID');
+            $table->boolean('is_read')->default(false)->comment('既読フラグ');
+            $table->boolean('is_free')->default(true)->comment('無料フラグ');
 
-            $table->unsignedInteger('number')->nullable(); // 話数
-            $table->json('contents')->nullable(); // マンガのコンテンツ
-            $table->integer('price')->default(0); // 値段
-            $table->integer('views')->default(0); // 閲覧数
+            $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
+            $table->json('contents')->nullable()->comment('マンガのコンテンツ');
+            $table->integer('price')->default(0)->comment('値段');
+            $table->integer('views')->default(0)->comment('閲覧数');
 
             $table->timestamps();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');

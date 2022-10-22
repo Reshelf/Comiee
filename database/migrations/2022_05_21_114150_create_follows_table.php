@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('followee_id'); // フォロー
-            $table->unsignedbigInteger('follower_id'); // フォロワー
+            $table->unsignedbigInteger('followee_id')->comment('フォロー中のID');
+            $table->unsignedbigInteger('follower_id')->comment('フォロワーのID');
 
             $table->timestamps();
             $table->foreign('followee_id')->references('id')->on('users')->onDelete('cascade');

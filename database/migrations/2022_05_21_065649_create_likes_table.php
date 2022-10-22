@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('user_id'); // ユーザー
-            $table->unsignedbigInteger('book_id'); // 作品
+            $table->unsignedbigInteger('user_id')->comment('ユーザーID');
+            $table->unsignedbigInteger('book_id')->comment('作品ID');
 
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

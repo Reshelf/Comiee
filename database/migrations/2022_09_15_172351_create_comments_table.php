@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // ユーザー
-            $table->integer('episode_id'); // エピソード
-            $table->integer('parent_id')->nullable(); // リプライ用
+            $table->unsignedBigInteger('user_id')->comment('コメント主');
+            $table->integer('episode_id')->comment('エピソードID');
+            $table->integer('parent_id')->nullable()->comment('リプライ先');
 
-            $table->text('comment', 400);
+            $table->text('comment', 400)->comment('コメント内容');
 
             $table->timestamps();
             $table->foreign('user_id')

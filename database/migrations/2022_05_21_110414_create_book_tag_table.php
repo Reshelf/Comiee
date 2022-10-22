@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('book_tag', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbigInteger('book_id'); // 作品
-            $table->unsignedbigInteger('tag_id'); // タグ
+            $table->unsignedbigInteger('book_id')->comment('作品ID');
+            $table->unsignedbigInteger('tag_id')->comment('タグID');
 
             $table->timestamps();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
