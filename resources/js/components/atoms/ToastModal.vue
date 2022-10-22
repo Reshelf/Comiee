@@ -82,7 +82,7 @@ const props = defineProps({
 </template>
 <style lang="scss" scoped>
 .toast {
-  @apply ml-auto flex bg-white items-center w-full justify-between p-6 shadow-lg;
+  @apply ml-auto flex bg-white items-center w-full justify-between p-6 shadow;
   &-wrapper {
     @apply fixed z-50 top-[80px] right-[20px];
   }
