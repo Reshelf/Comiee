@@ -51,10 +51,6 @@
                                 @include('auth._login')
                             @endguest
                             @auth
-                                <a href="" class="tooltip block mr-8">
-                                    0 pt
-                                    <span class="tooltip-item right-[-40px]">ポイントを追加する</span>
-                                </a>
                                 <div class="flex items-center h-full mr-8">
                                     <create-modal>
                                         <template #header>新しく作品を追加する</template>
