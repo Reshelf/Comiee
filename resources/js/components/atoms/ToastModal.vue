@@ -84,7 +84,7 @@ const props = defineProps({
 .toast {
   @apply ml-auto flex bg-white items-center w-full justify-between p-6 shadow-lg;
   &-wrapper {
-    @apply fixed z-50 bottom-[20px] left-[20px];
+    @apply fixed z-50 top-[80px] right-[20px];
   }
 }
 
