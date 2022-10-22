@@ -62,13 +62,12 @@ class ShowController extends Controller
         */
         if (Auth::user()) {
             if ($book->user->id !== Auth::user()->id) {
-                $episode->reads()->sync($request->user()->id);
+                $episode->reads()->detach($request->user()->id);
+                $episode->reads()->attach($request->user()->id);
                 $episode->views = $episode->count_reads;
-
                 $episode->save();
             }
         }
-
 
         return view('books.episode.show', [
             'book' => $book,
