@@ -65,9 +65,6 @@ class ShowController extends Controller
                 $episode->reads()->sync($request->user()->id);
                 $episode->views = $episode->count_reads;
 
-                if ($episode->isReadBy(Auth::user())) {
-                    $episode->is_read = true;
-                }
                 $episode->save();
             }
         }
@@ -75,7 +72,6 @@ class ShowController extends Controller
 
         return view('books.episode.show', [
             'book' => $book,
-            'episodes' => $book->book_episodes,
             'episode_story' => $episode,
             'episode_comments' => $episode_comments,
             'tagNames' => $book->tag_names,

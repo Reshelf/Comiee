@@ -74,7 +74,7 @@
                                         </form>
                                     </episode-list>
                                 @endif
-                                @foreach ($episodes as $episode)
+                                @foreach ($book->episodes as $episode)
                                     <div
                                         class="dark:hover:bg-dark-1 hover:bg-f5 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                                         <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}"
@@ -103,7 +103,7 @@
                                                         <span class="">第{{ $episode->number }}話</span>
                                                         @auth
                                                             @if ($book->user->id !== Auth::user()->id)
-                                                                @if ($episode->is_read)
+                                                                @if ($episode->isReadBy(Auth::user()))
                                                                     <span class="inline-block text-xs text-666 mt-1">既読</span>
                                                                 @else
                                                                     <span class="inline-block text-xs text-666 mt-1">未読</span>

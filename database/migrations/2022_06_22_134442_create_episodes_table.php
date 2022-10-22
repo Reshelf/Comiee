@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->unsignedbigInteger('book_id')->comment('作品ID');
-            $table->boolean('is_read')->default(false)->comment('既読フラグ');
             $table->boolean('is_free')->default(true)->comment('無料フラグ');
 
             $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
