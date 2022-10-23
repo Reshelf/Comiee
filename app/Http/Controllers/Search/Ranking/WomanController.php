@@ -27,7 +27,7 @@ class WomanController extends Controller
 
         if ($sort != null) {
             if ($sort === '閲覧回数') {
-                $query->orderBy('views', 'desc')->get();
+                $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
             }
             if ($sort === 'お気に入り数') {
                 $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();

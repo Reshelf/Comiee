@@ -31,7 +31,7 @@ class IndexController extends Controller
             // ソートの基準
             if ($sort != null) {
                 if ($sort === '閲覧回数') {
-                    $query->orderBy('views', 'desc')->get();
+                    $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
                 }
             } else {
                 $sort = 'お気に入り数';
