@@ -3,7 +3,7 @@
 @endsection
 
 {{-- SNSシェア --}}
-<div class="mt-4 mx-2 flex justify-between items-center">
+<div class="flex justify-between items-center">
     <!-- Twitter -->
     <a class="js-sns-link w-1/4 mr-2 py-2 border border-[#46ACDF] rounded hover:bg-[#46ACDF] hover:bg-opacity-10"
         href="//twitter.com/intent/tweet?text=&url=" target="_blank" rel="nofollow noopener noreferrer">

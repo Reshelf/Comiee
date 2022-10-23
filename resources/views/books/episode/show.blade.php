@@ -54,7 +54,9 @@
                 @endif
 
                 {{-- SNSシェア --}}
-                @include('atoms.sns')
+                <div class="mt-4 mx-2">
+                    @include('atoms.sns')
+                </div>
             </div>
 
             <div class="w-full flex">
