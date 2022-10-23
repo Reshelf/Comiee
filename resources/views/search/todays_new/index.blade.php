@@ -1,6 +1,31 @@
 @extends('app')
 
-@section('title', '今日の新作')
+@section('title')
+    @switch($genre_id)
+        @case(1)
+            少年 - 今日の新作
+        @break
+
+        @case(2)
+            青年 - 今日の新作
+        @break
+
+        @case(3)
+            少女 - 今日の新作
+        @break
+
+        @case(4)
+            女性 - 今日の新作
+        @break
+
+        @case(5)
+            オトナ - 今日の新作
+        @break
+
+        @default
+            総合 - 今日の新作
+    @endswitch
+@endsection
 
 @section('content')
     @include('atoms._nav', ['tab' => 2])
@@ -26,7 +51,15 @@
                             @isset($books)
                                 <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search.atoms._filter')
-                                    <form class="acd-content" method="POST" action="{{ route('todays_new.search') }}">
+                                    <form class="acd-content" method="POST"
+                                        @switch($genre_id)
+                                            @case(1) action="{{ route('todays_new.boys.search') }}" @break
+                                            @case(2) action="{{ route('todays_new.youth.search') }}" @break
+                                            @case(3) action="{{ route('todays_new.girls.search') }}" @break
+                                            @case(4) action="{{ route('todays_new.woman.search') }}" @break
+                                            @case(5) action="{{ route('todays_new.adult.search') }}" @break
+                                            @default action="{{ route('todays_new.search') }}"
+                                        @endswitch>
                                         @csrf
                                         @include('search.todays_new._form', [
                                             'sort' => $sort,

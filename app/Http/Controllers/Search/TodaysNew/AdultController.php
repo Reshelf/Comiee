@@ -38,7 +38,7 @@ class AdultController extends Controller
         }
 
         $books = $query->paginate(15);
-        return view('search.todays_new.adult', [
+        return view('search.todays_new.index', [
             'books' => $books,
             'sort' => $sort,
             'genre_id' => $genre_id

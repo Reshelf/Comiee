@@ -1,20 +1,19 @@
 <div class="bg-white dark:bg-dark w-full flex-none border-b border-ddd dark:border-dark">
     <div class="max-w-8xl mx-auto">
-        <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+        <div class="py-4 md:border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
             <div class="relative flex items-center">
 
                 {{-- ロゴ --}}
                 @include('atoms.nav.logo')
 
-                <div class="flex items-center ml-16 mr-auto">
-                    {{-- 検索フォーム --}}
+                <div class="hidden md:flex items-center ml-16 mr-auto">
                     @include('search.atoms._tabs', ['tab' => $tab])
                 </div>
 
                 <div class="flex items-center ml-auto">
 
                     {{-- 検索 --}}
-                    <search-form class="mr-8"></search-form>
+                    <search-form class="mr-8 hidden lg:block"></search-form>
 
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">

@@ -6,8 +6,7 @@
                 {{-- ロゴ --}}
                 @include('atoms.nav.logo')
 
-                <div class="flex items-center ml-16 mr-auto">
-                    {{-- 検索フォーム --}}
+                <div class="hidden md:flex items-center ml-16 mr-auto">
                     @include('search.atoms._tabs', ['tab' => 0])
                 </div>
 
