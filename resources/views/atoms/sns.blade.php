@@ -32,8 +32,6 @@
         </svg>
     </a>
 
-
-
     <!-- LINE -->
     <a class="js-sns-link w-1/4 mr-2 py-2 border border-[#2DCF54] rounded hover:bg-[#2DCF54] hover:bg-opacity-10"
         href="//timeline.line.me/social-plugin/share?url=&text=" target="_blank" rel="nofollow noopener noreferrer">
@@ -67,7 +65,6 @@
         </svg>
     </a>
 </div>
-
 
 @section('scripts')
     <script>

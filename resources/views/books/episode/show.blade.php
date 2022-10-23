@@ -62,7 +62,7 @@
             <div class="w-full flex">
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
-                    <book-tab :is_comment="true">
+                    <book-tab>
                         <template #episode>
                             <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
                                 @if (Auth::id() === $book->user_id)

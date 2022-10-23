@@ -6,11 +6,6 @@ const isActive = ref(1);
 function isSelect(num) {
   this.isActive = num;
 }
-
-// eslint-disable-next-line
-const props = defineProps({
-  isComment: Boolean,
-});
 </script>
 <template>
   <div class="tab">
@@ -19,13 +14,7 @@ const props = defineProps({
         エピソード
       </li>
       <li :class="{ active: isActive === 2 }" @click="isSelect(2)">作品情報</li>
-      <li
-        v-if="isComment"
-        :class="{ active: isActive === 3 }"
-        @click="isSelect(3)"
-      >
-        コメント
-      </li>
+      <li :class="{ active: isActive === 3 }" @click="isSelect(3)">コメント</li>
     </ul>
     <div class="tabContents">
       <div v-if="isActive === 1">
