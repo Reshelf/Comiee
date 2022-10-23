@@ -40,7 +40,7 @@
                     @include('search._patials._content')
                 </div>
 
-                <div class="w-full flex justify-center mt-8">{{ $books->links() }}</div>
+                <div class="w-full flex justify-center mt-8">{{ $books->appends(Request::except('page'))->links() }}</div>
             </div>
         </div>
     </div>
