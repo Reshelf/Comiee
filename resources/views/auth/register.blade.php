@@ -4,7 +4,7 @@
 
 @section('content')
     @include('atoms._simple_nav')
-    <div class="max-w-md mx-auto p-8 bg-white dark:bg-dark-1 rounded-lg ">
+    <div class="max-w-md mx-auto p-8 bg-white dark:bg-dark-1 rounded-lg">
         <h2 class="text-3xl font-semibold mb-4">Sign up</h2>
         <form method="POST" action="{{ route('register') }}">
             @csrf

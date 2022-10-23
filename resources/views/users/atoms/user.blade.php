@@ -1,15 +1,13 @@
 <div class="max-w-6xl mx-auto">
     <div class="relative z-auto">
         @empty($user->thumbnail)
-            <img src="/img/bg.svg" alt=""
-                class="dark:hidden lg:h-[300px] rounded-b flex flex-shrink-0 w-full object-cover">
-            <img src="/img/bg-dark.svg" alt=""
-                class="hidden dark:flex lg:h-[300px] rounded flex-shrink-0 w-full object-cover">
+            <img src="/img/bg.svg" alt="" class="dark:hidden lg:h-[300px] rounded-b flex  w-full object-cover">
+            <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex lg:h-[300px] rounded  w-full object-cover">
         @else
             <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
                 <template #thumbnail>
                     <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
-                        alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex flex-shrink-0 w-full">
+                        alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex  w-full">
                 </template>
             </thumbnail-zoom>
         @endempty

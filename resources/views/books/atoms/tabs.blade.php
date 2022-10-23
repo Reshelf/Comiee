@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
+<div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
     <h3 class="font-semibold mb-2">Starbooksを楽しもう</h3>
     <a href="{{ route('others.user_guide') }}"
         class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
@@ -29,7 +29,7 @@
         </comment-post-modal>
     @endauth
 </div>
-<div class="w-full flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
+<div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
     {{-- <genre-search class="mb-4">
         <template #trigger>ジャンルから探す</template>
     </genre-search> --}}

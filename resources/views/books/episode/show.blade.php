@@ -13,13 +13,11 @@
             {{-- 左サイドバー --}}
             <div class="top-0 sticky lg:h-[500px] pb-4 pr-4 lg:max-w-[266px] lg:min-w-[266px]">
                 @empty($book->thumbnail)
-                    <img src="/img/bg.svg" alt="thumbnail"
-                        class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
-                    <img src="/img/bg-dark.svg" alt="thumbnail"
-                        class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
+                    <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[250px] h-[250px] object-cover">
+                    <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block w-[250px] h-[250px] object-cover">
                 @else
                     <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"
-                        class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                        class="w-[250px] h-[250px] object-cover">
                 @endempty
 
                 {{-- 作品タイトル --}}
@@ -81,12 +79,12 @@
                                             class="flex items-center w-full cursor-pointer">
                                             @empty($episode->thumbnail)
                                                 <img src="/img/bg.svg" alt="thumbnail"
-                                                    class="block dark:hidden w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                    class="block dark:hidden w-[160px] h-[80px] object-cover">
                                                 <img src="/img/bg-dark.svg" alt="thumbnail"
-                                                    class="hidden dark:block w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                    class="hidden dark:block w-[160px] h-[80px] object-cover">
                                             @else
                                                 <img src="{{ asset('/img/book/thumbnail/' . $episode->thumbnail) }}"
-                                                    alt="" class="w-[160px] h-[80px] object-cover flex-shrink-0">
+                                                    alt="" class="w-[160px] h-[80px] object-cover">
                                             @endempty
 
                                             {{-- タイトル --}}
@@ -134,7 +132,7 @@
                                             <hover-menu>
                                                 <template #avatar>
                                                     <div class="flex p-1 hover:bg-ddd rounded-full cursor-pointer">
-                                                        <svg width="24" height="24" class="flex-shrink-0"
+                                                        <svg width="24" height="24" class=""
                                                             style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                                             <path
                                                                 d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
@@ -439,13 +437,12 @@
                 <div class="book-show-contents">
                     {{-- サムネイル --}}
                     @empty($book->thumbnail)
-                        <img src="/img/bg.svg" alt="thumbnail"
-                            class="block dark:hidden w-[250px] h-[250px] object-cover flex-shrink-0">
+                        <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[250px] h-[250px] object-cover">
                         <img src="/img/bg-dark.svg" alt="thumbnail"
-                            class="hidden dark:block w-[250px] h-[250px] object-cover flex-shrink-0">
+                            class="hidden dark:block w-[250px] h-[250px] object-cover">
                     @else
                         <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
-                            class="w-[250px] h-[250px] object-cover flex-shrink-0">
+                            class="w-[250px] h-[250px] object-cover">
                     @endempty
 
                     <div class="flex flex-col max-w-lg ml-16">

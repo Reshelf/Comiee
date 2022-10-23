@@ -34,6 +34,7 @@ h1 {
 
 // ダウンロードブロック
 img {
+  @apply flex-shrink-0;
   pointer-events: none !important;
   -webkit-touch-callout: none !important;
   -moz-touch-callout: none !important;
@@ -209,7 +210,7 @@ img {
 }
 
 .avatar {
-  @apply rounded-full object-cover flex flex-shrink-0 border-4 border-white dark:border-dark;
+  @apply rounded-full object-cover flex  border-4 border-white dark:border-dark;
   min-width: 170px;
   min-height: 170px;
   max-width: 170px;
@@ -294,7 +295,7 @@ button[disabled] {
   margin-right: 5px;
   margin-left: 5px;
   &-img {
-    @apply w-[200px] h-[200px] object-cover flex-shrink-0;
+    @apply w-[200px] h-[200px] object-cover;
     @media screen and (min-width: 1600px) {
       @apply w-[230px] h-[230px];
     }
