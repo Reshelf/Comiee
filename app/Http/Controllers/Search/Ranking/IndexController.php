@@ -21,18 +21,17 @@ class IndexController extends Controller
 
         $sort = $request->input('sort');
         $feature = $request->input('feature');
-        // $books = $likes->where('likes_count', '>', 0);
 
         if ($sort != null) {
             if ($sort === '閲覧回数') {
                 $query->orderBy('views', 'desc')->get();
             }
             if ($sort === 'お気に入り数') {
-                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+                $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
             }
         } else {
             $sort = 'お気に入り数';
-            $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+            $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
         }
 
         if ($feature != null) {

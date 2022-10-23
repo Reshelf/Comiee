@@ -30,11 +30,11 @@ class AdultController extends Controller
                 $query->orderBy('views', 'desc')->get();
             }
             if ($sort === 'お気に入り数') {
-                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+                $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
             }
         } else {
             $sort = 'お気に入り数';
-            $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+            $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
         }
 
         if ($feature != null) {

@@ -35,7 +35,7 @@ class IndexController extends Controller
                 }
             } else {
                 $sort = 'お気に入り数';
-                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+                $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
             }
 
             //1ページにつき100件ずつ表示
