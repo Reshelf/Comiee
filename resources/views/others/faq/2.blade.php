@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '会員登録・ログインについて | Starbooks')
+@section('title', '会員登録・ログインについて')
 
 @section('content')
     @include('_patials._help_nav')

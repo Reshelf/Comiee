@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'その他 - 読者の方からのご質問 | Starbooks')
+@section('title', 'その他 - 読者の方からのご質問')
 
 @section('content')
     @include('_patials._help_nav')

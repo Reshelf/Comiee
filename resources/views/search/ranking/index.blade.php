@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'ランキング | Starbooks')
+@section('title', 'ランキング')
 
 @section('content')
     @include('_patials._nav', ['tab' => 1]))

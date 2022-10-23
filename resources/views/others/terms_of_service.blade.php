@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '利用規約 | Starbooks')
+@section('title', '利用規約')
 
 @section('content')
     @include('_patials._nav', ['tab' => 0]))

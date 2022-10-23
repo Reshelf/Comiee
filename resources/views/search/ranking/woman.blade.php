@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '女性マンガ - ランキング | Starbooks')
+@section('title', '女性マンガ - ランキング')
 
 @section('content')
     @include('_patials._nav', ['tab' => 1]))

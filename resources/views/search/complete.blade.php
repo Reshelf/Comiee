@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '完結作品 | Starbooks')
+@section('title', '完結作品')
 
 @section('content')
     @include('_patials._nav', ['tab' => 0]))
