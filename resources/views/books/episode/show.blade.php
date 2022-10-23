@@ -52,6 +52,9 @@
                     {{-- 作品内容の更新 --}}
                     @include('books.atoms.edit')
                 @endif
+
+                {{-- SNSシェア --}}
+                @include('atoms.sns')
             </div>
 
             <div class="w-full flex">

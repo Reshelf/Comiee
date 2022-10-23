@@ -131,7 +131,7 @@
           <span class="pl-2 text-xs">通常</span>
         </div>
       </div>
-      <div class="text-eee">SNSシェア</div>
+      <!-- <div class="text-eee">SNSシェア</div> -->
     </div>
   </div>
 </template>
