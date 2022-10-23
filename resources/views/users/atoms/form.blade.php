@@ -4,8 +4,8 @@
         <div class="w-1/4 font-semibold mb-2">カバー画像</div>
         <div class="w-3/4 pl-4 flex flex-col items-center">
             @empty($user->thumbnail)
-                <img src="{{ asset('/img/bg.svg') }}" alt="" class="block dark:hidden rounded max-h-6 flex">
-                <img src="{{ asset('/img/bg-dark.svg') }}" alt="thumbnail" class="hidden dark:block rounded max-h-6 flex">
+                <img src="{{ asset('/img/bg.svg') }}" alt="" class="block dark:hidden rounded max-h-6">
+                <img src="{{ asset('/img/bg-dark.svg') }}" alt="thumbnail" class="hidden dark:block rounded max-h-6">
             @else
                 <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
                     alt="profile_thumbnail" class="rounded max-h-6 flex">

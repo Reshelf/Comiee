@@ -12,12 +12,6 @@
     </div>
     <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
         <div class="py-8 w-full">
-            {{-- @include('users.atoms.tabs', [
-                'hasBooks' => false,
-                'hasLikes' => false,
-                'about' => false,
-            ]) --}}
-
             <follow-modal :user-name='@json($user->name)'>
                 <template #header>{{ $user->name }}さんのフォロー</template>
                 @if ($followings->count())
@@ -28,7 +22,6 @@
                     <p>フォローしている人はいません</p>
                 @endif
             </follow-modal>
-
         </div>
     </div>
 @endsection
