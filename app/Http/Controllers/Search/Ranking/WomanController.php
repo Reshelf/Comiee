@@ -46,7 +46,7 @@ class WomanController extends Controller
         }
 
         $books = $query->paginate(15);
-        return view('search.ranking.woman', [
+        return view('search.ranking.index', [
             'books' => $books,
             'sort' => $sort,
             'genre_id' => $genre_id,

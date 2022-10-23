@@ -1,6 +1,33 @@
 @extends('app')
 
-@section('title', 'ランキング')
+@section('title')
+    @switch($genre_id)
+        @case(1)
+            少年
+        @break
+
+        @case(2)
+            青年
+        @break
+
+        @case(3)
+            少女
+        @break
+
+        @case(4)
+            女性
+        @break
+
+        @case(5)
+            オトナ
+        @break
+
+        @default
+            総合
+    @endswitch
+
+    - ランキング
+@endsection
 
 @section('content')
     @include('atoms._nav', ['tab' => 1]))
@@ -26,7 +53,15 @@
                             @isset($books)
                                 <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search.atoms._filter')
-                                    <form class="acd-content" method="POST" action="{{ route('ranking.search') }}">
+                                    <form class="acd-content" method="POST"
+                                        @switch($genre_id)
+                                            @case(1) action="{{ route('ranking.boys.search') }}" @break
+                                            @case(2) action="{{ route('ranking.youth.search') }}" @break
+                                            @case(3) action="{{ route('ranking.girls.search') }}" @break
+                                            @case(4) action="{{ route('ranking.woman.search') }}" @break
+                                            @case(5) action="{{ route('ranking.adult.search') }}" @break
+                                            @default action="{{ route('ranking.search') }}"
+                                        @endswitch>
                                         @csrf
                                         @include('search.ranking._form', [
                                             'sort' => $sort,

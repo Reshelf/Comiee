@@ -3,28 +3,29 @@
 @section('title')
     @switch($genre_id)
         @case(1)
-            少年 - 今日の新作
+            少年
         @break
 
         @case(2)
-            青年 - 今日の新作
+            青年
         @break
 
         @case(3)
-            少女 - 今日の新作
+            少女
         @break
 
         @case(4)
-            女性 - 今日の新作
+            女性
         @break
 
         @case(5)
-            オトナ - 今日の新作
+            オトナ
         @break
 
         @default
-            総合 - 今日の新作
+            総合
     @endswitch
+    - 今日の新作
 @endsection
 
 @section('content')
