@@ -69,14 +69,16 @@
 </div>
 
 
-<script>
-    let url = location.href
-    let snsLinks = $(".js-sns-link")
-    for (let i = 0; i < snsLinks.length; i++) {
-        let href = snsLinks.eq(i).attr('href');
-        //シェアページのURL上書き
-        href = href.replace("u=", "u=" + url) //facebook
-        href = href.replace("url=", "url=" + url) //twitter,LINE,ピンタレスト
-        snsLinks.eq(i).attr('href', href);
-    }
-</script>
+@section('scripts')
+    <script>
+        let url = location.href
+        let snsLinks = $(".js-sns-link")
+        for (let i = 0; i < snsLinks.length; i++) {
+            let href = snsLinks.eq(i).attr('href');
+            //シェアページのURL上書き
+            href = href.replace("u=", "u=" + url) //facebook
+            href = href.replace("url=", "url=" + url) //twitter,LINE,ピンタレスト
+            snsLinks.eq(i).attr('href', href);
+        }
+    </script>
+@endsection
