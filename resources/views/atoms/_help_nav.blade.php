@@ -56,7 +56,7 @@
                                     @include('auth._login')
                                 @endguest
                                 @auth
-                                    @include('_patials.nav.user_modal')
+                                    @include('atoms.nav.user_modal')
                                 @endauth
                             </div>
                         </nav>

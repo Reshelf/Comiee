@@ -12,7 +12,7 @@
                         <h2 class="h3 card-title text-center mt-2">ユーザー登録</h2>
 
                         {{-- エラー文 --}}
-                        @include('_patials._error_card_list')
+                        @include('atoms._error_card_list')
 
                         <div class="card-text">
                             <form method="POST" action="{{ route('register.{provider}', ['provider' => $provider]) }}">

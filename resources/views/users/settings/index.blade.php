@@ -3,9 +3,9 @@
 @section('title', '設定')
 
 @section('content')
-    @include('_patials._nav', ['tab' => 0]))
+    @include('atoms._nav', ['tab' => 0]))
     <div class="bg-white dark:bg-dark">
-        @include('users._patials.user', [
+        @include('users.atoms.user', [
             'mypage' => false,
             'settings' => true,
         ])
@@ -15,12 +15,12 @@
             <div class="w-full flex flex-wrap">
                 @if ($books->count())
                     @foreach ($books as $book)
-                        @include('users._patials.card')
+                        @include('users.atoms.card')
                     @endforeach
                 @endif
             </div>
         </div>
     </div>
 
-    @include('_patials._footer')
+    @include('atoms._footer')
 @endsection

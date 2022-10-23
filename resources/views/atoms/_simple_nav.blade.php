@@ -4,7 +4,7 @@
             <div class="relative flex items-center">
 
                 {{-- ロゴ --}}
-                @include('_patials.nav.logo')
+                @include('atoms.nav.logo')
 
                 <div class="hidden lg:flex items-center ml-auto">
                     <nav class="text-sm">
@@ -18,17 +18,17 @@
                                         <template #header>新しく作品を追加する</template>
 
                                         {{-- エラー文 --}}
-                                        @include('_patials._error_card_list')
+                                        @include('atoms._error_card_list')
 
                                         <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
-                                            @include('books._patials.form')
+                                            @include('books.atoms.form')
                                             <div class="w-full flex justify-end"><button
                                                     onclick="this.disabled='disabled'; this.form.submit();" type="submit"
                                                     class="btn">投稿する</button></div>
                                         </form>
                                     </create-modal>
                                 </div>
-                                @include('_patials.nav.user_modal')
+                                @include('atoms.nav.user_modal')
                             @endauth
                         </div>
                     </nav>

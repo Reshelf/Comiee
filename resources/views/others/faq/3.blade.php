@@ -3,7 +3,7 @@
 @section('title', 'ポイントや作品の購入について - 読者の方からのご質問')
 
 @section('content')
-    @include('_patials._help_nav')
+    @include('atoms._help_nav')
 
     <div class="w-full flex">
         <div class="w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end">
@@ -81,5 +81,5 @@
         </div>
     </div>
 
-    @include('_patials._footer')
+    @include('atoms._footer')
 @endsection

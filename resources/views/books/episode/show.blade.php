@@ -3,7 +3,7 @@
 @section('title', $episode_story->number . '話' . ' - ' . $book->title)
 
 @section('content')
-    @include('_patials._episode_nav', ['tab' => 0])
+    @include('atoms._episode_nav', ['tab' => 0])
 
     {{-- エピソードスクリーン --}}
     <episode-screen></episode-screen>
@@ -52,7 +52,7 @@
                     </div>
                 @else
                     {{-- 作品内容の更新 --}}
-                    @include('books._patials.edit')
+                    @include('books.atoms.edit')
                 @endif
             </div>
 
@@ -467,5 +467,5 @@
         </div>
     </div>
 
-    @include('_patials._footer')
+    @include('atoms._footer')
 @endsection

@@ -3,14 +3,14 @@
 @section('title', 'ログイン')
 
 @section('content')
-    @include('_patials._simple_nav')
+    @include('atoms._simple_nav')
     <div class="max-w-md mx-auto p-8 bg-white dark:bg-dark-1 rounded-lg">
         <h2 class="text-3xl font-semibold mb-4">Login</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             {{-- エラー文 --}}
-            @include('_patials._error_card_list')
+            @include('atoms._error_card_list')
 
             <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">メールアドレス</div>

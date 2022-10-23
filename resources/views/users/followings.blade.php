@@ -3,16 +3,16 @@
 @section('title', $user->name . 'さんのフォロー')
 
 @section('content')
-    @include('_patials._nav', ['tab' => 0]))
+    @include('atoms._nav', ['tab' => 0]))
     <div class="">
-        @include('users._patials.user', [
+        @include('users.atoms.user', [
             'mypage' => false,
             'settings' => false,
         ])
     </div>
     <div class="flex max-w-lg w-full mx-auto px-8 md:px-0 justify-center">
         <div class="py-8 w-full">
-            {{-- @include('users._patials.tabs', [
+            {{-- @include('users.atoms.tabs', [
                 'hasBooks' => false,
                 'hasLikes' => false,
                 'about' => false,
@@ -22,7 +22,7 @@
                 <template #header>{{ $user->name }}さんのフォロー</template>
                 @if ($followings->count())
                     @foreach ($followings as $person)
-                        @include('users._patials.person')
+                        @include('users.atoms.person')
                     @endforeach
                 @else
                     <p>フォローしている人はいません</p>

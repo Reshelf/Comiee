@@ -3,9 +3,9 @@
 @section('title', $user->name . 'さんのフォロワー')
 
 @section('content')
-    @include('_patials._nav', ['tab' => 0]))
+    @include('atoms._nav', ['tab' => 0]))
     <div class="">
-        @include('users._patials.user', [
+        @include('users.atoms.user', [
             'mypage' => false,
             'settings' => false,
         ])
@@ -16,7 +16,7 @@
                 <template #header>{{ $user->name }}さんのフォロワー</template>
                 @if ($followers->count())
                     @foreach ($followers as $person)
-                        @include('users._patials.person')
+                        @include('users.atoms.person')
                     @endforeach
                 @else
                     <p>フォロワーはいません</p>

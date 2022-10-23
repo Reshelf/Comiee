@@ -5,14 +5,14 @@
         <template #header>作品内容の更新</template>
 
         {{-- エラー文 --}}
-        @include('_patials._error_card_list')
+        @include('atoms._error_card_list')
 
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
         <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['book_id' => $book->id]) }}">
             @csrf
             {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
             @method('PATCH')
-            @include('books._patials.form')
+            @include('books.atoms.form')
             <div class="w-full flex justify-end"><button onclick="this.disabled='disabled'; this.form.submit();"
                     type="submit" class="btn-primary w-full py-4">更新する</button></div>
         </form>

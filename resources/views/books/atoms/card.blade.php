@@ -21,14 +21,14 @@
             <edit-modal class="mr-2">
 
                 {{-- エラー文 --}}
-                @include('_patials._error_card_list')
+                @include('atoms._error_card_list')
 
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
                 <form method="POST" action="{{ route('book.update', ['book_id' => $book->id]) }}">
                     @csrf
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                     @method('PATCH')
-                    @include('books._patials.form')
+                    @include('books.atoms.form')
                     <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
                         class="btn">更新する</button>
                 </form>

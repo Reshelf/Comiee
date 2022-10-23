@@ -1,21 +1,18 @@
-<div class="bg-white dark:bg-dark w-full flex-none border-b border-ddd dark:border-dark">
+<div class="fixed top-0 z-[100] bg-white opacity-0 hover:opacity-100 dark:bg-dark w-full">
     <div class="max-w-8xl mx-auto">
-        <div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+        <div class="py-4 lg:px-8 mx-4 lg:mx-0">
             <div class="relative flex items-center">
 
                 {{-- ロゴ --}}
-                @include('_patials.nav.logo')
+                @include('atoms.nav.logo')
 
                 <div class="flex items-center ml-16 mr-auto">
                     {{-- 検索フォーム --}}
-                    @include('search._patials._tabs', ['tab' => $tab])
+                    @include('search.atoms._tabs', ['tab' => 0])
                 </div>
 
                 <div class="flex items-center ml-auto">
-
-                    {{-- 検索 --}}
                     <search-form class="mr-8"></search-form>
-
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">
                             <div class="flex items-center">
@@ -28,27 +25,24 @@
                                             <template #header>新しく作品を追加する</template>
 
                                             {{-- エラー文 --}}
-                                            @include('_patials._error_card_list')
+                                            @include('atoms._error_card_list')
 
                                             <form method="POST" action="{{ route('book.store') }}"
                                                 enctype="multipart/form-data">
-                                                @include('books._patials.form')
-                                                <div class="w-full flex justify-end">
-                                                    <button type="submit"
+                                                @include('books.atoms.form')
+                                                <div class="w-full flex justify-end"><button
                                                         onclick="this.disabled='disabled'; this.form.submit();"
-                                                        class="btn-primary w-full py-4">投稿する</button>
-                                                </div>
+                                                        type="submit" class="btn">投稿する</button></div>
                                             </form>
                                         </create-modal>
                                     </div>
-
-                                    @include('_patials.nav.user_modal')
+                                    {{-- ユーザーメニュー --}}
+                                    @include('atoms.nav.user_modal')
                                 @endauth
                             </div>
                         </nav>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

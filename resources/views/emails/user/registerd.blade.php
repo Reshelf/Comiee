@@ -5,7 +5,7 @@
                 <table role="presentation"
                     style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
 
-                    @include('emails._patials.header')
+                    @include('emails.atoms.header')
 
                     <tr>
                         <td style="padding:36px 30px 42px 30px; background:#fff;">
@@ -39,7 +39,7 @@
                     </tr>
 
 
-                    @include('emails._patials.footer')
+                    @include('emails.atoms.footer')
                 </table>
             </td>
         </tr>

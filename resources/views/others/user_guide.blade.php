@@ -3,7 +3,7 @@
 @section('title', 'ご利用ガイド')
 
 @section('content')
-    @include('_patials._help_nav')
+    @include('atoms._help_nav')
 
     {{-- <div class="w-full bg-[#0A2140] bg-opacity-50 h-[110px] flex items-center justify-center">
 
@@ -36,5 +36,5 @@
         </div>
     </div>
 
-    @include('_patials._footer')
+    @include('atoms._footer')
 @endsection

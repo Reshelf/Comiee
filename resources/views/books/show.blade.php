@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    @include('_patials._nav', ['tab' => 0])
+    @include('atoms._nav', ['tab' => 0])
 
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-12 flex justify-between">
@@ -62,7 +62,7 @@
                     </div>
                 @else
                     {{-- 作品内容の更新 --}}
-                    @include('books._patials.edit')
+                    @include('books.atoms.edit')
                 @endif
 
                 {{-- SNSシェア --}}
@@ -349,7 +349,7 @@
         </div>
     </div>
 
-    @include('_patials._footer')
+    @include('atoms._footer')
 
 
     <script>
