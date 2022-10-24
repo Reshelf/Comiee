@@ -470,7 +470,7 @@ button[disabled] {
 }
 
 .acd-content {
-  @apply h-0 opacity-0 invisible duration-300;
+  @apply h-0 opacity-0 invisible duration-200;
 }
 .acd-check:checked + .acd-label + .acd-content {
   @apply h-[210px] px-4 opacity-100 visible;
