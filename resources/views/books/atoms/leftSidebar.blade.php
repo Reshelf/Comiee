@@ -33,10 +33,8 @@
                 <span class="ml-2">{{ $book->count_likes }}</span>
             </div>
         @else
-            <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-                :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                endpoint="{{ route('book.like', ['book' => $book]) }}">
-            </book-like>
+            {{-- お気に入り --}}
+            @include('atoms.likes')
         @endif
 
     </div>

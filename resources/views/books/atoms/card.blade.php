@@ -63,10 +63,8 @@
 @endif
 <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
-        <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-            :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-            endpoint="{{ route('book.like', ['book' => $book]) }}">
-        </book-like>
+        {{-- お気に入り --}}
+        @include('atoms.likes')
     </div>
 </div>
 

@@ -13,11 +13,10 @@
                 </a>
 
                 <div class="flex items-center mr-3">
-                    {{-- お気に入り数 --}}
-                    <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))'
-                        :initial-count-likes='@json($book->count_likes)' :authorized='@json(Auth::check())'
-                        endpoint="{{ route('book.like', ['book' => $book]) }}">
-                    </book-like>
+
+                    {{-- お気に入り --}}
+                    @include('atoms.likes')
+
                     {{-- 閲覧回数 --}}
                     <div class="flex items-center text-aaa ml-4">
                         <svg class="stroke-666 w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none">
