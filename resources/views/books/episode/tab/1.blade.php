@@ -42,7 +42,8 @@
                                 <div class="flex items-center mt-1">
                                     {{-- 値段 --}}
                                     @if ($episode->is_free)
-                                        <span class="text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[3px]">
+                                        <span
+                                            class="text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
                                             無料
                                         </span>
                                     @else
