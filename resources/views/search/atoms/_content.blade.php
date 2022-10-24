@@ -36,5 +36,5 @@
         @endforeach
     @endisset
 
-    @include('search.atoms.nomessage')
+    @include('atoms.nomessage')
 </div>

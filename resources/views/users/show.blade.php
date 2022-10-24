@@ -13,11 +13,12 @@
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
         <div class="w-full mx-12">
             <div class="w-full flex flex-wrap">
-                @if ($books->count())
+                @if ($books->count() > 0)
                     @foreach ($books as $book)
                         @include('users.atoms.card')
                     @endforeach
                 @endif
+                @include('atoms.nomessage')
             </div>
         </div>
     </div>
