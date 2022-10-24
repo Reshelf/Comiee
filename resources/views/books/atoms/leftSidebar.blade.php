@@ -36,12 +36,18 @@
             {{-- お気に入り --}}
             @include('atoms.likes')
         @endif
-
     </div>
+
+    {{-- 完結作品 --}}
+    @if ($book->is_complete)
+        <a href="{{ route('search.complete') }}"
+            class="inline-block text-[#e19324] dark:bg-[#e19324] dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
+            完結</a>
+    @endif
 
     @if (Auth::id() !== $book->user_id)
         {{-- 読者だったら --}}
-        <div class="w-full flex flex-col mt-6 px-2">
+        <div class="w-full flex flex-col mt-4 px-2">
             <button class="btn-border py-3 mb-2">1話を読む</button>
             <button class="btn-primary py-3">全話をまとめて購入</button>
         </div>
