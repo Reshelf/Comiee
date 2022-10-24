@@ -5,7 +5,7 @@
 {{-- SNSシェア --}}
 <div class="flex justify-between items-center">
     <!-- Twitter -->
-    <a class="js-sns-link w-1/4 mr-2 py-2 border border-[#46ACDF] rounded hover:bg-[#46ACDF] hover:bg-opacity-10"
+    <a class="js-sns-link w-1/4 mr-2 py-2 border dark:border-none border-[#46ACDF] rounded dark:bg-[#46ACDF] dark:bg-opacity-20 dark:hover:bg-opacity-10 hover:bg-[#46ACDF] hover:bg-opacity-10"
         href="//twitter.com/intent/tweet?text=&url=" target="_blank" rel="nofollow noopener noreferrer">
         <svg class="mx-auto" width="18" height="18" viewBox="0 0 32 32" fill="none">
             <path
@@ -15,7 +15,7 @@
     </a>
 
     <!-- Facebook -->
-    <a class="js-sns-link w-1/4 mr-2 py-2 border border-[#0F91F3] rounded hover:bg-[#0F91F3] hover:bg-opacity-10"
+    <a class="js-sns-link w-1/4 mr-2 py-2 border dark:border-none border-[#0F91F3] rounded dark:bg-[#0F91F3] dark:bg-opacity-20 dark:hover:bg-opacity-10 hover:bg-[#0F91F3] hover:bg-opacity-10"
         href="//www.facebook.com/sharer/sharer.php?u=&t=" target="_blank" rel="nofollow noopener noreferrer">
         <svg class="mx-auto" width="18" height="18" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="14" fill="url(#paint0_linear_29_2043)" />
@@ -33,7 +33,7 @@
     </a>
 
     <!-- LINE -->
-    <a class="js-sns-link w-1/4 mr-2 py-2 border border-[#2DCF54] rounded hover:bg-[#2DCF54] hover:bg-opacity-10"
+    <a class="js-sns-link w-1/4 mr-2 py-2 border dark:border-none border-[#2DCF54] rounded dark:bg-[#2DCF54] dark:bg-opacity-20 dark:hover:bg-opacity-10 hover:bg-[#2DCF54] hover:bg-opacity-10"
         href="//timeline.line.me/social-plugin/share?url=&text=" target="_blank" rel="nofollow noopener noreferrer">
         <svg class="mx-auto" width="18" height="18" viewBox="0 0 32 32" fill="none">
             <path
@@ -55,7 +55,7 @@
     </a>
 
     <!-- ピンタレスト -->
-    <a class="js-sns-link w-1/4 py-2 border border-[#BA0F23] rounded hover:bg-[#BA0F23] hover:bg-opacity-10"
+    <a class="js-sns-link w-1/4 py-2 border dark:border-none border-[#BA0F23] rounded dark:bg-[#BA0F23] dark:bg-opacity-20 dark:hover:bg-opacity-10 hover:bg-[#BA0F23] hover:bg-opacity-10"
         href="//www.pinterest.com/pin/create/button/?url=&media=" target="_blank" rel="nofollow noopener noreferrer">
         <svg class="mx-auto" width="18" height="18" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="14" fill="white" />
