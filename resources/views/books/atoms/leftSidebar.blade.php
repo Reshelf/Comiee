@@ -1,4 +1,4 @@
-<div class="top-0 sticky lg:h-[500px] pb-4 pr-4 lg:max-w-[266px] lg:min-w-[266px]">
+<div class="top-0 sticky lg:h-[500px] mb-8 pb-4 pr-4 lg:max-w-[266px] lg:min-w-[266px]">
     @empty($book->thumbnail)
         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[250px] h-[250px] object-cover">
         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block w-[250px] h-[250px] object-cover">
