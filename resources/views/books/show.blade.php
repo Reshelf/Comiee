@@ -20,9 +20,7 @@
                 </div>
 
                 {{-- 右サイドバー --}}
-                <div class="pl-4 lg:w-1/3">
-
-                </div>
+                <div class="pl-4 lg:w-1/3"></div>
             </div>
         </div>
     </div>
