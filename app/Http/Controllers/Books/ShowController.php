@@ -32,7 +32,6 @@ class ShowController extends Controller
 
         return view('books.show', [
             'book' => $book,
-            'tagNames' => $book->tag_names,
             'allTagNames' => $tag->all_tag_names,
         ]);
     }

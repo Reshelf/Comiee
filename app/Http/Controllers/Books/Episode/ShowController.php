@@ -34,8 +34,6 @@ class ShowController extends Controller
         */
         $book = Book::where('id', $request->book_id)->first();
         $episode = Episode::where('number', $request->episode_number)->first();
-        $episode_comments = Comment::where('episode_id', $request->episode_number)->get();
-
 
         /*
         |--------------------------------------------------------------------------
@@ -87,9 +85,7 @@ class ShowController extends Controller
 
         return view('books.episode.show', [
             'book' => $book,
-            'episode_story' => $episode,
-            'episode_comments' => $episode_comments,
-            'tagNames' => $book->tag_names,
+            'episode' => $episode,
             'allTagNames' => $tag->all_tag_names,
         ]);
     }

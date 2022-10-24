@@ -26,6 +26,9 @@ class StoreController extends Controller
     {
         $book = Book::where('id', $request->book_id)->first();
 
+        // foreach ($book->episodes as $episode) {
+        //     $episode_total_views += $episode->views;
+        // }
         $episode->book_id = $request->book_id;
 
         // エピソードの話数

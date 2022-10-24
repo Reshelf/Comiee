@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $episode_story->number . '話' . ' - ' . $book->title)
+@section('title', $episode->number . '話' . ' - ' . $book->title)
 
 @section('content')
     @include('atoms._episode_nav', ['tab' => 0])

@@ -8,7 +8,7 @@
                 </template>
                 <template #header>応援コメントを投稿する</template>
                 <form method="POST"
-                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number]) }}">
+                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}">
                     @csrf
                     <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                     <textarea class="w-full h-[250px] rounded-[3px]"
@@ -21,10 +21,10 @@
         </div>
 
 
-        @foreach ($episode_comments as $comment)
+        @foreach ($episode->comments as $comment)
             {{-- コメント --}}
             @empty($comment->parent_id)
-                <div id="comment-episode-{{ $episode_story->number }}" class="mb-2 pt-2 px-2 pb-2">
+                <div id="comment-episode-{{ $episode->number }}" class="mb-2 pt-2 px-2 pb-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <a href="{{ route('users.show', ['username' => $comment->user->username]) }}"
@@ -82,7 +82,7 @@
                                 </template>
                                 <template #header>{{ $comment->user->username }}さんに返信する</template>
                                 <form method="POST"
-                                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number, 'parent_id' => $comment->id]) }}">
+                                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode->number, 'parent_id' => $comment->id]) }}">
                                     @csrf
                                     <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                                     <textarea class="w-full h-[250px] rounded-[3px]"
@@ -94,7 +94,7 @@
                             </comment-post-modal>
                             @if ($comment->user->id == Auth::id())
                                 <form method="POST"
-                                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
+                                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
                                     class="text-xs text-666 ml-2 leading-4">
                                     @csrf
                                     @method('DELETE')
@@ -110,7 +110,7 @@
 
             {{-- リプライ --}}
             @empty(!$comment->parent_id)
-                <div id="comment-episode-{{ $episode_story->number }}" class="mb-2 pt-2 px-2 pb-2 ml-8">
+                <div id="comment-episode-{{ $episode->number }}" class="mb-2 pt-2 px-2 pb-2 ml-8">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <a href="{{ route('users.show', ['username' => $comment->user->username]) }}"
@@ -149,7 +149,7 @@
                                 </template>
                                 <template #header>{{ $comment->user->username }}さんに返信する</template>
                                 <form method="POST"
-                                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode_story->number, 'parent_id' => $comment->id]) }}">
+                                    action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode->number, 'parent_id' => $comment->id]) }}">
                                     @csrf
                                     <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                                     <textarea class="w-full h-[250px] rounded-[3px]"
@@ -161,7 +161,7 @@
                             </comment-post-modal>
                             @if ($comment->user->id == Auth::id())
                                 <form method="POST"
-                                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_story->id, 'comment_id' => $comment->id]) }}"
+                                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
                                     class="text-xs text-666 ml-2 leading-4">
                                     @csrf
                                     @method('DELETE')
