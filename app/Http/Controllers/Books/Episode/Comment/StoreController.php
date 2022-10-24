@@ -36,6 +36,6 @@ class StoreController extends Controller
         // 二重送信防止
         $request->session()->regenerateToken();
 
-        return redirect()->back();
+        return back();
     }
 }

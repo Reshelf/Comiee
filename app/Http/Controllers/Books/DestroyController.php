@@ -22,6 +22,6 @@ class DestroyController extends Controller
         $this->authorize('delete', $book);
 
         $book->delete();
-        return redirect()->back();
+        return back();
     }
 }

@@ -44,6 +44,6 @@ class UpdateController extends Controller
 
         $user->save();
 
-        return redirect()->back();
+        return back();
     }
 }

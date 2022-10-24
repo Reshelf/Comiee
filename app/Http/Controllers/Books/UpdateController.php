@@ -60,6 +60,6 @@ class UpdateController extends Controller
         $book->save();
 
         // リロード
-        return redirect()->back();
+        return back();
     }
 }

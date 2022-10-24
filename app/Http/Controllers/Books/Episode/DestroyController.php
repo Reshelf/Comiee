@@ -22,6 +22,6 @@ class DestroyController extends Controller
         // $this->authorize('delete', $episode);
         // dd($episode->id);
         $episode->delete();
-        return redirect()->back();
+        return back();
     }
 }

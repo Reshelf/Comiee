@@ -18,6 +18,6 @@ class DestroyController extends Controller
         $comment = Comment::find($request->comment_id);
         $comment->delete();
 
-        return redirect()->back();
+        return back();
     }
 }

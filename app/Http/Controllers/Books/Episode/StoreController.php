@@ -51,6 +51,6 @@ class StoreController extends Controller
             Mail::send(new AddNewEpisodeMail($mailData));
         };
 
-        return redirect()->back();
+        return back();
     }
 }
