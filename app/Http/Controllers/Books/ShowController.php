@@ -20,6 +20,8 @@ class ShowController extends Controller
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
         $book = Book::where('id', $request->book_id)->first();
+        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
+
 
         /*
         |--------------------------------------------------------------------------
@@ -40,6 +42,7 @@ class ShowController extends Controller
         $oldest->save();
         $oldest_two->save();
 
+
         /*
         |--------------------------------------------------------------------------
         | 閲覧回数を更新
@@ -54,8 +57,10 @@ class ShowController extends Controller
             $book->save();
         }
 
+
         return view('books.show', [
             'book' => $book,
+            'episodes_latest' => $episodes_latest,
             'allTagNames' => $tag->all_tag_names,
         ]);
     }

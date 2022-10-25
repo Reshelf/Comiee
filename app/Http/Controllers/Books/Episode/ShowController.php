@@ -34,6 +34,7 @@ class ShowController extends Controller
         */
         $book = Book::where('id', $request->book_id)->first();
         $episode = $book->episodes->where('number', $request->episode_number)->first();
+        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
 
         /*
@@ -87,6 +88,7 @@ class ShowController extends Controller
         return view('books.episode.show', [
             'book' => $book,
             'episode' => $episode,
+            'episodes_latest' => $episodes_latest,
             'allTagNames' => $tag->all_tag_names,
         ]);
     }
