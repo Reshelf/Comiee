@@ -11,7 +11,7 @@
                 </form>
             </episode-list>
         @endif
-        @foreach ($book->episodes as $e)
+        @foreach ($episodes_latest as $e)
             <div
                 class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                 <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}"

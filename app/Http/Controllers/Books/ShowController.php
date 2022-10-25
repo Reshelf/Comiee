@@ -28,6 +28,13 @@ class ShowController extends Controller
         | 最初の2話と最新から3,4話を無料にする
         |--------------------------------------------------------------------------
         */
+        // 最初にリセット
+        foreach ($book->episodes as $episode) {
+            $episode->is_free = false;
+            $episode->price = 50;
+            $episode->save();
+        }
+
         $latest = $episode->latest()->first();
         $latest_three = $episode->latest()->skip(2)->first();
         $latest->price = 80;
