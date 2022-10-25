@@ -72,6 +72,6 @@ class StoreController extends Controller
             Mail::send(new AddNewEpisodeMail($mailData));
         };
 
-        return back();
+        return back()->with('success', '作品の続編を公開しました！');
     }
 }

@@ -69,6 +69,6 @@ class StoreController extends Controller
         // リダイレクト
         return redirect()
             ->route('users.show', ['username' => $book->user->username])
-            ->withSuccess("投稿しました！");
+            ->withSuccess("新たな作品の世界が始まりました！");
     }
 }
