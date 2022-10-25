@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->unsignedbigInteger('book_id')->comment('作品ID');
-            $table->boolean('is_free')->default(true)->comment('無料フラグ');
-
             $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
+
+            $table->boolean('is_free')->default(true)->comment('無料フラグ');
             $table->json('contents')->nullable()->comment('マンガのコンテンツ');
             $table->integer('price')->default(0)->comment('値段');
             $table->integer('views')->default(0)->comment('閲覧数');

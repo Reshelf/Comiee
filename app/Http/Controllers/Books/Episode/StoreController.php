@@ -24,21 +24,43 @@ class StoreController extends Controller
     */
     public function __invoke(Request $request, Episode $episode)
     {
-        $book = Book::where('id', $request->book_id)->first(); // OK
-        $episode->book_id = $request->book_id; // OK
+        /*
+        |--------------------------------------------------------------------------
+        | データのセット | 作品
+        |--------------------------------------------------------------------------
+        */
+        $book = Book::where('id', $request->book_id)->first();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | データの保存 | エピソード
+        |--------------------------------------------------------------------------
+        */
+        $episode->book_id = $book->id;
 
         // エピソードの話数
-        $episode->number = $episode->where('book_id', $request->book_id)->count() + 1;
+        $episode->number = $episode->where('book_id', $book->id)->count() + 1;
         $episode->save();
 
-        // 今日の新作に追加
+
+        /*
+        |--------------------------------------------------------------------------
+        | データの更新 | 今日の新作に追加
+        |--------------------------------------------------------------------------
+        */
         $book->is_new = true;
         $book->save();
 
         // 二重送信防止
         $request->session()->regenerateToken();
 
-        // 作品をお気に入りに追加してる人に新着エピソードのメール通知
+
+        /*
+        |--------------------------------------------------------------------------
+        | メール送信 | 作品をお気に入りに追加してる人に新着エピソードの通知
+        |--------------------------------------------------------------------------
+        */
         $book_likes_users = $book->likes()->where('book_id', $book->id)->get();
         if ($book_likes_users->count() > 0) {
             $mailData = [

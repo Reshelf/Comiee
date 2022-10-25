@@ -33,7 +33,8 @@ class ShowController extends Controller
         |--------------------------------------------------------------------------
         */
         $book = Book::where('id', $request->book_id)->first();
-        $episode = Episode::where('number', $request->episode_number)->first();
+        $episode = $book->episodes->where('number', $request->episode_number)->first();
+
 
         /*
         |--------------------------------------------------------------------------
@@ -75,8 +76,8 @@ class ShowController extends Controller
         */
         if ($book->user->id !== Auth::user()->id) {
             $episode_total_views = 0;
-            foreach ($book->episodes as $episode) {
-                $episode_total_views += $episode->views;
+            foreach ($book->episodes as $e) {
+                $episode_total_views += $e->views;
             }
             $book->views = $episode_total_views;
             $book->save();
