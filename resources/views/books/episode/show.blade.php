@@ -9,11 +9,11 @@
     <episode-screen></episode-screen>
 
     <div class="w-full h-full bg-white dark:bg-dark">
-        <div class="max-w-7xl mx-auto md:py-12 flex justify-between">
+        <div class="max-w-7xl mx-auto md:py-8 flex justify-between">
             {{-- 左サイドバー --}}
             @include('books.atoms.leftSidebar')
 
-            <div class="w-full flex">
+            <div class="w-full flex py-8">
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
                     <book-tab :is-comment="true">
