@@ -1,5 +1,11 @@
 <template #episode>
     <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
+
+        <div class="mb-4">
+            @include('atoms.success')
+        </div>
+
+
         @if (Auth::id() === $book->user_id)
             <episode-list>
                 <template #trigger>エピソードを追加する</template>
