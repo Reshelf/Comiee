@@ -24,12 +24,8 @@ class StoreController extends Controller
     */
     public function __invoke(Request $request, Episode $episode)
     {
-        $book = Book::where('id', $request->book_id)->first();
-
-        // foreach ($book->episodes as $episode) {
-        //     $episode_total_views += $episode->views;
-        // }
-        $episode->book_id = $request->book_id;
+        $book = Book::where('id', $request->book_id)->first(); // OK
+        $episode->book_id = $request->book_id; // OK
 
         // エピソードの話数
         $episode->number = $episode->where('book_id', $request->book_id)->count() + 1;
