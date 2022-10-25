@@ -25,7 +25,7 @@ class ShowController extends Controller
     | エピソードの詳細
     |--------------------------------------------------------------------------
     */
-    public function __invoke(Tag $tag, Request $request)
+    public function __invoke(Tag $tag, Request $request, Episode $e)
     {
         /*
         |--------------------------------------------------------------------------
@@ -35,6 +35,45 @@ class ShowController extends Controller
         $book = Book::where('id', $request->book_id)->first();
         $episode = $book->episodes->where('number', $request->episode_number)->first();
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | 最初の2話と最新から3,4話を無料にする
+        |--------------------------------------------------------------------------
+        */
+        // 最初にリセット
+        foreach ($book->episodes as $epi) {
+            $epi->is_free = false;
+            $epi->price = 50;
+            $epi->save();
+        }
+        if ($book->episodes->count() > 0) {
+            $oldest = $e->oldest()->first();
+            $oldest->is_free = true;
+            $oldest->price = 50;
+            $oldest->save();
+        }
+
+        if ($book->episodes->count() > 2) {
+            $oldest_two = $e->oldest()->skip(1)->first();
+            $oldest_two->is_free = true;
+            $oldest_two->price = 50;
+            $oldest_two->save();
+        }
+
+        if ($book->episodes->count() > 2) {
+            $latest = $e->latest()->first();
+            $latest->price = 80;
+            $latest->save();
+        }
+
+        if ($book->episodes->count() > 4) {
+            $latest_three = $e->latest()->skip(2)->first();
+            $latest_three->is_free = true;
+            $latest_three->save();
+        }
 
 
         /*
@@ -75,15 +114,16 @@ class ShowController extends Controller
         | 閲覧回数を更新
         |--------------------------------------------------------------------------
         */
-        if ($book->user->id !== Auth::user()->id) {
-            $episode_total_views = 0;
-            foreach ($book->episodes as $e) {
-                $episode_total_views += $e->views;
+        if (Auth::user()) {
+            if ($book->user->id !== Auth::user()->id) {
+                $episode_total_views = 0;
+                foreach ($book->episodes as $episode) {
+                    $episode_total_views += $episode->views;
+                }
+                $book->views = $episode_total_views;
+                $book->save();
             }
-            $book->views = $episode_total_views;
-            $book->save();
         }
-
 
         return view('books.episode.show', [
             'book' => $book,

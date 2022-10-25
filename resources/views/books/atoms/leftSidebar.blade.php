@@ -23,7 +23,7 @@
 
     {{-- お気に入り --}}
     <div class="w-full flex items-center px-2 mb-4">
-        @if ($book->user->id === Auth::user()->id)
+        @if (Auth::user() && $book->user->id === Auth::user()->id)
             <div class="flex items-center cursor-not-allowed">
                 <svg class="w-[24px] h-[24px] stroke-aaa" viewBox="0 0 22 22" fill="none">
                     <path
