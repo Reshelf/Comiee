@@ -73,38 +73,33 @@
                 stroke-width="1.5" />
         </svg>
         <div class="dropdown-box">
-            <div class="">
-                @if ($comment->user->id == Auth::id())
+            @if ($comment->user->id == Auth::id())
+                <form method="POST"
+                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button onclick="this.disabled='disabled'; this.form.submit();" type="submit">削除する</button>
+                </form>
+            @endif
+
+            {{-- 通報 --}}
+            @if ($comment->user->id != Auth::id())
+                <comment-post-modal>
+                    <template #trigger>
+                        <div class="text-[14px] w-full">通報する</div>
+                    </template>
+                    <template #header>コメントに対して通報する</template>
                     <form method="POST"
-                        action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
-                        class="mb-2">
+                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}">
                         @csrf
-                        @method('DELETE')
+                        <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                            autofocus="on" type="text" name="body" maxlength="400" required></textarea>
                         <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                            class="leading-4">削除する</button>
+                            class="btn w-full">送信する</button>
                     </form>
-                @endif
-            </div>
-            <div class="">
-                {{-- 通報 --}}
-                @if ($book->user->id !== $comment->user->id)
-                    <comment-post-modal>
-                        <template #trigger>
-                            <div class="text-[14px] w-full">通報</div>
-                        </template>
-                        <template #header>コメントに対して通報する</template>
-                        <form method="POST"
-                            action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}">
-                            @csrf
-                            <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
-                                autofocus="on" type="text" name="body" maxlength="400" required></textarea>
-                            <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                                class="btn w-full">送信する</button>
-                        </form>
-                    </comment-post-modal>
-                @endif
-            </div>
+                </comment-post-modal>
+            @endif
         </div>
     </div>
 </div>

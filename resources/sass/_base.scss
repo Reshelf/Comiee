@@ -547,17 +547,14 @@ button[disabled] {
 .dropdown {
   @apply relative;
   &-box {
-    @apply invisible absolute flex-col top-0 right-0 p-2;
+    @apply invisible absolute flex items-center top-0 right-0 p-4 bg-white rounded-[3px] shadow-lg;
+    &:hover {
+      @apply flex visible whitespace-nowrap;
+    }
   }
   &-trigger {
     @apply cursor-pointer;
     &:hover + .dropdown-box {
-      @apply flex visible whitespace-nowrap;
-    }
-  }
-  &-box {
-    @apply p-4 bg-white rounded-[3px] shadow-lg;
-    &:hover {
       @apply flex visible whitespace-nowrap;
     }
   }
