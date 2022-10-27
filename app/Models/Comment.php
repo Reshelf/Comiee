@@ -33,4 +33,14 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | リプライ　
+    |--------------------------------------------------------------------------
+    */
+    public function replies()
+    {
+        return $this->hasMany('App\Models\Comment', 'parent_id');
+    }
 }
