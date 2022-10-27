@@ -75,7 +75,8 @@
         <div class="dropdown-box">
             @if ($comment->user->id == Auth::id())
                 <form method="POST"
-                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}">
+                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
+                    class="hover:text-primary">
                     @csrf
                     @method('DELETE')
                     <button onclick="this.disabled='disabled'; this.form.submit();" type="submit">削除する</button>
@@ -86,11 +87,12 @@
             @if ($comment->user->id != Auth::id())
                 <comment-post-modal>
                     <template #trigger>
-                        <div class="text-[14px] w-full">通報する</div>
+                        <div class="text-[14px] w-full hover:text-primary">通報する</div>
                     </template>
                     <template #header>コメントに対して通報する</template>
                     <form method="POST"
-                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}">
+                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
+                        class="flex flex-col">
                         @csrf
                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                         <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
