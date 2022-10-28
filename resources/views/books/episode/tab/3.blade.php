@@ -5,15 +5,15 @@
 
         @if (count((array) $episode->comments))
             @foreach ($episode->comments as $comment)
-                <div id="{{ $book->title }}-{{ $episode->number }}-comment-{{ $comment->id }}">
-                    @empty($comment->parent_id)
+                @empty($comment->parent_id)
+                    <div id="{{ $book->title }}-{{ $episode->number }}-comment-{{ $comment->id }}">
                         <div class="mb-2 pt-2 px-2 pb-2">
                             @include('books.episode.tab.3.comment')
                         </div>
-                    @endempty
 
-                    @include('books.episode.tab.3.commentList', ['comments' => $comment->replies])
-                </div>
+                        @include('books.episode.tab.3.commentList', ['comments' => $comment->replies])
+                    </div>
+                @endempty
             @endforeach
         @endif
     </div>
