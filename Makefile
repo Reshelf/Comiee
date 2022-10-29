@@ -43,6 +43,8 @@ app:
 	./vendor/bin/sail bash
 migrate:
 	./vendor/bin/sail artisan migrate
+rollback:
+	./vendor/bin/sail artisan migrate:rollback
 fresh:
 	./vendor/bin/sail artisan migrate:fresh
 seed:

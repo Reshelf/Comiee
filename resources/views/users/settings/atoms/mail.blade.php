@@ -1,12 +1,18 @@
 <template #1>
-    <h2 class="text-xl font-semibold">メール通知設定</h2>
-    <form method="POST" action="" class="px-8">
+    <h2 class="text-xl font-semibold">メール通知</h2>
+    <form method="POST"
+        action="{{ route('users.update', [
+            'name' => $user->name,
+            'username' => $user->username,
+        ]) }}"
+        enctype="multipart/form-data" class="px-8">
         @csrf
-        @method('POST')
+        @method('PATCH')
 
         <h3 class="my-8 text-lg font-semibold">フォロー</h3>
         <label class="light-checkbox mt-8">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m1" value="m1" @if ($user->m_notice_1 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -15,8 +21,10 @@
             </span>
             <span class="light-checkbox-LabelText">あなたがフォローしている作者が作品を投稿したときに通知をします</span>
         </label>
+
         <label class="light-checkbox mt-8">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m2" value="m2" @if ($user->m_notice_2 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -28,7 +36,8 @@
 
         <h3 class="my-8 text-lg font-semibold">お気に入り</h3>
         <label class="light-checkbox">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m3" value="m3" @if ($user->m_notice_3 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -38,7 +47,8 @@
             <span class="light-checkbox-LabelText">あなたの作品がお気に入りに登録されたら通知をします</span>
         </label>
         <label class="light-checkbox mt-8">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m4" value="m4" @if ($user->m_notice_4 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -51,7 +61,8 @@
         <h3 class="my-8 text-lg font-semibold">購入</h3>
 
         <label class="light-checkbox mt-8">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m5" value="m5" @if ($user->m_notice_5 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -64,7 +75,8 @@
         <h3 class="my-8 text-lg font-semibold">NEWS</h3>
 
         <label class="light-checkbox mt-8">
-            <input type="checkbox" name="feature" value="完結作品のみ" class="light-checkbox-Input">
+            <input type="checkbox" name="m6" value="m6" @if ($user->m_notice_6 === 1) checked @endif
+                class="light-checkbox-Input">
             <span class="light-checkbox-DummyInput">
                 <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                     <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"

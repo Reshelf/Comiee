@@ -13,11 +13,13 @@
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
         <div class="w-full my-8 mx-12">
             <div class="w-full flex">
-                <setting-tab :is-comment="false">
-                    @include('users.settings.atoms.mail')
-                    @include('users.settings.atoms.bought')
-                    @include('users.settings.atoms.hidden')
-                </setting-tab>
+                @if (Auth::id() === $user->id)
+                    <setting-tab :is-comment="false">
+                        @include('users.settings.atoms.mail')
+                        @include('users.settings.atoms.bought')
+                        @include('users.settings.atoms.hidden')
+                    </setting-tab>
+                @endif
             </div>
         </div>
     </div>
