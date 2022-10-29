@@ -90,12 +90,22 @@
     <div class="bg-white dark:bg-dark w-full lg:z-20">
         <div class="max-w-8xl mx-12 flex justify-between">
             <div class="relative flex items-center">
-                <a href="{{ route('users.show', ['username' => $user->username]) }}"
-                    class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
-                @if (Auth::id() === $user->id)
-                    <a href="{{ route('users.settings', ['username' => $user->username]) }}"
-                        class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                @if ($mypage)
+                    <a href="{{ route('users.show', ['username' => $user->username]) }}"
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
+                    @if (Auth::id() === $user->id)
+                        <a href="{{ route('users.settings', ['username' => $user->username]) }}"
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                    @endif
+                @else
+                    @if (Auth::id() === $user->id)
+                        <a href="{{ route('users.settings', ['username' => $user->username]) }}"
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                    @endif
+                    <a href="{{ route('users.show', ['username' => $user->username]) }}"
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">作品</a>
                 @endif
+
             </div>
             <div class="lg:w-[200px]">
                 {{-- SNSシェア --}}
