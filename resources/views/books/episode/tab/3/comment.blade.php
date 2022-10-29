@@ -48,7 +48,12 @@
                         </template>
                         <template #header>{{ $comment->user->username }}さんに返信する</template>
                         <form method="POST"
-                            action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode->number, 'parent_id' => $comment->id]) }}">
+                            action="{{ route('book.episode.comment.store', [
+                                'book_id' => $book->id,
+                                'episode_id' => $episode_id,
+                                'episode_number' => $episode_number,
+                                'parent_id' => $comment->id,
+                            ]) }}">
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                             <textarea class="w-full h-[250px] rounded-[3px]"
@@ -75,7 +80,7 @@
         <div class="dropdown-box">
             @if ($comment->user->id == Auth::id())
                 <form method="POST"
-                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
+                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_id, 'comment_id' => $comment->id]) }}"
                     class="hover:text-primary">
                     @csrf
                     @method('DELETE')

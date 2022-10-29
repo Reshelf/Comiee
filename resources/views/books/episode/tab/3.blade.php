@@ -12,7 +12,10 @@
                 @empty($comment->parent_id)
                     <div id="{{ $book->title }}-{{ $episode->number }}-comment-{{ $comment->id }}">
                         <div class="mb-2 pt-2 px-2 pb-2">
-                            @include('books.episode.tab.3.comment')
+                            @include('books.episode.tab.3.comment', [
+                                'episode_id' => $episode->id,
+                                'episode_number' => $episode->number,
+                            ])
                         </div>
 
                         @include('books.episode.tab.3.commentList', ['comments' => $comment->replies])
