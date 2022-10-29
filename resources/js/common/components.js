@@ -34,7 +34,9 @@ import FollowModal from "../components/users/FollowModal.vue";
 import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
+import SettingTab from "../components/users/SettingTab.vue";
 export default {
+  SettingTab,
   CommentLike,
   BasicModal,
   TagSearchModal,

@@ -12,12 +12,18 @@
     </div>
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
         <div class="w-full mx-12">
-            <div class="w-full flex flex-wrap">
-                @if ($books->count())
-                    @foreach ($books as $book)
-                        @include('users.atoms.card')
-                    @endforeach
-                @endif
+            <div class="w-full flex">
+                <setting-tab :is-comment="false">
+                    <template #1>
+                        <h2 class="text-xl font-semibold">メール通知設定</h2>
+                    </template>
+                    <template #2>
+                        <h2 class="text-xl font-semibold">購入履歴</h2>
+                    </template>
+                    <template #3>
+                        <h2 class="text-xl font-semibold">表示しない作品</h2>
+                    </template>
+                </setting-tab>
             </div>
         </div>
     </div>
