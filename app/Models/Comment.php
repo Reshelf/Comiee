@@ -2,27 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Comment extends Model
 {
     protected $fillable = [
         'comment',
-        'episode_id',
         'user_id',
+        'book_id',
+        'episode_id',
     ];
+
 
     /*
     |--------------------------------------------------------------------------
-    | エピソード　　：　　リレーション
+    | 作品　　：　　リレーション
     |--------------------------------------------------------------------------
     */
-    public function episode(): BelongsTo
+    public function book(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Episode');
+        return $this->belongsTo('App\Models\Book');
     }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -34,6 +37,7 @@ class Comment extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+
     /*
     |--------------------------------------------------------------------------
     | リプライ　
@@ -42,5 +46,16 @@ class Comment extends Model
     public function replies()
     {
         return $this->hasMany('App\Models\Comment', 'parent_id');
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | コメントへのいいね　　：　　リレーション
+    |--------------------------------------------------------------------------
+    */
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\User', 'comment_likes')->withTimestamps();
     }
 }

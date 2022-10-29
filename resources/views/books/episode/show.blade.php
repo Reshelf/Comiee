@@ -14,12 +14,16 @@
             @include('books.atoms.leftSidebar')
 
             <div class="w-full flex py-8">
+
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
                     <book-tab :is-comment="true">
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
-                        @include('books.episode.tab.3')
+                        @include('books.episode.tab.3', [
+                            'episode_id' => $episode->id,
+                            'episode_number' => $episode->number,
+                        ])
                     </book-tab>
                 </div>
 

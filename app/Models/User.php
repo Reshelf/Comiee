@@ -130,17 +130,4 @@ class User extends Authenticatable
             ? (bool)$this->followers->where('id', $user->id)->count()
             : false;
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | コメント
-    |--------------------------------------------------------------------------
-    */
-    public function hasComments()
-    {
-        return $this->hasMany(Book::class)
-            ->has('episodes.comments')
-            ->with(['episodes.comments', 'user'])
-            ->get();
-    }
 }

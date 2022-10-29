@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Episode;
 use App\Models\Book;
-use App\Models\Tag;
-use App\Models\Read;
 use App\Models\Comment;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
@@ -32,11 +31,11 @@ class ShowController extends Controller
         | データのセット | 作品、エピソード、コメント
         |--------------------------------------------------------------------------
         */
-        $book = Book::where('id', $request->book_id)->first();
-        $episode = $book->episodes->where('number', $request->episode_number)->first();
+        $book = Book::with('comments')->where('id', $request->book_id)->first();
+        $episode = Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
-
+        // dump($comments);
 
         /*
         |--------------------------------------------------------------------------
@@ -117,13 +116,15 @@ class ShowController extends Controller
         if (Auth::user()) {
             if ($book->user->id !== Auth::user()->id) {
                 $episode_total_views = 0;
-                foreach ($book->episodes as $episode) {
-                    $episode_total_views += $episode->views;
+                foreach ($book->episodes as $e) {
+                    $episode_total_views += $e->views;
                 }
                 $book->views = $episode_total_views;
                 $book->save();
             }
         }
+
+        // dump();
 
         return view('books.episode.show', [
             'book' => $book,

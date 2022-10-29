@@ -4,9 +4,13 @@
         <template #btn-trigger>
             <span class="btn-border px-4 text-xs">コメントをする</span>
         </template>
-        <template #header>応援コメントを投稿する</template>
+        <template #header>応援コメントを投稿する{{ $episode_id }} - {{ $episode_number }}</template>
         <form method="POST"
-            action="{{ route('book.episode.comment.store', ['book_id' => $book->id, 'episode_number' => $episode->number]) }}">
+            action="{{ route('book.episode.comment.store', [
+                'book_id' => $book->id,
+                'episode_id' => $episode_id,
+                'episode_number' => $episode_number,
+            ]) }}">
             @csrf
             <textarea class="w-full h-[250px] rounded-[3px]"
                 placeholder="ここは作品への応援コメントを投稿できる場所です！&#10;&#10;作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！&#10;&#10;不適切なコメントを見つけた場合は通報をお願いいたします！&#10;&#10;ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。"

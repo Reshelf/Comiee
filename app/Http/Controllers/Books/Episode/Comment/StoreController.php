@@ -23,7 +23,9 @@ class StoreController extends Controller
     public function __invoke(Comment $comment, Request $request)
     {
         $comment->user_id = Auth::user()->id;
-        $comment->episode_id = $request->episode_number;
+        $comment->book_id = $request->book_id;
+        $comment->episode_id = $request->episode_id;
+        $comment->episode_number = $request->episode_number;
         $comment->comment = $request->comment;
 
         // コメントへのリプライなら
