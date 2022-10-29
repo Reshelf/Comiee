@@ -31,6 +31,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <div class="mr-4">
+                        {{-- コメントへのイイね --}}
                         @include('books.episode.comment.likes')
                     </div>
 

@@ -120,11 +120,11 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::delete('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
         // コメント
         Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')
-            // ->middleware('throttle:3, 1')
+            ->middleware('throttle:3, 1')
             ->name('episode.comment.store');
         Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
-        Route::put('/{book_id}/{episode_id}/{comment_id}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
-        Route::delete('/{book_id}/{episode_id}/{comment_id}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
+        Route::put('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
+        Route::delete('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
     });
     Route::get('/{book_id}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });

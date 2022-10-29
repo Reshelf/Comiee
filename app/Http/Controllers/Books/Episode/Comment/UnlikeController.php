@@ -18,8 +18,9 @@ class UnlikeController extends Controller
     | コメントのお気に入りを解除する
     |--------------------------------------------------------------------------
     */
-    public function __invoke(Request $request, Comment $comment)
+    public function __invoke(Request $request)
     {
+        $comment = Comment::find($request->comment);
         $comment->likes()->detach($request->user()->id);
 
         return [

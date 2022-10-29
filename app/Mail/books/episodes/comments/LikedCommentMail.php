@@ -3,11 +3,10 @@
 namespace App\Mail\books\episodes\comments;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LikedBookMail extends Mailable
+class LikedCommentMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $user;
