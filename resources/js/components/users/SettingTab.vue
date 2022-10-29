@@ -35,9 +35,9 @@ function isSelect(num) {
 .tab {
   @apply w-full flex;
   .tabMenu {
-    @apply flex flex-col bg-white dark:bg-dark border-r-2 border-eee pr-12;
+    @apply flex flex-col bg-white dark:bg-dark border-r-2 border-eee;
     li {
-      @apply w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 hover:text-primary;
+      @apply w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-12 hover:text-primary;
       &.active {
         @apply font-semibold text-primary;
       }
