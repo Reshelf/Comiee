@@ -1,10 +1,7 @@
 <template #comment>
     <div class="flex flex-col">
 
-        @include('books.episode.tab.3.addComment', [
-            'episode_id' => $episode_id,
-            'episode_number' => $episode_number,
-        ])
+        @include('books.episode.tab.3.addComment')
 
         @if (count((array) $book->comments))
             @foreach ($book->comments as $comment)
@@ -12,13 +9,10 @@
                 @empty($comment->parent_id)
                     <div id="{{ $book->title }}-{{ $episode->number }}-comment-{{ $comment->id }}">
                         <div class="mb-2 pt-2 px-2 pb-2">
-                            @include('books.episode.tab.3.comment', [
-                                'episode_id' => $episode->id,
-                                'episode_number' => $episode->number,
-                            ])
+                            @include('books.episode.tab.3.comment')
                         </div>
 
-                        @include('books.episode.tab.3.commentList', ['comments' => $comment->replies])
+                        @include('books.episode.tab.3.commentList')
                     </div>
                 @endempty
             @endif

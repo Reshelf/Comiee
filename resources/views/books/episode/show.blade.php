@@ -20,10 +20,7 @@
                     <book-tab :is-comment="true">
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
-                        @include('books.episode.tab.3', [
-                            'episode_id' => $episode->id,
-                            'episode_number' => $episode->number,
-                        ])
+                        @include('books.episode.tab.3')
                     </book-tab>
                 </div>
 

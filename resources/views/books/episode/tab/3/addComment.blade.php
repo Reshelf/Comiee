@@ -4,12 +4,12 @@
         <template #btn-trigger>
             <span class="btn-border px-4 text-xs">コメントをする</span>
         </template>
-        <template #header>応援コメントを投稿する{{ $episode_id }} - {{ $episode_number }}</template>
+        <template #header>応援コメントを投稿する</template>
         <form method="POST"
             action="{{ route('book.episode.comment.store', [
                 'book_id' => $book->id,
-                'episode_id' => $episode_id,
-                'episode_number' => $episode_number,
+                'episode_id' => $episode->id,
+                'episode_number' => $episode->number,
             ]) }}">
             @csrf
             <textarea class="w-full h-[250px] rounded-[3px]"

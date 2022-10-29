@@ -30,17 +30,10 @@
 
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <div class="flex items-center mr-4">
-                        <svg class="mr-1 w-[20px] h-[20px] stroke-aaa" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M7.47998 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35H16.28C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.34997 19.58 9.34997H15.58C14.98 9.34997 14.48 8.84997 14.58 8.14997L15.08 4.94997C15.28 4.04997 14.68 3.04997 13.78 2.74997C12.98 2.44997 11.98 2.84997 11.58 3.44997L7.47998 9.54997"
-                                stroke-width="1.5" stroke-miterlimit="10" />
-                            <path
-                                d="M2.37988 18.3499V8.5499C2.37988 7.1499 2.97988 6.6499 4.37988 6.6499H5.37988C6.77988 6.6499 7.37988 7.1499 7.37988 8.5499V18.3499C7.37988 19.7499 6.77988 20.2499 5.37988 20.2499H4.37988C2.97988 20.2499 2.37988 19.7499 2.37988 18.3499Z"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        999
+                    <div class="mr-4">
+                        @include('books.episode.comment.likes')
                     </div>
+
 
                     <comment-post-modal class="mr-4">
                         <template #trigger>
@@ -50,8 +43,8 @@
                         <form method="POST"
                             action="{{ route('book.episode.comment.store', [
                                 'book_id' => $book->id,
-                                'episode_id' => $episode_id,
-                                'episode_number' => $episode_number,
+                                'episode_id' => $episode->id,
+                                'episode_number' => $episode->number,
                                 'parent_id' => $comment->id,
                             ]) }}">
                             @csrf
@@ -80,7 +73,7 @@
         <div class="dropdown-box">
             @if ($comment->user->id == Auth::id())
                 <form method="POST"
-                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode_id, 'comment_id' => $comment->id]) }}"
+                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
                     class="hover:text-primary">
                     @csrf
                     @method('DELETE')
