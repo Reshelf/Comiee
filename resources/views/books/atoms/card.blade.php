@@ -64,7 +64,7 @@
 <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
         {{-- お気に入り --}}
-        @include('atoms.likes')
+        @include('books.atoms.likes')
     </div>
 </div>
 

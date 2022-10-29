@@ -34,7 +34,7 @@
             </div>
         @else
             {{-- お気に入り --}}
-            @include('atoms.likes')
+            @include('books.atoms.likes')
         @endif
     </div>
 

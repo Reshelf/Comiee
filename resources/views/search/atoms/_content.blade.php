@@ -15,7 +15,7 @@
                 <div class="flex items-center mr-3">
 
                     {{-- お気に入り --}}
-                    @include('atoms.likes')
+                    @include('books.atoms.likes')
 
                     {{-- 閲覧回数 --}}
                     <div class="flex items-center text-aaa ml-4">
