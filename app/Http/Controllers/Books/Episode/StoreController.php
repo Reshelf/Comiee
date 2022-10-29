@@ -61,7 +61,7 @@ class StoreController extends Controller
         | メール送信 | 作品をお気に入りに追加してる人に新着エピソードの通知
         |--------------------------------------------------------------------------
         */
-        $book_likes_users = $book->likes()->where('book_id', $book->id)->get();
+        $book_likes_users = $book->likes()->where(['book_id' => $book->id, 'm_notice_4' => 1])->get();
         if ($book_likes_users->count() > 0) {
             $mailData = [
                 'book' => $book,
