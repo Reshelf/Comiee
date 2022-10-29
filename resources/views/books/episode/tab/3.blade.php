@@ -3,8 +3,8 @@
 
         @include('books.episode.tab.3.addComment')
 
-        @if (count((array) $book->comments))
-            @foreach ($book->comments as $comment)
+        @if (count((array) $comments))
+            @foreach ($comments as $comment)
                 @if ($episode->number === $comment->episode_number)
                 @empty($comment->parent_id)
                     <div id="{{ $book->title }}-{{ $episode->number }}-comment-{{ $comment->id }}">

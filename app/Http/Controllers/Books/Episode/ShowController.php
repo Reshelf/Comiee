@@ -34,8 +34,8 @@ class ShowController extends Controller
         $book = Book::with('comments')->where('id', $request->book_id)->first();
         $episode = Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
+        $comments = $book->comments()->withCount('likes')->orderBy('likes_count', 'desc')->get();
 
-        // dump($comments);
 
         /*
         |--------------------------------------------------------------------------
@@ -130,6 +130,7 @@ class ShowController extends Controller
             'book' => $book,
             'episode' => $episode,
             'episodes_latest' => $episodes_latest,
+            'comments' => $comments,
             'allTagNames' => $tag->all_tag_names,
         ]);
     }

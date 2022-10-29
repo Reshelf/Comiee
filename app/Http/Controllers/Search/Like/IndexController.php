@@ -28,7 +28,6 @@ class IndexController extends Controller
         $query = $user->likes();
 
         $feature = $request->input('feature');
-        // $books = $likes->where('likes_count', '>', 0);
 
         if ($feature != null) {
             if ($feature === '完結作品のみ') {
