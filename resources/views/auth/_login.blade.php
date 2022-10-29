@@ -2,9 +2,6 @@
     <template #trigger>ログイン</template>
     <template #header>ログイン</template>
 
-    {{-- エラー文 --}}
-    @include('atoms._error_card_list')
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="w-full mb-3">
