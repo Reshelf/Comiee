@@ -17,6 +17,7 @@ export default defineConfig({
       },
     }),
   ],
+  // 本番用に必要
   resolve: {
     alias: {
       vue: "vue/dist/vue.esm-bundler",
