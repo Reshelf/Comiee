@@ -33,9 +33,7 @@
                                                 enctype="multipart/form-data">
                                                 @include('books.atoms.form')
                                                 <div class="w-full flex justify-end">
-                                                    <button type="submit"
-                                                        onclick="this.disabled='disabled'; this.form.submit();"
-                                                        class="btn-primary w-full py-4">投稿する</button>
+                                                    <button type="submit" class="btn-primary w-full py-4">投稿する</button>
                                                 </div>
                                             </form>
                                         </create-modal>

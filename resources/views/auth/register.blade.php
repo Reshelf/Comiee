@@ -38,8 +38,7 @@
                 <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="password"
                     name="password_confirmation" required>
             </div>
-            <button onclick="this.disabled='disabled'; this.form.submit();"
-                class="register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
+            <button class="register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
                 type="submit">ユーザー登録</button>
         </form>
         <a href="/login" class="w-full text-right text-xs cursor-pointer">またはログイン</a>

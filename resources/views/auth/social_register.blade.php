@@ -28,8 +28,7 @@
                                     <input class="form-control" type="text" id="email" name="email"
                                         value="{{ $email }}" disabled>
                                 </div>
-                                <button onclick="this.disabled='disabled'; this.form.submit();"
-                                    class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ユーザー登録</button>
+                                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ユーザー登録</button>
                             </form>
                         </div>
                     </div>

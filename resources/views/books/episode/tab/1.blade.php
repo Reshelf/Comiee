@@ -12,8 +12,7 @@
                 <template #header>エピソードを追加する</template>
                 <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
                     @csrf
-                    <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                        class="btn w-full">投稿する</button>
+                    <button type="submit" class="btn w-full">投稿する</button>
                 </form>
             </episode-list>
         @endif
@@ -98,8 +97,7 @@
                                     class="p-2 rounded">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                                        class="btn-danger">削除する</button>
+                                    <button type="submit" class="btn-danger">削除する</button>
                                 </form>
                             </delete-modal>
                         </div>

@@ -22,8 +22,7 @@
 
                                         <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
                                             @include('books.atoms.form')
-                                            <div class="w-full flex justify-end"><button
-                                                    onclick="this.disabled='disabled'; this.form.submit();" type="submit"
+                                            <div class="w-full flex justify-end"><button type="submit"
                                                     class="btn">投稿する</button></div>
                                         </form>
                                     </create-modal>

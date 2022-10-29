@@ -86,7 +86,6 @@
             <span class="light-checkbox-LabelText">Starbooksからのニュースやお得な情報を受け取ります</span>
         </label>
 
-        <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-            class="btn mt-12">更新する</button>
+        <button type="submit" class="btn mt-12">更新する</button>
     </form>
 </template>

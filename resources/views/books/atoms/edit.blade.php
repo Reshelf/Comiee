@@ -13,8 +13,7 @@
             {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
             @method('PATCH')
             @include('books.atoms.form')
-            <div class="w-full flex justify-end"><button onclick="this.disabled='disabled'; this.form.submit();"
-                    type="submit" class="btn-primary w-full py-4">更新する</button></div>
+            <div class="w-full flex justify-end"><button type="submit" class="btn-primary w-full py-4">更新する</button></div>
         </form>
     </book-edit-modal>
 </div>

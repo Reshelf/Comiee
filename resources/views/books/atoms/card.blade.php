@@ -27,8 +27,7 @@
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                     @method('PATCH')
                     @include('books.atoms.form')
-                    <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                        class="btn">更新する</button>
+                    <button type="submit" class="btn">更新する</button>
                 </form>
             </edit-modal>
             <delete-modal>
@@ -36,8 +35,7 @@
                     class="p-2 rounded">
                     @csrf
                     @method('DELETE')
-                    <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                        class="btn-danger">削除する</button>
+                    <button type="submit" class="btn-danger">削除する</button>
                 </form>
             </delete-modal>
         </div>

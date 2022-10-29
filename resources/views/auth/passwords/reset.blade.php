@@ -32,8 +32,7 @@
                                         name="password_confirmation" required>
                                 </div>
 
-                                <button onclick="this.disabled='disabled'; this.form.submit();"
-                                    class="btn btn-block blue-gradient mt-2 mb-2" type="submit">送信</button>
+                                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">送信</button>
 
                             </form>
 

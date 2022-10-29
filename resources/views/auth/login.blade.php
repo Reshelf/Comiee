@@ -23,8 +23,7 @@
                     name="password" required>
             </div>
             <input type="hidden" name="remember" value="on">
-            <button onclick="this.disabled='disabled'; this.form.submit();" type="submit"
-                class=" bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4">ログイン</button>
+            <button type="submit" class=" bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4">ログイン</button>
         </form>
         <div class="w-full flex justify-between">
             <a href="{{ route('password.request') }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
