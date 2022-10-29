@@ -4,7 +4,7 @@ import BookTab from "../components/atoms/BookTab.vue";
 import ToastModal from "../components/atoms/ToastModal.vue";
 // auth
 import AuthModal from "../components/auth/AuthModal.vue";
-import BookLike from "../components/BookLike.vue";
+import BookLike from "../components/books/BookLike.vue";
 // books
 import BookEditModal from "../components/books/BookEditModal.vue";
 import CreateModal from "../components/books/CreateModal.vue";
@@ -34,31 +34,31 @@ import FollowModal from "../components/users/FollowModal.vue";
 import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 
 export default {
-    BasicModal,
-    TagSearchModal,
-    GenreSearch,
-    SearchForm,
-    RankingSortModal,
-    BookTab,
-    BookEditModal,
-    CommentPostModal,
-    ToastModal,
-    EpisodeScreen,
-    UpdateEpisode,
-    EpisodeList,
-    ThumbnailZoom,
-    FollowModal,
-    AvatarZoom,
-    AuthModal,
-    DeleteModal,
-    HoverMenu,
-    CreateModal,
-    CountAnimation,
-    HeaderUserModal,
-    ThemeToggle,
-    EditModal,
-    EditUserModal,
-    BookLike,
-    BookTagsInput,
-    FollowButton,
+  BasicModal,
+  TagSearchModal,
+  GenreSearch,
+  SearchForm,
+  RankingSortModal,
+  BookTab,
+  BookEditModal,
+  CommentPostModal,
+  ToastModal,
+  EpisodeScreen,
+  UpdateEpisode,
+  EpisodeList,
+  ThumbnailZoom,
+  FollowModal,
+  AvatarZoom,
+  AuthModal,
+  DeleteModal,
+  HoverMenu,
+  CreateModal,
+  CountAnimation,
+  HeaderUserModal,
+  ThemeToggle,
+  EditModal,
+  EditUserModal,
+  BookLike,
+  BookTagsInput,
+  FollowButton,
 };

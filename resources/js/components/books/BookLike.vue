@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import CountAnimation from "./CountAnimation.vue";
+import CountAnimation from "../CountAnimation.vue";
 export default {
   components: { CountAnimation },
   props: {
