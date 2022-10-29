@@ -33,11 +33,14 @@
 
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto px-4 lg:p-8 mb-8">
+
             <div class="mb-4">
                 @include('books.atoms.tabs')
             </div>
 
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
+                @include('atoms._error_card_list')
+
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">
                     <div class="w-full max-w-8xl mx-auto mb-4">
