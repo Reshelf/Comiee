@@ -29,8 +29,10 @@ class LikeController extends Controller
             $book->likes()->attach($request->user()->id);
 
             // お気に入りされたらメールを送る
-            $email = $book->user->email;
-            Mail::to($email)->send(new LikedBookMail($request->user()));
+            if ($book->user->m_notice_3 === 1) {
+                $email = $book->user->email;
+                Mail::to($email)->send(new LikedBookMail($request->user()));
+            }
         }
 
         return [
