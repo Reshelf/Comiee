@@ -56,7 +56,7 @@ class StoreController extends Controller
         $request->session()->regenerateToken();
 
         // フォロワー全員にメール通知
-        $followers = $request->user()->followers;
+        $followers = $request->user()->followers()->where('m_notice_1', 1)->get();
         if ($followers->count() > 0) {
             $mailData = [
                 'user' => $request->user(),
