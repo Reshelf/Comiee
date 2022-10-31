@@ -44,6 +44,9 @@ img {
   user-select: none !important;
   -khtml-user-select: none !important;
 }
+input[type="file"] {
+  @apply cursor-pointer;
+}
 
 .st {
   font-family: "Reggae One", cursive;
@@ -558,5 +561,29 @@ button[disabled] {
     &:hover + .dropdown-box {
       @apply flex visible whitespace-nowrap;
     }
+  }
+}
+
+.uploadOuter {
+  @apply text-center mt-4;
+}
+.dragBox {
+  @apply w-full h-[80px] text-666 px-8 py-4 mx-auto relative rounded text-center font-semibold inline-flex items-center justify-center duration-300;
+  border: 2px dashed #ccc;
+  input[type="file"] {
+    @apply absolute h-full w-full opacity-0 top-0 left-0;
+  }
+}
+.draging {
+  transform: scale(1.1);
+}
+#thumbnail-preview {
+  img {
+    @apply w-full min-h-[150px] max-h-[150px] mx-auto object-cover;
+  }
+}
+#avatar-preview {
+  img {
+    @apply w-[150px] h-[150px] mx-auto object-cover rounded-full;
   }
 }

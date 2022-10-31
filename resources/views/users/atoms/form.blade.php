@@ -3,26 +3,14 @@
     <div class="flex w-full mb-12">
         <div class="w-1/4 font-semibold mb-2">カバー画像</div>
         <div class="w-3/4 pl-4 flex flex-col items-center">
-            @empty($user->thumbnail)
-                <img src="{{ asset('/img/bg.svg') }}" alt="" class="block dark:hidden rounded max-h-6">
-                <img src="{{ asset('/img/bg-dark.svg') }}" alt="thumbnail" class="hidden dark:block rounded max-h-6">
-            @else
-                <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}"
-                    alt="profile_thumbnail" class="rounded max-h-6 flex">
-            @endempty
-            <input type="file" name="thumbnail" class="my-2 dark:text-gray">
+            @include('users.atoms.form.thumbnail')
         </div>
     </div>
 
     <div class="flex w-full mb-12">
         <div class="w-1/4 font-semibold mb-2">プロフィール画像</div>
         <div class="w-3/4 pl-4 flex flex-col items-center">
-            @empty($user->avatar)
-                <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
-            @else
-                <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
-            @endempty
-            <input type="file" name="avatar" class="my-2 dark:text-gray">
+            @include('users.atoms.form.avatar')
         </div>
     </div>
 
