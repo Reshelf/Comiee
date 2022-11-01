@@ -1,5 +1,5 @@
 <div class="w-full flex">
-    <div class="w-1/5 flex flex-col pr-12">
+    <div class="md:w-1/5 flex flex-col md:pr-12">
         <h4 class="text-xs my-2 py-4 border-b border-ccc">特徴</h4>
         <label class="light-checkbox mt-4">
             <input type="checkbox" name="feature" value="完結作品のみ" @if ($feature === '完結作品のみ') checked @endif
