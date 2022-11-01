@@ -230,19 +230,21 @@ input[type="file"] {
 
 // $img-h: 250px;
 // $img-w: calc($img-h * 0.7);
-$img-h: 200px;
-$img-w: 200px;
-.thumbnail {
-  @apply object-cover cursor-pointer;
-  height: $img-h;
-  width: $img-w;
-  &-title {
-    @apply w-full cursor-pointer font-semibold mt-2;
+@screen md {
+  $img-h: 200px;
+  $img-w: 200px;
+  .thumbnail {
+    @apply object-cover cursor-pointer;
+    height: $img-h;
     width: $img-w;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    &-title {
+      @apply w-full cursor-pointer font-semibold mt-2;
+      width: $img-w;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+    }
   }
 }
 
@@ -297,7 +299,7 @@ button[disabled] {
   &-img {
     @apply w-[200px] h-[200px] object-cover;
     @media screen and (max-width: 768px) {
-      @apply w-[150px] h-[150px];
+      @apply max-w-[150px] max-h-[150px] mx-auto;
     }
     @media screen and (min-width: 1600px) {
       @apply w-[230px] h-[230px];

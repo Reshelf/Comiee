@@ -12,13 +12,13 @@
                     <span class="thumbnail-title">{{ $book->title }}</span>
                 </a>
 
-                <div class="flex items-center mr-3">
+                <div class="flex items-center">
 
                     {{-- お気に入り --}}
                     @include('books.atoms.likes')
 
                     {{-- 閲覧回数 --}}
-                    <div class="flex items-center text-aaa ml-4">
+                    <div class="flex items-center text-aaa pl-4">
                         <svg class="stroke-666 w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none">
                             <path d="M16.5 9.5L12.3 13.7L10.7 11.3L7.5 14.5" stroke="#292D32" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round" />
