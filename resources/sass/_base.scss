@@ -597,7 +597,7 @@ button[disabled] {
 }
 
 .mobile-menu {
-  @apply w-full bg-white m-auto flex md:hidden fixed bottom-0 z-[999] justify-between items-center shadow-lg duration-300;
+  @apply w-full bg-white m-auto flex lg:hidden fixed bottom-0 z-[999] justify-around items-center shadow-lg duration-300;
   a {
     @apply p-4 text-[10px] flex justify-center flex-col;
     svg {
