@@ -595,3 +595,13 @@ button[disabled] {
     @apply w-[150px] h-[150px] mx-auto object-cover rounded-full;
   }
 }
+
+.mobile-menu {
+  @apply w-full bg-white m-auto flex md:hidden fixed bottom-0 z-[999] justify-between items-center shadow-lg duration-300;
+  a {
+    @apply p-4 text-[10px] flex justify-center flex-col;
+    svg {
+      @apply mx-auto;
+    }
+  }
+}

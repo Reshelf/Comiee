@@ -3,7 +3,7 @@
 @section('title', $user->name . 'さんのプロフィール')
 
 @section('content')
-    @include('atoms._nav', ['tab' => 0])
+    @include('atoms._nav', ['tab' => 4])
     <div class="bg-white dark:bg-dark">
         @include('users.atoms.user', [
             'mypage' => true,

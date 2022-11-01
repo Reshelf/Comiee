@@ -50,3 +50,5 @@
         </div>
     </div>
 </div>
+
+@include('atoms._spnav', ['tab' => $tab])
