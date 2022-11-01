@@ -1,4 +1,4 @@
-<div class="overflow-x-scroll inline-flex items-center mb-4">
+<div class="overflow-x-scroll inline-flex items-center mb-4 scroll-none">
     @if ($ranking)
         <a href="{{ route('ranking') }}"
             class="{{ $genre === 0 ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold dark:border-dark' }} text-sm md:text-base py-3 px-6 border-b-2 whitespace-nowrap">総合</a>
