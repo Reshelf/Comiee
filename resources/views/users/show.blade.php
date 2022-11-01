@@ -2,6 +2,10 @@
 
 @section('title', $user->name . 'さんのプロフィール')
 
+@section('head')
+    <script src="{{ asset('js/dragdrop/user-profile.js') }}"></script>
+@endsection
+
 @section('content')
     @include('atoms._nav', ['tab' => 4])
     <div class="bg-white dark:bg-dark">
