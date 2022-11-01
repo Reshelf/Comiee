@@ -1,7 +1,7 @@
 {{-- <div class="w-full h-[550px] bg-eee dark:bg-dark-1 flex items-center justify-center text-2xl">
     フッター
 </div> --}}
-<div class="py-16"></div>
+<div class="lg:py-16"></div>
 <footer class="w-full bg-f8 dark:bg-dark-1 py-16 text-[#7c7c7c] dark:text-[#939599]">
     <div class="max-w-5xl mx-auto flex pb-12 border-b border-[#7c7c7c]">
         <div class="w-2/5 flex flex-col items-start">

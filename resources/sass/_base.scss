@@ -321,10 +321,7 @@ button[disabled] {
     margin-right: 5px;
     margin-left: 5px;
   }
-  @apply relative mb-4 list-none;
-  width: calc(50% - 10px);
-  margin-right: 5px;
-  margin-left: 5px;
+  @apply w-1/2 relative px-2 mb-4 list-none;
 }
 
 .ti-input {
