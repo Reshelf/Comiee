@@ -3,7 +3,7 @@
 @section('title', '設定')
 
 @section('content')
-    @include('atoms._nav', ['tab' => 0]))
+    @include('atoms._nav', ['tab' => 0])
     <div class="bg-white dark:bg-dark">
         @include('users.atoms.user', [
             'mypage' => false,

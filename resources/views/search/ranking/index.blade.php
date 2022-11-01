@@ -30,12 +30,12 @@
 @endsection
 
 @section('content')
-    @include('atoms._nav', ['tab' => 1]))
+    @include('atoms._nav', ['tab' => 1])
 
     <div class="flex w-full mx-auto justify-center">
         <div class="w-full flex flex-col md:flex-row justify-around mx-auto px-4 lg:p-8 mb-8">
 
-            <div class="mb-4">
+            <div class="lg:mb-4">
                 @include('books.atoms.tabs')
             </div>
 

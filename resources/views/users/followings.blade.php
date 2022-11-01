@@ -3,7 +3,7 @@
 @section('title', $user->name . 'さんのフォロー')
 
 @section('content')
-    @include('atoms._nav', ['tab' => 0]))
+    @include('atoms._nav', ['tab' => 0])
     <div class="">
         @include('users.atoms.user', [
             'mypage' => false,
