@@ -37,4 +37,4 @@
     </div>
 </div>
 
-@include('atoms._spnav', ['tab' => $tab])
+@include('atoms._spnav', ['tab' => 4])
