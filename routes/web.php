@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
 // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
 
@@ -56,12 +56,11 @@ Route::any('/todays_new/adult/search', 'App\Http\Controllers\Search\TodaysNew\Ad
 Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
 // 完結作品
 Route::get('/complete', 'App\Http\Controllers\Search\CompleteController')->name('search.complete');
-Route::middleware('auth')->group(function () {
+Route::middleware(['verified'])->group(function () {
     // お気に入り
     Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
     Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
 });
-
 
 
 /*
@@ -101,7 +100,7 @@ Route::get('/faq/8', 'App\Http\Controllers\Others\Faq\EightController')->name('o
 */
 
 Route::prefix('books')->name('book.')->group(function () {
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['verified'])->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')
             // ->middleware('throttle:3, 1')
             ->name('store');
@@ -137,7 +136,7 @@ Route::prefix('books')->name('book.')->group(function () {
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['verified'])->group(function () {
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
