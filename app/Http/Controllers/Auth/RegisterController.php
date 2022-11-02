@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Laravel\Socialite\Facades\Socialite;
-
-use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Controller;
 use App\Mail\user\RegisterdUserMail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Providers\RouteServiceProvider;
+
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -55,8 +56,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'min:2', 'max:16'],
-            'username' => ['required', 'string', 'regex:/^[\pL\pN_-]+$/u', 'min:3', 'max:16', 'unique:users'],
+            // 'name' => ['required', 'string', 'min:2', 'max:16'],
+            // 'username' => ['required', 'string', 'regex:/^[\pL\pN_-]+$/u', 'min:3', 'max:16', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -70,16 +71,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $name = $data['name'];
-        $username = $data['username'];
         $email = $data['email'];
         $password = Hash::make($data['password']);
 
+        // ユーザー番号をランダムで生成する
+        do {
+            $username = Str::random(16);
+        } while (User::where('username', $username)->exists());
+
         // メール送信
-        Mail::to($email)->send(new RegisterdUserMail($name));
+        // Mail::to($email)->send(new RegisterdUserMail($name));
 
         return User::create([
-            'name' => $name,
             'username' => $username,
             'email' => $email,
             'password' => $password,
