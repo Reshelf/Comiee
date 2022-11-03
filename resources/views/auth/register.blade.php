@@ -4,9 +4,12 @@
 
 @section('content')
     @include('atoms._simple_nav')
-    <div class="max-w-md mx-auto p-8 bg-white dark:bg-dark-1 rounded-lg">
-        <h2 class="text-3xl font-semibold mb-4">Sign up</h2>
-        <form method="POST" action="{{ route('register') }}">
+    <div class="max-w-md mx-4 mt-8 md:mx-auto bg-white rounded shadow">
+        <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg py-3 px-4 mb-6">
+            {{ __('新規登録') }}
+        </h2>
+
+        <form method="POST" action="{{ route('register') }}" class="px-6 dark:bg-dark-1">
             @csrf
 
             {{-- エラー文 --}}
@@ -14,22 +17,22 @@
 
             <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">メールアドレス</div>
-                <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="email"
+                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="email"
                     name="email" required>
             </div>
             <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">パスワード</div>
-                <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="password"
+                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
                     name="password" required>
             </div>
-            <div class="w-full mb-3">
+            {{-- <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">パスワード確認</div>
-                <input class="w-full p-2 rounded-[3px] border border-ccc dark:border-dark dark:bg-dark-2" type="password"
+                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
                     name="password_confirmation" required>
-            </div>
-            <button class="register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
-                type="submit">ユーザー登録</button>
+            </div> --}}
+            <button class="btn-primary register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
+                type="submit">メールアドレスで登録</button>
         </form>
-        <a href="/login" class="w-full text-right text-xs cursor-pointer">またはログイン</a>
+        <a href="/login" class="w-full text-right text-xs cursor-pointer inline-block pb-4 px-6">またはログイン</a>
     </div>
 @endsection
