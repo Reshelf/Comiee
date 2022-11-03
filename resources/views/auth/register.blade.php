@@ -4,7 +4,7 @@
 
 @section('content')
     @include('atoms._simple_nav')
-    <div class="max-w-md mx-4 mt-8 md:mx-auto bg-white rounded shadow">
+    <div class="max-w-md mx-4 mt-8 md:mx-auto bg-white rounded border border-eee">
         <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg py-3 px-4 mb-6">
             {{ __('新規登録') }}
         </h2>
@@ -30,8 +30,7 @@
                 <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
                     name="password_confirmation" required>
             </div> --}}
-            <button class="btn-primary register-btn bg-primary text-white font-semibold rounded px-6 py-4 w-full mb-4"
-                type="submit">メールアドレスで登録</button>
+            <button class="btn-primary px-6 py-4 w-full mb-4" type="submit">メールアドレスで登録</button>
         </form>
         <a href="/login" class="w-full text-right text-xs cursor-pointer inline-block pb-4 px-6">またはログイン</a>
     </div>
