@@ -13,7 +13,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "^3.4",
+        "twilio/sdk": "^6.43"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
