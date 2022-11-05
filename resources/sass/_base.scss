@@ -74,11 +74,7 @@ input[type="file"] {
 }
 
 .profile-img {
-  @apply object-cover max-w-full min-w-full rounded-sm;
-  @screen md {
-    min-height: 250px;
-    max-height: 250px;
-  }
+  @apply object-cover min-h-[250px] max-h-[250px] max-w-full min-w-full rounded-sm;
 }
 
 .btn {
@@ -214,11 +210,17 @@ input[type="file"] {
 }
 
 .avatar {
-  @apply rounded-full object-cover flex  border-4 border-white dark:border-dark;
-  min-width: 170px;
-  min-height: 170px;
-  max-width: 170px;
-  max-height: 170px;
+  @apply rounded-full object-cover flex border-4 border-white dark:border-dark;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  @screen md {
+    min-width: 170px;
+    min-height: 170px;
+    max-width: 170px;
+    max-height: 170px;
+  }
 }
 
 .card-body {

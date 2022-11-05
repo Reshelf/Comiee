@@ -7,7 +7,7 @@
             <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
                 <template #thumbnail>
                     <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
-                        alt="profile_thumbnail" class="rounded min-h-40 min-w-40 flex  w-full">
+                        alt="profile_thumbnail">
                 </template>
             </thumbnail-zoom>
         @endempty
@@ -27,10 +27,10 @@
             </edit-user-modal>
         @endif
     </div>
-    <div class="flex mx-12 pb-4 border-b border-ccc">
-        <div class="text-dark z-10 -mt-8">
+    <div class="flex flex-col items-center md:flex-row mx-12 pb-4 border-b border-ccc">
+        <div class="text-dark z-10 -mt-20 md:-mt-8">
             @empty($user->avatar)
-                <svg class="avatar" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                <svg class="avatar" viewBox="0 0 42 42" fill="none">
                     <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-eee" />
                     <path class="stroke-white dark:stroke-ccc"
                         d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"
@@ -47,9 +47,9 @@
                 </avatar-zoom>
             @endempty
         </div>
-        <div class="w-full px-6 flex justify-between mt-4">
+        <div class="w-full px-4 md:px-6 flex justify-center md:justify-between md:mt-4">
             <div class="flex flex-col">
-                <div class="flex items-center">
+                <div class="flex items-center justify-center md:justify-start">
                     <h3 class="font-semibold pr-2" style="font-size: 32px;">{{ $user->name }}</h3>
                     <div class="h-full flex items-center text-primary">
                         <svg class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
@@ -59,9 +59,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="-mt-1 text-lg text-t-color-3"><span>@</span>{{ $user->username }}</div>
+                <div class="-mt-1 text-[13px] text-center md;text-left md:text-lg text-t-color-3">
+                    <span>@</span>{{ $user->username }}
+                </div>
 
-                <div class="flex items-center text-sm pt-2">
+                <div class="flex items-center text-sm pt-4 md:pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
                         <span class="font-semibold text-lg">{{ $user->count_followings }}</span>
                         <span class="text-t-color-3 pl-1">フォロー</span>
@@ -87,7 +89,7 @@
     </div>
 
     <div class="bg-white dark:bg-dark w-full lg:z-20">
-        <div class="max-w-8xl mx-12 flex justify-between">
+        <div class="max-w-8xl mx-4 md:mx-12 flex justify-between">
             <div class="relative flex items-center">
                 @if ($mypage)
                     <a href="{{ route('users.show', ['username' => $user->username]) }}"
