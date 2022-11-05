@@ -53,7 +53,7 @@ const props = defineProps({
     }
   }
   .tabContents {
-    @apply w-full p-6;
+    @apply w-full py-6 lg:p-6;
   }
 }
 </style>
