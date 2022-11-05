@@ -10,9 +10,13 @@
             <episode-list>
                 <template #trigger>エピソードを追加する</template>
                 <template #header>エピソードを追加する</template>
-                <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}">
+                <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
+                    enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn w-full">投稿する</button>
+                    <p class="mb-2">※ 1エピソードにつき20枚以上登録してください</p>
+                    <p class="mb-4">※ 横幅800px, 縦幅1200pxの画像を登録してください</p>
+                    <input type="file" name="images[]" multiple="multiple">
+                    <button type="submit" class="btn w-full mt-8">投稿する</button>
                 </form>
             </episode-list>
         @endif

@@ -42,13 +42,14 @@ class StoreController extends Controller
         // エピソードの話数
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
-        // サムネイル
-        if ($request->has('images')) {
+        // 画像
+        if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
                 $filename = $image->getClientOriginalName();
-                $image->move(public_path('img/book/' + $book->title + '/' + $episode->number + '/'), $filename);
-                $episode->images[] = $filename;
+                $image->move(public_path('img/book/' . $book->title . '/' . $episode->number . '/'), $filename);
+                $imgData[] = $filename;
             }
+            $episode->contents = json_encode($imgData);
         }
 
         $episode->save();

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedbigInteger('book_id')->comment('作品ID');
             $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
+            $table->json('contents')->nullable()->comment('マンガのコンテンツ');
 
             $table->boolean('is_free')->default(false)->comment('無料フラグ');
-            $table->json('contents')->nullable()->comment('マンガのコンテンツ');
             $table->integer('price')->default(50)->comment('値段');
             $table->integer('views')->default(0)->comment('閲覧数');
 

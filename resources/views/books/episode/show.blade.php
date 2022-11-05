@@ -6,7 +6,9 @@
     @include('atoms._episode_nav', ['tab' => 0])
 
     {{-- エピソードスクリーン --}}
-    <episode-screen></episode-screen>
+    <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
+        :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
+    </episode-screen>
 
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-8 flex justify-between">
