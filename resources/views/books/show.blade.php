@@ -10,9 +10,9 @@
             {{-- 左サイドバー --}}
             @include('books.atoms.leftSidebar')
 
-            <div class="w-full flex py-8">
+            <div class="w-full flex flex-col md:flex-row py-8">
                 {{-- メインコンテンツ --}}
-                <div class="px-6 lg:w-2/3">
+                <div class="px-4 md::px-6 lg:w-2/3">
                     <book-tab :is-comment="false">
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
@@ -20,7 +20,7 @@
                 </div>
 
                 {{-- 右サイドバー --}}
-                <div class="pl-4 lg:w-1/3"></div>
+                <div class="lg:pl-4 lg:w-1/3"></div>
             </div>
         </div>
     </div>
