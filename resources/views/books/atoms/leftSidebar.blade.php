@@ -1,6 +1,6 @@
-<div class="top-0 sticky lg:h-[500px] py-8 pr-4 lg:max-w-[266px] lg:min-w-[266px]">
+<div class="lg:top-0 lg:sticky lg:h-[500px] md:py-8 px-4 md:pr-4 w-full lg:max-w-[266px] lg:min-w-[266px]">
     @empty($book->thumbnail)
-        <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[250px] h-[250px] object-cover">
+        <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-full md:w-[250px] h-[250px] object-cover rounded">
         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block w-[250px] h-[250px] object-cover">
     @else
         <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"

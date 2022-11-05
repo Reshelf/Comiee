@@ -6,7 +6,7 @@
     @include('atoms._nav', ['tab' => 0])
 
     <div class="w-full h-full bg-white dark:bg-dark">
-        <div class="max-w-7xl mx-auto md:py-8 flex justify-between">
+        <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
             {{-- 左サイドバー --}}
             @include('books.atoms.leftSidebar')
 
