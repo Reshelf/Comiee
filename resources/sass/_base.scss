@@ -508,7 +508,7 @@ button[disabled] {
   }
 
   label::before {
-    @apply bg-white border border-[#c8c8c8] rounded-full h-[18px] w-[18px] left-[5px];
+    @apply bg-white dark:bg-dark border border-[#c8c8c8] dark:border-dark-1 rounded-full h-[18px] w-[18px] left-[5px];
   }
 
   label::after {
