@@ -4,8 +4,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/",
-    "format": "prettier --write --ignore-path .gitignore resources/**/*.{js,vue}",
-    "heroku-postbuild": "npm run prod"
+    "format": "prettier --write --ignore-path .gitignore resources/**/*.{js,vue}"
   },
   "devDependencies": {
     "@sipec/vue3-tags-input": "^3.0.4",
