@@ -5,12 +5,13 @@
 @section('content')
     @include('atoms._help_nav')
 
-    <div class="w-full flex">
-        <div class="w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end">
+    <div class="w-full flex flex-col md:flex-row">
+        <div class="w-full md:w-[30%] bg-f8 dark:bg-dark
+p-8 flex flex-col items-end">
             @include('others.faq.atoms.left_nav')
         </div>
 
-        <div class="w-[70%] py-8 pl-20 pr-48">
+        <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
             <h2 class="text-3xl font-semibold tracking-widest">サービスについて</h2>
             <span class="inline-block text-xs mt-3">2022/10/17</span>
 
