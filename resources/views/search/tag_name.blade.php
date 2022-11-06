@@ -16,7 +16,7 @@
     <div class="flex max-w-6xl w-full mx-auto mt-8 pt-8 px-12 md:px-0 justify-center">
         @include('atoms._error_card_list')
 
-        <div class="w-full mx-12">
+        <div class="w-full md:mx-12">
             <div class="w-full flex flex-wrap justify-start">
                 @foreach ($tag->books as $book)
                     @include('users.atoms.card')

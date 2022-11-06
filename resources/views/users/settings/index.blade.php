@@ -10,7 +10,7 @@
             'settings' => true,
         ])
     </div>
-    <div class="flex max-w-6xl w-full mx-auto mt-4 px-12 md:px-0 justify-center">
+    <div class="flex max-w-6xl w-full mx-auto mt-4 px-4 md:px-0 justify-center">
         <div class="w-full my-8 mx-12">
             <div class="w-full flex">
                 @if (Auth::id() === $user->id)

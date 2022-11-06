@@ -298,10 +298,22 @@ button[disabled] {
 }
 
 .list-item {
+  @apply w-1/2 relative px-2 mb-4 list-none;
+
+  @screen md {
+    @apply relative mb-4 list-none min-w-[200px];
+    width: calc(20% - 10px);
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  @media screen and (max-width: 460px) {
+    @apply w-full flex justify-center;
+  }
+
   &-img {
     @apply w-[200px] h-[200px] object-cover;
     @media screen and (max-width: 768px) {
-      @apply max-w-[150px] max-h-[150px] mx-auto;
+      @apply w-full h-[200px] mx-auto;
     }
     @media screen and (min-width: 1600px) {
       @apply w-[230px] h-[230px];
@@ -319,13 +331,6 @@ button[disabled] {
       @apply w-[270px] h-[270px];
     }
   }
-  @screen md {
-    @apply relative mb-4 list-none;
-    width: calc(20% - 10px);
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-  @apply w-1/2 relative px-2 mb-4 list-none;
 }
 
 .ti-input {
