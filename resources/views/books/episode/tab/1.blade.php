@@ -1,7 +1,7 @@
 <template #episode>
     <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
 
-        <div class="lg:mb-4">
+        <div class="mb-4">
             @include('atoms.success')
         </div>
 
