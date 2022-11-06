@@ -1,4 +1,4 @@
-<div class="w-full md:pr-8">
+<div class="w-full md:w-auto md:pr-8">
     <div class="flex justify-start mb-12 text-xs">
         <a href="{{ route('others.user_guide') }}" class="pr-2">Help Center</a>>
         <a href="{{ route('others.faq.1') }}" class="pl-2">よくあるご質問</a>
