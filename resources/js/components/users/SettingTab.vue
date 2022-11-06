@@ -33,9 +33,9 @@ function isSelect(num) {
 </template>
 <style lang="scss" scoped>
 .tab {
-  @apply w-full flex;
+  @apply w-full flex flex-col md:flex-row;
   .tabMenu {
-    @apply flex flex-col bg-white dark:bg-dark border-r-2 border-eee;
+    @apply flex md:flex-col bg-white dark:bg-dark border-r-2 border-eee;
     li {
       @apply w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-12 hover:text-primary;
       &.active {
@@ -44,7 +44,7 @@ function isSelect(num) {
     }
   }
   .tabContents {
-    @apply w-full px-6;
+    @apply w-full md:px-6 my-4 md:my-auto;
   }
 }
 </style>

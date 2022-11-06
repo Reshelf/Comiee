@@ -1,9 +1,8 @@
 <template #episode>
     <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
 
-        <div class="mb-4">
-            @include('atoms.success')
-        </div>
+        {{-- 成功 --}}
+        @include('atoms.success')
 
 
         @if (Auth::id() === $book->user_id)

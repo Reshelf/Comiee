@@ -5,7 +5,7 @@
             'name' => $user->name,
             'username' => $user->username,
         ]) }}"
-        enctype="multipart/form-data" class="px-8">
+        enctype="multipart/form-data" class="md:px-8">
         @csrf
         @method('PATCH')
 
