@@ -59,7 +59,7 @@
     </div>
 
     <!-- 2段目 -->
-    <div class="w-full bg-dark-1 px-4 py-2 flex justify-between">
+    <div class="hidden w-full bg-dark-1 px-4 py-2 lg:flex justify-between">
       <div class="text-eee"></div>
       <div class="flex text-ccc">
         <div
@@ -134,6 +134,18 @@
       </div>
       <div class="text-eee">SNSシェア</div>
     </div>
+
+    <!-- SP -->
+    <div class="w-full flex flex-col">
+      <img
+        v-for="image in images"
+        :key="image"
+        :class="isFullScreen"
+        class="w-full"
+        :src="`/img/book/${title}/${episodeNumber}/${image}`"
+        alt="image"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -178,6 +190,7 @@ export default {
     });
   },
   mounted() {
+    // json形式なので配列に変える
     this.images = JSON.parse(this.contents);
 
     const all = this.images;
@@ -279,7 +292,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .screen {
-  @apply flex flex-row-reverse overflow-hidden duration-300;
+  @apply hidden lg:flex flex-row-reverse overflow-hidden duration-300;
   -webkit-overflow-scrolling: touch !important;
 }
 .images {

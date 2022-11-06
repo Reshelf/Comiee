@@ -10,7 +10,7 @@
         :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
     </episode-screen>
 
-    <div class="w-full h-full bg-white dark:bg-dark">
+    <div class="w-full mt-8 lg:mt-auto h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
             {{-- 左サイドバー --}}
             @include('books.atoms.leftSidebar')
