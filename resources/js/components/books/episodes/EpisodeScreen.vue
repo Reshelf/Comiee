@@ -136,7 +136,7 @@
     </div>
 
     <!-- SP -->
-    <div class="w-full flex flex-col">
+    <div class="lg:hidden w-full flex flex-col">
       <img
         v-for="image in images"
         :key="image"
