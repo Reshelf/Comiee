@@ -112,3 +112,7 @@ sche-list:
 	./vendor/bin/sail artisan schedule:list
 sche-work:
 	./vendor/bin/sail artisan schedule:work
+prod:
+	git push heroku master
+heroku-fresh:
+	heroku run php artisan migrate:fresh
