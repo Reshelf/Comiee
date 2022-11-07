@@ -23,7 +23,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'username',
+        'phone',
         'email',
+        'country_code',
         'avatar',
         'thumbnail',
         // 'website',
@@ -39,6 +41,28 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | トークン
+    |--------------------------------------------------------------------------
+    */
+    public function tokens()
+    {
+        return $this->hasMany(Token::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 電話番号の取得　：　　
+    |--------------------------------------------------------------------------
+    */
+    public function getPhoneNumber()
+    {
+        return $this->country_code . $this->phone;
+    }
+
 
     public function sendPasswordResetNotification($token)
     {
