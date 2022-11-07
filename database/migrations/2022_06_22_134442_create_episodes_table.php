@@ -19,9 +19,9 @@ return new class extends Migration
             $table->unsignedInteger('number')->nullable();
             $table->json('contents')->nullable();
 
-            $table->boolean('is_free')->default(false)->comment('無料フラグ');
-            $table->integer('price')->default(50)->comment('値段');
-            $table->integer('views')->default(0)->comment('閲覧数');
+            $table->boolean('is_free')->default(false);
+            $table->integer('price')->default(50);
+            $table->integer('views')->default(0);
 
             $table->timestamps();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
