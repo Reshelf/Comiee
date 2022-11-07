@@ -20,7 +20,8 @@ export default defineConfig({
   // 本番ビルド用
   resolve: {
     alias: {
-      vue: "vue/dist/vue.esm-bundler",
+      //   vue: "vue/dist/vue.esm-bundler",
+      "@": "/js",
     },
   },
 });
