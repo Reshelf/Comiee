@@ -49,7 +49,7 @@ class IndexController extends Controller
 
         // ランキング 人気順
         $query = Book::query();
-        $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
+        $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
         $books = $query->paginate(15);
 
         return view('search.ranking.index', [
