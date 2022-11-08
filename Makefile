@@ -60,24 +60,24 @@ key:
 	cp .env.example .env
 	php artisan key:generate
 optimize:
-	./vendor/bin/sail artisan optimize
+	php artisan optimize
 optimize-clear:
-	./vendor/bin/sail artisan optimize:clear
+	php artisan optimize:clear
 cache:
 	@make optimize
 	@make optimize-clear
-	./vendor/bin/sail composer dump-autoload -o
-	./vendor/bin/sail artisan event:cache
-	./vendor/bin/sail artisan event:clear
-	./vendor/bin/sail artisan view:cache
-	./vendor/bin/sail artisan view:clear
-	./vendor/bin/sail composer dump-autoload
-	./vendor/bin/sail artisan clear-compiled
-	./vendor/bin/sail artisan cache:clear
-	./vendor/bin/sail artisan config:clear
-	./vendor/bin/sail artisan route:cache
-	./vendor/bin/sail artisan route:clear
-	./vendor/bin/sail composer clear-cache
+	php composer dump-autoload -o
+	php artisan event:cache
+	php artisan event:clear
+	php artisan view:cache
+	php artisan view:clear
+	php composer dump-autoload
+	php artisan clear-compiled
+	php artisan cache:clear
+	php artisan config:clear
+	php artisan route:cache
+	php artisan route:clear
+	php composer clear-cache
 db:
 	./vendor/bin/sail exec mysql bash
 sql:

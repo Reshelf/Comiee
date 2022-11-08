@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('Hello!')->nullable();
             $table->string('username')->unique();
+            $table->string('phone')->nullable();
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+
+            $table->string('country_code', 4)->nullable();
             $table->string('avatar')->nullable();
             $table->string('thumbnail')->nullable();
             $table->text('body', 200)->nullable();
@@ -30,7 +34,6 @@ return new class extends Migration
             $table->boolean('m_notice_5')->default(true)->comment('作品エピソードが購入されたときの通知フラグ');
             $table->boolean('m_notice_6')->default(true)->comment('Starbooksからのニュースやお得な情報を受け取るフラグ');
 
-            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
