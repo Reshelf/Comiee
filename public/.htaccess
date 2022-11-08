@@ -21,7 +21,7 @@
     Require valid-user
     AuthType Basic
     AuthName "Please enter your ID and password"
-    AuthUserFile .htpasswd
+    AuthUserFile /app/.htpasswd
     # ------------------------------------------------------------
 
 
