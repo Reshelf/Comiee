@@ -5,9 +5,25 @@
 
     RewriteEngine On
 
-    # envの環境切り替え
-    # SetEnvIf Host "starbooks.one" APP_ENV=prod
-    # SetEnvIf Host "test.starbooks.one" APP_ENV=test
+    # Basic認証 ---------------------------------------------------
+    Order Deny,Allow
+    Deny from all
+
+    # Allow か Require どちらかの条件にマッチすればOKとする
+    Satisfy Any
+
+    # 接続先ホスト名による許可
+    # SetEnvIf HOST "^(www\.starbooks\.one|localhost)$" noAuth
+    SetEnvIf HOST "^(localhost)$" noAuth
+    Allow from env=noAuth
+
+    # Basic認証
+    Require valid-user
+    AuthType Basic
+    AuthName "Please enter your ID and password"
+    AuthUserFile /app/.htpasswd
+    # ------------------------------------------------------------
+
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
