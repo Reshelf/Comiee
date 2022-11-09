@@ -1,6 +1,8 @@
+import purgecss from "@fullhuman/postcss-purgecss";
 import vue from "@vitejs/plugin-vue";
 import laravel from "laravel-vite-plugin";
 import { defineConfig } from "vite";
+import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
   plugins: [
@@ -16,7 +18,19 @@ export default defineConfig({
         },
       },
     }),
+    viteCompression(),
   ],
+  css: {
+    postcss: {
+      plugins: [
+        purgecss({
+          content: ["dist/*.html", "dist/assets/*.js"],
+          css: ["dist/assets/*.css"],
+          //   safelist: [/filepond-*/],
+        }),
+      ],
+    },
+  },
   // 本番ビルド用
   resolve: {
     alias: {
