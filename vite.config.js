@@ -5,6 +5,10 @@ import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
   plugins: [
+    laravel({
+      input: ["resources/sass/app.scss", "resources/js/app.js"],
+      refresh: true,
+    }),
     vue({
       template: {
         transformAssetUrls: {
@@ -13,14 +17,10 @@ export default defineConfig({
         },
       },
     }),
-    laravel({
-      input: ["resources/sass/app.scss", "resources/js/app.js"],
-      refresh: true,
-    }),
     viteCompression(),
     splitVendorChunkPlugin(),
   ],
-  // 本番ビルド用
+  // 完全ランタイム
   resolve: {
     alias: {
       vue: "vue/dist/vue.esm-bundler",

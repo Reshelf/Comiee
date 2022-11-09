@@ -3,15 +3,14 @@
 
 <head>
     @include('atoms.meta')
-    @vite('resources/sass/app.scss')
     @yield('head')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
     <div id="app">
         @yield('content')
     </div>
-    @vite('resources/js/app.js')
     @yield('scripts')
 </body>
 
