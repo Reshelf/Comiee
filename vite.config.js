@@ -1,7 +1,7 @@
 import purgecss from "@fullhuman/postcss-purgecss";
 import vue from "@vitejs/plugin-vue";
 import laravel from "laravel-vite-plugin";
-import { defineConfig } from "vite";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
@@ -19,6 +19,7 @@ export default defineConfig({
       },
     }),
     viteCompression(),
+    splitVendorChunkPlugin(),
   ],
   css: {
     postcss: {
