@@ -48,10 +48,9 @@ class IndexController extends Controller
         }
 
         // ランキング 人気順
-        $query = Book::query();
-        $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
-        $books = $query->paginate(15);
-
+        $books = Book::withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->paginate(15);
+        // お気に入り数が0の作品は除く
+        // $books = $likes->where('likes_count', '>', 0);
         return view('search.ranking.index', [
             'books' => $books,
             'genre_id' => 0,
