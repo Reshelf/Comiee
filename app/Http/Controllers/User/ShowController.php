@@ -17,6 +17,7 @@ class ShowController extends Controller
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first();
+        $books = $user->books()->latest()->get();
         // $sql = <<< SQL
         //     select * from users
         //         where username = '$username'
@@ -25,7 +26,6 @@ class ShowController extends Controller
         // $sql_result = DB::select($sql);
         // $user = $sql_result[0];
 
-        $books = $user->books()->latest()->get();
         // $sql2 = <<< SQL
         //     select * from books
         //         where books . user_id = $user->id
@@ -33,9 +33,6 @@ class ShowController extends Controller
         //         order by created_at desc
         // SQL;
         // $books = DB::select($sql2);
-
-        // dd($user->followers);
-
         return view('users.show', compact('user', 'books'));
     }
 }

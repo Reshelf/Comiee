@@ -207,9 +207,5 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-
-    'aliases' => Facade::defaultAliases()->merge([
-        'DB' => Illuminate\Support\Facades\DB::class,
-    ])->toArray(),
-
+    'aliases' => Facade::defaultAliases()->merge([])->toArray(),
 ];
