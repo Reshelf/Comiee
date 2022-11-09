@@ -1,5 +1,5 @@
-/node_modules
-/public/hot
+*node_modules
+# /public/hot
 /public/storage
 /public/img/book/*
 /public/img/users/*
@@ -19,7 +19,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-*node_modules
 .env.prod
 .env.test
 *.DS_Store
