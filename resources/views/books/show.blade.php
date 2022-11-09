@@ -12,7 +12,7 @@
 
             <div class="w-full flex flex-col md:flex-row py-8">
                 {{-- メインコンテンツ --}}
-                <div class="px-8 lg:w-2/3">
+                <div class="px-6 lg:w-2/3">
                     <book-tab :is-comment="false">
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')

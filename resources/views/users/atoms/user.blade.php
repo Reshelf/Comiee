@@ -1,8 +1,10 @@
 <div class="max-w-6xl mx-auto">
     <div class="relative z-auto">
         @empty($user->thumbnail)
-            <img src="/img/bg.svg" alt="" class="dark:hidden lg:h-[300px] rounded-b flex  w-full object-cover">
-            <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex lg:h-[300px] rounded  w-full object-cover">
+            <img src="/img/bg.svg" alt=""
+                class="dark:hidden h-[250px] lg:h-[300px] rounded-b flex w-full object-cover">
+            <img src="/img/bg-dark.svg" alt=""
+                class="hidden dark:flex h-[250px] lg:h-[300px] rounded w-full object-cover">
         @else
             <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
                 <template #thumbnail>
@@ -27,7 +29,7 @@
             </edit-user-modal>
         @endif
     </div>
-    <div class="flex flex-col items-center md:flex-row mx-12 pb-4 border-b border-ccc">
+    <div class="flex flex-col items-center md:flex-row mx-6 md:mx-12 pb-4 border-b border-ccc">
         <div class="text-dark z-10 -mt-20 md:-mt-8">
             @empty($user->avatar)
                 <svg class="avatar" viewBox="0 0 42 42" fill="none">
@@ -47,8 +49,8 @@
                 </avatar-zoom>
             @endempty
         </div>
-        <div class="w-full px-4 md:px-6 flex justify-center md:justify-between md:mt-4">
-            <div class="flex flex-col">
+        <div class="w-full md:px-6 flex justify-between md:mt-4">
+            <div class="w-full flex flex-col">
                 <div class="flex items-center justify-center md:justify-start">
                     <h3 class="font-semibold pr-2" style="font-size: 32px;">{{ $user->name }}</h3>
                     <div class="h-full flex items-center text-primary">
@@ -77,10 +79,17 @@
                         <span class="font-semibold text-lg">{{ $user->count_followers }}</span>
                         <span class="text-t-color-3 pl-1">フォロワー</span>
                     </a>
+                    @if (Auth::id() !== $user->id)
+                        <follow-button class="ml-auto block md:hidden"
+                            :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+                            :authorized='@json(Auth::check())'
+                            endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
+                        </follow-button>
+                    @endif
                 </div>
             </div>
             @if (Auth::id() !== $user->id)
-                <follow-button class="ml-auto" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+                <follow-button class="ml-auto hidden md:block" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
                     :authorized='@json(Auth::check())'
                     endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
                 </follow-button>
