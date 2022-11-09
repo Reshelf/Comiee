@@ -61,11 +61,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="-mt-1 text-[13px] text-center md;text-left md:text-lg text-t-color-3">
+                <div class="-mt-1 text-[13px] text-center md:text-left md:text-lg text-t-color-3">
                     <span>@</span>{{ $user->username }}
                 </div>
 
-                <div class="flex items-center text-sm pt-4 md:pt-2">
+                <div class="flex justify-center md:justify-start items-center text-sm pt-4 md:pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
                         <span class="font-semibold text-lg">{{ $user->count_followings }}</span>
                         <span class="text-t-color-3 pl-1">フォロー</span>
