@@ -1,4 +1,3 @@
-import purgecss from "@fullhuman/postcss-purgecss";
 import vue from "@vitejs/plugin-vue";
 import laravel from "laravel-vite-plugin";
 import { defineConfig, splitVendorChunkPlugin } from "vite";
@@ -21,17 +20,6 @@ export default defineConfig({
     viteCompression(),
     splitVendorChunkPlugin(),
   ],
-  css: {
-    postcss: {
-      plugins: [
-        purgecss({
-          content: ["dist/*.html", "dist/assets/*.js"],
-          css: ["dist/assets/*.css"],
-          //   safelist: [/filepond-*/],
-        }),
-      ],
-    },
-  },
   // 本番ビルド用
   resolve: {
     alias: {
