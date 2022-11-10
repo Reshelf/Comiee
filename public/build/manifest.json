@@ -1,17 +1,17 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.111f82f3.js",
+    "file": "assets/app.6475a70e.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_vendor.818ac591.js"
+      "_vendor.b548bd98.js"
     ],
     "css": [
       "assets/app.4bddc4f7.css"
     ]
   },
-  "_vendor.818ac591.js": {
-    "file": "assets/vendor.818ac591.js"
+  "_vendor.b548bd98.js": {
+    "file": "assets/vendor.b548bd98.js"
   },
   "resources/js/app.css": {
     "file": "assets/app.4bddc4f7.css",
