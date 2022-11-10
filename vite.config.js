@@ -20,10 +20,4 @@ export default defineConfig({
     viteCompression(),
     splitVendorChunkPlugin(),
   ],
-  // 完全ランタイム
-  resolve: {
-    alias: {
-      vue: "vue/dist/vue.esm-bundler",
-    },
-  },
 });

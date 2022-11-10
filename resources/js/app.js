@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp } from "vue/dist/vue.esm-bundler";
 import "./common/bootstrap";
 import components from "./common/components";
 import "./common/theme";
