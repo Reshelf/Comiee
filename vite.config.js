@@ -20,8 +20,4 @@ export default defineConfig({
     viteCompression(),
     splitVendorChunkPlugin(),
   ],
-  server: {
-    https: true,
-    host: "localhost",
-  },
 });
