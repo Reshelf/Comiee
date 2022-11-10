@@ -27,12 +27,12 @@
     <meta property="og:image:secure_url" content="@yield('image')">
     <meta name="twitter:image" content="@yield('image')">
 @else
-    <meta property="og:image" content="https://saeriho.com/wp-content/uploads/2018/11/nara.jpg">
-    <meta property="og:image:secure_url" content="https://saeriho.com/wp-content/uploads/2018/11/nara.jpg">
-    <meta name="twitter:image" content="https://saeriho.com/wp-content/uploads/2018/11/nara.jpg">
+    <meta property="og:image" content="{{ url('/') }}/img/ogp.png">
+    <meta property="og:image:secure_url" content="{{ url('/') }}/img/ogp.png">
+    <meta name="twitter:image" content="{{ url('/') }}/img/ogp.png">
 @endif
 
-<meta property="og:url" content="https://starbooks.one">
+<meta property="og:url" content="{{ url('/') }}">
 <meta property="og:site_name" content="{{ config('app.name') }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
