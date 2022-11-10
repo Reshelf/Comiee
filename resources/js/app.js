@@ -1,6 +1,7 @@
 import { createApp } from "vue/dist/vue.esm-bundler";
-import "./common/bootstrap";
 import components from "./common/components";
+
+import "./common/bootstrap";
 import "./common/theme";
 
 const app = createApp({
