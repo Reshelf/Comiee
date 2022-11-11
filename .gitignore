@@ -3,7 +3,7 @@
 /public/storage
 /public/img/book/*
 /public/img/users/*
-/public/build/*
+public/build/*
 
 /storage/*.key
 /vendor
@@ -24,3 +24,4 @@ yarn-error.log
 .env.test
 *.DS_Store
 public/hot
+
