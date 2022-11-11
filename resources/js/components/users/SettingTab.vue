@@ -1,11 +1,16 @@
-<script setup>
-import { ref } from "vue";
-
-const isActive = ref(1);
-
-function isSelect(num) {
-  this.isActive = num;
-}
+<script>
+export default {
+  data() {
+    return {
+      isActive: 1,
+    };
+  },
+  methods: {
+    isSelect(num) {
+      this.isActive = num;
+    },
+  },
+};
 </script>
 <template>
   <div class="tab">
@@ -44,7 +49,7 @@ function isSelect(num) {
     }
   }
   .tabContents {
-    @apply w-full md:px-6 my-4 md:my-auto;
+    @apply w-full md:px-6 my-4 md:my-0;
   }
 }
 </style>
