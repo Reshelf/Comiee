@@ -1,8 +1,11 @@
 *node_modules
-# /public/hot
+/public/hot/
 /public/storage
 /public/img/book/*
 /public/img/users/*
+/public/build/*
+/public/css/*
+/public/js/*
 
 /storage/*.key
 /vendor

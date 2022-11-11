@@ -20,16 +20,15 @@ import Pusher from "pusher-js";
 window.Pusher = Pusher;
 
 window.Echo = new Echo({
-    broadcaster: "pusher",
-    key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-    forceTLS: true,
+  broadcaster: "pusher",
+  //   key: import.meta.env.VITE_PUSHER_APP_KEY,
+  //   cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+  key: process.env.MIX_PUSHER_APP_KEY,
+  cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+  forceTLS: true,
 });
-
 
 window.csrf_token = "{{ csrf_token() }}";
 
 // ページ遷移後はスクロール位置をトップにする
-window.addEventListener('load',
-        window.scrollTo(0,0)
-    )
+window.addEventListener("load", window.scrollTo(0, 0));
