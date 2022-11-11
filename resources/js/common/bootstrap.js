@@ -14,22 +14,19 @@ axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-import Echo from "laravel-echo";
-import Pusher from "pusher-js";
+// import Echo from "laravel-echo";
+// import Pusher from "pusher-js";
 
-window.Pusher = Pusher;
+// // window.Pusher = Pusher;
 
-window.Echo = new Echo({
-    broadcaster: "pusher",
-    key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-    forceTLS: true,
-});
-
+// // window.Echo = new Echo({
+// //     broadcaster: "pusher",
+// //     key: import.meta.env.VITE_PUSHER_APP_KEY,
+// //     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+// //     forceTLS: true,
+// // });
 
 window.csrf_token = "{{ csrf_token() }}";
 
 // ページ遷移後はスクロール位置をトップにする
-window.addEventListener('load',
-        window.scrollTo(0,0)
-    )
+window.addEventListener("load", window.scrollTo(0, 0));
