@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "watch": "vite build --watch",
     "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/",
     "format": "prettier --write --ignore-path .gitignore resources/**/*.{js,vue}",
     "heroku-postbuild": "npm run build"

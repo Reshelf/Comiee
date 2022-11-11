@@ -100,6 +100,8 @@ dev:
 	npm run dev
 build:
 	npm run build
+watch:
+	npm run watch
 lint:
 	watch 'npm run lint'
 format:
