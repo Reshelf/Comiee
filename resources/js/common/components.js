@@ -13,7 +13,6 @@ import EditModal from "../components/books/EditModal.vue";
 import CommentPostModal from "../components/books/episodes/comments/CommentPostModal.vue";
 import EpisodeList from "../components/books/episodes/EpisodeList.vue";
 import EpisodeScreen from "../components/books/episodes/EpisodeScreen.vue";
-import UpdateEpisode from "../components/books/episodes/UpdateEpisode.vue";
 // others
 import BookTagsInput from "../components/BookTagsInput.vue";
 import CountAnimation from "../components/CountAnimation.vue";
@@ -48,7 +47,6 @@ export default {
   CommentPostModal,
   ToastModal,
   EpisodeScreen,
-  UpdateEpisode,
   EpisodeList,
   ThumbnailZoom,
   FollowModal,
