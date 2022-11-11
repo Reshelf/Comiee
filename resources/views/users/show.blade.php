@@ -6,11 +6,13 @@
     <script src="{{ asset('js/dragdrop/user-profile.js') }}"></script>
 @endsection
 
-@section('image')
-    <meta property="og:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
-    <meta property="og:image:secure_url" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
-    <meta name="twitter:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
-@endsection
+@isset($user->avatar)
+    @section('image')
+        <meta property="og:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
+        <meta property="og:image:secure_url" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
+        <meta name="twitter:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
+    @endsection
+@endisset
 
 @section('content')
     @include('atoms._nav', ['tab' => 4])

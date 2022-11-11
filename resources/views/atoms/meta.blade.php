@@ -23,9 +23,7 @@
 @endif
 
 @hasSection('image')
-    <meta property="og:image" content="@yield('image')">
-    <meta property="og:image:secure_url" content="@yield('image')">
-    <meta name="twitter:image" content="@yield('image')">
+    @yield('image')
 @else
     <meta property="og:image" content="{{ url('/') }}/img/ogp.png">
     <meta property="og:image:secure_url" content="{{ url('/') }}/img/ogp.png">
