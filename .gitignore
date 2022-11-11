@@ -3,6 +3,7 @@
 /public/storage
 /public/img/book/*
 /public/img/users/*
+/public/build/*
 
 /storage/*.key
 /vendor
