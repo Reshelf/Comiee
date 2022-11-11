@@ -14,7 +14,7 @@
                     @csrf
                     <p class="mb-2">※ 1エピソードにつき20枚以上登録してください</p>
                     <p class="mb-4">※ 横幅800px, 縦幅1200pxの画像を登録してください</p>
-                    <input type="file" name="images[]" multiple="multiple">
+                    <input type="file" name="images[]" multiple="multiple" required>
                     <button type="submit" class="btn w-full mt-8">投稿する</button>
                 </form>
             </episode-list>

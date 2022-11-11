@@ -1,16 +1,22 @@
-<script setup>
-import { ref } from "vue";
-
-const isActive = ref(1);
-
-function isSelect(num) {
-  this.isActive = num;
-}
-
-// eslint-disable-next-line
-const props = defineProps({
-  isComment: Boolean,
-});
+<script>
+export default {
+  props: {
+    isComment: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      isActive: 1,
+    };
+  },
+  methods: {
+    isSelect(num) {
+      this.isActive = num;
+    },
+  },
+};
 </script>
 <template>
   <div class="tab">
