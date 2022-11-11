@@ -116,5 +116,11 @@ sche-work:
 	./vendor/bin/sail artisan schedule:work
 prod:
 	git push heroku master
+heroku-bash:
+	heroku run bash
 heroku-fresh:
 	heroku run php artisan migrate:fresh
+heroku-git-stg:
+	heroku git:remote --app starbooks15-stg
+heroku-git-pro:
+	heroku git:remote --app starbooks15
