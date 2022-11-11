@@ -12,8 +12,6 @@
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     # HTTPSアクセスの場合のみベーシック認証を行う
-
-
     # Force compression for mangled headers.
     # http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping
     <IfModule mod_setenvif.c>
@@ -22,6 +20,10 @@
             RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
         </IfModule>
     </IfModule>
+
+    php_value upload_max_filesize 12M
+    php_value post_max_size 13M
+    php_value memory_limit 15M
 
     # Compress all output labeled with one of the following MIME-types
     # (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
