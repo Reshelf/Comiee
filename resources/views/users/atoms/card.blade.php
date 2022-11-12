@@ -7,7 +7,7 @@
                 class="hidden dark:block h-[200px] w-full md:w-[200px] object-cover">
         @else
             <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
-                class="w-[200px] h-[200px] object-cover">
+                class="w-full md:w-[200px] h-[200px] object-cover">
         @endempty
         <span class="thumbnail-title">{{ $book->title }}</span>
     </a>
