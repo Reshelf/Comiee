@@ -574,7 +574,7 @@ button[disabled] {
   &-trigger {
     @apply cursor-pointer;
     &:hover + .dropdown-box {
-      @apply flex visible whitespace-nowrap;
+      @apply flex visible whitespace-nowrap dark:bg-dark-1;
     }
   }
 }
