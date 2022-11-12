@@ -50,7 +50,7 @@
                             ]) }}">
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="w-full h-[250px] rounded-[3px] dark:bg-dark-1"
+                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]"
                                 placeholder="ここはエピソードへの応援コメントを投稿できる場所です！&#10;&#10;作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！&#10;&#10;不適切なコメントを見つけた場合は通報をお願いいたします！&#10;&#10;ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。"
                                 autocomplete="off" autofocus="on" type="text" name="comment" maxlength="400" required></textarea>
                             <button type="submit" class="btn w-full">返信する</button>
@@ -93,8 +93,8 @@
                         class="flex flex-col">
                         @csrf
                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px] dark:bg-dark-1" placeholder="お問い合せ内容を記入してください。"
-                            autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                            autofocus="on" type="text" name="body" maxlength="400" required></textarea>
                         <button type="submit" class="btn w-full">送信する</button>
                     </form>
                 </comment-post-modal>
