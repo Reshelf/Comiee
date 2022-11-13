@@ -3,7 +3,7 @@ import { computed, onMounted, reactive, ref } from "vue";
 
 const open = ref(false);
 const state = reactive({
-  search: null,
+  search: "",
   array: [],
 });
 
