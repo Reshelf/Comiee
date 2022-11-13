@@ -9,13 +9,13 @@
 
     {{-- 作品タイトル --}}
     <a href="{{ route('book.show', ['book_id' => $book->id]) }}"
-        class="inline-block text-2xl font-semibold my-4 px-2">{{ $book->title }}</a>
+        class="inline-block text-2xl dark:text-white font-semibold my-4 px-2">{{ $book->title }}</a>
 
     {{-- 閲覧数 --}}
     {{-- @empty(!$book) --}}
     <div class="w-full flex items-center px-2 mb-2">
         <div class="flex items-center">
-            <span class="text-666 text-lg">{{ number_format($book->views) }}</span>
+            <span class="text-666 dark:text-white text-lg">{{ number_format($book->views) }}</span>
             <span class=" text-aaa pl-2">回閲覧</span>
         </div>
     </div>

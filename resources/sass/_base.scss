@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-dark text-t-color dark:text-t-d-color;
+  @apply bg-white dark:bg-dark text-t-color dark:text-ddd;
   font-family: "Noto Sans JP";
   font-size: 14px;
 }
@@ -240,7 +240,7 @@ input[type="file"] {
     height: $img-h;
     width: $img-w;
     &-title {
-      @apply w-full cursor-pointer font-semibold mt-2;
+      @apply w-full cursor-pointer font-semibold mt-2 text-lg dark:text-white;
       width: $img-w;
       display: -webkit-box !important;
       -webkit-line-clamp: 2 !important;
