@@ -230,23 +230,14 @@ input[type="file"] {
   }
 }
 
-// $img-h: 250px;
-// $img-w: calc($img-h * 0.7);
-@screen md {
-  $img-h: 200px;
-  $img-w: 200px;
-  .thumbnail {
-    @apply object-cover cursor-pointer;
-    height: $img-h;
-    width: $img-w;
-    &-title {
-      @apply w-full cursor-pointer font-semibold mt-2 text-lg dark:text-white;
-      width: $img-w;
-      display: -webkit-box !important;
-      -webkit-line-clamp: 2 !important;
-      -webkit-box-orient: vertical !important;
-      overflow: hidden !important;
-    }
+.thumbnail {
+  @apply object-cover cursor-pointer w-full md:w-[250px] md:h-[250px];
+  &-title {
+    @apply w-full cursor-pointer font-semibold mt-2 text-lg dark:text-white;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 }
 
