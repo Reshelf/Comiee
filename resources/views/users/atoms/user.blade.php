@@ -30,7 +30,7 @@
         @endif
     </div>
     <div
-        class="flex flex-col items-center md:flex-row mx-6 md:mx-12 pb-4 border-b dark:border-b-4 border-ccc dark:border-dark-1">
+        class="flex flex-col items-center md:flex-row mx-6 md:mx-12 pb-4 border-b dark:border-b-2 border-ccc dark:border-dark-1">
         <div class="text-dark z-10 -mt-20 md:-mt-8">
             @empty($user->avatar)
                 <svg class="avatar" viewBox="0 0 42 42" fill="none">

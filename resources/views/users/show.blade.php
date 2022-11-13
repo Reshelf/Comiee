@@ -22,7 +22,7 @@
             'settings' => false,
         ])
     </div>
-    <div class="flex max-w-6xl w-full mx-auto mt-4 px-6 md:px-0 justify-center">
+    <div class="flex max-w-6xl w-full mx-auto mt-4 px-6 md:px-0 justify-center mb-8">
         <div class="w-full md:mx-12">
 
             {{-- 成功 --}}
