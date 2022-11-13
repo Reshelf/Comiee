@@ -50,7 +50,7 @@ function reset() {
       @focus="open = true"
     />
     <button class="absolute right-2">
-      <template v-if="open && state.search.length > 0">
+      <template v-if="open && state.search.length > 1">
         <svg
           width="18"
           height="18"
@@ -76,7 +76,7 @@ function reset() {
       </template>
     </button>
     <div
-      v-if="open && state.search.length > 0"
+      v-if="open && state.search.length > 1"
       class="absolute dark:bg-dark top-[30px] bg-white shadow-lg z-[999] overflow-y-auto max-h-[500px] scroll-none rounded-[3px] p-2"
     >
       <a
