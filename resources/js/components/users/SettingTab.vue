@@ -40,7 +40,7 @@ export default {
 .tab {
   @apply w-full flex flex-col md:flex-row;
   .tabMenu {
-    @apply flex md:flex-col bg-white dark:bg-dark border-r-2 border-eee;
+    @apply flex md:flex-col bg-white dark:bg-dark border-r-2 border-eee dark:border-dark-1;
     li {
       @apply w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-12 hover:text-primary;
       &.active {
