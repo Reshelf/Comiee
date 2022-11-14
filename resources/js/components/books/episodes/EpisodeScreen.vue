@@ -6,13 +6,13 @@
         <img
           :class="isFullScreen"
           class="image image-right"
-          :src="`/img/book/${title}/${episodeNumber}/${i[0]}`"
+          :src="`${i[0]}`"
           alt="image"
         />
         <img
           :class="isFullScreen"
           class="image image-left"
-          :src="`/img/book/${title}/${episodeNumber}/${i[1]}`"
+          :src="`${i[1]}`"
           alt="image"
         />
       </div>
