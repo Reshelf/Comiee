@@ -10,10 +10,10 @@
                     @include('search.atoms._tabs', ['tab' => $tab])
                 </div>
 
-                <div class="flex items-center ml-auto">
+                <div class="flex items-center md:ml-auto">
 
                     {{-- 検索 --}}
-                    <search-form class="mr-8 hidden lg:block"></search-form>
+                    <search-form class="md:mr-8 hidden lg:block"></search-form>
 
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">

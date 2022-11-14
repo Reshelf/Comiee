@@ -10,7 +10,7 @@
                     @include('search.atoms._tabs', ['tab' => 0])
                 </div>
 
-                <div class="flex items-center ml-auto">
+                <div class="flex items-center md:ml-auto">
                     <search-form class="mr-8"></search-form>
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">

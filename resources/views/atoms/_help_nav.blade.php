@@ -6,7 +6,7 @@
                 {{-- ロゴ --}}
                 @include('atoms.nav.logo')
 
-                <div class="flex items-center ml-auto">
+                <div class="flex items-center md:ml-auto">
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">
                             <div class="flex items-center">

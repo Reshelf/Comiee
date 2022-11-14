@@ -141,7 +141,7 @@
         v-for="image in images"
         :key="image"
         :class="isFullScreen"
-        class="w-full"
+        class="w-full object-contain"
         :src="`${image}`"
         alt="image"
       />

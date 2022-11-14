@@ -283,7 +283,7 @@ button[disabled] {
 
 .header-search-input {
   input {
-    width: 400px;
+    @apply md:w-[400px];
     border-radius: 3px;
   }
 }
