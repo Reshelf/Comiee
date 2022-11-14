@@ -88,7 +88,7 @@ function reset() {
         <div class="flex items-center">
           <img
             v-if="item.thumbnail"
-            :src="'/img/book/thumbnail/' + item.thumbnail"
+            :src="item.thumbnail"
             class="w-[80px] h-[80px] object-cover"
           />
           <img
