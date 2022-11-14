@@ -142,7 +142,7 @@
         :key="image"
         :class="isFullScreen"
         class="w-full"
-        :src="`/img/book/${title}/${episodeNumber}/${image}`"
+        :src="`${image}`"
         alt="image"
       />
     </div>
