@@ -4,8 +4,7 @@
             <img src="{{ asset('/img/bg.svg') }}" alt="" class="block dark:hidden rounded max-h-6">
             <img src="{{ asset('/img/bg-dark.svg') }}" alt="thumbnail" class="hidden dark:block rounded max-h-6">
         @else
-            <img src="{{ asset('/img/users/thumbnail/' . Auth::user()->thumbnail) }}" alt="profile_thumbnail"
-                class="rounded max-h-6 flex">
+            <img src="{{ Auth::user()->thumbnail }}" alt="profile_thumbnail" class="rounded max-h-6 flex">
         @endempty
     </div>
     <div class="uploadOuter">

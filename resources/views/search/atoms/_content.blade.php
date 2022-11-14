@@ -12,7 +12,7 @@
                             <span class="ranking-rabel">{{ $loop->iteration }}</span>
                         @endif
                     @else
-                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail" class="list-item-img">
+                        <img src="{{ $book->thumbnail }}" alt="thumbnail" class="list-item-img">
                     @endempty
                     <span class="thumbnail-title">{{ $book->title }}</span>
                 </a>

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
 {
@@ -29,17 +29,15 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            $image = $request->file('avatar');
-            $filename = $image->getClientOriginalName();
-            $image->move(public_path('img/users/avatar'), $filename);
-            $user->avatar = $request->file('avatar')->getClientOriginalName();
+            // $filename = $file->getClientOriginalName();
+            $path = Storage::disk('s3')->put('/app/users/avatar', $request->file('avatar'));
+            // dd($path);
+            $user->avatar = Storage::disk('s3')->url($path);
         }
 
         if ($request->has('thumbnail')) {
-            $image = $request->file('thumbnail');
-            $filename = $image->getClientOriginalName();
-            $image->move(public_path('img/users/thumbnail'), $filename);
-            $user->thumbnail = $request->file('thumbnail')->getClientOriginalName();
+            $path = Storage::disk('s3')->put('/app/users/thumbnail', $request->file('thumbnail'));
+            $user->thumbnail = Storage::disk('s3')->url($path);
         }
 
         $m1 = $request->input('m1');

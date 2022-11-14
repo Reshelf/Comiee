@@ -20,7 +20,7 @@ const props = defineProps({
     <transition name="modal" appear>
       <div v-show="open" class="overlay" @click.self="open = false">
         <div class="window-avatar">
-          <img :src="`/img/users/thumbnail/${thumbnail}`" alt="user image" />
+          <img :src="`${thumbnail}`" alt="user image" />
         </div>
       </div>
     </transition>

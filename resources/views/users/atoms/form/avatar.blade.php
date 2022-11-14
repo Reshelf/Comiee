@@ -2,7 +2,7 @@
     @empty($user->avatar)
         <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="avatar">
     @else
-        <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="avatar">
+        <img src="{{ $user->avatar }}" alt="avatar" class="avatar">
     @endempty
 </div>
 <div class="uploadOuter">

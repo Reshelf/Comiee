@@ -12,8 +12,7 @@
             <img src="{{ asset('/img/bg-dark.svg') }}" alt=""
                 class="hidden dark:block w-[200px] h-[200px] object-cover">
         @else
-            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"
-                class="w-[100px] h-[100px] object-cover">
+            <img src="{{ $book->thumbnail }}" alt="book thumbnail" class="w-[100px] h-[100px] object-cover">
         @endempty
         <input type="file" name="thumbnail" class="my-2 dark:text-gray">
     </div>

@@ -21,8 +21,7 @@
                                                 src="{{ asset('/img/bg.svg') }}" alt="">
                                         @else
                                             <img style="width:200px;height:200px;object-fit:cover;"
-                                                src="{{ asset('/img/book/thumbnail/' . $mailData['book']->thumbnail) }}"
-                                                alt="">
+                                                src="{{ $mailData['book']->thumbnail }}" alt="">
                                         @endempty
 
                                         <p>{{ $mailData['book']->title }}</p>

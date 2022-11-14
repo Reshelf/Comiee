@@ -3,8 +3,7 @@
         @if (empty(Auth::user()->avatar))
             <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="w-10 h-10  rounded-full">
         @else
-            <img src="{{ asset('/img/users/avatar/' . Auth::user()->avatar) }}" alt="w-10 h-10  rounded-full"
-                class="w-10 h-10  rounded-full">
+            <img src="{{ Auth::user()->avatar }}" alt="w-10 h-10  rounded-full" class="w-10 h-10  rounded-full">
         @endif
     </template>
 

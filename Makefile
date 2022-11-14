@@ -66,18 +66,15 @@ optimize-clear:
 cache:
 	@make optimize
 	@make optimize-clear
-	php composer dump-autoload -o
 	php artisan event:cache
 	php artisan event:clear
 	php artisan view:cache
 	php artisan view:clear
-	php composer dump-autoload
 	php artisan clear-compiled
 	php artisan cache:clear
 	php artisan config:clear
 	php artisan route:cache
 	php artisan route:clear
-	php composer clear-cache
 db:
 	./vendor/bin/sail exec mysql bash
 sql:

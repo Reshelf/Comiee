@@ -8,8 +8,7 @@
         @else
             <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
                 <template #thumbnail>
-                    <img class="profile-img" src="{{ asset('/img/users/thumbnail/' . $user->thumbnail) }}"
-                        alt="profile_thumbnail">
+                    <img class="profile-img" src="{{ $user->thumbnail }}" alt="profile_thumbnail">
                 </template>
             </thumbnail-zoom>
         @endempty
@@ -45,7 +44,7 @@
             @else
                 <avatar-zoom :avatar='@json($user->avatar)'>
                     <template #avatar>
-                        <img src="{{ asset('/img/users/avatar/' . $user->avatar) }}" alt="avatar" class="avatar">
+                        <img src="{{ $user->avatar }}" alt="avatar" class="avatar">
                     </template>
                 </avatar-zoom>
             @endempty

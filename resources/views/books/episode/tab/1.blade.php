@@ -29,8 +29,7 @@
                         <img src="/img/bg-dark.svg" alt="thumbnail"
                             class="hidden dark:block w-[160px] h-[80px] object-cover">
                     @else
-                        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt=""
-                            class="w-[160px] h-[80px] object-cover">
+                        <img src="{{ $book->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover">
                     @endempty
 
                     {{-- タイトル --}}

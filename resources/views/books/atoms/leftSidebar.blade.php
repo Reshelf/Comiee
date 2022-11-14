@@ -3,8 +3,7 @@
         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-full md:w-[250px] h-[250px] object-cover rounded">
         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover">
     @else
-        <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="book thumbnail"
-            class="w-full md:w-[250px] h-[250px] object-cover">
+        <img src="{{ $book->thumbnail }}" alt="book thumbnail" class="w-full md:w-[250px] h-[250px] object-cover">
     @endempty
 
     {{-- 作品タイトル --}}

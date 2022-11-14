@@ -6,8 +6,7 @@
             <img src="{{ asset('/img/bg-dark.svg') }}" alt="thumbnail"
                 class="hidden dark:block h-[200px] w-full md:w-[200px] object-cover">
         @else
-            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
-                class="w-full md:w-[200px] h-[200px] object-cover">
+            <img src="{{ $book->thumbnail }}" alt="thumbnail" class="w-full md:w-[200px] h-[200px] object-cover">
         @endempty
         <span class="thumbnail-title">{{ $book->title }}</span>
     </a>

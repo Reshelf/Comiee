@@ -6,8 +6,7 @@
                 <img src="{{ asset('/img/bg-dark.svg') }}" alt=""
                     class="hidden dark:block h-12 w-12 rounded-full shadow">
             @else
-                <img src="{{ asset('/img/users/avatar/' . $comment->user->avatar) }}" alt=""
-                    class="h-8 w-8 rounded-full shadow">
+                <img src="{{ $comment->user->avatar }}" alt="" class="h-8 w-8 rounded-full shadow">
             @endempty
         </a>
         <div class="flex flex-col mt-1 ml-4">

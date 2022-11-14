@@ -8,9 +8,9 @@
 
 @isset($user->avatar)
     @section('image')
-        <meta property="og:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
-        <meta property="og:image:secure_url" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
-        <meta name="twitter:image" content="{{ url('/') }}/img/users/avatar/{{ $user->avatar }}">
+        <meta property="og:image" content="{{ $user->avatar }}">
+        <meta property="og:image:secure_url" content="{{ $user->avatar }}">
+        <meta name="twitter:image" content="{{ $user->avatar }}">
     @endsection
 @endisset
 

@@ -5,8 +5,7 @@
             class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover">
     @else
         <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
-            <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail"
-                class="w-[250px] h-[250px] object-cover">
+            <img src="{{ $book->thumbnail }}" alt="thumbnail" class="w-[250px] h-[250px] object-cover">
             {{-- @endempty --}}
             <span class="thumbnail-title">{{ $book->title }}</span>
         </a>
