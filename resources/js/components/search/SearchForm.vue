@@ -46,10 +46,10 @@ function reset() {
       v-model="state.search"
       type="text"
       placeholder="検索"
-      class="py-2 px-4 border border-ccc dark:bg-dark-1 dark:border-dark"
+      class="py-2 pl-4 pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
       @focus="open = true"
     />
-    <button class="absolute right-2">
+    <button class="absolute top-[10px] right-2">
       <template v-if="open && state.search.length > 1">
         <svg
           width="18"
