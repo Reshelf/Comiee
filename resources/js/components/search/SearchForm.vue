@@ -46,7 +46,7 @@ function reset() {
       v-model="state.search"
       type="text"
       placeholder="検索"
-      class="py-2 pl-4 pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
+      class="p-2 md:pl-4 md:pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
       @focus="open = true"
     />
     <button class="absolute top-[10px] right-2">
