@@ -2,10 +2,15 @@
     @isset($books)
         @foreach ($books as $book)
             <div class="list-item">
-                <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
+                <a href="{{ route('book.show', ['book_id' => $book->id]) }}" class="relative inline-block">
                     @empty($book->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden list-item-img">
                         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block list-item-img">
+
+                        {{-- ランキング15位まではラベルをつける --}}
+                        @if ($books->currentpage() === 1 && $loop->iteration <= 15)
+                            <span class="ranking-rabel">{{ $loop->iteration }}</span>
+                        @endif
                     @else
                         <img src="{{ asset('/img/book/thumbnail/' . $book->thumbnail) }}" alt="thumbnail" class="list-item-img">
                     @endempty

@@ -323,6 +323,9 @@ button[disabled] {
     }
   }
 }
+.ranking-rabel {
+  @apply absolute left-0 top-0 p-1.5 bg-[#DA463D] text-white font-semibold w-[35px] h-[35px] flex items-center justify-center;
+}
 
 .ti-input {
   @apply dark:bg-dark;
