@@ -29,9 +29,7 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            // $filename = $file->getClientOriginalName();
             $path = Storage::disk('s3')->put('/app/users/avatar', $request->file('avatar'));
-            // dd($path);
             $user->avatar = Storage::disk('s3')->url($path);
         }
 

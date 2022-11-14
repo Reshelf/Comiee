@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Tag;
 use App\Http\Requests\BookRequest;
+use Illuminate\Support\Facades\Storage;
 // メール
 use Illuminate\Support\Facades\Mail;
 use App\Mail\books\AddNewBookMail;
@@ -36,10 +37,8 @@ class StoreController extends Controller
         $book->story = $request->story;
         // サムネイル
         if ($request->has('thumbnail')) {
-            $image = $request->file('thumbnail');
-            $filename = $image->getClientOriginalName();
-            $image->move(public_path('img/book/thumbnail'), $filename);
-            $book->thumbnail = $request->file('thumbnail')->getClientOriginalName();
+            $path = Storage::disk('s3')->put('/app/books/' . $book->title . '/thumbnail', $request->file('thumbnail'));
+            $book->thumbnail = Storage::disk('s3')->url($path);
         }
         // 投稿するユーザー
         $book->user_id = $request->user()->id;

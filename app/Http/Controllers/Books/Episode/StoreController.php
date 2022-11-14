@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 // メール
 use Illuminate\Support\Facades\Mail;
 use App\Mail\books\episodes\AddNewEpisodeMail;
@@ -45,9 +46,8 @@ class StoreController extends Controller
         // 画像
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
-                $filename = $image->getClientOriginalName();
-                $image->move(public_path('img/book/' . $book->title . '/' . $episode->number . '/'), $filename);
-                $imgData[] = $filename;
+                $path = Storage::disk('s3')->put('/app/books/' . $book->title . '/' . $episode->number, $image);
+                $imgData[] = Storage::disk('s3')->url($path);
             }
             $episode->contents = json_encode($imgData);
         }
