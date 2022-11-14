@@ -11,10 +11,10 @@
             401 | Unauthorized
         </h2>
 
-        <p class="px-6">有効なログイン情報をもっていないため、要求された操作を行うことができません。</p>
+        <p class="px-6">アカウントからログアウトされています。操作を実行するにはログインをしてください。</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/login" class="inline-block btn-border">再度ログインをしてください</a>
+            <a href="/login" class="inline-block btn-border">ログイン</a>
         </div>
     </div>
 @endsection

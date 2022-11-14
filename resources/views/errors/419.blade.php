@@ -11,10 +11,10 @@
             419 | Page Expired
         </h2>
 
-        <p class="px-6">ログイン情報が切れてしまい、操作を完了できませんでした。</p>
+        <p class="px-6">ページの有効時間が切れてしまいました。操作を実行するには再びログインしてください。</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/login" class="inline-block btn-border">再度ログインをしてください</a>
+            <a href="/login" class="inline-block btn-border">ログイン</a>
         </div>
     </div>
 @endsection
