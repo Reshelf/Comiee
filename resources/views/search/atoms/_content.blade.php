@@ -8,7 +8,7 @@
                         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block list-item-img">
 
                         {{-- ランキング15位まではラベルをつける --}}
-                        @if ($books->currentpage() === 1 && $loop->iteration <= 15)
+                        @if ($books->currentpage() === 1 && $loop->iteration <= 10)
                             <span class="ranking-rabel">{{ $loop->iteration }}</span>
                         @endif
                     @else
