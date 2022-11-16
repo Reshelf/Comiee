@@ -14,7 +14,7 @@ export default {
 </script>
 <template>
   <div class="tab">
-    <ul class="tabMenu">
+    <ul class="tabMenu scroll-none">
       <li :class="{ active: isActive === 1 }" @click="isSelect(1)">
         メール通知
       </li>
@@ -46,7 +46,7 @@ export default {
 .tab {
   @apply w-full flex flex-col md:flex-row;
   .tabMenu {
-    @apply flex md:flex-col bg-white dark:bg-dark border-r-2 border-eee dark:border-dark-1;
+    @apply flex md:flex-col bg-white dark:bg-dark border-r-2 border-eee dark:border-dark-1 overflow-x-auto;
     li {
       @apply w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-12 hover:text-primary;
       &.active {

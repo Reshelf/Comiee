@@ -20,7 +20,7 @@ export default {
 </script>
 <template>
   <div class="tab">
-    <ul class="tabMenu">
+    <ul class="tabMenu scroll-none">
       <li :class="{ active: isActive === 1 }" @click="isSelect(1)">
         エピソード
       </li>
@@ -50,7 +50,7 @@ export default {
 .tab {
   @apply w-full;
   .tabMenu {
-    @apply flex bg-white dark:bg-dark;
+    @apply flex bg-white dark:bg-dark overflow-x-auto;
     li {
       @apply w-auto cursor-pointer py-2 px-4 hover:text-primary;
       &.active {
