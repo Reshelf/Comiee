@@ -2,7 +2,7 @@
     @isset($books)
         @foreach ($books as $book)
             <div class="list-item">
-                <a href="{{ route('book.show', ['book_id' => $book->id]) }}" class="relative inline-block">
+                <a href="{{ route('book.show', ['book_id' => $book->id]) }}" class="relative inline-block w-full">
                     @empty($book->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden list-item-img">
                         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block list-item-img">
