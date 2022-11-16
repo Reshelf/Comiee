@@ -154,7 +154,7 @@
             <a href="{{ route('others.user_guide') }}" class="hover:text-primary">Starbooksについて</a>
             {{-- <a class="pl-8">広告を作成</a> --}}
             {{-- <a class="pl-8">採用情報</a> --}}
-            <a href="" class="py-1 md:py-0 md:pl-8 hover:text-primary">利用規約</a>
+            <a href="{{ route('others.terms') }}" class="py-1 md:py-0 md:pl-8 hover:text-primary">利用規約</a>
             <a class="py-1 md:py-0 md:pl-8 hover:text-primary">プライバシーポリシー</a>
             {{-- <a class="py-1 md:py-0 md:pl-8 hover:text-primary">Cookie</a> --}}
             <a class="py-1 md:py-0 md:pl-8 hover:text-primary">特定商取引法に基づく表記</a>
