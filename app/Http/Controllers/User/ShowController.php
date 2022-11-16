@@ -17,6 +17,11 @@ class ShowController extends Controller
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first();
+
+        if ($user === null) {
+            abort(404);
+        }
+
         $books = $user->books()->latest()->get();
         // $sql = <<< SQL
         //     select * from users
