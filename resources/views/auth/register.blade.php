@@ -16,18 +16,18 @@
             @include('atoms._error_card_list')
 
             <div class="w-full mb-3">
-                <div class="w-full mb-1 text-xs">メールアドレス</div>
-                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="email"
-                    name="email" required>
+                <input
+                    class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
+                    type="email" name="email" required placeholder="メールアドレス">
             </div>
-            <div class="w-full mb-3">
-                <div class="w-full mb-1 text-xs">パスワード</div>
-                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
-                    name="password" required>
+            <div class="w-full mb-6">
+                <input
+                    class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
+                    type="password" name="password" required placeholder="パスワード">
             </div>
             {{-- <div class="w-full mb-3">
                 <div class="w-full mb-1 text-xs">パスワード確認</div>
-                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
+                <input class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2" type="password"
                     name="password_confirmation" required>
             </div> --}}
             <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>

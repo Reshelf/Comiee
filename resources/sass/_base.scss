@@ -25,6 +25,11 @@ body {
 input,
 textarea {
   @apply outline-none;
+  appearance: none;
+  -webkit-appearance: none;
+  @media screen and (max-width: 767px) {
+    font-size: initial !important;
+  }
 }
 
 h1 {
