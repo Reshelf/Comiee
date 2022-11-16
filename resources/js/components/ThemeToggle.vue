@@ -14,7 +14,10 @@ function changeTheme() {
 }
 </script>
 <template>
-  <div class="flex items-center w-full h-full p-3" @click="changeTheme">
+  <div
+    class="flex items-center w-full h-full p-3 cursor-pointer"
+    @click="changeTheme"
+  >
     <label id="headlessui-listbox-label-3" class="sr-only"> Theme </label>
     <button
       id="headlessui-listbox-button-4"

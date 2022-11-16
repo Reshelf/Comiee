@@ -22,6 +22,9 @@ export default {
       <li :class="{ active: isActive === 3 }" @click="isSelect(3)">
         表示しない作品
       </li>
+      <li :class="{ active: isActive === 4 }" @click="isSelect(4)">
+        サイトの外観
+      </li>
     </ul>
     <div class="tabContents">
       <div v-if="isActive === 1">
@@ -32,6 +35,9 @@ export default {
       </div>
       <div v-else-if="isActive === 3">
         <slot name="3"></slot>
+      </div>
+      <div v-else-if="isActive === 4">
+        <slot name="4"></slot>
       </div>
     </div>
   </div>

@@ -15,9 +15,10 @@
             <div class="w-full flex">
                 @if (Auth::id() === $user->id)
                     <setting-tab :is-comment="false">
-                        @include('users.settings.atoms.mail')
-                        @include('users.settings.atoms.bought')
-                        @include('users.settings.atoms.hidden')
+                        @include('users.settings.atoms.1')
+                        @include('users.settings.atoms.2')
+                        @include('users.settings.atoms.3')
+                        @include('users.settings.atoms.4')
                     </setting-tab>
                 @endif
             </div>
