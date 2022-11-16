@@ -3,43 +3,29 @@
 @section('title', 'パスワード再設定')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-                <h1 class="text-center"><a class="text-dark" href="/">memo</a></h1>
-                <div class="card mt-3">
-                    <div class="card-body text-center">
-                        <h2 class="h3 card-title text-center mt-2">新しいパスワードを設定</h2>
+    @include('atoms._simple_nav')
+    <div class="max-w-md m-8 md:mx-auto bg-white dark:bg-dark-1 rounded border border-eee dark:border-none">
+        <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg pt-3 px-4 pb-6">
+            {{ __('パスワードを再設定') }}
+        </h2>
+        <form method="POST" action="{{ route('password.update') }}" class="px-6 dark:bg-dark-1">
+            @csrf
 
-                        {{-- エラー文 --}}
-                        @include('atoms._error_card_list')
+            {{-- エラー文 --}}
+            @include('atoms._error_card_list')
 
-                        <div class="card-text">
-                            <form method="POST" action="{{ route('password.update') }}">
-                                @csrf
-
-                                <input type="hidden" name="email" value="{{ $email }}">
-                                <input type="hidden" name="token" value="{{ $token }}">
-
-                                <div class="md-form">
-                                    <label for="password">新しいパスワード</label>
-                                    <input class="form-control" type="password" id="password" name="password" required>
-                                </div>
-
-                                <div class="md-form">
-                                    <label for="password_confirmation">新しいパスワード(再入力)</label>
-                                    <input class="form-control" type="password" id="password_confirmation"
-                                        name="password_confirmation" required>
-                                </div>
-
-                                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">送信</button>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="w-full mb-3">
+                <div class="w-full mb-1 text-xs">新しいパスワード</div>
+                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
+                    name="password" required>
             </div>
-        </div>
+            <div class="w-full mb-3">
+                <div class="w-full mb-1 text-xs">パスワード</div>
+                <input class="w-full p-2 rounded-[3px] border border-ddd dark:border-dark dark:bg-dark-2" type="password"
+                    name="password_confirmation" required>
+            </div>
+            <input type="hidden" name="remember" value="on">
+            <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">送信</button>
+        </form>
     </div>
 @endsection
