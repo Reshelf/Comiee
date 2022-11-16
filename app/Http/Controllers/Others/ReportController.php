@@ -18,7 +18,7 @@ class ReportController extends Controller
         $email = 'info@starbooks.one';
 
         $reports = [
-            'user' => $request->user()->name,
+            'user' => $request->user()->email,
             'body' => $request->body,
             'reportedUser' => $request->reportedUser,
             'comment' => $request->comment,

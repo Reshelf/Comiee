@@ -13,24 +13,22 @@
                                 style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                                 <tr>
                                     <td style="padding:0 0 20px 0;color:#153643;">
-                                        <h2 style="font-size:18px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            {{ $reports['user'] }}さんから通報がありました！</h2>
+                                        <p>【通報者】</p>
+                                        <p
+                                            style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
+                                            {{ $reports['user'] }}
+                                        </p>
+                                        <p>【通報内容】</p>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             {!! nl2br($reports['body']) !!}
                                         </p>
-
-                                        <h2 style="font-size:18px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            通報されたユーザー
-                                        </h2>
+                                        <p>【通報されたユーザー】</p>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             {{ $reports['reportedUser'] }}
                                         </p>
-
-                                        <h2 style="font-size:18px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            通報されたコメント
-                                        </h2>
+                                        <p>【通報されたコメント内容】</p>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             {!! nl2br($reports['comment']) !!}
