@@ -18,6 +18,7 @@ class ShowController extends Controller
     {
         $user = User::where('username', $username)->first();
 
+        // 存在しないユーザーページにアクセスしたら 404を返す
         if ($user === null) {
             abort(404);
         }
