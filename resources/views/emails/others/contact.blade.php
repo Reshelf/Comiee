@@ -13,12 +13,12 @@
                                 style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                                 <tr>
                                     <td style="padding:0 0 20px 0;color:#153643;">
-                                        <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            {{ $user->name }}さんからお問合せがありました。</h1>
+                                        <p>【メールアドレス】</p>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             {{ $user->email }}
                                         </p>
+                                        <p>【お問い合せ内容】</p>
                                         <p
                                             style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Noto Sans JP;">
                                             {!! nl2br($body) !!}
