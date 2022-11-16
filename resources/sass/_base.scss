@@ -553,7 +553,7 @@ button[disabled] {
   }
 }
 .light-checkbox-Input:checked + .light-checkbox-DummyInput {
-  @apply bg-primary border-none duration-200;
+  @apply bg-primary border-none duration-200 flex-shrink-0;
   box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
   transform: rotate(0deg);
   svg {
