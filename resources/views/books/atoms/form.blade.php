@@ -7,13 +7,6 @@
 <div class="lg:mb-4">
     <label for="thumbnail" class="text-xs text-666 dark:text-ddd">サムネイル</label>
     <div class="flex flex-col items-center">
-        @empty($book->thumbnail)
-            <img src="{{ asset('/img/bg.svg') }}" alt="" class="block dark:hidden w-[200px] h-[200px] object-cover">
-            <img src="{{ asset('/img/bg-dark.svg') }}" alt=""
-                class="hidden dark:block w-[200px] h-[200px] object-cover">
-        @else
-            <img src="{{ $book->thumbnail }}" alt="book thumbnail" class="w-[100px] h-[100px] object-cover">
-        @endempty
         <input type="file" name="thumbnail" class="my-2 dark:text-gray">
     </div>
 </div>
