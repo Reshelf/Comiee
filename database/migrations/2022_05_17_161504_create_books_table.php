@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('is_new')->default(false)->comment('今日の新作フラグ');
 
             $table->string('title')->comment('作品名');
-            $table->string('lang')->comment('作品の言語');
+            $table->string('lang')->default('jp')->comment('作品の言語');
             $table->integer('views')->default(0)->comment('閲覧回数');
             $table->text('story', 400)->nullable()->comment('あらすじ');
             $table->string('thumbnail')->nullable()->comment('作品サムネイル');

@@ -23,10 +23,11 @@ class UserSeeder extends Seeder
 
         $faker = Faker::create('en_US');
 
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $param = [
                 'name' => $faker->name,
                 'username' => $faker->numberBetween(1001, 9999999999999999),
+                'phone_number' => $faker->phoneNumber(),
                 'body' => $faker->text(200),
                 'email' => $faker->email,
                 'password' => 'password',
