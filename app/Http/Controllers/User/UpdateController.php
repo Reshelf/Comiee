@@ -26,7 +26,7 @@ class UpdateController extends Controller
 
         $request->validate([
             'name' => ['nullable', 'string', 'max:30'],
-            'username' => 'required|string|min:4|max:25|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
+            'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
         ]);

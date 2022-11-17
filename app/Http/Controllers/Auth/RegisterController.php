@@ -74,7 +74,7 @@ class RegisterController extends Controller
 
         // ユーザー番号をランダムで生成する
         do {
-            $username = Str::random(25);
+            $username = Str::random(20);
         } while (User::where('username', $username)->exists());
 
         // メール送信
