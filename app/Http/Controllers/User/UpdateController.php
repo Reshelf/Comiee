@@ -99,6 +99,6 @@ class UpdateController extends Controller
 
         $user->save();
 
-        return back();
+        return redirect('/' . $user->username);
     }
 }
