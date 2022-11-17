@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-dark text-t-color dark:text-ddd;
+  @apply bg-white dark:bg-dark text-t-color dark:text-ccc;
   font-family: "Noto Sans JP";
   font-size: 14px;
 }
@@ -542,7 +542,7 @@ button[disabled] {
     @apply m-0 w-0 opacity-0;
   }
   &-DummyInput {
-    @apply bg-white border border-[#c8c8c8] relative flex items-center justify-center w-[20px] h-[20px];
+    @apply bg-white dark:bg-transparent border border-[#c8c8c8] relative flex items-center justify-center w-[20px] h-[20px];
     transform: rotate(-90deg);
     svg {
       @apply opacity-0;
