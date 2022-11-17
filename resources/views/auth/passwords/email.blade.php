@@ -15,7 +15,7 @@
             @include('atoms._error_card_list')
 
             @if (session('status'))
-                <div class="text-green bg-green bg-opacity-20 mb-4">
+                <div class="text-green font-semibold bg-green bg-opacity-10 p-4 mb-4">
                     {{ session('status') }}
                 </div>
             @endif
@@ -25,7 +25,7 @@
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
                     type="text" name="email" required placeholder="メールアドレス">
             </div>
-            <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">メールを送信</button>
+            <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">パスワードリセットリンクを送信</button>
         </form>
     </div>
 @endsection

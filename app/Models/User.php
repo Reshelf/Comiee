@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
-use App\Mail\BareMail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Notifications\PasswordResetNotification;
 
@@ -23,7 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'username',
-        'phone',
+        'phone_number',
+        'isVerified',
         'email',
         'country_code',
         'avatar',
@@ -63,10 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->country_code . $this->phone;
     }
 
-
+    /*
+    |--------------------------------------------------------------------------
+    | パスワードリセットのトークン
+    |--------------------------------------------------------------------------
+    */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new PasswordResetNotification($token, new BareMail()));
+        $this->notify(new PasswordResetNotification($token));
     }
 
     /*
