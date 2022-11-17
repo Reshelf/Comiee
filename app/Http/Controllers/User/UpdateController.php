@@ -100,6 +100,6 @@ class UpdateController extends Controller
         $user->save();
 
         // 新しいユーザーIDのページへ遷移
-        return redirect('/' . $user->username);
+        return redirect('/' . $user->username)->withSuccess("プロフィールを更新しました！");
     }
 }

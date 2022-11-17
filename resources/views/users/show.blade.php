@@ -17,8 +17,10 @@
 @section('content')
     @include('atoms._nav', ['tab' => 4])
 
-    {{-- エラー文 --}}
-    @include('atoms._error_card_list')
+    <div class="mx-4 lg:mx-0">
+        @include('atoms._error_card_list')
+        @include('atoms.success')
+    </div>
 
     <div class="bg-white dark:bg-dark">
         @include('users.atoms.user', [
@@ -28,10 +30,6 @@
     </div>
     <div class="flex max-w-6xl w-full mx-auto mt-4 px-6 md:px-0 justify-center mb-8">
         <div class="w-full md:mx-12">
-
-            {{-- 成功 --}}
-            @include('atoms.success')
-
             <div class="w-full flex flex-wrap justify-center md:justify-start">
                 @if ($books->count() > 0)
                     @foreach ($books as $book)
