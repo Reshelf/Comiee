@@ -5,11 +5,11 @@
         @else
             <img src="{{ Auth::user()->avatar }}" alt="avatar" class="h-12 w-12 object-cover rounded-full">
         @endempty
-        <span class="ml-4 font-semibold">{{ $person->name }}</span>
+        <span class="ml-4 font-semibold truncate max-w-[140px]">{{ $person->name }}</span>
     </a>
 
     @if (Auth::id() !== $person->id)
-        <follow-button class="ml-auto" :initial-is-followed-by='@json($person->isFollowedBy(Auth::user()))'
+        <follow-button class="ml-6 md:ml-auto" :initial-is-followed-by='@json($person->isFollowedBy(Auth::user()))'
             :authorized='@json(Auth::check())'
             endpoint="{{ route('users.follow', ['username' => $person->username]) }}">
         </follow-button>
