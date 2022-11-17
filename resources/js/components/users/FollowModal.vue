@@ -37,7 +37,9 @@ export default {
             </button>
             <div class="title"><slot name="header"></slot></div>
           </div>
-          <div class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll scroll-none">
+          <div
+            class="p-4 md:p-6 max-h-[80vh] md:max-h-[60vh] overflow-y-scroll scroll-none"
+          >
             <slot></slot>
           </div>
         </div>
