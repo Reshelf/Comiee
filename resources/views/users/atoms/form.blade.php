@@ -26,7 +26,7 @@
         <div class="w-1/4 font-semibold mb-2">ユーザーID</div>
         <div class="w-3/4 pl-4">
             <input type="text" name="username" value="{{ $user->username ?? old('username') }}"
-                class="w-full p-2 border-b border-ccc dark:bg-dark rounded" maxlength="16" minlength="4">
+                class="w-full p-2 border-b border-ccc dark:bg-dark rounded" maxlength="25" minlength="4">
         </div>
     </div>
 
