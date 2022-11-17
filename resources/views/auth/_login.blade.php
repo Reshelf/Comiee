@@ -2,7 +2,7 @@
     <template #trigger>ログイン</template>
     <template #header>ログイン</template>
 
-    <form method="POST" action="{{ route('login') }}" class="px-6 dark:bg-dark-1">
+    <form method="POST" action="{{ route('login') }}" class="dark:bg-dark-1">
         @csrf
 
         {{-- エラー文 --}}

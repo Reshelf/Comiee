@@ -23,9 +23,18 @@ class UpdateController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $user = Auth::user();
+
+        $request->validate([
+            'name' => ['nullable', 'string', 'max:30'],
+            'username' => 'required|string|min:4|max:16|regex:/\A([a-zA-Z0-9])+\z/u|unique:users,username,' . $user->id . ',id',
+            'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
+            'body' => ['nullable', 'string', 'max:200'],
+        ]);
+
         $user->name = $request->name;
         $user->username = $request->username;
         $user->body = $request->body;
+        $user->email = $request->email;
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {

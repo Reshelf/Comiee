@@ -16,7 +16,6 @@
             <edit-user-modal>
                 <template #trigger>プロフィールを編集</template>
                 <template #header>プロフィールの更新</template>
-                {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
                 <form method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
                     enctype="multipart/form-data">
                     @csrf

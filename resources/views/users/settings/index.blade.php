@@ -4,6 +4,10 @@
 
 @section('content')
     @include('atoms._nav', ['tab' => 0])
+
+    {{-- エラー文 --}}
+    @include('atoms._error_card_list')
+
     <div class="bg-white dark:bg-dark">
         @include('users.atoms.user', [
             'mypage' => false,
