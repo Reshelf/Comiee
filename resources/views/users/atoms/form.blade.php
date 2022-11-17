@@ -18,7 +18,7 @@
         <div class="w-1/4 font-semibold mb-2">名前</div>
         <div class="w-3/4 pl-4">
             <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
-                class="w-full p-2 border-b border-ccc dark:bg-dark-2 rounded">
+                class="w-full p-2 border-b border-ccc dark:bg-dark-2 rounded" maxlength="30">
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <div class="w-1/4 font-semibold mb-2">ユーザーID</div>
         <div class="w-3/4 pl-4">
             <input type="text" name="username" value="{{ $user->username ?? old('username') }}"
-                class="w-full p-2 border-b border-ccc dark:bg-dark rounded">
+                class="w-full p-2 border-b border-ccc dark:bg-dark rounded" maxlength="16" minlength="4">
         </div>
     </div>
 
@@ -34,7 +34,7 @@
         <div class="w-1/4 font-semibold mb-2">メールアドレス</div>
         <div class="w-3/4 pl-4">
             <input type="email" name="email" value="{{ $user->email ?? old('email') }}"
-                class="w-full p-2 border-b border-ccc dark:bg-dark rounded">
+                class="w-full p-2 border-b border-ccc dark:bg-dark rounded" maxlength="255">
         </div>
     </div>
 
