@@ -1,15 +1,15 @@
 @csrf
 <div class="flex flex-col text-sm">
-    <div class="flex w-full mb-12">
-        <div class="w-1/4 font-semibold mb-2">カバー画像</div>
-        <div class="w-3/4 pl-4 flex flex-col items-center">
+    <div class="flex flex-col lg:flex-row w-full mb-12">
+        <div class="lg:w-1/4 font-semibold mb-2">カバー画像</div>
+        <div class="lg:w-3/4 pl-4 flex flex-col items-center">
             <input type="file" name="thumbnail" />
         </div>
     </div>
 
-    <div class="flex w-full mb-12">
-        <div class="w-1/4 font-semibold mb-2">プロフィール画像</div>
-        <div class="w-3/4 pl-4 flex flex-col items-center">
+    <div class="flex flex-col lg:flex-row w-full mb-12">
+        <div class="lg:w-1/4 font-semibold mb-2">プロフィール画像</div>
+        <div class="lg:w-3/4 pl-4 flex flex-col items-center">
             <input type="file" name="avatar" />
         </div>
     </div>
