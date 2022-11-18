@@ -186,13 +186,15 @@ input[type="file"] {
   }
 
   &-avatar {
-    @apply absolute dark:bg-dark-2;
-    max-width: 600px;
+    @apply absolute dark:bg-dark-2 max-w-[600px];
     img {
-      @apply rounded;
+      @apply rounded max-h-[80vh];
     }
     @media screen and (max-width: 767px) {
-      max-width: 90%;
+      @apply max-w-[90%];
+      img {
+        @apply max-h-[60vh];
+      }
     }
   }
 
