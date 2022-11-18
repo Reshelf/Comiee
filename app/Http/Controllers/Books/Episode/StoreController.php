@@ -43,6 +43,10 @@ class StoreController extends Controller
         // エピソードの話数
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
+        $request->validate([
+            'images' => 'required|array|min:20|max:200',
+            'images.*' => 'image|max:1024',
+        ]);
         // 画像
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
@@ -83,6 +87,6 @@ class StoreController extends Controller
             Mail::send(new AddNewEpisodeMail($mailData));
         };
 
-        return back()->with('success', '作品の続編を公開しました！');
+        return back()->with('success', '新しいエピソードを公開しました！');
     }
 }

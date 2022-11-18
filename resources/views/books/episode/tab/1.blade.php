@@ -1,7 +1,7 @@
 <template #episode>
     <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
 
-        {{-- 成功 --}}
+        @include('atoms._error_card_list')
         @include('atoms.success')
 
 
@@ -12,8 +12,12 @@
                 <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
                     enctype="multipart/form-data">
                     @csrf
-                    <p class="mb-2">※ 1エピソードにつき20枚以上登録してください</p>
-                    <p class="mb-4">※ 横幅800px, 縦幅1200pxの画像を登録してください</p>
+                    <h3 class="mb-4 text-[15px] font-semibold">登録のご注意点</h3>
+                    <p class="mb-2">1ページ = 画像1枚としてカウントされます。</p>
+                    <p class="mb-2">1エピソードにつき20枚以上の画像登録をお願いいたします。</p>
+                    <p class="mb-2">画像サイズは1MBまでの容量とするようにお願いいたします。</p>
+                    <p class="mb-8">表示の対比のため横幅800px, 縦幅1200pxの画像を登録するようお願いいたします。それ以外のサイズで登録されると表示崩れが起きてしまう恐れがあります。
+                    </p>
                     <input type="file" name="images[]" multiple="multiple" required>
                     <button type="submit" class="btn w-full mt-8">投稿する</button>
                 </form>
