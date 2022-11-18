@@ -24,4 +24,5 @@ yarn-error.log
 .env.test
 *.DS_Store
 public/hot
-
+composer.lock
+package-lock.json
