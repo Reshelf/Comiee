@@ -2,10 +2,6 @@
 
 @section('title', $user->name . 'さんのプロフィール')
 
-@section('head')
-    <script src="{{ asset('js/dragdrop/user-profile.js') }}"></script>
-@endsection
-
 @isset($user->avatar)
     @section('image')
         <meta property="og:image" content="{{ $user->avatar }}">
