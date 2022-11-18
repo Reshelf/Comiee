@@ -100,7 +100,7 @@ function reset() {
             <div class="text-xl font-semibold">
               {{ item.title }}
             </div>
-            <div class="text-666">{{ item.name }}</div>
+            <div class="text-666 dark:text-ddd">{{ item.name }}</div>
           </div>
         </div>
       </a>
