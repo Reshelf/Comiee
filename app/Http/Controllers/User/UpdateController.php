@@ -29,8 +29,8 @@ class UpdateController extends Controller
             'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
-            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            // 'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            // 'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
         ]);
 
         $user->name = $request->name;
@@ -42,6 +42,7 @@ class UpdateController extends Controller
         if ($request->has('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName();
+            $filePath = 'app/users/avatar/' . $fileName;
 
             $img =  \Image::make($file);
             $img->resize(
@@ -53,13 +54,14 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put('app/users/avatar/' . $fileName, $img);
-            $user->avatar = Storage::disk('s3')->url('app/users/avatar/' . $fileName);
+            Storage::disk('s3')->put($filePath, $img);
+            $user->avatar = Storage::disk('s3')->url($filePath);
         }
 
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
             $fileName = $file->getClientOriginalName();
+            $filePath = 'app/users/thumbnail/' . $fileName;
 
             $img =  \Image::make($file);
             $img->resize(
@@ -71,8 +73,8 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put('app/users/thumbnail/' . $fileName, $img);
-            $user->thumbnail = Storage::disk('s3')->url('app/users/thumbnail/' . $fileName);
+            Storage::disk('s3')->put($filePath, $img);
+            $user->thumbnail = Storage::disk('s3')->url($filePath);
         }
 
         $user->m_notice_1 = false;
