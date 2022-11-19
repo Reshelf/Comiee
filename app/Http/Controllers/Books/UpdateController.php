@@ -51,8 +51,7 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/books/' . $book->title . '/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file);
-            $img->resize(
+            $img =  \Image::make($file)->resize(
                 1000,
                 null,
                 function ($constraint) {

@@ -55,8 +55,7 @@ class StoreController extends Controller
                 $fileName = $image->getClientOriginalName();
                 $filePath = '/app/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
 
-                $img =  \Image::make($file);
-                $img->resize(
+                $img =  \Image::make($file)->resize(
                     3200,
                     null,
                     function ($constraint) {
