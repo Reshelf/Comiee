@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes(['verify' => true]);
-// Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
-// Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +139,7 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
     Route::get('/{username}/settings', 'App\Http\Controllers\User\Setting\IndexController')->name('users.settings');
+    Route::patch('/{username}/settings', 'App\Http\Controllers\User\Setting\UpdateController')->name('users.settings.update');
 });
 Route::get('/{username}', 'App\Http\Controllers\User\ShowController')->name('users.show');
 Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('users.followings');

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('is_complete')->default(false)->comment('完結作品フラグ');
             $table->boolean('is_new')->default(false)->comment('今日の新作フラグ');
 
-            $table->string('title')->comment('作品名');
+            $table->string('title')->unique()->comment('作品名');
             $table->string('lang')->default('jp')->comment('作品の言語');
             $table->integer('views')->default(0)->comment('閲覧回数');
             $table->text('story', 400)->nullable()->comment('あらすじ');
