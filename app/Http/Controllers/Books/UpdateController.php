@@ -27,22 +27,24 @@ class UpdateController extends Controller
         // ポリシー
         $this->authorize('update', $book);
 
-        // 投稿ユーザー
-        $book->user_id = $request->user()->id;
-        // 作品タイトル
-        $book->title = $request->title;
-        // ジャンル
-        $book->genre_id = $request->genre_id;
-        // あらすじ
-        $book->story = $request->story;
-        // 完結
-        if ($request->is_complete === null) {
-            $book->is_complete = false;
-        } else {
-            $book->is_complete = true;
-        };
+        $request->validate([
+            'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
+            'genre_id' => ['required', 'integer'],
+            'story' => ['nullable', 'string', 'max:400'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+        ]);
 
-        // dd($request->is_complete);
+        $book->user_id = $request->user()->id; // 投稿ユーザー
+        $book->title = $request->title; // 作品タイトル
+        $book->genre_id = $request->genre_id; // ジャンル
+        $book->story = $request->story; // あらすじ
+
+
+        // 完結
+        $book->is_complete = true;
+        if ($request->is_complete === null) $book->is_complete = false;
+
+
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');

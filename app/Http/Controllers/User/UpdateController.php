@@ -29,6 +29,8 @@ class UpdateController extends Controller
             'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
         ]);
 
         $user->name = $request->name;
@@ -75,55 +77,24 @@ class UpdateController extends Controller
             $user->thumbnail = Storage::disk('s3')->url($filePath);
         }
 
+        $user->m_notice_1 = false;
+        $user->m_notice_2 = false;
+        $user->m_notice_3 = false;
+        $user->m_notice_4 = false;
+        $user->m_notice_5 = false;
+        $user->m_notice_6 = false;
         $m1 = $request->input('m1');
         $m2 = $request->input('m2');
         $m3 = $request->input('m3');
         $m4 = $request->input('m4');
         $m5 = $request->input('m5');
         $m6 = $request->input('m6');
-
-        if ($m1 != null) {
-            if ($m1 === 'm1') {
-                $user->m_notice_1 = true;
-            }
-        } else {
-            $user->m_notice_1 = false;
-        }
-        if ($m2 != null) {
-            if ($m2 === 'm2') {
-                $user->m_notice_2 = true;
-            }
-        } else {
-            $user->m_notice_2 = false;
-        }
-        if ($m3 != null) {
-            if ($m3 === 'm3') {
-                $user->m_notice_3 = true;
-            }
-        } else {
-            $user->m_notice_3 = false;
-        }
-        if ($m4 != null) {
-            if ($m4 === 'm4') {
-                $user->m_notice_4 = true;
-            }
-        } else {
-            $user->m_notice_4 = false;
-        }
-        if ($m5 != null) {
-            if ($m5 === 'm5') {
-                $user->m_notice_5 = true;
-            }
-        } else {
-            $user->m_notice_5 = false;
-        }
-        if ($m6 != null) {
-            if ($m6 === 'm6') {
-                $user->m_notice_6 = true;
-            }
-        } else {
-            $user->m_notice_6 = false;
-        }
+        if ($m1 === 'm1') $user->m_notice_1 = true;
+        if ($m2 === 'm2') $user->m_notice_2 = true;
+        if ($m3 === 'm3') $user->m_notice_3 = true;
+        if ($m4 === 'm4') $user->m_notice_4 = true;
+        if ($m5 === 'm5') $user->m_notice_5 = true;
+        if ($m6 === 'm6') $user->m_notice_6 = true;
 
         $user->save();
 

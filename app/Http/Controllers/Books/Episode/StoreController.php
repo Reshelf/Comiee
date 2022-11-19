@@ -45,7 +45,7 @@ class StoreController extends Controller
 
         $request->validate([
             'images' => 'required|array|min:20|max:200',
-            'images.*' => 'image',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
         // 画像
         if ($request->hasfile('images')) {

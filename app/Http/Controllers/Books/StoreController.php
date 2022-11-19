@@ -27,14 +27,18 @@ class StoreController extends Controller
     {
         // ポリシー
         $this->authorize('create', $book);
-        // $book->fill($r900equest->except('story'));
 
-        // 作品タイトル
-        $book->title = $request->title;
-        // ジャンル
-        $book->genre_id = $request->genre_id;
-        // あらすじ
-        $book->story = $request->story;
+        $request->validate([
+            'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
+            'genre_id' => ['required', 'integer'],
+            'story' => ['nullable', 'string', 'max:400'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+        ]);
+
+        $book->title = $request->title; // 作品タイトル
+        $book->genre_id = $request->genre_id;  // ジャンル
+        $book->story = $request->story; // あらすじ
+
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
