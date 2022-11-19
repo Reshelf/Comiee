@@ -15,8 +15,7 @@
                     <h3 class="mb-4 text-[15px] font-semibold">登録のご注意点</h3>
                     <p class="mb-2">1ページ = 画像1枚としてカウントされます。</p>
                     <p class="mb-2">1エピソードにつき20枚以上の画像登録をお願いいたします。</p>
-                    <p class="mb-2">画像サイズは1MBまでの容量とするようにお願いいたします。</p>
-                    <p class="mb-8">表示の対比のため横幅800px, 縦幅1200pxの画像を登録するようお願いいたします。それ以外のサイズで登録されると表示崩れが起きてしまう恐れがあります。
+                    <p class="mb-8">表示される画像の対比は 2 : 3 となるようにお願いいたします。横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。
                     </p>
                     <input type="file" name="images[]" multiple="multiple" required>
                     <button type="submit" class="btn w-full mt-8">投稿する</button>
