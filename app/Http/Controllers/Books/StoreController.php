@@ -37,8 +37,21 @@ class StoreController extends Controller
         $book->story = $request->story;
         // サムネイル
         if ($request->has('thumbnail')) {
-            $path = Storage::disk('s3')->put('/app/books/' . $book->title . '/thumbnail', $request->file('thumbnail'));
-            $book->thumbnail = Storage::disk('s3')->url($path);
+            $file = $request->file('thumbnail');
+            $fileName = $request->file('thumbnail')->getClientOriginalName();
+            $filePath = 'app/books/' . $book->title . '/thumbnail/' . $fileName;
+
+            $img =  \Image::make($file)->resize(
+                1000,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+
+            Storage::disk('s3')->put($filePath, $img);
+            $book->thumbnail = Storage::disk('s3')->url($filePath);
         }
         // 投稿するユーザー
         $book->user_id = $request->user()->id;

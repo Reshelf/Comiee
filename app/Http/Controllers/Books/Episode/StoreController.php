@@ -44,14 +44,28 @@ class StoreController extends Controller
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
         $request->validate([
-            'images' => 'required|array|min:20|max:200',
-            'images.*' => 'image|max:1024',
+            'images' => 'required|array|max:200',
+            'images.*' => 'image',
         ]);
         // 画像
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
-                $path = Storage::disk('s3')->put('/app/books/' . $book->title . '/' . $episode->number, $image);
-                $imgData[] = Storage::disk('s3')->url($path);
+
+                $file = $image;
+                $fileName = $image->getClientOriginalName();
+                $filePath = '/app/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
+
+                $img =  \Image::make($file)->resize(
+                    3200,
+                    null,
+                    function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    }
+                )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+
+                Storage::disk('s3')->put($filePath, $img);
+                $imgData[] = Storage::disk('s3')->url($filePath);
             }
             $episode->contents = json_encode($imgData);
         }
