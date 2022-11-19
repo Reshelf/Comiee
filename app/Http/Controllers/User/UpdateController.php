@@ -40,11 +40,10 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            $file = $request->file('avatar');
-            $fileName = $file->getClientOriginalName();
+            $fileName = $request->file('avatar')->getClientOriginalName();
             $filePath = 'app/users/avatar/' . $fileName;
 
-            $img =  \Image::make($file)->resize(
+            $avatar =  \Image::make($request->file('avatar'))->resize(
                 800,
                 null,
                 function ($constraint) {
@@ -53,16 +52,15 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $img);
+            Storage::disk('s3')->put($filePath, $avatar);
             $user->avatar = Storage::disk('s3')->url($filePath);
         }
 
         if ($request->has('thumbnail')) {
-            $file = $request->file('thumbnail');
-            $fileName = $file->getClientOriginalName();
+            $fileName = $request->file('thumbnail')->getClientOriginalName();
             $filePath = 'app/users/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file)->resize(
+            $thumbnail =  \Image::make($request->file('thumbnail'))->resize(
                 2000,
                 null,
                 function ($constraint) {
@@ -71,7 +69,7 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $img);
+            Storage::disk('s3')->put($filePath, $thumbnail);
             $user->thumbnail = Storage::disk('s3')->url($filePath);
         }
 
