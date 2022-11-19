@@ -46,7 +46,7 @@ class UpdateController extends Controller
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
-            $fileName = $request->file('thumbnail')->getClientOriginalName();
+            $fileName = $file->getClientOriginalName();
             $filePath = 'app/books/' . $book->title . '/thumbnail/' . $fileName;
 
             $img =  \Image::make($file)->resize(
