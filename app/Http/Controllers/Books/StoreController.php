@@ -41,6 +41,7 @@ class StoreController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/books/' . $book->title . '/thumbnail/' . $fileName;
 
+            $img = new \Image(['driver' => 'imagick']);
             $img =  \Image::make($file)->resize(
                 1000,
                 null,
