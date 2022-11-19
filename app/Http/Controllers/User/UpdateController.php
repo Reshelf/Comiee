@@ -42,8 +42,8 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/users/avatar/' . $fileName;
 
-            $img = new \Image(['driver' => 'imagick']);
-            $img =  \Image::make($file)->resize(
+            $img =  \Image::make($file);
+            $img->resize(
                 800,
                 null,
                 function ($constraint) {
@@ -61,8 +61,8 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/users/thumbnail/' . $fileName;
 
-            $img = new \Image(['driver' => 'imagick']);
-            $img =  \Image::make($file)->resize(
+            $img =  \Image::make($file);
+            $img->resize(
                 2000,
                 null,
                 function ($constraint) {
