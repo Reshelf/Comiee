@@ -44,7 +44,7 @@ class StoreController extends Controller
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
         $request->validate([
-            'images' => 'required|array|max:200',
+            'images' => 'required|array|min:20|max:200',
             'images.*' => 'image',
         ]);
         // 画像
