@@ -9,7 +9,7 @@
             {{ __('新規登録') }}
         </h2>
 
-        <form method="POST" action="{{ route('register') }}" class="px-6 dark:bg-dark-1">
+        <form method="POST" action="{{ route('register') }}" class="px-6 dark:bg-dark-1 pt-6">
             @csrf
 
             {{-- エラー文 --}}

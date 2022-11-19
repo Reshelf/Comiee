@@ -8,7 +8,7 @@
         <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg pt-3 p-4">
             {{ __('パスワード再設定のメールを送信') }}
         </h2>
-        <form method="POST" action="{{ route('password.email') }}" class="px-6 dark:bg-dark-1">
+        <form method="POST" action="{{ route('password.email') }}" class="px-6 dark:bg-dark-1 pt-6">
             @csrf
 
             {{-- エラー文 --}}
