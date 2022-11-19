@@ -41,11 +41,7 @@
                         stroke-linejoin="round" />
                 </svg>
             @else
-                <avatar-zoom :avatar='@json($user->avatar)'>
-                    <template #avatar>
-                        <img src="{{ $user->avatar }}" alt="avatar" class="avatar">
-                    </template>
-                </avatar-zoom>
+                <img src="{{ $user->avatar }}" alt="avatar" class="avatar">
             @endempty
         </div>
         <div class="w-full md:px-6 flex justify-between md:mt-4">
