@@ -17,7 +17,8 @@
     "laravel/tinker": "^2.7",
     "laravel/ui": "^3.4",
     "league/flysystem-aws-s3-v3": "^3.10",
-    "twilio/sdk": "^6.43"
+    "twilio/sdk": "^6.43",
+    "ext-gd": "*"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.7",
