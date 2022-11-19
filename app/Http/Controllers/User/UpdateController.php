@@ -29,6 +29,8 @@ class UpdateController extends Controller
             'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
         ]);
 
         $user->name = $request->name;
@@ -42,13 +44,13 @@ class UpdateController extends Controller
             $filePath = 'app/users/avatar/' . $fileName;
 
             $avatar =  \Image::make($request->file('avatar'))->resize(
-                800,
+                200,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('png', 0.01); // 多分最大は0.1
 
             Storage::disk('s3')->put($filePath, $avatar);
             $user->avatar = Storage::disk('s3')->url($filePath);
@@ -59,13 +61,13 @@ class UpdateController extends Controller
             $filePath = 'app/users/thumbnail/' . $fileName;
 
             $thumbnail =  \Image::make($request->file('thumbnail'))->resize(
-                2000,
+                1200,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('png', 0.01); // 多分最大は0.1
 
             Storage::disk('s3')->put($filePath, $thumbnail);
             $user->thumbnail = Storage::disk('s3')->url($filePath);
