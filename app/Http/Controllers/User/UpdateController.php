@@ -58,14 +58,7 @@ class UpdateController extends Controller
             $file = $request->file('thumbnail');
             $fileName = $request->file('thumbnail')->getClientOriginalName();
 
-            $img =  \Image::make($file)->resize(
-                1920,
-                500,
-                function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                }
-            )->limitColors(null)->encode('webp'); // 多分最大は0.1
+            $img =  \Image::make($file)->limitColors(null)->encode('webp');
 
             $path = Storage::disk('s3')->put('app/users/thumbnail/' . $fileName, $img);
             $user->thumbnail = Storage::disk('s3')->url('app/users/thumbnail/' . $fileName);
