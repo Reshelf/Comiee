@@ -40,36 +40,40 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            $fileName = $request->file('avatar')->getClientOriginalName();
+            $file = $request->file('avatar');
+            $fileName = $file->getClientOriginalName();
             $filePath = 'app/users/avatar/' . $fileName;
 
-            $avatar =  \Image::make($request->file('avatar'))->resize(
-                200,
+            $img =  \Image::make($file);
+            $img->resize(
+                800,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('png', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $avatar);
+            Storage::disk('s3')->put($filePath, $img);
             $user->avatar = Storage::disk('s3')->url($filePath);
         }
 
         if ($request->has('thumbnail')) {
-            $fileName = $request->file('thumbnail')->getClientOriginalName();
+            $file = $request->file('thumbnail');
+            $fileName = $file->getClientOriginalName();
             $filePath = 'app/users/thumbnail/' . $fileName;
 
-            $thumbnail =  \Image::make($request->file('thumbnail'))->resize(
-                1200,
+            $img =  \Image::make($file);
+            $img->resize(
+                2000,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('png', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $thumbnail);
+            Storage::disk('s3')->put($filePath, $img);
             $user->thumbnail = Storage::disk('s3')->url($filePath);
         }
 
