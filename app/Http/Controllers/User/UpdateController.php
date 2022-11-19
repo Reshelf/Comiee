@@ -29,6 +29,7 @@ class UpdateController extends Controller
             'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
+            'avatar' => 'image',
         ]);
 
         $user->name = $request->name;
@@ -38,6 +39,8 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
+
+
             $file = $request->file('avatar');
             $fileName = $request->file('avatar')->getClientOriginalName();
             $filePath = 'app/users/avatar/' . $fileName;
