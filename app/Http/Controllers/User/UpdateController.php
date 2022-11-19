@@ -29,8 +29,6 @@ class UpdateController extends Controller
             'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
             'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
             'body' => ['nullable', 'string', 'max:200'],
-            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
         ]);
 
         $user->name = $request->name;
