@@ -38,8 +38,20 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            $path = Storage::disk('s3')->put('/app/users/avatar', $request->file('avatar'));
-            $user->avatar = Storage::disk('s3')->url($path);
+            $file = $request->file('avatar');
+            $fileName = $request->file('avatar')->getClientOriginalName();
+
+            $img =  \Image::make($file)->resize(
+                400,
+                400,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+
+            $path = Storage::disk('s3')->put('app/users/avatar/' . $fileName, $img);
+            $user->avatar = Storage::disk('s3')->url('app/users/avatar/' . $fileName);
         }
 
         if ($request->has('thumbnail')) {
