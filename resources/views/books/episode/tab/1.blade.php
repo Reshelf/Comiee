@@ -13,10 +13,17 @@
                     enctype="multipart/form-data">
                     @csrf
                     <h3 class="mb-4 text-[15px] font-semibold">登録のご注意点</h3>
-                    <p class="mb-2">1ページ = 画像1枚としてカウントされます。</p>
-                    <p class="mb-2">1エピソードにつき20枚〜200枚の画像登録をお願いいたします。</p>
-                    <p class="mb-2">投稿できる画像形式はpng, jpg(jpeg), gif, webpです。</p>
-                    <p class="mb-8">表示される画像の対比は 2 : 3 となるようにお願いいたします。横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。
+                    <p class="mb-2 bg-[#4B53BC] bg-opacity-10 text-[#4B53BC] px-4 py-2 font-semibold">1ページ =
+                        画像1枚としてカウントされます。
+                    </p>
+                    <p class="mb-2 bg-[#4B53BC] bg-opacity-10 text-[#4B53BC] px-4 py-2 font-semibold">
+                        1エピソードにつき20枚〜200枚の画像登録をお願いいたします。</p>
+                    <p class="mb-2 bg-[#4B53BC] bg-opacity-10 text-[#4B53BC] px-4 py-2 font-semibold">投稿できる画像形式はpng,
+                        jpg(jpeg),
+                        gif, webpです。
+                    </p>
+                    <p class="mb-8 bg-[#4B53BC] bg-opacity-10 text-[#4B53BC] px-4 py-2 font-semibold">表示される画像の対比は 2 : 3
+                        となるようにお願いいたします。横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。
                     </p>
                     <input type="file" name="images[]" multiple="multiple" required>
                     <button type="submit" class="btn w-full mt-8">投稿する</button>
