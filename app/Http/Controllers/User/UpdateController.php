@@ -35,8 +35,8 @@ class UpdateController extends Controller
                 'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
             ],
             [
-                'avatar.mimes:jpeg,png,jpg,gif,webp' => '画像形式はjpeg,png,jpg,gif,webpのいずれかにしてください。',
-                'thumbnail.mimes:jpeg,png,jpg,gif,webp' => '画像形式はjpeg,png,jpg,gif,webpのいずれかにしてください。'
+                'avatar.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです',
+                'thumbnail.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです'
             ]
         );
 

@@ -14,7 +14,8 @@
                     @csrf
                     <h3 class="mb-4 text-[15px] font-semibold">登録のご注意点</h3>
                     <p class="mb-2">1ページ = 画像1枚としてカウントされます。</p>
-                    <p class="mb-2">1エピソードにつき20枚以上の画像登録をお願いいたします。</p>
+                    <p class="mb-2">1エピソードにつき20枚〜200枚の画像登録をお願いいたします。</p>
+                    <p class="mb-2">投稿できる画像形式はpng, jpg(jpeg), gif, webpです。</p>
                     <p class="mb-8">表示される画像の対比は 2 : 3 となるようにお願いいたします。横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。
                     </p>
                     <input type="file" name="images[]" multiple="multiple" required>
