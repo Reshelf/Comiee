@@ -25,13 +25,24 @@
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
                     type="password" name="password" required placeholder="パスワード">
             </div>
-            {{-- <div class="w-full mb-3">
-                <div class="w-full mb-1 text-xs">パスワード確認</div>
-                <input class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2" type="password"
-                    name="password_confirmation" required>
-            </div> --}}
+
+            <label class="light-checkbox my-4">
+                <input type="checkbox" value="" class="light-checkbox-Input" required>
+                <span class="light-checkbox-DummyInput">
+                    <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span class="light-checkbox-LabelText"><a href="{{ route('others.terms') }}" class="text-primary"
+                        target="_blank" rel="noopener noreferrer">利用規約</a> に同意する</span>
+            </label>
+
             <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>
         </form>
-        <a href="/login" class="w-full text-right text-xs cursor-pointer inline-block py-4 px-6 dark:bg-dark">またはログイン</a>
+
+        <div class="flex justify-end">
+            <a href="/login" class="inline-block text-xs cursor-pointer py-4 px-6 dark:bg-dark">またはログイン</a>
+        </div>
     </div>
 @endsection

@@ -22,7 +22,7 @@ body {
   font-size: 14px;
 }
 
-input,
+input[type="text"],
 textarea {
   @apply outline-none;
   appearance: none;
@@ -38,7 +38,8 @@ h1 {
 }
 
 // ダウンロードブロック
-img {
+img,
+svg {
   @apply flex-shrink-0;
   pointer-events: none !important;
   -webkit-touch-callout: none !important;
