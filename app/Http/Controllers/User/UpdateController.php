@@ -48,7 +48,7 @@ class UpdateController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('webp', 0.01)->stream('webp');
 
             Storage::disk('s3')->put('app/users/avatar/' . $request->file('avatar')->getClientOriginalName(), $avatar);
             $user->avatar = Storage::disk('s3')->url('app/users/avatar/' . $request->file('avatar')->getClientOriginalName());
@@ -63,7 +63,7 @@ class UpdateController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('webp', 0.01)->stream('webp'); // 多分最大は0.1
 
             Storage::disk('s3')->put('app/users/thumbnail/' . $request->file('thumbnail')->getClientOriginalName(), $thumbnail);
             $user->thumbnail = Storage::disk('s3')->url('app/users/thumbnail/' . $request->file('thumbnail')->getClientOriginalName());
