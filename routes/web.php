@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes(['verify' => true]);
+// Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
+// Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
+// Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
+Route::get('/register/phone_number', 'App\Http\Controllers\Auth\OtpController@index')->name('verify.sms');
+Route::post('/register/phone_number', 'App\Http\Controllers\Auth\OtpController@create')->name('register.sms');
+Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController@verify')->name('verify.sms.send');
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +83,9 @@ Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyControll
 // 特許商取引
 Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
 // お問い合せ
-Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->name('others.contact');
+Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->middleware('throttle:2, 1')->name('others.contact');
 // 通報
-Route::post('/report', 'App\Http\Controllers\Others\ReportController')->name('others.report');
+Route::post('/report', 'App\Http\Controllers\Others\ReportController')->middleware('throttle:2, 1')->name('others.report');
 // 通報
 Route::get('/faq/1', 'App\Http\Controllers\Others\Faq\OneController')->name('others.faq.1');
 Route::get('/faq/2', 'App\Http\Controllers\Others\Faq\TwoController')->name('others.faq.2');
@@ -100,7 +106,7 @@ Route::get('/faq/8', 'App\Http\Controllers\Others\Faq\EightController')->name('o
 Route::prefix('books')->name('book.')->group(function () {
     Route::middleware(['verified', 'auth'])->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')
-            // ->middleware('throttle:3, 1')
+            ->middleware('throttle:2, 1')
             ->name('store');
         Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book_id}', 'App\Http\Controllers\Books\UpdateController')->name('update');
@@ -111,7 +117,7 @@ Route::prefix('books')->name('book.')->group(function () {
         // エピソード
         Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
         Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')
-            // ->middleware('throttle:3, 1')
+            ->middleware('throttle:3, 1')
             ->name('episode.store');
         Route::patch('/{book_id}/{episode_id}/edit', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
         Route::delete('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
