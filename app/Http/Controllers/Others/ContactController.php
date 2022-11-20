@@ -10,9 +10,11 @@ use App\Mail\others\ContactMail;
 
 class ContactController extends Controller
 {
-    /**
-     * お問い合わせ
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | お問い合わせ
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request)
     {
         $email = 'info@starbooks.one';

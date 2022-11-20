@@ -8,12 +8,11 @@ use App\Models\User;
 
 class ShowController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | プロフィール
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first();

@@ -12,12 +12,11 @@ class FollowingsController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォローの一覧
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(string $username)
     {
         $user = User::where('username', $username)->first()

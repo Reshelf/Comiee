@@ -18,12 +18,11 @@ class FollowController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | フォローする
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request, string $username)
     {
         $user = User::where(['username' => $username])->first();

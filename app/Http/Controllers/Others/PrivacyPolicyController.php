@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 
 class PrivacyPolicyController extends Controller
 {
-    /**
-     * プライバシーポリシー
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | プライバシーポリシー
+    |--------------------------------------------------------------------------
+    */
     public function __invoke()
     {
         return view('others.privacy_policy');

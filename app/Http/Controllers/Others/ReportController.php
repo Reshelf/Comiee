@@ -10,9 +10,11 @@ use App\Mail\others\ReportMail;
 
 class ReportController extends Controller
 {
-    /**
-     * 通報
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | 通報する
+    |--------------------------------------------------------------------------
+    */
     public function __invoke(Request $request)
     {
         $email = 'info@starbooks.one';
