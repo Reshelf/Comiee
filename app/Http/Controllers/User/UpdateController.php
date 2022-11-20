@@ -40,11 +40,7 @@ class UpdateController extends Controller
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
-            $avatar = $request->file('avatar');
-            $fileName = $avatar->getClientOriginalName();
-            $filePath = 'app/users/avatar/' . $fileName;
-
-            $avatar =  \Image::make($avatar);
+            $avatar =  \Image::make($request->file('avatar'));
             $avatar->resize(
                 800,
                 null,
@@ -54,16 +50,12 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $avatar);
-            $user->avatar = Storage::disk('s3')->url($filePath);
+            Storage::disk('s3')->put('app/users/avatar/' . $request->file('avatar')->getClientOriginalName(), $avatar);
+            $user->avatar = Storage::disk('s3')->url('app/users/avatar/' . $request->file('avatar')->getClientOriginalName());
         }
 
         if ($request->has('thumbnail')) {
-            $thumbnail = $request->file('thumbnail');
-            $fileName = $thumbnail->getClientOriginalName();
-            $filePath = 'app/users/thumbnail/' . $fileName;
-
-            $thumbnail =  \Image::make($thumbnail);
+            $thumbnail =  \Image::make($request->file('thumbnail'));
             $thumbnail->resize(
                 2000,
                 null,
@@ -73,8 +65,8 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $thumbnail);
-            $user->thumbnail = Storage::disk('s3')->url($filePath);
+            Storage::disk('s3')->put('app/users/thumbnail/' . $request->file('thumbnail')->getClientOriginalName(), $thumbnail);
+            $user->thumbnail = Storage::disk('s3')->url('app/users/thumbnail/' . $request->file('thumbnail')->getClientOriginalName());
         }
 
         $user->m_notice_1 = false;
