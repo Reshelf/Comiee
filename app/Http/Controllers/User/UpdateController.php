@@ -25,14 +25,20 @@ class UpdateController extends Controller
     {
         $user = Auth::user();
 
-        $request->validate([
-            'name' => ['nullable', 'string', 'max:30'],
-            'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
-            'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
-            'body' => ['nullable', 'string', 'max:200'],
-            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
-        ]);
+        $request->validate(
+            [
+                'name' => ['nullable', 'string', 'max:30'],
+                'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
+                'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
+                'body' => ['nullable', 'string', 'max:200'],
+                'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+                'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            ],
+            [
+                'avatar.mimes:jpeg,png,jpg,gif,webp' => '画像形式はjpeg,png,jpg,gif,webpのいずれかにしてください。',
+                'thumbnail.mimes:jpeg,png,jpg,gif,webp' => '画像形式はjpeg,png,jpg,gif,webpのいずれかにしてください。'
+            ]
+        );
 
         $user->name = $request->name;
         $user->username = $request->username;
