@@ -24,8 +24,6 @@ services:
       - sail
     depends_on:
       - mysql
-      - redis
-      - memcached
       - mailhog
   mysql:
     image: "mysql/mysql-server:8.0"
