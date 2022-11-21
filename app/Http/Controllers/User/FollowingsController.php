@@ -19,8 +19,9 @@ class FollowingsController extends Controller
     */
     public function __invoke(string $username)
     {
-        $user = User::where('username', $username)->first()
-            ->load('followings.followers');
+        $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
+            return User::where('username', $username)->first();
+        });
 
         $followings = $user->followings->sortByDesc('created_at');
 

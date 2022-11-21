@@ -15,7 +15,9 @@ class ShowController extends Controller
     */
     public function __invoke(string $username)
     {
-        $user = User::where('username', $username)->first();
+        $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
+            return User::where('username', $username)->first();
+        });
 
         // 存在しないユーザーページにアクセスしたら 404を返す
         if ($user === null) {
