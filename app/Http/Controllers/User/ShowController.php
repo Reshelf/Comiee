@@ -23,21 +23,7 @@ class ShowController extends Controller
         }
 
         $books = $user->books()->latest()->get();
-        // $sql = <<< SQL
-        //     select * from users
-        //         where username = '$username'
-        //         limit 1
-        // SQL;
-        // $sql_result = DB::select($sql);
-        // $user = $sql_result[0];
 
-        // $sql2 = <<< SQL
-        //     select * from books
-        //         where books . user_id = $user->id
-        //         and books . user_id is not null
-        //         order by created_at desc
-        // SQL;
-        // $books = DB::select($sql2);
         return view('users.show', compact('user', 'books'));
     }
 }
