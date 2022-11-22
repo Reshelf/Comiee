@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Search;
 
-use App\Http\Controllers\Controller;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
-use App\Models\Book;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -30,15 +31,19 @@ class IndexController extends Controller
             // ソートの基準
             if ($sort != null) {
                 if ($sort === '閲覧回数') {
-                    $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
+                    \Cache::remember("ranking.views", Carbon::now()->addHour(), function () use ($query) {
+                        return $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
+                    });
                 }
             } else {
                 $sort = 'お気に入り数';
-                $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
+                \Cache::remember("ranking.likes", Carbon::now()->addHour(), function () use ($query) {
+                    return $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
+                });
             }
 
             //1ページにつき100件ずつ表示
-            $books = $query->paginate(50);
+            $books = $query->paginate(15);
             return view('search.todays_new.index', [
                 'books' => $books,
                 'sort' => $sort,
@@ -47,7 +52,10 @@ class IndexController extends Controller
         }
 
         // ランキング 人気順
-        $books = Book::withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->paginate(50);
+        $books = \Cache::remember("ranking.top", Carbon::now()->endOfDay()->addSecond(), function () {
+            return Book::withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->paginate(15);
+        });
+
         // お気に入り数が0の作品は除く
         // $books = $likes->where('likes_count', '>', 0);
         return view('search.ranking.index', [

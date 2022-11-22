@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Search;
 
-use App\Http\Controllers\Controller;
 use App\Models\Book;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 
 class CompleteController extends Controller
 {
@@ -14,8 +15,7 @@ class CompleteController extends Controller
     */
     public function __invoke()
     {
-        $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $books = \Cache::remember("books.is_complete", $expiresAt, function () {
+        $books = \Cache::remember("books.is_complete", Carbon::now()->endOfDay()->addSecond(), function () {
             return Book::where('is_complete', true)->latest()->paginate(50);
         });
 

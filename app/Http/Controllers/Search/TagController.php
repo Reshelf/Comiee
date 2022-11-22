@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Search;
 
-use App\Http\Controllers\Controller;
 use App\Models\Tag;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {
@@ -14,8 +15,7 @@ class TagController extends Controller
     */
     public function __invoke(string $name)
     {
-        $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $tag = \Cache::remember("tag.{$name}", $expiresAt, function () use ($name) {
+        $tag = \Cache::remember("tag.{$name}", Carbon::now()->endOfDay()->addSecond(), function () use ($name) {
             return Tag::where('name', $name)->latest()->first();
         });
 

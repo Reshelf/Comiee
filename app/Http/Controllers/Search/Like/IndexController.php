@@ -39,7 +39,7 @@ class IndexController extends Controller
             }
         }
 
-        $books = $query->paginate(50);
+        $books = $query->paginate(15);
         return view('search.like.index', [
             'books' => $books,
             'feature' => $feature

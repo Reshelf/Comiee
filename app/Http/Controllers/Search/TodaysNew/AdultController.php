@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Search\TodaysNew;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 
 class AdultController extends Controller
 {
@@ -27,17 +28,23 @@ class AdultController extends Controller
         // ソートの基準
         if ($sort != null) {
             if ($sort === '閲覧回数') {
-                $query->orderBy('views', 'desc')->get();
+                \Cache::remember("todays_new.adult.views", Carbon::now()->addHour(), function () use ($query) {
+                    return $query->orderBy('views', 'desc')->get();
+                });
             }
             if ($sort === 'お気に入り数') {
-                $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+                \Cache::remember("todays_new.adult.likes", Carbon::now()->addHour(), function () use ($query) {
+                    return $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+                });
             }
         } else {
             $sort = 'お気に入り数';
-            $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+            \Cache::remember("todays_new.adult.likes", Carbon::now()->addHour(), function () use ($query) {
+                return $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
+            });
         }
 
-        $books = $query->paginate(50);
+        $books = $query->paginate(15);
         return view('search.todays_new.index', [
             'books' => $books,
             'sort' => $sort,
