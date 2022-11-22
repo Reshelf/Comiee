@@ -45,7 +45,7 @@ class BoysController extends Controller
             $feature = '全ての作品';
         }
 
-        $books = $query->paginate(15);
+        $books = $query->paginate(50);
         return view('search.ranking.index', [
             'books' => $books,
             'sort' => $sort,

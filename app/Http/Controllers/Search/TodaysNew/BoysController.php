@@ -37,7 +37,7 @@ class BoysController extends Controller
             $query->withCount('likes')->orderBy('likes_count', 'desc')->get();
         }
 
-        $books = $query->paginate(15);
+        $books = $query->paginate(50);
         return view('search.todays_new.index', [
             'books' => $books,
             'sort' => $sort,

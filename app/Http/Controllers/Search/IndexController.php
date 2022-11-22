@@ -38,7 +38,7 @@ class IndexController extends Controller
             }
 
             //1ページにつき100件ずつ表示
-            $books = $query->paginate(15);
+            $books = $query->paginate(50);
             return view('search.todays_new.index', [
                 'books' => $books,
                 'sort' => $sort,
@@ -47,7 +47,7 @@ class IndexController extends Controller
         }
 
         // ランキング 人気順
-        $books = Book::withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->paginate(15);
+        $books = Book::withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->paginate(50);
         // お気に入り数が0の作品は除く
         // $books = $likes->where('likes_count', '>', 0);
         return view('search.ranking.index', [
