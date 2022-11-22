@@ -15,13 +15,16 @@ class SearchWordController extends Controller
     */
     public function __invoke(Book $book)
     {
-        $all = Book::all()->load(['user'])->map(function ($book) {
-            return [
-                'id' => $book->id,
-                'title' => $book->title,
-                'thumbnail' => $book->thumbnail,
-                'name' => $book->user->name
-            ];
+        $expiresAt = Carbon::now()->endOfDay()->addSecond();
+        $all = \Cache::remember("search-results", $expiresAt, function () use ($book) {
+            Book::all()->load(['user'])->map(function ($book) {
+                return [
+                    'id' => $book->id,
+                    'title' => $book->title,
+                    'thumbnail' => $book->thumbnail,
+                    'name' => $book->user->name
+                ];
+            });
         });
 
         return response()->json($all);
