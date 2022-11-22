@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Search\Ranking;
 
-use App\Models\Book;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Carbon;
-use App\Http\Controllers\Controller;
+use App\Models\Book;
 
 class IndexController extends Controller
 {
@@ -25,30 +24,20 @@ class IndexController extends Controller
 
         if ($sort != null) {
             if ($sort === '閲覧回数') {
-                \Cache::remember("ranking.top.views", Carbon::now()->addHour(), function () use ($query) {
-                    return $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
-                });
+                $query->where('views', '>', 0)->orderBy('views', 'desc')->get();
             }
             if ($sort === 'お気に入り数') {
-                \Cache::remember("ranking.top.likes", Carbon::now()->addHour(), function () use ($query) {
-                    return $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
-                });
+                $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
             }
         } else {
             $sort = 'お気に入り数';
-            \Cache::remember("ranking.top.likes", Carbon::now()->addHour(), function () use ($query) {
-                return $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
-            });
+            $query->withCount('likes')->having('likes_count', '>', 0)->orderBy('likes_count', 'desc')->get();
         }
 
         if ($feature != null) {
             if ($feature === '完結作品のみ') {
-                \Cache::remember("ranking.top.is_complete", Carbon::now()->addHour(), function () use ($query) {
-                    return $query->where('is_complete', 1)->latest();
-                });
+                $query->where('is_complete', 1)->latest();
             }
-        } else {
-            $feature = '全ての作品';
         }
 
         $books = $query->paginate(15);
