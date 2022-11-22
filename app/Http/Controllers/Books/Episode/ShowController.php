@@ -48,7 +48,7 @@ class ShowController extends Controller
             return Comment::where(['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $request->episode_number])->withCount('likes')->orderBy('likes_count', 'desc')->get();
         });
 
-        $allTagNames = \Cache::remember("allTagNames", now()->addHour(), function () use ($tag) {
+        $allTags = \Cache::remember("allTags", now()->addHour(), function () use ($tag) {
             return $tag->all_tag_names;
         });
 
@@ -146,7 +146,7 @@ class ShowController extends Controller
             'episode' => $episode,
             'episodes_latest' => $episodes_latest,
             'comments' => $comments,
-            'allTagNames' => $allTagNames,
+            'allTags' => $allTags,
         ]);
     }
 }

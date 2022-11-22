@@ -30,7 +30,7 @@
 
 <div class="lg:mb-4">
     <label for="tag" class="text-xs text-666 dark:text-ddd">タグ</label>
-    <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTagNames ?? [])'>
+    <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
     </book-tags-input>
 </div>
 <div class="flex flex-col mb-4">

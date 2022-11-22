@@ -15,7 +15,9 @@ class SearchTagsController extends Controller
     */
     public function __invoke(Tag $tag)
     {
-        $allTags = $tag->all_tag_names;
+        $allTags = \Cache::remember("allTags", now()->addHour(), function () use ($tag) {
+            return $tag->all_tag_names;
+        });
 
         return response()->json($allTags);
     }

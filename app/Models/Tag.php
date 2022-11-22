@@ -40,13 +40,13 @@ class Tag extends Model
     | すべてのタグ　　：　　アクセサ
     |--------------------------------------------------------------------------
     */
-    public function allTagNames(): Attribute
+    public function allTags(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => 
-                Tag::all()->map(function ($tag) {
-                    return ['text' => $tag->name];
-                })
+            get: fn ($value) =>
+            Tag::all()->map(function ($tag) {
+                return ['text' => $tag->name];
+            })
         );
     }
 }

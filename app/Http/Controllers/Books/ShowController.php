@@ -25,7 +25,7 @@ class ShowController extends Controller
         });
 
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $allTagNames = \Cache::remember("allTagNames", $expiresAt, function () use ($tag) {
+        $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
             return $tag->all_tag_names;
         });
 
@@ -89,7 +89,7 @@ class ShowController extends Controller
         return view('books.show', [
             'book' => $book,
             'episodes_latest' => $episodes_latest,
-            'allTagNames' => $allTagNames,
+            'allTags' => $allTags,
         ]);
     }
 }

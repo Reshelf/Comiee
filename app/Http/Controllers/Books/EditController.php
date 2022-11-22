@@ -20,7 +20,7 @@ class EditController extends Controller
 
         return view('books.edit', [
             'book' => $book,
-            'allTagNames' => $tag->all_tag_names,
+            'allTags' => $tag->all_tag_names,
         ]);
     }
 }
