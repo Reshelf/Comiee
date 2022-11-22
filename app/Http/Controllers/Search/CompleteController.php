@@ -14,7 +14,10 @@ class CompleteController extends Controller
     */
     public function __invoke()
     {
-        $books = Book::where('is_complete', true)->latest()->paginate(15);
+        $expiresAt = Carbon::now()->endOfDay()->addSecond();
+        $books = \Cache::remember("books.is_complete", $expiresAt, function () {
+            return Book::where('is_complete', true)->latest()->paginate(50);
+        });
 
         return view('search.complete', compact('books'));
     }
