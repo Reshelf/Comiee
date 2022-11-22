@@ -17,7 +17,7 @@ class SearchWordController extends Controller
     {
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
         $all = \Cache::remember("search-results", $expiresAt, function () use ($book) {
-            Book::all()->load(['user'])->map(function ($book) {
+            return Book::all()->load(['user'])->map(function ($book) {
                 return [
                     'id' => $book->id,
                     'title' => $book->title,
