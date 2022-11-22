@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Books;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use App\Models\Book;
 use App\Models\Episode;
@@ -19,7 +20,15 @@ class ShowController extends Controller
     */
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
-        $book = Book::where('id', $request->book_id)->first();
+        $book = \Cache::rememberForever("book.{$request->book_id}", function () use ($request) {
+            return Book::where('id', $request->book_id)->first();
+        });
+
+        $expiresAt = Carbon::now()->endOfDay()->addSecond();
+        $allTagNames = \Cache::remember("allTagNames", $expiresAt, function () use ($tag) {
+            return $tag->all_tag_names;
+        });
+
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
 
@@ -80,7 +89,7 @@ class ShowController extends Controller
         return view('books.show', [
             'book' => $book,
             'episodes_latest' => $episodes_latest,
-            'allTagNames' => $tag->all_tag_names,
+            'allTagNames' => $allTagNames,
         ]);
     }
 }

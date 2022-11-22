@@ -31,11 +31,26 @@ class ShowController extends Controller
         | データのセット | 作品、エピソード、コメント
         |--------------------------------------------------------------------------
         */
-        $book = Book::with('comments')->where('id', $request->book_id)->first();
-        $episode = Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
-        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
-        $comments = $book->comments()->withCount('likes')->orderBy('likes_count', 'desc')->get();
+        $book = \Cache::rememberForever("book.{$request->book_id}", function () use ($request) {
+            return Book::with('comments')->where('id', $request->book_id)->first();
+        });
 
+        $expiresAt = Carbon::now()->endOfDay()->addSecond();
+        $episode = \Cache::remember("book.{$request->book_id}.{$request->episode_number}", $expiresAt, function () use ($book, $request) {
+            return Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
+        });
+
+        $episodes_latest = \Cache::rememberForever("book.{$request->book_id}.latest", function () use ($book, $request) {
+            return Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->orderBy('created_at', 'desc')->get();
+        });
+
+        $comments = \Cache::rememberForever("book.{$request->book_id}.comments", function () use ($book, $episode, $request) {
+            return Comment::where(['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $request->episode_number])->withCount('likes')->orderBy('likes_count', 'desc')->get();
+        });
+
+        $allTagNames = \Cache::remember("allTagNames", now()->addHour(), function () use ($tag) {
+            return $tag->all_tag_names;
+        });
 
         /*
         |--------------------------------------------------------------------------
@@ -131,7 +146,7 @@ class ShowController extends Controller
             'episode' => $episode,
             'episodes_latest' => $episodes_latest,
             'comments' => $comments,
-            'allTagNames' => $tag->all_tag_names,
+            'allTagNames' => $allTagNames,
         ]);
     }
 }

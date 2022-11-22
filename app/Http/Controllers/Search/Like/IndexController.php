@@ -24,7 +24,11 @@ class IndexController extends Controller
     */
     public function __invoke(Request $request)
     {
-        $user = User::where('id', Auth::user()->id)->first();
+        $username = Auth::user()->username;
+        $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
+            return User::where('username', $username)->first();
+        });
+
         $query = $user->likes();
 
         $feature = $request->input('feature');
