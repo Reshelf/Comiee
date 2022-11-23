@@ -2,6 +2,14 @@
 
 @section('title', $book->title)
 
+@isset($book->thumbnail)
+    @section('image')
+        <meta property="og:image" content="{{ $book->thumbnail }}">
+        <meta property="og:image:secure_url" content="{{ $book->thumbnail }}">
+        <meta name="twitter:image" content="{{ $book->thumbnail }}">
+    @endsection
+@endisset
+
 @section('content')
     @include('atoms._nav', ['tab' => 0])
 
