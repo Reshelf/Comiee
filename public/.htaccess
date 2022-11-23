@@ -12,12 +12,12 @@
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     # HTTPSアクセスの場合のみベーシック認証を行う
-    <If "%{HTTP:X-Forwarded-Proto} == 'https'">
-        AuthUserFile /app/.htpasswd
-        AuthType Basic
-        AuthName "Restricted Access"
-        Require valid-user
-    </If>
+    # <If "%{HTTP:X-Forwarded-Proto} == 'https'">
+    #     AuthUserFile /app/.htpasswd
+    #     AuthType Basic
+    #     AuthName "Restricted Access"
+    #     Require valid-user
+    # </If>
 
     # Force compression for mangled headers.
     # http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping
