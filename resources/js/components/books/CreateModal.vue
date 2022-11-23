@@ -35,7 +35,7 @@ const open = ref(false);
       <span class="tooltip-item right-[-40px]">新しく作品を追加する</span>
     </div>
     <div
-      class="block lg:hidden cursor-pointer bg-primary shadow-primary p-3 rounded-full"
+      class="block lg:hidden cursor-pointer bg-primary shadow-primary p-4 rounded-full"
       @click="open = true"
     >
       <svg
