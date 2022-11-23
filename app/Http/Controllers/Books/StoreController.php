@@ -82,9 +82,15 @@ class StoreController extends Controller
             Mail::send(new AddNewBookMail($mailData));
         };
 
+        $success = array(
+            '投稿完了！続きも楽しみにしています！',
+            'また描いてくださいね！',
+        );
+        $random = array_rand($success, 1);
+
         // リダイレクト
         return redirect()
             ->route('users.show', ['username' => $book->user->username])
-            ->withSuccess("新たな作品の世界が始まりました！");
+            ->withSuccess($success[$random]);
     }
 }
