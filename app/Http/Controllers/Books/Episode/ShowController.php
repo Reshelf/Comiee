@@ -132,8 +132,6 @@ class ShowController extends Controller
             }
         }
 
-        dd($episodes_latest);
-
         return view('books.episode.show', [
             'book' => $book,
             'episode' => $episode,
