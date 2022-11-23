@@ -56,7 +56,7 @@ class StoreController extends Controller
 
             $img =  \Image::make($file)->resize(
                 600,
-                null,
+                600,
                 function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
