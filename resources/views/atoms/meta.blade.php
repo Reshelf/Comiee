@@ -13,9 +13,7 @@
 @endif
 
 @hasSection('description')
-    <meta name="description" itemprop="description" content="@yield('description')">
-    <meta property="og:description" content="@yield('description')">
-    <meta name="twitter:description" content="@yield('description')">
+    @yield('description')
 @else
     <meta name="description" itemprop="description" content="Starbooksはマンガプラットフォームです。">
     <meta property="og:description" content="Starbooksはマンガプラットフォームです。">
