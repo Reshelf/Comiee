@@ -2,6 +2,12 @@
 
 @section('title', '作品の投稿について - 作者の方からよくあるご質問')
 
+@section('description')
+    <meta name="description" itemprop="description" content="ご利用ガイドの作品の投稿についてのページです。">
+    <meta property="og:description" content="ご利用ガイドの作品の投稿についてのページです。">
+    <meta name="twitter:description" content="ご利用ガイドの作品の投稿についてのページです。">
+@endsection
+
 @section('content')
     @include('atoms._help_nav')
 

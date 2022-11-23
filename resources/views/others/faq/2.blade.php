@@ -2,6 +2,12 @@
 
 @section('title', '会員登録・ログインについて')
 
+@section('description')
+    <meta name="description" itemprop="description" content="ご利用ガイドの会員登録・ログインについてのページです。">
+    <meta property="og:description" content="ご利用ガイドの会員登録・ログインについてのページです。">
+    <meta name="twitter:description" content="ご利用ガイドの会員登録・ログインについてのページです。">
+@endsection
+
 @section('content')
     @include('atoms._help_nav')
 

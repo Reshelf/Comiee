@@ -2,6 +2,22 @@
 
 @section('title', $episode->number . '話' . ' - ' . $book->title)
 
+@isset($book->thumbnail)
+    @section('image')
+        <meta property="og:image" content="{{ $user->thumbnail }}">
+        <meta property="og:image:secure_url" content="{{ $user->thumbnail }}">
+        <meta name="twitter:image" content="{{ $user->thumbnail }}">
+    @endsection
+@endisset
+
+@isset($book->story)
+    @section('description')
+        <meta name="description" itemprop="description" content="{{ $book->story }}">
+        <meta property="og:description" content="{{ $book->story }}">
+        <meta name="twitter:description" content="{{ $book->story }}">
+    @endsection
+@endisset
+
 @section('content')
     @include('atoms._episode_nav', ['tab' => 0])
 

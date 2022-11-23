@@ -2,6 +2,12 @@
 
 @section('title', '利用規約')
 
+@section('description')
+    <meta name="description" itemprop="description" content="Starbooksの利用規約ページです。">
+    <meta property="og:description" content="Starbooksの利用規約ページです。">
+    <meta name="twitter:description" content="Starbooksの利用規約ページです。">
+@endsection
+
 @section('content')
     @include('atoms._nav', ['tab' => 0])
 

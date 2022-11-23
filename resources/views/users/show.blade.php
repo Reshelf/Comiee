@@ -10,6 +10,14 @@
     @endsection
 @endisset
 
+@isset($user->body)
+    @section('description')
+        <meta name="description" itemprop="description" content="{{ $user->body }}">
+        <meta property="og:description" content="{{ $user->body }}">
+        <meta name="twitter:description" content="{{ $user->body }}">
+    @endsection
+@endisset
+
 @section('content')
     @include('atoms._nav', ['tab' => 4])
 
