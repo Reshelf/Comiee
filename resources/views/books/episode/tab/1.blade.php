@@ -12,7 +12,10 @@
                 <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
                     enctype="multipart/form-data">
                     @csrf
-                    <h3 class="mb-4 text-[15px] font-semibold">登録のご注意点</h3>
+                    <h3 class="mb-4 text-[15px] font-semibold">サムネイル</h3>
+                    <input type="file" name="thumbnail" required>
+
+                    <h3 class="mt-8 mb-4 text-[15px] font-semibold">コンテンツ</h3>
                     <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">1ページ =
                         画像1枚としてカウントされます。
                     </p>
@@ -35,12 +38,12 @@
                 class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
                 <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}"
                     class="flex items-center w-full cursor-pointer">
-                    @empty($book->thumbnail)
+                    @empty($e->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover">
                         <img src="/img/bg-dark.svg" alt="thumbnail"
                             class="hidden dark:block w-[160px] h-[80px] object-cover">
                     @else
-                        <img src="{{ $book->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover">
+                        <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover">
                     @endempty
 
                     {{-- タイトル --}}

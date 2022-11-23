@@ -44,16 +44,40 @@ class StoreController extends Controller
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
         $request->validate([
-            'images' => 'required|array|min:20|max:200',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
+        ]);
+
+        // サムネイル
+        if ($request->has('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $fileName = $file->getClientOriginalName();
+            $filePath = 'app/books/' . $book->title . '/' . $episode->number . '/thumbnail/' . $fileName;
+
+
+            $img =  \Image::make($file)->resize(
+                600,
+                null,
+                function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                }
+            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+
+            Storage::disk('s3')->put($filePath, $img);
+            $episode->thumbnail = Storage::disk('s3')->url($filePath);
+        }
+
+        $request->validate([
+            'images' => 'required|array|min:19|max:200',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
-        // 画像
+        // コンテンツ
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
 
                 $file = $image;
                 $fileName = $image->getClientOriginalName();
-                $filePath = '/app/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
+                $filePath = 'app/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
 
                 $img =  \Image::make($file)->resize(
                     3200,
