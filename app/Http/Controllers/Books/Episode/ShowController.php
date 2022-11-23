@@ -35,9 +35,7 @@ class ShowController extends Controller
             return Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
         });
 
-        $episodes_latest = \Cache::rememberForever("book.{$request->book_id}.latest", function () use ($book, $request) {
-            return Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->orderBy('created_at', 'desc')->get();
-        });
+        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
         $comments = \Cache::rememberForever("book.{$request->book_id}.comments", function () use ($book, $episode, $request) {
             return Comment::where(['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $request->episode_number])->withCount('likes')->orderBy('likes_count', 'desc')->get();
@@ -134,7 +132,7 @@ class ShowController extends Controller
             }
         }
 
-        // dump();
+        dd($episodes_latest);
 
         return view('books.episode.show', [
             'book' => $book,
