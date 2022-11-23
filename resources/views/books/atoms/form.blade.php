@@ -1,17 +1,17 @@
 @csrf
-<div class="lg:mb-4">
+<div class="mb-4">
     <label for="title" class="text-xs text-666 dark:text-ddd">タイトル</label>
     <input type="text" name="title" class="w-full p-3 border dark:border-none border-ccc rounded-[3px] dark:bg-dark-2"
         placeholder="30字以内で入力してください" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
-<div class="lg:mb-4">
+<div class="mb-4">
     <label for="thumbnail" class="text-xs text-666 dark:text-ddd">サムネイル</label>
     <div class="flex flex-col items-center">
         <input type="file" name="thumbnail" class="my-2 dark:text-gray">
     </div>
 </div>
 
-<div class="lg:mb-4">
+<div class="mb-4">
     <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
     <select name="genre_id" class="flex flex-col items-center">
         <option type="text" value="1"
@@ -28,7 +28,7 @@
     </select>
 </div>
 
-<div class="lg:mb-4">
+<div class="mb-4">
     <label for="tag" class="text-xs text-666 dark:text-ddd">タグ</label>
     <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
     </book-tags-input>
