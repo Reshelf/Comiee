@@ -5,7 +5,7 @@ const open = ref(false);
 </script>
 <template>
   <div class="" @click.self="open = false">
-    <div class="tooltip cursor-pointer" @click="open = true">
+    <div class="hidden lg:block tooltip cursor-pointer" @click="open = true">
       <svg
         class="w-[28px] h-[28px] stroke-[#606060] dark:stroke-ddd"
         width="28"
@@ -33,6 +33,29 @@ const open = ref(false);
         />
       </svg>
       <span class="tooltip-item right-[-40px]">新しく作品を追加する</span>
+    </div>
+    <div
+      class="block lg:hidden cursor-pointer bg-primary shadow-primary p-3 rounded-full"
+      @click="open = true"
+    >
+      <svg
+        class="flex-shrink-0 w-[25px] h-[25px] stroke-white"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M6 12H18"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12 18V6"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </div>
     <transition name="modal" appear>
       <div v-show="open" class="overlay" @click.self="open = false">

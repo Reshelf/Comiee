@@ -1,4 +1,20 @@
 <div class="mobile-menu">
+    @auth
+        <div class="absolute right-[20px] top-[-60px]">
+            <create-modal>
+                <template #header>新しく作品を追加する</template>
+
+                {{-- エラー文 --}}
+                @include('atoms._error_card_list')
+
+                <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+                    @include('books.atoms.form')
+                    <div class="w-full flex justify-end"><button type="submit" class="btn">投稿する</button></div>
+                </form>
+            </create-modal>
+        </div>
+    @endauth
+
     @guest
         <a href="{{ route('ranking') }}"
             class="{{ $tab === 1 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
