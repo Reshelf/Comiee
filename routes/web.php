@@ -115,7 +115,6 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // エピソード
-        Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
         Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')
             ->middleware('throttle:3, 1')
             ->name('episode.store');
@@ -129,6 +128,8 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::put('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
         Route::delete('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
     });
+
+    Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
     Route::get('/{book_id}', 'App\Http\Controllers\Books\ShowController')->name('show');
 });
 
