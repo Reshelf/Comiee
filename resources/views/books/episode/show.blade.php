@@ -2,11 +2,11 @@
 
 @section('title', $episode->number . '話' . ' - ' . $book->title)
 
-@isset($book->thumbnail)
+@isset($episode->thumbnail)
     @section('image')
-        <meta property="og:image" content="{{ $user->thumbnail }}">
-        <meta property="og:image:secure_url" content="{{ $user->thumbnail }}">
-        <meta name="twitter:image" content="{{ $user->thumbnail }}">
+        <meta property="og:image" content="{{ $episode->thumbnail }}">
+        <meta property="og:image:secure_url" content="{{ $episode->thumbnail }}">
+        <meta name="twitter:image" content="{{ $episode->thumbnail }}">
     @endsection
 @endisset
 
