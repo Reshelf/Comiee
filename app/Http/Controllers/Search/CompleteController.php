@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Search;
 
 use App\Models\Book;
-use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class CompleteController extends Controller
 {

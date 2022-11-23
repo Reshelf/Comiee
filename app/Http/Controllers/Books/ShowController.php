@@ -86,6 +86,13 @@ class ShowController extends Controller
         }
 
 
+        $message = range(
+            '投稿完了！続きも楽しみにしています！',
+            'また描いてくださいね！'
+        );
+        $success_message = shuffle($message);
+        dump($success_message);
+
         return view('books.show', [
             'book' => $book,
             'episodes_latest' => $episodes_latest,
