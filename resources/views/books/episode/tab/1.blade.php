@@ -68,18 +68,19 @@
                                             無料
                                         </span>
                                     @else
-                                        <span class="inline-block ml-2 text-xs bg-eee py-0.5 px-1.5 rounded-[3px]">
+                                        <span
+                                            class="inline-block ml-2 text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
                                             {{ $e->price }}pt
                                         </span>
                                     @endif
                                     @auth
                                         @if ($book->user->id !== Auth::user()->id)
                                             @if ($e->isReadBy(Auth::user()))
-                                                <span class="inline-block text-xs text-666 ml-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                                                     既読
                                                 </span>
                                             @else
-                                                <span class="inline-block text-xs text-666 ml-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                                                     未読
                                                 </span>
                                             @endif
