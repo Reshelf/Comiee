@@ -5,6 +5,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    count: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -30,7 +34,7 @@ export default {
         :class="{ active: isActive === 3 }"
         @click="isSelect(3)"
       >
-        コメント
+        コメント <span class="font-semibold">{{ count }}</span> 件
       </li>
     </ul>
     <div class="tabContents">
