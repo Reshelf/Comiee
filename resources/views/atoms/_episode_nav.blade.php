@@ -29,8 +29,9 @@
                                             <form method="POST" action="{{ route('book.store') }}"
                                                 enctype="multipart/form-data">
                                                 @include('books.atoms.form')
-                                                <div class="w-full flex justify-end"><button type="submit"
-                                                        class="btn">投稿する</button></div>
+                                                <div class="w-full flex justify-end">
+                                                    <button type="submit" class="btn-primary w-full py-4">投稿する</button>
+                                                </div>
                                             </form>
                                         </create-modal>
                                     </div>

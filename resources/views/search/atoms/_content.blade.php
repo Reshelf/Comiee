@@ -6,14 +6,13 @@
                     @empty($book->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden list-item-img">
                         <img src="/img/bg-dark.svg" alt="thumbnail" class="hidden dark:block list-item-img">
-
-                        {{-- ランキング15位まではラベルをつける --}}
-                        @if ($books->currentpage() === 1 && $loop->iteration <= 10)
-                            <span class="ranking-rabel">{{ $loop->iteration }}</span>
-                        @endif
                     @else
                         <img src="{{ $book->thumbnail }}" alt="thumbnail" class="list-item-img">
                     @endempty
+                    {{-- ランキング15位まではラベルをつける --}}
+                    @if ($books->currentpage() === 1 && $loop->iteration <= 10)
+                        <span class="ranking-rabel">{{ $loop->iteration }}</span>
+                    @endif
                     <span class="thumbnail-title">{{ $book->title }}</span>
                 </a>
 
