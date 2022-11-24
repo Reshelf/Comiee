@@ -216,15 +216,15 @@ export default {
       }
 
       // スクショブロック
-      // let bg = document.getElementById("bg").style;
-      // if (
-      //     e.metaKey ||
-      //     e.key == "RightCommand" ||
-      //     e.key == "LeftCommand" ||
-      //     e.key == "F12"
-      // ) {
-      //     bg.display = "flex";
-      // }
+      let bg = document.getElementById("bg").style;
+      if (
+        e.metaKey ||
+        e.key == "RightCommand" ||
+        e.key == "LeftCommand" ||
+        e.key == "F12"
+      ) {
+        bg.display = "flex";
+      }
     };
 
     // window.oncontextmenu = function () {
