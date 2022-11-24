@@ -296,7 +296,7 @@ export default {
   -webkit-overflow-scrolling: touch !important;
 }
 .images {
-  @apply bg-dark-1 min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
+  @apply bg-dark min-w-[100vw] max-w-[100vw] h-full flex justify-center flex-row-reverse duration-300;
 }
 .image {
   @apply max-w-[50vw] object-contain duration-300;
