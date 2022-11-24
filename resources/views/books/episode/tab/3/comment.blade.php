@@ -60,44 +60,51 @@
         </div>
     </div>
 
-    <div class="dropdown flex items-center">
-        <svg class="dropdown-trigger w-[20px] h-[20px] stroke-t-color" viewBox="0 0 24 24" fill="none">
-            <path d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10Z"
-                stroke-width="1.5" />
-            <path d="M19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10Z"
-                stroke-width="1.5" />
-            <path d="M12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
-                stroke-width="1.5" />
-        </svg>
-        <div class="dropdown-box">
+
+    <div class="dropdown">
+        <button class="dropbtn">
+            <svg class="w-[20px] h-[20px] stroke-t-color" viewBox="0 0 24 24" fill="none">
+                <path d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10Z"
+                    stroke-width="1.5" />
+                <path
+                    d="M19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10Z"
+                    stroke-width="1.5" />
+                <path
+                    d="M12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+                    stroke-width="1.5" />
+            </svg>
+        </button>
+        <div class="dropdown-content">
             @if ($comment->user->id == Auth::id())
                 <form method="POST"
                     action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
-                    class="hover:text-primary">
+                    class="m-2">
                     @csrf
                     @method('DELETE')
-                    <button type="submit">削除する</button>
+                    <button type="submit" class="flex w-full h-full py-2 px-4 hover:text-primary">削除する</button>
                 </form>
             @endif
-
             {{-- 通報 --}}
             @if ($comment->user->id != Auth::id())
-                <comment-post-modal>
-                    <template #trigger>
-                        <div class="text-[14px] w-full hover:text-primary">通報する</div>
-                    </template>
-                    <template #header>コメントに対して通報する</template>
-                    <form method="POST"
-                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
-                        class="flex flex-col">
-                        @csrf
-                        <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
-                            autofocus="on" type="text" name="body" maxlength="400" required></textarea>
-                        <button type="submit" class="btn w-full">送信する</button>
-                    </form>
-                </comment-post-modal>
+                <li>
+                    <comment-post-modal>
+                        <template #trigger>
+                            通報する
+                        </template>
+                        <template #header>コメントに対して通報する</template>
+                        <form method="POST"
+                            action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
+                            class="flex flex-col">
+                            @csrf
+                            <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                                autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                            <button type="submit" class="btn w-full">送信する</button>
+                        </form>
+                    </comment-post-modal>
+                </li>
             @endif
         </div>
     </div>
+
 </div>

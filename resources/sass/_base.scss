@@ -568,22 +568,6 @@ button[disabled] {
   @apply flex-shrink-0;
 }
 
-.dropdown {
-  @apply relative;
-  &-box {
-    @apply invisible absolute flex items-center top-0 right-0 p-4 bg-white rounded-[3px] shadow;
-    &:hover {
-      @apply flex visible whitespace-nowrap;
-    }
-  }
-  &-trigger {
-    @apply cursor-pointer;
-    &:hover + .dropdown-box {
-      @apply flex visible whitespace-nowrap dark:bg-dark-1;
-    }
-  }
-}
-
 .uploadOuter {
   @apply text-center mt-4;
 }
@@ -620,4 +604,20 @@ button[disabled] {
 
 .shadow-primary {
   box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
+}
+
+.dropbtn {
+  @apply p-2 rounded cursor-pointer;
+}
+.dropdown {
+  @apply relative inline-block;
+  &-content {
+    @apply hidden right-0 absolute shadow-lg z-[20] whitespace-nowrap cursor-pointer;
+  }
+  &:hover .dropdown-content {
+    @apply flex;
+  }
+  &:hover .dropbtn {
+    @apply bg-eee;
+  }
 }
