@@ -41,8 +41,8 @@
             <div class="w-full flex py-8">
 
                 {{-- メインコンテンツ --}}
-                <div class="hidden lg:block px-4 md:px-6 w-full lg:w-2/3">
-                    <book-tab :is-comment="true">
+                <div class="px-4 md:px-6 w-full lg:w-2/3">
+                    <book-tab :is-comment="true" :count='@json(count($comments) ?? 0)'>
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
                         @include('books.episode.tab.3')
