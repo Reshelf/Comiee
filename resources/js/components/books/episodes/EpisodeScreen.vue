@@ -60,7 +60,7 @@
 
     <!-- 2段目 -->
     <div class="hidden w-full bg-dark-1 px-4 py-2 lg:flex justify-between">
-      <div class="text-eee"></div>
+      <div class="text-eee">前のエピソード</div>
       <div class="flex text-ccc">
         <div
           v-if="!fullScreen"
@@ -132,7 +132,7 @@
           <span class="pl-2 text-xs">通常</span>
         </div>
       </div>
-      <div class="text-eee">SNSシェア</div>
+      <div class="text-eee">次のエピソード</div>
     </div>
 
     <!-- SP -->
