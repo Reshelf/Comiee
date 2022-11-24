@@ -86,23 +86,23 @@
             @endif
             {{-- 通報 --}}
             @if ($comment->user->id != Auth::id())
-                <li>
-                    <comment-post-modal>
-                        <template #trigger>
+                <comment-post-modal>
+                    <template #trigger>
+                        <div class="flex w-full h-full py-2 px-4 hover:text-primary">
                             通報する
-                        </template>
-                        <template #header>コメントに対して通報する</template>
-                        <form method="POST"
-                            action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
-                            class="flex flex-col">
-                            @csrf
-                            <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
-                                autofocus="on" type="text" name="body" maxlength="400" required></textarea>
-                            <button type="submit" class="btn w-full">送信する</button>
-                        </form>
-                    </comment-post-modal>
-                </li>
+                        </div>
+                    </template>
+                    <template #header>コメントに対して通報する</template>
+                    <form method="POST"
+                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
+                        class="flex flex-col">
+                        @csrf
+                        <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                            autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                        <button type="submit" class="btn w-full">送信する</button>
+                    </form>
+                </comment-post-modal>
             @endif
         </div>
     </div>

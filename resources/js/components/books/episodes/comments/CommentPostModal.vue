@@ -5,7 +5,7 @@ const open = ref(false);
 </script>
 <template>
   <div class="flex items-center" @click.self="open = false">
-    <button class="text-xs" @click="open = true">
+    <button class="m-2" @click="open = true">
       <slot name="btn-trigger"></slot>
       <slot name="trigger"></slot>
     </button>
