@@ -97,24 +97,24 @@
             <div class="relative flex items-center">
                 @if ($mypage)
                     <a href="{{ route('users.show', ['username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">投稿した作品</a>
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">投稿した作品</a>
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['username' => $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">設定</a>
                     @endif
                 @else
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['username' => $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">設定</a>
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">設定</a>
                     @endif
                     <a href="{{ route('users.show', ['username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2">投稿した作品</a>
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">投稿した作品</a>
                 @endif
 
             </div>
 
             {{-- SNSシェア --}}
-            <div class="mt-4">
+            <div class="lg:mt-4 flex items-center">
                 @include('atoms.sns', ['sns_title' => $user->name . 'のプロフィール'])
             </div>
         </div>
