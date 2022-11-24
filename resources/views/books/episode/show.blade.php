@@ -35,7 +35,9 @@
         <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
             {{-- 左サイドバー --}}
             <div class="hidden lg:block">
-                @include('books.atoms.leftSidebar')
+                @include('books.atoms.leftSidebar', [
+                    'sns_title' => $episode->number . '話' . ' - ' . $book->title,
+                ])
             </div>
 
             <div class="w-full flex py-8">

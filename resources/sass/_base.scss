@@ -612,7 +612,7 @@ button[disabled] {
 .dropdown {
   @apply relative inline-block;
   &-content {
-    @apply hidden right-0 absolute shadow-lg z-[20] whitespace-nowrap cursor-pointer;
+    @apply hidden right-0 absolute shadow-lg z-[20] whitespace-nowrap cursor-pointer bg-white;
   }
   &:hover .dropdown-content {
     @apply flex;

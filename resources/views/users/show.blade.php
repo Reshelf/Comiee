@@ -9,7 +9,6 @@
         <meta name="twitter:image" content="{{ $user->avatar }}">
     @endsection
 @endisset
-
 @isset($user->body)
     @section('description')
         <meta name="description" itemprop="description" content="{{ $user->body }}">

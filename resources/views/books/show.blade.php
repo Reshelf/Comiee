@@ -24,7 +24,7 @@
     <div class="w-full h-full bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
             {{-- 左サイドバー --}}
-            @include('books.atoms.leftSidebar')
+            @include('books.atoms.leftSidebar', ['sns_title' => $book->title])
 
             <div class="w-full flex flex-col md:flex-row py-8">
                 {{-- メインコンテンツ --}}

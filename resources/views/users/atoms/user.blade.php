@@ -112,11 +112,10 @@
                 @endif
 
             </div>
-            <div class="lg:w-[200px]">
-                {{-- SNSシェア --}}
-                <div class="mt-4">
-                    @include('atoms.sns')
-                </div>
+
+            {{-- SNSシェア --}}
+            <div class="mt-4">
+                @include('atoms.sns', ['sns_title' => $user->name . 'のプロフィール'])
             </div>
         </div>
     </div>

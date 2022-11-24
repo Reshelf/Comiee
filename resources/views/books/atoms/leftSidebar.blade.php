@@ -44,7 +44,7 @@
     @endif
 
     {{-- SNSシェア --}}
-    <div class="mt-4 mx-2">
-        @include('atoms.sns')
+    <div class="mt-4 mx-2 flex justify-end">
+        @include('atoms.sns', ['sns_title' => $sns_title])
     </div>
 </div>
