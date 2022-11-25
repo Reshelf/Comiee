@@ -41,9 +41,10 @@ class UpdateController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
+
         // 非公開設定
         $episode->is_hidden = true;
-        if ($request->is_hidden === null) $book->is_hidden = false;
+        if ($request->is_hidden === null) $episode->is_hidden = false;
 
 
         // サムネイル
