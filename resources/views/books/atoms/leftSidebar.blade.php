@@ -32,6 +32,13 @@
             完結</a>
     @endif
 
+    {{-- 非公開作品 --}}
+    @if ($book->is_hidden)
+        <span
+            class="inline-block text-tahiti dark:bg-tahiti dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
+            非公開</span>
+    @endif
+
     @if (Auth::id() !== $book->user_id)
         {{-- 読者だったら --}}
         <div class="w-full flex flex-col mt-4 px-2">
