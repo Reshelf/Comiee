@@ -5,10 +5,7 @@ const open = ref(false);
 </script>
 <template>
   <div @click.self="open = false">
-    <button
-      class="w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1"
-      @click="open = true"
-    >
+    <button class="w-full" @click="open = true">
       <slot name="trigger"></slot>
     </button>
     <transition name="modal" appear>

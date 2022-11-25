@@ -7,35 +7,24 @@
 
         @if (Auth::id() === $book->user_id)
             <episode-list>
-                <template #trigger>エピソードを追加する</template>
+                <template #trigger>
+                    <div
+                        class="w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
+                        エピソードを追加する
+                    </div>
+                </template>
                 <template #header>エピソードを追加する</template>
                 <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
                     enctype="multipart/form-data">
                     @csrf
-                    <h3 class="mb-4 text-[15px] font-semibold">サムネイル</h3>
-                    <input type="file" name="thumbnail" required>
-
-                    <h3 class="mt-8 mb-4 text-[15px] font-semibold">コンテンツ</h3>
-                    <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">1ページ =
-                        画像1枚としてカウントされます。
-                    </p>
-                    <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-                        1エピソードにつき20枚〜200枚の画像登録ができます。</p>
-                    <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">投稿できる画像形式はpng,
-                        jpg(jpeg),
-                        gif, webpです。
-                    </p>
-                    <p class="mb-8 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">表示される画像の対比は 2 : 3
-                        となるようにお願いいたします。<br> 横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。
-                    </p>
-                    <input type="file" name="images[]" multiple="multiple" required>
-                    <button type="submit" class="btn w-full mt-8">投稿する</button>
+                    @include('books.episode.tab.1.episode_form')
+                    <button type="submit" class="btn w-full mt-8">追加する</button>
                 </form>
             </episode-list>
         @endif
         @foreach ($episodes_latest as $e)
             <div
-                class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex items-center justify-between w-full overflow-hidden rounded-[3px]">
+                class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[3px]">
                 <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}"
                     class="flex items-center w-full cursor-pointer">
                     @empty($e->thumbnail)
@@ -96,21 +85,35 @@
                 </a>
 
                 {{-- 作者欄 --}}
-                <div class="flex items-center pr-4">
-                    @if (Auth::id() === $book->user_id)
-                        <div class="flex items-center">
-                            <delete-modal>
-                                <form method="POST"
-                                    action="{{ route('book.episode.destroy', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
-                                    class="p-2 rounded">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn-danger">削除する</button>
-                                </form>
-                            </delete-modal>
-                        </div>
-                    @endif
-                </div>
+                @if (Auth::id() === $book->user_id)
+                    <episode-list>
+                        <template #trigger>
+                            <div class="mr-2 p-2 rounded hover:bg-eee dark:hover:bg-dark-1">
+                                <svg class="w-[20px] h-[20px] stroke-666 dark:stroke-ddd" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <path
+                                        d="M13.2601 3.59997L5.0501 12.29C4.7401 12.62 4.4401 13.27 4.3801 13.72L4.0101 16.96C3.8801 18.13 4.7201 18.93 5.8801 18.73L9.1001 18.18C9.5501 18.1 10.1801 17.77 10.4901 17.43L18.7001 8.73997C20.1201 7.23997 20.7601 5.52997 18.5501 3.43997C16.3501 1.36997 14.6801 2.09997 13.2601 3.59997Z"
+                                        stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M11.8899 5.05005C12.3199 7.81005 14.5599 9.92005 17.3399 10.2"
+                                        stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M3 22H21" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </template>
+                        <template #header>エピソードを更新する</template>
+                        <form method="POST"
+                            action="{{ route('book.episode.update', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
+                            enctype="multipart/form-data" class="whitespace-pre-line">
+                            @csrf
+                            @method('PATCH')
+                            @include('books.episode.tab.1.episode_form')
+                            <button type="submit" class="btn w-full mt-8">更新する</button>
+                        </form>
+                    </episode-list>
+                @endif
             </div>
         @endforeach
     </div>

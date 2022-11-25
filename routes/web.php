@@ -118,8 +118,7 @@ Route::prefix('books')->name('book.')->group(function () {
         Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')
             ->middleware('throttle:3, 1')
             ->name('episode.store');
-        Route::patch('/{book_id}/{episode_id}/edit', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
-        Route::delete('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\DestroyController')->name('episode.destroy');
+        Route::patch('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
         // コメント
         Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')
             ->middleware('throttle:3, 1')

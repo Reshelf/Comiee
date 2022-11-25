@@ -22,7 +22,7 @@ class UpdateController extends Controller
     */
     public function __invoke(BookRequest $request)
     {
-        $book = Book::where('id', $request->book_id)->first();
+        $book = Book::find($request->book_id);
 
         // ポリシー
         $this->authorize('update', $book);

@@ -11,8 +11,7 @@
                         @include('atoms._error_card_list')
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/code') }}">
-                            {{ csrf_field() }}
-
+                            @csrf
                             <div class="form-group">
                                 <label for="code" class="col-md-4 control-label">Four digits code</label>
 
