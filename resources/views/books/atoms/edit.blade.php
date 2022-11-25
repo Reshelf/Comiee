@@ -2,7 +2,7 @@
 <div class="mt-6 px-2 w-full">
     <book-edit-modal>
         <template #trigger>作品内容を更新する</template>
-        <template #header>作品内容の更新する</template>
+        <template #header>作品内容を更新する</template>
 
         {{-- エラー文 --}}
         @include('atoms._error_card_list')
