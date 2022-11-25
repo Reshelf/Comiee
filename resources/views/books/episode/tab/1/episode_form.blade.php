@@ -45,11 +45,7 @@
 {{-- ご注意点 --}}
 <h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">ご注意点</h3>
 <p class="mb-2 bg-yellow bg-opacity-10 text-yellow px-4 py-2 font-semibold">
-    追加したエピソードは後から削除することができません。<br>
+    投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。
 </p>
 <p class="mb-2 bg-yellow bg-opacity-10 text-yellow px-4 py-2 font-semibold">
-    もし更新したい場合はエピソード追加後に「編集する」ボタンから、新しい画像をアップロードし更新してください。
-</p>
-<p class="mb-2 bg-yellow bg-opacity-10 text-yellow px-4 py-2 font-semibold">
-    もし削除したい場合はエピソード追加後に「編集する」ボタンから「非公開」を選択し更新してください。
-</p>
+    投稿したエピソードを後から削除することはできません。ただし、鉛筆マークの編集ボタンから「非公開」にできます。</p>
