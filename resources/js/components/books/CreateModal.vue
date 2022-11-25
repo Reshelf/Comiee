@@ -32,7 +32,7 @@ const open = ref(false);
           stroke-linejoin="round"
         />
       </svg>
-      <span class="tooltip-item right-[-40px]">新しく作品を追加する</span>
+      <span class="tooltip-item right-[-40px]">新しく作品を投稿する</span>
     </div>
     <div
       class="block lg:hidden cursor-pointer bg-primary shadow-primary p-4 rounded-full"
@@ -68,7 +68,7 @@ const open = ref(false);
                 ></path>
               </svg>
             </button>
-            <div class="title"><slot name="header"></slot></div>
+            <div class="title">新しく作品を投稿する</div>
           </div>
           <div class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll scroll-none">
             <slot></slot>

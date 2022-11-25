@@ -15,8 +15,6 @@
                             @auth
                                 <div class="flex items-center h-full mr-8">
                                     <create-modal>
-                                        <template #header>新しく作品を追加する</template>
-
                                         {{-- エラー文 --}}
                                         @include('atoms._error_card_list')
 

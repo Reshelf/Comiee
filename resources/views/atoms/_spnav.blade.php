@@ -2,8 +2,6 @@
     @auth
         <div class="absolute right-[20px] top-[-65px]">
             <create-modal>
-                <template #header>新しく作品を追加する</template>
-
                 {{-- エラー文 --}}
                 @include('atoms._error_card_list')
 
