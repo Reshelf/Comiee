@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('genre_id')->default(false)->comment('ジャンル');
             $table->boolean('is_complete')->default(false)->comment('完結作品フラグ');
             $table->boolean('is_new')->default(false)->comment('今日の新作フラグ');
+            $table->boolean('is_hidden')->default(false)->comment('公開フラグ');
 
             $table->string('title')->unique()->comment('作品名');
             $table->string('lang')->default('jp')->comment('作品の言語');

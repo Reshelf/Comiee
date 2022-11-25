@@ -44,6 +44,10 @@ class UpdateController extends Controller
         $book->is_complete = true;
         if ($request->is_complete === null) $book->is_complete = false;
 
+        // 非公開設定
+        $book->is_hidden = true;
+        if ($request->is_hidden === null) $book->is_hidden = false;
+
 
         // サムネイル
         if ($request->has('thumbnail')) {

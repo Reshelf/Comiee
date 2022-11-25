@@ -40,6 +40,7 @@
 </div>
 
 @if ($update)
+    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">完結作品の設定</h3>
     <div class="checkbox mb-8">
         <label class="light-checkbox">
             <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
@@ -51,6 +52,22 @@
                 </svg>
             </span>
             <span class="light-checkbox-LabelText">作品を完結にする</span>
+        </label>
+    </div>
+
+    {{-- 非公開設定 --}}
+    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">非公開設定</h3>
+    <div class="checkbox mb-8">
+        <label class="light-checkbox">
+            <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
+                class="light-checkbox-Input">
+            <span class="light-checkbox-DummyInput">
+                <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                    <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </span>
+            <span class="light-checkbox-LabelText">作品を非公開にする</span>
         </label>
     </div>
 @endif
