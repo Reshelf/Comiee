@@ -43,10 +43,16 @@ app:
 	./vendor/bin/sail bash
 migrate:
 	./vendor/bin/sail artisan migrate
-rollback:
+h-migrate:
+	php artisan migrate
+roll:
 	./vendor/bin/sail artisan migrate:rollback
+h-roll:
+	php artisan migrate:rollback
 fresh:
 	./vendor/bin/sail artisan migrate:fresh
+h-fresh:
+	php artisan migrate:fresh
 seed:
 	./vendor/bin/sail artisan db:seed --class UserSeeder
 	./vendor/bin/sail artisan db:seed --class BookSeeder
@@ -113,11 +119,11 @@ sche-work:
 	./vendor/bin/sail artisan schedule:work
 prod:
 	git push heroku master
-heroku-bash:
+h-bash:
 	heroku run bash
-heroku-fresh:
+h-fresh:
 	heroku run php artisan migrate:fresh
-heroku-git-stg:
+h-stg:
 	heroku git:remote --app starbooks15-stg
-heroku-git-pro:
+h-pro:
 	heroku git:remote --app starbooks15
