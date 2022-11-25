@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('contents')->charset(null)->nullable()->comment('マンガのコンテンツ');
             $table->string('thumbnail')->nullable()->comment('エピソードサムネイル');
 
+            $table->boolean('is_hidden')->default(false)->comment('公開フラグ');
             $table->boolean('is_free')->default(false)->comment('無料フラグ');
             $table->integer('price')->default(50)->comment('値段');
             $table->integer('views')->default(0)->comment('閲覧数');
