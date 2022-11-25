@@ -74,7 +74,7 @@
                                         {{-- 非公開 --}}
                                         @if ($e->is_hidden)
                                             <span
-                                                class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[3px]">
+                                                class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[3px] whitespace-nowrap">
                                                 非公開
                                             </span>
                                         @endif
