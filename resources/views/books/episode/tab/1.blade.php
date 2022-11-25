@@ -36,20 +36,21 @@
                     @endempty
 
                     {{-- タイトル --}}
-                    <div class="w-full flex flex-col px-4">
+                    <div class="w-full flex flex-col pl-4">
                         {{-- 日付 --}}
                         <div class="text-666 text-xs">
                             {{ $e->created_at->format('Y/m/d') }}
                         </div>
 
 
-                        <div class="w-full flex justify-between items-center">
+                        <div class="w-full flex justify-between items-end">
                             {{-- 話数 --}}
                             {{-- 既読 --}}
                             <div class="flex flex-col">
-                                <span class="">第{{ $e->number }}話</span>
+                                <div>第{{ $e->number }}話</div>
 
                                 <div class="flex items-center mt-1">
+
                                     {{-- 値段 --}}
                                     @if (!$e->is_hidden)
                                         @if ($e->is_free)
@@ -59,40 +60,43 @@
                                             </span>
                                         @else
                                             <span
-                                                class="inline-block mr-2 text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
+                                                class="inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
                                                 {{ $e->price }}pt
                                             </span>
                                         @endif
                                     @endif
 
+                                    {{-- 非公開 --}}
+                                    @if ($e->is_hidden)
+                                        <span
+                                            class="text-xs bg-tahiti dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
+                                            非公開
+                                        </span>
+                                    @endif
+
+
+                                    {{-- 閲覧回数 --}}
+                                    <div class="ml-2 text-666 dark:text-ddd">
+                                        {{ $e->views }} <span class="text-xs">回</span>
+                                    </div>
+
                                     {{-- 既読 --}}
                                     @auth
                                         @if ($book->user->id !== Auth::user()->id)
                                             @if ($e->isReadBy(Auth::user()))
-                                                <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                                                     既読
                                                 </span>
                                             @else
-                                                <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                                                     未読
                                                 </span>
                                             @endif
                                         @endif
                                     @endauth
-
-                                    {{-- 非公開 --}}
-                                    @if ($e->is_hidden)
-                                        <span
-                                            class="mr-2 text-xs bg-tahiti dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
-                                            非公開
-                                        </span>
-                                    @endif
                                 </div>
                             </div>
-
                         </div>
-
-                        <div class="flex mt-1"></div>
                     </div>
                 </a>
 

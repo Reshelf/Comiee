@@ -43,16 +43,10 @@ app:
 	./vendor/bin/sail bash
 migrate:
 	./vendor/bin/sail artisan migrate
-h-migrate:
-	php artisan migrate
 roll:
 	./vendor/bin/sail artisan migrate:rollback
-h-roll:
-	php artisan migrate:rollback
 fresh:
 	./vendor/bin/sail artisan migrate:fresh
-h-fresh:
-	php artisan migrate:fresh
 seed:
 	./vendor/bin/sail artisan db:seed --class UserSeeder
 	./vendor/bin/sail artisan db:seed --class BookSeeder
