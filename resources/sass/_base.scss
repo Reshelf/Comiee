@@ -22,7 +22,7 @@ body {
   font-size: 14px;
 }
 
-input[type="text"],
+input[type="text"] input[type="password"],
 textarea {
   @apply outline-none;
   appearance: none;
@@ -399,7 +399,6 @@ button[disabled] {
     cursor: pointer;
     border: 1px solid var(--bc, var(--border));
     background: var(--b, var(--background));
-    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
     &:after {
       content: "";
       display: block;
@@ -430,9 +429,6 @@ button[disabled] {
     }
     &:hover:not(:checked):not(:disabled) {
       --bc: var(--border-hover);
-    }
-    &:focus {
-      box-shadow: 0 0 0 var(--focus);
     }
     input[type="checkbox"]:not(.switch) {
       width: 21px;
@@ -515,7 +511,6 @@ button[disabled] {
 
   label::after {
     @apply bg-primary rounded-full opacity-0 w-[18px] h-[18px] left-[5px];
-    box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
   }
 
   input:checked + label::after {
@@ -557,7 +552,6 @@ button[disabled] {
 }
 .light-checkbox-Input:checked + .light-checkbox-DummyInput {
   @apply bg-primary border-none duration-200;
-  box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
   transform: rotate(0deg);
   svg {
     @apply opacity-100;
