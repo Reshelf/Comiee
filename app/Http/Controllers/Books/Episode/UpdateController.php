@@ -36,10 +36,15 @@ class UpdateController extends Controller
         |--------------------------------------------------------------------------
         */
         $request->validate([
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
-            'images' => 'required|array|min:19|max:200',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp',
+            'images' => 'array|min:19|max:200',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
+
+        // 非公開設定
+        $episode->is_hidden = true;
+        if ($request->is_hidden === null) $book->is_hidden = false;
+
 
         // サムネイル
         if ($request->has('thumbnail')) {

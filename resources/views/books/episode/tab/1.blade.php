@@ -17,16 +17,16 @@
                 <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
                     enctype="multipart/form-data">
                     @csrf
-                    @include('books.episode.tab.1.episode_form')
-                    <button type="submit" class="btn w-full mt-8">追加する</button>
+                    @include('books.episode.tab.1.episode_form', ['update' => false])
+                    <button type="submit" class="btn-primary py-4 w-full mt-4">追加する</button>
                 </form>
             </episode-list>
         @endif
         @foreach ($episodes_latest as $e)
             <div
-                class="hover:bg-f5 dark:hover:bg-dark-1 my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[3px]">
-                <a href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}"
-                    class="flex items-center w-full cursor-pointer">
+                class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[3px] dark:hover:bg-dark-1 hover:bg-f5">
+                <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
+                    class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
                     @empty($e->thumbnail)
                         <img src="/img/bg.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover">
                         <img src="/img/bg-dark.svg" alt="thumbnail"
@@ -51,30 +51,42 @@
 
                                 <div class="flex items-center mt-1">
                                     {{-- 値段 --}}
-                                    @if ($e->is_free)
-                                        <span
-                                            class="text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
-                                            無料
-                                        </span>
-                                    @else
-                                        <span
-                                            class="inline-block ml-2 text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
-                                            {{ $e->price }}pt
-                                        </span>
+                                    @if (!$e->is_hidden)
+                                        @if ($e->is_free)
+                                            <span
+                                                class="text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
+                                                無料
+                                            </span>
+                                        @else
+                                            <span
+                                                class="inline-block mr-2 text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
+                                                {{ $e->price }}pt
+                                            </span>
+                                        @endif
                                     @endif
+
+                                    {{-- 既読 --}}
                                     @auth
                                         @if ($book->user->id !== Auth::user()->id)
                                             @if ($e->isReadBy(Auth::user()))
-                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                                                     既読
                                                 </span>
                                             @else
-                                                <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                                                <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                                                     未読
                                                 </span>
                                             @endif
                                         @endif
                                     @endauth
+
+                                    {{-- 非公開 --}}
+                                    @if ($e->is_hidden)
+                                        <span
+                                            class="mr-2 text-xs bg-tahiti dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
+                                            非公開
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -109,8 +121,8 @@
                             enctype="multipart/form-data" class="whitespace-pre-line">
                             @csrf
                             @method('PATCH')
-                            @include('books.episode.tab.1.episode_form')
-                            <button type="submit" class="btn w-full mt-8">更新する</button>
+                            @include('books.episode.tab.1.episode_form', ['update' => true])
+                            <button type="submit" class="btn-primary py-4 w-full mt-4">更新する</button>
                         </form>
                     </episode-list>
                 @endif
