@@ -607,12 +607,12 @@ button[disabled] {
 .dropdown {
   @apply relative inline-block;
   &-content {
-    @apply hidden right-0 absolute shadow-lg z-[20] whitespace-nowrap cursor-pointer bg-white;
+    @apply hidden right-0 absolute shadow-lg z-[20] whitespace-nowrap cursor-pointer bg-white dark:bg-dark-1 dark:text-ddd;
   }
   &:hover .dropdown-content {
     @apply flex;
   }
   &:hover .dropbtn {
-    @apply bg-eee;
+    @apply bg-eee dark:bg-dark-1;
   }
 }
