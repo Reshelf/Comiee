@@ -18,7 +18,7 @@ class AdultController extends Controller
     {
         // 検索結果を１度に返すクエリを宣言
         $genre_id = 5;
-        $pickup = ['genre_id' => $genre_id];
+        $pickup = ['genre_id' => $genre_id, 'is_hidden' => false];
         $query = Book::where($pickup);
 
         $sort = $request->input('sort');

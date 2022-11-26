@@ -22,7 +22,7 @@ class IndexController extends Controller
         if (Auth::user()) {
             // 今日の新作
             // 検索結果を１度に返すクエリを宣言
-            $pickup = ['is_new' => true];
+            $pickup = ['is_new' => true, 'is_hidden' => false];
             $query = Book::where($pickup);
 
             //$request->input()で検索時に入力した項目を取得

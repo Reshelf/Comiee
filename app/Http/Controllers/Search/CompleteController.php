@@ -15,8 +15,9 @@ class CompleteController extends Controller
     */
     public function __invoke()
     {
-        $books = \Cache::remember("books.is_complete", Carbon::now()->endOfDay()->addSecond(), function () {
-            return Book::where('is_complete', true)->latest()->paginate(50);
+        $pickup = ['is_complete' => true, 'is_hidden' => false];
+        $books = \Cache::remember("books.is_complete", Carbon::now()->endOfDay()->addSecond(), function () use ($pickup) {
+            return Book::where($pickup)->latest()->paginate(50);
         });
 
         return view('search.complete', compact('books'));

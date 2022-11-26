@@ -45,7 +45,7 @@ class SearchController extends Controller
         }
 
 
-        $books = $query->paginate(100);
+        $books = $query->where(['is_hidden' => false])->paginate(15);
         return view('search.ranking.index', [
             'books' => $books,
         ]);
