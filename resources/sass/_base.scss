@@ -613,6 +613,6 @@ button[disabled] {
     @apply flex;
   }
   &:hover .dropbtn {
-    @apply bg-eee dark:bg-dark-1;
+    @apply bg-eee dark:bg-transparent;
   }
 }
