@@ -18,7 +18,7 @@
 
                                         @empty($mailData['book']->thumbnail)
                                             <img style="width:200px;height:200px;object-fit:cover;"
-                                                src="{{ asset('/img/bg.svg') }}" alt="">
+                                                src="{{ asset('/img/noimage.svg') }}" alt="">
                                         @else
                                             <img style="width:200px;height:200px;object-fit:cover;"
                                                 src="{{ $mailData['book']->thumbnail }}" alt="">

@@ -7,7 +7,7 @@
 <div class="mb-4">
     <label for="thumbnail" class="text-xs text-666 dark:text-ddd">サムネイル</label>
     <div class="flex flex-col items-center">
-        <input type="file" name="thumbnail" class="my-2 dark:text-gray">
+        <input type="file" name="thumbnail" class="my-2 dark:text-gray" required>
     </div>
 </div>
 

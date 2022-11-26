@@ -32,7 +32,7 @@
                     <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
                         class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
                         @empty($e->thumbnail)
-                            <img src="/img/bg.svg" alt="thumbnail"
+                            <img src="/img/noimage.svg" alt="thumbnail"
                                 class="block dark:hidden w-[160px] h-[80px] object-cover">
                             <img src="/img/bg-dark.svg" alt="thumbnail"
                                 class="hidden dark:block w-[160px] h-[80px] object-cover">
