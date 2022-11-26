@@ -19,6 +19,14 @@
 
 {{-- サムネイル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">サムネイル</h3>
+<p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+    投稿できる画像形式はpng,
+    jpg(jpeg),
+    gif, webpです。
+</p>
+<p class="mb-8 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+    横幅320px, 縦幅160pxの画像サイズが最も綺麗に表示されます。
+</p>
 <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" @if (!$update) required @endif>
 
 
