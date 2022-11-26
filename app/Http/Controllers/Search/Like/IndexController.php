@@ -35,7 +35,7 @@ class IndexController extends Controller
 
         if ($feature != null) {
             if ($feature === '完結作品のみ') {
-                $query->where(['is_complete' => 1, 'is_hidden' => false])->latest();
+                $query->where(['is_complete' => 1])->latest();
             }
         }
 
