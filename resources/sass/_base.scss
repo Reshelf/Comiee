@@ -33,6 +33,10 @@ textarea {
   }
 }
 
+select {
+  @apply outline-none;
+}
+
 h1 {
   font-family: "Josefin Sans", sans-serif;
   // font-family: "Lobster", cursive;

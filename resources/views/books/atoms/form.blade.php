@@ -33,22 +33,24 @@
     </div>
 @endif
 
-<div class="mb-4">
-    <label for="title" class="text-xs text-666 dark:text-ddd">タイトル</label>
+{{-- タイトル --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">タイトル</h3>
+<div class="mb-8">
     <input type="text" name="title"
         class="w-full p-3 border dark:border-none border-ccc rounded-[3px] dark:bg-dark-2" placeholder="30字以内で入力してください"
         required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
-<div class="mb-4">
-    <label for="thumbnail" class="text-xs text-666 dark:text-ddd">サムネイル</label>
-    <div class="flex flex-col items-center">
-        <input type="file" name="thumbnail" class="my-2 dark:text-gray"
-            @if (!$update) required @endif>
-    </div>
+
+{{-- サムネイル --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">サムネイル</h3>
+<div class="mb-8">
+    <input type="file" name="thumbnail" class="my-2 dark:text-gray"
+        @if (!$update) required @endif>
 </div>
 
-<div class="mb-4">
-    <label for="genre_id" class="text-xs text-666 dark:text-ddd">ジャンル</label>
+{{-- ジャンル --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">ジャンル</h3>
+<div class="mb-8">
     <select name="genre_id" class="flex flex-col items-center">
         <option type="text" value="1"
             @isset($book->genre_id) @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>少年</option>
@@ -64,13 +66,15 @@
     </select>
 </div>
 
-<div class="mb-4">
-    <label for="tag" class="text-xs text-666 dark:text-ddd">タグ</label>
+{{-- タグ --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">タグ</h3>
+<div class="mb-8">
     <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
     </book-tags-input>
 </div>
-<div class="flex flex-col mb-4">
-    <label for="story" class="text-xs text-666 dark:text-ddd">あらすじ</label>
-    <textarea required name="story" class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px]"
-        placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
-</div>
+
+{{-- あらすじ --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">あらすじ</h3>
+<textarea required name="story"
+    class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px] mb-8 w-full"
+    placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
