@@ -3,12 +3,28 @@
 {{-- カバー画像 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">カバー画像</h3>
 <div class="mb-8">
+    <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        投稿できる画像形式はpng,
+        jpg(jpeg),
+        gif, webpです。
+    </p>
+    <p class="mb-4 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        横幅1152px, 縦幅300pxの画像サイズが最も綺麗に表示されます。
+    </p>
     <input type="file" name="thumbnail" />
 </div>
 
 {{-- プロフィール画像 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">プロフィール画像</h3>
 <div class="mb-8">
+    <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        投稿できる画像形式はpng,
+        jpg(jpeg),
+        gif, webpです。
+    </p>
+    <p class="mb-4 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        横幅200px, 縦幅200pxの画像サイズが最も綺麗に表示されます。
+    </p>
     <input type="file" name="avatar" />
 </div>
 
