@@ -1,7 +1,7 @@
 <div class="p-4">
     @empty($book->thumbnail)
         <img src="{{ asset('/img/noimage.svg') }}" alt="" class="block dark:hidden w-[250px] h-[250px] object-cover">
-        <img src="{{ asset('/img/noimage.svg') }}" alt="thumbnail"
+        <img src="{{ asset('/img/noimage-dark.svg') }}" alt="thumbnail"
             class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover">
     @else
         <a href="{{ route('book.show', ['book_id' => $book->id]) }}">

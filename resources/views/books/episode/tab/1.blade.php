@@ -34,7 +34,7 @@
                         @empty($e->thumbnail)
                             <img src="/img/noimage.svg" alt="thumbnail"
                                 class="block dark:hidden w-[160px] h-[80px] object-cover">
-                            <img src="/img/bg-dark.svg" alt="thumbnail"
+                            <img src="/img/noimage-dark.svg" alt="thumbnail"
                                 class="hidden dark:block w-[160px] h-[80px] object-cover">
                         @else
                             <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover">
