@@ -39,7 +39,7 @@
             非公開</span>
     @endif
 
-    @if (Auth::id() !== $book->user_id)
+    @if (Auth::id() !== $book->user_id && $book->is_hidden)
         {{-- 読者だったら --}}
         <div class="w-full flex flex-col mt-4 px-2">
             <button class="btn-border py-3 mb-2">1話を読む</button>
