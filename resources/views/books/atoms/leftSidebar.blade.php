@@ -39,19 +39,24 @@
             非公開</span>
     @endif
 
-    @if (Auth::id() !== $book->user_id && $book->is_hidden)
-        {{-- 読者だったら --}}
+    {{-- 購入 --}}
+    @if (Auth::id() !== $book->user_id && !$book->is_hidden)
         <div class="w-full flex flex-col mt-4 px-2">
             <button class="btn-border py-3 mb-2">1話を読む</button>
             <button class="btn-primary py-3">全話をまとめて購入</button>
         </div>
-    @else
-        {{-- 作品内容の更新 --}}
+    @endif
+
+    {{-- 作品内容の更新 --}}
+    @if (Auth::id() === $book->user_id)
         @include('books.atoms.edit')
     @endif
 
+
     {{-- SNSシェア --}}
-    <div class="mt-4 mx-2 flex justify-end">
-        @include('atoms.sns', ['sns_title' => $sns_title])
-    </div>
+    @if (!$book->is_hidden)
+        <div class="mt-4 mx-2 flex justify-end">
+            @include('atoms.sns', ['sns_title' => $sns_title])
+        </div>
+    @endif
 </div>
