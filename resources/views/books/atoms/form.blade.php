@@ -36,9 +36,8 @@
 {{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">タイトル</h3>
 <div class="mb-8">
-    <input type="text" name="title"
-        class="w-full p-3 border dark:border-none border-ccc rounded-[3px] dark:bg-dark-2" placeholder="30字以内で入力してください"
-        required value="{{ $book->title ?? old('title') }}" maxlength="30">
+    <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark rounded"
+        placeholder="30字以内で入力してください" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
 {{-- サムネイル --}}
