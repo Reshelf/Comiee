@@ -62,7 +62,7 @@
 
                 <div class="flex justify-center md:justify-start items-center text-sm pt-4 md:pt-2">
                     <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
-                        <span class="font-semibold text-lg">{{ $user->count_followings }}</span>
+                        <span class="font-semibold text-lg">{{ number_format($user->count_followings) }}</span>
                         <span class="text-t-color-3 pl-1">フォロー</span>
                     </a>
                     {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
@@ -71,7 +71,7 @@
           </follow-modal> --}}
                     {{-- フォロワー --}}
                     <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
-                        <span class="font-semibold text-lg">{{ $user->count_followers }}</span>
+                        <span class="font-semibold text-lg">{{ number_format($user->count_followers) }}</span>
                         <span class="text-t-color-3 pl-1">フォロワー</span>
                     </a>
                     @if (Auth::id() !== $user->id)

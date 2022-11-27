@@ -82,7 +82,7 @@
 
                                         {{-- 閲覧回数 --}}
                                         <div class="ml-2 text-666 dark:text-ddd">
-                                            {{ $e->views }} <span class="text-xs">回</span>
+                                            {{ number_format($e->views) }} <span class="text-xs">回</span>
                                         </div>
 
                                         {{-- 既読 --}}
