@@ -20,6 +20,6 @@ class ContactController extends Controller
         $email = 'info@starbooks.one';
 
         Mail::to($email)->send(new ContactMail($request->user(), $request->body));
-        return back();
+        return back()->withSuccess('運営にお問合わせをしました！メールをお待ちください！');
     }
 }

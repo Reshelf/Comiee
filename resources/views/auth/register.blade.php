@@ -14,6 +14,8 @@
 
             {{-- エラー文 --}}
             @include('atoms._error_card_list')
+            @include('atoms.success')
+
 
             <div class="w-full mb-3">
                 <input

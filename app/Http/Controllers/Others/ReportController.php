@@ -27,6 +27,6 @@ class ReportController extends Controller
         ];
 
         Mail::to($email)->send(new ReportMail($reports));
-        return back();
+        return back()->withSuccess('運営にコメントを通報をしました！');
     }
 }

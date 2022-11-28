@@ -9,6 +9,8 @@
                     <div class="panel-body">
                         {{-- エラー文 --}}
                         @include('atoms._error_card_list')
+                        @include('atoms.success')
+
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/code') }}">
                             @csrf

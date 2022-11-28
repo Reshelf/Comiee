@@ -13,6 +13,8 @@
 
             {{-- エラー文 --}}
             @include('atoms._error_card_list')
+            @include('atoms.success')
+
 
             {{-- ないとエラーになる --}}
             <input type="hidden" name="email" value="{{ $email }}">

@@ -4,6 +4,8 @@
             <create-modal>
                 {{-- エラー文 --}}
                 @include('atoms._error_card_list')
+                @include('atoms.success')
+
 
                 <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
                     @include('books.atoms.form', ['update' => false])

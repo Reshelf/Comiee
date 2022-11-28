@@ -13,6 +13,8 @@
 
                         {{-- エラー文 --}}
                         @include('atoms._error_card_list')
+                        @include('atoms.success')
+
 
                         <div class="card-text">
                             <form method="POST" action="{{ route('register.{provider}', ['provider' => $provider]) }}">

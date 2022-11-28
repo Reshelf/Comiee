@@ -14,6 +14,8 @@
             <div class="w-full md:w-4/5 rounded-lg md:ml-8">
 
                 @include('atoms._error_card_list')
+                @include('atoms.success')
+
 
                 {{-- ランキング --}}
                 <div class="w-full flex flex-col mb-4">

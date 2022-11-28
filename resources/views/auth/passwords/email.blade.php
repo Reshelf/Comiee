@@ -13,6 +13,8 @@
 
             {{-- エラー文 --}}
             @include('atoms._error_card_list')
+            @include('atoms.success')
+
 
             @if (session('status'))
                 <div class="text-green font-semibold bg-green bg-opacity-10 p-4 mb-4">

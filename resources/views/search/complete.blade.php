@@ -12,6 +12,8 @@
 
     <div class="flex max-w-6xl w-full mx-auto mt-8 pt-8 px-8 md:px-0 justify-center">
         @include('atoms._error_card_list')
+        @include('atoms.success')
+
 
         <div class="w-full md:mx-12">
             <div class="w-full flex flex-wrap justify-start">

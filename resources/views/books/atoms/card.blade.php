@@ -20,6 +20,8 @@
 
                 {{-- エラー文 --}}
                 @include('atoms._error_card_list')
+                @include('atoms.success')
+
 
                 {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
                 <form method="POST" action="{{ route('book.update', ['book_id' => $book->id]) }}">
