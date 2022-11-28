@@ -1,52 +1,22 @@
-@component('mail::message')
-    {{-- Greeting --}}
-    @if (!empty($greeting))
-        # {{ $greeting }}
-    @else
-        @if ($level === 'error')
-            # @lang('Whoops!')
-        @else
-            # @lang('Hello!')
-        @endif
-    @endif
+<p>Starbookに登録いただきありがとうございます！</p>
 
-    {{-- Intro Lines --}}
-    @foreach ($introLines as $line)
-        {{ $line }}
-    @endforeach
+@foreach ($introLines as $line)
+    <p>{{ $line }}</p>
+@endforeach
 
-    {{-- Action Button --}}
-    @isset($actionText)
-        <?php
-        $color = match ($level) {
-            'success', 'error' => $level,
-            default => 'primary',
-        };
-        ?>
-        @component('mail::button', ['url' => $actionUrl, 'color' => $color])
-            {{ $actionText }}
-        @endcomponent
-    @endisset
+<br>
+<p>{{ $actionUrl }}</p>
+<br>
 
-    {{-- Outro Lines --}}
-    @foreach ($outroLines as $line)
-        {{ $line }}
-    @endforeach
+{{-- Outro Lines --}}
+@foreach ($outroLines as $line)
+    <p>{{ $line }}</p>
+@endforeach
 
-    {{-- Salutation --}}
-    @if (!empty($salutation))
-        {{ $salutation }}
-    @else
-        @lang('Regards'),<br>
-        {{ config('app.name') }}
-    @endif
 
-    {{-- Subcopy --}}
-    @isset($actionText)
-        @slot('subcopy')
-            @lang("If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n" . 'into your web browser:', [
-                'actionText' => $actionText,
-            ]) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
-        @endslot
-    @endisset
-@endcomponent
+{{-- Salutation --}}
+@if (!empty($salutation))
+    <p> {{ $salutation }}</p>
+@else
+    <p>Starbooks運営チーム</p>
+@endif
