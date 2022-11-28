@@ -91,11 +91,17 @@ function reset() {
             :src="item.thumbnail"
             class="w-[80px] h-[80px] object-cover"
           />
-          <img
-            v-else
-            src="/img/noimage.svg"
-            class="dark:fill-dark w-[70px] h-[70px] object-cover"
-          />
+          <template v-else>
+            <img
+              src="/img/noimage.svg"
+              class="block dark:hidden w-[70px] h-[70px] object-cover"
+            />
+            <img
+              src="/img/noimage-dark.svg"
+              class="hidden dark:block w-[70px] h-[70px] object-cover"
+            />
+          </template>
+
           <div class="ml-4 w-[200px]">
             <div class="text-xl font-semibold">
               {{ item.title }}
