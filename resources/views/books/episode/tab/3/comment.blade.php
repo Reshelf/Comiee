@@ -64,7 +64,7 @@
 
     <div class="dropdown">
         <button class="dropbtn">
-            <svg class="w-[20px] h-[20px] stroke-t-color" viewBox="0 0 24 24" fill="none">
+            <svg class="w-[20px] h-[20px] stroke-t-color dark:stroke-ddd" viewBox="0 0 24 24" fill="none">
                 <path d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10Z"
                     stroke-width="1.5" />
                 <path
@@ -89,7 +89,7 @@
             @if ($comment->user->id != Auth::id())
                 <comment-post-modal>
                     <template #trigger>
-                        <div class="flex w-full h-full py-2 px-4 hover:text-primary">
+                        <div class="flex w-full h-full p-2 lg:px-4 hover:text-primary">
                             通報する
                         </div>
                     </template>
