@@ -41,7 +41,7 @@
             <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>
         </form>
 
-        <div class="flex justify-end">
+        <div class="flex justify-end dark:bg-dark-1">
             <a href="/login" class="inline-block text-xs cursor-pointer py-4 px-6 dark:bg-dark">またはログイン</a>
         </div>
     </div>
