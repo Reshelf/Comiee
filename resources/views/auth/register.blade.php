@@ -35,14 +35,15 @@
                     </svg>
                 </span>
                 <span class="light-checkbox-LabelText"><a href="{{ route('others.terms') }}" class="text-primary"
-                        target="_blank" rel="noopener noreferrer">利用規約</a> に同意する</span>
+                        target="_blank" rel="noopener noreferrer">利用規約</a> と <a href="{{ route('others.privacy') }}"
+                        class="text-primary" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a> に同意する</span>
             </label>
 
             <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>
         </form>
 
         <div class="flex justify-end dark:bg-dark-1">
-            <a href="/login" class="inline-block text-xs cursor-pointer py-4 px-6 dark:bg-dark">またはログイン</a>
+            <a href="/login" class="inline-block text-xs cursor-pointer py-4 px-6 hover:text-primary">またはログイン</a>
         </div>
     </div>
 @endsection
