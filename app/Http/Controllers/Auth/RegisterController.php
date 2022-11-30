@@ -56,7 +56,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', ':filter,dns', 'max:255', 'unique:users'],
-            'password' => ['required', Password::defaults()],
+            'password' => ['required', Password::min(8)
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->uncompromised()],
         ]);
     }
 
@@ -70,6 +74,8 @@ class RegisterController extends Controller
     {
         $email = $data['email'];
         $password = Hash::make($data['password']);
+        $gender = $data['gender'];
+        $birthday = $data['birthday'];
 
         // ユーザー番号をランダムで生成する
         do {
@@ -83,6 +89,8 @@ class RegisterController extends Controller
             'username' => $username,
             'email' => $email,
             'password' => $password,
+            'gender' => $gender,
+            'birthday' => $birthday,
         ]);
     }
 
