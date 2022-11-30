@@ -74,8 +74,8 @@ class RegisterController extends Controller
     {
         $email = $data['email'];
         $password = Hash::make($data['password']);
-        $gender = $data['gender'];
-        $birthday = $data['birthday'];
+        // $gender = $data['gender'];
+        // $birthday = $data['birthday'];
 
         // ユーザー番号をランダムで生成する
         do {
@@ -89,8 +89,8 @@ class RegisterController extends Controller
             'username' => $username,
             'email' => $email,
             'password' => $password,
-            'gender' => $gender,
-            'birthday' => $birthday,
+            // 'gender' => $gender,
+            // 'birthday' => $birthday,
         ]);
     }
 
