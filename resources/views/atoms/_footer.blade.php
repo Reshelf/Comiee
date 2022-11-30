@@ -47,7 +47,8 @@
                     </a>
 
                     {{-- Instagram --}}
-                    <a href="" target="_blank" rel="noopener noreferrer" class="inline-block mr-5">
+                    <a href="https://www.instagram.com/starbooks_one_official" target="_blank" rel="noopener noreferrer"
+                        class="inline-block mr-5">
                         <svg class="h-[20px] md:h-[24px]" viewBox="0 0 32 32" fill="none">
                             <rect x="2" y="2" width="28" height="28" rx="6"
                                 fill="#7c7c7c" />
