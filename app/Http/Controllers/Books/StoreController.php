@@ -47,9 +47,8 @@ class StoreController extends Controller
 
             $img =  \Image::make($file)->resize(
                 1000,
-                null,
+                1000,
                 function ($constraint) {
-                    $constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
