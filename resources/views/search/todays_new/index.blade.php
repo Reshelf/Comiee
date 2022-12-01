@@ -1,32 +1,5 @@
 @extends('app')
 
-@section('title')
-    @switch($genre_id)
-        @case(1)
-            少年 - 今日の新作
-        @break
-
-        @case(2)
-            青年 - 今日の新作
-        @break
-
-        @case(3)
-            少女 - 今日の新作
-        @break
-
-        @case(4)
-            女性 - 今日の新作
-        @break
-
-        @case(5)
-            オトナ - 今日の新作
-        @break
-
-        @default
-            今日の新作
-    @endswitch
-@endsection
-
 @section('content')
     @include('atoms._nav', ['tab' => 2])
 

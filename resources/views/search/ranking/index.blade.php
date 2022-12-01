@@ -1,32 +1,5 @@
 @extends('app')
 
-@section('title')
-    @switch($genre_id)
-        @case(1)
-            少年 - ランキング
-        @break
-
-        @case(2)
-            青年 - ランキング
-        @break
-
-        @case(3)
-            少女 - ランキング
-        @break
-
-        @case(4)
-            女性 - ランキング
-        @break
-
-        @case(5)
-            オトナ - ランキング
-        @break
-
-        @default
-            ランキング
-    @endswitch
-@endsection
-
 @section('content')
     @include('atoms._nav', ['tab' => 1])
 
