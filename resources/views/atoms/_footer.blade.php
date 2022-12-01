@@ -106,6 +106,8 @@
         <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col md:flex-row justify-between">
             <div class="md:w-1/2">
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ヘルプ</h4>
+                <a href="{{ route('others.user_guide') }}"
+                    class="block text-xs mb-2 hover:text-primary">Starbooksについて</a>
                 <a href="{{ route('others.user_guide') }}" class="block text-xs mb-2 hover:text-primary">ご利用ガイド</a>
                 <a href="{{ route('others.faq.1') }}" class="block text-xs mb-2 hover:text-primary">よくあるご質問</a>
                 @auth
@@ -132,16 +134,10 @@
                 <div class="text-xs mb-2">ThreatExchange</div> --}}
             </div>
             <div class="md:w-1/2 mt-8 md:mt-0">
-                {{-- <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ニュース</h4>
-                <div class="text-xs mb-2">ブログ</div>
-                <div class="text-xs mb-2">成功事例</div>
-                <div class="text-xs mb-2">動画</div>
-                <div class="text-xs mb-2">人工知能</div> --}}
-
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">利用規約とポリシー</h4>
-                <div class="text-xs mb-2">プラッムフォーム主導のハブ</div>
-                <div class="text-xs mb-2">プラットフォーム利用規約</div>
-                <div class="text-xs mb-2">開発者ポリシー</div>
+                <a href="{{ route('others.terms') }}" class="block text-xs mb-2">利用規約</a>
+                <a class="block text-xs mb-2">プライバシーポリシー</a>
+                <a class="block text-xs mb-2">特定商取引法に基づく表記</a>
             </div>
         </div>
     </div>
@@ -149,17 +145,6 @@
         <div class="md:w-2/5 mt-8 md:mt-0 tracking-widest cursor-default">&copy;
             {{ \Carbon\Carbon::now()->format('Y') }}
             Starbooks
-        </div>
-        <div class="w-full px-8 md:px-0 md:w-3/5 flex flex-col md:flex-row md:justify-start md:items-center">
-            <a href="{{ route('others.user_guide') }}"
-                class="py-1 md:py-0 hover:text-primary text-xs md:text-[14px]">Starbooksについて</a>
-            {{-- <a class="pl-8">広告を作成</a> --}}
-            {{-- <a class="pl-8">採用情報</a> --}}
-            <a href="{{ route('others.terms') }}"
-                class="py-1 md:py-0 md:pl-8 hover:text-primary text-xs md:text-[14px]">利用規約</a>
-            <a class="py-1 md:py-0 md:pl-8 hover:text-primary text-xs md:text-[14px]">プライバシーポリシー</a>
-            {{-- <a class="py-1 md:py-0 md:pl-8 hover:text-primary">Cookie</a> --}}
-            <a class="py-1 md:py-0 md:pl-8 hover:text-primary text-xs md:text-[14px]">特定商取引法に基づく表記</a>
         </div>
     </div>
 </footer>
