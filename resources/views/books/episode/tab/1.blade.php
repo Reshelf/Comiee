@@ -18,7 +18,8 @@
                         </div>
                     </template>
                     <template #header>エピソードを追加する</template>
-                    <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
+                    <form method="POST"
+                        action="{{ route('book.episode.store', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @include('books.episode.tab.1.episode_form', ['update' => false])
@@ -29,7 +30,7 @@
             @foreach ($episodes_latest as $e)
                 <div
                     class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[3px] dark:hover:bg-dark-1 hover:bg-f5">
-                    <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
+                    <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
                         class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
                         @empty($e->thumbnail)
                             <img src="/img/noimage.svg" alt="thumbnail"
@@ -126,7 +127,7 @@
                             </template>
                             <template #header>エピソードを更新する</template>
                             <form method="POST"
-                                action="{{ route('book.episode.update', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
+                                action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
                                 enctype="multipart/form-data" class="whitespace-pre-line">
                                 @csrf
                                 @method('PATCH')

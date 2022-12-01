@@ -9,7 +9,7 @@
             {{ __('新規登録') }}
         </h2>
 
-        <form method="POST" action="{{ route('register') }}" class="px-6 dark:bg-dark-1 pt-6">
+        <form method="POST" action="{{ route('register', app()->getLocale()) }}" class="px-6 dark:bg-dark-1 pt-6">
             @csrf
 
             {{-- エラー文 --}}
@@ -36,9 +36,10 @@
                             stroke-linejoin="round" />
                     </svg>
                 </span>
-                <span class="light-checkbox-LabelText"><a href="{{ route('others.terms') }}" class="text-primary"
-                        target="_blank" rel="noopener noreferrer">利用規約</a> と <a href="{{ route('others.privacy') }}"
-                        class="text-primary" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a> に同意する</span>
+                <span class="light-checkbox-LabelText"><a href="{{ route('others.terms', app()->getLocale()) }}"
+                        class="text-primary" target="_blank" rel="noopener noreferrer">利用規約</a> と <a
+                        href="{{ route('others.privacy', app()->getLocale()) }}" class="text-primary" target="_blank"
+                        rel="noopener noreferrer">プライバシーポリシー</a> に同意する</span>
             </label>
 
             <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>

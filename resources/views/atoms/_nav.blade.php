@@ -18,6 +18,8 @@
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">
                             <div class="flex items-center">
+                                <a href="{{ locale_change_url() }}">言語切替</a>
+
                                 @guest
                                     @include('auth._login')
                                 @endguest
@@ -29,7 +31,7 @@
                                             @include('atoms.success')
 
 
-                                            <form method="POST" action="{{ route('book.store') }}"
+                                            <form method="POST" action="{{ route('book.store', app()->getLocale()) }}"
                                                 enctype="multipart/form-data">
                                                 @include('books.atoms.form', ['update' => false])
                                                 <div class="w-full flex justify-end">

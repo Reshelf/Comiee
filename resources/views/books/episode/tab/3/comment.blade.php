@@ -1,6 +1,6 @@
 <div class="flex items-start justify-between">
     <div class="flex items-start">
-        <a href="{{ route('users.show', ['username' => $comment->user->username]) }}">
+        <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $comment->user->username]) }}">
             @empty($comment->user->avatar)
                 <img src="{{ asset('/img/noimage.svg') }}" alt=""
                     class="block dark:hidden h-12 w-12 rounded-full shadow">
@@ -43,6 +43,7 @@
                         <template #header>{{ $comment->user->username }}さんに返信する</template>
                         <form method="POST"
                             action="{{ route('book.episode.comment.store', [
+                                'lang' => app()->getLocale(),
                                 'book_id' => $book->id,
                                 'episode_id' => $episode->id,
                                 'episode_number' => $episode->number,
@@ -78,7 +79,7 @@
         <div class="dropdown-content">
             @if ($comment->user->id == Auth::id())
                 <form method="POST"
-                    action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
+                    action="{{ route('book.episode.comment.destroy', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
                     class="m-2">
                     @csrf
                     @method('DELETE')
@@ -95,7 +96,7 @@
                     </template>
                     <template #header>コメントに対して通報する</template>
                     <form method="POST"
-                        action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
+                        action="{{ route('others.report', ['lang' => app()->getLocale(), 'user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
                         class="flex flex-col">
                         @csrf
                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />

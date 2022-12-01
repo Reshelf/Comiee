@@ -8,7 +8,7 @@
     @endempty
 
     {{-- 作品タイトル --}}
-    <a href="{{ route('book.show', ['book_id' => $book->id]) }}"
+    <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
         class="inline-block text-2xl dark:text-white font-semibold my-4 px-2">{{ $book->title }}</a>
 
     {{-- 閲覧数 --}}
@@ -28,7 +28,7 @@
 
     {{-- 完結作品 --}}
     @if ($book->is_complete)
-        <a href="{{ route('search.complete') }}"
+        <a href="{{ route('search.complete', app()->getLocale()) }}"
             class="inline-block text-[#e19324] dark:bg-[#e19324] dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
             完結</a>
     @endif

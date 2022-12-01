@@ -20,7 +20,8 @@
                                         @include('atoms.success')
 
 
-                                        <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+                                        <form method="POST" action="{{ route('book.store', app()->getLocale()) }}"
+                                            enctype="multipart/form-data">
                                             @include('books.atoms.form', ['update' => false])
                                             <div class="w-full flex justify-end">
                                                 <button type="submit" class="btn-primary w-full py-4">投稿する</button>

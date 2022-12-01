@@ -8,7 +8,7 @@
     </template>
 
     {{-- マイページ --}}
-    <a href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
+    <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
         class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path
@@ -22,7 +22,7 @@
     </a>
 
     {{-- 設定 --}}
-    <a href="{{ route('users.settings', ['username' => Auth::user()->username]) }}"
+    <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
         class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path
@@ -38,7 +38,7 @@
     </a>
 
     {{-- ダークモード --}}
-    <div href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
+    <div href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
         class="flex items-center text-sm cursor-pointer rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
         <theme-toggle></theme-toggle>
     </div>
@@ -62,7 +62,7 @@
 
             <span class="pl-5">ログアウト</span>
         </button>
-        <form id="logout-button" method="POST" action="{{ route('logout') }}">
+        <form id="logout-button" method="POST" action="{{ route('logout', app()->getLocale()) }}">
             @csrf
         </form>
     </div>

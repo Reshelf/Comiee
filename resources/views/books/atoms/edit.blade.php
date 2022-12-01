@@ -10,7 +10,8 @@
 
 
         {{-- HTMLのformタグは、PUTメソッドやPATCHメソッドをサポートしていない(DELETEメソッドもサポートしていない) --}}
-        <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['book_id' => $book->id]) }}">
+        <form method="POST" enctype="multipart/form-data"
+            action="{{ route('book.update', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}">
             @csrf
             {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
             @method('PATCH')

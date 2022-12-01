@@ -7,7 +7,7 @@
                 @include('atoms.success')
 
 
-                <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('book.store', app()->getLocale()) }}" enctype="multipart/form-data">
                     @include('books.atoms.form', ['update' => false])
                     <div class="w-full flex justify-end">
                         <button type="submit" class="btn-primary w-full py-4">投稿する</button>
@@ -18,7 +18,7 @@
     @endauth
 
     @guest
-        <a href="{{ route('ranking') }}"
+        <a href="{{ route('ranking', app()->getLocale()) }}"
             class="{{ $tab === 1 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
@@ -28,7 +28,7 @@
             ランキング
         </a>
     @endguest
-    <a href="{{ route('todays_new') }}"
+    <a href="{{ route('todays_new', app()->getLocale()) }}"
         class="{{ $tab === 2 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
@@ -38,7 +38,7 @@
         今日の新作
     </a>
     @auth
-        <a href="{{ route('ranking') }}"
+        <a href="{{ route('ranking', app()->getLocale()) }}"
             class="{{ $tab === 1 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
@@ -48,7 +48,7 @@
             ランキング
         </a>
     @endauth
-    <a href="{{ route('search.like') }}"
+    <a href="{{ route('search.like', app()->getLocale()) }}"
         class="{{ $tab === 3 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
@@ -57,8 +57,8 @@
         </svg>
         お気に入り
     </a>
-    <a @if (Auth::user()) href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
-        @else href="{{ route('login') }}" @endif
+    <a @if (Auth::user()) href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
+        @else href="{{ route('login', app()->getLocale()) }}" @endif
         class="{{ $tab === 4 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path

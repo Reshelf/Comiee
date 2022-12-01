@@ -32,7 +32,8 @@
                             @isset($books)
                                 <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
                                     @include('search.atoms._filter')
-                                    <form class="acd-content" method="POST" action="{{ route('like.search') }}">
+                                    <form class="acd-content" method="POST"
+                                        action="{{ route('like.search', app()->getLocale()) }}">
                                         @csrf
                                         @include('search.like._form', [
                                             'feature' => $feature,

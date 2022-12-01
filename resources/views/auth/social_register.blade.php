@@ -17,7 +17,8 @@
 
 
                         <div class="card-text">
-                            <form method="POST" action="{{ route('register.{provider}', ['provider' => $provider]) }}">
+                            <form method="POST"
+                                action="{{ route('register.{provider}', ['lang' => app()->getLocale(), 'provider' => $provider]) }}">
                                 @csrf
                                 <input type="hidden" name="token" value="{{ $token }}">
                                 <div class="md-form">

@@ -1,5 +1,5 @@
 <div class="list-item">
-    <a href="{{ route('book.show', ['book_id' => $book->id]) }}">
+    <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}">
         @empty($book->thumbnail)
             <img src="{{ asset('/img/noimage.svg') }}" alt=""
                 class="block dark:hidden min-h-[200px] max-h-[200px] w-full md:min-w-[200px] md:max-w-[200px] object-cover">

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App;
+use App\Http\Controllers\Controller;
 // use DB;
 
 class ShowController extends Controller
@@ -13,7 +15,7 @@ class ShowController extends Controller
     | プロフィール
     |--------------------------------------------------------------------------
     */
-    public function __invoke(string $username)
+    public function __invoke($lang, string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::where('username', $username)->first();
@@ -26,6 +28,9 @@ class ShowController extends Controller
 
         $books = $user->books()->latest()->get();
 
-        return view('users.show', compact('user', 'books'));
+        return view('users.show', [
+            'user' => $user,
+            'books' => $books,
+        ]);
     }
 }

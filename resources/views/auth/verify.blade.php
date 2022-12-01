@@ -19,7 +19,7 @@
 
                 {{ __('もし確認用メールが送信されていない場合は、下記をクリックしてください。') }}
             </p>
-            <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+            <form class="d-inline" method="POST" action="{{ route('verification.resend', app()->getLocale()) }}">
                 @csrf
                 <button type="submit" class="btn-border">{{ __('確認メールを再送信する') }}</button>.
             </form>

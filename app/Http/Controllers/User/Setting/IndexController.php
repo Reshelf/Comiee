@@ -11,6 +11,7 @@ class IndexController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
     }
 
     /*
@@ -18,7 +19,7 @@ class IndexController extends Controller
     | 設定
     |--------------------------------------------------------------------------
     */
-    public function __invoke(string $username)
+    public function __invoke($lang, string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::where('username', $username)->first();

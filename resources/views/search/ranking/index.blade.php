@@ -33,12 +33,12 @@
                                     @include('search.atoms._filter')
                                     <form class="acd-content" method="POST"
                                         @switch($genre_id)
-                                            @case(1) action="{{ route('ranking.boys.search') }}" @break
-                                            @case(2) action="{{ route('ranking.youth.search') }}" @break
-                                            @case(3) action="{{ route('ranking.girls.search') }}" @break
-                                            @case(4) action="{{ route('ranking.woman.search') }}" @break
-                                            @case(5) action="{{ route('ranking.adult.search') }}" @break
-                                            @default action="{{ route('ranking.search') }}"
+                                            @case(1) action="{{ route('ranking.boys.search', app()->getLocale()) }}" @break
+                                            @case(2) action="{{ route('ranking.youth.search', app()->getLocale()) }}" @break
+                                            @case(3) action="{{ route('ranking.girls.search', app()->getLocale()) }}" @break
+                                            @case(4) action="{{ route('ranking.woman.search', app()->getLocale()) }}" @break
+                                            @case(5) action="{{ route('ranking.adult.search', app()->getLocale()) }}" @break
+                                            @default action="{{ route('ranking.search', app()->getLocale()) }}"
                                         @endswitch>
                                         @csrf
                                         @include('search.ranking._form', [

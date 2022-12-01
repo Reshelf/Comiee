@@ -2,6 +2,7 @@
     <h2 class="text-xl font-semibold">メール通知</h2>
     <form method="POST"
         action="{{ route('users.settings.update', [
+            'lang' => app()->getLocale(),
             'name' => $user->name,
             'username' => $user->username,
         ]) }}"

@@ -2,7 +2,7 @@
     <template #trigger>ログイン</template>
     <template #header>ログイン</template>
 
-    <form method="POST" action="{{ route('login') }}" class="dark:bg-dark-1">
+    <form method="POST" action="{{ route('login', app()->getLocale()) }}" class="dark:bg-dark-1">
         @csrf
 
         <div class="w-full mb-3">
@@ -19,7 +19,7 @@
         <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">ログイン</button>
     </form>
     <div class="w-full flex justify-between">
-        <a href="{{ route('password.request') }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
+        <a href="{{ route('password.request', app()->getLocale()) }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
         <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
     </div>
 </book-edit-modal>

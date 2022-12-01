@@ -26,7 +26,7 @@
                                             @include('atoms.success')
 
 
-                                            <form method="POST" action="{{ route('book.store') }}"
+                                            <form method="POST" action="{{ route('book.store', app()->getLocale()) }}"
                                                 enctype="multipart/form-data">
                                                 @include('books.atoms.form', ['update' => false])
                                                 <div class="w-full flex justify-end">

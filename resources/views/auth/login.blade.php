@@ -8,7 +8,7 @@
         <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg pt-3 p-4">
             {{ __('ログイン') }}
         </h2>
-        <form method="POST" action="{{ route('login') }}" class="px-6 dark:bg-dark-1 pt-6">
+        <form method="POST" action="{{ route('login', app()->getLocale()) }}" class="px-6 dark:bg-dark-1 pt-6">
             @csrf
 
             {{-- エラー文 --}}
@@ -30,7 +30,7 @@
             <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">ログイン</button>
         </form>
         <div class="w-full flex justify-between pb-4 px-6">
-            <a href="{{ route('password.request') }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
+            <a href="{{ route('password.request', app()->getLocale()) }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
             <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
         </div>
     </div>

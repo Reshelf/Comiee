@@ -8,7 +8,7 @@
         <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg pt-3 p-4 mb-6">
             {{ __('SMS認証') }}
         </h2>
-        <form method="POST" action="{{ route('verify.sms.send') }}" class="px-6 dark:bg-dark-1">
+        <form method="POST" action="{{ route('verify.sms.send', app()->getLocale()) }}" class="px-6 dark:bg-dark-1">
             @csrf
 
             {{-- エラー文 --}}
