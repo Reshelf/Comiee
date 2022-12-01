@@ -4,22 +4,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| 認証
+|--------------------------------------------------------------------------
+|
+*/
+
 Auth::routes(['verify' => true]);
+// Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
+// Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
+// Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
+
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
-    /*
-    |--------------------------------------------------------------------------
-    | 認証
-    |--------------------------------------------------------------------------
-    |
-    */
-    // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
-    // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
-    // Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
-    Route::get('/register/phone_number', 'App\Http\Controllers\Auth\OtpController@index')->name('verify.sms');
-    Route::post('/register/phone_number', 'App\Http\Controllers\Auth\OtpController@create')->name('register.sms');
-    Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController@verify')->name('verify.sms.send');
-
     /*
     |--------------------------------------------------------------------------
     | 検索

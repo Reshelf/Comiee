@@ -17,7 +17,7 @@ class FollowingsController extends Controller
     | フォローの一覧
     |--------------------------------------------------------------------------
     */
-    public function __invoke(string $username)
+    public function __invoke($lang, string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::where('username', $username)->first();

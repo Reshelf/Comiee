@@ -24,7 +24,7 @@ class FollowController extends Controller
     | フォローする
     |--------------------------------------------------------------------------
     */
-    public function __invoke(Request $request, string $username)
+    public function __invoke($lang, Request $request, string $username)
     {
         $user = User::where(['username' => $username])->first();
 
