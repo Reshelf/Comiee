@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'マンガを楽しむプラットフォーム')
+
 @section('content')
     @include('atoms._nav', ['tab' => 2])
 
