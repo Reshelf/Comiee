@@ -23,10 +23,10 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect()->intended(RouteServiceProvider::HOME);
+                return redirect()->intended(app()->getLocale() . RouteServiceProvider::HOME);
             }
         }
 
-        return $next($request);
+        return $next($request, app()->getLocale());
     }
 }

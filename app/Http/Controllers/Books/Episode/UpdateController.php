@@ -59,6 +59,7 @@ class UpdateController extends Controller
                 600,
                 600,
                 function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1

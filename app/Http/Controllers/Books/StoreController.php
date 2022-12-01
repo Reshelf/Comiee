@@ -24,7 +24,7 @@ class StoreController extends Controller
     | 作品の投稿
     |--------------------------------------------------------------------------
     */
-    public function __invoke(BookRequest $request, Book $book)
+    public function __invoke($lang, BookRequest $request, Book $book)
     {
         // ポリシー
         $this->authorize('create', $book);
@@ -50,6 +50,7 @@ class StoreController extends Controller
                 1000,
                 1000,
                 function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
@@ -90,7 +91,7 @@ class StoreController extends Controller
 
         // リダイレクト
         return redirect()
-            ->route('users.show', ['username' => $book->user->username])
+            ->route('users.show', ['lang' => $lang, 'username' => $book->user->username])
             ->withSuccess($success[$random]);
     }
 }

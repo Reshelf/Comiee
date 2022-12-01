@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Auth::routes(['verify' => true]);
+
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     /*
     |--------------------------------------------------------------------------
@@ -11,7 +13,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     |--------------------------------------------------------------------------
     |
     */
-    Auth::routes(['verify' => true]);
     // Route::get('/login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('login.{provider}');
     // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
     // Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
