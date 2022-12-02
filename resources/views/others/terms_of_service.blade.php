@@ -162,13 +162,13 @@
 
         <h3 class="text-2xl font-semibold my-4">1条 販売価格</h3>
         <div class="mb-10 mt-4 text-[15px]">
-            <p class="my-2">1. 好きにしてよいよ</p>
+            <p class="my-2">1. </p>
         </div>
 
 
         <h3 class="text-2xl font-semibold my-4">2条 売上と作者利益</h3>
         <div class="mb-10 mt-4 text-[15px]">
-            <p class="my-2">1. とことん話し合おうじゃないか</p>
+            <p class="my-2">1. </p>
         </div>
 
 

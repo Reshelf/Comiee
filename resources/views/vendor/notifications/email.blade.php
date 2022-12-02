@@ -1,4 +1,4 @@
-<p>Starbookに登録いただきありがとうございます！</p>
+<p>{{ __('Starbookに登録いただきありがとうございます！') }}</p>
 
 @foreach ($introLines as $line)
     <p>{{ $line }}</p>
@@ -18,5 +18,5 @@
 @if (!empty($salutation))
     <p> {{ $salutation }}</p>
 @else
-    <p>Starbooks運営チーム</p>
+    <p>{{ __('Starbooks運営チーム') }}</p>
 @endif

@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $user->name . 'さんのプロフィール')
+@section('title', $user->name . __('さんのプロフィール'))
 
 @isset($user->avatar)
     @section('image')

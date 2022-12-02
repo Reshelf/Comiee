@@ -14,8 +14,8 @@
         @endempty
         @if (Auth::id() === $user->id)
             <edit-user-modal>
-                <template #trigger>プロフィールを編集</template>
-                <template #header>プロフィールの更新</template>
+                <template #trigger>{{ __('プロフィールを編集') }}</template>
+                <template #header>{{ __('プロフィールの更新') }}</template>
                 <form method="POST"
                     action="{{ route('users.update', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
                     enctype="multipart/form-data">
@@ -23,7 +23,7 @@
                     {{-- LaravelのBladeでPATCHメソッド等を使う場合は、formタグではmethod属性を"POST"のままとしつつ、@methodでPATCHメソッド等を指定する --}}
                     @method('PATCH')
                     @include('users.atoms.form')
-                    <button type="submit" class="btn-primary w-full py-4">更新する</button>
+                    <button type="submit" class="btn-primary w-full py-4">{{ __('更新する') }}</button>
                 </form>
             </edit-user-modal>
         @endif
@@ -65,7 +65,7 @@
                     <a href="{{ route('users.followings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
                         class="">
                         <span class="font-semibold text-lg">{{ number_format($user->count_followings) }}</span>
-                        <span class="text-t-color-3 pl-1">フォロー</span>
+                        <span class="text-t-color-3 pl-1">{{ __('フォロー') }}</span>
                     </a>
                     {{-- <follow-modal :auth-user='@json(Auth::user())' :authorized='@json(Auth::check())'
             :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
@@ -75,7 +75,7 @@
                     <a href="{{ route('users.followers', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
                         class="ml-2">
                         <span class="font-semibold text-lg">{{ number_format($user->count_followers) }}</span>
-                        <span class="text-t-color-3 pl-1">フォロワー</span>
+                        <span class="text-t-color-3 pl-1">{{ __('フォロワー') }}</span>
                     </a>
                     @if (Auth::id() !== $user->id)
                         <follow-button class="ml-auto block md:hidden"
@@ -100,25 +100,25 @@
             <div class="relative flex items-center">
                 @if ($mypage)
                     <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">投稿作品</a>
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">{{ __('投稿作品') }}</a>
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">設定</a>
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">{{ __('設定') }}</a>
                     @endif
                 @else
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['lang' => app()->getLocale(), $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">設定</a>
+                            class="{{ $settings ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">{{ __('設定') }}</a>
                     @endif
                     <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">投稿作品</a>
+                        class="{{ $mypage ? 'border-primary text-primary font-bold' : 'border-transparent hover:text-primary hover:font-semibold  dark:border-dark' }} py-3 px-6 border-b-2 text-xs lg:text-[14px]">{{ __('投稿作品') }}</a>
                 @endif
 
             </div>
 
             {{-- SNSシェア --}}
             <div class="lg:mt-4 flex items-center">
-                @include('atoms.sns', ['sns_title' => $user->name . 'のプロフィール'])
+                @include('atoms.sns', ['sns_title' => $user->name . __('のプロフィール')])
             </div>
         </div>
     </div>

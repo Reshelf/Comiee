@@ -1,5 +1,5 @@
 <template #1>
-    <h2 class="text-xl font-semibold">メール通知</h2>
+    <h2 class="text-xl font-semibold">{{ __('メール通知') }}</h2>
     <form method="POST"
         action="{{ route('users.settings.update', [
             'lang' => app()->getLocale(),
@@ -10,7 +10,7 @@
         @csrf
         @method('PATCH')
 
-        <h3 class="my-8 text-lg font-semibold">フォロー</h3>
+        <h3 class="my-8 text-lg font-semibold">{{ __('フォロー') }}</h3>
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m1" value="m1" @if ($user->m_notice_1 === 1) checked @endif
                 class="light-checkbox-Input">
@@ -20,7 +20,7 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">あなたがフォローしている作者が作品を投稿したときに通知をします</span>
+            <span class="light-checkbox-LabelText">{{ __('あなたがフォローしている作者が作品を投稿したときに通知をします') }}</span>
         </label>
 
         <label class="light-checkbox mt-8">
@@ -32,10 +32,10 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">あなたがユーザーにフォローされたときに通知をします</span>
+            <span class="light-checkbox-LabelText">{{ _('あなたがユーザーにフォローされたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">お気に入り</h3>
+        <h3 class="my-8 text-lg font-semibold">{{ __('お気に入り') }}</h3>
         <label class="light-checkbox">
             <input type="checkbox" name="m3" value="m3" @if ($user->m_notice_3 === 1) checked @endif
                 class="light-checkbox-Input">
@@ -45,7 +45,7 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">あなたの作品がお気に入りに登録されたら通知をします</span>
+            <span class="light-checkbox-LabelText">{{ __('あなたの作品がお気に入りに登録されたら通知をします') }}</span>
         </label>
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m4" value="m4" @if ($user->m_notice_4 === 1) checked @endif
@@ -56,10 +56,10 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">あなたのお気に入り作品の新着エピソードが公開されたときに通知をします</span>
+            <span class="light-checkbox-LabelText">{{ __('あなたのお気に入り作品の新着エピソードが公開されたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">購入</h3>
+        <h3 class="my-8 text-lg font-semibold">{{ _('購入') }}</h3>
 
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m5" value="m5" @if ($user->m_notice_5 === 1) checked @endif
@@ -70,7 +70,7 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">あなたの作品エピソードが購入されたときに通知をします</span>
+            <span class="light-checkbox-LabelText">{{ __('あなたの作品エピソードが購入されたときに通知をします') }}</span>
         </label>
 
         <h3 class="my-8 text-lg font-semibold">NEWS</h3>
@@ -84,9 +84,9 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">Starbooksからのニュースやお得な情報を受け取ります</span>
+            <span class="light-checkbox-LabelText">{{ __('Starbooksからのニュースやお得な情報を受け取ります') }}</span>
         </label>
 
-        <button type="submit" class="btn mt-12">更新する</button>
+        <button type="submit" class="btn mt-12">{{ __('更新する') }}</button>
     </form>
 </template>

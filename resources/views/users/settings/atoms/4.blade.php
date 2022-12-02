@@ -1,8 +1,8 @@
 <template #4>
-    <h2 class="text-xl font-semibold">サイトの表示設定</h2>
+    <h2 class="text-xl font-semibold">{{ __('サイトの表示設定') }}</h2>
 
     <div class="my-8">
-        <h3 class="text-base font-semibold">表示言語</h3>
+        <h3 class="text-base font-semibold">{{ __('表示言語') }}</h3>
         <div class="mt-4">
             <div class="mb-4">
                 @if (App::getLocale() == 'ja')
@@ -22,7 +22,7 @@
     </div>
 
     <div class="my-8">
-        <h3 class="text-base font-semibold">外観</h3>
+        <h3 class="text-base font-semibold">{{ __('外観') }}</h3>
         <div class="mt-4">
             <theme-toggle></theme-toggle>
         </div>

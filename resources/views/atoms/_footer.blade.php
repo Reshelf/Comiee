@@ -34,7 +34,7 @@
                 </g>
             </svg>
             <div class="mt-8 md:mt-16">
-                <div class="text-xs cursor-default dark:text-[#c9cacc]">フォローする</div>
+                <div class="text-xs cursor-default dark:text-[#c9cacc]">{{ __('フォローする') }}</div>
                 <div class="flex items-center mt-4">
                     {{-- Twitter --}}
                     <a href="https://twitter.com/starbooks_one" target="_blank" rel="noopener noreferrer"
@@ -105,28 +105,28 @@
         </div>
         <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col md:flex-row justify-between">
             <div class="md:w-1/2">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">ヘルプ</h4>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ _('ヘルプ') }}</h4>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">Starbooksについて</a>
+                    class="block text-xs mb-2 hover:text-primary">{{ __('Starbooksについて') }}</a>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">ご利用ガイド</a>
+                    class="block text-xs mb-2 hover:text-primary">{{ __('ご利用ガイド') }}</a>
                 <a href="{{ route('others.faq.1', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">よくあるご質問</a>
+                    class="block text-xs mb-2 hover:text-primary">{{ __('よくあるご質問') }}</a>
                 @auth
                     <comment-post-modal>
                         <template #btn-trigger>
                             <span class="block text-xs mb-2 hover:text-primary">
-                                お問い合わせ
+                                {{ _('お問い合わせ') }}
                             </span>
                         </template>
-                        <template #header>運営へのお問い合せ</template>
+                        <template #header>{{ __('運営へのお問い合せ') }}</template>
                         <form method="POST"
                             action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}">
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
+                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off"
                                 autofocus="on" type="text" name="body" maxlength="400" required></textarea>
-                            <button type="submit" class="btn w-full">送信する</button>
+                            <button type="submit" class="btn w-full">{{ __('送信する') }}</button>
                         </form>
                     </comment-post-modal>
                 @endauth
@@ -137,10 +137,11 @@
                 <div class="text-xs mb-2">ThreatExchange</div> --}}
             </div>
             <div class="md:w-1/2 mt-8 md:mt-0">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">利用規約とポリシー</h4>
-                <a href="{{ route('others.terms', app()->getLocale()) }}" class="block text-xs mb-2">利用規約</a>
-                <a class="block text-xs mb-2">プライバシーポリシー</a>
-                <a class="block text-xs mb-2">特定商取引法に基づく表記</a>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('利用規約とポリシー') }}</h4>
+                <a href="{{ route('others.terms', app()->getLocale()) }}"
+                    class="block text-xs mb-2">{{ __('利用規約') }}</a>
+                <a class="block text-xs mb-2">{{ __('プライバシーポリシー') }}</a>
+                <a class="block text-xs mb-2">{{ __('特定商取引法に基づく表記') }}</a>
             </div>
         </div>
     </div>

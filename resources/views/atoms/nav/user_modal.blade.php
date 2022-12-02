@@ -18,7 +18,7 @@
             <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="#333333"
                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-white" />
         </svg>
-        <span class="pl-5">マイページ</span>
+        <span class="pl-5">{{ __('マイページ') }}</span>
     </a>
 
     {{-- 設定 --}}
@@ -34,7 +34,7 @@
                 stroke="#333333" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
                 stroke-linejoin="round" class="dark:stroke-white" />
         </svg>
-        <span class="pl-5">設定</span>
+        <span class="pl-5">{{ __('設定') }}</span>
     </a>
 
     {{-- ダークモード --}}
@@ -60,7 +60,7 @@
                     stroke-linejoin="round" class="dark:stroke-white" />
             </svg>
 
-            <span class="pl-5">ログアウト</span>
+            <span class="pl-5">{{ __('ログアウト') }}</span>
         </button>
         <form id="logout-button" method="POST" action="{{ route('logout', app()->getLocale()) }}">
             @csrf
