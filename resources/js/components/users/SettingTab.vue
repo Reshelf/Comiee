@@ -23,7 +23,7 @@ export default {
         表示しない作品
       </li>
       <li :class="{ active: isActive === 4 }" @click="isSelect(4)">
-        サイトの外観
+        サイトの表示設定
       </li>
     </ul>
     <div class="tabContents">

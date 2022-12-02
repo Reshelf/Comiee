@@ -64,6 +64,7 @@ function changeTheme() {
         />
       </svg>
     </button>
-    <span class="pl-5">ダークモード</span>
+    <span class="block dark:hidden pl-5">ダークモードにする</span>
+    <span class="hidden dark:block pl-5">ライトモードにする</span>
   </div>
 </template>

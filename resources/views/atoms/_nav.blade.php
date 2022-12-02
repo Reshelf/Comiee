@@ -18,8 +18,6 @@
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">
                             <div class="flex items-center">
-                                <a href="{{ locale_change_url() }}">言語切替</a>
-
                                 @guest
                                     @include('auth._login')
                                 @endguest

@@ -1,4 +1,4 @@
-<a href="/" class="mr-3 flex-none md:overflow-hidden md:w-auto">
+<a href="{{ url('/', app()->getLocale()) }}" class="mr-3 flex-none md:overflow-hidden md:w-auto">
     <span class="sr-only">Starbooks - Manga Social Networking Service</span>
     <h1 class="text-2xl font-semibold dark:text-white">
         <svg class="h-[24px] md:h-[30px]" viewBox="0 0 237 40" fill="none">

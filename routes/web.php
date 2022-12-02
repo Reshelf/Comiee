@@ -16,6 +16,9 @@ Auth::routes(['verify' => true]);
 // Route::get('/register/{provider}', 'App\Http\Controllers\Auth\RegisterController@showProviderUserRegistrationForm')->name('register.{provider}');
 // Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
 
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     /*
@@ -147,16 +150,16 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
 
 
 // 404 Not Found
-Route::fallback(function (Request $request) {
-    $route = Route::getCurrentRoute();
-    // WEB側画面
-    if (empty($route->getPrefix())) {
-        $fallback = $route->parameter('fallbackPlaceholder');
-        // 言語用Prefixが存在しない場合、言語を設定してリダイレクトする
-        if ($fallback === null || (strpos($fallback, 'ja') === false && strpos($fallback, 'en') === false)) {
-            $path = $request->getPathInfo();
-            return redirect('/ja' . $path);
-        }
-    }
-    return abort(404);
-});
+// Route::fallback(function (Request $request) {
+//     $route = Route::getCurrentRoute();
+//     // WEB側画面
+//     if (empty($route->getPrefix())) {
+//         $fallback = $route->parameter('fallbackPlaceholder');
+//         // 言語用Prefixが存在しない場合、言語を設定してリダイレクトする
+//         if ($fallback === null || (strpos($fallback, 'ja') === false && strpos($fallback, 'en') === false)) {
+//             $path = $request->getPathInfo();
+//             return redirect('/ja' . $path);
+//         }
+//     }
+//     return abort(404);
+// });

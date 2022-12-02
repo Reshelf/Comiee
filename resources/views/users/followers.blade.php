@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $user->name . 'さんのフォロワー')
+@section('title', $user->name . __('さんのフォロワー'))
 
 @section('content')
     @include('atoms._nav', ['tab' => 0])
