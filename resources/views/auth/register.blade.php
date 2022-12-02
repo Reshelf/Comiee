@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '新規登録')
+@section('title', __('新規登録'))
 
 @section('content')
     @include('atoms._simple_nav')
@@ -20,12 +20,12 @@
             <div class="w-full mb-3">
                 <input
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-                    type="email" name="email" required placeholder="メールアドレス">
+                    type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
             </div>
             <div class="w-full mb-6">
                 <input
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-                    type="password" name="password" required placeholder="パスワード">
+                    type="password" name="password" required placeholder="{{ __('パスワード') }}">
             </div>
 
             <label class="light-checkbox my-4">
@@ -37,16 +37,17 @@
                     </svg>
                 </span>
                 <span class="light-checkbox-LabelText"><a href="{{ route('others.terms', app()->getLocale()) }}"
-                        class="text-primary" target="_blank" rel="noopener noreferrer">利用規約</a> と <a
-                        href="{{ route('others.privacy', app()->getLocale()) }}" class="text-primary" target="_blank"
-                        rel="noopener noreferrer">プライバシーポリシー</a> に同意する</span>
+                        class="text-primary" target="_blank" rel="noopener noreferrer">{{ __('利用規約') }}</a>
+                    {{ __('と') }} <a href="{{ route('others.privacy', app()->getLocale()) }}" class="text-primary"
+                        target="_blank" rel="noopener noreferrer">{{ __('プライバシーポリシー') }}</a> {{ __('に同意する') }}</span>
             </label>
 
-            <button class="btn-primary px-6 py-4 w-full" type="submit">メールアドレスで登録</button>
+            <button class="btn-primary px-6 py-4 w-full" type="submit">{{ __('メールアドレスで登録') }}</button>
         </form>
 
         <div class="flex justify-end dark:bg-dark-1">
-            <a href="/login" class="inline-block text-xs cursor-pointer py-4 px-6 hover:text-primary">またはログイン</a>
+            <a href="/login"
+                class="inline-block text-xs cursor-pointer py-4 px-6 hover:text-primary">{{ __('またはログイン') }}</a>
         </div>
     </div>
 @endsection

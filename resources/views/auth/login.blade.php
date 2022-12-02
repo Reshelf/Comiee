@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'ログイン')
+@section('title', __('ログイン'))
 
 @section('content')
     @include('atoms._simple_nav')
@@ -19,19 +19,20 @@
             <div class="w-full mb-3">
                 <input
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-                    type="text" name="email" required placeholder="メールアドレス">
+                    type="text" name="email" required placeholder="{{ __('メールアドレス') }}">
             </div>
             <div class="w-full mb-6">
                 <input
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-                    type="password" name="password" required placeholder="パスワード">
+                    type="password" name="password" required placeholder="{{ __('パスワード') }}">
             </div>
             <input type="hidden" name="remember" value="on">
-            <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">ログイン</button>
+            <button type="submit" class="btn-primary px-6 py-4 w-full mb-4">{{ __('ログイン') }}</button>
         </form>
         <div class="w-full flex justify-between pb-4 px-6">
-            <a href="{{ route('password.request', app()->getLocale()) }}" class="cursor-pointer text-xs">パスワードを忘れた方</a>
-            <a href="/register" class="text-xs cursor-pointer">または新規登録</a>
+            <a href="{{ route('password.request', app()->getLocale()) }}"
+                class="cursor-pointer text-xs">{{ __('パスワードを忘れた方') }}</a>
+            <a href="/register" class="text-xs cursor-pointer">{{ __('または新規登録') }}</a>
         </div>
     </div>
 @endsection
