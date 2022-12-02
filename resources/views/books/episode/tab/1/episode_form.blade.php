@@ -52,8 +52,8 @@
 
 {{-- ご注意点 --}}
 <h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">ご注意点</h3>
-<p class="mb-2 bg-yellow bg-opacity-10 text-yellow px-4 py-2 font-semibold">
+<p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
     投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。
 </p>
-<p class="mb-2 bg-yellow bg-opacity-10 text-yellow px-4 py-2 font-semibold">
+<p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
     投稿したエピソードを後から削除することはできません。ただし、鉛筆マークの編集ボタンから「非公開」にできます。</p>

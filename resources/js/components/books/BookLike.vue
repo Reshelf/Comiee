@@ -90,7 +90,7 @@ export default {
 .clicked {
   @apply fill-yellow;
   svg {
-    box-shadow: 0 3px 12px 0 rgba(#ffbd64, 0.4);
+    box-shadow: 0 3px 12px 0 rgba(#f3c42d, 0.4);
   }
 }
 </style>
