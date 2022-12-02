@@ -45,14 +45,14 @@ p-8 flex flex-col items-end">
             <div class="my-16">
                 <h3 id="2" class="text-2xl font-semibold tracking-widest">ログインができません</h3>
                 <p class="mt-4 leading-8">
-                    自力で乗り越えてください
+
                 </p>
             </div>
 
             <div class="my-16">
                 <h3 id="3" class="text-2xl font-semibold tracking-widest">パスワードを変えたい</h3>
                 <p class="mt-4 leading-8">
-                    自力で乗り越えてください
+
                 </p>
             </div>
 
