@@ -32,7 +32,7 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">{{ _('あなたがユーザーにフォローされたときに通知をします') }}</span>
+            <span class="light-checkbox-LabelText">{{ __('あなたがユーザーにフォローされたときに通知をします') }}</span>
         </label>
 
         <h3 class="my-8 text-lg font-semibold">{{ __('お気に入り') }}</h3>
@@ -59,7 +59,7 @@
             <span class="light-checkbox-LabelText">{{ __('あなたのお気に入り作品の新着エピソードが公開されたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">{{ _('購入') }}</h3>
+        <h3 class="my-8 text-lg font-semibold">{{ __('購入') }}</h3>
 
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m5" value="m5" @if ($user->m_notice_5 === 1) checked @endif
