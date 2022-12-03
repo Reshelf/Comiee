@@ -16,7 +16,7 @@
     <div class="w-full flex items-center px-2 mb-2">
         <div class="flex items-center">
             <span class="text-666 dark:text-white text-lg">{{ number_format($book->views) }}</span>
-            <span class=" text-aaa pl-2">回閲覧</span>
+            <span class=" text-aaa pl-2">{{ __('回閲覧') }}</span>
         </div>
     </div>
     {{-- @endempty --}}
@@ -30,21 +30,21 @@
     @if ($book->is_complete)
         <a href="{{ route('search.complete', app()->getLocale()) }}"
             class="inline-block text-[#e19324] dark:bg-[#e19324] dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
-            完結</a>
+            {{ __('完結') }}</a>
     @endif
 
     {{-- 非公開作品 --}}
     @if ($book->is_hidden)
         <span
             class="inline-block text-tahiti dark:bg-tahiti dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[3px] ml-2">
-            非公開</span>
+            {{ _('非公開') }}</span>
     @endif
 
     {{-- 購入 --}}
     @if (Auth::id() !== $book->user_id && !$book->is_hidden)
         <div class="w-full flex flex-col mt-4 px-2">
-            <button class="btn-border py-3 mb-2">1話を読む</button>
-            <button class="btn-primary py-3">全話をまとめて購入</button>
+            <button class="btn-border py-3 mb-2">{{ __('1話を読む') }}</button>
+            <button class="btn-primary py-3">{{ __('全話をまとめて購入') }}</button>
         </div>
     @endif
 

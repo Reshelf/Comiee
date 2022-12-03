@@ -1,7 +1,7 @@
 @csrf
 
 @if ($update)
-    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">完結作品の設定</h3>
+    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
     <div class="checkbox mb-8">
         <label class="light-checkbox">
             <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
@@ -12,12 +12,12 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">作品を完結にする</span>
+            <span class="light-checkbox-LabelText">{{ __('作品を完結にする') }}</span>
         </label>
     </div>
 
     {{-- 非公開設定 --}}
-    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">非公開設定</h3>
+    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('非公開設定') }}</h3>
     <div class="checkbox mb-8">
         <label class="light-checkbox">
             <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
@@ -28,60 +28,63 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">作品を非公開にする</span>
+            <span class="light-checkbox-LabelText">{{ __('作品を非公開にする') }}</span>
         </label>
     </div>
 @endif
 
 {{-- タイトル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">タイトル</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
 <div class="mb-8">
     <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark rounded"
-        placeholder="30字以内で入力してください" required value="{{ $book->title ?? old('title') }}" maxlength="30">
+        placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
 {{-- サムネイル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">サムネイル</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
 <div class="mb-8">
     <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-        投稿できる画像形式はpng,
-        jpg(jpeg),
-        gif, webpです。
+        {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
     </p>
     <p class="mb-4 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-        横幅500px, 縦幅500pxの画像サイズが最も綺麗に表示されます。
+        {{ __('横幅500px, 縦幅500pxの画像サイズが最も綺麗に表示されます。') }}
     </p>
     <input type="file" name="thumbnail" class="my-2 dark:text-gray"
         @if (!$update) required @endif>
 </div>
 
 {{-- ジャンル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">ジャンル</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('ジャンル') }}</h3>
 <div class="mb-8">
     <select name="genre_id" class="flex flex-col items-center">
         <option type="text" value="1"
-            @isset($book->genre_id) @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>少年</option>
+            @isset($book->genre_id) @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
+            {{ __('少年') }}</option>
         <option type="text" value="2"
-            @isset($book->genre_id) @if (2 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>青年</option>
+            @isset($book->genre_id) @if (2 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
+            {{ __('青年') }}</option>
         <option type="text" value="3"
-            @isset($book->genre_id) @if (3 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>少女</option>
+            @isset($book->genre_id) @if (3 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
+            {{ __('少女') }}</option>
         <option type="text" value="4"
-            @isset($book->genre_id) @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>女性</option>
+            @isset($book->genre_id) @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
+            {{ __('女性') }}</option>
         <option type="text" value="5"
-            @isset($book->genre_id) @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>オトナ
+            @isset($book->genre_id) @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
+            {{ __('オトナ') }}
         </option>
     </select>
 </div>
 
 {{-- タグ --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">タグ</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
 <div class="mb-8">
     <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
     </book-tags-input>
 </div>
 
 {{-- あらすじ --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">あらすじ</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
 <textarea required name="story"
     class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px] mb-8 w-full"
     placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>

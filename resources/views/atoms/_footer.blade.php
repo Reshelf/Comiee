@@ -105,7 +105,7 @@
         </div>
         <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col md:flex-row justify-between">
             <div class="md:w-1/2">
-                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ _('ヘルプ') }}</h4>
+                <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</h4>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
                     class="block text-xs mb-2 hover:text-primary">{{ __('Starbooksについて') }}</a>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
@@ -124,8 +124,8 @@
                             action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}">
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off"
-                                autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                            <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}"
+                                autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
                             <button type="submit" class="btn w-full">{{ __('送信する') }}</button>
                         </form>
                     </comment-post-modal>

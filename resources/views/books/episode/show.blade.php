@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $episode->number . '話' . ' - ' . $book->title)
+@section('title', $episode->number . __('話') . ' - ' . $book->title)
 
 @isset($episode->thumbnail)
     @section('image')
@@ -36,7 +36,7 @@
             {{-- 左サイドバー --}}
             <div class="hidden lg:block">
                 @include('books.atoms.leftSidebar', [
-                    'sns_title' => $episode->number . '話' . ' - ' . $book->title,
+                    'sns_title' => $episode->number . __('話') . ' - ' . $book->title,
                 ])
             </div>
 
