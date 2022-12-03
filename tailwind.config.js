@@ -30,6 +30,7 @@ module.exports = {
             'ea': '#eaeaea',
             '333': '#333',
             '666': '#666',
+            'light': '#ebeced',
             'gray': '#B0B3B8',
             'gray-1': '#45494B',
             'gray-2': '#E3E6EA',

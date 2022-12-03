@@ -6,7 +6,7 @@ const open = ref(false);
 <template>
   <div @click.self="open = false">
     <div
-      class="btn-sub absolute top-4 md:top-auto md:bottom-4 right-4"
+      class="absolute top-4 md:top-auto md:bottom-4 right-4"
       @click="open = true"
     >
       <slot name="trigger"></slot>

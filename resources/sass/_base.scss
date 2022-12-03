@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-dark text-t-color dark:text-ccc;
+  @apply bg-white dark:bg-dark text-t-color dark:text-gray;
   font-family: "Noto Sans JP";
   font-size: 14px;
 }
@@ -103,7 +103,7 @@ input[type="file"] {
   border-radius: 3px;
 }
 .btn-sub {
-  @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc bg-white hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
+  @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc  hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
   // background: ;
   // &:hover {
   //     background: #e4e6eb;
