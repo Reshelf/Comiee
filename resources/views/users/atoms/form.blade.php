@@ -57,6 +57,6 @@
 {{-- 自己紹介 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('自己紹介') }}</h3>
 <div class="mb-8">
-    <textarea name="body" placeholder="200文字以内で入力してください。" maxlength="200"
+    <textarea name="body" placeholder="{{ __('200文字以内で入力してください。') }}" maxlength="200"
         class="w-full dark:bg-dark p-4 border dark:border-none border-ddd rounded h-44">{{ $user->body ?? old('body') }}</textarea>
 </div>
