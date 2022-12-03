@@ -18,18 +18,20 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', function (Request $request) {
     // if (app()->getLocale() == null) {
-    $langs = explode(',', $_SERVER[‘HTTP_ACCEPT_LANGUAGE’]);
-    $path = $request->getPathInfo();
-    $langs_val = array();
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
+        $path = $request->getPathInfo();
+        $langs_val = array();
 
-    foreach ($langs as $lang) {
-        $langs_val[] = substr($lang, 0, 2);
-    }
+        foreach ($langs as $lang) {
+            $langs_val[] = substr($lang, 0, 2);
+        }
 
-    if ($langs_val[0] == "ja") {
-        return redirect('/ja' . $path);
-    } else {
-        return redirect('/en' . $path);
+        if ($langs_val[0] == "ja") {
+            return redirect('/ja' . $path);
+        } else {
+            return redirect('/en' . $path);
+        }
     }
     // } else {
     //     return redirect(app()->getLocale());
