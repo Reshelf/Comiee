@@ -46,16 +46,16 @@ export default {
 .tab {
   @apply w-full flex flex-col md:flex-row;
   .tabMenu {
-    @apply flex md:flex-col bg-white dark:bg-dark md:border-r-2 md:border-eee dark:border-dark-1 overflow-x-auto;
+    @apply flex mb-4 md:flex-col bg-white dark:bg-dark md:border-r-2 md:border-eee dark:border-dark-1 overflow-x-auto;
     li {
-      @apply w-auto whitespace-nowrap text-xs md:text-[13px] cursor-pointer py-4 pr-8 md:pr-12 hover:text-primary dark:hover:text-light;
+      @apply w-auto whitespace-nowrap text-[13px] cursor-pointer md:py-3 pr-6 md:pr-12 hover:text-primary dark:hover:text-light;
       &.active {
         @apply font-semibold text-primary dark:text-ddd;
       }
     }
   }
   .tabContents {
-    @apply w-full md:px-6 my-4 md:my-0;
+    @apply w-full md:px-6 md:my-0;
   }
 }
 </style>

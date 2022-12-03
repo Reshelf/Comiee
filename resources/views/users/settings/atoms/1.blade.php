@@ -1,16 +1,16 @@
 <template #1>
-    <h2 class="text-xl font-semibold">{{ __('メール通知') }}</h2>
     <form method="POST"
         action="{{ route('users.settings.update', [
             'lang' => app()->getLocale(),
             'name' => $user->name,
             'username' => $user->username,
         ]) }}"
-        enctype="multipart/form-data" class="px-4 md:px-8">
+        enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
-        <h3 class="my-8 text-lg font-semibold">{{ __('フォロー') }}</h3>
+        <h3 class="mb-8 mt-4 text-lg font-semibold">
+            {{ __('フォロー') }}</h3>
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m1" value="m1" @if ($user->m_notice_1 === 1) checked @endif
                 class="light-checkbox-Input">

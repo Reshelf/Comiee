@@ -18,9 +18,9 @@
     </div>
 
     @if (Auth::id() === $user->id)
-        <div class="flex max-w-6xl w-full mx-auto mt-4 px-6 md:px-0 justify-center mb-8">
-            <div class="w-full md:my-8 mx-12">
-                <div class="w-full flex">
+        <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
+            <div class="w-full mx-12">
+                <div class="w-full my-4 flex">
                     <setting-tab :is-comment="false">
                         @include('users.settings.atoms.1')
                         @include('users.settings.atoms.2')
