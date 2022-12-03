@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'お気に入り')
+@section('title', __('お気に入り'))
 
 @section('content')
     @include('atoms._nav', ['tab' => 3])

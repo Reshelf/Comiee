@@ -8,7 +8,7 @@
         <div class="max-w-6xl w-full mx-auto text-white font-semibold flex items-center">
             <h2 class="text-3xl">「{{ $tag->hashtag }}」</h2>
             <span class="inline-block text-2xl ml-4">
-                {{ $tag->books->count() }}件
+                {{ $tag->books->count() }}{{ __('件') }}
             </span>
         </div>
     </div>

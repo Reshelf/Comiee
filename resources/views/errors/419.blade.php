@@ -11,10 +11,10 @@
             419 | Page Expired
         </h2>
 
-        <p class="px-6">ページの有効時間が切れてしまいました。操作を実行するには再びログインしてください。</p>
+        <p class="px-6">{{ __('ページの有効時間が切れてしまいました。操作を実行するには再びログインしてください。') }}</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/login" class="inline-block btn-border">ログイン</a>
+            <a href="/login" class="inline-block btn-border">{{ __('ログイン') }}</a>
         </div>
     </div>
 @endsection

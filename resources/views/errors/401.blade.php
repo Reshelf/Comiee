@@ -11,10 +11,10 @@
             401 | Unauthorized
         </h2>
 
-        <p class="px-6">アカウントからログアウトされています。操作を実行するにはログインをしてください。</p>
+        <p class="px-6">{{ __('アカウントからログアウトされています。操作を実行するにはログインをしてください。') }}</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/login" class="inline-block btn-border">ログイン</a>
+            <a href="/login" class="inline-block btn-border">{{ __('ログイン') }}</a>
         </div>
     </div>
 @endsection

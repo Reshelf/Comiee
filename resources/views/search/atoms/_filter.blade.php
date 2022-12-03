@@ -22,6 +22,6 @@
             <path d="M10 13H14" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
                 stroke-linejoin="round" />
         </svg>
-        フィルタ
+        {{ __('フィルタ') }}
     </div>
 </label>

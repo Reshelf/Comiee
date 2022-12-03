@@ -11,11 +11,11 @@
             500 | Server Error
         </h2>
 
-        <p class="px-6">サーバーに何か異常が発生し操作を行うことができませんでした。</p>
-        <p class="px-6">お手数おかけしますが、時間を置いていただくか運営にご連絡をお願いします。</p>
+        <p class="px-6">{{ __('サーバーに何か異常が発生し操作を行うことができませんでした。') }}</p>
+        <p class="px-6">{{ __('お手数おかけしますが、時間を置いていただくか運営にご連絡をお願いします。') }}</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/" class="inline-block btn-border">トップページへ</a>
+            <a href="/" class="inline-block btn-border">{{ __('トップページへ') }}</a>
         </div>
     </div>
 @endsection

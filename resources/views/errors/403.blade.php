@@ -11,10 +11,10 @@
             403 | Forbidden
         </h2>
 
-        <p class="px-6">要求された操作は禁止されているリクエストです。</p>
+        <p class="px-6">{{ __('要求された操作は禁止されているリクエストです。') }}</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/" class="inline-block btn-border">トップページへ</a>
+            <a href="/" class="inline-block btn-border">{{ __('トップページへ') }}</a>
         </div>
     </div>
 @endsection

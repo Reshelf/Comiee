@@ -11,10 +11,10 @@
             404 | Not Found
         </h2>
 
-        <p class="px-6">指定されたページが見つかりませんでした。</p>
+        <p class="px-6">{{ __('指定されたページが見つかりませんでした。') }}</p>
 
         <div class="w-full flex justify-between pb-4 px-6 mt-6">
-            <a href="/" class="inline-block btn-border">トップページへ</a>
+            <a href="/" class="inline-block btn-border">{{ __('トップページへ') }}</a>
         </div>
     </div>
 @endsection
