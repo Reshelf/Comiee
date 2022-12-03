@@ -107,6 +107,6 @@ class UpdateController extends Controller
         $user->save();
 
         // 新しいユーザーIDのページへ遷移
-        return back()->withSuccess("プロフィールを更新しました！");
+        return redirect('/' . app()->getLocale() . '/' . $user->username)->withSuccess("プロフィールを更新しました！");
     }
 }
