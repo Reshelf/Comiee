@@ -17,8 +17,7 @@ Auth::routes(['verify' => true]);
 // Route::post('/verify/sms', 'App\Http\Controllers\Auth\OtpController')->name('verify.otp');
 
 Route::get('/', function (Request $request) {
-    // if (app()->getLocale() == null) {
-    if (isset($_SERVER['HTTP_REFERER'])) {
+    if (app()->getLocale() == null) {
         $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
         $path = $request->getPathInfo();
         $langs_val = array();
@@ -32,10 +31,9 @@ Route::get('/', function (Request $request) {
         } else {
             return redirect('/en' . $path);
         }
+    } else {
+        return redirect(app()->getLocale());
     }
-    // } else {
-    //     return redirect(app()->getLocale());
-    // }
 });
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
