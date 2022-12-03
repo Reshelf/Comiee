@@ -11,7 +11,7 @@
     {{-- 原作 --}}
     @empty(!$book->user->name)
         <div class="w-full flex items-center mb-4 pl-2">
-            <div class="w-1/2">作者</div>
+            <div class="w-1/2">{{ __('作者') }}</div>
             <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $book->user->username]) }}"
                 class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
         </div>
@@ -21,7 +21,7 @@
     {{-- ジャンル --}}
     @empty(!$book->genre_id)
         <div class="w-full flex items-center mb-4 pl-2">
-            <div class="w-1/2">ジャンル</div>
+            <div class="w-1/2">{{ __('ジャンル') }}</div>
             <div class="w-1/2">
                 @if ($book->genre_id === 1)
                     <a href="{{ route('ranking.boys', app()->getLocale()) }}" class="hover:text-primary">少年</a>
@@ -41,7 +41,7 @@
     {{-- タグ --}}
     @if (count($book->tags) > 0)
         <div class="w-full flex items-start pl-2">
-            <div class="w-1/2">タグ</div>
+            <div class="w-1/2">{{ __('タグ') }}</div>
             <div class="w-1/2 flex flex-wrap items-center">
                 @foreach ($book->tags as $tag)
                     @if ($loop->first)

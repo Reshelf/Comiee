@@ -38,9 +38,9 @@
 
                     <comment-post-modal class="mr-4">
                         <template #trigger>
-                            <span class="text-666">返信</span>
+                            <span class="text-666">{{ __('返信') }}</span>
                         </template>
-                        <template #header>{{ $comment->user->username }}さんに返信する</template>
+                        <template #header>{{ $comment->user->username }}{{ __('さんに返信する') }}</template>
                         <form method="POST"
                             action="{{ route('book.episode.comment.store', [
                                 'lang' => app()->getLocale(),
@@ -52,9 +52,9 @@
                             @csrf
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                             <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]"
-                                placeholder="ここはエピソードへの応援コメントを投稿できる場所です！&#10;&#10;作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！&#10;&#10;不適切なコメントを見つけた場合は通報をお願いいたします！&#10;&#10;ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。"
+                                placeholder="{{ __('ここはエピソードへの応援コメントを投稿できる場所です！') }}&#10;&#10;{{ __('作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！') }}&#10;&#10;{{ __('不適切なコメントを見つけた場合は通報をお願いいたします！') }}&#10;&#10;{{ __('ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。') }}"
                                 autocomplete="off" autofocus="on" type="text" name="comment" maxlength="400" required></textarea>
-                            <button type="submit" class="btn w-full">返信する</button>
+                            <button type="submit" class="btn w-full">{{ __('返信する') }}</button>
                         </form>
                     </comment-post-modal>
                 </div>
@@ -83,7 +83,8 @@
                     class="m-2">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="flex w-full h-full py-2 px-4 hover:text-primary">削除する</button>
+                    <button type="submit"
+                        class="flex w-full h-full py-2 px-4 hover:text-primary">{{ __('削除する') }}</button>
                 </form>
             @endif
             {{-- 通報 --}}
@@ -91,18 +92,18 @@
                 <comment-post-modal>
                     <template #trigger>
                         <div class="flex w-full h-full p-2 lg:px-4 hover:text-primary">
-                            通報する
+                            {{ __('通報する') }}
                         </div>
                     </template>
-                    <template #header>コメントに対して通報する</template>
+                    <template #header>{{ __('コメントに対して通報する') }}</template>
                     <form method="POST"
                         action="{{ route('others.report', ['lang' => app()->getLocale(), 'user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
                         class="flex flex-col">
                         @csrf
                         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="お問い合せ内容を記入してください。" autocomplete="off"
-                            autofocus="on" type="text" name="body" maxlength="400" required></textarea>
-                        <button type="submit" class="btn w-full">送信する</button>
+                        <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}"
+                            autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+                        <button type="submit" class="btn w-full">{{ __('送信する') }}</button>
                     </form>
                 </comment-post-modal>
             @endif

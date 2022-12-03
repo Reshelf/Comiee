@@ -6,7 +6,7 @@
 
         @if (Auth::id() !== $book->user_id && $book->is_hidden)
             <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-                この作品は現在非公開になっています
+                {{ __('この作品は現在非公開になっています') }}
             </div>
         @else
             @if (Auth::id() === $book->user_id)
@@ -14,16 +14,16 @@
                     <template #trigger>
                         <div
                             class="w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
-                            エピソードを追加する
+                            {{ __('エピソードを追加する') }}
                         </div>
                     </template>
-                    <template #header>エピソードを追加する</template>
+                    <template #header>{{ __('エピソードを追加する') }}</template>
                     <form method="POST"
                         action="{{ route('book.episode.store', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @include('books.episode.tab.1.episode_form', ['update' => false])
-                        <button type="submit" class="btn-primary py-4 w-full mt-4">追加する</button>
+                        <button type="submit" class="btn-primary py-4 w-full mt-4">{{ __('追加する') }}</button>
                     </form>
                 </episode-list>
             @endif
@@ -53,7 +53,7 @@
                                 {{-- 話数 --}}
                                 {{-- 既読 --}}
                                 <div class="flex flex-col">
-                                    <div>第{{ $e->number }}話</div>
+                                    <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}</div>
 
                                     <div class="flex items-center mt-1">
 
@@ -62,12 +62,12 @@
                                             @if ($e->is_free)
                                                 <span
                                                     class="text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
-                                                    無料
+                                                    {{ __('無料') }}
                                                 </span>
                                             @else
                                                 <span
                                                     class="inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
-                                                    {{ $e->price }}pt
+                                                    {{ $e->price }}{{ __('円') }}
                                                 </span>
                                             @endif
                                         @endif
@@ -76,14 +76,15 @@
                                         @if ($e->is_hidden)
                                             <span
                                                 class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[3px] whitespace-nowrap">
-                                                非公開
+                                                {{ __('非公開') }}
                                             </span>
                                         @endif
 
 
                                         {{-- 閲覧回数 --}}
                                         <div class="ml-2 text-666 dark:text-ddd">
-                                            {{ number_format($e->views) }} <span class="text-xs">回</span>
+                                            {{ number_format($e->views) }} <span
+                                                class="text-xs">{{ __('回') }}</span>
                                         </div>
 
                                         {{-- 既読 --}}
@@ -91,11 +92,11 @@
                                             @if ($book->user->id !== Auth::user()->id)
                                                 @if ($e->isReadBy(Auth::user()))
                                                     <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                                                        既読
+                                                        {{ __('既読') }}
                                                     </span>
                                                 @else
                                                     <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                                                        未読
+                                                        {{ __('未読') }}
                                                     </span>
                                                 @endif
                                             @endif
@@ -125,14 +126,15 @@
                                     </svg>
                                 </div>
                             </template>
-                            <template #header>エピソードを更新する</template>
+                            <template #header>{{ __('エピソードを更新する') }}</template>
                             <form method="POST"
                                 action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
                                 enctype="multipart/form-data" class="whitespace-pre-line">
                                 @csrf
                                 @method('PATCH')
                                 @include('books.episode.tab.1.episode_form', ['update' => true])
-                                <button type="submit" class="btn-primary py-4 w-full mt-4">更新する</button>
+                                <button type="submit"
+                                    class="btn-primary py-4 w-full mt-4">{{ __('更新する') }}</button>
                             </form>
                         </episode-list>
                     @endif
