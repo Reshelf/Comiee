@@ -116,7 +116,7 @@
                     <comment-post-modal>
                         <template #btn-trigger>
                             <span class="block text-xs mb-2 hover:text-primary">
-                                {{ _('お問い合わせ') }}
+                                {{ __('お問い合わせ') }}
                             </span>
                         </template>
                         <template #header>{{ __('運営へのお問い合せ') }}</template>
