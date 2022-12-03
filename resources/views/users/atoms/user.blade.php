@@ -87,9 +87,11 @@
                     <span>@</span>{{ $user->username }}
                 </div>
 
-                <div class="my-2 md:hidden">
-                    {{ $user->body }}
-                </div>
+                @isset($user->body)
+                    <div class="my-2 md:hidden">
+                        {{ $user->body }}
+                    </div>
+                @endisset
 
                 <div class="flex justify-start items-center text-sm pt-2 md:pt-2">
                     <a href="{{ route('users.followings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
