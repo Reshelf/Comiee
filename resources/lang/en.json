@@ -194,5 +194,10 @@
   "エピソード": "Episode",
   "作品情報": "Work Information",
   "コメント": "Comment",
-  "件": "cases"
+  "件": "cases",
+
+  "購入": "Purchase",
+
+  "ダークモードにする": "Turn on dark mode",
+  "ライトモードにする": "Turn on light mode"
 }

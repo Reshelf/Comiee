@@ -1,3 +1,9 @@
+@php
+    $a = __('ダークモードにする');
+    $b = __('ライトモードにする');
+@endphp
+
+
 <header-user-modal>
     <template #avatar>
         @if (empty(Auth::user()->avatar))
@@ -40,7 +46,7 @@
     {{-- ダークモード --}}
     <div href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
         class="flex items-center text-sm cursor-pointer rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
-        <theme-toggle></theme-toggle>
+        <theme-toggle :one='@json($a)' :two='@json($b)'></theme-toggle>
     </div>
 
     <div class="border-b border-ddd dark:border-dark my-1 w-full"></div>

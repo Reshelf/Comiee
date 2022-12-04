@@ -1,3 +1,8 @@
+@php
+    $a = __('ダークモードにする');
+    $b = __('ライトモードにする');
+@endphp
+
 <template #4>
 
     <div class="">
@@ -23,7 +28,7 @@
     <div class="my-8">
         <h3 class="text-base font-semibold">{{ __('外観') }}</h3>
         <div class="mt-4">
-            <theme-toggle></theme-toggle>
+            <theme-toggle :one='@json($a)' :two='@json($b)'></theme-toggle>
         </div>
     </div>
 </template>
