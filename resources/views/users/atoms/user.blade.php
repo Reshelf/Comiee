@@ -73,7 +73,8 @@
         <div class="w-full md:px-6 flex justify-between md:mt-4">
             <div class="w-full flex flex-col">
                 <div class="flex items-center justify-start">
-                    <h3 class="font-semibold pr-2 tracking-widest text-2xl md:text-[32px]">{{ $user->name }}</h3>
+                    <h3 class="font-semibold pr-2 tracking-widest text-2xl md:text-[32px] dark:text-ddd">
+                        {{ $user->name }}</h3>
                     <div class="h-full flex items-center text-primary">
                         <svg class="h-5 w-5 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
