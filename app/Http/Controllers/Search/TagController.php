@@ -13,12 +13,12 @@ class TagController extends Controller
     | タグ検索結果 一覧
     |--------------------------------------------------------------------------
     */
-    public function __invoke(string $name)
+    public function __invoke($lang, string $name)
     {
         $tag = \Cache::remember("tag.{$name}", Carbon::now()->endOfDay()->addSecond(), function () use ($name) {
             return Tag::where('name', $name)->latest()->first();
         });
 
-        return view('search.tag_name', ['tag' => $tag]);
+        return view('search.tag_name', ['lang' => $lang, 'tag' => $tag]);
     }
 }
