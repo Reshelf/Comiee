@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark">
+<html class="dark" lang="{{ app()->getLocale() }}">
 
 <head>
     @include('atoms.meta')
