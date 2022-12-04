@@ -13,7 +13,7 @@
                 <div class="flex items-center md:ml-auto">
 
                     {{-- 検索 --}}
-                    <search-form class="md:mr-8 hidden lg:block"></search-form>
+                    <search-form :lang='@json(app()->getLocale())' class="md:mr-8 hidden lg:block"></search-form>
 
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">

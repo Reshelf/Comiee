@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="flex items-center md:ml-auto">
-                    <search-form class="mr-8"></search-form>
+                    <search-form :lang='@json(app()->getLocale())' class="mr-8"></search-form>
                     <div class="hidden lg:flex items-center">
                         <nav class="text-sm">
                             <div class="flex items-center">
