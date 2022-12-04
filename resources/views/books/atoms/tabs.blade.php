@@ -1,18 +1,21 @@
 <div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
     <h3 class="font-semibold mb-2">{{ __('Starbooksを楽しもう') }}</h3>
     <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
+        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+        aria-current="page">
         {{ __('ご利用ガイド') }}
     </a>
     <a href="{{ route('others.faq.1', app()->getLocale()) }}"
-        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary" aria-current="page">
+        class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+        aria-current="page">
         {{ __('よくあるご質問') }}
     </a>
 
     @auth
         <comment-post-modal>
             <template #btn-trigger>
-                <span class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary"
+                <span
+                    class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
                     aria-current="page">
                     {{ __('お問い合わせ') }}
                 </span>
