@@ -1,5 +1,12 @@
 @extends('app')
 
+@php
+    $a = __('エピソード');
+    $b = __('作品情報');
+    $c = __('コメント');
+    $d = __('件');
+@endphp
+
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
 
 @isset($episode->thumbnail)
@@ -44,10 +51,11 @@
 
                 {{-- メインコンテンツ --}}
                 <div class="px-4 md:px-6 w-full lg:w-2/3">
-                    <book-tab :is-comment="true" :count='@json(count($comments) ?? 0)'>
+                    <book-tab :is-comment="true" :count='@json(count($comments) ?? 0)'
+                        :one='@json($a)' :two='@json($b)'
+                        :three='@json($c)' :four='@json($d)'>
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
-                        @include('books.episode.tab.3')
                     </book-tab>
                 </div>
 

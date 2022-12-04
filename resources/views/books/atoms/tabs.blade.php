@@ -33,9 +33,6 @@
     @endauth
 </div>
 <div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
-    {{-- <genre-search class="mb-4">
-        <template #trigger>ジャンルから探す</template>
-    </genre-search> --}}
     <tag-search-modal>
         <template #trigger>{{ __('タグからさがす') }}</template>
     </tag-search-modal>

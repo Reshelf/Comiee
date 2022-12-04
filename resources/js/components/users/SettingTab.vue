@@ -1,29 +1,17 @@
-<script>
-export default {
-  data() {
-    return {
-      isActive: 1,
-    };
-  },
-  methods: {
-    isSelect(num) {
-      this.isActive = num;
-    },
-  },
-};
-</script>
 <template>
   <div class="tab">
     <ul class="tabMenu scroll-none">
       <li :class="{ active: isActive === 1 }" @click="isSelect(1)">
-        メール通知
+        {{ one }}
       </li>
-      <li :class="{ active: isActive === 2 }" @click="isSelect(2)">購入履歴</li>
+      <li :class="{ active: isActive === 2 }" @click="isSelect(2)">
+        {{ two }}
+      </li>
       <li :class="{ active: isActive === 3 }" @click="isSelect(3)">
-        表示しない作品
+        {{ three }}
       </li>
       <li :class="{ active: isActive === 4 }" @click="isSelect(4)">
-        サイトの表示設定
+        {{ four }}
       </li>
     </ul>
     <div class="tabContents">
@@ -42,6 +30,38 @@ export default {
     </div>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    one: {
+      type: String,
+      default: "",
+    },
+    two: {
+      type: String,
+      default: "",
+    },
+    three: {
+      type: String,
+      default: "",
+    },
+    four: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      isActive: 1,
+    };
+  },
+  methods: {
+    isSelect(num) {
+      this.isActive = num;
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .tab {
   @apply w-full flex flex-col md:flex-row;

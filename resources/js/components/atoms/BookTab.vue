@@ -9,6 +9,22 @@ export default {
       type: Number,
       default: 0,
     },
+    one: {
+      type: String,
+      default: "",
+    },
+    two: {
+      type: String,
+      default: "",
+    },
+    three: {
+      type: String,
+      default: "",
+    },
+    four: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -26,15 +42,17 @@ export default {
   <div class="tab">
     <ul class="tabMenu scroll-none">
       <li :class="{ active: isActive === 1 }" @click="isSelect(1)">
-        エピソード
+        {{ one }}
       </li>
-      <li :class="{ active: isActive === 2 }" @click="isSelect(2)">作品情報</li>
+      <li :class="{ active: isActive === 2 }" @click="isSelect(2)">
+        {{ two }}
+      </li>
       <li
         v-if="isComment"
         :class="{ active: isActive === 3 }"
         @click="isSelect(3)"
       >
-        コメント <span class="font-semibold">{{ count }}</span> 件
+        {{ three }} <span class="font-semibold">{{ count }}</span> {{ four }}
       </li>
     </ul>
     <div class="tabContents">

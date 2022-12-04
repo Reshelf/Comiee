@@ -1,5 +1,12 @@
 @extends('app')
 
+@php
+    $a = __('エピソード');
+    $b = __('作品情報');
+    $c = __('コメント');
+    $d = __('件');
+@endphp
+
 @section('title', $book->title)
 
 @isset($book->thumbnail)
@@ -29,7 +36,8 @@
             <div class="w-full flex flex-col md:flex-row py-8">
                 {{-- メインコンテンツ --}}
                 <div class="px-6 lg:w-2/3">
-                    <book-tab :is-comment="false">
+                    <book-tab :is-comment="false" :one='@json($a)' :two='@json($b)'
+                        :three='@json($c)' :four='@json($d)'>
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
                     </book-tab>

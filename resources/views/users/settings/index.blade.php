@@ -2,6 +2,13 @@
 
 @section('title', __('設定'))
 
+@php
+    $a = __('メール通知');
+    $b = __('購入履歴');
+    $c = __('表示しない作品');
+    $d = __('サイトの表示設定');
+@endphp
+
 @section('content')
     @include('atoms._nav', ['tab' => 0])
 
@@ -21,7 +28,9 @@
         <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
             <div class="w-full mx-12">
                 <div class="w-full my-4 flex">
-                    <setting-tab :is-comment="false">
+                    <setting-tab :is-comment="false" :one='@json($a)'
+                        :two='@json($b)' :three='@json($c)'
+                        :four='@json($d)'>
                         @include('users.settings.atoms.1')
                         @include('users.settings.atoms.2')
                         @include('users.settings.atoms.3')

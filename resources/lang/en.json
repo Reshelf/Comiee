@@ -34,9 +34,9 @@
   "プロフィール画像": "Profile Image",
   "横幅200px, 縦幅200pxの画像サイズが最も綺麗に表示されます。": "An image size of 200px wide and 200px high will display most nicely.",
   "名前": "Name",
-  "ユーザーID": "user ID",
+  "ユーザーID": "User ID",
   "メールアドレス": "Email Address",
-  "自己紹介": "self-introduction",
+  "自己紹介": "Self-introduction",
 
   "プロフィールを編集": "Edit Profile",
   "プロフィールの更新": "Update Profile",
@@ -189,5 +189,10 @@
 
   "フォローする": "Follow us",
   "200文字以内で入力してください。": "Please enter up to 200 characters.",
-  "総合": "General"
+  "総合": "General",
+
+  "エピソード": "Episode",
+  "作品情報": "Work Information",
+  "コメント": "Comment",
+  "件": "cases"
 }
