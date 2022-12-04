@@ -41,7 +41,7 @@ onMounted(() => {
 });
 
 function locate(item) {
-  location.href = props.lang + "/books/" + item.id;
+  location.href = "/" + props.lang + "/books/" + item.id;
 }
 function reset() {
   state.search = "";
