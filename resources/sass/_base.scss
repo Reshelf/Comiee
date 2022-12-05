@@ -225,10 +225,10 @@ input[type="file"] {
 
 .avatar {
   @apply rounded-full object-cover flex border-4 border-white dark:border-dark;
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 100px;
-  max-height: 100px;
+  min-width: 90px;
+  min-height: 90px;
+  max-width: 90px;
+  max-height: 90px;
   @screen md {
     min-width: 170px;
     min-height: 170px;
