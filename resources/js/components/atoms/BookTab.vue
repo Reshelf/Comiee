@@ -74,9 +74,9 @@ export default {
   .tabMenu {
     @apply flex bg-white dark:bg-dark overflow-x-auto;
     li {
-      @apply w-auto cursor-pointer py-2 px-4 hover:text-primary;
+      @apply w-auto cursor-pointer py-2 px-4 hover:text-primary dark:hover:text-ddd;
       &.active {
-        @apply font-semibold text-primary border-b-2 border-primary;
+        @apply font-semibold text-primary dark:text-ddd border-b-2 border-primary;
       }
     }
   }

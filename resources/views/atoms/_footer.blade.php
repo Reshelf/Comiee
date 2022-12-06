@@ -107,16 +107,16 @@
             <div class="md:w-1/2">
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</h4>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">{{ __('Starbooksについて') }}</a>
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Starbooksについて') }}</a>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">{{ __('ご利用ガイド') }}</a>
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
                 <a href="{{ route('others.faq.1', app()->getLocale()) }}"
-                    class="block text-xs mb-2 hover:text-primary">{{ __('よくあるご質問') }}</a>
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('よくあるご質問') }}</a>
                 @auth
                     <comment-post-modal>
                         <template #btn-trigger>
-                            <span class="block text-xs mb-2 hover:text-primary">
-                                {{ __('お問い合わせ') }}
+                            <span class="block mb-2 hover:text-primary dark:hover:text-ddd">
+                                {{ _('お問い合わせ') }}
                             </span>
                         </template>
                         <template #header>{{ __('運営へのお問い合せ') }}</template>
@@ -130,18 +130,15 @@
                         </form>
                     </comment-post-modal>
                 @endauth
-
-                {{-- <h4 class="tracking-widest text-xl mt-8 mb-4 cursor-default dark:text-[#c9cacc]">プログラム</h4>
-                <div class="text-xs mb-2">Developer Circles</div>
-                <div class="text-xs mb-2">F8</div>
-                <div class="text-xs mb-2">ThreatExchange</div> --}}
             </div>
             <div class="md:w-1/2 mt-8 md:mt-0">
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('利用規約とポリシー') }}</h4>
                 <a href="{{ route('others.terms', app()->getLocale()) }}"
-                    class="block text-xs mb-2">{{ __('利用規約') }}</a>
-                <a class="block text-xs mb-2">{{ __('プライバシーポリシー') }}</a>
-                <a class="block text-xs mb-2">{{ __('特定商取引法に基づく表記') }}</a>
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('利用規約') }}</a>
+                <a href=""
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('プライバシーポリシー') }}</a>
+                <a href=""
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
             </div>
         </div>
     </div>

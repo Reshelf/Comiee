@@ -36,7 +36,7 @@
 {{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
 <div class="mb-8">
-    <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark rounded"
+    <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1 rounded"
         placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
@@ -86,5 +86,5 @@
 {{-- あらすじ --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
 <textarea required name="story"
-    class="dark:bg-dark-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px] mb-8 w-full"
+    class="dark:bg-dark-1-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px] mb-8 w-full"
     placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>

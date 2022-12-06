@@ -74,7 +74,7 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .trigger {
-  @apply cursor-pointer hover:text-primary;
+  @apply cursor-pointer hover:text-primary dark:hover:text-ddd;
 }
 .title {
   @apply text-[#5A5777] dark:text-ddd;

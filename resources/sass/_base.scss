@@ -183,7 +183,7 @@ input[type="file"] {
 }
 
 .window {
-  @apply absolute rounded-sm bg-white dark:bg-dark-1;
+  @apply absolute rounded-sm bg-white dark:bg-dark;
   max-width: 600px;
   @screen lg {
     width: 600px;
