@@ -40,6 +40,7 @@
                         :three='@json($c)' :four='@json($d)'>
                         @include('books.episode.tab.1')
                         @include('books.episode.tab.2')
+                        @include('books.episode.tab.3')
                     </book-tab>
                 </div>
 
