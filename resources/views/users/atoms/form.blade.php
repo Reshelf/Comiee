@@ -28,7 +28,7 @@
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('名前') }}</h3>
 <div class="mb-8">
     <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
-        class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1-2 rounded" maxlength="30">
+        class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1 rounded" maxlength="30">
 </div>
 
 {{-- ユーザーID --}}
