@@ -73,7 +73,7 @@ class UpdateController extends Controller
 
             $img =  \Image::make($file);
             $img->resize(
-                2000,
+                3000,
                 null,
                 function ($constraint) {
                     $constraint->aspectRatio();
