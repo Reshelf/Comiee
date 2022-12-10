@@ -50,7 +50,6 @@ class StoreController extends Controller
                 1000,
                 1000,
                 function ($constraint) {
-                    $constraint->aspectRatio();
                     $constraint->upsize();
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
