@@ -58,7 +58,7 @@ class UpdateController extends Controller
 
             $img =  \Image::make($file)->resize(
                 1000,
-                1000,
+                null,
                 function ($constraint) {
                     $constraint->upsize();
                 }
