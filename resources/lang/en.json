@@ -199,5 +199,7 @@
   "購入": "Purchase",
 
   "ダークモードにする": "Turn on dark mode",
-  "ライトモードにする": "Turn on light mode"
+  "ライトモードにする": "Turn on light mode",
+
+  "パスワードは8文字以上で数字、大文字、小文字を1文字以上含めるようにしてください": "Passwords must be at least 8 characters long and contain at least one number, one uppercase letter, and one lowercase letter"
 }
