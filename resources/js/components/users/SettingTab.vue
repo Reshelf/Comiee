@@ -13,6 +13,9 @@
       <li :class="{ active: isActive === 4 }" @click="isSelect(4)">
         {{ four }}
       </li>
+      <li :class="{ active: isActive === 5 }" @click="isSelect(5)">
+        {{ five }}
+      </li>
     </ul>
     <div class="tabContents">
       <div v-if="isActive === 1">
@@ -26,6 +29,9 @@
       </div>
       <div v-else-if="isActive === 4">
         <slot name="4"></slot>
+      </div>
+      <div v-else-if="isActive === 5">
+        <slot name="5"></slot>
       </div>
     </div>
   </div>
@@ -46,6 +52,10 @@ export default {
       default: "",
     },
     four: {
+      type: String,
+      default: "",
+    },
+    five: {
       type: String,
       default: "",
     },

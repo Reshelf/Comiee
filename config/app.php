@@ -208,4 +208,14 @@ return [
     |
     */
     'aliases' => Facade::defaultAliases()->merge([])->toArray(),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Stripe
+    |--------------------------------------------------------------------------
+    |
+    */
+    'stripe_public' => env('STRIPE_PUBLIC'),
+    'stripe_secret' => env('STRIPE_SECRET'),
+    'stripe_connect_client_id' => env('CONNECT_CLIENT_ID'),
 ];

@@ -7,6 +7,7 @@
     $b = __('購入履歴');
     $c = __('表示しない作品');
     $d = __('サイトの表示設定');
+    $e = __('収益の受取');
 @endphp
 
 @section('content')
@@ -30,11 +31,12 @@
                 <div class="w-full my-4 flex">
                     <setting-tab :is-comment="false" :one='@json($a)'
                         :two='@json($b)' :three='@json($c)'
-                        :four='@json($d)'>
+                        :four='@json($d)' :five='@json($e)'>
                         @include('users.settings.atoms.1')
                         @include('users.settings.atoms.2')
                         @include('users.settings.atoms.3')
                         @include('users.settings.atoms.4')
+                        @include('users.settings.atoms.5')
                     </setting-tab>
                 </div>
             </div>
