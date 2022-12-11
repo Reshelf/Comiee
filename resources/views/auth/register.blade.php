@@ -23,8 +23,8 @@
                     type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
             </div>
             <div class="w-full mb-6">
-                <p class="mb-2 bg-orange bg-opacity-10 text-orange px-4 py-2 font-semibold text-xs">
-                    {{ __('パスワードは8文字以上で数字、大文字、小文字を1文字以上含めるようにしてください') }}
+                <p class="mb-2 bg-orange bg-opacity-10 text-orange px-4 py-2 font-semibold">
+                    {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
                 </p>
                 <input
                     class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
