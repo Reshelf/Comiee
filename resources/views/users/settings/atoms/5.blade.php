@@ -21,10 +21,10 @@
             @if (empty(Auth::user()->stripe_user_id))
                 <div class="mb-8">
                     <div class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-                        {{ __('Starbooksでは、決済方法にStripeという決済ツールを使用しており、読者はStripeを経由してあなたの作品を購入します。') }}
+                        {{ __('Starbooksでは、決済方法にStripeという決済ツールを使用しています。') }}
                     </div>
                     <div class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-                        {{ __('あなたの売上は、Stirpeの決済手数料3.6%とStarbooksのプラットフォーム利用料30%を引いた売上約70%です') }}
+                        {{ __('あなたの売上は、Stripe決済手数料3.6%とStarbooksプラットフォーム利用料30%を引いた売上約70%になります。') }}
                     </div>
                     <div class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
                         {{ __('振込タイミングは「毎週1回」で、あなたの売上がStripeアカウントの残高に入ってくるようになっています。') }}
