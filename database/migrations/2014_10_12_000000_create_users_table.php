@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('Hello!')->nullable();
             $table->string('username')->unique();
-            $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('stripe_user_id')->nullable();
 
             $table->string('country_code', 4)->nullable();
             $table->string('avatar')->nullable();

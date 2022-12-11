@@ -22,7 +22,7 @@ class ConnectController extends Controller
 
         $code = $request->query('code');
         if (empty($code)) {
-            return view('users.show', [
+            return view('users.settings.index', [
                 'user' => $user,
                 'books' => $books,
             ])->withErrors('Stripeとの連携に失敗しました');
@@ -41,7 +41,7 @@ class ConnectController extends Controller
         $user->stripe_user_id = $response->stripe_user_id;
         $user->save();
 
-        return view('users.show', [
+        return view('users.settings.index', [
             'user' => $user,
             'books' => $books,
         ])->withSuccess('Stripeとの連携に成功しました！');
