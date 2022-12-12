@@ -108,6 +108,8 @@
                 <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</h4>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
                     class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Starbooksについて') }}</a>
+                <a href="{{ route('others.company', app()->getLocale()) }}"
+                    class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('会社概要（運営会社）') }}</a>
                 <a href="{{ route('others.user_guide', app()->getLocale()) }}"
                     class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
                 <a href="{{ route('others.faq.1', app()->getLocale()) }}"

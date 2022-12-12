@@ -94,6 +94,7 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     |--------------------------------------------------------------------------
     |
     */
+    Route::get('/company', 'App\Http\Controllers\Others\CompanyController')->name('others.company');
     // ご利用ガイド
     Route::get('/user_guide', 'App\Http\Controllers\Others\UserGuideController')->name('others.user_guide');
     // 利用規約
