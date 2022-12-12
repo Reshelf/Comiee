@@ -78,7 +78,7 @@ export default {
   .tabMenu {
     @apply flex mb-4 md:flex-col bg-white dark:bg-dark md:border-r-2 md:border-eee dark:border-dark-1 overflow-x-auto;
     li {
-      @apply w-auto whitespace-nowrap text-[13px] cursor-pointer md:py-3 pr-6 md:pr-12 hover:text-primary dark:hover:text-light;
+      @apply tracking-widest w-auto whitespace-nowrap text-[13px] cursor-pointer md:py-3 pr-6 md:pr-12 hover:text-primary dark:hover:text-light;
       &.active {
         @apply font-semibold text-primary dark:text-ddd;
       }

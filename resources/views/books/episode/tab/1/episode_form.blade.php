@@ -31,7 +31,7 @@
             </span>
             <span class="light-checkbox-LabelText">{{ __('有料で販売する') }}</span>
         </label>
-        <p class="mt-4">現在の値段：{{ $e->price ?? old('price') }}円</p>
+        <p class="mt-4">現在の値段：{{ $e->price ?? old('price') }}{{ __('円') }}</p>
     </div>
 @endif
 

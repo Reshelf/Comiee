@@ -128,18 +128,18 @@
             <div class="relative flex items-center">
                 @if ($mypage)
                     <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2">{{ __('投稿作品') }}</a>
+                        class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('投稿作品') }}</a>
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2">{{ __('設定') }}</a>
+                            class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
                     @endif
                 @else
                     @if (Auth::id() === $user->id)
                         <a href="{{ route('users.settings', ['lang' => app()->getLocale(), $user->username]) }}"
-                            class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2">{{ __('設定') }}</a>
+                            class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
                     @endif
                     <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-                        class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2">{{ __('投稿作品') }}</a>
+                        class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('投稿作品') }}</a>
                 @endif
 
             </div>

@@ -13,7 +13,7 @@
                 <episode-list>
                     <template #trigger>
                         <div
-                            class="w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
+                            class="tracking-widest w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
                             {{ __('エピソードを追加する') }}
                         </div>
                     </template>
@@ -61,12 +61,12 @@
                                         @if (!$e->is_hidden)
                                             @if ($e->is_free)
                                                 <span
-                                                    class="text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
+                                                    class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
                                                     {{ __('無料') }}
                                                 </span>
                                             @else
                                                 <span
-                                                    class="inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
+                                                    class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
                                                     {{ $e->price }}{{ __('円') }}
                                                 </span>
                                             @endif
