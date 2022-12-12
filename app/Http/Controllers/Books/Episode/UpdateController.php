@@ -48,8 +48,8 @@ class UpdateController extends Controller
         if ($request->is_hidden === null) $episode->is_hidden = false;
 
         // 値段設定
-        $episode->is_free = true;
-        if ($request->is_free === null) $episode->is_free = false;
+        $episode->is_free = false;
+        if ($request->is_free === null) $episode->is_free = true;
 
 
         // サムネイル
