@@ -26,10 +26,10 @@ class ConnectController extends Controller
 
         $code = $request->query('code');
         if (empty($code)) {
-            return view('users.settings.index', [
-                'user' => $user,
-                'books' => $books,
-            ])->withErrors('Stripeとの連携に失敗しました');
+            return view('users.stripe.connected', [
+                'error' => true,
+                'success' => false
+            ]);
         }
 
         Stripe::setApiKey(config('app.stripe_secret'));
@@ -45,9 +45,9 @@ class ConnectController extends Controller
         $user->stripe_user_id = $response->stripe_user_id;
         $user->save();
 
-        return view('users.settings.index', [
-            'user' => $user,
-            'books' => $books,
-        ])->withSuccess('Stripeとの連携に成功しました！');
+        return view('users.stripe.connected', [
+            'error' => false,
+            'success' => true
+        ]);
     }
 }

@@ -37,6 +37,7 @@ Route::get('/', function (Request $request) {
 });
 
 Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
+Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectedController')->name('stripe.connected');
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     /*
