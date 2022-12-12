@@ -26,7 +26,7 @@ class ShowController extends Controller
             abort(404);
         }
 
-        $books = $user->books()->latest()->get();
+        $books = $user->books()->latest()->get() ?? [];
 
         return view('users.show', [
             'user' => $user,

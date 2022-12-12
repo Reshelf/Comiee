@@ -18,7 +18,11 @@ class ConnectController extends Controller
     public function __invoke(Request $request)
     {
         $user = Auth::user();
-        $books = $user->books()->latest()->get();
+        if ($user === null) {
+            abort(404);
+        };
+
+        $books = $user->books()->latest()->get() ?? [];
 
         $code = $request->query('code');
         if (empty($code)) {
