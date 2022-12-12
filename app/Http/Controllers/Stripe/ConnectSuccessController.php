@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Stripe\OAuth;
 use Stripe\Stripe;
 
-class ConnectedController extends Controller
+class ConnectSuccessController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
