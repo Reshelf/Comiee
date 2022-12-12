@@ -2,12 +2,6 @@
 
 @section('title', '会社概要（運営会社）')
 
-@section('description')
-    <meta name="description" itemprop="description" content="Starbooksの「特定商取引に関する法律」及び「資金決済に関する法律」に基づく表示について">
-    <meta property="og:description" content="Starbooksの「特定商取引に関する法律」及び「資金決済に関する法律」に基づく表示について">
-    <meta name="twitter:description" content="Starbooksの「特定商取引に関する法律」及び「資金決済に関する法律」に基づく表示について">
-@endsection
-
 @section('content')
     @include('atoms._nav', ['tab' => 0])
 
