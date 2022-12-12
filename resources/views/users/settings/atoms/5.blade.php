@@ -10,7 +10,7 @@
                     class="btn-primary">Stripeアカウントを連携する</a>
             @else
                 <span
-                    class="bg-green bg-opacity-10 text-green px-4 py-2 rounded-[3px] font-semibold">収益受取はStripeと連携されています</span>
+                    class="bg-green bg-opacity-10 text-green px-4 py-2 rounded-[3px] font-semibold">あなたの収益受取はStripeと連携されています</span>
             @endif
         </div>
 
@@ -25,6 +25,9 @@
                 </div>
                 <div class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
                     {{ __('振込タイミングは「毎週1回」で、あなたの売上がStripeアカウントの残高に入ってくるようになっています。') }}
+                </div>
+                <div class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+                    {{ __('Starbooksでは購入したエピソードの返金は行っていないため、あなたが返金処理を行う必要はありません。') }}
                 </div>
                 <div class="mt-4 leading-8">
                     <p>ここで、1話50円のエピソードが購入されたときの作者の売上試算をみてみます。</p>
