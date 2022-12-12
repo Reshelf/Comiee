@@ -19,7 +19,7 @@
 {{-- 有料選択 --}}
 @if ($update)
     <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('エピソードの料金設定') }}</h3>
-    <div class="checkbox mb-8">
+    <div class="checkbox mb-12">
         <label class="light-checkbox">
             <input type="checkbox" name="is_free" {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }}
                 class="light-checkbox-Input">
