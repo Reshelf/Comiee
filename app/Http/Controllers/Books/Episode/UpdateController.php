@@ -47,6 +47,10 @@ class UpdateController extends Controller
         $episode->is_hidden = true;
         if ($request->is_hidden === null) $episode->is_hidden = false;
 
+        // 値段設定
+        $episode->is_free = true;
+        if ($request->is_free === null) $episode->is_free = false;
+
 
         // サムネイル
         if ($request->has('thumbnail')) {
