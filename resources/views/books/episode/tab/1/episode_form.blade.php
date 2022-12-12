@@ -16,6 +16,26 @@
     </div>
 @endif
 
+{{-- 有料選択 --}}
+@if ($update)
+    <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('エピソードの料金設定') }}</h3>
+    <div class="checkbox mb-8">
+        <label class="light-checkbox">
+            <input type="checkbox" name="is_free" {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }}
+                class="light-checkbox-Input">
+            <span class="light-checkbox-DummyInput">
+                <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                    <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </span>
+            <span class="light-checkbox-LabelText">{{ __('有料で販売する') }}</span>
+        </label>
+        <p class="mt-4">現在の値段：{{ $e->price ?? old('price') }}円</p>
+    </div>
+@endif
+
+
 
 {{-- サムネイル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
@@ -25,7 +45,8 @@
 <p class="mb-8 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
     {{ __('横幅320px, 縦幅160pxの画像サイズが最も綺麗に表示されます。') }}
 </p>
-<input type="file" name="thumbnail" value="{{ old('thumbnail') }}" @if (!$update) required @endif>
+<input type="file" name="thumbnail" value="{{ old('thumbnail') }}"
+    @if (!$update) required @endif>
 
 
 {{-- コンテンツ --}}
