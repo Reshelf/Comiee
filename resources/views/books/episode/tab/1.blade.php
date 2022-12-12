@@ -9,7 +9,7 @@
                 {{ __('この作品は現在非公開になっています') }}
             </div>
         @else
-            @if (Auth::id() === $book->user_id)
+            @if (Auth::id() === $book->user_id && !$book->is_complete)
                 <episode-list>
                     <template #trigger>
                         <div
