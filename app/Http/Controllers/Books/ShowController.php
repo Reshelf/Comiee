@@ -38,36 +38,36 @@ class ShowController extends Controller
         |--------------------------------------------------------------------------
         */
         // 最初にリセット
-        foreach ($book->episodes as $episode) {
-            $episode->is_free = false;
-            $episode->price = 50;
-            $episode->save();
-        }
-        if ($book->episodes->count() > 0) {
-            $oldest = $episode->oldest()->first();
-            $oldest->is_free = true;
-            $oldest->price = 50;
-            $oldest->save();
-        }
+        // foreach ($book->episodes as $episode) {
+        //     $episode->is_free = false;
+        //     $episode->price = 50;
+        //     $episode->save();
+        // }
+        // if ($book->episodes->count() > 0) {
+        //     $oldest = $episode->oldest()->first();
+        //     $oldest->is_free = true;
+        //     $oldest->price = 50;
+        //     $oldest->save();
+        // }
 
-        if ($book->episodes->count() > 2) {
-            $oldest_two = $episode->oldest()->skip(1)->first();
-            $oldest_two->is_free = true;
-            $oldest_two->price = 50;
-            $oldest_two->save();
-        }
+        // if ($book->episodes->count() > 2) {
+        //     $oldest_two = $episode->oldest()->skip(1)->first();
+        //     $oldest_two->is_free = true;
+        //     $oldest_two->price = 50;
+        //     $oldest_two->save();
+        // }
 
-        if ($book->episodes->count() > 2) {
-            $latest = $episode->latest()->first();
-            $latest->price = 80;
-            $latest->save();
-        }
+        // if ($book->episodes->count() > 2) {
+        //     $latest = $episode->latest()->first();
+        //     $latest->price = 80;
+        //     $latest->save();
+        // }
 
-        if ($book->episodes->count() > 4) {
-            $latest_three = $episode->latest()->skip(2)->first();
-            $latest_three->is_free = true;
-            $latest_three->save();
-        }
+        // if ($book->episodes->count() > 4) {
+        //     $latest_three = $episode->latest()->skip(2)->first();
+        //     $latest_three->is_free = true;
+        //     $latest_three->save();
+        // }
 
         /*
         |--------------------------------------------------------------------------
