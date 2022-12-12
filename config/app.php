@@ -215,6 +215,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
+    'stripe_url' => env('STRIPE_URL'),
     'stripe_public' => env('STRIPE_PUBLIC'),
     'stripe_secret' => env('STRIPE_SECRET'),
     'stripe_connect_client_id' => env('CONNECT_CLIENT_ID'),
