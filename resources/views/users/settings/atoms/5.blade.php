@@ -1,5 +1,5 @@
 <template #5>
-    <div class="mb-8">
+    <div class="mt-4 mb-8">
         <h3 class="text-base font-semibold">{{ __('収益受取アカウントの連携') }}</h3>
         <div class="mt-6">
             @if (empty(Auth::user()->stripe_user_id))

@@ -5,7 +5,7 @@
 
 <template #4>
 
-    <div class="">
+    <div class="mt-4">
         <h3 class="text-base font-semibold">{{ __('表示言語') }}</h3>
         <div class="mt-4">
             <div class="mb-4">

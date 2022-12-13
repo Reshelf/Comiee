@@ -9,7 +9,7 @@
         @csrf
         @method('PATCH')
 
-        <h3 class="mb-8 mt-4 text-lg font-semibold">
+        <h3 class="mb-8 mt-4 text-base font-semibold">
             {{ __('フォロー') }}</h3>
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m1" value="m1" @if ($user->m_notice_1 === 1) checked @endif
@@ -35,7 +35,7 @@
             <span class="light-checkbox-LabelText">{{ __('あなたがユーザーにフォローされたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">{{ __('お気に入り') }}</h3>
+        <h3 class="my-8 text-base font-semibold">{{ __('お気に入り') }}</h3>
         <label class="light-checkbox">
             <input type="checkbox" name="m3" value="m3" @if ($user->m_notice_3 === 1) checked @endif
                 class="light-checkbox-Input">
@@ -59,7 +59,7 @@
             <span class="light-checkbox-LabelText">{{ __('あなたのお気に入り作品の新着エピソードが公開されたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">{{ __('購入') }}</h3>
+        <h3 class="my-8 text-base font-semibold">{{ __('購入') }}</h3>
 
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m5" value="m5" @if ($user->m_notice_5 === 1) checked @endif
@@ -73,7 +73,7 @@
             <span class="light-checkbox-LabelText">{{ __('あなたの作品エピソードが購入されたときに通知をします') }}</span>
         </label>
 
-        <h3 class="my-8 text-lg font-semibold">NEWS</h3>
+        <h3 class="my-8 text-base font-semibold">NEWS</h3>
 
         <label class="light-checkbox mt-8">
             <input type="checkbox" name="m6" value="m6" @if ($user->m_notice_6 === 1) checked @endif
