@@ -94,9 +94,12 @@ input[type="file"] {
   border-radius: 3px;
 }
 .btn-primary {
-  @apply cursor-pointer whitespace-nowrap text-sm bg-primary hover:bg-opacity-90 text-white py-2 px-6 border border-primary dark:border-none;
+  @apply cursor-pointer whitespace-nowrap text-sm bg-primary text-white py-2 px-6 border border-primary dark:border-none duration-200;
   border-radius: 3px;
   box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
+  &:hover {
+    box-shadow: 0 8px 25px -8px rgba(#1977f2, 1);
+  }
 }
 .btn-border {
   @apply cursor-pointer whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 dark:font-semibold dark:hover:bg-opacity-30 bg-transparent border border-primary dark:bg-primary dark:border-none dark:bg-opacity-20 py-2 px-6;

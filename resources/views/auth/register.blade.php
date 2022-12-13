@@ -23,7 +23,7 @@
                     type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
             </div>
             <div class="w-full mb-6">
-                <p class="mb-2 bg-orange bg-opacity-10 text-orange px-4 py-2 font-semibold">
+                <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
                     {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
                 </p>
                 <input

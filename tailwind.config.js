@@ -15,7 +15,7 @@ module.exports = {
             'transparent': 'transparent',
             'current': 'currentColor',
             // 'primary': '#3AA2FF',
-            'primary': '#2473E1',
+            'primary': '#1977F2',
             // 'primary': '#08a698',
             // 'primary': '#1F51C5',
             // 'primary': '#009FFF',

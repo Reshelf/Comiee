@@ -29,9 +29,12 @@
                         stroke-linejoin="round" />
                 </svg>
             </span>
-            <span class="light-checkbox-LabelText">{{ __('有料で販売する') }}</span>
+            <span class="light-checkbox-LabelText">{{ __('エピソードを有料で販売する') }}</span>
         </label>
-        <p class="mt-4 tracking-widest">現在の値段：{{ $e->price ?? old('price') }}{{ __('円') }}</p>
+        @if (!$e->is_free)
+            <p class="mt-4 tracking-widest">現在の値段：<strong>{{ $e->price ?? old('price') }}</strong>{{ __('円') }}
+            </p>
+        @endif
     </div>
 @endif
 
