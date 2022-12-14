@@ -38,7 +38,7 @@ class UpdateController extends Controller
         */
         $request->validate([
             'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp',
-            'images' => 'array|min:19|max:200',
+            'images' => 'array|min:10|max:100',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 

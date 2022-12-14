@@ -57,7 +57,7 @@
   {{ __('1ページ = 画像1枚としてカウントされます。') }}
 </p>
 <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('1エピソードにつき20枚〜200枚の画像登録ができます。') }}</p>
+  {{ __('1エピソードにつき10枚〜100枚の画像登録ができます。') }}</p>
 <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
   {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
 </p>

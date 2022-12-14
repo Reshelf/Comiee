@@ -76,7 +76,7 @@ class StoreController extends Controller
         }
 
         $request->validate([
-            'images' => 'required|array|min:19|max:200',
+            'images' => 'required|array|min:10|max:100',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
         // コンテンツ
