@@ -36,7 +36,8 @@
                                           <a href="{{ config('app.stripe_url') }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
-                                            <svg height="32" viewBox="0 0 382 301" fill="none">
+                                            <svg width="32" height="32" viewBox="0 0 382 301" fill="none"
+                                              xmlns="http://www.w3.org/2000/svg">
                                               <mask id="mask0_793_3558" style="mask-type:alpha"
                                                 maskUnits="userSpaceOnUse" x="0" y="0" width="382"
                                                 height="301">
@@ -81,6 +82,7 @@
                                                 </g>
                                               </g>
                                             </svg>
+
                                         </td>
                                         <td width="15" style="display:block;width:15px"></td>
                                         <td width="100%"><a href=""
