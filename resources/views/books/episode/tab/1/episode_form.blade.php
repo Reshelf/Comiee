@@ -1,5 +1,5 @@
-{{-- 非公開設定 --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('非公開設定') }}</h3>
+{{-- 公開設定 --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">
     <input type="checkbox" name="is_hidden"

@@ -4,7 +4,7 @@
     <div class="mt-6">
       @if (empty(Auth::user()->stripe_user_id))
         <p class="mb-6">
-          Stripeアカウントを連携して受取設定を完了させましょう!
+          Stripeアカウントを連携して受取設定を完了させましょう。
         </p>
         <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ config('app.stripe_connect_client_id') }}&scope=read_write&redirect_uri={{ config('app.stripe_url') }}/connect"
           class="btn-primary">Stripeアカウントを連携する</a>
