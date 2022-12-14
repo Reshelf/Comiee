@@ -10,16 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class LikedBookMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    public $mailData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($mailData)
     {
-        $this->user = $user;
+        $this->mailData = $mailData;
     }
 
     /**
@@ -29,9 +29,12 @@ class LikedBookMail extends Mailable
      */
     public function build()
     {
+        $mailData = $this->mailData;
+
         return $this
             ->from(env('MAIL_FROM_ADDRESS'))
+            ->to($mailData['received_user']->email)
             ->view('emails.books.liked')
-            ->subject('作品がお気に入りに登録されました！');
+            ->subject($mailData['send_user']->name . 'が' . $mailData['book']->title . 'をお気に入りに追加しました。');
     }
 }
