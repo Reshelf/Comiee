@@ -36,6 +36,6 @@ class NewFollowedUserMail extends Mailable
             ->from(env('MAIL_FROM_ADDRESS'))
             ->to($mailData['received_user']->email)
             ->view('emails.user.followed')
-            ->subject('新しくフォローされました！');
+            ->subject($mailData['send_user']->name . 'さんに新しくフォローされました。');
     }
 }
