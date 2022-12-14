@@ -16,7 +16,7 @@
 </div>
 
 {{-- 有料選択 --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('エピソードの料金設定') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('料金設定') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">
     <input type="checkbox" name="is_free"
@@ -28,7 +28,7 @@
           stroke-linejoin="round" />
       </svg>
     </span>
-    <span class="light-checkbox-LabelText">{{ __('エピソードを有料で販売する') }}</span>
+    <span class="light-checkbox-LabelText">{{ __('このエピソードを有料で販売する') }}</span>
   </label>
 
   @if ($update && !$e->is_free)
