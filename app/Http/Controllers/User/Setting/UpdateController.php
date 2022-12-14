@@ -47,6 +47,6 @@ class UpdateController extends Controller
         $user->save();
 
         // 新しいユーザーIDのページへ遷移
-        return redirect('/' . $user->username . '/settings')->withSuccess("設定を更新しました！");
+        return back()->withSuccess("設定を更新しました！");
     }
 }
