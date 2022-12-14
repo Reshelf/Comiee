@@ -159,8 +159,8 @@
 
                                         <span
                                           style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;font-family:Roboto-Regular,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:11px;color:#8a8d91;line-height:16px;font-weight:400">
-                                          アカウントを保護するため、このメールを転送しないでください。<br>
-                                          Starbooks, LLC.
+                                          アカウントを保護するため、このメールを転送しないでください。<br><br>
+                                          Starbooks
                                         </span>
                                       </td>
                                     </tr>
