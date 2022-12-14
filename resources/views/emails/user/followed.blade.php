@@ -1,4 +1,4 @@
-@extends('emails.user.base')
+@extends('emails.base')
 
 @section('email-content')
   {{-- タイトル --}}
