@@ -36,9 +36,9 @@
                                           <a href="{{ config('app.stripe_url') }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
-                                            <img width="32" height="32"
+                                            <img height="32" style="object-fit: cover"
                                               src="https://starbooks.s3.ap-northeast-1.amazonaws.com/app/system/logo.png"
-                                              alt="">
+                                              alt="starbooks logo">
                                           </a>
                                         </td>
                                       </tr>
