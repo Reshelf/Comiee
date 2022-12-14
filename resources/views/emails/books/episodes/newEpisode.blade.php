@@ -1,51 +1,104 @@
-<body style="margin:0;padding:0;">
-    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
-        <tr>
-            <td align="center" style="padding:0;">
-                <table role="presentation"
-                    style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+@extends('emails.user.base')
 
-                    @include('emails.atoms.header')
-
-                    <tr>
-                        <td style="padding:36px 30px 42px 30px; background:#fff;">
-                            <table role="presentation"
-                                style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                                <tr>
-                                    <td style="padding:0 0 20px 0;color:#153643;">
-                                        <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Noto Sans JP;">
-                                            {{ $mailData['user']->name }}さんが新しいエピソードを投稿しました！</h1>
-
-                                        @empty($mailData['book']->thumbnail)
-                                            <img style="width:200px;height:200px;object-fit:cover;"
-                                                src="{{ asset('/img/noimage.svg') }}" alt="">
-                                        @else
-                                            <img style="width:200px;height:200px;object-fit:cover;"
-                                                src="{{ $mailData['book']->thumbnail }}" alt="">
-                                        @endempty
-
-                                        <p>{{ $mailData['book']->title }}</p>
-                                        <p>{{ $mailData['episodeNumber'] }}話</p>
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center"
-                                        style="background:#2473E1;border-radius:3px;box-shadow:0 10px 20px -10px rgba(#2473E1,0.5);">
-                                        <a href="http://localhost/"
-                                            style="padding:20px 0;display:block;color:#fff;text-decoration:none;width:100%;height:100%;">
-                                            {{ $mailData['episodeNumber'] }}話を読む
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-
-                    @include('emails.atoms.footer')
-                </table>
+@section('email-content')
+  {{-- タイトル --}}
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;word-break:break-word">
+        <tbody>
+          <tr>
+            <td><span
+                style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823"><a
+                  style="color:#050505;text-decoration:none;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:17px;line-height:21px;font-weight:600"
+                  target="_blank">
+                  {{ $mailData['book']->title }}</a> の新着エピソードが投稿されました。</span>
             </td>
-        </tr>
-    </table>
-</body>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="28" style="line-height:28px"></td>
+  </tr>
+
+  {{-- 本文 --}}
+  <tr>
+    <td>
+      <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+        <tbody>
+          <tr>
+            <td
+              style="font-size:11px;font-family:LucidaGrande,tahoma,verdana,arial,sans-serif;background:#ffffff;border:solid 1px #e4e6eb;border-radius:6px;padding:15px;display:block">
+              <table border="0" width="100%" cellspacing="0" cellpadding="0" align="center"
+                style="border-collapse:collapse;max-width:300px;word-break:break-word">
+                <tbody>
+                  <tr>
+                    <td width="80" align="center">
+                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['book']->id . '/' . $mailData['episode']->number }}"
+                        style="color:#1b74e4;text-decoration:none" target="_blank">
+                        <img width="250" height="250" src="{{ $mailData['episode']->thumbnail }}"
+                          style="border:solid 1px rgba(0,0,0,.15);object-fit:cover">
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="7" style="line-height:7px"></td>
+                  </tr>
+                  <tr>
+                    <td width="100%" align="center">
+                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['book']->id . '/' . $mailData['episode']->number }}"
+                        style="color:#141823;text-decoration:none;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:18px;line-height:21px;font-weight:bold"
+                        target="_blank">
+                        {{ $mailData['book']->title }}<br>
+                        {{ $mailData['episode']->number }}話
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" style="line-height:17px"></td>
+                  </tr>
+
+                  {{-- 新しいエピソードを読む --}}
+                  <tr>
+                    <td width="100%" align="center">
+                      <table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <table border="0" width="100%" cellspacing="0" cellpadding="0"
+                                style="border-collapse:collapse">
+                                <tbody>
+                                  <tr>
+                                    <td
+                                      style="border-collapse:collapse;border-radius:6px;text-align:center;display:block;background:#1877f2;padding:8px 16px 10px 16px">
+                                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['book']->id . '/' . $mailData['episode']->number }}"
+                                        style="color:#1b74e4;text-decoration:none;display:block" target="_blank">
+                                        <center>
+                                          <font size="3">
+                                            <span
+                                              style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold;vertical-align:middle;color:#ffffff;font-weight:500;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:14px;line-height:14px">
+                                              新しいエピソードを読む
+                                            </span>
+                                          </font>
+                                        </center>
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+@endsection

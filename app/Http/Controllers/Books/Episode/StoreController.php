@@ -28,11 +28,19 @@ class StoreController extends Controller
     {
         /*
         |--------------------------------------------------------------------------
-        | データのセット | 作品
+        | データのセット | 作品、成功メッセージ
         |--------------------------------------------------------------------------
         */
         $book = Book::where('id', $request->book_id)->first();
 
+        $success = array(
+            '投稿完了！続きも楽しみにしています！',
+            'また描いてくださいね！',
+        );
+        $random = array_rand(
+            $success,
+            1
+        );
 
         /*
         |--------------------------------------------------------------------------
@@ -126,21 +134,12 @@ class StoreController extends Controller
         if ($book_likes_users->count() > 0) {
             $mailData = [
                 'book' => $book,
-                'episodeNumber' => $episode->number,
+                'episode' => $episode,
                 'user' => $request->user(),
                 'bookLikesUserEmails' => $book_likes_users->pluck("email")
             ];
             Mail::send(new AddNewEpisodeMail($mailData));
         };
-
-        $success = array(
-            '投稿完了！続きも楽しみにしています！',
-            'また描いてくださいね！',
-        );
-        $random = array_rand(
-            $success,
-            1
-        );
 
         return back()->withSuccess($success[$random]);
     }

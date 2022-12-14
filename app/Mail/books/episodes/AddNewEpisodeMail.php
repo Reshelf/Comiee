@@ -35,6 +35,6 @@ class AddNewEpisodeMail extends Mailable
             ->from(env('MAIL_FROM_ADDRESS'))
             ->to($mailData['bookLikesUserEmails'])
             ->view('emails.books.episodes.newEpisode')
-            ->subject('お気に入り作品の新しいエピソードが投稿されました！');
+            ->subject($mailData['book']->title . 'の新しいエピソードが投稿されました。');
     }
 }
