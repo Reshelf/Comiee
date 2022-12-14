@@ -91,6 +91,12 @@ class RegisterController extends Controller
             'password' => $password,
             // 'gender' => $gender,
             // 'birthday' => $birthday,
+            'm_notice_1' => true,
+            'm_notice_2' => true,
+            'm_notice_3' => true,
+            'm_notice_4' => true,
+            'm_notice_5' => true,
+            'm_notice_6' => true,
         ]);
     }
 
