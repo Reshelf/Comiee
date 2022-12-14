@@ -44,6 +44,14 @@ class StoreController extends Controller
         // エピソードの話数
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
 
+        // 非公開設定
+        $episode->is_hidden = true;
+        if ($request->is_hidden === null) $episode->is_hidden = false;
+
+        // 値段設定
+        $episode->is_free = false;
+        if ($request->is_free === null) $episode->is_free = true;
+
         $request->validate([
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
@@ -53,7 +61,6 @@ class StoreController extends Controller
             $file = $request->file('thumbnail');
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/books/' . $book->title . '/' . $episode->number . '/thumbnail/' . $fileName;
-
 
             $img =  \Image::make($file)->resize(
                 1000,
@@ -126,6 +133,15 @@ class StoreController extends Controller
             Mail::send(new AddNewEpisodeMail($mailData));
         };
 
-        return back()->with('success', '新しいエピソードを公開しました！');
+        $success = array(
+            '投稿完了！続きも楽しみにしています！',
+            'また描いてくださいね！',
+        );
+        $random = array_rand(
+            $success,
+            1
+        );
+
+        return back()->withSuccess($success[$random]);
     }
 }

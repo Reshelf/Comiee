@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Books;
 
-use App\Http\Controllers\Controller;
-use App\Models\Book;
+use Carbon\Carbon;
 use App\Models\Tag;
+use App\Models\Book;
 use App\Http\Requests\BookRequest;
-use Illuminate\Support\Facades\Storage;
-// メール
-use Illuminate\Support\Facades\Mail;
 use App\Mail\books\AddNewBookMail;
+// メール
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -24,10 +25,17 @@ class StoreController extends Controller
     | 作品の投稿
     |--------------------------------------------------------------------------
     */
-    public function __invoke($lang, BookRequest $request, Book $book)
+    public function __invoke($lang, BookRequest $request, Book $book, Tag $tag)
     {
         // ポリシー
         $this->authorize('create', $book);
+
+        $expiresAt = Carbon::now()->endOfDay()->addSecond();
+        $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
+            return $tag->all_tag_names;
+        });
+
+        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
         $request->validate([
             'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
@@ -76,22 +84,19 @@ class StoreController extends Controller
         $followers = $request->user()->followers()->where('m_notice_1', 1)->get();
         if ($followers->count() > 0) {
             $mailData = [
-                'user' => $request->user(),
+                'send_user' => $request->user(),
+                'book' => $book,
                 'followers' => $followers,
-                'followersMails' => $followers->pluck("email")
             ];
             Mail::send(new AddNewBookMail($mailData));
         };
 
-        $success = array(
-            '投稿完了！続きも楽しみにしています！',
-            'また描いてくださいね！',
-        );
-        $random = array_rand($success, 1);
-
         // リダイレクト
-        return redirect()
-            ->route('users.show', ['lang' => $lang, 'username' => $book->user->username])
-            ->withSuccess($success[$random]);
+        return view('books.show', [
+            'lang' => $lang,
+            'book' => $book,
+            'episodes_latest' => $episodes_latest,
+            'allTags' => $allTags,
+        ])->withSuccess('作品を投稿しました！エピソードを追加してね！');
     }
 }
