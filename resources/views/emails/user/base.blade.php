@@ -36,8 +36,7 @@
                                           <a href="{{ config('app.stripe_url') }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
-                                            <img width="32" height="32"
-                                              src="{{ Storage::disk('s3')->url('system/logo.svg') }}" alt="">
+                                            <embed width="32" src="https://onl.bz/Wzxv4Uq" alt="">
                                           </a>
                                         </td>
                                       </tr>
