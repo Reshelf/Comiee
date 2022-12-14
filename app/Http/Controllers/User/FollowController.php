@@ -38,7 +38,12 @@ class FollowController extends Controller
         // フォローされたらメール通知を送る
         if ($user->m_notice_2 === 1) {
             $email = $user->email;
-            Mail::to($email)->send(new NewFollowedUserMail($request->user()));
+
+            $mailData = [
+                'send_user' => $request->user(),
+                'received_user' => $user,
+            ];
+            Mail::send(new NewFollowedUserMail($mailData));
         }
 
 

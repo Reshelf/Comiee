@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\Setting;
 use App\Http\Controllers\Controller;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -24,6 +25,10 @@ class IndexController extends Controller
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::where('username', $username)->first();
         });
+
+        if ($user !== Auth::user()) {
+            $user = Auth::user();
+        };
 
         return view('users.settings.index', compact('user'));
     }
