@@ -35,6 +35,6 @@ class AddNewBookMail extends Mailable
             ->from(env('MAIL_FROM_ADDRESS'))
             ->to($mailData['followers'])
             ->view('emails.books.newBook')
-            ->subject('フォローしているユーザーの新しい作品が投稿されました！');
+            ->subject($mailData['send_user']->name . 'さんが新しい作品を投稿しました。');
     }
 }
