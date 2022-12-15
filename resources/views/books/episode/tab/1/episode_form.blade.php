@@ -71,6 +71,9 @@
 
 {{-- ご注意点 --}}
 <h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('ご注意点') }}</h3>
+<p class="mb-2 bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
+  {{ __('複数ページにわたり1ページ1コマの描写があり、販売にふさわしくないと判断された場合、アカウントの有料販売を禁止する場合があります。') }}
+</p>
 <p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
   {{ __('投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。') }}
 </p>
