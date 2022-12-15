@@ -14,7 +14,11 @@ export default defineConfig({
       },
     }),
     laravel({
-      input: ["resources/sass/app.scss", "resources/js/app.js"],
+      input: [
+        "resources/sass/app.scss",
+        "resources/js/app.js",
+        "resources/js/common/atoms/text_count.js",
+      ],
       refresh: true,
     }),
     viteCompression(),

@@ -31,7 +31,7 @@
 
                                             <form method="POST" action="{{ route('book.store', app()->getLocale()) }}"
                                                 enctype="multipart/form-data">
-                                                @include('books.atoms.form', ['update' => false])
+                                                @include('books.atoms.form', ['update' => false, 'create_book_modal_count' => 12])
                                                 <div class="w-full flex justify-end">
                                                     <button type="submit"
                                                         class="btn-primary w-full py-4">{{ __('投稿する') }}</button>
