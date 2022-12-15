@@ -6,7 +6,7 @@
   @yield('head')
   @includeWhen(env('GA_ENABLE'), 'atoms.google_analytics')
   @yield('header-scripts')
-  @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/common/atoms/text_count.js'])
+  @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/common/atoms/common.js'])
 </head>
 
 <body>

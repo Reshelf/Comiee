@@ -20,7 +20,8 @@
         </span>
       </template>
       <template #header>{{ __('運営へのお問い合せ') }}</template>
-      <form method="POST" action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}">
+      <form method="POST" action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}"
+        onsubmit="submit_btn()">
         @csrf
         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
         <textarea class="count_6 dark:bg-dark-1 w-full h-[250px] rounded-[3px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}"
@@ -30,7 +31,13 @@
           <span>/400文字</span>
         </div>
 
-        <button type="submit" class="btn w-full">{{ __('送信する') }}</button>
+        <div class="relative">
+          <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+            {{ __('送信する') }}
+            <span class="load loading"></span>
+          </button>
+        </div>
+
       </form>
     </comment-post-modal>
   @endauth

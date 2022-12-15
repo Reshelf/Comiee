@@ -20,10 +20,15 @@
           <template #header>{{ __('エピソードを追加する') }}</template>
           <form method="POST"
             action="{{ route('book.episode.store', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
-            enctype="multipart/form-data">
+            enctype="multipart/form-data" onsubmit="submit_btn()">
             @csrf
             @include('books.episode.tab.1.episode_form', ['update' => false])
-            <button type="submit" class="btn-primary py-4 w-full mt-4">{{ __('追加する') }}</button>
+            <div class="relative mt-4">
+              <button type="submit" class="submit_btn btn-primary py-4 w-full">
+                {{ __('追加する') }}
+                <span class="load loading"></span>
+              </button>
+            </div>
           </form>
         </episode-list>
       @endif
@@ -129,11 +134,16 @@
               <template #header>{{ __('エピソードを更新する') }}</template>
               <form method="POST"
                 action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
-                enctype="multipart/form-data" class="whitespace-pre-line">
+                enctype="multipart/form-data" class="whitespace-pre-line" onsubmit="submit_btn()">
                 @csrf
                 @method('PATCH')
                 @include('books.episode.tab.1.episode_form', ['update' => true])
-                <button type="submit" class="btn-primary py-4 w-full mt-4">{{ __('更新する') }}</button>
+                <div class="relative mt-4">
+                  <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+                    {{ __('更新する') }}
+                    <span class="load loading"></span>
+                  </button>
+                </div>
               </form>
             </episode-list>
           @endif

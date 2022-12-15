@@ -17,7 +17,7 @@ export default defineConfig({
       input: [
         "resources/sass/app.scss",
         "resources/js/app.js",
-        "resources/js/common/atoms/text_count.js",
+        "resources/js/common/atoms/common.js",
       ],
       refresh: true,
     }),

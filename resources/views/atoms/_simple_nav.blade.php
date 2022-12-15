@@ -12,25 +12,8 @@
               @guest
                 @include('auth._login')
               @endguest
-              @auth
-                <div class="flex items-center h-full mr-8">
-                  <create-modal>
-                    {{-- エラー文 --}}
-                    @include('atoms._error_card_list')
-                    @include('atoms.success')
 
-
-                    <form method="POST" action="{{ route('book.store', app()->getLocale()) }}"
-                      enctype="multipart/form-data">
-                      @include('books.atoms.form', ['update' => false, 'create_book_modal_count' => 13])
-                      <div class="w-full flex justify-end">
-                        <button type="submit" class="btn-primary w-full py-4">{{ __('投稿する') }}</button>
-                      </div>
-                    </form>
-                  </create-modal>
-                </div>
-                @include('atoms.nav.user_modal')
-              @endauth
+              @include('atoms.nav.create_book')
             </div>
           </nav>
         </div>

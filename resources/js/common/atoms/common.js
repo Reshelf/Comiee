@@ -101,3 +101,20 @@ function onKey_15() {
   if (count_15) input_15 = count_15.value;
   if (input_15 !== null) string_count_15.innerText = input_15.length;
 }
+
+/*
+|--------------------------------------------------------------------------
+| 送信ボタン ローディング追加
+|--------------------------------------------------------------------------
+|
+|
+*/
+function submit_btn() {
+  let submit_btn = document.querySelector(".submit_btn");
+  let submit_btn2 = document.querySelector(".submit_btn2");
+  let submit_btn3 = document.querySelector(".submit_btn3");
+  submit_btn.classList.add("activeLoading");
+  submit_btn2.classList.add("activeLoading");
+  submit_btn3.classList.add("activeLoading");
+}
+window.submit_btn = submit_btn;
