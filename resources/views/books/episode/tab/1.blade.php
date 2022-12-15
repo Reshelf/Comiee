@@ -24,7 +24,7 @@
             @csrf
             @include('books.episode.tab.1.episode_form', ['update' => false])
             <div class="relative mt-4">
-              <button type="submit" class="submit_btn btn-primary py-4 w-full">
+              <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
                 {{ __('追加する') }}
                 <span class="load loading"></span>
               </button>
