@@ -82,9 +82,6 @@ class RegisterController extends Controller
             $username = Str::random(20);
         } while (User::where('username', $username)->exists());
 
-        // メール送信
-        // Mail::to($email)->send(new RegisterdUserMail($name));
-
         return User::create([
             'username' => $username,
             'email' => $email,

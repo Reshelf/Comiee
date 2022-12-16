@@ -32,7 +32,7 @@ class LikedBookMail extends Mailable
         $mailData = $this->mailData;
 
         return $this
-            ->from(env('MAIL_FROM_ADDRESS'))
+            ->from($address = 'noreply@starbooks.one', $name = 'Starbooks Teams')
             ->to($mailData['received_user']->email)
             ->view('emails.books.liked')
             ->subject($mailData['send_user']->name . 'が' . $mailData['book']->title . 'をお気に入りに追加しました。');

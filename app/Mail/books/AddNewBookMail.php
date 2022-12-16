@@ -32,7 +32,7 @@ class AddNewBookMail extends Mailable
         $mailData = $this->mailData;
 
         return $this
-            ->from($address = env('MAIL_FROM_ADDRESS'), $name = 'Starbooks Teams')
+            ->from($address = 'noreply@starbooks.one', $name = 'Starbooks Teams')
             ->to($mailData['followers'])
             ->view('emails.books.newBook')
             ->subject($mailData['send_user']->name . 'さんが新しい作品を投稿しました。');

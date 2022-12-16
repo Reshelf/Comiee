@@ -33,7 +33,7 @@ class NewFollowedUserMail extends Mailable
         $mailData = $this->mailData;
 
         return $this
-            ->from(env('MAIL_FROM_ADDRESS'))
+            ->from($address = 'noreply@starbooks.one', $name = 'Starbooks Teams')
             ->to($mailData['received_user']->email)
             ->view('emails.user.followed')
             ->subject($mailData['send_user']->name . 'さんに新しくフォローされました。');

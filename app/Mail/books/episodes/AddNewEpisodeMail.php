@@ -32,7 +32,7 @@ class AddNewEpisodeMail extends Mailable
         $mailData = $this->mailData;
 
         return $this
-            ->from(env('MAIL_FROM_ADDRESS'))
+            ->from($address = 'noreply@starbooks.one', $name = 'Starbooks Teams')
             ->to($mailData['bookLikesUserEmails'])
             ->view('emails.books.episodes.newEpisode')
             ->subject($mailData['book']->title . 'の新しいエピソードが投稿されました。');
