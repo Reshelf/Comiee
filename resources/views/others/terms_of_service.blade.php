@@ -11,7 +11,7 @@
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
-  <div class="max-w-4xl m-8 md:mb-8 md:mt-16 md:mx-auto leading-8">
+  <div class="max-w-4xl m-8 md:my-16 md:mx-auto leading-8">
     <h2 class="text-3xl font-semibold">利用規約</h2>
     <div class="mt-8 mb-16 text-[15px]">
       <p class="my-2">このStarbooks利用規約（以下、「本利用規約」といいます）は、Starbooks（以下、「本サービス」といいます）の利用者に適用される、サービス利用のための契約です。</p>

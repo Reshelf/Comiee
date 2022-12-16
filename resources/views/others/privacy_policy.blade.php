@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
-  <div class="max-w-4xl m-8 md:mt-16 md:mb-8 md:mx-auto leading-8">
+  <div class="max-w-4xl m-8 md:my-16 md:mx-auto leading-8">
     <h2 class="text-3xl font-semibold">プライバシーポリシー</h2>
     <div class="mt-8 mb-16 text-[15px]">
       <p class="my-2">
