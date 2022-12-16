@@ -8,7 +8,7 @@
         </p>
         <div class="relative inline-block">
           <a onclick="stripe_connectbtn()"
-            href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ config('app.stripe_connect_client_id') }}&scope=read_write&redirect_uri={{ config('app.stripe_url') }}/connect">
+            href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ config('app.stripe_connect_client_id') }}&scope=read_write&redirect_uri={{ config('app.top_url') }}/connect">
             <button class="stripe_connectbtn btn-primary">
               {{ __('Stripeアカウントを連携する') }}
               <span class="load loading"></span>

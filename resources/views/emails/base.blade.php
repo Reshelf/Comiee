@@ -33,7 +33,7 @@
                                       <tr>
                                         <td width="32" align="left" valign="middle"
                                           style="height:32;line-height:0px">
-                                          <a href="{{ config('app.stripe_url') }}"
+                                          <a href="{{ config('app.top_url') }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
                                             <img height="32" style="object-fit: cover"
@@ -90,7 +90,7 @@
                                                 <td
                                                   style="border-collapse:collapse;border-radius:6px;text-align:center;display:block;background:#e4e6eb;padding:8px 16px 10px 16px">
                                                   @isset($mailData['received_user'])
-                                                    <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['received_user']->username }}"
+                                                    <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['received_user']->username }}"
                                                       style="color:#1b74e4;text-decoration:none;display:block"
                                                       target="_blank">
                                                       <center>
@@ -101,7 +101,7 @@
                                                       </center>
                                                     </a>
                                                   @else
-                                                    <a href="{{ config('app.stripe_url') }}"
+                                                    <a href="{{ config('app.top_url') }}"
                                                       style="color:#1b74e4;text-decoration:none;display:block"
                                                       target="_blank">
                                                       <center>
@@ -150,7 +150,7 @@
                                             {{ $mailData['received_user']->email }}
                                           </a>に送信されたものです。
                                           今後Starbooksからこのようなメールを受信したくない場合は、設定の"メール通知"から
-                                          <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['received_user']->username . '/settings' }}"
+                                          <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['received_user']->username . '/settings' }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             配信を停止
                                           </a>してください。<br>

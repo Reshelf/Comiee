@@ -37,7 +37,7 @@
                 <tbody>
                   <tr>
                     <td width="80" align="center">
-                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
+                      <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
                         style="color:#1b74e4;text-decoration:none" target="_blank">
                         <img width="80" height="80" src="{{ $mailData['send_user']->avatar }}"
                           style="border:solid 1px rgba(0,0,0,.15);border-radius:50%;object-fit:cover">
@@ -49,7 +49,7 @@
                   </tr>
                   <tr>
                     <td width="100%" align="center">
-                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
+                      <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
                         style="color:#141823;text-decoration:none;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:18px;line-height:21px;font-weight:bold"
                         target="_blank">
                         {{ $mailData['send_user']->name }}
@@ -73,7 +73,7 @@
                                   <tr>
                                     <td
                                       style="border-collapse:collapse;border-radius:6px;text-align:center;display:block;background:#1877f2;padding:8px 16px 10px 16px">
-                                      <a href="{{ config('app.stripe_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
+                                      <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
                                         style="color:#1b74e4;text-decoration:none;display:block" target="_blank">
                                         <center>
                                           <font size="3">
