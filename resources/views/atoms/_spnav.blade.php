@@ -11,7 +11,7 @@
           onsubmit="submit_btn()">
           @include('books.atoms.form', ['update' => false, 'create_book_modal_count' => 14])
           <div class="w-full relative">
-            <button type="submit" class="submit_btn btn-primary w-full py-4">
+            <button type="submit" class="submit_btn3 btn-primary w-full py-4">
               {{ __('投稿する') }}
               <span class="load loading"></span>
             </button>
