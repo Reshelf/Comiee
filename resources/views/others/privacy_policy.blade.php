@@ -2,12 +2,6 @@
 
 @section('title', 'プライバシーポリシー')
 
-@section('description')
-  <meta name="description" itemprop="description" content="Starbooksのプライバシーポリシーページです。">
-  <meta property="og:description" content="Starbooksのプライバシーポリシーページです。">
-  <meta name="twitter:description" content="Starbooksのプライバシーポリシーページです。">
-@endsection
-
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
