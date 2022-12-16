@@ -118,3 +118,16 @@ function submit_btn() {
   submit_btn3.classList.add("activeLoading");
 }
 window.submit_btn = submit_btn;
+
+/*
+|--------------------------------------------------------------------------
+| Stripe 接続ボタン
+|--------------------------------------------------------------------------
+|
+|
+*/
+function stripe_connectbtn() {
+  const stripe_connectbtn = document.querySelector(".stripe_connectbtn");
+  stripe_connectbtn.classList.add("activeLoading");
+}
+window.stripe_connectbtn = stripe_connectbtn;

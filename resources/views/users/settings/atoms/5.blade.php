@@ -6,8 +6,15 @@
         <p class="mb-6">
           Stripeアカウントを連携して受取設定を完了させましょう。
         </p>
-        <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ config('app.stripe_connect_client_id') }}&scope=read_write&redirect_uri={{ config('app.stripe_url') }}/connect"
-          class="btn-primary">Stripeアカウントを連携する</a>
+        <div class="relative inline-block">
+          <a onclick="stripe_connectbtn()"
+            href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id={{ config('app.stripe_connect_client_id') }}&scope=read_write&redirect_uri={{ config('app.stripe_url') }}/connect">
+            <button class="stripe_connectbtn btn-primary">
+              {{ __('Stripeアカウントを連携する') }}
+              <span class="load loading"></span>
+            </button>
+          </a>
+        </div>
       @else
         <span
           class="bg-green bg-opacity-10 text-green px-4 py-2 rounded-[3px] font-semibold">あなたの収益受取はStripeと連携されています</span>
