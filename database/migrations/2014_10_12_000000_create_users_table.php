@@ -27,12 +27,12 @@ return new class extends Migration
             $table->text('body', 200)->nullable();
             $table->string('password')->nullable();
 
-            $table->boolean('m_notice_1')->default(true)->comment('フォローしている作者が作品を投稿したときのメール通知フラグ');
-            $table->boolean('m_notice_2')->default(true)->comment('ユーザーにフォローされたときの通知フラグ');
-            $table->boolean('m_notice_3')->default(true)->comment('作品がお気に入りに登録されたときの通知フラグ');
-            $table->boolean('m_notice_4')->default(true)->comment('お気に入り作品の新着エピソードが公開されたときの通知フラグ');
-            $table->boolean('m_notice_5')->default(true)->comment('作品エピソードが購入されたときの通知フラグ');
-            $table->boolean('m_notice_6')->default(true)->comment('Starbooksからのニュースやお得な情報を受け取るフラグ');
+            $table->boolean('m_notice_1')->default(1)->comment('フォローしている作者が作品を投稿したときのメール通知フラグ');
+            $table->boolean('m_notice_2')->default(1)->comment('ユーザーにフォローされたときの通知フラグ');
+            $table->boolean('m_notice_3')->default(1)->comment('作品がお気に入りに登録されたときの通知フラグ');
+            $table->boolean('m_notice_4')->default(1)->comment('お気に入り作品の新着エピソードが公開されたときの通知フラグ');
+            $table->boolean('m_notice_5')->default(1)->comment('作品エピソードが購入されたときの通知フラグ');
+            $table->boolean('m_notice_6')->default(1)->comment('Starbooksからのニュースやお得な情報を受け取るフラグ');
 
             $table->rememberToken();
             $table->timestamps();
