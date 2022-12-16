@@ -50,7 +50,7 @@ class UpdateController extends Controller
         if ($request->has('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName();
-            $filePath = 'app/users/avatar/' . $fileName;
+            $filePath = 'app/' . env('APP_ENV') . '/users/avatar/' . $fileName;
 
             $img =  \Image::make($file);
             $img->resize(
@@ -69,7 +69,7 @@ class UpdateController extends Controller
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
             $fileName = $file->getClientOriginalName();
-            $filePath = 'app/users/thumbnail/' . $fileName;
+            $filePath = 'app/' . env('APP_ENV') . '/users/thumbnail/' . $fileName;
 
             $img =  \Image::make($file);
             $img->resize(
