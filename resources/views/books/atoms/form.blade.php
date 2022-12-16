@@ -75,6 +75,44 @@
   </select>
 </div>
 
+{{-- 言語 --}}
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('言語') }}</h3>
+<div class="mb-8">
+  <select name="lang" class="flex flex-col items-center">
+    <option type="text" value="0"
+      @isset($book->lang) @if (0 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('日本語') }}</option>
+    <option type="text" value="1"
+      @isset($book->lang) @if (1 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('英語') }}</option>
+    <option type="text" value="2"
+      @isset($book->lang) @if (2 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('繁体字') }}</option>
+    <option type="text" value="3"
+      @isset($book->lang) @if (3 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('簡体字') }}</option>
+    <option type="text" value="4"
+      @isset($book->lang) @if (4 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('スペイン語') }}</option>
+    <option type="text" value="5"
+      @isset($book->lang) @if (5 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('ヒンディー語') }}
+    </option>
+    <option type="text" value="6"
+      @isset($book->lang) @if (6 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('アラビア語') }}</option>
+    <option type="text" value="7"
+      @isset($book->lang) @if (7 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('ポルトガル語') }}</option>
+    <option type="text" value="8"
+      @isset($book->lang) @if (8 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('ベンガル語') }}</option>
+    <option type="text" value="9"
+      @isset($book->lang) @if (9 === (int) old('lang', $book->lang)) selected @endif @endisset>
+      {{ __('ドイツ語') }}</option>
+  </select>
+</div>
+
 {{-- タグ --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
 <div class="mb-8">

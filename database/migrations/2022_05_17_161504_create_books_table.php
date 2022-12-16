@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedbigInteger('user_id')->comment('ユーザー');
 
-            $table->boolean('genre_id')->default(0)->comment('ジャンル');
             $table->boolean('is_complete')->default(0)->comment('完結作品フラグ');
             $table->boolean('is_new')->default(0)->comment('今日の新作フラグ');
             $table->boolean('is_hidden')->default(0)->comment('公開フラグ');
 
             $table->string('title')->unique()->comment('作品名');
-            $table->string('lang')->default('jp')->comment('作品の言語');
+            $table->boolean('lang')->default(0)->comment('作品の言語');
+            $table->boolean('genre_id')->default(0)->comment('ジャンル');
             $table->integer('views')->default(0)->comment('閲覧回数');
             $table->text('story', 400)->nullable()->comment('あらすじ');
             $table->string('thumbnail')->nullable()->comment('作品サムネイル');
