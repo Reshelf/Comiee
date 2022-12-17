@@ -129,5 +129,8 @@ window.submit_btn = submit_btn;
 function stripe_connectbtn() {
   const stripe_connectbtn = document.querySelector(".stripe_connectbtn");
   stripe_connectbtn.classList.add("activeLoading");
+  window.setTimeout(function () {
+    stripe_connectbtn.classList.remove("activeLoading");
+  }, 5000);
 }
 window.stripe_connectbtn = stripe_connectbtn;
