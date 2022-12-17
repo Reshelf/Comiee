@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms._simple_nav')
   <div class="max-w-md m-8 md:mx-auto bg-white rounded border border-eee dark:border-none">
-    <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg pt-3 p-4">
+    <h2 class="card-title">
       {{ __('新規登録') }}
     </h2>
 
@@ -19,17 +19,13 @@
 
 
       <div class="w-full mb-3">
-        <input
-          class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-          type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
+        <input class="card-input" type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
       </div>
       <div class="w-full mb-6">
         <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
           {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
         </p>
-        <input
-          class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-          type="password" name="password" required placeholder="{{ __('パスワード') }}">
+        <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
       </div>
 
       <label class="light-checkbox my-4">
@@ -46,7 +42,7 @@
             target="_blank" rel="noopener noreferrer">{{ __('プライバシーポリシー') }}</a> {{ __('に同意する') }}</span>
       </label>
       <div class="relative">
-        <button class="submit_btn2 btn-primary px-6 py-4 w-full" type="submit">
+        <button class="submit_btn2 btn-primary px-6 py-3 md:py-4 w-full" type="submit">
           {{ __('メールアドレスで登録') }}
           <span class="load loading"></span>
         </button>

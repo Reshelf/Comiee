@@ -5,18 +5,14 @@
   <form method="POST" action="{{ route('login', app()->getLocale()) }}" class="dark:bg-dark-1" onsubmit="submit_btn()">
     @csrf
     <div class="w-full mb-3">
-      <input
-        class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-        type="text" name="email" required placeholder="{{ __('メールアドレス') }}">
+      <input class="card-input" type="text" name="email" required placeholder="{{ __('メールアドレス') }}">
     </div>
     <div class="w-full mb-6">
-      <input
-        class="w-full text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2"
-        type="password" name="password" required placeholder="{{ __('パスワード') }}">
+      <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
     </div>
     <input type="hidden" name="remember" value="on">
     <div class="relative mb-4">
-      <button type="submit" class="submit_btn btn-primary px-6 py-4 w-full">
+      <button type="submit" class="submit_btn btn-primary px-6 py-3 md:py-4 w-full">
         {{ __('ログイン') }}
         <span class="load loading"></span>
       </button>

@@ -685,3 +685,10 @@ button .loading {
   opacity: 0;
   visibility: hidden;
 }
+
+.card-title {
+  @apply text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-base md:text-lg pt-3 p-4;
+}
+.card-input {
+  @apply w-full md:text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
+}
