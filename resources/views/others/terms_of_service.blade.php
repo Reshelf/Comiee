@@ -264,7 +264,7 @@
       </p>
     </div>
 
-    <h3 class="text-2xl font-semibold my-4">4条 返金</h3>
+    <h3 id="refund" class="text-2xl font-semibold my-4">4条 返金</h3>
     <div class="mb-10 mt-4 text-[15px]">
       <p class="my-2">1. ユーザーは、本サービスおよび取引契約の性質上、当運営に対しお支払いいただいた料金の返金等を受けることはできません。</p>
     </div>
