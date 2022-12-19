@@ -1,9 +1,6 @@
 <template #episode>
   <div class="w-full max-h-[500px] overflow-y-auto scroll-none">
 
-    @include('atoms._error_card_list')
-    @include('atoms.success')
-
     @if (Auth::id() !== $book->user_id && $book->is_hidden)
       <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
         {{ __('この作品は現在非公開になっています') }}

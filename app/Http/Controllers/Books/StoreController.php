@@ -30,13 +30,6 @@ class StoreController extends Controller
         // ポリシー
         $this->authorize('create', $book);
 
-        $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
-            return $tag->all_tag_names;
-        });
-
-        $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
-
         $request->validate([
             'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
             'genre_id' => ['required', 'integer'],
@@ -94,11 +87,6 @@ class StoreController extends Controller
         };
 
         // リダイレクト
-        return view('books.show', [
-            'lang' => $lang,
-            'book' => $book,
-            'episodes_latest' => $episodes_latest,
-            'allTags' => $allTags,
-        ])->withSuccess('作品を投稿しました！エピソードを追加してね！');
+        return redirect('/' . app()->getLocale() . '/books/' . $book->id)->withSuccess("作品を投稿しました！エピソードを追加してね！");
     }
 }
