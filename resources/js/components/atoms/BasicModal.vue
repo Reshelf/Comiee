@@ -54,7 +54,7 @@
         background-color: var(--bg);
         border-radius: 4px;
         max-width: 600px;
-        @media (width <= 767px) {
+        @media screen and (max-width: 767px) {
             max-width: 90%;
         }
     }

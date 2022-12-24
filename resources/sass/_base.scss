@@ -29,7 +29,7 @@ textarea {
     @apply outline-none;
     appearance: none;
     -webkit-appearance: none;
-    @media (width <= 767px) {
+    @media screen and (max-width: 767px) {
         font-size: initial !important;
     }
 }
@@ -191,7 +191,7 @@ input[type="file"] {
     @screen lg {
         width: 600px;
     }
-    @media (width <= 767px) {
+    @media screen and (max-width: 767px) {
         @apply w-[90%];
     }
 
@@ -200,7 +200,7 @@ input[type="file"] {
         img {
             @apply rounded max-h-[80vh];
         }
-        @media (width <= 767px) {
+        @media screen and (max-width: 767px) {
             @apply max-w-[90%];
             img {
                 @apply max-h-[60vh];
@@ -314,28 +314,28 @@ button[disabled] {
         margin-right: 5px;
         margin-left: 5px;
     }
-    @media (width <= 460px) {
+    @media screen and (max-width: 460px) {
         @apply w-full flex justify-center;
     }
 
     &-img {
         @apply w-[200px] h-[200px] object-cover;
-        @media (width <= 768px) {
+        @media screen and (max-width: 767px) {
             @apply w-full h-[200px] mx-auto;
         }
-        @media (width >= 1600px) {
+        @media screen and (min-width: 1600px) {
             @apply w-[230px] h-[230px];
         }
-        @media (width >= 1700px) {
+        @media screen and (min-width: 1700px) {
             @apply w-[240px] h-[240px];
         }
-        @media (width >= 1800px) {
+        @media screen and (min-width: 1800px) {
             @apply w-[250px] h-[250px];
         }
-        @media (width >= 1900px) {
+        @media screen and (min-width: 1900px) {
             @apply w-[260px] h-[260px];
         }
-        @media (width >= 2000px) {
+        @media screen and (min-width: 2000px) {
             @apply w-[270px] h-[270px];
         }
     }
