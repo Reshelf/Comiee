@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use App\Models\Tag;
-use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
@@ -20,7 +20,7 @@ class UpdateController extends Controller
     |--------------------------------------------------------------------------
     | 作品の更新
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(BookRequest $request)
     {
         $book = Book::find($request->book_id);
@@ -33,7 +33,7 @@ class UpdateController extends Controller
             'genre_id' => ['required', 'integer'],
             'lang' => ['required', 'integer'],
             'story' => ['nullable', 'string', 'max:400'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
         ]);
 
         $book->user_id = $request->user()->id;
@@ -42,15 +42,17 @@ class UpdateController extends Controller
         $book->lang = $request->lang;
         $book->story = $request->story;
 
-
         // 完結
         $book->is_complete = true;
-        if ($request->is_complete === null) $book->is_complete = false;
+        if ($request->is_complete === null) {
+            $book->is_complete = false;
+        }
 
         // 非公開設定
         $book->is_hidden = true;
-        if ($request->is_hidden === null) $book->is_hidden = false;
-
+        if ($request->is_hidden === null) {
+            $book->is_hidden = false;
+        }
 
         // サムネイル
         if ($request->has('thumbnail')) {
@@ -58,7 +60,7 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file)->resize(
+            $img = \Image::make($file)->resize(
                 1000,
                 null,
                 function ($constraint) {

@@ -37,9 +37,9 @@ class UpdateController extends Controller
         |--------------------------------------------------------------------------
          */
         $request->validate([
-            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
             'images' => 'array|min:10|max:100',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
         ]);
 
         // 非公開設定

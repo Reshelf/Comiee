@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Books\Episode;
 
 use App\Http\Controllers\Controller;
+use App\Mail\books\episodes\AddNewEpisodeMail;
 use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 // メール
 use Illuminate\Support\Facades\Mail;
-use App\Mail\books\episodes\AddNewEpisodeMail;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -23,14 +23,14 @@ class StoreController extends Controller
     |--------------------------------------------------------------------------
     | エピソードの保存
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(Request $request, Episode $episode)
     {
         /*
         |--------------------------------------------------------------------------
         | データのセット | 作品、成功メッセージ
         |--------------------------------------------------------------------------
-        */
+         */
         $book = Book::where('id', $request->book_id)->first();
 
         $success = array(
@@ -46,7 +46,7 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
         | データの保存 | エピソード
         |--------------------------------------------------------------------------
-        */
+         */
         $episode->book_id = $book->id;
 
         // エピソードの話数
@@ -54,14 +54,18 @@ class StoreController extends Controller
 
         // 非公開設定
         $episode->is_hidden = true;
-        if ($request->is_hidden === null) $episode->is_hidden = false;
+        if ($request->is_hidden === null) {
+            $episode->is_hidden = false;
+        }
 
         // 値段設定
         $episode->is_free = false;
-        if ($request->is_free === null) $episode->is_free = true;
+        if ($request->is_free === null) {
+            $episode->is_free = true;
+        }
 
         $request->validate([
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:30720',
         ]);
 
         // サムネイル
@@ -70,7 +74,7 @@ class StoreController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file)->resize(
+            $img = \Image::make($file)->resize(
                 1000,
                 null,
                 function ($constraint) {
@@ -85,7 +89,7 @@ class StoreController extends Controller
 
         $request->validate([
             'images' => 'required|array|min:10|max:100',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
         ]);
         // コンテンツ
         if ($request->hasfile('images')) {
@@ -95,7 +99,7 @@ class StoreController extends Controller
                 $fileName = $image->getClientOriginalName();
                 $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
 
-                $img =  \Image::make($file)->resize(
+                $img = \Image::make($file)->resize(
                     3200,
                     null,
                     function ($constraint) {
@@ -112,31 +116,29 @@ class StoreController extends Controller
 
         $episode->save();
 
-
         /*
         |--------------------------------------------------------------------------
         | データの更新 | 今日の新作に追加
         |--------------------------------------------------------------------------
-        */
+         */
         $book->is_new = true;
         $book->save();
 
         // 二重送信防止
         $request->session()->regenerateToken();
 
-
         /*
         |--------------------------------------------------------------------------
         | メール送信 | 作品をお気に入りに追加してる人に新着エピソードの通知
         |--------------------------------------------------------------------------
-        */
+         */
         $book_likes_users = $book->likes()->where(['book_id' => $book->id, 'm_notice_4' => 1])->get();
         if ($book_likes_users->count() > 0) {
             $mailData = [
                 'book' => $book,
                 'episode' => $episode,
                 'user' => $request->user(),
-                'bookLikesUserEmails' => $book_likes_users->pluck("email")
+                'bookLikesUserEmails' => $book_likes_users->pluck("email"),
             ];
             Mail::send(new AddNewEpisodeMail($mailData));
         };

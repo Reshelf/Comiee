@@ -34,7 +34,7 @@ class StoreController extends Controller
             'genre_id' => ['required', 'integer'],
             'lang' => ['required', 'integer'],
             'story' => ['nullable', 'string', 'max:400'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
         ]);
 
         $book->title = $request->title;

@@ -32,8 +32,8 @@ class UpdateController extends Controller
                 'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
                 'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
                 'body' => ['nullable', 'string', 'max:200'],
-                'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
-                'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
+                'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
+                'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
             ],
             [
                 'avatar.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです',
