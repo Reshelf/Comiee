@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Books\Episode;
 
+use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
@@ -20,14 +20,14 @@ class UpdateController extends Controller
     |--------------------------------------------------------------------------
     | エピソードの更新
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(Request $request)
     {
         /*
         |--------------------------------------------------------------------------
         | データのセット | 作品
         |--------------------------------------------------------------------------
-        */
+         */
         $book = Book::find($request->book_id);
         $episode = Episode::find($request->episode_id);
 
@@ -35,22 +35,24 @@ class UpdateController extends Controller
         |--------------------------------------------------------------------------
         | データの保存 | エピソード
         |--------------------------------------------------------------------------
-        */
+         */
         $request->validate([
-            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
             'images' => 'array|min:10|max:100',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
         ]);
-
 
         // 非公開設定
         $episode->is_hidden = true;
-        if ($request->is_hidden === null) $episode->is_hidden = false;
+        if ($request->is_hidden === null) {
+            $episode->is_hidden = false;
+        }
 
         // 値段設定
         $episode->is_free = false;
-        if ($request->is_free === null) $episode->is_free = true;
-
+        if ($request->is_free === null) {
+            $episode->is_free = true;
+        }
 
         // サムネイル
         if ($request->has('thumbnail')) {
@@ -58,8 +60,7 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail/' . $fileName;
 
-
-            $img =  \Image::make($file)->resize(
+            $img = \Image::make($file)->resize(
                 1000,
                 null,
                 function ($constraint) {
@@ -80,7 +81,7 @@ class UpdateController extends Controller
                 $fileName = $image->getClientOriginalName();
                 $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
 
-                $img =  \Image::make($file)->resize(
+                $img = \Image::make($file)->resize(
                     3200,
                     null,
                     function ($constraint) {

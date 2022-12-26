@@ -33,7 +33,7 @@ class UpdateController extends Controller
             'genre_id' => ['required', 'integer'],
             'lang' => ['required', 'integer'],
             'story' => ['nullable', 'string', 'max:400'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
         ]);
 
         $book->user_id = $request->user()->id;

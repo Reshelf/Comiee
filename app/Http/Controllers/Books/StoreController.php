@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Books;
 
-use Carbon\Carbon;
-use App\Models\Tag;
-use App\Models\Book;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\BookRequest;
 use App\Mail\books\AddNewBookMail;
+use App\Models\Book;
+use App\Models\Tag;
 // メール
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,7 +23,7 @@ class StoreController extends Controller
     |--------------------------------------------------------------------------
     | 作品の投稿
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, BookRequest $request, Book $book, Tag $tag)
     {
         // ポリシー
@@ -35,7 +34,7 @@ class StoreController extends Controller
             'genre_id' => ['required', 'integer'],
             'lang' => ['required', 'integer'],
             'story' => ['nullable', 'string', 'max:400'],
-            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+            'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
         ]);
 
         $book->title = $request->title;
@@ -49,7 +48,7 @@ class StoreController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file)->resize(
+            $img = \Image::make($file)->resize(
                 1000,
                 null,
                 function ($constraint) {

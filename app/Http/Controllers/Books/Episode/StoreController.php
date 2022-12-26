@@ -61,7 +61,7 @@ class StoreController extends Controller
         if ($request->is_free === null) $episode->is_free = true;
 
         $request->validate([
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
         ]);
 
         // サムネイル
@@ -85,7 +85,7 @@ class StoreController extends Controller
 
         $request->validate([
             'images' => 'required|array|min:10|max:100',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:1048576',
         ]);
         // コンテンツ
         if ($request->hasfile('images')) {

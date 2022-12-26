@@ -21,7 +21,7 @@ class UpdateController extends Controller
     |--------------------------------------------------------------------------
     | 作品の更新
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(Request $request, User $user)
     {
         $user = Auth::user();
@@ -32,12 +32,12 @@ class UpdateController extends Controller
                 'username' => 'required|string|min:4|max:20|regex:/\A([a-zA-Z0-9-_])+\z/u|unique:users,username,' . $user->id . ',id',
                 'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
                 'body' => ['nullable', 'string', 'max:200'],
-                'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
-                'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp'],
+                'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
+                'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:1048576'],
             ],
             [
                 'avatar.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです',
-                'thumbnail.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです'
+                'thumbnail.mimes:jpeg,png,jpg,gif,webp' => '保存できる画像形式はpng, jpg(jpeg), gif, webpです',
             ]
         );
 
@@ -52,7 +52,7 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/users/avatar/' . $fileName;
 
-            $img =  \Image::make($file);
+            $img = \Image::make($file);
             $img->resize(
                 800,
                 null,
@@ -71,7 +71,7 @@ class UpdateController extends Controller
             $fileName = $file->getClientOriginalName();
             $filePath = 'app/' . env('APP_ENV') . '/users/thumbnail/' . $fileName;
 
-            $img =  \Image::make($file);
+            $img = \Image::make($file);
             $img->resize(
                 3000,
                 null,
@@ -91,12 +91,29 @@ class UpdateController extends Controller
         $user->m_notice_4 = false;
         $user->m_notice_5 = false;
         $user->m_notice_6 = false;
-        if ($request->input('m1') === null) $user->m_notice_1 = true;
-        if ($request->input('m2') === null) $user->m_notice_2 = true;
-        if ($request->input('m3') === null) $user->m_notice_3 = true;
-        if ($request->input('m4') === null) $user->m_notice_4 = true;
-        if ($request->input('m5') === null) $user->m_notice_5 = true;
-        if ($request->input('m6') === null) $user->m_notice_6 = true;
+        if ($request->input('m1') === null) {
+            $user->m_notice_1 = true;
+        }
+
+        if ($request->input('m2') === null) {
+            $user->m_notice_2 = true;
+        }
+
+        if ($request->input('m3') === null) {
+            $user->m_notice_3 = true;
+        }
+
+        if ($request->input('m4') === null) {
+            $user->m_notice_4 = true;
+        }
+
+        if ($request->input('m5') === null) {
+            $user->m_notice_5 = true;
+        }
+
+        if ($request->input('m6') === null) {
+            $user->m_notice_6 = true;
+        }
 
         $user->save();
 
