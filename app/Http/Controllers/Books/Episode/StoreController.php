@@ -28,25 +28,10 @@ class StoreController extends Controller
     {
         /*
         |--------------------------------------------------------------------------
-        | データのセット | 作品、成功メッセージ
-        |--------------------------------------------------------------------------
-         */
-        $book = Book::where('id', $request->book_id)->first();
-
-        $success = array(
-            '投稿完了！続きも楽しみにしています！',
-            'また描いてくださいね！',
-        );
-        $random = array_rand(
-            $success,
-            1
-        );
-
-        /*
-        |--------------------------------------------------------------------------
         | データの保存 | エピソード
         |--------------------------------------------------------------------------
          */
+        $book = Book::where('id', $request->book_id)->first();
         $episode->book_id = $book->id;
 
         // エピソードの話数
@@ -143,6 +128,36 @@ class StoreController extends Controller
             Mail::send(new AddNewEpisodeMail($mailData));
         };
 
+        /*
+        |--------------------------------------------------------------------------
+        | Stripeに商品登録 | Stripe Connectユーザーであるか関係なく登録する
+        |--------------------------------------------------------------------------
+         */
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
+        $stripe->products->create(
+            [
+                'name' => $book->title . ' - ' . $episode->number . '話',
+                'default_price_data' => [
+                    'unit_amount' => 50, // デフォルト50円
+                    'currency' => 'jpy',
+                ],
+                'expand' => ['default_price'],
+            ]
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | 成功メッセージ
+        |--------------------------------------------------------------------------
+         */
+        $success = array(
+            '投稿完了！続きも楽しみにしています！',
+            'また描いてくださいね！',
+        );
+        $random = array_rand(
+            $success,
+            1
+        );
         return back()->withSuccess($success[$random]);
     }
 }
