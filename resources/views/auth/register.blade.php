@@ -29,7 +29,7 @@
       </div>
 
       <label class="light-checkbox my-4">
-        <input type="checkbox" value="" class="light-checkbox-Input" required>
+        <input type="checkbox" class="light-checkbox-Input" checked required>
         <span class="light-checkbox-DummyInput">
           <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
             <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
