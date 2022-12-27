@@ -19,7 +19,10 @@
             <nav class="text-sm">
               <div class="flex items-center">
                 @guest
-                  @include('auth._login')
+                  <div class="flex items-center">
+                    @include('auth._login')
+                    <a href="{{ route('register') }}" class="ml-4 hover:text-primary">新規登録</a>
+                  </div>
                 @endguest
 
                 @include('atoms.nav.create_book')
