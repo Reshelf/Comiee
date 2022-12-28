@@ -94,23 +94,14 @@ input[type="file"] {
     border-radius: 3px;
 }
 .btn-primary {
-    @apply cursor-pointer whitespace-nowrap text-sm bg-primary text-white py-2 px-6 border border-primary dark:border-none duration-200;
-    border-radius: 3px;
+    @apply tracking-widest rounded-[5px] cursor-pointer whitespace-nowrap bg-primary text-white py-2 px-6 border border-primary dark:border-none duration-200;
     box-shadow: 0 3px 12px 0 rgba(#0570de, 0.4);
-    &:hover {
-        box-shadow: 0 8px 25px -8px rgba(#0570de, 1);
-    }
 }
 .btn-border {
-    @apply cursor-pointer whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 dark:font-semibold dark:hover:bg-opacity-30 bg-transparent border border-primary dark:bg-primary dark:border-none dark:bg-opacity-20 py-2 px-6;
-    border-radius: 3px;
+    @apply tracking-widest rounded-[5px] cursor-pointer whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 dark:font-semibold dark:hover:bg-opacity-30 bg-transparent border border-primary dark:bg-primary dark:border-none dark:bg-opacity-20 py-2 px-6;
 }
 .btn-sub {
-    @apply cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc  hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
-    // background: ;
-    // &:hover {
-    //     background: #e4e6eb;
-    // }
+    @apply tracking-widest cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc  hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-2 px-4;
 }
 .btn-danger {
     @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded-sm py-2 px-6;
@@ -368,7 +359,7 @@ button[disabled] {
         width: 0;
     }
     select {
-        @apply appearance-none outline-none rounded-[3px] cursor-pointer w-full p-2 border border-bbb;
+        @apply appearance-none outline-none rounded-[5px] cursor-pointer w-full p-2 border border-bbb;
         option {
             @apply w-full;
         }
@@ -382,7 +373,7 @@ button[disabled] {
     }
     &:hover {
         .tooltip-item {
-            @apply absolute block top-[35px] z-[999] rounded-[3px] p-2 text-white bg-dark whitespace-nowrap;
+            @apply absolute block top-[35px] z-[999] rounded-[5px] p-2 text-white bg-dark whitespace-nowrap;
         }
     }
 }
@@ -690,5 +681,5 @@ button .loading {
     @apply text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-base md:text-lg pt-3 p-4;
 }
 .card-input {
-    @apply w-full md:text-[15px] px-2 py-3 rounded-[3px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
+    @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
 }

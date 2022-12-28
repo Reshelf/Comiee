@@ -124,7 +124,7 @@
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
   <textarea required name="story"
-    class="count_{{ $create_book_modal_count }} dark:bg-dark-1-2 border border-ccc dark:border-none p-3 h-24 rounded-[3px] mb-1 w-full"
+    class="count_{{ $create_book_modal_count }} dark:bg-dark-1-2 border border-ccc dark:border-none p-3 h-24 rounded-[5px] mb-1 w-full"
     placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>

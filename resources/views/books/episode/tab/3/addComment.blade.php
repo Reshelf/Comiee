@@ -14,7 +14,7 @@
              'episode_number' => $episode->number,
          ]) }}">
          @csrf
-         <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[3px]"
+         <textarea class="dark:bg-dark-1 w-full h-[250px] rounded-[5px]"
            placeholder="{{ __('ここは作品への応援コメントを投稿できる場所です！') }} &#10;&#10; {{ __('作品内容と関係がないコメント、作品や作家を中傷するようなコメント、ネタバレやその他不適切なコメントは投稿しないでね！') }}&#10;&#10; {{ __('不適切なコメントを見つけた場合は通報をお願いいたします！') }}&#10;&#10; {{ __('ひどい場合は、断りなくコメントの削除やアカウントを凍結させていただく場合があります。') }}"
            autocomplete="off" autofocus="on" type="text" name="comment" maxlength="400" required></textarea>
 

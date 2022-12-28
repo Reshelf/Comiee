@@ -17,7 +17,7 @@
         </div>
       @else
         <span
-          class="bg-green bg-opacity-10 text-green px-4 py-2 rounded-[3px] font-semibold">あなたの収益受取はStripeと連携されています</span>
+          class="bg-green bg-opacity-10 text-green px-4 py-2 rounded-[5px] font-semibold">あなたの収益受取はStripeと連携されています</span>
       @endif
     </div>
 

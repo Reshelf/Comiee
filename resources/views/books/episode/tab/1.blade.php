@@ -10,7 +10,7 @@
         <episode-list>
           <template #trigger>
             <div
-              class="tracking-widest w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[3px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
+              class="tracking-widest w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[5px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
               {{ __('エピソードを追加する') }}
             </div>
           </template>
@@ -31,7 +31,7 @@
       @endif
       @foreach ($episodes_latest as $e)
         <div
-          class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[3px] dark:hover:bg-dark-1 hover:bg-f5">
+          class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[5px] dark:hover:bg-dark-1 hover:bg-f5">
           <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
             class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
             @empty($e->thumbnail)
@@ -61,12 +61,12 @@
                     @if (!$e->is_hidden)
                       @if ($e->is_free)
                         <span
-                          class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[3px]">
+                          class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
                           {{ __('無料') }}
                         </span>
                       @else
                         <span
-                          class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[3px]">
+                          class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
                           {{ $e->price }}{{ __('円') }}
                         </span>
                       @endif
@@ -75,7 +75,7 @@
                     {{-- 非公開 --}}
                     @if ($e->is_hidden)
                       <span
-                        class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[3px] whitespace-nowrap">
+                        class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[5px] whitespace-nowrap">
                         {{ __('非公開') }}
                       </span>
                     @endif
@@ -100,12 +100,18 @@
                         @endif
                       @endif
                     @endauth
-                    {{--
-                                        <div class="ml-4">
-                                            <button id="checkout-button"
-                                                style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em">決済を行う</button>
-                                            <div id="error-message"></div>
-                                        </div> --}}
+
+                    {{-- 決済 --}}
+                    {{-- <div class="ml-4">
+                      <button id="checkout-button"
+                        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em">決済を行う</button>
+                      <div id="error-message"></div>
+                      @include('atoms.stripe_script', [
+                          'book' => $book,
+                          'product' => $e,
+                          'price' => $e->price,
+                      ])
+                    </div> --}}
                   </div>
                 </div>
               </div>
