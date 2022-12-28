@@ -96,9 +96,9 @@ input[type="file"] {
 .btn-primary {
     @apply cursor-pointer whitespace-nowrap text-sm bg-primary text-white py-2 px-6 border border-primary dark:border-none duration-200;
     border-radius: 3px;
-    box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
+    box-shadow: 0 3px 12px 0 rgba(#0570de, 0.4);
     &:hover {
-        box-shadow: 0 8px 25px -8px rgba(#1977f2, 1);
+        box-shadow: 0 8px 25px -8px rgba(#0570de, 1);
     }
 }
 .btn-border {
