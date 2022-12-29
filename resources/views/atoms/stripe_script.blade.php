@@ -1,8 +1,10 @@
 @php
-  // 対象商品をstripeから取得
+
   $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
-  // Checkoutセッションを作成
+  $product = $stripe->products->retrieve('prod_' . $e->id, [], ['stripe_account' => $book->user->stripe_user_id]);
+  $price = $stripe->prices->retrieve($product->default_price, [], ['stripe_account' => $book->user->stripe_user_id]);
+
   $session = $stripe->checkout->sessions->create(
       [
           'success_url' => config('app.top_url'),
@@ -10,19 +12,21 @@
           'payment_method_types' => ['card'],
           'line_items' => [
               [
-                  'price' => 'price_' . $e->id,
+                  'price' => $price->id,
                   'quantity' => 1,
-                  'tax_rates' => 10,
               ],
           ],
           'payment_intent_data' => [
-              'application_fee_amount' => 30,
+              'application_fee_amount' => $e->price * 0.3,
           ],
           'mode' => 'payment',
+          'allow_promotion_codes' => true,
       ],
       ['stripe_account' => $book->user->stripe_user_id],
   );
 @endphp
+{{-- {{ $product }} --}}
+{{-- {{ $price->id }} --}}
 
 @section('head-scripts')
   <script src="https://js.stripe.com/v3/"></script>

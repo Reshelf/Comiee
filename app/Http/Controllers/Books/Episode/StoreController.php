@@ -134,16 +134,15 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
          */
         $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
-        $stripe->products->create(
-            [
-                'name' => $book->title . ' - ' . $episode->number . '話',
-                'default_price_data' => [
-                    'unit_amount' => 50, // デフォルトは50円
-                    'currency' => 'jpy',
-                    'tax_behavior' => 'inclusive', // 内税
-                ], 'expand' => ['default_price'],
-            ]
-        );
+        $stripe->products->create([
+            'id' => 'prod_' . $episode->id,
+            'name' => $book->title . ' - ' . $episode->number . '話',
+            'default_price_data' => [
+                'unit_amount' => 50, // デフォルトは50円
+                'currency' => 'jpy',
+                'tax_behavior' => 'inclusive', // 内税
+            ], 'expand' => ['default_price'],
+        ]);
 
         /*
         |--------------------------------------------------------------------------
