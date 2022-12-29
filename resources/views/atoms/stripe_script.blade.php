@@ -1,5 +1,4 @@
 @php
-
   $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
   $product = $stripe->products->retrieve('prod_' . $e->id, [], ['stripe_account' => $book->user->stripe_user_id]);
@@ -25,8 +24,6 @@
       ['stripe_account' => $book->user->stripe_user_id],
   );
 @endphp
-{{-- {{ $product }} --}}
-{{-- {{ $price->id }} --}}
 
 @section('head-scripts')
   <script src="https://js.stripe.com/v3/"></script>
