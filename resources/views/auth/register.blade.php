@@ -28,7 +28,7 @@
         <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
       </div>
 
-      <div class="mb-2 text-center">
+      <div class="mb-4">
         <a href="{{ route('others.terms', app()->getLocale()) }}" class="text-primary" target="_blank"
           rel="noopener noreferrer">{{ __('利用規約') }}</a>
         {{ __('と') }} <a href="{{ route('others.privacy', app()->getLocale()) }}" class="text-primary"
