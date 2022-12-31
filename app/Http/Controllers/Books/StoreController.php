@@ -86,6 +86,9 @@ class StoreController extends Controller
         };
 
         // リダイレクト
-        return redirect('/' . app()->getLocale() . '/books/' . $book->id)->withSuccess("作品を投稿しました！エピソードを追加してね！");
+        return redirect('/' . app()->getLocale() . '/books/' . $book->id)->with([
+            'success' => "作品を作成しました。続いて作品のエピソードを追加しましょう！",
+            'store' => true,
+        ]);
     }
 }
