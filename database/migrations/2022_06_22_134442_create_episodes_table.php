@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedbigInteger('book_id')->comment('作品ID');
             $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
             $table->json('contents')->charset(null)->nullable()->comment('マンガのコンテンツ');
-            $table->string('thumbnail')->nullable()->comment('エピソードサムネイル');
+            $table->text('thumbnail')->nullable()->comment('エピソードサムネイル');
 
             $table->boolean('is_hidden')->default(0)->comment('公開フラグ');
             $table->boolean('is_free')->default(0)->comment('無料フラグ');

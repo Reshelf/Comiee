@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('genre_id')->default(0)->comment('ジャンル');
             $table->integer('views')->default(0)->comment('閲覧回数');
             $table->text('story', 400)->nullable()->comment('あらすじ');
-            $table->string('thumbnail')->nullable()->comment('作品サムネイル');
+            $table->text('thumbnail')->nullable()->comment('作品サムネイル');
 
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

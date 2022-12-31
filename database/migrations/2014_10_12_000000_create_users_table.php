@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('stripe_user_id')->nullable();
 
             $table->string('country_code', 4)->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->text('avatar')->nullable();
+            $table->text('thumbnail')->nullable();
             $table->text('body', 200)->nullable();
             $table->string('password')->nullable();
 
