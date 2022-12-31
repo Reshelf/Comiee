@@ -54,7 +54,7 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .title {
-    @apply text-[#5A5777] dark:text-ddd;
+    @apply text-[#5A5777] dark:text-ddd tracking-widest;
     animation: slide-in 0.3s;
 }
 @keyframes bounce-in {

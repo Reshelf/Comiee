@@ -64,6 +64,7 @@
         text-align: left;
         min-height: 30px;
         .title {
+            @apply tracking-widest;
             animation: slide-in 0.3s;
         }
     }
