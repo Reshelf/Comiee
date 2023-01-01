@@ -142,7 +142,8 @@ class StoreController extends Controller
                 'currency' => 'jpy',
                 'tax_behavior' => 'inclusive', // 内税
             ], 'expand' => ['default_price'],
-        ]);
+        ], ['stripe_account' => $book->user->stripe_user_id],
+        );
 
         /*
         |--------------------------------------------------------------------------
