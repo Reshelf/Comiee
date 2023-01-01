@@ -138,6 +138,7 @@ class StoreController extends Controller
             'id' => 'prod_' . $episode->id,
             'name' => $book->title . ' - ' . $episode->number . '話',
             'default_price_data' => [
+                'id' => 'price_' . $episode->id,
                 'unit_amount' => 50, // デフォルトは50円
                 'currency' => 'jpy',
                 'tax_behavior' => 'inclusive', // 内税
