@@ -106,21 +106,6 @@
                       @endif
                     @endauth
 
-                    {{-- 決済 --}}
-                    @auth
-                      @if ($book->user->id !== Auth::user()->id)
-                        <div class="ml-4">
-                          <button id="checkout-button"
-                            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em">決済を行う</button>
-                          <div id="error-message"></div>
-                          @include('atoms.stripe_script', [
-                              'book' => $book,
-                              'product' => $e,
-                              'price' => $e->price,
-                          ])
-                        </div>
-                      @endif
-                    @endauth
                   </div>
                 </div>
               </div>
