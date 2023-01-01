@@ -1,8 +1,8 @@
 @php
   $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
-  $product = $stripe->products->retrieve('prod_' . $e->id, [], ['stripe_account' => $book->user->stripe_user_id]);
-  $price = $stripe->prices->retrieve($product->default_price, [], ['stripe_account' => $book->user->stripe_user_id]);
+  $product = $stripe->products->retrieve($episode->prod_id, [], ['stripe_account' => $book->user->stripe_user_id]);
+  $price = $stripe->prices->retrieve($episode->price_id, [], ['stripe_account' => $book->user->stripe_user_id]);
 
   $session = $stripe->checkout->sessions->create(
       [
@@ -16,7 +16,7 @@
               ],
           ],
           'payment_intent_data' => [
-              'application_fee_amount' => $e->price * 0.3,
+              'application_fee_amount' => $episode->price * 0.3,
           ],
           'mode' => 'payment',
           'allow_promotion_codes' => true,

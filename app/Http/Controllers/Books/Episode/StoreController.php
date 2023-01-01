@@ -32,6 +32,7 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
          */
         $book = Book::where('id', $request->book_id)->first();
+
         $episode->book_id = $book->id;
 
         // エピソードの話数
@@ -99,8 +100,6 @@ class StoreController extends Controller
             $episode->contents = json_encode($imgData);
         }
 
-        $episode->save();
-
         /*
         |--------------------------------------------------------------------------
         | データの更新 | 今日の新作に追加
@@ -130,20 +129,31 @@ class StoreController extends Controller
 
         /*
         |--------------------------------------------------------------------------
-        | Stripeに商品登録 | Stripe Connectユーザーであるか関係なく登録する
+        | Stripeに商品・価格を登録 | Stripe Connectユーザー
         |--------------------------------------------------------------------------
          */
-        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
-        $stripe->products->create([
-            'id' => 'prod_' . $episode->id,
-            'name' => $book->title . ' - ' . $episode->number . '話',
-            'default_price_data' => [
-                'unit_amount' => 50, // デフォルトは50円
-                'currency' => 'jpy',
-                'tax_behavior' => 'inclusive', // 内税
-            ], 'expand' => ['default_price'],
-        ], ['stripe_account' => $book->user->stripe_user_id],
-        );
+        if ($book->user->stripe_user_id) {
+            $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
+
+            // 商品
+            $product = $stripe->products->create([
+                'name' => $book->title . ' - ' . $episode->number . '話',
+            ], ['stripe_account' => $book->user->stripe_user_id],
+            );
+
+            // 価格
+            $price = $stripe->prices->create([
+                'product' => $product->id, // 作成した製品と紐づける
+                'unit_amount' => 50, // 単価
+                'currency' => 'jpy', // 支払通貨
+                'tax_behavior' => 'inclusive',
+            ], ['stripe_account' => $book->user->stripe_user_id]);
+
+            $episode->prod_id = $product->id;
+            $episode->price_id = $price->id;
+        };
+
+        $episode->save();
 
         /*
         |--------------------------------------------------------------------------

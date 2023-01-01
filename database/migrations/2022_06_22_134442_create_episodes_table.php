@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedbigInteger('book_id')->comment('作品ID');
             $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
+            $table->string('prod_id')->nullable()->comment('Stripeの商品ID');
+            $table->string('price_id')->nullable()->comment('Stripeの価格ID');
             $table->json('contents')->charset(null)->nullable()->comment('マンガのコンテンツ');
             $table->text('thumbnail')->nullable()->comment('エピソードサムネイル');
 
