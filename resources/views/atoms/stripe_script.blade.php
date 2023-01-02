@@ -1,3 +1,7 @@
+@section('header-scripts')
+  <script src="https://js.stripe.com/v3/"></script>
+@endsection
+
 @php
   $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
@@ -19,15 +23,15 @@
               'application_fee_amount' => $episode->price * 0.3,
           ],
           'mode' => 'payment',
-          'allow_promotion_codes' => true,
+          //   'allow_promotion_codes' => true,
       ],
       ['stripe_account' => $book->user->stripe_user_id],
   );
 @endphp
 
-@section('head-scripts')
-  <script src="https://js.stripe.com/v3/"></script>
-@endsection
+<button id="checkout-button" class="btn-primary text-base">
+  {{ $episode->price }}円でこの話を読む</button>
+<div id="error-message"></div>
 
 @section('footer-scripts')
   <script>
