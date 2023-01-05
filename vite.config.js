@@ -4,24 +4,24 @@ import { defineConfig, splitVendorChunkPlugin } from "vite";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
-  plugins: [
-    vue({
-      template: {
-        transformAssetUrls: {
-          base: null,
-          includeAbsolute: false,
-        },
-      },
-    }),
-    laravel({
-      input: [
-        "resources/sass/app.scss",
-        "resources/js/app.js",
-        "resources/js/common/atoms/common.js",
-      ],
-      refresh: true,
-    }),
-    viteCompression(),
-    splitVendorChunkPlugin(),
-  ],
+    plugins: [
+        vue({
+            template: {
+                transformAssetUrls: {
+                    base: null,
+                    includeAbsolute: false,
+                },
+            },
+        }),
+        laravel({
+            input: [
+                "resources/sass/app.scss",
+                "resources/js/app.js",
+                "resources/js/common/atoms/common.js",
+            ],
+            refresh: true,
+        }),
+        viteCompression(),
+        splitVendorChunkPlugin(),
+    ],
 });
