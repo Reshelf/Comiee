@@ -37,7 +37,7 @@
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
                                             <img height="32" style="object-fit: cover"
-                                              src="https://starbooks.s3.ap-northeast-1.amazonaws.com/app/system/logo.png">
+                                              src="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/logo.png">
                                           </a>
                                         </td>
                                       </tr>
@@ -149,7 +149,7 @@
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{ $mailData['received_user']->email }}
                                           </a>に送信されたものです。
-                                          今後Starbooksからこのようなメールを受信したくない場合は、設定の"メール通知"から
+                                          今後Comieeからこのようなメールを受信したくない場合は、設定の"メール通知"から
                                           <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['received_user']->username . '/settings' }}"
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             配信を停止
@@ -159,7 +159,7 @@
                                         <span
                                           style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;font-family:Roboto-Regular,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:11px;color:#8a8d91;line-height:16px;font-weight:400">
                                           アカウントを保護するため、このメールを転送しないでください。<br><br>
-                                          Starbooks
+                                          Comiee
                                         </span>
                                       </td>
                                     </tr>

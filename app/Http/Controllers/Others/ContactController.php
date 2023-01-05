@@ -17,7 +17,7 @@ class ContactController extends Controller
     */
     public function __invoke(Request $request)
     {
-        $email = 'info@starbooks.one';
+        $email = 'support@comiee.one';
 
         Mail::to($email)->send(new ContactMail($request->user(), $request->body));
         return back()->withSuccess('運営にお問合わせをしました！回答をお待ちください！');

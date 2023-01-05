@@ -118,6 +118,6 @@ h-bash:
 h-fresh:
 	heroku run php artisan migrate:fresh
 h-stg:
-	heroku git:remote --app starbooks15-stg
+	heroku git:remote --app comiee15-stg
 h-pro:
-	heroku git:remote --app starbooks15
+	heroku git:remote --app comiee15

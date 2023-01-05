@@ -3,9 +3,9 @@
 @section('title', 'ご利用ガイド')
 
 @section('description')
-  <meta name="description" itemprop="description" content="Starbooksのご利用ガイドページです。">
-  <meta property="og:description" content="Starbooksのご利用ガイドページです。">
-  <meta name="twitter:description" content="Starbooksのご利用ガイドページです。">
+  <meta name="description" itemprop="description" content="Comieeのご利用ガイドページです。">
+  <meta property="og:description" content="Comieeのご利用ガイドページです。">
+  <meta name="twitter:description" content="Comieeのご利用ガイドページです。">
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
     <div class="max-w-6xl mx-auto">
       <div
         class="bg-white dark:bg-dark-1 p-12 rounded-[5px] border-2 border-transparent hover:text-primary hover:border-primary cursor-pointer">
-        <h3 class="tracking-widest text-[16px] font-semibold">Starbooksについて</h3>
+        <h3 class="tracking-widest text-[16px] font-semibold">Comieeについて</h3>
         <div class="mt-2">初めての方はこちらから</div>
       </div>
 
@@ -33,7 +33,7 @@
           <h3 class="tracking-widest text-[16px] font-semibold">創作について</h3>
           <div class="mt-2">作者の方、作品をこれから投稿したい方はこちらから</div>
         </div>
-        <a href="mailto:info@starbooks.one?subject=お問い合わせ"
+        <a href="mailto:info@Comiee.one?subject=お問い合わせ"
           class="block min-h-[174px] w-full md:w-1/3 bg-white dark:bg-dark-1 p-12 rounded-[5px] border-2 border-transparent hover:text-primary hover:border-primary cursor-pointer">
           <h3 class="tracking-widest text-[16px] font-semibold">お問い合わせ</h3>
           <div class="mt-2">問題が解消しない場合はこちらから</div>

@@ -18,7 +18,7 @@
       </div>
       <div class="flex items-center mb-8">
         <div class="w-1/2 md:w-32 text-xs font-semibold">事業内容</div>
-        <div class="w-1/2 md:w-auto text-base">マンガ投稿アプリ「Starbooks」の企画・開発・運用</div>
+        <div class="w-1/2 md:w-auto text-base">マンガ投稿アプリ「Comiee」の企画・開発・運用</div>
       </div>
       <div class="flex items-center mb-8">
         <div class="w-1/2 md:w-32 text-xs font-semibold">代表者</div>

@@ -25,6 +25,9 @@
             ],
             'mode' => 'payment',
             'allow_promotion_codes' => true,
+            'automatic_tax' => [
+                'enabled' => true,
+            ],
         ],
         ['stripe_account' => $book->user->stripe_user_id],
     );

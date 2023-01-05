@@ -37,7 +37,7 @@
         <div class="text-xs cursor-default dark:text-[#c9cacc]">{{ __('フォローする') }}</div>
         <div class="flex items-center mt-4">
           {{-- Twitter --}}
-          <a href="https://twitter.com/starbooks_one" target="_blank" rel="noopener noreferrer"
+          <a href="https://twitter.com/comiee_official" target="_blank" rel="noopener noreferrer"
             class="inline-block mr-5">
             <svg class="h-[20px] md:h-[24px]" viewBox="0 0 32 32" fill="none">
               <path
@@ -47,7 +47,7 @@
           </a>
 
           {{-- Instagram --}}
-          <a href="https://www.instagram.com/starbooks_one_official" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/comiee_official" target="_blank" rel="noopener noreferrer"
             class="inline-block mr-5">
             <svg class="h-[20px] md:h-[24px]" viewBox="0 0 32 32" fill="none">
               <rect x="2" y="2" width="28" height="28" rx="6" fill="#7c7c7c" />
@@ -102,7 +102,7 @@
       <div class="md:w-1/2">
         <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</h4>
         <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Starbooksについて') }}</a>
+          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
         <a href="{{ route('others.user_guide', app()->getLocale()) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
         <a href="{{ route('others.faq.1', app()->getLocale()) }}"
@@ -152,7 +152,7 @@
   <div class="md:max-w-5xl mx-auto mt-8 md:mt-16 flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="md:w-2/5 mt-8 md:mt-0 tracking-widest cursor-default">&copy;
       {{ \Carbon\Carbon::now()->format('Y') }}
-      Starbooks
+      Comiee
     </div>
   </div>
 </footer>

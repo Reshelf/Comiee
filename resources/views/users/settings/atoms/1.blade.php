@@ -84,7 +84,7 @@
             stroke-linejoin="round" />
         </svg>
       </span>
-      <span class="light-checkbox-LabelText">{{ __('Starbooksからのニュースやお得な情報を受け取ります') }}</span>
+      <span class="light-checkbox-LabelText">{{ __('Comieeからのニュースやお得な情報を受け取ります') }}</span>
     </label>
     <div class="relative inline-block mt-12">
       <button type="submit" class="submit_btn3 btn-primary">

@@ -3,9 +3,9 @@
 @section('title', '利用規約')
 
 @section('description')
-  <meta name="description" itemprop="description" content="Starbooksの利用規約ページです。">
-  <meta property="og:description" content="Starbooksの利用規約ページです。">
-  <meta name="twitter:description" content="Starbooksの利用規約ページです。">
+  <meta name="description" itemprop="description" content="Comieeの利用規約ページです。">
+  <meta property="og:description" content="Comieeの利用規約ページです。">
+  <meta name="twitter:description" content="Comieeの利用規約ページです。">
 @endsection
 
 @section('content')
@@ -14,11 +14,11 @@
   <div class="max-w-4xl m-8 md:my-16 md:mx-auto leading-8">
     <h2 class="text-3xl font-semibold">利用規約</h2>
     <div class="mt-8 mb-16 text-[15px]">
-      <p class="my-2">このStarbooks利用規約（以下、「本利用規約」といいます）は、Starbooks（以下、「本サービス」といいます）の利用者に適用される、サービス利用のための契約です。</p>
+      <p class="my-2">このComiee利用規約（以下、「本利用規約」といいます）は、Comiee（以下、「本サービス」といいます）の利用者に適用される、サービス利用のための契約です。</p>
       <p class="my-2">本利用規約は、以下の3つの規約から構成されています。</p>
-      <p class="my-2">・本サービスの全ての利用者に適用される「Starbooks基本規約」</p>
-      <p class="my-2">・本サービスを作者として利用する場合に適用される「Starbooks作者規約」</p>
-      <p class="my-2">・本サービスを読者として利用する場合に適用される「Starbooks読者規約」</p>
+      <p class="my-2">・本サービスの全ての利用者に適用される「Comiee基本規約」</p>
+      <p class="my-2">・本サービスを作者として利用する場合に適用される「Comiee作者規約」</p>
+      <p class="my-2">・本サービスを読者として利用する場合に適用される「Comiee読者規約」</p>
       <p class="my-2">本サービスをご利用いただく前に、これらをよくお読み頂き、同意下さいますようお願いします。</p>
       <p class="my-2">
         また、本サービス内には、本利用規約以外に「ヘルプ」や「プライバシーポリシー」等を定め、本サービスの利用方法や注意書きを提示いたします。それらも本利用規約の一部を構成するものとします。本利用規約の内容と、「ヘルプ」その他本利用規約外における本サービスの説明等とが異なる場合は、本利用規約の規定が優先して適用されるものとします。
@@ -26,7 +26,7 @@
     </div>
 
 
-    <h2 class="text-3xl font-semibold">Starbooks基本規約</h2>
+    <h2 class="text-3xl font-semibold">Comiee基本規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 定義</h3>
     <div class="mb-10 mt-4 text-[15px]">
@@ -158,7 +158,7 @@
 
 
 
-    <h2 class="text-3xl font-semibold">Starbooks作者規約</h2>
+    <h2 class="text-3xl font-semibold">Comiee作者規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 販売価格</h3>
     <div class="mb-10 mt-4 text-[15px]">
@@ -245,7 +245,7 @@
 
 
 
-    <h2 class="text-3xl font-semibold">Starbooks読者規約</h2>
+    <h2 class="text-3xl font-semibold">Comiee読者規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 購入</h3>
     <div class="mb-10 mt-4 text-[15px]">

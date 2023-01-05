@@ -11,7 +11,7 @@
                 style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823"><a
                   style="color:#050505;text-decoration:none;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:17px;line-height:21px;font-weight:600"
                   target="_blank">
-                  {{ $mailData['send_user']->name }}</a> さんからStarbooksで新しくフォローされました。</span>
+                  {{ $mailData['send_user']->name }}</a> さんからComieeで新しくフォローされました。</span>
             </td>
           </tr>
         </tbody>

@@ -33,7 +33,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this
-            ->from($address = 'noreply@starbooks.one', $name = 'Starbooks Teams')
+            ->from($address = 'noreply@comiee.one', $name = 'Comiee Teams')
             ->view('emails.others.contact')
             ->subject('ユーザーからお問い合せがありました！');
     }

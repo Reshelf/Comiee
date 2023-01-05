@@ -17,7 +17,7 @@ class ReportController extends Controller
     */
     public function __invoke(Request $request)
     {
-        $email = 'info@starbooks.one';
+        $email = 'support@comiee.one';
 
         $reports = [
             'user' => $request->user()->email,

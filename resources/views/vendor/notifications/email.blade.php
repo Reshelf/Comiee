@@ -37,7 +37,7 @@
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
                                             <img height="32" style="object-fit: cover"
-                                              src="https://starbooks.s3.ap-northeast-1.amazonaws.com/app/system/logo.png">
+                                              src="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/logo.png">
                                           </a>
                                         </td>
                                       </tr>
@@ -71,7 +71,7 @@
                                                 <td>
                                                   <span
                                                     style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823">
-                                                    Starbooksへようこそ！<br>
+                                                    Comieeへようこそ！<br>
                                                     以下のボタンをクリックして、アカウント登録を完了させてください。
                                                   </span>
                                                 </td>
@@ -171,7 +171,7 @@
                                         <span
                                           style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;font-family:Roboto-Regular,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:11px;color:#8a8d91;line-height:16px;font-weight:400">
                                           アカウントを保護するため、このメールを転送しないでください。<br><br>
-                                          Starbooks
+                                          Comiee
                                         </span>
                                       </td>
                                     </tr>

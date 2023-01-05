@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 | 認証
 |--------------------------------------------------------------------------
 |
-*/
+ */
 
 Auth::routes(['verify' => true]);
 
@@ -35,14 +35,13 @@ Route::get('/', function (Request $request) {
 
 Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
 Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectSuccessController')->name('stripe.connect.success');
-
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     /*
     |--------------------------------------------------------------------------
     | 検索
     |--------------------------------------------------------------------------
     |
-    */
+     */
     // トップページ
     Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
     // ランキング
@@ -58,7 +57,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     Route::any('/ranking/woman/search', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman.search');
     Route::get('/ranking/adult', 'App\Http\Controllers\Search\Ranking\AdultController')->name('ranking.adult');
     Route::any('/ranking/adult/search', 'App\Http\Controllers\Search\Ranking\AdultController')->name('ranking.adult.search');
-
 
     // 今日の新作
     Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
@@ -84,13 +82,12 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
         Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
     });
 
-
     /*
     |--------------------------------------------------------------------------
     | その他
     |--------------------------------------------------------------------------
     |
-    */
+     */
     Route::get('/company', 'App\Http\Controllers\Others\CompanyController')->name('others.company');
     // ご利用ガイド
     Route::get('/user_guide', 'App\Http\Controllers\Others\UserGuideController')->name('others.user_guide');
@@ -114,13 +111,12 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     Route::get('/faq/7', 'App\Http\Controllers\Others\Faq\SevenController')->name('others.faq.7');
     Route::get('/faq/8', 'App\Http\Controllers\Others\Faq\EightController')->name('others.faq.8');
 
-
     /*
     |--------------------------------------------------------------------------
     | 作品
     |--------------------------------------------------------------------------
     |
-    */
+     */
     Route::prefix('books')->name('book.')->group(function () {
         Route::post('/', 'App\Http\Controllers\Books\StoreController')
             ->middleware('throttle:2, 1')
@@ -148,13 +144,12 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
         Route::get('/{book_id}', 'App\Http\Controllers\Books\ShowController')->name('show');
     });
 
-
     /*
     |--------------------------------------------------------------------------
     | ユーザー
     |--------------------------------------------------------------------------
     |
-    */
+     */
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
