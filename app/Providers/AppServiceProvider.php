@@ -24,8 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-        # 開発環境（local）はhttpなので、httpsにしない
-        if ($this->app->environment('production')) {
+        if ($this->app->environment() == 'production' || $this->app->environment() == 'staging') {
             \URL::forceScheme('https');
         }
     }
