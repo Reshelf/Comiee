@@ -118,7 +118,7 @@
                                                                       <tr>
                                                                         <td
                                                                           style="border-collapse:collapse;border-radius:6px;text-align:center;display:block;background:#1877f2;padding:8px 16px 10px 16px">
-                                                                          <a href="{{ secure_url($actionUrl) }}"
+                                                                          <a href="{{ $actionUrl }}"
                                                                             style="color:#1b74e4;text-decoration:none;display:block"
                                                                             target="_blank">
                                                                             <center>
