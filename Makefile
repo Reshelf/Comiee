@@ -66,6 +66,7 @@ optimize-clear:
 cache:
 	@make optimize
 	@make optimize-clear
+	composer dump-autoload
 	php artisan event:cache
 	php artisan event:clear
 	php artisan view:cache
