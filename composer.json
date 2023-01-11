@@ -13,7 +13,7 @@
         "aws/aws-sdk-php": "^3.242",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
-        "laravel/framework": "^9.39",
+        "laravel/framework": "^9.47",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
