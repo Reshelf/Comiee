@@ -14,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // マイグレーションからSanctumは除外
+        \Laravel\Sanctum\Sanctum::ignoreMigrations();
     }
 
     /**
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // 本番とテスト環境はhttpsを強制
         if ($this->app->environment('production') || $this->app->environment('staging')) {
             URL::forceScheme('https');
         }
