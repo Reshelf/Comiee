@@ -10,6 +10,8 @@ init:
 	composer install
 	@make key
 	@make up
+	@make down
+	@make up
 	@make migrate
 	@make fresh
 destroy:
