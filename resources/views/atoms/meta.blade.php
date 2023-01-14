@@ -7,7 +7,7 @@
   <meta property="og:title" content="@yield('title') | {{ config('app.name') }}">
   <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
 @else
-  <title>{{ config('app.name') }}</title>
+  <title>{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
   <meta property="og:title" content="{{ config('app.name') }}">
   <meta name="twitter:title" content="{{ config('app.name') }}">
 @endif
