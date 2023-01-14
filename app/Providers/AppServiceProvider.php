@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // 本番とテスト環境はhttpsを強制
-        if (App::environment('production') || App::environment('staging')) {
+        if ($this->app->environment('production') || $this->app->environment('staging')) {
             URL::forceScheme('https');
         }
     }
