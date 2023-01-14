@@ -8,8 +8,8 @@
   <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
 @else
   <title>{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
-  <meta property="og:title" content="{{ config('app.name') }}">
-  <meta name="twitter:title" content="{{ config('app.name') }}">
+  <meta property="og:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <meta name="twitter:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
 @endif
 
 @hasSection('description')
