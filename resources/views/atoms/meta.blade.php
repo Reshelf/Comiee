@@ -3,13 +3,13 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 @hasSection('title')
-  <title>@yield('title') | {{ config('app.name') }}</title>
+  <title>@yield('title') | {{ config('app.name') }}（コミー）</title>
   <meta property="og:title" content="@yield('title') | {{ config('app.name') }}">
   <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
 @else
-  <title>{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
-  <meta property="og:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
-  <meta name="twitter:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <title>{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
+  <meta property="og:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <meta name="twitter:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
 @endif
 
 @hasSection('description')
