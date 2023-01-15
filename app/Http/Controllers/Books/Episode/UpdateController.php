@@ -96,6 +96,32 @@ class UpdateController extends Controller
             $episode->contents = json_encode($imgData);
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | Stripe Connectユーザーで Stripeに商品がなかったら登録
+        |--------------------------------------------------------------------------
+         */
+        if ($book->user->stripe_user_id && !$episode->prod_id) {
+            $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
+
+            // 商品
+            $product = $stripe->products->create([
+                'name' => $book->title . ' - ' . $episode->number . '話',
+            ], ['stripe_account' => $book->user->stripe_user_id],
+            );
+
+            // 価格
+            $price = $stripe->prices->create([
+                'product' => $product->id, // 作成した製品と紐づける
+                'unit_amount' => 50, // 単価
+                'currency' => 'jpy', // 支払通貨
+                'tax_behavior' => 'inclusive',
+            ], ['stripe_account' => $book->user->stripe_user_id]);
+
+            $episode->prod_id = $product->id;
+            $episode->price_id = $price->id;
+        }
+
         $episode->save();
 
         return back()->with('success', 'エピソードを更新しました！');

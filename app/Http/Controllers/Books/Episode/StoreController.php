@@ -129,7 +129,7 @@ class StoreController extends Controller
 
         /*
         |--------------------------------------------------------------------------
-        | Stripeに商品・価格を登録 | Stripe Connectユーザー
+        | Stripe Connectユーザーで、Stripeに商品・価格を登録
         |--------------------------------------------------------------------------
          */
         if ($book->user->stripe_user_id) {

@@ -34,30 +34,35 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
-    :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
-  </episode-screen>
-
-  @if (!$episode->is_free)
-    @auth
-      @isset($book->user->stripe_user_id)
-        @if ($book->user->id !== Auth::user()->id)
-          <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
-            <div class="text-3xl mt-4 tracking-widest text-white">
-              {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
-            <div class="mt-8">
-
-              {{-- 決済 --}}
-              @include('atoms.stripe_script', [
-                  'book' => $book,
-              ])
-
-            </div>
-          </div>
-        @endif
-      @endisset
-    @endauth
+  {{-- 無料 or 購入者のみ見れる --}}
+  @if ($episode->is_free || $episode->prod_id)
+    <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
+      :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
+    </episode-screen>
   @endif
+
+  @isset($episode->prod_id)
+    @if (!$episode->is_free)
+      @auth
+        @isset($book->user->stripe_user_id)
+          @if ($book->user->id !== Auth::user()->id)
+            <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
+              <div class="text-3xl mt-4 tracking-widest text-white">
+                {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
+              <div class="mt-8">
+
+                {{-- 決済 --}}
+                @include('atoms.stripe_script', [
+                    'book' => $book,
+                ])
+
+              </div>
+            </div>
+          @endif
+        @endisset
+      @endauth
+    @endif
+  @endisset
 
   <div class="w-full mt-8 lg:mt-auto h-full bg-white dark:bg-dark">
     <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
