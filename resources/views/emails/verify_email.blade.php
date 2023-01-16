@@ -1,3 +1,8 @@
+{{--
+|--------------------------------------------------------------------------
+| 新規登録のパスワード確認メール
+|--------------------------------------------------------------------------
+--}}
 <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse">
   <tbody>
     <tr>
@@ -118,7 +123,7 @@
                                                                       <tr>
                                                                         <td
                                                                           style="border-collapse:collapse;border-radius:6px;text-align:center;display:block;background:#1877f2;padding:8px 16px 10px 16px">
-                                                                          <a href="{{ $actionUrl }}"
+                                                                          <a href="{{ $verify_url }}"
                                                                             style="color:#1b74e4;text-decoration:none;display:block"
                                                                             target="_blank">
                                                                             <center>

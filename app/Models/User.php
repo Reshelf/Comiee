@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\CustomVerifyEmail;
 use App\Notifications\PasswordResetNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -48,6 +49,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function tokens()
     {
         return $this->hasMany(Token::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 新規登録ののパスワード認証
+    |--------------------------------------------------------------------------
+     */
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmail());
     }
 
     /*
