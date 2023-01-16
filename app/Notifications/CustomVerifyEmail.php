@@ -19,11 +19,11 @@ class CustomVerifyEmail extends VerifyEmail
      */
     public function toMail($notifiable)
     {
+        // デフォルトのURL
         // $verificationUrl = $this->verificationUrl($notifiable);
 
-// $verificationUrl = config('app.top_url') . '/email/verify/' . $notifiable->getKey() . '/' . sha1($notifiable->getEmailForVerification());
-        // $frontendUrl = config('app.top_url') . '/email/verify/';
-        $verifyUrl = URL::temporarySignedRoute(
+        // カスタムURL
+        $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
@@ -35,7 +35,7 @@ class CustomVerifyEmail extends VerifyEmail
         return (new MailMessage)
             ->subject(Lang::get('Verify Email Address'))
             ->markdown('emails.verify_email', [
-                'verify_url' => $verifyUrl,
+                'verify_url' => $verificationUrl,
             ]);
 
     }
