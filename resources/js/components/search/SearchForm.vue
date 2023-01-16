@@ -44,7 +44,7 @@ function locate(item) {
     location.href = "/" + props.lang + "/books/" + item.id;
 }
 function reset() {
-    state.search = "";
+    this.state.search = "";
 }
 </script>
 <template>
@@ -57,15 +57,9 @@ function reset() {
             class="p-2 md:pl-4 md:pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
             @focus="open = true"
         />
-        <button class="absolute top-[10px] right-2">
+        <button @click="reset()" class="absolute top-[10px] right-2">
             <template v-if="open && state.search.length > 1">
-                <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    @click="reset()"
-                >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M5.00098 5L19 18.9991"
                         stroke="#aaa"
