@@ -34,8 +34,8 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  {{-- 無料 or 購入者のみ見れる --}}
-  @if ($episode->is_free || $episode->isBoughtBy(Auth::user()))
+  {{-- 購入者 or 作者 or 無料 のみ見れる --}}
+  @if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free)
     <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
       :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
     </episode-screen>

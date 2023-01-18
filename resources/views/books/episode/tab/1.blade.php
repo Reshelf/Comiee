@@ -106,6 +106,21 @@
                       @endif
                     @endauth
 
+                    {{-- 購入済 --}}
+                    @auth
+                      @if ($book->user->id !== Auth::user()->id)
+                        @if ($e->isBoughtBy(Auth::user()))
+                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                            {{ __('購入済') }}
+                          </span>
+                        @else
+                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                            {{ __('未購入') }}
+                          </span>
+                        @endif
+                      @endif
+                    @endauth
+
                   </div>
                 </div>
               </div>
