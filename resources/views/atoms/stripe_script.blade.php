@@ -38,12 +38,6 @@
       {{ $episode->price }}円でこの話を読む
     </div>
 
-    <form id="update-payment-form" method="post" action="/products/{{ $product->id }}/subscribe">
-      @csrf
-      <input type="hidden" name="payment_method_id" id="payment-method-id">
-    </form>
-    <div id="error-message"></div>
-
     @section('footer-scripts')
       <script>
         const stripe = Stripe('{{ config('app.stripe_public') }}', {

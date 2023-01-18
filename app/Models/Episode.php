@@ -69,4 +69,16 @@ class Episode extends Model
         ? (bool) $this->reads->where('id', $user->id)->count()
         : false;
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ユーザーにとってそのエピソードは購入済かどうか
+    |--------------------------------------------------------------------------
+     */
+    public function isBoughtBy(?User $user): bool
+    {
+        return $user
+        ? (bool) $this->bought->where('id', $user->id)->count()
+        : false;
+    }
 }
