@@ -42,7 +42,7 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('TOP_URL'),
+            'local_domain' => env('MAIL_EHLO_DOMAIN', 'https://www.comiee.one'),
         ],
 
         'ses' => [
