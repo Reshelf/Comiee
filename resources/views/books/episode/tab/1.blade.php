@@ -106,9 +106,9 @@
                       @endif
                     @endauth
 
-                    {{-- 購入済 --}}
+                    {{-- 購入済かどうか --}}
                     @auth
-                      @if ($book->user->id !== Auth::user()->id)
+                      @if ($book->user->id !== Auth::user()->id && !$e->is_free)
                         @if ($e->isBoughtBy(Auth::user()))
                           <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                             {{ __('購入済') }}
