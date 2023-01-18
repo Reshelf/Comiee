@@ -70,10 +70,16 @@
                           {{ __('無料') }}
                         </span>
                       @else
-                        <span
-                          class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                          {{ $e->price }}{{ __('円') }}
-                        </span>
+                        @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
+                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                            {{ __('購入済') }}
+                          </span>
+                        @else
+                          <span
+                            class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
+                            {{ $e->price }}{{ __('円') }}
+                          </span>
+                        @endif
                       @endif
                     @endif
 
@@ -101,21 +107,6 @@
                         @else
                           <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                             {{ __('未読') }}
-                          </span>
-                        @endif
-                      @endif
-                    @endauth
-
-                    {{-- 購入済かどうか --}}
-                    @auth
-                      @if ($book->user->id !== Auth::user()->id && !$e->is_free)
-                        @if ($e->isBoughtBy(Auth::user()))
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                            {{ __('購入済') }}
-                          </span>
-                        @else
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                            {{ __('未購入') }}
                           </span>
                         @endif
                       @endif
