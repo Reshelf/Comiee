@@ -43,7 +43,7 @@
     @endif
 
     @isset($book->user->stripe_user_id && $episode->prod_id)
-      @if (!$episode->is_free && $book->user->id !== Auth::user()->id)
+      @if ($episode->price > 0 && $book->user->id !== Auth::user()->id)
         <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
 
           <div class="text-3xl mt-4 tracking-widest text-white">
