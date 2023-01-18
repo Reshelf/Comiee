@@ -44,24 +44,22 @@
   {{-- 有料の場合 --}}
   @isset($episode->prod_id)
     @if (!$episode->is_free)
-      @auth
-        @isset($book->user->stripe_user_id)
-          @if ($book->user->id !== Auth::user()->id)
-            <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
-              <div class="text-3xl mt-4 tracking-widest text-white">
-                {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
-              <div class="mt-8">
+      @isset($book->user->stripe_user_id)
+        @if ($book->user->id !== Auth::user()->id)
+          <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
+            <div class="text-3xl mt-4 tracking-widest text-white">
+              {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
+            <div class="mt-8">
 
-                {{-- 決済 --}}
-                @include('atoms.stripe_script', [
-                    'book' => $book,
-                ])
+              {{-- 決済 --}}
+              @include('atoms.stripe_script', [
+                  'book' => $book,
+              ])
 
-              </div>
             </div>
-          @endif
-        @endisset
-      @endauth
+          </div>
+        @endif
+      @endisset
     @endif
   @endisset
 
