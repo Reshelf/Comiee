@@ -34,9 +34,9 @@ class PaymentWebhookController extends Controller
                 $payload, $sig_header, $endpoint_secret
             );
         } catch (\UnexpectedValueException$e) {
-            return response()->json('Invalid payload（無効なペイロード）', 400);
+            return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
-            return response()->json('Invalid Signature（無効な署名）', 400);
+            return response()->json('Invalid Signature', 400);
         }
 
         // イベントタイプが「checkout.session.completed」（Checkoutセッションの完了）の場合は、決済完了の処理を行う
