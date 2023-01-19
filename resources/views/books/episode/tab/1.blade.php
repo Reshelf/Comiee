@@ -70,88 +70,89 @@
                           {{ __('無料') }}
                         </span>
                       @else
-                        @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                            {{ __('購入済') }}
-                          </span>
-                        @else
-                          <span
-                            class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                            {{ $e->price }}{{ __('円') }}
-                          </span>
+                        @auth
+                          @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
+                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                              {{ __('購入済') }}
+                            </span>
+                          @else
+                            <span
+                              class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
+                              {{ $e->price }}{{ __('円') }}
+                            </span>
+                          @endif @endauth
                         @endif
                       @endif
-                    @endif
 
-                    {{-- 非公開 --}}
-                    @if ($e->is_hidden)
-                      <span
-                        class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[5px] whitespace-nowrap">
-                        {{ __('非公開') }}
-                      </span>
-                    @endif
+                      {{-- 非公開 --}}
+                      @if ($e->is_hidden)
+                        <span
+                          class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[5px] whitespace-nowrap">
+                          {{ __('非公開') }}
+                        </span>
+                      @endif
 
 
-                    {{-- 閲覧回数 --}}
-                    <div class="ml-2 text-666 dark:text-ddd">
-                      {{ number_format($e->views) }} <span class="text-xs">{{ __('回') }}</span>
+                      {{-- 閲覧回数 --}}
+                      <div class="ml-2 text-666 dark:text-ddd">
+                        {{ number_format($e->views) }} <span class="text-xs">{{ __('回') }}</span>
+                      </div>
+
+                      {{-- 既読 --}}
+                      @auth
+                        @if ($book->user->id !== Auth::user()->id)
+                          @if ($e->isReadBy(Auth::user()))
+                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                              {{ __('既読') }}
+                            </span>
+                          @else
+                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                              {{ __('未読') }}
+                            </span>
+                          @endif
+                        @endif
+                      @endauth
+
                     </div>
-
-                    {{-- 既読 --}}
-                    @auth
-                      @if ($book->user->id !== Auth::user()->id)
-                        @if ($e->isReadBy(Auth::user()))
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                            {{ __('既読') }}
-                          </span>
-                        @else
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                            {{ __('未読') }}
-                          </span>
-                        @endif
-                      @endif
-                    @endauth
-
                   </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          {{-- 作者欄 --}}
-          @if (Auth::id() === $book->user_id)
-            <episode-list>
-              <template #trigger>
-                <div class="mr-2 p-2 rounded hover:bg-eee dark:hover:bg-dark-1">
-                  <svg class="w-[20px] h-[20px] stroke-666 dark:stroke-ddd" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M13.2601 3.59997L5.0501 12.29C4.7401 12.62 4.4401 13.27 4.3801 13.72L4.0101 16.96C3.8801 18.13 4.7201 18.93 5.8801 18.73L9.1001 18.18C9.5501 18.1 10.1801 17.77 10.4901 17.43L18.7001 8.73997C20.1201 7.23997 20.7601 5.52997 18.5501 3.43997C16.3501 1.36997 14.6801 2.09997 13.2601 3.59997Z"
-                      stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M11.8899 5.05005C12.3199 7.81005 14.5599 9.92005 17.3399 10.2" stroke-width="1.5"
-                      stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M3 22H21" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                </div>
-              </template>
-              <template #header>{{ __('エピソードを更新する') }}</template>
-              <form method="POST"
-                action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
-                enctype="multipart/form-data" class="whitespace-pre-line" onsubmit="submit_btn()">
-                @csrf
-                @method('PATCH')
-                @include('books.episode.tab.1.episode_form', ['update' => true])
-                <div class="relative mt-4">
-                  <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
-                    {{ __('更新する') }}
-                    <span class="load loading"></span>
-                  </button>
-                </div>
-              </form>
-            </episode-list>
-          @endif
-        </div>
-      @endforeach
-    @endif
-  </div>
-</template>
+            {{-- 作者欄 --}}
+            @if (Auth::id() === $book->user_id)
+              <episode-list>
+                <template #trigger>
+                  <div class="mr-2 p-2 rounded hover:bg-eee dark:hover:bg-dark-1">
+                    <svg class="w-[20px] h-[20px] stroke-666 dark:stroke-ddd" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M13.2601 3.59997L5.0501 12.29C4.7401 12.62 4.4401 13.27 4.3801 13.72L4.0101 16.96C3.8801 18.13 4.7201 18.93 5.8801 18.73L9.1001 18.18C9.5501 18.1 10.1801 17.77 10.4901 17.43L18.7001 8.73997C20.1201 7.23997 20.7601 5.52997 18.5501 3.43997C16.3501 1.36997 14.6801 2.09997 13.2601 3.59997Z"
+                        stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M11.8899 5.05005C12.3199 7.81005 14.5599 9.92005 17.3399 10.2" stroke-width="1.5"
+                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M3 22H21" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </template>
+                <template #header>{{ __('エピソードを更新する') }}</template>
+                <form method="POST"
+                  action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
+                  enctype="multipart/form-data" class="whitespace-pre-line" onsubmit="submit_btn()">
+                  @csrf
+                  @method('PATCH')
+                  @include('books.episode.tab.1.episode_form', ['update' => true])
+                  <div class="relative mt-4">
+                    <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+                      {{ __('更新する') }}
+                      <span class="load loading"></span>
+                    </button>
+                  </div>
+                </form>
+              </episode-list>
+            @endif
+          </div>
+        @endforeach
+      @endif
+    </div>
+  </template>
