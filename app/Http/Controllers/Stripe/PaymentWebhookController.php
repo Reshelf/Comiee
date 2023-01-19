@@ -22,13 +22,15 @@ class PaymentWebhookController extends Controller
 
         // エンドポイントのシークレットキーを指定
         $endpoint_secret = config('app.stripe_endpoint_secret');
-        $payload = file_get_contents("php://input");
-        $sig_header = $_SERVER["HTTP_STRIPE_SIGNATURE"];
+        $payload = $request->getContent();
+        $sig_header = $request->header('stripe-signature');
         $event = null;
 
         try {
             // 送信されてきたリクエストの情報から、webhookイベントのチェック
-            $event = \Stripe\Webhook::constructEvent($payload, $sig_header, $endpoint_secret);
+            $event = \Stripe\Webhook::constructEvent(
+                $payload, $sig_header, $endpoint_secret
+            );
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
