@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
+Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
+Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectSuccessController')->name('stripe.connect.success');
+Route::post('/payment/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+
 Route::get('/', function (Request $request) {
     if (app()->getLocale() == null) {
         $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
@@ -33,9 +37,6 @@ Route::get('/', function (Request $request) {
     }
 });
 
-Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
-Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectSuccessController')->name('stripe.connect.success');
-Route::post('/payment/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
 Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
 
     /*
