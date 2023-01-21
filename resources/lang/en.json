@@ -201,5 +201,7 @@
     "ダークモードにする": "Turn on dark mode",
     "ライトモードにする": "Turn on light mode",
 
-    "パスワードは8文字以上で数字、大文字、小文字を1文字以上含めるようにしてください": "Passwords must be at least 8 characters long and contain at least one number, one uppercase letter, and one lowercase letter"
+    "パスワードは8文字以上で数字、大文字、小文字を1文字以上含めるようにしてください": "Passwords must be at least 8 characters long and contain at least one number, one uppercase letter, and one lowercase letter",
+
+    "「作品」は、投稿するマンガのシリーズの単位です。「エピソード」は、その一作品内にある話の単位です。エピソードのことを単に「話」とも数えたりします。手順としてはまず「作品」を投稿し、そこに「エピソード」を追加していく流れになります。（例）このアカウントでは今までに3作品を投稿し、どれも10話以内に完結した。一方で4作品目は長編になり、来週分のエピソードを追加すれば全20話になる。": "aaaaaa"
 }

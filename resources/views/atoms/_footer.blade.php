@@ -106,7 +106,7 @@
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
         <a href="{{ route('others.user_guide', app()->getLocale()) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
-        <a href="{{ route('others.faq.1', app()->getLocale()) }}"
+        <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('よくあるご質問') }}</a>
         @auth
           <comment-post-modal>

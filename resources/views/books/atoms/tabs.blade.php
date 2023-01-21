@@ -5,7 +5,7 @@
     aria-current="page">
     {{ __('ご利用ガイド') }}
   </a>
-  <a href="{{ route('others.faq.1', app()->getLocale()) }}"
+  <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
     class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('よくあるご質問') }}
