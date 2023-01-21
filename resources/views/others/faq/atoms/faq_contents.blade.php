@@ -1,3 +1,7 @@
+@php
+  $update_date = '2023/1/20';
+@endphp
+
 @section('content')
   @include('atoms._help_nav')
   <div class="w-full flex flex-col md:flex-row">
@@ -5,7 +9,10 @@
       @include('others.faq.atoms.left_nav')
     </div>
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
-      @include('others.faq.atoms.faq_title', ['title' => $title])
+
+      <h2 class="text-3xl font-semibold tracking-widest">{{ $title }}</h2>
+      <span class="inline-block mt-3">{{ $update_date }}</span>
+
       <div class="my-8 text-base">
         <div class="flex flex-col text-primary mt-2 text-base">
           @foreach ($faqs as $key => $faq)
