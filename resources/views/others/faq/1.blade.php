@@ -21,7 +21,7 @@ p-8 flex flex-col items-end">
       <h2 class="text-3xl font-semibold tracking-widest">サービスについて</h2>
       <span class="inline-block mt-3">2021/1/20</span>
 
-      <div class="my-16 text-base">
+      <div class="my-8 text-base">
         Comieeの概要やご利用に関するご質問をまとめました。
 
         <div class="flex flex-col text-primary mt-2">
@@ -32,7 +32,7 @@ p-8 flex flex-col items-end">
         </div>
       </div>
 
-      <div class="my-16">
+      <div class="my-12">
         <h3 id="1" class="text-2xl font-semibold tracking-widest">Comieeってどんなアプリ？</h3>
         <p class="mt-4 leading-8 text-base">
           Comieeは、誰もがマンガを投稿でき、マンガを楽しむことのできるプラットフォームです。<br>
@@ -40,7 +40,7 @@ p-8 flex flex-col items-end">
         </p>
       </div>
 
-      <div class="my-16">
+      <div class="my-12">
         <h3 id="2" class="text-2xl font-semibold tracking-widest">推奨環境を教えてください</h3>
         <p class="mt-4 leading-8 text-base">
           推奨環境は以下の通りです。<br><br>
@@ -56,7 +56,7 @@ p-8 flex flex-col items-end">
         </p>
       </div>
 
-      <div class="my-16">
+      <div class="my-12">
         <h3 id="3" class="text-2xl font-semibold tracking-widest">会員登録（アカウント作成）やログインは必須ですか？</h3>
         <p class="mt-4 leading-8 text-base">
           必須ではありません。会員登録やログインをしなくても、作品を読むことはできます。<br>
@@ -71,7 +71,7 @@ p-8 flex flex-col items-end">
         </p>
       </div>
 
-      <div class="my-16">
+      <div class="my-12">
         <h3 id="4" class="text-2xl font-semibold tracking-widest">無料で利用できますか？</h3>
         <p class="mt-4 leading-8 text-base">
           有料作品の閲覧以外は、無料で利用できます。

@@ -3,71 +3,71 @@
 @section('title', '作品の投稿について - 作者の方からよくあるご質問')
 
 @section('description')
-    <meta name="description" itemprop="description" content="ご利用ガイドの作品の投稿についてのページです。">
-    <meta property="og:description" content="ご利用ガイドの作品の投稿についてのページです。">
-    <meta name="twitter:description" content="ご利用ガイドの作品の投稿についてのページです。">
+  <meta name="description" itemprop="description" content="ご利用ガイドの作品の投稿についてのページです。">
+  <meta property="og:description" content="ご利用ガイドの作品の投稿についてのページです。">
+  <meta name="twitter:description" content="ご利用ガイドの作品の投稿についてのページです。">
 @endsection
 
 @section('content')
-    @include('atoms._help_nav')
+  @include('atoms._help_nav')
 
-    <div class="w-full flex flex-col md:flex-row">
-        <div class="w-full md:w-[30%] bg-f8 dark:bg-dark
+  <div class="w-full flex flex-col md:flex-row">
+    <div class="w-full md:w-[30%] bg-f8 dark:bg-dark
 p-8 flex flex-col items-end">
-            @include('others.faq.atoms.left_nav')
-        </div>
-        <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
-            <h2 class="text-3xl font-semibold tracking-widest">作品の投稿について</h2>
-            <span class="inline-block text-xs mt-3">2022/10/18</span>
-
-            <div class="my-16">
-                アカウントの作成やログインに関するご質問をまとめました。
-
-                <div class="flex flex-col text-primary mt-2">
-                    <a href="#1" class="my-2">・作品の投稿はどこからできますか？</a>
-                    <a href="#2" class="my-2">・投稿した作品を後から編集することはできますか？</a>
-                    <a href="#3" class="my-2">・投稿した作品を後から削除することはできますか？</a>
-                    <a href="#4" class="my-2">・投稿した作品の公開を一時的に停止したり、停止したのちに再公開することはできますか？</a>
-                    <a href="#5" class="my-2">・自分をフォローしてくれている読者にのみ作品を公開したり、購入可能にさせることはできますか？</a>
-                </div>
-            </div>
-
-            <div class="my-16">
-                <h3 id="1" class="text-2xl font-semibold tracking-widest">作品の投稿はどこからできますか？</h3>
-                <p class="mt-4 leading-8">
-                </p>
-            </div>
-
-            <div class="my-16">
-                <h3 id="2" class="text-2xl font-semibold tracking-widest">
-                    投稿した作品を後から編集することはできますか？</h3>
-                <p class="mt-4 leading-8">
-                </p>
-            </div>
-
-            <div class="my-16">
-                <h3 id="3" class="text-2xl font-semibold tracking-widest">投稿した作品を後から削除することはできますか？</h3>
-                <p class="mt-4 leading-8">
-                </p>
-            </div>
-
-            <div class="my-16">
-                <h3 id="4" class="text-2xl font-semibold tracking-widest">投稿した作品の公開を一時的に停止したり、停止したのちに再公開することはできますか？
-                </h3>
-                <p class="mt-4 leading-8">
-                </p>
-            </div>
-
-
-            <div class="my-16">
-                <h3 id="5" class="text-2xl font-semibold tracking-widest">
-                    自分をフォローしてくれている読者にのみ作品を公開したり、購入可能にさせることはできますか？</h3>
-                <p class="mt-4 leading-8">
-                </p>
-            </div>
-
-        </div>
+      @include('others.faq.atoms.left_nav')
     </div>
+    <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
+      <h2 class="text-3xl font-semibold tracking-widest">作品の投稿について</h2>
+      <span class="inline-block mt-3">2022/10/18</span>
 
-    @include('atoms._footer')
+      <div class="my-8 text-base">
+        アカウントの作成やログインに関するご質問をまとめました。
+
+        <div class="flex flex-col text-primary mt-2 text-base">
+          <a href="#1" class="my-2">・作品の投稿はどこからできますか？</a>
+          <a href="#2" class="my-2">・投稿した作品を後から編集することはできますか？</a>
+          <a href="#3" class="my-2">・投稿した作品を後から削除することはできますか？</a>
+          <a href="#4" class="my-2">・投稿した作品の公開を一時的に停止したり、停止したのちに再公開することはできますか？</a>
+          <a href="#5" class="my-2">・自分をフォローしてくれている読者にのみ作品を公開したり、購入可能にさせることはできますか？</a>
+        </div>
+      </div>
+
+      <div class="my-12">
+        <h3 id="1" class="text-2xl font-semibold tracking-widest">作品の投稿はどこからできますか？</h3>
+        <p class="mt-4 leading-8 text-base">
+        </p>
+      </div>
+
+      <div class="my-12">
+        <h3 id="2" class="text-2xl font-semibold tracking-widest">
+          投稿した作品を後から編集することはできますか？</h3>
+        <p class="mt-4 leading-8 text-base">
+        </p>
+      </div>
+
+      <div class="my-12">
+        <h3 id="3" class="text-2xl font-semibold tracking-widest">投稿した作品を後から削除することはできますか？</h3>
+        <p class="mt-4 leading-8 text-base">
+        </p>
+      </div>
+
+      <div class="my-12">
+        <h3 id="4" class="text-2xl font-semibold tracking-widest">投稿した作品の公開を一時的に停止したり、停止したのちに再公開することはできますか？
+        </h3>
+        <p class="mt-4 leading-8 text-base">
+        </p>
+      </div>
+
+
+      <div class="my-12">
+        <h3 id="5" class="text-2xl font-semibold tracking-widest">
+          自分をフォローしてくれている読者にのみ作品を公開したり、購入可能にさせることはできますか？</h3>
+        <p class="mt-4 leading-8 text-base">
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  @include('atoms._footer')
 @endsection
