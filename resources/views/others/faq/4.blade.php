@@ -18,7 +18,7 @@ p-8 flex flex-col items-end">
     </div>
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
       <h2 class="text-3xl font-semibold tracking-widest">その他</h2>
-      <span class="inline-block mt-3">2022/10/18</span>
+      <span class="inline-block mt-3">2023/1/20</span>
 
       <div class="my-8 text-base">
         <div class="flex flex-col text-primary mt-2">
@@ -26,8 +26,7 @@ p-8 flex flex-col items-end">
           <a href="#2" class="my-2">・「フォロー」「お気に入り」とは何ですか？</a>
           <a href="#3" class="my-2">・利用規約や著作権法に違反していると思われる作品を見つけました</a>
           <a href="#4" class="my-2">・利用規約に違反していると思われるコメントを見つけました</a>
-          <a href="#5" class="my-2">・自分のコメント/リプライを削除したいです</a>
-          <a href="#6" class="my-2">・自分のコメント/リプライが消されてしまいました</a>
+          <a href="#5" class="my-2">・自分のコメント/リプライが消されてしまいました</a>
         </div>
       </div>
 
@@ -59,20 +58,12 @@ p-8 flex flex-col items-end">
       <div class="my-12">
         <h3 id="4" class="text-2xl font-semibold tracking-widest">利用規約に違反していると思われるコメントを見つけました</h3>
         <p class="mt-4 leading-8 text-base">
-          の「通報」から通報をお願いします。
+          該当コメント横の「通報」から通報をお願いします。
         </p>
       </div>
 
       <div class="my-12">
-        <h3 id="5" class="text-2xl font-semibold tracking-widest">自分のコメント/リプライを削除したいです
-        </h3>
-        <p class="mt-4 leading-8 text-base">
-
-        </p>
-      </div>
-
-      <div class="my-12">
-        <h3 id="6" class="text-2xl font-semibold tracking-widest">自分のコメント/リプライが消されてしまいました</h3>
+        <h3 id="5" class="text-2xl font-semibold tracking-widest">自分のコメント/リプライが消されてしまいました</h3>
         <p class="mt-4 leading-8 text-base">
           利用規約に違反していたり、作者や読者からの一定の通報があった場合、削除されることがあります。
         </p>

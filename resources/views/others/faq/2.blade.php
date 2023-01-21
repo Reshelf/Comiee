@@ -37,36 +37,28 @@ p-8 flex flex-col items-end">
       <div class="my-12">
         <h3 id="1" class="text-2xl font-semibold tracking-widest">会員登録には何が必要ですか？</h3>
         <p class="mt-4 leading-8 text-base">
-          メールアドレス、電話番号のご用意をお願いします。<br>
-          年齢制限の確認のため生年月日の登録もお願いしています。
-        </p>
-      </div>
-
-      <div class="my-12">
-        <h3 id="2" class="text-2xl font-semibold tracking-widest">ログインができません</h3>
-        <p class="mt-4 leading-8 text-base">
-
+          メールアドレスと生年月日の入力が必要です。
         </p>
       </div>
 
       <div class="my-12">
         <h3 id="3" class="text-2xl font-semibold tracking-widest">パスワードを変えたい</h3>
         <p class="mt-4 leading-8 text-base">
-
+          こちらから変更できます。
         </p>
       </div>
 
       <div class="my-12">
         <h3 id="4" class="text-2xl font-semibold tracking-widest">ニックネームは後から変更できますか？</h3>
         <p class="mt-4 leading-8 text-base">
-          可能です。
+          はい。マイページでいつでも変更できます。
         </p>
       </div>
 
       <div class="my-12">
         <h3 id="5" class="text-2xl font-semibold tracking-widest">ユーザIDとは何ですか？後から変更できますか？</h3>
         <p class="mt-4 leading-8 text-base">
-          可能です。
+          マイページのURLに使われる文字列です。会員登録後、マイページの「設定」からいつでも変更できます。ただし、他のユーザーが使用しているものと同じIDにはできません。
         </p>
       </div>
 

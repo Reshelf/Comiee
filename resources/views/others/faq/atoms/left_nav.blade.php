@@ -15,7 +15,7 @@
     </a>
     <a href="{{ route('others.faq.3', app()->getLocale()) }}"
       class="{{ $faq_3 ? 'font-semibold border-l-4' : 'hover:text-primary dark:hover:text-ddd' }} pl-4 py-2 mb-2 block">
-      {{ __('ポイントや作品の購入について') }}</a>
+      {{ __('作品の購入について') }}</a>
     <a href="{{ route('others.faq.4', app()->getLocale()) }}"
       class="{{ $faq_4 ? 'font-semibold border-l-4' : 'hover:text-primary dark:hover:text-ddd' }} pl-4 py-2 mb-2 block">
       {{ __('その他') }}

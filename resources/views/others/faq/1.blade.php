@@ -19,7 +19,7 @@ p-8 flex flex-col items-end">
 
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
       <h2 class="text-3xl font-semibold tracking-widest">サービスについて</h2>
-      <span class="inline-block mt-3">2021/1/20</span>
+      <span class="inline-block mt-3">2023/1/20</span>
 
       <div class="my-8 text-base">
         Comieeの概要やご利用に関するご質問をまとめました。
@@ -27,7 +27,7 @@ p-8 flex flex-col items-end">
         <div class="flex flex-col text-primary mt-2">
           <a href="#1" class="my-2">・Comieeってどんなアプリ？</a>
           <a href="#2" class="my-2">・推奨環境を教えてください</a>
-          <a href="#3" class="my-2">・会員登録は必須ですか？</a>
+          <a href="#3" class="my-2">・会員登録（アカウント作成）やログインは必須ですか？</a>
           <a href="#4" class="my-2">・無料で利用できますか？</a>
         </div>
       </div>

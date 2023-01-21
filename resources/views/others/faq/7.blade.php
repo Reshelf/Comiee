@@ -18,7 +18,7 @@ p-8 flex flex-col items-end">
     </div>
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
       <h2 class="text-3xl font-semibold tracking-widest">その他</h2>
-      <span class="inline-block mt-3">2022/10/18</span>
+      <span class="inline-block mt-3">2023/1/20</span>
 
       <div class="my-8 text-base">
         <div class="flex flex-col text-primary mt-2 text-base">
