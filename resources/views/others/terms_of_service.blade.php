@@ -2,18 +2,12 @@
 
 @section('title', '利用規約')
 
-@section('description')
-  <meta name="description" itemprop="description" content="Comieeの利用規約ページです。">
-  <meta property="og:description" content="Comieeの利用規約ページです。">
-  <meta name="twitter:description" content="Comieeの利用規約ページです。">
-@endsection
-
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
   <div class="max-w-4xl m-8 md:my-16 md:mx-auto leading-8">
     <h2 class="text-3xl font-semibold">利用規約</h2>
-    <div class="mt-8 mb-16 text-[15px]">
+    <div class="mt-8 mb-16 text-[16px]">
       <p class="my-2">このComiee利用規約（以下、「本利用規約」といいます）は、Comiee（以下、「本サービス」といいます）の利用者に適用される、サービス利用のための契約です。</p>
       <p class="my-2">本利用規約は、以下の3つの規約から構成されています。</p>
       <p class="my-2">・本サービスの全ての利用者に適用される「Comiee基本規約」</p>
@@ -29,7 +23,7 @@
     <h2 class="text-3xl font-semibold">Comiee基本規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 定義</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 本サービス上で運営する各種サービスを利用する者を総称して「ユーザー」といいます。</p>
       <p class="my-2">2. ユーザーのうち、本サービスの会員登録を行わないで本サービスを利用する者を「ゲストユーザー」といいます。</p>
       <p class="my-2">3. ユーザーのうち、本サービスの会員登録(4条)を行なった者を「会員ユーザー」といいます。</p>
@@ -43,7 +37,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">2条 規約への同意</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 本サービスの利用と会員登録に当たっては、本利用規約に同意していただく必要があります。本サービスの利用開始または会員登録をすることによって、本利用規約に同意したものとみなされます。
       </p>
       <p class="my-2">2.
@@ -52,7 +46,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">3条 本利用規約の更新</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         本サービスについて、本利用規約の全部又は一部をユーザーに事前に通知することなく変更することがあります。この場合、本サービス上に変更後の利用規約を表示した時点より効力が生じるものとし、ユーザーが本規約の変更の効力が生じた後に本サービスを利用した場合には、変更後の利用規約の全てにつき、同意したものとみなします。
       </p>
@@ -60,7 +54,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">4条 会員登録</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         ゲストユーザーは、本サービスの会員登録をしてアカウントを作成することで、本サービスで提供する全ての機能を利用することができます。なお、会員登録は任意であり、会員登録しない場合でも、本サービスの一部を利用できます。
       </p>
@@ -78,7 +72,7 @@
     </div>
 
     <h3 class="text-2xl font-semibold my-4">5条 メールアドレスとパスワード</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 会員ユーザーは、自己の責任で、自身の登録したメールアドレス及びパスワードの管理を行うこととします。</p>
       <p class="my-2">2. 本サービスに関するメールアドレス及びパスワードは、第三者に利用させ、または貸与、譲渡、名義変更、売買等をしてはならないものとします。</p>
       <p class="my-2">3. 会員ユーザーは、登録情報に変更があったときは、本サービスの定める方法により遅滞なく更新手続きを行うものとします。</p>
@@ -87,26 +81,26 @@
     </div>
 
     <h3 class="text-2xl font-semibold my-4">6条 取引契約</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 本サービスにおいて作者が有料または無料で作品を販売する際、作者と読者との間において直接契約が成立します。当運営はあくまで作者に作品販売の場を提供する立場にいます。</p>
       <p class="my-2">2.
         当運営は、当該契約について契約の当事者とはならず、当該契約に関する責任は負いません。これにより、当該契約に際し万一トラブルが生じた際には、関係する作者と読者の間で解決していただくことになります。</p>
     </div>
 
     <h3 class="text-2xl font-semibold my-4">7条 退会</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 会員ユーザーは、所定の方法で当運営に通知することにより、退会（自己の会員ユーザーとしての登録を抹消すること）ができるものとします。</p>
     </div>
 
     <h3 class="text-2xl font-semibold my-4">8条 プライバシー</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         運営は、本サービスの提供のために、ユーザーの利用目的に応じた必要最小限の情報を取得します。また、ユーザーから取得した個人情報ならびにクッキー（Cookie）、利用履歴及び購入履歴の利用情報などについて、別途定める「プライバシーポリシー」に従って、適法かつ適正に取り扱います。
       </p>
     </div>
 
     <h3 class="text-2xl font-semibold my-4">9条 禁止事項</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">当運営は、ユーザーが本サービスの利用するにあたり、以下の各号のいずれかに該当する行為を禁止します。</p>
       <p class="my-2">1. 本規約に違反する行為</p>
       <p class="my-2">2. 法令に違反する行為又は犯罪行為に関連する行為</p>
@@ -132,7 +126,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">10条 違反に対する処理</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         当運営は、ユーザーが10条に定める行為をしたと判断した場合、事前に通知することなく、そのユーザーが利用している全てのアカウントにおいて、利用停止、その他当運営が必要と判断する措置を講じることができるものとします。
       </p>
@@ -141,7 +135,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">11条 免責事項</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 当運営は、
         サービスの点検等、当運営が必要と判断した場合には、事前に通知することなく本サービスの全部又は一部の提供を中断することができるものとし、それに基づき生じた損害については、一切の責任を負いません。</p>
       <p class="my-2">2.
@@ -161,45 +155,31 @@
     <h2 class="text-3xl font-semibold">Comiee作者規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 販売価格</h3>
-    <div class="mb-10 mt-4 text-[15px]">
-      <p class="my-2">1. フォロワー数に従って、投稿作品内の1話あたり「基本価格」は以下のように推移します。<br>
-        フォロワー0人：50円<br>
-        1000人：60円<br>
-        3000人：70円<br>
-        5000人：80円<br>
-        10000人：100円<br>
-        50000人：150円<br>
-        100000人：200円<br>
-        500000人：250円<br>
-        1000000人：300円<br>
-      </p>
-      <p class="my-2">2. 投稿作品の販売価格は、以下のように規定します。<br>
-        ・第1、2話：無料<br>
-        ・第3話〜最新話の手前5話まで：「基本価格」<br>
-        ・最新話の手前4話〜最新話：「基本価格」＋¥30 <br>
-        （例）フォロワー1000人、投稿済みエピソードが30話の場合<br>
-        ・第1、2話：無料<br>
-        ・第3話〜26話まで：¥60 <br>
-        ・第27話〜30話：¥90 <br>
+    <div class="mb-10 mt-4 text-[16px]">
+      <p class="my-2">
+        1. 投稿作品の閲覧を有料にした場合、販売価格は1話あたり50円となります。販売価格は、ランキングやフォロワー数などによって変動します。<br>
       </p>
     </div>
 
 
     <h3 class="text-2xl font-semibold my-4">2条 売上と作者利益</h3>
-    <div class="mb-10 mt-4 text-[15px]">
-      <p class="my-2">1. 作者が受け取る金額は、以下に規定する計算式によって算出されます。<br>
+    <div class="mb-10 mt-4 text-[16px]">
+      <p class="my-2">
+        1. 作者が受け取る金額は、以下に規定する計算式によって算出されます。<br>
         作者の収益＝（消費税引き後売上金額–決済手数料）× 70％<br>
         ※消費税＝作品の総売上金額の10％<br>
         ※決済手数料＝消費税引き後売上金額の3.6％<br>
         （例）50円のエピソードが10話分、1話あたり100人の読者ユーザーに購入された場合<br>
-        作者の利益額＝（50×10×100）×0.9×0.964×0.7＝¥30,366 <br>
+        作者の利益額＝（50×10×100）×0.9×0.964×0.7＝¥30,366
       </p>
-      <p class="my-2">利益の振込のタイミングについて記載予定）</p>
+      <p class="my-2">
+        2. 前項の規定に基づいて算出された作者への利益は、作者が指定した口座に毎週金曜に振り込まれます。振り込まれるのは、前の週の金曜からその週の木曜までの利益です。
+      </p>
     </div>
 
 
     <h3 class="text-2xl font-semibold my-4">3条 禁止事項</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">以下に該当する作品の投稿、その他本サービスにおける情報の送信は禁止します。</p>
       <p class="my-2">1. 盗作、剽窃など、他者の著作権等を侵害しているもの。</p>
       <p class="my-2">2. 上記のほか、他者の財産権、商標権等の知的財産権、肖像権、名誉・プライバシー等を侵害するもの。</p>
@@ -221,7 +201,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">4条 違反に対する処理</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">
         作者が以下に該当すると当運営が判断した場合、事前に通知することなく当運営は作者のご利用を停止させて頂き、作品を削除、または検索結果からの除外などの措置をすることがあります。これらの措置により作者に損害が生じた場合であっても、当運営は損害賠償責任その他一切の責任を負わないものとします。
       </p>
@@ -235,7 +215,7 @@
 
 
     <h3 class="text-2xl font-semibold my-4">5条 違約金</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         本利用規約に違反している作者については、当運営は販売した作品代金の支払いを拒否し、違約金として没収する場合があります。なお、既に支払い済みの場合には、返金の請求をする場合があります。</p>
       <p class="my-2">2.
@@ -248,24 +228,24 @@
     <h2 class="text-3xl font-semibold">Comiee読者規約</h2>
 
     <h3 class="text-2xl font-semibold my-4">1条 購入</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. ユーザーが有料作品を購入する場合、本サービス上の作品購入画面において表示される金額を、当運営が定める決済方法のうちユーザーが選択した方法により、当社が徴収するものとします。</p>
     </div>
 
     <h3 class="text-2xl font-semibold my-4">2条 閲覧制限</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. 当運営が作品について18歳以上向けの表現を含むと判断し、その旨の表示をした場合、18歳未満のユーザーは、当該作品を閲覧することはできません。</p>
     </div>
 
     <h3 class="text-2xl font-semibold my-4">3条 コメント/リプライの削除</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1.
         ユーザーはコメント欄に自由にコメントすることができます。ただし、当運営がユーザーからの通報を受けるなどして調査した結果、本利用規約に違反している内容であると運営側で独自に判断した場合、当該コメントを削除する場合があります。その場合、ユーザーに生じた一切の損害について、当運営は損害賠償責任その他の責任を負わないものとします。
       </p>
     </div>
 
     <h3 id="refund" class="text-2xl font-semibold my-4">4条 返金</h3>
-    <div class="mb-10 mt-4 text-[15px]">
+    <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">1. ユーザーは、本サービスおよび取引契約の性質上、当運営に対しお支払いいただいた料金の返金等を受けることはできません。</p>
     </div>
   </div>
