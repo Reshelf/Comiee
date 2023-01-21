@@ -6,7 +6,7 @@
   @include('atoms._help_nav')
   <div class="w-full flex flex-col md:flex-row">
     <div class="w-full md:w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end">
-      @include('others.faq.atoms.left_nav')
+      @include('others.faq.left_nav')
     </div>
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
 
