@@ -15,7 +15,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
 Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectSuccessController')->name('stripe.connect.success');
-Route::post('/payment/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+Route::post('payment/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
 
 Route::get('/', function (Request $request) {
     if (app()->getLocale() == null) {
