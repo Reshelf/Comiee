@@ -30,8 +30,6 @@
           <a href="{{ route('ranking.girls', app()->getLocale()) }}" class="hover:text-primary">{{ __('少女') }}</a>
         @elseif($book->genre_id === 4)
           <a href="{{ route('ranking.woman', app()->getLocale()) }}" class="hover:text-primary">{{ __('女性') }}</a>
-        @elseif($book->genre_id === 5)
-          <a href="{{ route('ranking.adult', app()->getLocale()) }}" class="hover:text-primary">{{ __('オトナ') }}</a>
         @endif
       </div>
     </div>

@@ -35,7 +35,6 @@
                                             @case(2) action="{{ route('todays_new.youth.search', app()->getLocale()) }}" @break
                                             @case(3) action="{{ route('todays_new.girls.search', app()->getLocale()) }}" @break
                                             @case(4) action="{{ route('todays_new.woman.search', app()->getLocale()) }}" @break
-                                            @case(5) action="{{ route('todays_new.adult.search', app()->getLocale()) }}" @break
                                             @default action="{{ route('todays_new.search', app()->getLocale()) }}"
                                         @endswitch>
                     @csrf

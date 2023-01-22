@@ -68,10 +68,6 @@
     <option type="text" value="4"
       @isset($book->genre_id) @if (4 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
       {{ __('女性') }}</option>
-    <option type="text" value="5"
-      @isset($book->genre_id) @if (5 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
-      {{ __('オトナ') }}
-    </option>
   </select>
 </div>
 

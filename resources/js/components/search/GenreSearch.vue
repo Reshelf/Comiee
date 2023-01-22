@@ -60,11 +60,6 @@ onMounted(() => {
                         >
                             BL
                         </a>
-                        <a
-                            class="box m-4 text-[#FF0F77] border-[#FF0F77] hover:bg-[#FF0F77] hover:bg-opacity-10"
-                        >
-                            オトナ
-                        </a>
                         <a class="box my-4 mr-auto ml-4 border-none"></a>
                     </div>
                 </div>

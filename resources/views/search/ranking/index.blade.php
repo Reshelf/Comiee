@@ -36,7 +36,6 @@
                                             @case(2) action="{{ route('ranking.youth.search', app()->getLocale()) }}" @break
                                             @case(3) action="{{ route('ranking.girls.search', app()->getLocale()) }}" @break
                                             @case(4) action="{{ route('ranking.woman.search', app()->getLocale()) }}" @break
-                                            @case(5) action="{{ route('ranking.adult.search', app()->getLocale()) }}" @break
                                             @default action="{{ route('ranking.search', app()->getLocale()) }}"
                                         @endswitch>
                     @csrf
