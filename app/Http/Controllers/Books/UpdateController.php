@@ -54,6 +54,12 @@ class UpdateController extends Controller
             $book->is_hidden = false;
         }
 
+        // 休載設定
+        $book->is_suspend = true;
+        if ($request->is_suspend === null) {
+            $book->is_suspend = false;
+        }
+
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');

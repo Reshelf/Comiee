@@ -39,6 +39,13 @@
       {{ __('非公開') }}</span>
   @endif
 
+  {{-- 休載中作品 --}}
+  @if ($book->is_suspend)
+    <span
+      class="inline-block text-red dark:bg-red dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[5px] ml-2">
+      {{ __('休載中') }}</span>
+  @endif
+
   {{-- 購入 --}}
   @if (Auth::id() !== $book->user_id && !$book->is_hidden)
     <div class="w-full flex flex-col mt-4 px-2">
