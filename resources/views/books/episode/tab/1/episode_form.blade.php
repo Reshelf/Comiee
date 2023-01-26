@@ -1,28 +1,50 @@
 {{-- サムネイル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
-<p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
-</p>
-<p class="mb-8 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('横幅320px, 縦幅160pxの画像サイズが最も綺麗に表示されます。') }}
-</p>
+<div class="flex items-center my-4">
+  <h3 class="tracking-widest text-[15px] font-semibold inline-block">{{ __('サムネイル') }}</h3>
+  <div class="tooltip cursor-pointer ml-1">
+    <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+    </svg>
+    <div
+      class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line lg:whitespace-nowrap w-[300px] lg:w-auto top-[20px] left-[-90px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
+      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
+      </p>
+      <p class=" bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('横幅320px, 縦幅160pxの画像サイズが最も綺麗に表示されます。') }}
+      </p>
+    </div>
+  </div>
+</div>
 <input type="file" name="thumbnail" value="{{ old('thumbnail') }}" @if (!$update) required @endif>
 
 
 {{-- コンテンツ --}}
-<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('コンテンツ') }}</h3>
-<p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('1ページ = 画像1枚としてカウントされます。') }}
-</p>
-<p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('1エピソードにつき10枚〜100枚の画像登録ができます。') }}</p>
-<p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
-</p>
-<p class="mb-8 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('表示される画像の対比は 2 : 3となるようにお願いいたします。') }}<br>
-  {{ __('横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。') }}
-</p>
+<div class="flex items-center mt-8 mb-4">
+  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('コンテンツ') }}</h3>
+  <div class="tooltip cursor-pointer ml-1">
+    <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+    </svg>
+    <div
+      class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line lg:whitespace-nowrap w-[300px] lg:w-auto top-[20px] left-[-90px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
+      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('1ページ = 画像1枚としてカウントされます。') }}
+      </p>
+      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('1エピソードにつき10枚〜100枚の画像登録ができます。') }}</p>
+      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
+      </p>
+      <p class=" bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('表示される画像の対比は 2 : 3となるようにお願いいたします。') }}<br>
+        {{ __('横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。') }}
+      </p>
+    </div>
+  </div>
+</div>
 <input type="file" name="images[]" value="{{ old('images') }}" multiple="multiple"
   @if (!$update) required @endif>
 
@@ -76,12 +98,23 @@
 @endempty
 
 {{-- ご注意点 --}}
-<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('ご注意点') }}</h3>
-<p class="mb-2 bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
-  {{ __('複数ページにわたり1ページ1コマの描写があり、販売にふさわしくないと判断された場合、アカウントの有料販売を禁止する場合があります。') }}
-</p>
-<p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
-  {{ __('投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。') }}
-</p>
-<p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
-  {{ __('投稿したエピソードを後から削除することはできません。ただし、鉛筆マークの編集ボタンから「非公開」にできます。') }}</p>
+<div class="flex items-center mt-8 mb-4">
+  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('ご注意点') }}</h3>
+  <div class="tooltip cursor-pointer ml-1">
+    <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+    </svg>
+    <div
+      class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line w-[300px] lg:w-[552px] top-[-310px] lg:top-[-210px] left-[-70px] lg:left-[-75px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
+      <p class="mb-2 bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
+        {{ __('複数ページにわたり1ページ1コマの描写があり、販売にふさわしくないと判断された場合、アカウントの有料販売を禁止する場合があります。') }}
+      </p>
+      <p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
+        {{ __('投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。') }}
+      </p>
+      <p class="bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
+        {{ __('投稿したエピソードを後から削除することはできません。ただし、鉛筆マークの編集ボタンから「非公開」にできます。') }}</p>
+    </div>
+  </div>
+</div>
