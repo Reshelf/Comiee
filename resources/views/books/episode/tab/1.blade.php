@@ -1,11 +1,9 @@
 <template #episode>
   <div class="w-full max-h-[600px] overflow-y-auto scroll-none">
-    @if (Auth::id() !== $book->user_id)
-      @if ($book->is_hidden)
-        <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-          {{ __('この作品は現在非公開になっています') }}
-        </div>
-      @endif
+    @if (Auth::id() !== $book->user_id && $book->is_hidden)
+      <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+        {{ __('この作品は現在非公開になっています') }}
+      </div>
     @else
       @if (!$book->is_complete && !$book->is_suspend)
         <episode-list @if (Session::has('store')) :store='true' @endif>
