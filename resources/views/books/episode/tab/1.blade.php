@@ -5,7 +5,7 @@
         {{ __('この作品は現在非公開になっています') }}
       </div>
     @else
-      @if (!$book->is_complete && !$book->is_suspend)
+      @if (Auth::id() === $book->user_id && !$book->is_complete && !$book->is_suspend)
         <episode-list @if (Session::has('store')) :store='true' @endif>
           <template #trigger>
             <div
