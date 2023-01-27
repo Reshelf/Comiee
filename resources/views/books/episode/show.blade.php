@@ -51,9 +51,8 @@
     <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center">
       <div class="text-3xl mt-4 tracking-widest">
         {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
-      <div class="mt-8">
-        新規エピソードを公開してくれた作者さんに<br>
-        エールを贈ってエピソードを読みましょう。
+      <div class="my-8">
+        作者にエールを送って作品を読もう！
       </div>
 
       <div class="">
@@ -73,7 +72,7 @@
           </div>
         </form>
 
-        <div class="text-[11px] mt-4">50〜50,000エールまで応援することができます。(1エール = 1円)</div>
+        <div class="text-[11px] mt-4">50エールから応援することができます。(1エール = 1円)</div>
 
       </div>
     </div>
