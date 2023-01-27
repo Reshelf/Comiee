@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
-Route::get('/user/stripe/connected', 'App\Http\Controllers\Stripe\ConnectSuccessController')->name('stripe.connect.success');
-Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+Route::middleware(['verified', 'auth'])->group(function () {
+    Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
+    Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+});
 
 Route::get('/', function (Request $request) {
     if (app()->getLocale() == null) {
@@ -79,6 +80,10 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
         // お気に入り
         Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
         Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
+        // 購入
+        Route::get('/payment', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.loading');
+        Route::post('/payment/create/product', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.create');
+
     });
 
     /*

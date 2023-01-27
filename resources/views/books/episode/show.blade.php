@@ -5,6 +5,11 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
+
+  $canWatch = false;
+  if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free) {
+      $canWatch = true;
+  }
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -35,33 +40,44 @@
 
   {{-- エピソードスクリーン --}}
   {{-- 購入者 or 作者 or 無料 のみ見れる --}}
-  @if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free)
+  @if ($canWatch)
     <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
       :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
     </episode-screen>
   @endif
 
   {{-- 有料の場合 --}}
-  @isset($episode->prod_id)
-    @if (!$episode->is_free)
-      @isset($book->user->stripe_user_id)
-        @if ($book->user->id !== Auth::user()->id)
-          <div class="overflow-hidden h-[80vh] bg-dark bg-opacity-90 w-full flex flex-col items-center justify-center">
-            <div class="text-3xl mt-4 tracking-widest text-white">
-              {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
-            <div class="mt-8">
+  @if (!$episode->is_free && $book->user->stripe_user_id && $book->user->id !== Auth::user()->id)
+    <div class="w-full flex flex-col items-center justify-center">
+      <div class="text-3xl mt-4 tracking-widest">
+        {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
+      <div class="mt-8">
+        新規エピソードを公開してくれた作者さんに<br>
+        エールを贈ってエピソードを読みましょう。
+      </div>
 
-              {{-- 決済 --}}
-              @include('atoms.stripe_script', [
-                  'book' => $book,
-              ])
+      <div class="">
+        <form method="POST"
+          action="{{ route('stripe.payment.create', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'payment' => true]) }}"
+          class="whitespace-pre-line" onsubmit="submit_btn()">
+          @csrf
+          @method('POST')
+          {{-- 料金変更 --}}
+          <change-payment-price></change-payment-price>
 
-            </div>
+          <div class="relative mt-12">
+            <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+              {{ __('エールを贈ってエピソードを読む') }}
+              <span class="load loading"></span>
+            </button>
           </div>
-        @endif
-      @endisset
-    @endif
-  @endisset
+        </form>
+
+        <div class="text-[11px] mt-4">50〜50,000エールまで応援することができます。(1エール = 1円)</div>
+
+      </div>
+    </div>
+  @endif
 
   <div class="w-full mt-8 lg:mt-auto h-full bg-white dark:bg-dark">
     <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">

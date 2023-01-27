@@ -8,7 +8,6 @@ use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
 // メール
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -101,6 +100,8 @@ class StoreController extends Controller
             $episode->contents = json_encode($imgData);
         }
 
+        $episode->save();
+
         /*
         |--------------------------------------------------------------------------
         | データの更新 | 今日の新作に追加
@@ -127,39 +128,6 @@ class StoreController extends Controller
             ];
             Mail::send(new AddNewEpisodeMail($mailData));
         };
-
-        /*
-        |--------------------------------------------------------------------------
-        | Stripe Connectユーザーで、Stripeに商品・価格を登録
-        |--------------------------------------------------------------------------
-         */
-        if ($book->user->stripe_user_id) {
-            $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
-
-            // 商品
-            $product = $stripe->products->create([
-                'name' => $book->title . ' - ' . $episode->number . '話',
-                "metadata" => [
-                    "user_id" => Auth::user()->id,
-                    "book_id" => $book->id,
-                    "episode_number" => $episode->number,
-                ],
-            ], ['stripe_account' => $book->user->stripe_user_id],
-            );
-
-            // 価格
-            $price = $stripe->prices->create([
-                'product' => $product->id, // 作成した製品と紐づける
-                'unit_amount' => 50, // 単価
-                'currency' => 'jpy', // 支払通貨
-                'tax_behavior' => 'inclusive',
-            ], ['stripe_account' => $book->user->stripe_user_id]);
-
-            $episode->prod_id = $product->id;
-            $episode->price_id = $price->id;
-        };
-
-        $episode->save();
 
         /*
         |--------------------------------------------------------------------------
