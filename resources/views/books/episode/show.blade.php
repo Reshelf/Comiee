@@ -48,7 +48,7 @@
 
   {{-- 有料の場合 --}}
   @if (!$episode->is_free && $book->user->stripe_user_id && $book->user->id !== Auth::user()->id)
-    <div class="w-full flex flex-col items-center justify-center">
+    <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center">
       <div class="text-3xl mt-4 tracking-widest">
         {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
       <div class="mt-8">
