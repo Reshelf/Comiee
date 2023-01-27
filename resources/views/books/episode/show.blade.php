@@ -66,7 +66,7 @@
 
           <div class="relative mt-12">
             <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
-              {{ __('エールを贈ってエピソードを読む') }}
+              {{ __('エールを送ってエピソードを読む') }}
               <span class="load loading"></span>
             </button>
           </div>
