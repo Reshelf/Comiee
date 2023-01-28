@@ -27,7 +27,6 @@ class StoreController extends Controller
     public function __invoke(Request $request, Episode $episode)
     {
         $request->validate([
-            'title' => 'string|max:50',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:30720',
             'images' => 'required|array|min:10|max:100',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
