@@ -47,19 +47,19 @@
             @endempty
 
             {{-- タイトル --}}
-            <div class="w-full flex flex-col pl-4 overflow-hidden">
+            <div class="w-full h-full flex flex-col justify-around lg:justify-center pl-4 overflow-hidden">
               {{-- 日付 --}}
-              <div class="text-666 text-xs hidden lg:block">
+              <div class="text-666 text-xs hidden lg:block lg:mb-1">
                 {{ $e->created_at->format('Y/m/d') }}
               </div>
-
 
               <div class="w-full flex justify-between items-end">
                 {{-- 話数 --}}
                 {{-- 既読 --}}
                 <div class="flex flex-col">
                   <div class="flex flex-col lg:flex-row lg:items-center">
-                    <div class="text-xs">{{ __('第') }}{{ $e->number }}{{ __('話') }}</div>
+                    <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}
+                    </div>
                     @isset($e->title)
                       <div class="lg:ml-4 truncate text-sm">
                         {{ $e->title }}</div>
