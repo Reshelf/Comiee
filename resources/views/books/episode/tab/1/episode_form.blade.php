@@ -1,5 +1,13 @@
-{{-- サムネイル --}}
+{{-- タイトル --}}
 <div class="flex items-center my-4">
+  <h3 class="tracking-widest text-[15px] font-semibold inline-block">{{ __('タイトル') }}</h3>
+</div>
+<input type="text" name="title" value="{{ old('title') }}" class="border border-ccc py-2 px-3 w-full rounded-[4px]"
+  placeholder="50文字まで入力することができます" max="50">
+
+
+{{-- サムネイル --}}
+<div class="flex items-center mt-8 mb-4">
   <h3 class="tracking-widest text-[15px] font-semibold inline-block">{{ __('サムネイル') }}</h3>
   <div class="tooltip cursor-pointer ml-1">
     <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">

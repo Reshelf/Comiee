@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->unsignedbigInteger('book_id')->comment('作品ID');
-            $table->unsignedInteger('number')->nullable()->comment('エピソードの話数');
+            $table->unsignedInteger('number')->nullable()->comment('話数番号');
+            $table->string('title')->nullable()->comment('タイトル');
             $table->json('contents')->charset(null)->nullable()->comment('マンガのコンテンツ');
-            $table->text('thumbnail')->nullable()->comment('エピソードサムネイル');
+            $table->text('thumbnail')->nullable()->comment('サムネイル');
 
             $table->boolean('is_hidden')->default(0)->comment('公開フラグ');
             $table->boolean('is_free')->default(0)->comment('無料フラグ');

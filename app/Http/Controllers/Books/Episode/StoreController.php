@@ -26,17 +26,27 @@ class StoreController extends Controller
      */
     public function __invoke(Request $request, Episode $episode)
     {
+        $request->validate([
+            'title' => 'string|max:50',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:30720',
+            'images' => 'required|array|min:10|max:100',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
+        ]);
+
         /*
         |--------------------------------------------------------------------------
         | データの保存 | エピソード
         |--------------------------------------------------------------------------
          */
-        $book = Book::where('id', $request->book_id)->first();
+        $book = Book::find($request->book_id);
 
         $episode->book_id = $book->id;
 
         // エピソードの話数
         $episode->number = $episode->where('book_id', $book->id)->count() + 1;
+
+        // タイトル
+        $episode->title = $request->title;
 
         // 非公開設定
         $episode->is_hidden = true;
@@ -49,10 +59,6 @@ class StoreController extends Controller
         if ($request->is_free === null) {
             $episode->is_free = true;
         }
-
-        $request->validate([
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:30720',
-        ]);
 
         // サムネイル
         if ($request->has('thumbnail')) {
@@ -73,10 +79,6 @@ class StoreController extends Controller
             $episode->thumbnail = Storage::disk('s3')->url($filePath);
         }
 
-        $request->validate([
-            'images' => 'required|array|min:10|max:100',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
-        ]);
         // コンテンツ
         if ($request->hasfile('images')) {
             foreach ($request->file('images') as $image) {
