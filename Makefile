@@ -124,3 +124,7 @@ h-stg:
 	heroku git:remote --app comiee15-stg
 h-pro:
 	heroku git:remote --app comiee15
+sw-test:
+	docker run --net="host" --rm -it stripe/stripe-cli listen --forward-connect-to http://localhost/stripe/webhook --api-key sk_test_51KgqQyFVoBD8yaq4Zvc7SUffJyPggJN77hpXY3LYa4c4yTJ95TtJ9pIRXmrxsXrNTrkeDlQLk1uzbX5KpWDXnXx700gi5J2XF3
+sw-test-post:
+	docker run --rm -it stripe/stripe-cli trigger checkout.session.completed --stripe-account=acct_1KgqQyFVoBD8yaq4 --api-key sk_test_51KgqQyFVoBD8yaq4Zvc7SUffJyPggJN77hpXY3LYa4c4yTJ95TtJ9pIRXmrxsXrNTrkeDlQLk1uzbX5KpWDXnXx700gi5J2XF3
