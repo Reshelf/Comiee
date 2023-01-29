@@ -7,7 +7,7 @@
     {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
   </p>
   <p class="mb-4 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-    {{ __('横幅1152px, 縦幅300pxの画像サイズが最も綺麗に表示されます。') }}
+    {{ __('横幅1152px, 縦幅200pxの画像サイズが最も綺麗に表示されます。') }}
   </p>
   <input type="file" name="thumbnail" />
 </div>

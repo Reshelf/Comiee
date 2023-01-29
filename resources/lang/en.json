@@ -30,7 +30,7 @@
 
     "カバー画像": "Cover Image",
     "投稿できる画像形式はpng,jpg(jpeg),gif, webpです。": "You can submit images in png, jpg (jpeg), gif, and webp formats.",
-    "横幅1152px, 縦幅300pxの画像サイズが最も綺麗に表示されます。": "An image size of 1152px wide and 300px high will display most nicely.",
+    "横幅1152px, 縦幅200pxの画像サイズが最も綺麗に表示されます。": "An image size of 1152px wide and 300px high will display most nicely.",
     "プロフィール画像": "Profile Image",
     "横幅200px, 縦幅200pxの画像サイズが最も綺麗に表示されます。": "An image size of 200px wide and 200px high will display most nicely.",
     "名前": "Name",

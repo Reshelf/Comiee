@@ -1,8 +1,8 @@
 <div class="max-w-6xl mx-auto">
   <div class="relative z-auto">
     @empty($user->thumbnail)
-      <img src="/img/bg.svg" alt="" class="dark:hidden h-[100px] lg:h-[300px] rounded-b flex w-full object-cover">
-      <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex h-[100px] lg:h-[300px] rounded w-full object-cover">
+      <img src="/img/bg.svg" alt="" class="dark:hidden h-[100px] lg:h-[200px] rounded-b flex w-full object-cover">
+      <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex h-[100px] lg:h-[200px] rounded w-full object-cover">
     @else
       <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
         <template #thumbnail>
