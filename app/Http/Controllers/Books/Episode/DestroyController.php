@@ -20,8 +20,6 @@ class DestroyController extends Controller
     */
     public function __invoke(Episode $episode)
     {
-        // $this->authorize('delete', $episode);
-        // dd($episode->id);
         $episode->delete();
         return back();
     }

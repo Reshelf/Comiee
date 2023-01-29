@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Books\Episode\Comment;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 class DestroyController extends Controller
 {
@@ -14,6 +14,11 @@ class DestroyController extends Controller
         $this->middleware('signed')->only('verify');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | コメント 削除
+    |--------------------------------------------------------------------------
+     */
     public function __invoke(Request $request)
     {
         $comment = Comment::find($request->comment_id);

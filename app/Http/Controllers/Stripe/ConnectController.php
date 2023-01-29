@@ -10,11 +10,17 @@ use Stripe\Stripe;
 
 class ConnectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Stripe Connectの子アカウント作成
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(Request $request)
     {
         $user = Auth::user();
@@ -28,7 +34,7 @@ class ConnectController extends Controller
         if (empty($code)) {
             return view('users.stripe.connected', [
                 'error' => true,
-                'success' => false
+                'success' => false,
             ]);
         }
 
@@ -47,7 +53,7 @@ class ConnectController extends Controller
 
         return view('users.stripe.connected', [
             'error' => false,
-            'success' => true
+            'success' => true,
         ]);
     }
 }

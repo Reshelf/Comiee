@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::middleware(['verified', 'auth'])->group(function () {
-    Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
-    Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
-});
+Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
+Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
 
 Route::get('/', function (Request $request) {
     if (app()->getLocale() == null) {

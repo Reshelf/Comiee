@@ -11,6 +11,11 @@ use Stripe\Stripe;
 
 class PaymentWebhookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
+    }
     /*
     |--------------------------------------------------------------------------
     | 決済完了後に Webhookを使いサービスへの反映を行う
