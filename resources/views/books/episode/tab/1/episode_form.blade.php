@@ -100,9 +100,10 @@
 </div>
 
 @empty($book->user->stripe_user_id)
-  <p class="mt-4 mb-2 bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
-    {{ __('有料販売をするには設定の「収益を受け取る準備」が完了している必要があります') }}
-  </p>
+  <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
+    設定の「収益を受け取る準備」
+  </a>
+  {{ __('を完了して有料で販売することができます') }}
 @endempty
 
 {{-- ご注意点 --}}
