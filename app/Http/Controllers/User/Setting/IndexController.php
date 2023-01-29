@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User\Setting;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +18,7 @@ class IndexController extends Controller
     |--------------------------------------------------------------------------
     | 設定
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
@@ -30,6 +29,6 @@ class IndexController extends Controller
             $user = Auth::user();
         };
 
-        return view('users.settings.index', compact('user'));
+        return view('users.settings', compact('user'));
     }
 }
