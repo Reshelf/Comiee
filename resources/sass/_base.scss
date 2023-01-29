@@ -681,3 +681,22 @@ button .loading {
 .card-input {
     @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
 }
+
+.tab {
+    @apply w-full flex flex-col md:flex-row;
+    .tabMenu {
+        @apply flex lg:mb-4 md:flex-col bg-white dark:bg-dark overflow-x-auto z-50;
+        a {
+            @apply tracking-widest w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-4 md:pr-12 hover:text-primary dark:hover:text-light;
+            &.active {
+                @apply font-semibold text-primary dark:text-ddd;
+            }
+        }
+    }
+    .tabContents {
+        @apply w-full md:px-6 md:my-0;
+        .tab-box {
+            @apply my-8 border-b border-ccc;
+        }
+    }
+}

@@ -1,9 +1,9 @@
 {{-- タイトル --}}
-<div class="flex items-center my-4">
+<div class="flex items-center mb-4">
   <h3 class="tracking-widest text-[15px] font-semibold inline-block">{{ __('タイトル') }}</h3>
 </div>
-<input type="text" name="title" value="{{ old('title') }}" class="border border-ccc py-2 px-3 w-full rounded-[4px]"
-  placeholder="50文字まで入力することができます" max="50">
+<input type="text" name="title" value="{{ $e->title ?? old('title') }}"
+  class="border border-ccc py-2 px-3 w-full rounded-[4px]" placeholder="50文字まで入力することができます" max="50">
 
 
 {{-- サムネイル --}}
@@ -25,7 +25,7 @@
     </div>
   </div>
 </div>
-<input type="file" name="thumbnail" value="{{ old('thumbnail') }}" @if (!$update) required @endif>
+<input type="file" name="thumbnail" @if (!$update) required @endif>
 
 
 {{-- コンテンツ --}}
@@ -53,8 +53,7 @@
     </div>
   </div>
 </div>
-<input type="file" name="images[]" value="{{ old('images') }}" multiple="multiple"
-  @if (!$update) required @endif>
+<input type="file" name="images[]" multiple="multiple" @if (!$update) required @endif>
 
 
 {{-- 公開設定 --}}
@@ -73,6 +72,7 @@
     <span class="light-checkbox-LabelText">{{ __('エピソードを非公開にする') }}</span>
   </label>
 </div>
+
 
 {{-- 有料選択 --}}
 <h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('料金設定') }}</h3>
