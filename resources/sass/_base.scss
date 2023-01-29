@@ -682,7 +682,7 @@ button .loading {
     @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
 }
 
-.tab {
+.setting-tab {
     @apply w-full flex flex-col md:flex-row;
     .tabMenu {
         @apply flex lg:mb-4 md:flex-col bg-white dark:bg-dark overflow-x-auto z-50;

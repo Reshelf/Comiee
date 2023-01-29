@@ -25,7 +25,7 @@
     <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
       <div class="w-full lg:mt-4 mx-12">
         <div class="w-full lg:my-4 flex">
-          <div class="tab">
+          <div class="setting-tab">
             <ul class="tabMenu scroll-none sticky top-0 lg:h-[142px]">
               <a href="#mail-notification">
                 {{ $a }}
