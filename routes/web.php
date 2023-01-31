@@ -4,17 +4,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
+Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+
 /*
 |--------------------------------------------------------------------------
 | 認証
 |--------------------------------------------------------------------------
 |
  */
-
 Auth::routes(['verify' => true]);
-
-Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
-Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
 
 Route::get('/', function (Request $request) {
     if (app()->getLocale() == null) {
