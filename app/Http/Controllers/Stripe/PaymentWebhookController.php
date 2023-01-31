@@ -30,6 +30,8 @@ class PaymentWebhookController extends Controller
             $event = \Stripe\Webhook::constructEvent(
                 $request->getContent(), $sig_header, $endpoint_secret
             );
+            return response()->json($event);
+
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
