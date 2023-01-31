@@ -145,7 +145,9 @@
 @endisset
 
 {{-- 作品投稿後の流れ --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品投稿後の流れ') }}</h3>
-<p class="mb-6 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-  {{ __('作品を投稿したら、続いてエピソードを追加してみましょう！') }}
-</p>
+@if (!$update)
+  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品投稿後の流れ') }}</h3>
+  <p class="mb-6 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+    {{ __('作品を投稿したら、続いてエピソードを追加してみましょう！') }}
+  </p>
+@endif

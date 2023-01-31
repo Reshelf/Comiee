@@ -8,6 +8,7 @@
   //   $c = __('表示しない作品');
   $d = __('サイトの表示設定');
   $e = __('収益の受取');
+  $f = __('アカウントの削除');
 
   $dark = __('ダークモードにする');
   $light = __('ライトモードにする');
@@ -26,22 +27,17 @@
       <div class="w-full lg:mt-4 mx-12">
         <div class="w-full lg:my-4 flex">
           <div class="setting-tab">
-            <ul class="tabMenu scroll-none sticky top-0 lg:h-[142px]">
-              <a href="#mail-notification">
-                {{ $a }}
-              </a>
-              <a href="#site-display">
-                {{ $d }}
-              </a>
-              <a href="#earnings">
-                {{ $e }}
-              </a>
-              <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}">
+            <ul class="tabMenu scroll-none sticky top-0 lg:h-[300px]">
+              <a href="#mail-notification">{{ $a }}</a>
+              <a href="#site-display">{{ $d }}</a>
+              <a href="#earnings">{{ $e }}</a>
+              {{-- <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}">
                 マイページ
-              </a>
+              </a> --}}
+              <a href="#account-delete">{{ $f }}</a>
             </ul>
             <div class="tabContents">
-              <div class="mb-8 border-b border-ccc" id="mail-notification">
+              <div class="pb-8 border-b border-ccc" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
                       'lang' => app()->getLocale(),
@@ -137,7 +133,7 @@
                   </div>
                 </form>
               </div>
-              <div class="my-8 border-b border-ccc" id="site-display">
+              <div class="py-8 border-b border-ccc" id="site-display">
 
                 <div class="mt-4">
                   <h3 class="text-base font-semibold">{{ __('表示言語') }}</h3>
@@ -166,7 +162,7 @@
                   </div>
                 </div>
               </div>
-              <div class="my-8" id="earnings">
+              <div class="py-8 border-b border-ccc" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base font-semibold">{{ __('収益を受け取る準備をする') }}</h3>
                   <div class="mt-6">
@@ -191,6 +187,20 @@
 
                   <h3 class="text-base font-semibold mt-12">{{ __('収益について') }}</h3>
                   <div class="mt-4">
+                  </div>
+                </div>
+              </div>
+              <div class="py-8" id="account-delete">
+                <div class="mt-4 mb-8">
+                  <h3 class="text-base font-semibold">{{ __('アカウントの削除') }}</h3>
+                  <div class="mt-6">
+                    <div class="relative inline-block">
+                      <a href="">
+                        <button class="btn-primary">
+                          {{ __('アカウントを削除する') }}
+                        </button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
