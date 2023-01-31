@@ -19,24 +19,15 @@ class PaymentWebhookController extends Controller
     public function __invoke(Request $request)
     {
         Stripe::setApiKey(config('app.stripe_secret'));
+
+        // エンドポイントのシークレットキーを指定
+        $endpoint_secret = config('app.stripe_endpoint_secret');
+        $sig_header = $request->header('Stripe-Signature');
+
         $event = null;
-
-        try {
-            // エンドポイントのシークレットキーを指定
-            $endpoint_secret = config('app.stripe_endpoint_secret');
-            $sig_header = $request->header('Stripe-Signature');
-
-            // 送信されてきたリクエストの情報から、webhookイベントのチェック
-            $event = \Stripe\Webhook::constructEvent(
-                $request->getContent(), $sig_header, $endpoint_secret
-            );
-            return response()->json($event);
-
-        } catch (\UnexpectedValueException$e) {
-            return response()->json('Invalid payload', 400);
-        } catch (\Stripe\Exception\SignatureVerificationException$e) {
-            return response()->json('Invalid Signature', 400);
-        }
+        $event = \Stripe\Webhook::constructEvent(
+            $request->getContent(), $sig_header, $endpoint_secret
+        );
 
         // イベントタイプが「checkout.session.completed」（Checkoutセッションの完了）の場合は、決済完了の処理を行う
         if ($event->type == 'checkout.session.completed') {
