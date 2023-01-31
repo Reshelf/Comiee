@@ -37,7 +37,7 @@
               <a href="#account-delete">{{ $f }}</a>
             </ul>
             <div class="tabContents">
-              <div class="pb-8 border-b border-ccc" id="mail-notification">
+              <div class="pt-4 pb-12 border-b border-ccc" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
                       'lang' => app()->getLocale(),
@@ -133,7 +133,7 @@
                   </div>
                 </form>
               </div>
-              <div class="py-8 border-b border-ccc" id="site-display">
+              <div class="pt-4 pb-12 border-b border-ccc" id="site-display">
 
                 <div class="mt-4">
                   <h3 class="text-base font-semibold">{{ __('表示言語') }}</h3>
@@ -162,7 +162,7 @@
                   </div>
                 </div>
               </div>
-              <div class="py-8 border-b border-ccc" id="earnings">
+              <div class="pt-4 pb-12 border-b border-ccc" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base font-semibold">{{ __('収益を受け取る準備をする') }}</h3>
                   <div class="mt-6">
@@ -190,7 +190,7 @@
                   </div>
                 </div>
               </div>
-              <div class="py-8" id="account-delete">
+              <div class="pt-4 pb-12" id="account-delete">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base font-semibold">{{ __('アカウントの削除') }}</h3>
                   <div class="mt-6">
