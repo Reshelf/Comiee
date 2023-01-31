@@ -19,19 +19,16 @@ class PaymentWebhookController extends Controller
     public function __invoke(Request $request)
     {
         Stripe::setApiKey(config('app.stripe_secret'));
-
-        // エンドポイントのシークレットキーを指定
-        $endpoint_secret = config('app.stripe_endpoint_secret');
-
-        $payload = $request->getContent();
-        $sig_header = $request->header('stripe-signature');
-
         $event = null;
 
         try {
+            // エンドポイントのシークレットキーを指定
+            $endpoint_secret = config('app.stripe_endpoint_secret');
+            $sig_header = $request->header('Stripe-Signature');
+
             // 送信されてきたリクエストの情報から、webhookイベントのチェック
             $event = \Stripe\Webhook::constructEvent(
-                $payload, $sig_header, $endpoint_secret
+                $request->getContent(), $sig_header, $endpoint_secret
             );
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
