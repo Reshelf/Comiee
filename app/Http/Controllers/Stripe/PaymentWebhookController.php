@@ -22,12 +22,23 @@ class PaymentWebhookController extends Controller
 
         // エンドポイントのシークレットキーを指定
         $endpoint_secret = config('app.stripe_endpoint_secret');
-        $sig_header = $request->header('Stripe-Signature');
+
+        $payload = $request->getContent();
+        $sig_header = $request->header('stripe-signature');
 
         $event = null;
-        $event = \Stripe\Webhook::constructEvent(
-            $request->getContent(), $sig_header, $endpoint_secret
-        );
+
+        try {
+            // 送信されてきたリクエストの情報から、webhookイベントのチェック
+            $event = \Stripe\Webhook::constructEvent(
+                $payload, $sig_header, $endpoint_secret
+            );
+            return response()->json('Success', 200);
+        } catch (\UnexpectedValueException$e) {
+            return response()->json('Invalid payload', 400);
+        } catch (\Stripe\Exception\SignatureVerificationException$e) {
+            return response()->json('Invalid Signature', 400);
+        }
 
         // イベントタイプが「checkout.session.completed」（Checkoutセッションの完了）の場合は、決済完了の処理を行う
         if ($event->type == 'checkout.session.completed') {
