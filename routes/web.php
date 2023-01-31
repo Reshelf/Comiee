@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/connect', 'App\Http\Controllers\Stripe\ConnectController')->name('stripe.connect');
-Route::post('/stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
+Route::post('stripe/webhook', 'App\Http\Controllers\Stripe\PaymentWebhookController')->name('stripe.payment.webhook');
 
 /*
 |--------------------------------------------------------------------------
