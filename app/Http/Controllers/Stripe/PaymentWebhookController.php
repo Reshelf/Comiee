@@ -30,6 +30,7 @@ class PaymentWebhookController extends Controller
             $event = \Stripe\Webhook::constructEvent(
                 $request->getContent(), $sig_header, $endpoint_secret
             );
+            return response()->json('ok', 200);
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
@@ -40,7 +41,6 @@ class PaymentWebhookController extends Controller
             $session = $event->data->object;
             $this->handleCompletedCheckoutSession($session);
         }
-        return response()->json('ok', 200);
     }
 
     /*
