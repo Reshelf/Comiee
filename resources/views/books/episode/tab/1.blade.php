@@ -107,7 +107,7 @@
                     {{-- 既読 --}}
                     @auth
                       @if ($book->user->id !== Auth::user()->id)
-                        @if ($e->isBoughtBy(Auth::user()) && $e->isReadBy(Auth::user()))
+                        @if ($e->isReadBy(Auth::user()))
                           <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                             {{ __('既読') }}
                           </span>
