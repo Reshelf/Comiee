@@ -79,7 +79,5 @@ class PaymentWebhookController extends Controller
             'user' => Auth::user(),
         ];
         Mail::send(new BoughtEpisodeMail($mailData));
-
-        return response()->json('ok', 200);
     }
 }
