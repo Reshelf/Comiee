@@ -40,6 +40,8 @@ class PaymentWebhookController extends Controller
             $session = $event->data->object;
             $this->handleCompletedCheckoutSession($session);
             return response()->json('ok', 200);
+        } else {
+            return response()->json('not completed', 500);
         }
     }
 
