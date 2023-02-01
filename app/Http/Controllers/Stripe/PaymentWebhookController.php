@@ -31,22 +31,18 @@ class PaymentWebhookController extends Controller
             $event = \Stripe\Webhook::constructEvent(
                 $payload, $sig_header, $endpoint_secret
             );
-            return response()->json('Success', 200);
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
             return response()->json('Invalid Signature', 400);
         }
 
-        switch ($event->type) {
-            case 'checkout.session.completed':
-                $session = $event->data->object;
-                $this->handleCompletedCheckoutSession($session);
-                break;
-            default:
-                echo 'Received unknown event type ' . $event->type;
+        if ($event->type == 'checkout.session.completed') {
+            $session = $event->data->object;
+            $this->handleCompletedCheckoutSession($session);
         }
 
+        return response()->json('ok', 200);
     }
 
     /*
