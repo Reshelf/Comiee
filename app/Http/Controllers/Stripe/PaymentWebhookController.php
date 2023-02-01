@@ -54,36 +54,33 @@ class PaymentWebhookController extends Controller
      */
     private function handleCompletedCheckoutSession($session)
     {
-        if ($session->payment_status == 'paid') {
+        /*
+        |--------------------------------------------------------------------------
+        | Stripeの決済後のセッションIDから、購入者と作品情報を受け取る
+        |--------------------------------------------------------------------------
+         */
+        $user_id = $session->data->object->metadata->buyer->user_id;
+        $book_id = $session->data->object->metadata->buyer->book_id;
+        $episode_number = $session->data->object->metadata->buyer->episode_number;
 
-            /*
-            |--------------------------------------------------------------------------
-            | Stripeの決済後のセッションIDから、購入者と作品情報を受け取る
-            |--------------------------------------------------------------------------
-             */
-            $user_id = $session->data->object->metadata->buyer->user_id;
-            $book_id = $session->data->object->metadata->buyer->book_id;
-            $episode_number = $session->data->object->metadata->buyer->episode_number;
+        /*
+        |--------------------------------------------------------------------------
+        | 受け取った情報をComieeのDBに保存する
+        |--------------------------------------------------------------------------
+         */
+        $book = Book::find($book_id);
+        $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
-            /*
-            |--------------------------------------------------------------------------
-            | 受け取った情報をComieeのDBに保存する
-            |--------------------------------------------------------------------------
-             */
-            $book = Book::find($book_id);
-            $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
-
-            if (isset($user_id)) {
-                if (Auth::user()) {
-                    if ($book->user->id !== $user_id) {
-                        $episode->bought()->attach($user_id);
-                        $episode->save();
-                    }
+        if (isset($user_id)) {
+            if (Auth::user()) {
+                if ($book->user->id !== $user_id) {
+                    $episode->bought()->attach($user_id);
+                    $episode->save();
                 }
-                // Mail::
-                //     to($user->email)
-                //     ->send(new PurchasedProduct($purchase));
             }
+            // Mail::
+            //     to($user->email)
+            //     ->send(new PurchasedProduct($purchase));
         }
     }
 }
