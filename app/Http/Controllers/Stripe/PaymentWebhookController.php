@@ -76,20 +76,20 @@ class PaymentWebhookController extends Controller
         $book = Book::find($book_id);
         $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
-        if (isset($user_id)) {
-            if (Auth::user()) {
-                if ($book->user->id !== $user_id) {
-                    $episode->bought()->attach($user_id);
-                    $episode->save();
-                }
-            }
-            $mailData = [
-                'book' => $book,
-                'episode' => $episode,
-                'user' => Auth::user(),
-            ];
-            Mail::send(new BoughtEpisodeMail($mailData));
+        // if (isset($user_id)) {
+        //     if (Auth::user()) {
+        if ($book->user->id !== $user_id) {
+            $episode->bought()->attach($user_id);
+            $episode->save();
         }
+        // }
+        $mailData = [
+            'book' => $book,
+            'episode' => $episode,
+            'user' => Auth::user(),
+        ];
+        Mail::send(new BoughtEpisodeMail($mailData));
+        // }
         // }
     }
 }
