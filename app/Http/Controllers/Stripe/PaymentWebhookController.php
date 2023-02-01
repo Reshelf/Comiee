@@ -39,10 +39,9 @@ class PaymentWebhookController extends Controller
         if ($event->type == 'checkout.session.completed') {
             $session = $event->data->object;
             $this->handleCompletedCheckoutSession($session);
-            return response()->json('ok', 200);
-        } else {
-            return response()->json('not completed', 500);
         }
+
+        return response()->json('ok', 200);
     }
 
     /*
@@ -71,9 +70,11 @@ class PaymentWebhookController extends Controller
         $book = Book::find($book_id);
         $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
-        if ($book->user->id !== $user_id && !$episode->isBoughtBy($user_id)) {
-            $episode->bought()->attach($user_id);
-            $episode->save();
+        if ($book->user->id !== $user_id) {
+            if (!$episode->isBoughtBy($user_id)) {
+                $episode->bought()->attach($user_id);
+                $episode->save();
+            }
         }
         $mailData = [
             'book' => $book,
