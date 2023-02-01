@@ -29,7 +29,6 @@ class PaymentWebhookController extends Controller
             $event = \Stripe\Webhook::constructEvent(
                 $payload, $sig_header, $endpoint_secret
             );
-            return response()->json('Success', 200);
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
@@ -40,8 +39,11 @@ class PaymentWebhookController extends Controller
 
             // 子アカウントのID、Checkoutセッションが取得できるので、それを元に処理を行う
             $session = $event->data->object;
+
             // サービスへの反映を行う処理へ
             $this->handleCompletedCheckoutSession($session);
+
+            return response()->json('Success', 200);
         }
 
         return response()->json('ok', 200);
