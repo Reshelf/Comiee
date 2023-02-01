@@ -28,8 +28,6 @@ class ConnectController extends Controller
             abort(404);
         };
 
-        $books = $user->books()->latest()->get() ?? [];
-
         $code = $request->query('code');
         if (empty($code)) {
             return view('users.stripe.connected', [

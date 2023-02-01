@@ -36,15 +36,15 @@ class PaymentWebhookController extends Controller
             return response()->json('Invalid Signature', 400);
         }
 
-        if ($event->type == 'checkout.session.completed') {
-
-            // 子アカウントのID、Checkoutセッションが取得できるので、それを元に処理を行う
-            $session = $event->data->object;
-
-            // サービスへの反映を行う処理へ
-            $this->handleCompletedCheckoutSession($session);
-            logger($session);
+        switch ($event->type) {
+            case 'checkout.session.completed':
+                $session = $event->data->object;
+                $this->handleCompletedCheckoutSession($session);
+                break;
+            default:
+                echo 'Received unknown event type ' . $event->type;
         }
+
     }
 
     /*
@@ -54,7 +54,7 @@ class PaymentWebhookController extends Controller
      */
     private function handleCompletedCheckoutSession($session)
     {
-        if ($session->data->object->payment_status == 'paid') {
+        if ($session->payment_status == 'paid') {
 
             /*
             |--------------------------------------------------------------------------

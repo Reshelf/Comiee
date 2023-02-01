@@ -18,9 +18,13 @@
                 'application_fee_amount' => $instant_price * 0.3,
             ],
             'mode' => 'payment',
-            'allow_promotion_codes' => true,
             'automatic_tax' => [
                 'enabled' => true,
+            ],
+            'metadata' => [
+                'user_id' => Auth::user()->id,
+                'book_id' => $book->id,
+                'episode_number' => $episode->number,
             ],
         ],
         ['stripe_account' => $book->user->stripe_user_id],
