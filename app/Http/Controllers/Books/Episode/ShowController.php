@@ -65,7 +65,7 @@ class ShowController extends Controller
 
         /*
         |--------------------------------------------------------------------------
-        | 既読 | 作者以外 && 購入しているなら
+        | 既読 | 作者以外 無料 or 購入しているなら
         |--------------------------------------------------------------------------
         | 既読の中間テーブルを更新
         | 既読の数をエピソードの閲覧数に入れ直す
@@ -73,11 +73,13 @@ class ShowController extends Controller
         | もしログインユーザーが既読していたら,エピソードの既読フラグをtrueにする
          */
         if (Auth::user()) {
-            if ($book->user->id !== Auth::user()->id && $episode->isBoughtBy(Auth::user())) {
-                $episode->reads()->detach($request->user()->id);
-                $episode->reads()->attach($request->user()->id);
-                $episode->views = $episode->count_reads;
-                $episode->save();
+            if ($book->user->id !== Auth::user()->id) {
+                if ($episode->is_free || $episode->isBoughtBy(Auth::user())) {
+                    $episode->reads()->detach($request->user()->id);
+                    $episode->reads()->attach($request->user()->id);
+                    $episode->views = $episode->count_reads;
+                    $episode->save();
+                }
             }
         }
 
