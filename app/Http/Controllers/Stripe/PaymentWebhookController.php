@@ -71,10 +71,10 @@ class PaymentWebhookController extends Controller
         $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
         if ($book->user->id !== $user_id) {
-            if (!$episode->isBoughtBy($user_id)) {
-                $episode->bought()->attach($user_id);
-                $episode->save();
-            }
+            // if (!$episode->isBoughtBy($user_id)) {
+            $episode->bought()->attach($user_id);
+            $episode->save();
+            // }
         }
         $mailData = [
             'book' => $book,
