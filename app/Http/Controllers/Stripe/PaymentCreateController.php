@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentCreateController extends Controller
 {
@@ -42,11 +43,11 @@ class PaymentCreateController extends Controller
                 // 商品
                 $product = $stripe->products->create([
                     'name' => $book->title . ' - ' . $episode->number . '話',
-                    // "metadata" => [
-                    //     "user_id" => Auth::user()->id,
-                    //     "book_id" => $book->id,
-                    //     "episode_number" => $episode->number,
-                    // ],
+                    "metadata" => [
+                        "user_id" => Auth::user()->id,
+                        "book_id" => $book->id,
+                        "episode_number" => $episode->number,
+                    ],
                 ], ['stripe_account' => $book->user->stripe_user_id],
                 );
 
