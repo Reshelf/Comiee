@@ -43,9 +43,8 @@ class PaymentWebhookController extends Controller
 
             // サービスへの反映を行う処理へ
             $this->handleCompletedCheckoutSession($session);
+            logger($session);
         }
-
-        return response()->json('ok', 200);
     }
 
     /*
