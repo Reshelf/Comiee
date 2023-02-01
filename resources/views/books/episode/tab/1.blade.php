@@ -55,7 +55,6 @@
 
               <div class="w-full flex justify-between items-end">
                 {{-- 話数 --}}
-                {{-- 既読 --}}
                 <div class="flex flex-col">
                   <div class="flex flex-col lg:flex-row lg:items-center">
                     <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}
@@ -108,7 +107,7 @@
                     {{-- 既読 --}}
                     @auth
                       @if ($book->user->id !== Auth::user()->id)
-                        @if ($e->isReadBy(Auth::user()))
+                        @if ($e->isBoughtBy(Auth::user()) && $e->isReadBy(Auth::user()))
                           <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
                             {{ __('既読') }}
                           </span>
