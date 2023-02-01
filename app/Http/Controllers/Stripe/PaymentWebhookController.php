@@ -23,13 +23,12 @@ class PaymentWebhookController extends Controller
         Stripe::setApiKey(config('app.stripe_secret'));
 
         $endpoint_secret = config('app.stripe_endpoint_secret');
-        $payload = $request->getContent();
         $sig_header = $request->header('stripe-signature');
         $event = null;
 
         try {
             $event = \Stripe\Webhook::constructEvent(
-                $payload, $sig_header, $endpoint_secret
+                $request->getContent(), $sig_header, $endpoint_secret
             );
         } catch (\UnexpectedValueException$e) {
             return response()->json('Invalid payload', 400);
@@ -74,7 +73,7 @@ class PaymentWebhookController extends Controller
 
             // if (isset($user_id)) {
             //     if (Auth::user()) {
-            if ($book->user->id !== $user_id) {
+            if ($book->user->id !== $user_id && !$episode->isBoughtBy($user_id)) {
                 $episode->bought()->attach($user_id);
                 $episode->save();
             }
