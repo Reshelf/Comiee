@@ -61,9 +61,10 @@ class PaymentWebhookController extends Controller
             | Stripeの決済後のセッションIDから、購入者と作品情報を受け取る
             |--------------------------------------------------------------------------
              */
-            $user_id = $session->data->object->metadata->buyer->user_id;
-            $book_id = $session->data->object->metadata->buyer->book_id;
-            $episode_number = $session->data->object->metadata->buyer->episode_number;
+            $metadata = $session->metadata;
+            $user_id = $metadata->user_id;
+            $book_id = $metadata->book_id;
+            $episode_number = $metadata->episode_number;
 
             /*
             |--------------------------------------------------------------------------
