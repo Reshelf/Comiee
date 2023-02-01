@@ -54,6 +54,7 @@ class PaymentWebhookController extends Controller
      */
     private function handleCompletedCheckoutSession($session)
     {
+        dd($session);
         /*
         |--------------------------------------------------------------------------
         | Stripeの決済後のセッションIDから、購入者と作品情報を受け取る
