@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Stripe;
 
 use App\Http\Controllers\Controller;
+use App\Mail\books\episodes\BoughtEpisodeMail;
 use App\Models\Book;
 use App\Models\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 
 class PaymentWebhookController extends Controller
@@ -81,9 +83,12 @@ class PaymentWebhookController extends Controller
                         $episode->save();
                     }
                 }
-                // Mail::
-                //     to($user->email)
-                //     ->send(new PurchasedProduct($purchase));
+                $mailData = [
+                    'book' => $book,
+                    'episode' => $episode,
+                    'user' => Auth::user(),
+                ];
+                Mail::send(new BoughtEpisodeMail($mailData));
             }
         }
     }

@@ -3,7 +3,6 @@
 namespace App\Mail\books\episodes;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -11,14 +10,16 @@ class BoughtEpisodeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $mailData;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mailData)
     {
-        //
+        $this->mailData = $mailData;
     }
 
     /**
@@ -28,6 +29,12 @@ class BoughtEpisodeMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $mailData = $this->mailData;
+
+        return $this
+            ->from($address = 'noreply@comiee.one', $name = 'Comiee Teams')
+            ->to($mailData['user']->email)
+            ->view('emails.books.episodes.BoughtEpisode')
+            ->subject($mailData['book']->title . 'の' . $mailData['episode']->number . '話が読めるようになりました。');
     }
 }
