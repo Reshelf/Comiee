@@ -37,8 +37,6 @@
         stripeAccount: '{{ $book->user->stripe_user_id }}'
       });
       document.addEventListener("DOMContentLoaded", function() {
-        //   const checkoutButton = document.getElementById('checkout-button');
-        //   checkoutButton.addEventListener('click', function() {
         stripe.redirectToCheckout({
           sessionId: '{{ $session->id }}'
         }).then(function(result) {
@@ -47,7 +45,6 @@
             displayError.textContent = result.error.message;
           }
         });
-        //   });
       }, false);
     </script>
   @endsection
