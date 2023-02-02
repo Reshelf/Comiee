@@ -28,6 +28,7 @@
         <div class="w-full lg:my-4 flex">
           <div class="setting-tab">
             <ul class="tabMenu scroll-none sticky top-0 lg:h-[300px]">
+              <h3 class="text-2xl font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
               <a href="#mail-notification">{{ $a }}</a>
               <a href="#site-display">{{ $d }}</a>
               <a href="#earnings">{{ $e }}</a>
