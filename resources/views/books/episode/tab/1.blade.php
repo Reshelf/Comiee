@@ -68,25 +68,17 @@
                   <div class="flex items-center mt-1">
 
                     {{-- 値段 --}}
-                    @if (!$e->is_hidden)
+                    @if (!$e->is_hidden && $book->user->id !== Auth::user()->id)
                       @if ($e->is_free)
                         <span
                           class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
                           {{ __('無料') }}
                         </span>
-                      @else
-                        @auth
-                          @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
-                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
-                              {{ __('購入済') }}
-                            </span>
-                          @else
-                            <span
-                              class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                              {{ $e->price }}{{ __('エール') }}
-                            </span>
-                          @endif
-                        @endauth
+                      @elseif(!$e->isBoughtBy(Auth::user()))
+                        <span
+                          class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
+                          {{ $e->price }}{{ __('エール') }}
+                        </span>
                       @endif
                     @endif
 
@@ -119,6 +111,18 @@
                       @endif
                     @endauth
 
+                    {{-- 購入済 --}}
+                    @if (!$e->is_hidden)
+                      @if (!$e->is_free)
+                        @auth
+                          @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
+                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                              {{ __('購入済') }}
+                            </span>
+                          @endif
+                        @endauth
+                      @endif
+                    @endif
                   </div>
                 </div>
               </div>
