@@ -162,7 +162,7 @@
     </div>
 
 
-    <h3 class="text-2xl font-semibold my-4">2条 売上と作者利益</h3>
+    <h3 id="sales_and_author_profit" class="text-2xl font-semibold my-4">2条 売上と作者利益</h3>
     <div class="mb-10 mt-4 text-[16px]">
       <p class="my-2">
         1. 作者が受け取る金額は、以下に規定する計算式によって算出されます。<br>
