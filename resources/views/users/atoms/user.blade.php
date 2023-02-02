@@ -133,6 +133,8 @@
           <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
             class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
         @endif
+        <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+          class="{{ !$mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
       </div>
 
       <div class="hidden lg:block">
