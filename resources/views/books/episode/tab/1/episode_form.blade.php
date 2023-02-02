@@ -16,10 +16,10 @@
     </svg>
     <div
       class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line lg:whitespace-nowrap w-[300px] lg:w-auto top-[20px] left-[-90px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
-      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
       </p>
-      <p class=" bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="py-1 text-[14px]">
         {{ __('横幅320px, 縦幅160pxの画像サイズが最も綺麗に表示されます。') }}
       </p>
     </div>
@@ -38,15 +38,15 @@
     </svg>
     <div
       class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line lg:whitespace-nowrap w-[300px] lg:w-auto top-[20px] left-[-90px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
-      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('1ページ = 画像1枚としてカウントされます。') }}
       </p>
-      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('1エピソードにつき10枚〜100枚の画像登録ができます。') }}</p>
-      <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
       </p>
-      <p class=" bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+      <p class="py-1 text-[14px]">
         {{ __('表示される画像の対比は 2 : 3となるようにお願いいたします。') }}<br>
         {{ __('横幅800px, 縦幅1200pxの画像サイズが最も綺麗に表示されます。') }}
       </p>
@@ -116,13 +116,13 @@
     </svg>
     <div
       class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line w-[300px] lg:w-[552px] top-[-310px] lg:top-[-210px] left-[-70px] lg:left-[-75px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
-      <p class="mb-2 bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('複数ページにわたり1ページ1コマの描写があり、販売にふさわしくないと判断された場合、アカウントの有料販売を禁止する場合があります。') }}
       </p>
-      <p class="mb-2 bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
+      <p class="mb-2 py-1 text-[14px]">
         {{ __('投稿したエピソードは、鉛筆マークの編集ボタンから編集できます。') }}
       </p>
-      <p class="bg-warning bg-opacity-10 text-warning px-4 py-2 font-semibold">
+      <p class="py-1 text-[14px]">
         {{ __('投稿したエピソードを後から削除することはできません。ただし、鉛筆マークの編集ボタンから「非公開」にできます。') }}</p>
     </div>
   </div>
