@@ -40,15 +40,9 @@ class PaymentWebhookController extends Controller
             case 'checkout.session.completed':
                 $session = $event->data->object;
                 $this->handleCompletedCheckoutSession($session);
-
-                http_response_code(200);
-                echo json_encode('ok', true);
-                break;
-
+                return response()->json('ok', 200);
             default:
-                http_response_code(400);
-                echo json_encode('Unexpected event type', true);
-                exit();
+                return response()->json('Unexpected event type', 400);
         }
 
     }
