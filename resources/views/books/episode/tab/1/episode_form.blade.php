@@ -92,7 +92,7 @@
     </label>
 
     @if ($update && !$e->is_free)
-      <p class="mt-4 tracking-widest">現在の値段：<strong>
+      <p class="mt-4 tracking-widest">{{ __('現在の下限エール：') }}<strong>
           {{ $e->price ?? old('price') }}</strong>{{ __('円') }}
       </p>
     @endif
@@ -101,7 +101,7 @@
 
 @empty($book->user->stripe_user_id)
   <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
-    設定の「収益を受け取る準備」
+    {{ __('設定の「収益を受け取る準備」') }}
   </a>
   {{ __('を完了して有料で販売することができます') }}
 @endempty

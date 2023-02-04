@@ -2,7 +2,7 @@
 
 @if ($update)
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
-  <div class="checkbox mb-8">
+  <div class="checkbox mb-12">
     <label class="light-checkbox">
       <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
         class="light-checkbox-Input">
@@ -18,7 +18,7 @@
 
   {{-- 公開設定 --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
-  <div class="checkbox mb-8">
+  <div class="checkbox mb-12">
     <label class="light-checkbox">
       <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
         class="light-checkbox-Input">
@@ -34,7 +34,7 @@
 
   {{-- 休載設定 --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('休載設定') }}</h3>
-  <div class="checkbox mb-8">
+  <div class="checkbox mb-12">
     <label class="light-checkbox">
       <input type="checkbox" name="is_suspend" {{ $book->is_suspend ?? old('is_suspend') ? 'checked' : '' }}
         class="light-checkbox-Input">
@@ -51,26 +51,36 @@
 
 {{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
-<div class="mb-8">
+<div class="mb-12">
   <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1 rounded"
     placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
 {{-- サムネイル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
-<div class="mb-8">
-  <p class="mb-2 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-    {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
-  </p>
-  <p class="mb-4 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
-    {{ __('横幅500px, 縦幅500pxの画像サイズが最も綺麗に表示されます。') }}
-  </p>
-  <input type="file" name="thumbnail" class="my-2 dark:text-gray" @if (!$update) required @endif>
+<div class="relative flex items-center mt-8 mb-4">
+  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
+  <div class="tooltip cursor-pointer ml-1">
+    <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+    </svg>
+    <div
+      class="tooltip-item p-4 hover:flex flex-col flex-wrap whitespace-pre-line w-[300px] lg:w-[552px] top-[-310px] lg:top-[20px] left-[-70px] lg:left-[-90px] bg-white dark:bg-dark text-t-color dark:text-gray shadow-lg">
+      <p class="mb-2 py-1 text-[14px]">
+        {{ __('投稿できる画像形式はpng,jpg(jpeg),gif, webpです。') }}
+      </p>
+      <p class="py-1 text-[14px]">
+        {{ __('横幅500px, 縦幅500pxの画像サイズが最も綺麗に表示されます。') }}
+      </p>
+    </div>
+  </div>
 </div>
+<input type="file" name="thumbnail" class="mt-2 mb-12 dark:text-gray"
+  @if (!$update) required @endif>
 
 {{-- ジャンル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('ジャンル') }}</h3>
-<div class="mb-8">
+<div class="mb-12">
   <select name="genre_id" class="flex flex-col items-center">
     <option type="text" value="1"
       @isset($book->genre_id) @if (1 === (int) old('genre_id', $book->genre_id)) selected @endif @endisset>
@@ -89,7 +99,7 @@
 
 {{-- 言語 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('言語') }}</h3>
-<div class="mb-8">
+<div class="mb-12">
   <select name="lang" class="flex flex-col items-center">
     <option type="text" value="0"
       @isset($book->lang) @if (0 === (int) old('lang', $book->lang)) selected @endif @endisset>
@@ -127,7 +137,7 @@
 
 {{-- タグ --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
-<div class="mb-8">
+<div class="mb-12">
   <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
   </book-tags-input>
 </div>
