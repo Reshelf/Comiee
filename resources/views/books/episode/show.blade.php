@@ -35,9 +35,6 @@
   <div class="hidden lg:block">
     @include('atoms._episode_nav', ['tab' => 0])
   </div>
-  <div class="block lg:hidden">
-    @include('atoms._nav', ['tab' => 1])
-  </div>
 
   {{-- エピソードスクリーン --}}
   @if ($canWatch)
@@ -111,5 +108,7 @@
     </div>
   </div>
 
-  @include('atoms._footer')
+  <div class="hidden lg:block">
+    @include('atoms._footer')
+  </div>
 @endsection
