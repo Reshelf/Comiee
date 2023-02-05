@@ -68,18 +68,19 @@
                   <div class="flex items-center mt-1">
 
                     {{-- 値段 --}}
-                    @if (!$e->is_hidden && $book->user->id !== Auth::user()->id)
-                      @if ($e->is_free)
-                        <span
-                          class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
-                          {{ __('無料') }}
-                        </span>
-                      @elseif(!$e->isBoughtBy(Auth::user()))
-                        <span
-                          class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                          {{ $e->price }}{{ __('エール') }}
-                        </span>
-                      @endif
+                    @if (!$e->is_hidden && $e->is_free && !$e->isReadBy(Auth::user()) && !$e->isBoughtBy(Auth::user()))
+                      <span
+                        class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
+                        {{ __('無料') }}
+                      </span>
+                    @endif
+
+                    @if (!$e->is_free && !$e->isBoughtBy(Auth::user()))
+                      <span
+                        class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
+                        {{ $e->price }}{{ __('エール') }}
+                      </span>
+                    @else
                     @endif
 
                     {{-- 非公開 --}}
