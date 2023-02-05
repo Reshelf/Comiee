@@ -126,9 +126,9 @@
     <div class="max-w-8xl mx-4 md:mx-12 flex justify-between">
       <div class="relative flex items-center">
         <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-          class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('投稿作品') }}</a>
+          class="{{ $mypage ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
         @if (Auth::id() === $user->id)
-          <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+          <a href="{{ route('search.shelf', app()->getLocale()) }}"
             class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('本棚') }}</a>
           <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
             class="{{ $settings ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>

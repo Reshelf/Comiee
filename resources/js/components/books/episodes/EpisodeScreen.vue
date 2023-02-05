@@ -1,8 +1,13 @@
 <template>
     <div class="relative flex flex-col">
         <!-- 1段目 -->
-        <div class="screen scroll-none" :class="isFullScreen">
-            <div v-for="i in setImages" :key="i" class="images">
+        <div
+            v-if="show"
+            ref="screen"
+            class="screen scroll-none"
+            :class="isFullScreen"
+        >
+            <div v-for="i in pc_images" :key="i" class="images">
                 <img
                     :class="isFullScreen"
                     class="image image-right"
@@ -51,15 +56,23 @@
                     />
                 </svg>
             </button>
+        </div>
 
-            <div id="bg" style="display: none">
-                セキュリティ ポリシーによりこのページの画面操作はできません<br />
-                ページをリロードしてください
-            </div>
+        <!-- セキュリティポリシー -->
+        <div
+            v-if="!show"
+            ref="policy"
+            class="text-2xl font-semibold py-12 px-4 flex items-center justify-center"
+        >
+            セキュリティポリシーによりこのページの画面操作はできません<br />
+            ページをリロードしてください
         </div>
 
         <!-- 2段目 -->
-        <div class="hidden w-full bg-dark-1 px-4 py-2 lg:flex justify-between">
+        <div
+            v-if="show"
+            class="hidden w-full bg-dark-1 px-4 py-2 lg:flex justify-between"
+        >
             <div class="text-eee">前のエピソード</div>
             <div class="flex text-ccc">
                 <div
@@ -136,7 +149,7 @@
         </div>
 
         <!-- SP -->
-        <div class="lg:hidden w-full flex flex-col">
+        <div v-if="show" class="lg:hidden w-full flex flex-col">
             <img
                 v-for="image in images"
                 :key="image"
@@ -167,9 +180,11 @@ export default {
     data() {
         return {
             test: "",
-            images: [],
-            setImages: [],
+            images: JSON.parse(this.contents),
+            pc_images: [],
             fullScreen: false,
+            show: true,
+            windowWidth: window.innerWidth,
         };
     },
     computed: {
@@ -180,67 +195,53 @@ export default {
             return this.fullScreen ? "max-h-[85vh]" : "max-h-[100vh]";
         },
     },
-    created() {
-        // escでフルスクリーン解除メソッドを呼ぶ
-        let that = this;
-        document.addEventListener("keyup", function (evt) {
-            if (evt.keyCode === 27) {
-                that.clear_fullscreen();
-            }
-        });
-    },
     mounted() {
-        // json形式なので配列に変える
-        this.images = JSON.parse(this.contents);
-
-        const all = this.images;
-        const window_width = window.innerWidth;
-        const content = document.querySelector(".screen");
-
-        // 2枚ずつに分け、スライド用の配列を作成
-        const sliceByNumber = (all, number) => {
-            const length = Math.ceil(all.length / number);
-            return new Array(length)
-                .fill()
-                .map((_, i) => all.slice(i * number, (i + 1) * number));
-        };
-        this.setImages = sliceByNumber(all, 2);
-
-        // キーボードキーでスライド移動
-        document.onkeydown = function (e) {
+        this.setImages();
+        document.addEventListener("keydown", this.onKeyDown);
+    },
+    beforeUnmount() {
+        document.removeEventListener("keydown", this.onKeyDown);
+    },
+    methods: {
+        onKeyDown(e) {
             if (e.key === "ArrowRight") {
-                content.scrollLeft += window_width;
+                this.scroll_next();
             }
             if (e.key === "ArrowLeft") {
-                content.scrollLeft -= window_width;
+                this.scroll_prev();
             }
 
-            // スクショブロック
-            let bg = document.getElementById("bg").style;
+            // フルスクリーン解除
+            if (e.keyCode === 27) {
+                this.fullScreen = false;
+            }
+
             if (
                 e.metaKey ||
                 e.key == "RightCommand" ||
                 e.key == "LeftCommand" ||
                 e.key == "F12"
             ) {
-                bg.display = "flex";
+                this.show = false;
             }
-        };
-    },
-    methods: {
+        },
+        setImages() {
+            const all = this.images;
+
+            // 2枚ずつに分け、スライド用の配列を作成
+            const sliceByNumber = (all, number) => {
+                const length = Math.ceil(all.length / number);
+                return new Array(length)
+                    .fill()
+                    .map((_, i) => all.slice(i * number, (i + 1) * number));
+            };
+            this.pc_images = sliceByNumber(all, 2);
+        },
         scroll_next() {
-            let window_width = window.innerWidth;
-            let content = document.querySelector(".screen");
-            content.scrollLeft -= window_width;
+            this.$refs.screen.scrollLeft -= this.windowWidth;
         },
         scroll_prev() {
-            let window_width = window.innerWidth;
-            let content = document.querySelector(".screen");
-            content.scrollLeft += window_width;
-        },
-        // フルスクリーン解除
-        clear_fullscreen() {
-            this.fullScreen = false;
+            this.$refs.screen.scrollLeft += this.windowWidth;
         },
     },
 };

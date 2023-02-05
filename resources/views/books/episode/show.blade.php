@@ -5,7 +5,8 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-
+  
+  // 購入者 or 作者 or 無料 のみ見れる
   $canWatch = false;
   if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free) {
       $canWatch = true;
@@ -39,7 +40,6 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  {{-- 購入者 or 作者 or 無料 のみ見れる --}}
   @if ($canWatch)
     <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
       :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
@@ -47,10 +47,11 @@
   @endif
 
   {{-- 有料の場合 --}}
-  @if (!$episode->isBoughtBy(Auth::user()) &&
-      !$episode->is_free &&
-      $book->user->stripe_user_id &&
-      $book->user->id !== Auth::user()->id)
+  @if (
+      !$episode->isBoughtBy(Auth::user()) &&
+          !$episode->is_free &&
+          $book->user->stripe_user_id &&
+          $book->user->id !== Auth::user()->id)
     <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center">
       <div class="text-3xl mt-4 tracking-widest">
         {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>

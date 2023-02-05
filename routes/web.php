@@ -76,11 +76,11 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en'])->group(function () {
     Route::middleware(['verified', 'auth'])->group(function () {
         // お気に入り
         Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
+        Route::get('/shelf', 'App\Http\Controllers\Search\Like\IndexController')->name('search.shelf');
         Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
         // 購入
         Route::get('/payment', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.loading');
         Route::post('/payment/create/product', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.create');
-
     });
 
     /*
