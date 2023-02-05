@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('stripe_user_id')->nullable();
+            $table->number('danger')->default(0)->comment('危険度');
 
             $table->string('country_code', 4)->nullable();
             $table->text('avatar')->nullable();
