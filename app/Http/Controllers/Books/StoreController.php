@@ -87,7 +87,7 @@ class StoreController extends Controller
 
         // リダイレクト
         return redirect('/' . app()->getLocale() . '/books/' . $book->id)->with([
-            'success' => "作品を作成しました。続いて作品のエピソードを追加しましょう！",
+            'success' => __('作品を作成しました。続いて作品のエピソードを追加しましょう！'),
             'store' => true,
         ]);
     }

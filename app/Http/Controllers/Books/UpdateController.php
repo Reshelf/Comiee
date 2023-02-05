@@ -89,6 +89,6 @@ class UpdateController extends Controller
         $book->save();
 
         // リロード
-        return back()->withSuccess('作品の更新が完了しました。');
+        return back()->withSuccess(__('作品の更新が完了しました。'));
     }
 }

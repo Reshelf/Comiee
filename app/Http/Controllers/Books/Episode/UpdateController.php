@@ -107,6 +107,6 @@ class UpdateController extends Controller
 
         $episode->save();
 
-        return back()->with('success', 'エピソードを更新しました！');
+        return back()->with('success', __('エピソードを更新しました！'));
     }
 }
