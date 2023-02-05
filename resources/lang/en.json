@@ -1,5 +1,4 @@
 {
-    "日本語": "英語",
     "メールアドレス確認": "Email address confirmation",
     "ボタンをクリックして、登録されたメールアドレスを確認してください。": "Click the button to check the registered email address.",
     "このメールの内容に覚えがない場合は、このまま破棄してください。": "If you do not remember the contents of this email, discard it.",
@@ -246,7 +245,7 @@
     "事業内容": "Business content",
     "マンガ投稿アプリ「Comiee」の企画・開発・運用": "Planning, development and operation of the manga posting application \"COMIEE\"",
     "代表者": "Representative",
-    "田中 俊一朗": "Tanaka Shun-ichiro",
+    "田中 俊一朗": "Tanaka Shunichiro",
     "所在地": "location",
     "〒107-0062": "〒107-0062",
     "東京都港区南青山２丁目２番１５号": "2-25 Minami -Aoyama, Minato -ku, Tokyo",
@@ -264,6 +263,5 @@
     "気に入った作者を「フォロー」、気に入った作品を「お気に入り」することで、マイページに追加され、あとから探しやすくなります。※「フォロー」「お気に入り」するにはログインが必要となります。": "By \"Follow\" your favorite author and your favorite work will be added to My Page and it will be easier to search later. * You need to log in to follow and like.",
     "「作品」は、投稿するマンガのシリーズの単位です。「エピソード」は、その一作品内にある話の単位です。エピソードのことを単に「話」とも数えたりします。手順としてはまず「作品」を投稿し、そこに「エピソード」を追加していく流れになります。（例）このアカウントでは今までに3作品を投稿し、どれも10話以内に完結した。一方で4作品目は長編になり、来週分のエピソードを追加すれば全20話になる。": "\"Work\" is the unit of the manga series to post. \"Episode\" is the unit of the story in that work. Episode is simply counted as a \"story.\" As a procedure, first post \"work\" and add \"episode\" to it. (Example) In this account, three works have been posted so far, and all of them have been completed within 10 episodes. On the other hand, the fourth work will be a feature film, and if you add an episode for next week, it will be 20 episodes.",
     "できません。その代わり、投稿済み作品の「作品の設定を編集する」ボタンから、「非公開」にできます。非公開にした作品を、後から「公開」にすることもできます。※ 作品を「非公開」にした場合、作品内の全てのエピソードが「非公開」になります。": "you can't. Instead, you can use the posted work \"edit the settings of the work\" button to \"private\". You can also make a private work \"public\" later. * If the work is \"private\", all episodes in the work will be \"private\".",
-    "（消費税引き後売上金額–決済手数料 ※）× 70% ＝ 作者の収入になります。詳しくはこちらをご覧ください。※ 決済手数料は、消費税を引いた後の売上金額の3.6%です。": "(Sales after consumption tax -payment fee *) × 70% = income of the author. Please check this out for details. * The payment fee is 3.6%of the sales amount after subtracting the consumption tax.",
-    "作品の閲覧を無料/有料のどちらにするか、何度でも変更可能です。ただし、販売価格は1話あたり50円を初期値としてスタートします。価格は作品の閲覧数やお気に入り登録者数、作品の投稿(更新)ペースなどによって変動し、作者側で操作することはできません。": "You can change the work as many times as you want to browse the work free/paid. However, the selling price will start 50 yen per episode as the initial value. The price varies depending on the number of browsing of the work, the number of favorite registrants, the post (update) pace of the work, etc., and cannot be operated by the author."
+    "（消費税引き後売上金額–決済手数料 ※）× 70% ＝ 作者の収入になります。詳しくはこちらをご覧ください。※ 決済手数料は、消費税を引いた後の売上金額の3.6%です。": "(Sales after consumption tax -payment fee *) × 70% = income of the author. Please check this out for details. * The payment fee is 3.6%of the sales amount after subtracting the consumption tax."
 }
