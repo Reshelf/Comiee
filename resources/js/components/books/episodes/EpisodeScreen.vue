@@ -179,7 +179,6 @@ export default {
     },
     data() {
         return {
-            test: "",
             images: JSON.parse(this.contents),
             pc_images: [],
             fullScreen: false,
