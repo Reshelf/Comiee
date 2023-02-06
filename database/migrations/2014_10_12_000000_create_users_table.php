@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('lang')->nullable()->comment('言語');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('stripe_user_id')->nullable();
-            $table->number('danger')->default(0)->comment('危険度');
+            $table->integer('danger')->default(0)->comment('危険度');
 
-            $table->string('country_code', 4)->nullable();
             $table->text('avatar')->nullable();
             $table->text('thumbnail')->nullable();
             $table->text('body', 200)->nullable();
