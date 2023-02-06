@@ -28,8 +28,12 @@ Route::get('/', function (Request $request) {
 
         if ($langs_val[0] == "ja") {
             return redirect('/ja' . $path);
-        } else {
+        } elseif ($langs_val[0] == "en") {
             return redirect('/en' . $path);
+        } elseif ($langs_val[0] == "tw") {
+            return redirect('/tw' . $path);
+        } elseif ($langs_val[0] == "cn") {
+            return redirect('/cn' . $path);
         }
     } else {
         return redirect(app()->getLocale());
