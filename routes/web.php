@@ -26,21 +26,38 @@ Route::get('/', function (Request $request) {
             $langs_val[] = substr($lang, 0, 2);
         }
 
-        if ($langs_val[0] == "ja") {
-            return redirect('/ja' . $path);
-        } elseif ($langs_val[0] == "en") {
-            return redirect('/en' . $path);
-        } elseif ($langs_val[0] == "tw") {
-            return redirect('/tw' . $path);
-        } elseif ($langs_val[0] == "cn") {
-            return redirect('/cn' . $path);
+        switch ($langs_val[0]) {
+            case 'ja':
+                return redirect('/ja' . $path);
+            case 'en':
+                return redirect('/en' . $path);
+            case 'tw':
+                return redirect('/tw' . $path);
+            case 'cn':
+                return redirect('/cn' . $path);
+            case 'es':
+                return redirect('/es' . $path);
+            case 'fr':
+                return redirect('/fr' . $path);
+            case 'it':
+                return redirect('/it' . $path);
+            case 'id':
+                return redirect('/id' . $path);
+            case 'th':
+                return redirect('/th' . $path);
+            case 'ko':
+                return redirect('/ko' . $path);
+            case 'de':
+                return redirect('/de' . $path);
+            default:
+                return redirect('/en' . $path);
         }
     } else {
         return redirect(app()->getLocale());
     }
 });
 
-Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn'])->group(function () {
+Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->group(function () {
 
     /*
     |--------------------------------------------------------------------------
