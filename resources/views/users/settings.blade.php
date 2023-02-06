@@ -9,7 +9,7 @@
   $d = __('サイトの表示設定');
   $e = __('収益の受取');
   $f = __('アカウントの削除');
-
+  
   $dark = __('ダークモードにする');
   $light = __('ライトモードにする');
 @endphp
@@ -141,18 +141,34 @@
                   <div class="mt-4">
                     <div class="mb-4">
                       @if (App::getLocale() == 'ja')
-                        日本語
-                      @else
-                        English
+                        {{ __('日本語') }}
+                      @elseif(App::getLocale() == 'en')
+                        {{ __('英語') }}
+                      @elseif(App::getLocale() == 'tw')
+                        {{ __('繁体字') }}
+                      @elseif(App::getLocale() == 'cn')
+                        {{ __('簡体字') }}
                       @endif
                     </div>
-                    <a href="{{ locale_change_url() }}" class="inline-block btn-border px-2">
-                      @if (app()->getLocale() == 'ja')
-                        英語に変える
-                      @else
-                        Change to Japanese
-                      @endif
-                    </a>
+                    <form action="{{ route('change.lang') }}" method="post">
+                      @csrf
+                      <div class="filters flex flex-col">
+                        <input type="radio" name="lang" class="visually-hidden" id="ja" value="ja"
+                          @if (App::getLocale() == 'ja') checked @endif />
+                        <label for="ja" class="mt-4">{{ __('日本語') }}</label>
+                        <input type="radio" name="lang" class="visually-hidden" id="en" value="en"
+                          @if (App::getLocale() == 'en') checked @endif />
+                        <label for="en" class="mt-4">{{ __('英語') }}</label>
+                        <input type="radio" name="lang" class="visually-hidden" id="tw" value="tw"
+                          @if (App::getLocale() == 'tw') checked @endif />
+                        <label for="tw" class="mt-4">{{ __('繁体字') }}</label>
+                        <input type="radio" name="lang" class="visually-hidden" id="cn" value="cn"
+                          @if (App::getLocale() == 'cn') checked @endif />
+                        <label for="cn" class="mt-4">{{ __('簡体字') }}</label>
+                      </div>
+                      <button type="submit" class="btn-border mt-6">{{ __('変更する') }}</button>
+                    </form>
+
                   </div>
                 </div>
 

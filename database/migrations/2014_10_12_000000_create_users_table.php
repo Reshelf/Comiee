@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->default('name')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->string('lang')->nullable()->comment('言語');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('stripe_user_id')->nullable();
             $table->number('danger')->default(0)->comment('危険度');
