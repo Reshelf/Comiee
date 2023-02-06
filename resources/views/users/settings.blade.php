@@ -221,7 +221,7 @@
                   <div class="mt-6">
                     @if (empty(Auth::user()->stripe_user_id))
                       <p class="mb-6">
-                        Stripeアカウントを連携して受取設定を完了させましょう。
+                        {{ __('Stripeアカウントを連携して受取設定を完了させましょう。') }}
                       </p>
                       <div class="relative inline-block">
                         <a onclick="stripe_connectbtn()"
@@ -246,7 +246,7 @@
 
                   <h3 class="text-base font-semibold mt-12">{{ __('収益について') }}</h3>
                   <div class="mt-4">
-                    日本時間の毎週金曜日0時に、4営業日前までに購入処理が完了した分の売上が入金されます。<br>
+                    {{ __('日本時間の毎週金曜日0時に、4営業日前までに購入処理が完了した分の売上が入金されます。') }}<br>
                     詳しくは <a href="/{{ app()->getLocale() . '/terms_of_service' . '#sales_and_author_profit' }}"
                       class="text-primary">こちら</a>
                   </div>
