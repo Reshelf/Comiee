@@ -40,9 +40,7 @@ class ShelfController extends Controller
          */
 
         $username = Auth::user()->username;
-        $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
-            return User::where('username', $username)->first();
-        });
+        $user = User::where('username', $username)->first();
 
         /*
         |--------------------------------------------------------------------------
@@ -70,7 +68,7 @@ class ShelfController extends Controller
          */
 
         if ($type == 'view_history') {
-            $query = $user->likes();
+            $query = $user->reads();
             $feature = $request->input('feature');
 
             if ($feature != null) {
@@ -88,7 +86,7 @@ class ShelfController extends Controller
          */
 
         if ($type == 'purchase_history') {
-            $query = $user->likes();
+            $query = $user->bought();
             $feature = $request->input('feature');
 
             if ($feature != null) {
@@ -99,6 +97,7 @@ class ShelfController extends Controller
         }
 
         $books = $query->paginate(15);
+        // dd($books);
         return view('users.shelf.index', [
             'books' => $books,
             'feature' => $feature,
