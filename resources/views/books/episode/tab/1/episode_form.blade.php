@@ -75,7 +75,7 @@
 
 
 {{-- 有料選択 --}}
-<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('料金設定') }}</h3>
+<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('スーパーライクの受け取り') }}</h3>
 <div class="checkbox">
   @empty(!$book->user->stripe_user_id)
     <label class="light-checkbox">
@@ -88,12 +88,12 @@
             stroke-linejoin="round" />
         </svg>
       </span>
-      <span class="light-checkbox-LabelText">{{ __('このエピソードを有料で販売する') }}</span>
+      <span class="light-checkbox-LabelText">{{ __('読者からスーパーライクを受け取る') }}</span>
     </label>
 
     @if ($update && !$e->is_free)
-      <p class="mt-4 tracking-widest">{{ __('現在の下限エール：') }}<strong>
-          {{ $e->price ?? old('price') }}</strong>{{ __('円') }}
+      <p class="mt-4 tracking-widest">{{ __('現在のスーパーライク：') }}<strong>
+          {{ $e->price ?? old('price') }}</strong>{{ __('円') }}〜
       </p>
     @endif
   @endempty
@@ -101,9 +101,9 @@
 
 @empty($book->user->stripe_user_id)
   <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
-    {{ __('設定の「収益を受け取る準備」') }}
+    {{ __('「収益を受け取る準備」') }}
   </a>
-  {{ __('を完了して有料で販売することができます') }}
+  {{ __('を完了したらスーパーライクの受取選択をすることができます') }}
 @endempty
 
 {{-- ご注意点 --}}
