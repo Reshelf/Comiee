@@ -75,7 +75,7 @@
 
 
 {{-- 有料選択 --}}
-<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('スーパーエールの受け取り') }}</h3>
+<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('このエピソードを有料化する') }}</h3>
 <div class="checkbox">
   @empty(!$book->user->stripe_user_id)
     <label class="light-checkbox">
@@ -103,7 +103,7 @@
   <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
     {{ __('「収益を受け取る準備」') }}
   </a>
-  {{ __('を完了したらスーパーエールの受取選択をすることができます') }}
+  {{ __('を完了したら有料販売をすることができます') }}
 @endempty
 
 {{-- ご注意点 --}}

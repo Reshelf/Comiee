@@ -7,7 +7,7 @@
   //   $b = __('購入履歴');
   //   $c = __('表示しない作品');
   $d = __('サイトの表示設定');
-  $e = __('スーパーエール');
+  $e = __('収益の受け取り');
   $f = __('アカウントの削除');
 
   $dark = __('ダークモードにする');
@@ -216,7 +216,7 @@
               </div>
               <div class="pt-4 pb-12 border-b border-ccc" id="earnings">
                 <div class="mt-4 mb-8">
-                  <h3 class="text-base font-semibold">{{ __('スーパーエールの受け取り準備') }}</h3>
+                  <h3 class="text-base font-semibold">{{ __('収益受け取りの準備') }}</h3>
                   <div class="mt-6">
                     @if (empty(Auth::user()->stripe_user_id))
                       <p class="mb-6">
