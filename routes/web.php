@@ -98,7 +98,7 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::middleware(['verified', 'auth'])->group(function () {
         // お気に入り
         Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
-        Route::get('/shelf', 'App\Http\Controllers\Search\Like\IndexController')->name('search.shelf');
+        Route::get('/shelf', 'App\Http\Controllers\User\ShelfController')->name('search.shelf');
         Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
         // 購入
         Route::get('/payment', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.loading');
