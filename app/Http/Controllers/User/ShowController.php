@@ -27,7 +27,8 @@ class ShowController extends Controller
             abort(404);
         }
 
-        if (Auth::user() && $user->id === Auth::user()->id) {
+        // 言語未設定なら設定する
+        if (Auth::user() && isset($user->lang) && $user->id === Auth::user()->id) {
             $user->lang = App::getLocale();
             $user->save();
         }

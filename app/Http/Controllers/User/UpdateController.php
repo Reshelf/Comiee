@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 // use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,6 +46,10 @@ class UpdateController extends Controller
         $user->username = $request->username;
         $user->body = $request->body;
         $user->email = $request->email;
+        if (isset($user->lang)) {
+            $user->lang = App::getLocale();
+        }
+
         // $user->website = $request->website;
 
         if ($request->has('avatar')) {
