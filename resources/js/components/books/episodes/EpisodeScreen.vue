@@ -64,7 +64,8 @@
             ref="policy"
             class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-semibold py-12 lg:py-20 px-4 flex items-center justify-center"
         >
-            セキュリティポリシーによりこのページの画面操作はできません<br />
+            作品保護のため<br />
+            このページの画面操作はできません<br />
             ページをリロードしてください
         </div>
 
