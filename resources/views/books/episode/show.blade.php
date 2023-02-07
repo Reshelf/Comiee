@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-  
+
   // 購入者 or 作者 or 無料 のみ見れる
   $canWatch = false;
   if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free) {
@@ -49,7 +49,7 @@
           !$episode->is_free &&
           $book->user->stripe_user_id &&
           $book->user->id !== Auth::user()->id)
-    <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center">
+    <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center px-8">
       <div class="text-3xl mt-4 tracking-widest">
         {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
       <div class="my-8">
@@ -67,13 +67,16 @@
 
           <div class="relative mt-12">
             <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
-              {{ __('エールを送ってエピソードを読む') }}
+              {{ __('スーパーエールでエピソードを読む') }}
               <span class="load loading"></span>
             </button>
           </div>
         </form>
 
-        <div class="text-[11px] mt-4">50エールから応援することができます。(1エール = 1円)</div>
+        <div class="text-[11px] mt-4">
+          50エールから応援することができます。<br>
+          日本に住んでいる方は1エール = 1円、それ以外の国の方は1エール = 1ドルとなります。
+        </div>
 
       </div>
     </div>
