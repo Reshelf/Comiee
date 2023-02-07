@@ -53,7 +53,7 @@
       <div class="text-3xl mt-4 tracking-widest">
         {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
       <div class="my-8">
-        作者にエールを送って作品を読もう！
+        作者にスーパーエールを送って作品を読もう！
       </div>
 
       <div class="">
