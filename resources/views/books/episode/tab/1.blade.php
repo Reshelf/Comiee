@@ -56,9 +56,8 @@
               <div class="w-full flex justify-between items-end">
                 {{-- 話数 --}}
                 <div class="flex flex-col">
-                  <div class="flex flex-col lg:flex-row lg:items-center">
-                    <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}
-                    </div>
+                  <div class="mr-2 flex flex-col lg:flex-row lg:items-center">
+                    <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}</div>
                     @isset($e->title)
                       <div class="lg:ml-4 truncate text-sm">
                         {{ $e->title }}</div>
@@ -69,31 +68,31 @@
 
                     {{-- 値段 --}}
                     @if (!$e->is_hidden && $e->is_free && !$e->isReadBy(Auth::user()) && !$e->isBoughtBy(Auth::user()))
-                      <span
-                        class="tracking-widest text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
+                      <div
+                        class="mr-2 tracking-widest inline-block text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
                         {{ __('無料') }}
-                      </span>
+                      </div>
                     @endif
 
                     @if (!$e->is_free && !$e->isBoughtBy(Auth::user()))
-                      <span
-                        class="tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
+                      <div
+                        class="mr-2 tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
                         {{ $e->price }}{{ __('エール') }}
-                      </span>
+                      </div>
                     @else
                     @endif
 
                     {{-- 非公開 --}}
                     @if ($e->is_hidden)
-                      <span
-                        class="text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[5px] whitespace-nowrap">
+                      <div
+                        class="mr-2 inline-block text-xs text-tahiti border border-tahiti py-0.5 px-1.5 rounded-[5px] whitespace-nowrap">
                         {{ __('非公開') }}
-                      </span>
+                      </div>
                     @endif
 
 
                     {{-- 閲覧回数 --}}
-                    <div class="ml-2 text-666 dark:text-ddd">
+                    <div class="mr-2 text-666 dark:text-ddd">
                       {{ number_format($e->views) }} <span class="text-xs">{{ __('回') }}</span>
                     </div>
 
@@ -101,11 +100,11 @@
                     @auth
                       @if ($book->user->id !== Auth::user()->id)
                         @if ($e->isReadBy(Auth::user()))
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                          <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                             {{ __('既読') }}
                           </span>
                         @else
-                          <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                          <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                             {{ __('未読') }}
                           </span>
                         @endif
@@ -117,7 +116,7 @@
                       @if (!$e->is_free)
                         @auth
                           @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
-                            <span class="inline-block text-xs text-666 dark:text-ddd ml-2">
+                            <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                               {{ __('購入済') }}
                             </span>
                           @endif
