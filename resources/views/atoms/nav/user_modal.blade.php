@@ -27,7 +27,7 @@
   </a>
 
   {{-- 本棚 --}}
-  <a href="{{ route('search.shelf', app()->getLocale()) }}"
+  <a href="{{ route('user.shelf.like', app()->getLocale()) }}"
     class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path

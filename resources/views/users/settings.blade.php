@@ -21,7 +21,6 @@
     @include('atoms._error_card_list')
     @include('atoms.success')
   </div>
-
   @if (Auth::id() === $user->id)
     <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
       <div class="w-full lg:mt-4 mx-12">
@@ -272,6 +271,7 @@
       </div>
     </div>
   @endif
+
 
 
   @include('atoms._footer')

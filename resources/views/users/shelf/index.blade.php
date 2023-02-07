@@ -5,51 +5,54 @@
 @section('content')
   @include('atoms._nav', ['tab' => 3])
 
-  <div class="flex w-full mx-auto justify-center">
-    <div class="w-full flex flex-col md:flex-row justify-around mx-auto px-4 lg:p-8 mb-8">
-      <div class="lg:mb-4">
-        @include('books.atoms.tabs')
-      </div>
+  <div class="mx-4 lg:mx-0">
+    @include('atoms._error_card_list')
+    @include('atoms.success')
+  </div>
 
-      <div class="w-full md:w-4/5 rounded-lg md:ml-8">
+  <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
+    <div class="w-full lg:mt-4 mx-12">
+      <div class="w-full lg:my-4 flex">
+        <div class="setting-tab">
 
-        @include('atoms._error_card_list')
-        @include('atoms.success')
+          @include('users.shelf._tabs', ['type' => $type])
 
+          <div class="tabContents">
+            {{-- ランキング --}}
+            <div class="w-full flex flex-col mb-4">
+              <div class="w-full max-w-8xl mx-auto mb-4">
+                <div class="w-full flex flex-col">
+                  @include('search.atoms._term_tabs', [
+                      'ranking' => false,
+                      'todays_new' => false,
+                      'like' => true,
+                      'following' => false,
+                  ])
 
-        {{-- ランキング --}}
-        <div class="w-full flex flex-col mb-4">
-          <div class="w-full max-w-8xl mx-auto mb-4">
-            <div class="w-full flex flex-col">
-              @include('search.atoms._term_tabs', [
-                  'ranking' => false,
-                  'todays_new' => false,
-                  'like' => true,
-                  'following' => false,
-              ])
-
-              {{-- フィルター --}}
-              @isset($books)
-                <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
-                  @include('search.atoms._filter')
-                  <form class="acd-content" method="POST" action="{{ route('like.search', app()->getLocale()) }}">
-                    @csrf
-                    @include('users.shelf._form', [
-                        'feature' => $feature,
-                    ])
-                  </form>
+                  {{-- フィルター --}}
+                  @isset($books)
+                    <div class="inline-block border-b border-ddd dark:border-dark-1 pb-2">
+                      @include('search.atoms._filter')
+                      <form class="acd-content" method="POST" action="{{ route('like.search', app()->getLocale()) }}">
+                        @csrf
+                        @include('users.shelf._form', [
+                            'feature' => $feature,
+                        ])
+                      </form>
+                    </div>
+                  @endisset
                 </div>
-              @endisset
+              </div>
+
+              @include('search.atoms._content')
             </div>
+
+            <div class="w-full flex justify-center mt-8">{{ $books->appends(Request::except('page'))->links() }}</div>
+
           </div>
-
-          @include('search.atoms._content')
         </div>
-
-        <div class="w-full flex justify-center mt-8">{{ $books->appends(Request::except('page'))->links() }}</div>
       </div>
     </div>
   </div>
-
   @include('atoms._footer')
 @endsection

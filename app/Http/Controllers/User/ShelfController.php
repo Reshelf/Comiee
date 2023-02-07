@@ -16,24 +16,85 @@ class ShelfController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | お気に入り : トップ
+    | 本棚
     |--------------------------------------------------------------------------
     |
      */
     public function __invoke(Request $request)
     {
+        /*
+        |--------------------------------------------------------------------------
+        | お気に入り or 閲覧履歴 or 購入履歴
+        |--------------------------------------------------------------------------
+        |
+         */
+
+        $path = $request->path('');
+        $type = substr($path, 9);
+
+        /*
+        |--------------------------------------------------------------------------
+        | ユーザー
+        |--------------------------------------------------------------------------
+        |
+         */
+
         $username = Auth::user()->username;
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::where('username', $username)->first();
         });
 
-        $query = $user->likes();
+        /*
+        |--------------------------------------------------------------------------
+        | お気に入り
+        |--------------------------------------------------------------------------
+        |
+         */
 
-        $feature = $request->input('feature');
+        if ($type == 'like') {
+            $query = $user->likes();
+            $feature = $request->input('feature');
 
-        if ($feature != null) {
-            if ($feature === '完結作品のみ') {
-                $query->where(['is_complete' => 1])->latest();
+            if ($feature != null) {
+                if ($feature === '完結作品のみ') {
+                    $query->where(['is_complete' => 1])->latest();
+                }
+            }
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | 閲覧履歴
+        |--------------------------------------------------------------------------
+        |
+         */
+
+        if ($type == 'view_history') {
+            $query = $user->likes();
+            $feature = $request->input('feature');
+
+            if ($feature != null) {
+                if ($feature === '完結作品のみ') {
+                    $query->where(['is_complete' => 1])->latest();
+                }
+            }
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | 購入履歴
+        |--------------------------------------------------------------------------
+        |
+         */
+
+        if ($type == 'purchase_history') {
+            $query = $user->likes();
+            $feature = $request->input('feature');
+
+            if ($feature != null) {
+                if ($feature === '完結作品のみ') {
+                    $query->where(['is_complete' => 1])->latest();
+                }
             }
         }
 
@@ -41,6 +102,7 @@ class ShelfController extends Controller
         return view('users.shelf.index', [
             'books' => $books,
             'feature' => $feature,
+            'type' => $type,
         ]);
     }
 }
