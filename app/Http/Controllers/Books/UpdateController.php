@@ -60,6 +60,26 @@ class UpdateController extends Controller
             $book->is_suspend = false;
         }
 
+        // 全エピソード有料化設定
+        $episodes = $book->episodes()->get();
+        $book->is_all_charge = true;
+        if ($request->is_all_charge === null) {
+            $book->is_all_charge = false;
+        }
+        if ($book->user->stripe_user_id) {
+            if ($book->is_all_charge) {
+                foreach ($episodes as $episode) {
+                    $episode->is_free = false;
+                    $episode->save();
+                }
+            } else {
+                foreach ($episodes as $episode) {
+                    $episode->is_free = true;
+                    $episode->save();
+                }
+            }
+        }
+
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
