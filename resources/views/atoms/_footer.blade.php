@@ -146,7 +146,8 @@
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('利用規約') }}</a>
         <a href="{{ route('others.privacy', app()->getLocale()) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('プライバシーポリシー') }}</a>
-        <a href="" class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
+        <a href="{{ route('others.sct', app()->getLocale()) }}"
+          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
       </div>
     </div>
   </div>
