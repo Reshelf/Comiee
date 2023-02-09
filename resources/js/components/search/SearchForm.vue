@@ -29,6 +29,10 @@ const props = defineProps({
         type: String,
         default: "",
     },
+    search: {
+        type: String,
+        default: "",
+    },
 });
 
 const getData = async () => {
@@ -53,7 +57,7 @@ function reset() {
             ref="anyName"
             v-model="state.search"
             type="text"
-            placeholder="検索"
+            :placeholder="search"
             class="p-2 md:pl-4 md:pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
             @focus="open = true"
         />
