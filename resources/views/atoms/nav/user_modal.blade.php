@@ -1,8 +1,7 @@
 @php
-  $a = __('ダークモードにする');
-  $b = __('ライトモードにする');
+  $dark = __('ダークモードにする');
+  $light = __('ライトモードにする');
 @endphp
-
 
 <header-user-modal>
   <template #avatar>
@@ -42,6 +41,9 @@
     </svg>
     <span class="pl-5">{{ __('本棚') }}</span>
   </a>
+
+  {{-- ダークモード --}}
+  <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
 
   {{-- 設定 --}}
   <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
