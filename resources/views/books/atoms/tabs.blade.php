@@ -41,9 +41,7 @@
       </form>
     </comment-post-modal>
   @endauth
-</div>
-<div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
-  <tag-search-modal>
+  <tag-search-modal class="px-3 py-2 text-xs">
     <template #trigger>{{ __('タグからさがす') }}</template>
   </tag-search-modal>
 </div>
