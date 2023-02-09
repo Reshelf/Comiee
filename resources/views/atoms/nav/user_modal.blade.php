@@ -43,7 +43,10 @@
   </a>
 
   {{-- ダークモード --}}
-  <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
+  <div
+    class="flex items-center text-sm cursor-pointer rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
+    <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
+  </div>
 
   {{-- 設定 --}}
   <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
