@@ -53,14 +53,32 @@ function reset() {
 </script>
 <template>
     <div class="header-search-input relative flex items-center mx-auto">
-        <input
-            ref="anyName"
-            v-model="state.search"
-            type="text"
-            :placeholder="search"
-            class="p-2 md:pl-4 md:pr-8 border border-ccc dark:bg-dark-1 dark:border-dark"
-            @focus="open = true"
-        />
+        <div class="relative flex items-center">
+            <div class="absolute px-4 py-2 flex-shrink-0">
+                <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                    />
+                </svg>
+            </div>
+            <input
+                ref="anyName"
+                v-model="state.search"
+                type="text"
+                :placeholder="search"
+                class="p-3 md:pl-12 md:pr-8 bg-[#F0F3F4] dark:bg-dark-1"
+                @focus="open = true"
+            />
+        </div>
+
         <button @click="reset()" class="absolute top-[10px] right-2">
             <template v-if="open && state.search.length > 1">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
