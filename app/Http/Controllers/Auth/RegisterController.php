@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 // use App\Mail\user\RegisterdUserMail;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -27,10 +27,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'email' => ['required', 'string', ':filter,dns', 'max:255', 'unique:users'],
             'password' => ['required', Password::min(8)
-                ->letters()
-                ->mixedCase()
-                ->numbers()
-                ->uncompromised()],
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->uncompromised()],
         ]);
     }
     protected function create(array $data)
@@ -42,10 +42,12 @@ class RegisterController extends Controller
 
         // ユーザー番号をランダムで生成する
         do {
-            $username = Str::random(20);
+            $username = 'user-' . Str::random(20);
         } while (User::where('username', $username)->exists());
+        $name = $username;
 
         return User::create([
+            'name' => $name,
             'username' => $username,
             'email' => $email,
             'password' => $password,
@@ -89,6 +91,6 @@ class RegisterController extends Controller
         $this->guard()->login($user, true);
 
         return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        ?: redirect($this->redirectPath());
     }
 }
