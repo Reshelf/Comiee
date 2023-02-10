@@ -31,10 +31,7 @@
               <h3 class="text-2xl font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
               <a href="#mail-notification">{{ $a }}</a>
               <a href="#site-display">{{ $d }}</a>
-              <a href="#earnings">{{ $e }}</a>
-              {{-- <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}">
-                マイページ
-              </a> --}}
+              <a href="#earnings">{{ $e }}</a
               <a href="#account-delete">{{ $f }}</a>
             </ul>
             <div class="tabContents">

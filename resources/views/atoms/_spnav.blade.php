@@ -71,6 +71,6 @@
       <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26003 15 3.41003 18.13 3.41003 22" stroke-width="1.5"
         stroke-linecap="round" stroke-linejoin="round" />
     </svg>
-    {{ __('マイページ') }}
+    {{ __('プロフィールを見る') }}
   </a>
 </div>
