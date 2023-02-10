@@ -19,17 +19,29 @@
   {{-- 公開設定 --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
   <div class="checkbox mb-12">
-    <label class="light-checkbox">
-      <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
-        class="light-checkbox-Input">
-      <span class="light-checkbox-DummyInput">
-        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
-          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="light-checkbox-LabelText">{{ __('作品を非公開にする') }}</span>
-    </label>
+    @if ($book->is_contracted)
+      <label class="light-checkbox">
+        <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
+          class="light-checkbox-Input">
+        <span class="light-checkbox-DummyInput">
+          <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+            <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="light-checkbox-LabelText">{{ __('作品を非公開にする') }}</span>
+      </label>
+    @else
+      <div class="">
+        {{ __('現在、作品は非公開になっており、作品を公開にするには、作品毎に当サービスと出版契約書（電子配信）を交わす必要があります。') }}<br>
+        {{ __('以下のボタンから契約書をダウンロードをして記入の上、契約書を送信してください。') }} <br>
+        <a href="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/work_contract.pdf" target="_blank"
+          rel="noopener noreferrer" class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
+        <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit" target="_blank"
+          rel="noopener noreferrer" class="btn-border inline-block mt-4">{{ __('出版契約書（電子配信）を送信する') }}</a>
+      </div>
+    @endif
+
   </div>
 
   {{-- 休載設定 --}}
