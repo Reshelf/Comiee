@@ -73,7 +73,7 @@
     <div class="w-full md:px-6 flex justify-between md:mt-2">
       <div class="w-full flex flex-col">
         <div class="flex items-center justify-start">
-          <h3 class="font-semibold pr-2 tracking-widest text-2xl md:text-[30px] dark:text-ddd">
+          <h3 class="font-semibold pr-2 text-2xl md:text-[30px] dark:text-ddd">
             {{ $user->name }}
           </h3>
 
@@ -89,7 +89,7 @@
           @endif
         </div>
 
-        <div class="text-left mt-1 lg:text-[15px] text-t-color-3">
+        <div class="text-left font-semibold mt-1 lg:text-[15px] text-t-color-3">
           <span>@</span>{{ $user->username }}
         </div>
 
