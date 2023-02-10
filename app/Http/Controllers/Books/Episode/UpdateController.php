@@ -49,6 +49,11 @@ class UpdateController extends Controller
                 $episode->title = $request->title;
             }
 
+            // 作者から一言
+            if ($request->has('short_from_author')) {
+                $episode->short_from_author = $request->short_from_author;
+            }
+
             // 非公開設定
             $episode->is_hidden = true;
             if ($request->is_hidden == null) {
