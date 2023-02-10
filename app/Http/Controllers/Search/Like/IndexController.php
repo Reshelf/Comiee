@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Search\Like;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-use App\Models\Book;
-use App\Models\User;
 
 class IndexController extends Controller
 {
@@ -21,7 +19,7 @@ class IndexController extends Controller
     | お気に入り : トップ
     |--------------------------------------------------------------------------
     |
-    */
+     */
     public function __invoke(Request $request)
     {
         $username = Auth::user()->username;
@@ -40,9 +38,10 @@ class IndexController extends Controller
         }
 
         $books = $query->paginate(15);
-        return view('search.like.index', [
+        return view('users.shelf.index', [
+            'type' => 'like',
             'books' => $books,
-            'feature' => $feature
+            'feature' => $feature,
         ]);
     }
 }
