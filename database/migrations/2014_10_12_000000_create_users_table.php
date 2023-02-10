@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('stripe_user_id')->nullable();
             $table->integer('danger')->default(0)->comment('危険度');
+            $table->boolean('is_pro')->default(0)->comment('プロアカウントユーザー');
 
             $table->text('avatar')->nullable();
             $table->text('thumbnail')->nullable();
