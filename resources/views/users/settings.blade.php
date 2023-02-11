@@ -247,11 +247,35 @@
                   <h3 class="text-base font-semibold">{{ __('アカウントの削除') }}</h3>
                   <div class="mt-6">
                     <div class="relative inline-block">
-                      <a href="">
-                        <button class="btn-primary">
+                      <delete-modal>
+                        <template #header>
                           {{ __('アカウントを削除する') }}
-                        </button>
-                      </a>
+                        </template>
+                        <template #trigger>
+                          <button class="text-red border borde-red px-4 py-2 rounded-[5px]">
+                            {{ __('アカウントを削除する') }}
+                          </button>
+                        </template>
+
+                        <form method="POST"
+                          action="{{ route('users.delete', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+                          class="p-2 rounded w-full">
+                          @csrf
+                          @method('DELETE')
+                          <div class="">
+                            <p class="mb-4"> {{ __('アカウントを削除すると、次のような影響があります') }}</p>
+                            <ul class="mb-8">
+                              <li class="mb-2">{{ __('そのアカウントでは、ログインすることもComieeのサービスを利用することも一切できません') }}</li>
+                              <li class="mb-2">{{ __('あなたの作品すべてにアクセスできなくなります') }}</li>
+                              <li class="">{{ __('これまでに購入した作品を見ることができなくなります') }}</li>
+                            </ul>
+                          </div>
+                          <div class="w-full">
+                            <button type="submit"
+                              class="bg-red hover:bg-opacity-80 rounded-[5px] text-white py-2 w-full">{{ __('すべてに了承し削除します') }}</button>
+                          </div>
+                        </form>
+                      </delete-modal>
                     </div>
                   </div>
                 </div>
