@@ -3,13 +3,6 @@
 @section('title', __('設定'))
 
 @php
-  $a = __('メール通知');
-  //   $b = __('購入履歴');
-  //   $c = __('表示しない作品');
-  $d = __('サイトの表示設定');
-  $e = __('収益の受け取り');
-  $f = __('アカウントの削除');
-
   $dark = __('ダークモードにする');
   $light = __('ライトモードにする');
 @endphp
@@ -29,10 +22,10 @@
           <div class="setting-tab">
             <ul class="tabMenu scroll-none sticky top-0 lg:h-[300px]">
               <h3 class="text-2xl font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
-              <a href="#mail-notification">{{ $a }}</a>
-              <a href="#site-display">{{ $d }}</a>
-              <a href="#earnings">{{ $e }}</a
-              <a href="#account-delete">{{ $f }}</a>
+              <a href="#mail-notification">{{ __('通知設定') }}</a>
+              <a href="#site-display">{{ __('表示設定') }}</a>
+              <a href="#earnings">{{ __('収益の受け取り') }}</a>
+              <a href="#account-delete">{{ __('アカウント管理') }}</a>
             </ul>
             <div class="tabContents">
               <div class="pt-4 pb-12 border-b border-ccc" id="mail-notification">
