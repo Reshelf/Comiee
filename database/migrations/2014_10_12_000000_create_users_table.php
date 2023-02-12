@@ -18,14 +18,18 @@ return new class extends Migration
             $table->string('name')->default('name')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+
             $table->string('sex')->nullable()->comment('性別');
             $table->integer('age')->nullable()->comment('年齢');
             $table->string('country')->nullable()->comment('国');
             $table->string('lang')->nullable()->comment('言語');
-            $table->timestamp('email_verified_at')->nullable();
+
             $table->string('stripe_user_id')->nullable();
+
             $table->integer('danger')->default(0)->comment('危険度');
-            $table->boolean('is_pro')->default(0)->comment('プロアカウントユーザー');
+            $table->boolean('is_pro')->default(0)->comment('プロアカウント');
+            $table->boolean('is_vip')->default(0)->comment('VIPアカウント');
 
             $table->text('avatar')->nullable();
             $table->text('thumbnail')->nullable();
