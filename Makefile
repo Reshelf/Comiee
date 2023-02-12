@@ -130,3 +130,6 @@ en-csv:
 	 cat resources/lang/en.json | jq -r  > en.csv
 package-update:
 	 npx -p npm-check-updates  -c "ncu -u"
+package-clear-legacy:
+	 npm install --legacy-peer-deps
+	 npm audit fix --force
