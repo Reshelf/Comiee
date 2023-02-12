@@ -128,3 +128,5 @@ ja-csv:
 	 cat resources/lang/ja.json | jq -r  > ja.csv
 en-csv:
 	 cat resources/lang/en.json | jq -r  > en.csv
+package-update:
+	 npx -p npm-check-updates  -c "ncu -u"
