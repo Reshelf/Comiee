@@ -64,7 +64,7 @@ class PaymentCreateController extends Controller
                     'book' => $book,
                     'episode' => $episode,
                     'price' => $price,
-                    'instant_price' => $request->price,
+                    'instant_price' => $request->price, // エールは可変
                 ]);
             }
         }
