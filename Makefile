@@ -9,7 +9,7 @@ down:
 init:
 	composer install
 	@make key
-	@make up
+	@make sail-build
 	@make down
 	@make up
 	@make migrate
