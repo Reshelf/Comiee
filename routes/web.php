@@ -16,46 +16,48 @@ Route::post('change/lang', 'App\Http\Controllers\Others\SetLocaleController')->n
  */
 Auth::routes(['verify' => true]);
 
-Route::get('/', function (Request $request) {
-    if (app()->getLocale() == null) {
-        $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
-        $path = $request->getPathInfo();
-        $langs_val = array();
+if (!Auth::user()) {
+    Route::get('/', function (Request $request) {
+        if (app()->getLocale() == null) {
+            $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
+            $path = $request->getPathInfo();
+            $langs_val = array();
 
-        foreach ($langs as $lang) {
-            $langs_val[] = substr($lang, 0, 2);
-        }
+            foreach ($langs as $lang) {
+                $langs_val[] = substr($lang, 0, 2);
+            }
 
-        switch ($langs_val[0]) {
-            case 'ja':
-                return redirect('/ja' . $path);
-            case 'en':
-                return redirect('/en' . $path);
-            case 'tw':
-                return redirect('/tw' . $path);
-            case 'cn':
-                return redirect('/cn' . $path);
-            case 'es':
-                return redirect('/es' . $path);
-            case 'fr':
-                return redirect('/fr' . $path);
-            case 'it':
-                return redirect('/it' . $path);
-            case 'id':
-                return redirect('/id' . $path);
-            case 'th':
-                return redirect('/th' . $path);
-            case 'ko':
-                return redirect('/ko' . $path);
-            case 'de':
-                return redirect('/de' . $path);
-            default:
-                return redirect('/en' . $path);
+            switch ($langs_val[0]) {
+                case 'ja':
+                    return redirect('/ja' . $path);
+                case 'en':
+                    return redirect('/en' . $path);
+                case 'tw':
+                    return redirect('/tw' . $path);
+                case 'cn':
+                    return redirect('/cn' . $path);
+                case 'es':
+                    return redirect('/es' . $path);
+                case 'fr':
+                    return redirect('/fr' . $path);
+                case 'it':
+                    return redirect('/it' . $path);
+                case 'id':
+                    return redirect('/id' . $path);
+                case 'th':
+                    return redirect('/th' . $path);
+                case 'ko':
+                    return redirect('/ko' . $path);
+                case 'de':
+                    return redirect('/de' . $path);
+                default:
+                    return redirect('/en' . $path);
+            }
+        } else {
+            return redirect(app()->getLocale());
         }
-    } else {
-        return redirect(app()->getLocale());
-    }
-});
+    });
+}
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->group(function () {
 
@@ -168,6 +170,8 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     |--------------------------------------------------------------------------
     |
      */
+    // Route::get('/user/setup', function () {return view('users.setup');});
+    Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');

@@ -46,9 +46,6 @@ class UpdateController extends Controller
         $user->username = $request->username;
         $user->body = $request->body;
         $user->email = $request->email;
-        if (isset($user->lang)) {
-            $user->lang = App::getLocale();
-        }
 
         // $user->website = $request->website;
 
