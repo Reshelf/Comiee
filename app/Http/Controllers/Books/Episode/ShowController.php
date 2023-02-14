@@ -42,9 +42,11 @@ class ShowController extends Controller
 
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
-        $comments = \Cache::rememberForever("book.{$request->book_id}.comments", function () use ($book, $episode, $request) {
-            return Comment::where(['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $request->episode_number])->withCount('likes')->orderBy('likes_count', 'desc')->get();
-        });
+        $comments =
+        // \Cache::rememberForever("book.{$request->book_id}.comments", function () use ($book, $episode, $request) {
+        // return
+        Comment::where(['book_id' => $book->id, 'episode_id' => $episode->id, 'episode_number' => $request->episode_number])->withCount('likes')->orderBy('likes_count', 'desc')->get();
+        // });
 
         $allTags = \Cache::remember("allTags", now()->addHour(), function () use ($tag) {
             return $tag->all_tag_names;

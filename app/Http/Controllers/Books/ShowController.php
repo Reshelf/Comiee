@@ -19,9 +19,11 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
-        $book = \Cache::rememberForever("book.{$request->book_id}", function () use ($request) {
-            return Book::where('id', $request->book_id)->first();
-        });
+        $book =
+        // \Cache::rememberForever("book.{$request->book_id}", function () use ($request) {
+        //     return
+        Book::where('id', $request->book_id)->first();
+        // });
 
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
         $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
