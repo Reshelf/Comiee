@@ -46,11 +46,29 @@ class RegisterController extends Controller
         } while (User::where('username', $username)->exists());
         $name = $username;
 
+        /*
+        |--------------------------------------------------------------------------
+        | 言語の設定 用意してない言語はデフォルトで英語を返し保存しとく
+        |--------------------------------------------------------------------------
+         */
+        $langs = explode(', ', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        $langs_val = [];
+        foreach ($langs as $lang) {
+            $langs_val[] = substr($lang, 0, 2);
+        }
+        $lang = $langs_val[0];
+        \App::setLocale($lang);
+        if ($lang !== 'ja' && 'en' && 'tw' && 'cn' && 'es' && 'fr' && 'it' && 'id' && 'th' && 'ko' && 'de') {
+            \App::setLocale('en');
+            $lang = 'en';
+        }
+
         return User::create([
             'name' => $name,
             'username' => $username,
             'email' => $email,
             'password' => $password,
+            'lang' => $lang,
             // 'gender' => $gender,
             // 'birthday' => $birthday,
         ]);
