@@ -41,6 +41,10 @@ class StoreController extends Controller
         $book->genre_id = $request->genre_id;
         $book->lang = $request->lang;
         $book->story = $request->story;
+        $book->is_color = false;
+        if ($request->is_color == null) {
+            $book->is_color = true;
+        }
 
         // サムネイル
         if ($request->has('thumbnail')) {

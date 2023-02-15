@@ -25,6 +25,13 @@
     @include('books.atoms.likes')
   </div>
 
+  {{-- カラー作品 --}}
+  @if ($book->is_color)
+    <span
+      class="inline-block text-pink dark:bg-pink dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[5px] ml-2">
+      {{ __('カラー') }}</span>
+  @endif
+
   {{-- 完結作品 --}}
   @if ($book->is_complete)
     <a href="{{ route('search.complete', app()->getLocale()) }}"
@@ -45,6 +52,7 @@
       class="inline-block text-red dark:bg-red dark:bg-opacity-30 text-xs border dark:border-none px-2 py-0.5 rounded-[5px] ml-2">
       {{ __('休載中') }}</span>
   @endif
+
 
   {{-- 購入 --}}
   @if (Auth::id() !== $book->user_id && !$book->is_hidden)

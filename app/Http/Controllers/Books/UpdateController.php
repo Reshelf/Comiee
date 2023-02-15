@@ -54,6 +54,12 @@ class UpdateController extends Controller
             $book->is_hidden = false;
         }
 
+        // カラー作品設定
+        $book->is_color = true;
+        if ($request->is_color === null) {
+            $book->is_color = false;
+        }
+
         // 休載設定
         $book->is_suspend = true;
         if ($request->is_suspend === null) {

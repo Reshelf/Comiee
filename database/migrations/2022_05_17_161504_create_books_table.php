@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('is_contracted')->default(0)->comment('契約済フラグ');
             $table->boolean('is_complete')->default(0)->comment('完結作品フラグ');
             $table->boolean('is_new')->default(0)->comment('今日の新作フラグ');
+            $table->boolean('is_color')->default(0)->comment('カラー作品');
             $table->boolean('is_hidden')->default(1)->comment('非公開フラグ');
             $table->boolean('is_suspend')->default(0)->comment('休載フラグ');
             $table->boolean('is_all_charge')->default(0)->comment('全エピソード有料化フラグ');
