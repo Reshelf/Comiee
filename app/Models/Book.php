@@ -14,6 +14,7 @@ class Book extends Model
         'title',
         'story',
         'is_color',
+        'screen_type',
         'thumbnail',
     ];
 

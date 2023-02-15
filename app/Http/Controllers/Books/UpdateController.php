@@ -66,6 +66,11 @@ class UpdateController extends Controller
             $book->is_suspend = false;
         }
 
+        // 画面タイプ
+        if ($request->input('screen_type') !== null) {
+            $book->screen_type = $request->input('screen_type');
+        }
+
         // 全エピソード有料化設定
         $episodes = $book->episodes()->get();
         $book->is_all_charge = true;

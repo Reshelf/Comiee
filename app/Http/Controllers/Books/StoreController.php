@@ -26,9 +26,20 @@ class StoreController extends Controller
      */
     public function __invoke($lang, BookRequest $request, Book $book, Tag $tag)
     {
-        // ポリシー
+        /*
+        |--------------------------------------------------------------------------
+        | ポリシー
+        |--------------------------------------------------------------------------
+        |
+         */
         $this->authorize('create', $book);
 
+        /*
+        |--------------------------------------------------------------------------
+        | バリデーション
+        |--------------------------------------------------------------------------
+        |
+         */
         $request->validate([
             'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
             'genre_id' => ['required', 'integer'],
@@ -37,10 +48,24 @@ class StoreController extends Controller
             'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
         ]);
 
-        $book->title = $request->title;
-        $book->genre_id = $request->genre_id;
-        $book->lang = $request->lang;
-        $book->story = $request->story;
+        /*
+        |--------------------------------------------------------------------------
+        | データセット
+        |--------------------------------------------------------------------------
+        |
+         */
+        $book->title = $request->title; // タイトル
+        $book->genre_id = $request->genre_id; // ジャンル
+        $book->lang = $request->lang; // 作品言語
+        $book->story = $request->story; // あらすじ
+        $book->user_id = $request->user()->id; // 投稿すーザー
+
+        // 画面タイプ
+        if ($request->input('screen_type') !== null) {
+            $book->screen_type = $request->input('screen_type');
+        }
+
+        // カラー設定
         $book->is_color = false;
         if ($request->is_color == null) {
             $book->is_color = true;
@@ -64,12 +89,15 @@ class StoreController extends Controller
             Storage::disk('s3')->put($filePath, $img);
             $book->thumbnail = Storage::disk('s3')->url($filePath);
         }
-        // 投稿するユーザー
-        $book->user_id = $request->user()->id;
-        // 保存
+
         $book->save();
 
-        // タグ
+        /*
+        |--------------------------------------------------------------------------
+        | タグの追加
+        |--------------------------------------------------------------------------
+        |
+         */
         $request->tags->each(function ($tagName) use ($book) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $book->tags()->attach($tag);
@@ -78,7 +106,12 @@ class StoreController extends Controller
         // 二重送信防止
         $request->session()->regenerateToken();
 
-        // フォロワー全員にメール通知
+        /*
+        |--------------------------------------------------------------------------
+        | フォロワー全員にメール通知
+        |--------------------------------------------------------------------------
+        |
+         */
         $followers = $request->user()->followers()->where('m_notice_1', 1)->get();
         if ($followers->count() > 0) {
             $mailData = [
@@ -89,7 +122,12 @@ class StoreController extends Controller
             Mail::send(new AddNewBookMail($mailData));
         };
 
-        // リダイレクト
+        /*
+        |--------------------------------------------------------------------------
+        | リダイレクト
+        |--------------------------------------------------------------------------
+        |
+         */
         return redirect('/' . app()->getLocale() . '/books/' . $book->id)->with([
             'success' => __('作品を作成しました。続いて作品のエピソードを追加しましょう！'),
             'store' => true,
