@@ -2,8 +2,38 @@
   $create_book_modal_count = 16;
 @endphp
 
+{{-- 有料選択 --}}
+<h3 class="tracking-widest my-4 text-[15px] font-semibold">{{ __('このエピソードを有料化する') }}</h3>
+<div class="checkbox">
+  @empty(!$book->user->stripe_user_id)
+    <label class="light-checkbox">
+      <input type="checkbox" name="is_free"
+        @if ($update) {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }} @endif
+        class="light-checkbox-Input">
+      <span class="light-checkbox-DummyInput">
+        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </span>
+      <span class="light-checkbox-LabelText">{{ __('読者からスーパーエールを受け取る') }}</span>
+    </label>
+    @if ($update && !$e->is_free)
+      <p class="mt-4 tracking-widest">{{ __('現在のエール下限価格：') }}<strong>
+          {{ $e->price ?? old('price') }}</strong>{{ __('円') }}〜
+      </p>
+    @endif
+  @endempty
+  @empty($book->user->stripe_user_id)
+    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
+      {{ __('「収益を受け取る準備」') }}
+    </a>
+    {{ __('を完了したら有料販売をすることができます') }}
+  @endempty
+</div>
+
 {{-- タイトル --}}
-<div class="flex items-center mb-4">
+<div class="flex items-center mt-8 mb-4">
   <h3 class="tracking-widest text-[15px] font-semibold inline-block">{{ __('タイトル') }}</h3>
 </div>
 <input type="text" name="title" value="{{ $e->title ?? old('title') }}"
@@ -89,38 +119,6 @@
   </label>
 </div>
 
-
-{{-- 有料選択 --}}
-<h3 class="tracking-widest mt-12 mb-4 text-[15px] font-semibold">{{ __('このエピソードを有料化する') }}</h3>
-<div class="checkbox">
-  @empty(!$book->user->stripe_user_id)
-    <label class="light-checkbox">
-      <input type="checkbox" name="is_free"
-        @if ($update) {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }} @endif
-        class="light-checkbox-Input">
-      <span class="light-checkbox-DummyInput">
-        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
-          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="light-checkbox-LabelText">{{ __('読者からスーパーエールを受け取る') }}</span>
-    </label>
-
-    @if ($update && !$e->is_free)
-      <p class="mt-4 tracking-widest">{{ __('現在のエール下限価格：') }}<strong>
-          {{ $e->price ?? old('price') }}</strong>{{ __('円') }}〜
-      </p>
-    @endif
-  @endempty
-</div>
-
-@empty($book->user->stripe_user_id)
-  <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
-    {{ __('「収益を受け取る準備」') }}
-  </a>
-  {{ __('を完了したら有料販売をすることができます') }}
-@endempty
 
 {{-- ご注意点 --}}
 <div class="flex items-center mt-8 mb-4">

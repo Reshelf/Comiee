@@ -1,22 +1,6 @@
 @csrf
 
 @if ($update)
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
-  <div class="checkbox mb-12">
-    <label class="light-checkbox">
-      <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
-        class="light-checkbox-Input">
-      <span class="light-checkbox-DummyInput">
-        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
-          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="light-checkbox-LabelText">{{ __('作品を完結にする') }}</span>
-    </label>
-  </div>
-
-  {{-- 公開設定 --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
   <div class="checkbox mb-12">
     @if ($book->is_contracted)
@@ -33,34 +17,16 @@
       </label>
     @else
       <div class="">
-        {{ __('現在、作品は非公開になっており、作品を公開にするには、作品毎に当サービスと出版契約書（電子配信）を交わす必要があります。') }}<br>
-        {{ __('以下のボタンから契約書をダウンロードをして記入の上、契約書を送信してください。') }} <br>
+        {{ __('現在、この作品は非公開になっており、作品を公開にするには、作品毎に当サービスと出版契約書（電子配信）を交わす必要があります。') }}<br>
+        {{ __('以下のボタンから契約書をダウンロードをして記入の上、この作品の契約書を送信してください。') }} <br>
         <a href="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/work_contract.pdf" target="_blank"
           rel="noopener noreferrer" class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
         <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit" target="_blank"
           rel="noopener noreferrer" class="btn-border inline-block mt-4">{{ __('出版契約書（電子配信）を送信する') }}</a>
       </div>
     @endif
-
   </div>
 
-  {{-- 休載設定 --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('休載設定') }}</h3>
-  <div class="checkbox mb-12">
-    <label class="light-checkbox">
-      <input type="checkbox" name="is_suspend" {{ $book->is_suspend ?? old('is_suspend') ? 'checked' : '' }}
-        class="light-checkbox-Input">
-      <span class="light-checkbox-DummyInput">
-        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
-          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="light-checkbox-LabelText">{{ __('作品を休載する') }}</span>
-    </label>
-  </div>
-
-  {{-- 全エピソードを有料化する --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('全エピソードを有料化する') }}</h3>
   <div class="checkbox mb-12">
   @empty($book->user->stripe_user_id)
@@ -82,16 +48,45 @@
     </label>
   @endempty
 </div>
+
+
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
+<div class="checkbox mb-12">
+  <label class="light-checkbox">
+    <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
+      class="light-checkbox-Input">
+    <span class="light-checkbox-DummyInput">
+      <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+        <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+    <span class="light-checkbox-LabelText">{{ __('作品を完結にする') }}</span>
+  </label>
+</div>
+
+<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('休載設定') }}</h3>
+<div class="checkbox mb-12">
+  <label class="light-checkbox">
+    <input type="checkbox" name="is_suspend" {{ $book->is_suspend ?? old('is_suspend') ? 'checked' : '' }}
+      class="light-checkbox-Input">
+    <span class="light-checkbox-DummyInput">
+      <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+        <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+    <span class="light-checkbox-LabelText">{{ __('作品を休載する') }}</span>
+  </label>
+</div>
 @endif
 
-{{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
 <div class="mb-12">
 <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1 rounded"
   placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
-{{-- サムネイル --}}
 <div class="relative flex items-center mt-8 mb-4">
 <h3 class="tracking-widest text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
 <div class="tooltip cursor-pointer ml-1">
@@ -113,7 +108,6 @@
 <input type="file" name="thumbnail" class="mt-2 mb-12 dark:text-gray"
 @if (!$update) required @endif>
 
-{{-- ジャンル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('ジャンル') }}</h3>
 <div class="mb-12">
 <select name="genre_id" class="flex flex-col items-center">
@@ -132,7 +126,6 @@
 </select>
 </div>
 
-{{-- 言語 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('言語') }}</h3>
 <div class="mb-12">
 <select name="lang" class="flex flex-col items-center">
@@ -170,14 +163,12 @@
 </select>
 </div>
 
-{{-- タグ --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
 <div class="mb-12">
 <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
 </book-tags-input>
 </div>
 
-{{-- あらすじ --}}
 @isset($create_book_modal_count)
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
 <textarea required name="story"
@@ -189,7 +180,6 @@
 </div>
 @endisset
 
-{{-- 作品投稿後の流れ --}}
 @if (!$update)
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品投稿後の流れ') }}</h3>
 <p class="mb-6 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
