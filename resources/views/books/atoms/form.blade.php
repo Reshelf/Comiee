@@ -5,7 +5,7 @@
   <div class="checkbox mb-12">
     @if ($book->is_contracted)
       <label class="light-checkbox">
-        <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? 'checked' : '' }}
+        <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? '' : 'checked' }}
           class="light-checkbox-Input">
         <span class="light-checkbox-DummyInput">
           <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
@@ -13,7 +13,7 @@
               stroke-linejoin="round" />
           </svg>
         </span>
-        <span class="light-checkbox-LabelText">{{ __('作品を非公開にする') }}</span>
+        <span class="light-checkbox-LabelText">{{ __('作品を公開する') }}</span>
       </label>
     @else
       <div class="">
