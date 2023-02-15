@@ -220,7 +220,8 @@ export default {
                 e.metaKey ||
                 e.key == "RightCommand" ||
                 e.key == "LeftCommand" ||
-                e.key == "F12"
+                e.key == "F12" ||
+                e.keyCode == 91 // windows
             ) {
                 this.show = false;
             }
