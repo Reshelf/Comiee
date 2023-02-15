@@ -1,0 +1,30 @@
+{
+  "_vendor-fff79a7b.js": {
+    "file": "assets/vendor-fff79a7b.js"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-42a53072.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-42a53072.css"
+    ],
+    "file": "assets/app-ae56a1d8.js",
+    "imports": [
+      "_vendor-fff79a7b.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/common/atoms/common.js": {
+    "file": "assets/common-c55b4242.js",
+    "isEntry": true,
+    "src": "resources/js/common/atoms/common.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-ee161cc2.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}

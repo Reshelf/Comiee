@@ -700,3 +700,19 @@ button .loading {
         }
     }
 }
+
+.vue-tags-input {
+    max-width: inherit !important;
+}
+
+.vue-tags-input .ti-tag {
+    background: transparent !important;
+    border: 1px solid #747373 !important;
+    color: #747373 !important;
+    margin-right: 4px !important;
+    border-radius: 0px !important;
+    font-size: 13px !important;
+}
+.vue-tags-input .ti-tag::before {
+    content: "#" !important;
+}
