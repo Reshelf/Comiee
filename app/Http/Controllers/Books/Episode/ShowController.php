@@ -36,9 +36,11 @@ class ShowController extends Controller
         });
 
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $episode = \Cache::remember("book.{$request->book_id}.{$request->episode_number}", $expiresAt, function () use ($book, $request) {
-            return Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
-        });
+        $episode =
+        // \Cache::remember("book.{$request->book_id}.{$request->episode_number}", $expiresAt, function () use ($book, $request) {
+        // return
+        Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
+        // });
 
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 

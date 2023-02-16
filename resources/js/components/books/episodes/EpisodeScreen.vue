@@ -7,7 +7,7 @@
             class="screen scroll-none"
             :class="isFullScreen"
         >
-            <div v-for="i in pc_images" :key="i" class="images">
+            <div v-for="i in pc_images" :key="i" ref="images" class="images">
                 <img
                     :class="isFullScreen"
                     class="image image-right"
@@ -21,12 +21,17 @@
                     alt="image"
                 />
             </div>
-            <slot name="contents"></slot>
+            <div
+                ref="next"
+                class="min-w-[100vw] max-w-[100vw] flex justify-center bg-green"
+            >
+                aaaaa
+            </div>
             <button
                 :class="isFullScreen"
                 class="btn-next"
-                @click="scroll_next"
-                @keydown="scroll_next"
+                @click="scroll_prev"
+                @keydown="scroll_prev"
             >
                 <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
                     <path
@@ -40,10 +45,11 @@
                 </svg>
             </button>
             <button
+                v-if="canPrev"
                 :class="isFullScreen"
                 class="btn-prev"
-                @click="scroll_prev"
-                @keydown="scroll_prev"
+                @click="scroll_next"
+                @keydown="scroll_next"
             >
                 <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
                     <path
@@ -165,9 +171,13 @@
 <script>
 export default {
     props: {
-        title: {
+        lang: {
             type: String,
             default: "",
+        },
+        bookId: {
+            type: Number,
+            default: 0,
         },
         episodeNumber: {
             type: Number,
@@ -177,6 +187,10 @@ export default {
             type: String,
             default: "",
         },
+        episodes: {
+            type: Number,
+            default: 0,
+        },
     },
     data() {
         return {
@@ -185,6 +199,8 @@ export default {
             fullScreen: false,
             show: true,
             windowWidth: window.innerWidth,
+            screenWidth: 0,
+            canPrev: true,
         };
     },
     computed: {
@@ -205,10 +221,10 @@ export default {
     methods: {
         onKeyDown(e) {
             if (e.key === "ArrowRight") {
-                this.scroll_next();
+                this.scroll_prev();
             }
             if (e.key === "ArrowLeft") {
-                this.scroll_prev();
+                this.scroll_next();
             }
 
             // フルスクリーン解除
@@ -238,18 +254,48 @@ export default {
             };
             this.pc_images = sliceByNumber(all, 2);
         },
-        scroll_next() {
-            this.$refs.screen.scrollLeft -= this.windowWidth;
-        },
         scroll_prev() {
+            this.$refs.screen.scrollLeft -= this.windowWidth;
+            if (this.$refs.screen.scrollLeft <= 0) {
+                this.prev_episode();
+            }
+        },
+        scroll_next() {
             this.$refs.screen.scrollLeft += this.windowWidth;
+            this.canPrev = true;
+            this.screenWidth += this.windowWidth;
+            if (
+                this.$refs.screen.clientWidth * this.pc_images.length +
+                    this.$refs.next.clientWidth <=
+                this.screenWidth
+            ) {
+                this.next_episode();
+            }
+        },
+        prev_episode() {
+            if (this.episodeNumber > 1) {
+                const prevNumber = this.episodeNumber - 1;
+                location.href = `/${this.lang}/books/${this.bookId}/${prevNumber}`;
+            } else {
+                if (
+                    this.$refs.screen.clientWidth == this.$refs.next.clientWidth
+                ) {
+                    this.canPrev = false;
+                } else {
+                    this.canPrev = true;
+                }
+            }
+        },
+        next_episode() {
+            const nextNumber = this.episodeNumber + 1;
+            location.href = `/${this.lang}/books/${this.bookId}/${nextNumber}`;
         },
     },
 };
 </script>
 <style lang="scss" scoped>
 .screen {
-    @apply hidden lg:flex flex-row-reverse overflow-hidden duration-300;
+    @apply hidden lg:flex flex-row overflow-hidden duration-300;
     -webkit-overflow-scrolling: touch !important;
 }
 .images {

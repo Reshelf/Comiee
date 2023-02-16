@@ -38,7 +38,8 @@
 
   {{-- エピソードスクリーン --}}
   @if ($canWatch)
-    <episode-screen :title='@json($book->title)' :episode-number='@json($episode->number)'
+    <episode-screen :episodes='@json($book->episodes())' :lang='@json(Auth::user()->lang)'
+      :book-id='@json($book->id)' :episode-number='@json($episode->number)'
       :contents='@json($episode->contents ?? [])' endpoint="{{ url('/') }}">
     </episode-screen>
   @endif
