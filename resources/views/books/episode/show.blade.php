@@ -8,7 +8,7 @@
 
   // 購入者 or 作者 or 無料 のみ見れる
   $canWatch = false;
-  if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $episode->is_free) {
+  if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $book->is_contracted || !$book->is_hidden || $episode->is_free) {
       $canWatch = true;
   }
 @endphp
