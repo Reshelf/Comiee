@@ -369,7 +369,12 @@
         </div>
 
         <!-- SP -->
-        <div v-if="show" class="lg:hidden w-full flex flex-col">
+        <div
+            v-if="show"
+            ref="sp_screen"
+            class="relative lg:hidden w-full flex flex-col"
+            @click="sp_menu = !sp_menu"
+        >
             <img
                 v-for="image in images"
                 :key="image"
@@ -378,7 +383,335 @@
                 :src="`${image}`"
                 alt="image"
             />
+
+            <!-- SPメニュー上部 -->
+            <div
+                v-if="sp_menu"
+                class="fixed flex items-center justify-between top-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+            >
+                <!-- 作品トップ -->
+                <div class="p-3" @click="works_top">
+                    <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 flex-shrink-0"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 19.5L8.25 12l7.5-7.5"
+                        />
+                    </svg>
+                </div>
+                <!-- エピソード 話数、タイトル -->
+                <div class="truncate">
+                    {{ episode.number }}話
+                    <span v-if="episode.title" class="px-2">{{
+                        episode.title
+                    }}</span>
+                </div>
+                <!-- SNSシェア -->
+                <div class="p-3">
+                    <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5 flex-shrink-0"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
+                        />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- SPメニュー下部 -->
+            <div
+                v-if="sp_menu"
+                class="fixed flex items-center justify-between bottom-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+            >
+                <div class="flex items-center">
+                    <!-- 作品トップ -->
+                    <div class="p-3" @click="works_top">
+                        <svg
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                        </svg>
+                    </div>
+
+                    <!-- コメント -->
+                    <div
+                        class="p-3 flex items-center"
+                        @click="comment_menu = !comment_menu"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-miterlimit="10"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M15.9965 11H16.0054"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M11.9955 11H12.0045"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M7.99451 11H8.00349"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <div class="text-white text-xs ml-1 font-extralight">
+                            {{ commentCounts }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <!-- 次の話 -->
+                    <div
+                        v-if="episode.number < episodeCount"
+                        class="p-3 flex items-center"
+                        @click="locale_next"
+                    >
+                        <svg
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                        </svg>
+                        次話
+                    </div>
+
+                    <!-- 前の話 -->
+                    <div
+                        v-if="episode.number > 1"
+                        class="p-3 flex items-center"
+                        @click="locale_prev"
+                    >
+                        前話
+                        <svg
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- コメントメニュー -->
+        <transition name="comment-menu" appear>
+            <div v-show="comment_menu" class="overlay">
+                <div
+                    class="window fixed h-screen w-screen bg-dark-1 top-0 bottom-0 right-0 left-0 z-[1000]"
+                >
+                    <!-- SPメニュー上部 -->
+                    <div
+                        class="fixed flex items-center justify-between top-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+                    >
+                        <!-- コメントメニュー 閉じる -->
+                        <div
+                            class="p-3"
+                            @click="
+                                (comment_menu = !comment_menu),
+                                    (sp_menu = !sp_menu)
+                            "
+                        >
+                            <svg
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6 flex-shrink-0"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                                />
+                            </svg>
+                        </div>
+                        <!-- エピソード 話数、タイトル -->
+                        <div class="truncate">
+                            {{ episode.number }}話
+
+                            <span class="px-2"
+                                >コメント（{{ commentCounts }}）</span
+                            >
+                        </div>
+                        <!-- SNSシェア -->
+                        <div class="p-3"></div>
+                    </div>
+
+                    <!-- SPメニュー下部 -->
+                    <div
+                        class="fixed flex items-center justify-between bottom-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+                    >
+                        <div class="flex items-center">
+                            <!-- 作品トップ -->
+                            <div class="p-3" @click="works_top">
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 flex-shrink-0"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15.75 19.5L8.25 12l7.5-7.5"
+                                    />
+                                </svg>
+                            </div>
+
+                            <!-- コメント -->
+                            <div
+                                class="p-3 flex items-center"
+                                @click="comment_menu = !comment_menu"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    class="w-6 h-6 flex-shrink-0"
+                                >
+                                    <path
+                                        d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-miterlimit="10"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M15.9965 11H16.0054"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M11.9955 11H12.0045"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M7.99451 11H8.00349"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                                <div
+                                    class="text-white text-xs ml-1 font-extralight"
+                                >
+                                    {{ commentCounts }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <!-- 次の話 -->
+                            <div
+                                v-if="episode.number < episodeCount"
+                                class="p-3 flex items-center"
+                                @click="locale_next"
+                            >
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 flex-shrink-0"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15.75 19.5L8.25 12l7.5-7.5"
+                                    />
+                                </svg>
+                                次話
+                            </div>
+
+                            <!-- 前の話 -->
+                            <div
+                                v-if="episode.number > 1"
+                                class="p-3 flex items-center"
+                                @click="locale_prev"
+                            >
+                                前話
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 flex-shrink-0"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <slot></slot>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 <script>
@@ -400,6 +733,10 @@ export default {
             type: Number,
             default: 0,
         },
+        commentCounts: {
+            type: Number,
+            default: 0,
+        },
     },
     data() {
         return {
@@ -413,6 +750,8 @@ export default {
             canNext: true,
             open: false,
             ad: false,
+            sp_menu: false,
+            comment_menu: false,
         };
     },
     computed: {
@@ -445,15 +784,15 @@ export default {
             }
 
             // スクショブロック
-            if (
-                e.metaKey ||
-                e.key == "RightCommand" ||
-                e.key == "LeftCommand" ||
-                e.key == "F12" ||
-                e.keyCode == 91 // windows
-            ) {
-                this.show = false;
-            }
+            // if (
+            //     e.metaKey ||
+            //     e.key == "RightCommand" ||
+            //     e.key == "LeftCommand" ||
+            //     e.key == "F12" ||
+            //     e.keyCode == 91 // windows
+            // ) {
+            //     this.show = false;
+            // }
         },
         setImages() {
             const all = this.images;
@@ -533,6 +872,9 @@ export default {
         close() {
             this.open = false;
         },
+        works_top() {
+            location.href = "/" + this.lang + "/books/" + this.book.id;
+        },
     },
 };
 </script>
@@ -581,6 +923,47 @@ export default {
     100% {
         transform: translateX(0px);
         opacity: 1;
+    }
+}
+
+/* enter transitions */
+.comment-menu-enter-active {
+    transition: opacity 0.1s ease 0.2s;
+    .window {
+        animation: comment_slide_in 0.2s;
+    }
+}
+.comment-menu-leave-active {
+    transition: all ease 0.2s;
+    .window {
+        animation: comment_slide_out 0.2s;
+    }
+}
+/* leave transitions */
+.comment-menu-leave-to {
+    opacity: 0;
+    .window {
+        opacity: 0;
+    }
+}
+@keyframes comment_slide_in {
+    0% {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes comment_slide_out {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(500px);
+        opacity: 0;
     }
 }
 </style>

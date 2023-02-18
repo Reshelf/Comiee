@@ -39,7 +39,11 @@
   {{-- エピソードスクリーン --}}
   @if ($canWatch)
     <episode-screen :episode-count='@json($book->episodes()->count())' :episode='@json($episode)'
-      :lang='@json(Auth::user()->lang)' :book='@json($book)' endpoint="{{ url('/') }}">
+      :lang='@json(Auth::user()->lang)' :book='@json($book)' :comments='@json($comments)'
+      :comment-counts='@json(count($comments) ?? 0)'>
+
+      @include('books.episode.tab.3')
+
     </episode-screen>
   @endif
 
