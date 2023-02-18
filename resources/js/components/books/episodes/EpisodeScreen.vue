@@ -325,6 +325,7 @@
             ページをリロードしてください
         </div>
 
+        <!-- 次のモーダル -->
         <div @click.self="close">
             <transition name="modal" appear>
                 <div v-show="open" class="overlay" @click.self="close">
@@ -444,15 +445,15 @@ export default {
             }
 
             // スクショブロック
-            // if (
-            //     e.metaKey ||
-            //     e.key == "RightCommand" ||
-            //     e.key == "LeftCommand" ||
-            //     e.key == "F12" ||
-            //     e.keyCode == 91 // windows
-            // ) {
-            //     this.show = false;
-            // }
+            if (
+                e.metaKey ||
+                e.key == "RightCommand" ||
+                e.key == "LeftCommand" ||
+                e.key == "F12" ||
+                e.keyCode == 91 // windows
+            ) {
+                this.show = false;
+            }
         },
         setImages() {
             const all = this.images;
@@ -474,15 +475,17 @@ export default {
             }
         },
         scroll_next() {
+            this.canPrev = true;
+            this.canNext = true;
+
             if (
                 this.$refs.screen.clientWidth * (this.pc_images.length - 1) ==
                 this.screenWidth
             ) {
-                this.open = true;
+                if (this.episode.number < this.episodeCount) {
+                    this.open = true;
+                }
             }
-
-            this.canPrev = true;
-            this.canNext = true;
 
             this.$refs.screen.scrollLeft += this.windowWidth;
             this.screenWidth += this.windowWidth;
@@ -518,8 +521,10 @@ export default {
             }
         },
         locale_next() {
-            const nextNumber = this.episode.number + 1;
-            location.href = `/${this.lang}/books/${this.book.id}/${nextNumber}`;
+            if (this.episode.number < this.episodeCount) {
+                const nextNumber = this.episode.number + 1;
+                location.href = `/${this.lang}/books/${this.book.id}/${nextNumber}`;
+            }
         },
         locale_prev() {
             const prevNumber = this.episode.number - 1;
