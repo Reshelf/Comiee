@@ -934,9 +934,9 @@ export default {
     }
 }
 .comment-menu-leave-active {
-    transition: all ease 0.2s;
+    transition: all ease 0.3s;
     .window {
-        animation: comment_slide_out 0.2s;
+        animation: comment_slide_out 0.3s;
     }
 }
 /* leave transitions */
