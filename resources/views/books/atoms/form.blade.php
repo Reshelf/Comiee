@@ -1,6 +1,7 @@
 @csrf
 
 @if ($update)
+  {{-- 公開設定 --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
   <div class="checkbox mb-12">
     @if ($book->is_contracted)
@@ -27,37 +28,60 @@
     @endif
   </div>
 
+  {{-- 全エピソードを有料化する --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('全エピソードを有料化する') }}</h3>
-  <div class="checkbox mb-12">
+  <div class="filters mb-12">
   @empty($book->user->stripe_user_id)
     <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
       {{ __('「収益を受け取る準備」') }}
     </a>
     {{ __('を完了したら有料販売をすることができます') }}
   @else
-    <label class="light-checkbox">
-      <input type="checkbox" name="is_all_charge" {{ $book->is_all_charge ?? old('is_all_charge') ? 'checked' : '' }}
-        class="light-checkbox-Input">
-      <span class="light-checkbox-DummyInput">
-        <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
-          <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="light-checkbox-LabelText">{{ __('この作品の全エピソードを有料化する') }}</span>
+    {{-- 有料化 --}}
+    <input class="visually-hidden" type="radio" name="is_all_charge" value="true"
+      @if (!$update) id="is_all_charge_true"
+    @else id="is_all_charge_true_update" @endif
+      @isset($book->is_all_charge)
+        @if ($book->is_all_charge === 'true') checked @endif
+    @endisset />
+    <label @if (!$update) for="is_all_charge_true" @else for="is_all_charge_true_update" @endif>
+      {{ __('有料') }}
+    </label>
+    {{-- 無料 --}}
+    <input class="visually-hidden" type="radio" name="is_all_charge" value="false"
+      @if (!$update) id="is_all_charge_false" @else id="is_all_charge_false_update" @endif
+      @isset($book->is_all_charge)
+        @if ($book->is_all_charge === 'false') checked @endif
+    @endisset />
+    <label
+      @if (!$update) for="is_all_charge_false"
+    @else for="is_all_charge_false_update" @endif
+      class="ml-4">
+      {{ __('無料') }}
+    </label>
+    {{-- 未設定 --}}
+    <input class="visually-hidden" type="radio" name="is_all_charge" value="none"
+      @if (!$update) id="is_all_charge_none" @else id="is_all_charge_none_update" @endif
+      @isset($book->is_all_charge)
+        @if ($book->is_all_charge === 'none') checked @endif
+    @endisset />
+    <label @if (!$update) for="is_all_charge_none"
+    @else for="is_all_charge_none_update" @endif
+      class="ml-4">
+      {{ __('未設定') }}
     </label>
   @endempty
 </div>
 @endif
 
-
+{{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
 <div class="mb-12">
 <input type="text" name="title" class="w-full p-2 border-b dark:border-none border-ccc dark:bg-dark-1 rounded"
   placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
-
+{{-- サムネイル --}}
 <div class="relative flex items-center mt-8 mb-4">
 <h3 class="tracking-widest text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
 <div class="tooltip cursor-pointer ml-1">
@@ -79,7 +103,7 @@
 <input type="file" name="thumbnail" class="mt-2 mb-12 dark:text-gray"
 @if (!$update) required @endif>
 
-
+{{-- ジャンル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('ジャンル') }}</h3>
 <div class="mb-12">
 <select name="genre_id" class="flex flex-col items-center">
@@ -98,7 +122,7 @@
 </select>
 </div>
 
-
+{{-- 画面タイプ --}}
 <div class="filters flex flex-col mb-12">
 <h3 class="tracking-widest text-[15px] font-semibold">{{ __('画面タイプ') }}</h3>
 <div class="flex items-center mt-4">
@@ -109,7 +133,8 @@
     @isset($book->screen_type)
         @if ($book->screen_type === 'vertical') checked @endif
     @endisset />
-  <label @if (!$update) for="screen_type_vertical" @else for="screen_type_vertical_update" @endif>
+  <label
+    @if (!$update) for="screen_type_vertical" @else for="screen_type_vertical_update" @endif>
     {{ __('縦スクロール') }}
   </label>
   {{-- 横読み --}}
@@ -127,7 +152,7 @@
 </div>
 </div>
 
-
+{{-- 作品言語 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品言語') }}</h3>
 <div class="mb-12">
 <select name="lang" class="flex flex-col items-center">
@@ -165,7 +190,7 @@
 </select>
 </div>
 
-
+{{-- カラー作品 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('カラー作品') }}</h3>
 <div class="checkbox mb-12">
 <label class="light-checkbox">
@@ -181,12 +206,14 @@
 </label>
 </div>
 
+{{-- タグ --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
 <div class="mb-12">
 <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
 </book-tags-input>
 </div>
 
+{{-- あらすじ --}}
 @isset($create_book_modal_count)
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
 <textarea required name="story"
@@ -199,6 +226,7 @@
 @endisset
 
 @if ($update)
+{{-- 完結作品 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">
@@ -214,6 +242,7 @@
   </label>
 </div>
 
+{{-- 休載 --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('休載設定') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">

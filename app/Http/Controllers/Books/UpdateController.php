@@ -43,27 +43,31 @@ class UpdateController extends Controller
         $book->story = $request->story;
 
         // 完結
-        $book->is_complete = true;
         if ($request->is_complete === null) {
             $book->is_complete = false;
+        } else {
+            $book->is_complete = true;
         }
 
         // 非公開設定
-        $book->is_hidden = true;
         if ($request->is_hidden === null) {
             $book->is_hidden = false;
+        } else {
+            $book->is_hidden = true;
         }
 
         // カラー作品設定
-        $book->is_color = true;
         if ($request->is_color === null) {
             $book->is_color = false;
+        } else {
+            $book->is_color = true;
         }
 
         // 休載設定
-        $book->is_suspend = true;
         if ($request->is_suspend === null) {
             $book->is_suspend = false;
+        } else {
+            $book->is_suspend = true;
         }
 
         // 画面タイプ
@@ -72,18 +76,16 @@ class UpdateController extends Controller
         }
 
         // 全エピソード有料化設定
-        $episodes = $book->episodes()->get();
-        $book->is_all_charge = true;
-        if ($request->is_all_charge === null) {
-            $book->is_all_charge = false;
-        }
-        if ($book->user->stripe_user_id) {
-            if ($book->is_all_charge) {
+        if ($request->input('is_all_charge') !== null) {
+            $book->is_all_charge = $request->input('is_all_charge');
+
+            $episodes = $book->episodes()->get();
+            if ($book->is_all_charge === 'true') {
                 foreach ($episodes as $episode) {
                     $episode->is_free = false;
                     $episode->save();
                 }
-            } else {
+            } elseif ($book->is_all_charge === 'false') {
                 foreach ($episodes as $episode) {
                     $episode->is_free = true;
                     $episode->save();

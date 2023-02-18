@@ -23,7 +23,7 @@ return new class extends Migration
             $table->boolean('is_color')->default(0)->comment('カラー作品');
             $table->boolean('is_hidden')->default(1)->comment('非公開フラグ');
             $table->boolean('is_suspend')->default(0)->comment('休載フラグ');
-            $table->boolean('is_all_charge')->default(0)->comment('全エピソード有料化フラグ');
+            $table->string('is_all_charge')->default('none')->comment('全エピソード有料化フラグ');
 
             $table->string('title')->unique()->comment('作品名');
             $table->string('screen_type')->default('horizontal')->comment('画面タイプ');
