@@ -1,8 +1,8 @@
 <template>
     <div class="relative flex flex-col">
-        <!-- 1段目 -->
+        <!-- 縦スクロール -->
         <template v-if="book.screen_type == 'vertical'">
-            <div v-if="show" class="bg-dark w-full">
+            <div v-if="show" class="bg-dark w-full hidden lg:block">
                 <img
                     v-for="image in images"
                     :key="image"
@@ -11,7 +11,10 @@
                     alt="image"
                 />
             </div>
-            <div ref="next" class="min-w-[100vw] max-w-[100vw] w-full">
+            <div
+                ref="next"
+                class="hidden lg:block min-w-[100vw] max-w-[100vw] w-full"
+            >
                 <div
                     class="min-w-[800px] max-w-[800px] bg-white p-10 flex flex-col justify-center mx-auto"
                 >
@@ -71,8 +74,11 @@
                         >
                             次のエピソードを読む
                         </div>
+                        <div v-else class="mt-8 mb-4">
+                            このエピソードは最新話です。次回作を楽しみにしてね！
+                        </div>
                         <div
-                            class="text-primary text-center mt-4 cursor-pointer"
+                            class="text-primary mt-4 cursor-pointer"
                             @click="locale_prev"
                         >
                             前のエピソードを読む
@@ -89,6 +95,8 @@
                 </div>
             </div>
         </template>
+
+        <!-- 横読み -->
         <template v-else>
             <!-- 1段目 -->
             <div
@@ -187,8 +195,11 @@
                             >
                                 次のエピソードを読む
                             </div>
+                            <div v-else class="mt-8 mb-4">
+                                このエピソードは最新話です。次回作を楽しみにしてね！
+                            </div>
                             <div
-                                class="text-primary text-center mt-4 cursor-pointer"
+                                class="text-primary mt-4 cursor-pointer"
                                 @click="locale_prev"
                             >
                                 前のエピソードを読む
@@ -313,17 +324,6 @@
                 <!-- <div class="text-eee">次のエピソード</div> -->
             </div>
         </template>
-
-        <!-- セキュリティポリシー -->
-        <div
-            v-if="!show"
-            ref="policy"
-            class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-semibold py-12 lg:py-20 px-4 flex items-center justify-center"
-        >
-            作品保護のため<br />
-            このページの画面操作はできません<br />
-            ページをリロードしてください
-        </div>
 
         <!-- 次の作品 モーダル -->
         <div @click.self="close">
@@ -546,7 +546,7 @@
                 <div
                     class="window fixed h-screen w-screen dark:bg-dark-1 top-0 bottom-0 right-0 left-0 z-[1000]"
                 >
-                    <!-- SPメニュー上部 -->
+                    <!-- コメント上部 -->
                     <div
                         class="fixed top-0 flex items-center justify-center w-screen bg-dark text-white z-[999]"
                     >
@@ -560,13 +560,14 @@
                         </div>
                     </div>
 
+                    <!-- コメント内容 -->
                     <div
                         class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
                     >
                         <slot name="comments"></slot>
                     </div>
 
-                    <!-- SPメニュー下部 -->
+                    <!-- コメント下部 -->
                     <div
                         class="fixed flex items-center justify-between bottom-0 w-screen bg-dark z-[999]"
                     >
@@ -644,6 +645,17 @@
                 </div>
             </div>
         </transition>
+
+        <!-- セキュリティポリシー -->
+        <div
+            v-if="!show"
+            ref="policy"
+            class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-semibold py-12 lg:py-20 px-4 flex items-center justify-center"
+        >
+            作品保護のため<br />
+            このページの画面操作はできません<br />
+            ページをリロードしてください
+        </div>
     </div>
 </template>
 <script>

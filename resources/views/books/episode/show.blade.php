@@ -5,15 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-
-  // 購入者 or 作者 or 無料 のみ見れる
-  $canWatch = false;
-  if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $book->is_contracted || !$book->is_hidden || $episode->is_free) {
-      $canWatch = true;
-  }
-
-  // 有料の場合
-
+  
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -40,7 +32,7 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  @if ($canWatch)
+  @if ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id)
     <episode-screen :episode-count='@json($book->episodes()->count())' :episode='@json($episode)'
       :lang='@json(Auth::user()->lang)' :book='@json($book)' :comments='@json($comments)'
       :comment-counts='@json(count($comments) ?? 0)'>
