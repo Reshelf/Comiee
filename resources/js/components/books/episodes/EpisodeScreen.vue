@@ -372,7 +372,7 @@
         <div
             v-if="show"
             ref="sp_screen"
-            class="relative lg:hidden w-full flex flex-col"
+            class="relative lg:hidden w-full flex flex-col my-[50px]"
             @click="sp_menu = !sp_menu"
         >
             <img
