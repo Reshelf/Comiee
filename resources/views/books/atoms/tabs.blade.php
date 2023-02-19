@@ -32,7 +32,7 @@
         </div>
 
         <div class="relative">
-          <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+          <button type="submit" class="submit_btn2 btn-primary lg:py-4 w-full">
             {{ __('送信する') }}
             <span class="load loading"></span>
           </button>

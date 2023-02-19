@@ -37,7 +37,7 @@
           @method('PATCH')
           @include('users.atoms.form')
           <div class="relative">
-            <button type="submit" class="submit_btn2 btn-primary w-full py-4">
+            <button type="submit" class="submit_btn2 btn-primary w-full lg:py-4">
               {{ __('更新する') }}
               <span class="load loading"></span>
             </button>

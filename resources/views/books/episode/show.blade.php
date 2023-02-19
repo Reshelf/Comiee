@@ -5,15 +5,15 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-  
+
   // 購入者 or 作者 or 無料 のみ見れる
   $canWatch = false;
   if ($episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id || $book->is_contracted || !$book->is_hidden || $episode->is_free) {
       $canWatch = true;
   }
-  
+
   // 有料の場合
-  
+
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -117,7 +117,7 @@
         <change-payment-price></change-payment-price>
 
         <div class="relative mt-12">
-          <button type="submit" class="submit_btn2 btn-primary py-4 w-full">
+          <button type="submit" class="submit_btn2 btn-primary lg:py-4 w-full">
             {{ __('スーパーエールでエピソードを読む') }}
             <span class="load loading"></span>
           </button>

@@ -14,7 +14,7 @@
       @method('PATCH')
       @include('books.atoms.form', ['update' => true, 'create_book_modal_count' => 15])
       <div class="w-full flex justify-end relative">
-        <button type="submit" class="submit_btn3 btn-primary w-full py-4">
+        <button type="submit" class="submit_btn3 btn-primary w-full lg:py-4">
           {{ __('更新する') }}
           <span class="load loading"></span></button>
       </div>
