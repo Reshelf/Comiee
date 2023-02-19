@@ -568,11 +568,11 @@
 
                     <!-- SPメニュー下部 -->
                     <div
-                        class="fixed flex items-center justify-between bottom-0 w-screen bg-dark text-white z-[999]"
+                        class="fixed flex items-center justify-between bottom-0 w-screen bg-dark z-[999]"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
-                            class="p-3"
+                            class="p-3 text-white"
                             @click="
                                 (comment_menu = !comment_menu),
                                     (sp_menu = !sp_menu)
@@ -592,7 +592,10 @@
                                 />
                             </svg>
                         </div>
-                        <div class="flex items-center">
+
+                        <slot name="add-comments"></slot>
+
+                        <div class="flex items-center text-white">
                             <!-- 次の話 -->
                             <div
                                 v-if="episode.number < episodeCount"
