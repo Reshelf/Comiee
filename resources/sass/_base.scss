@@ -702,7 +702,9 @@ button .loading {
 }
 
 .vue-tags-input {
+    @apply rounded-[5px];
     max-width: inherit !important;
+    border: 1px solid #ccc !important;
 }
 
 .vue-tags-input .ti-tag {
