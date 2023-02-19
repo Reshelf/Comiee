@@ -547,7 +547,27 @@
                 >
                     <!-- SPメニュー上部 -->
                     <div
-                        class="fixed top-0 flex items-center justify-between w-screen bg-dark text-white z-[999]"
+                        class="fixed top-0 flex items-center justify-center w-screen bg-dark text-white z-[999]"
+                    >
+                        <!-- エピソード 話数、タイトル -->
+                        <div class="truncate p-3">
+                            {{ episode.number }}話
+
+                            <span class="px-2"
+                                >コメント（{{ commentCounts }}）</span
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
+                    >
+                        <slot></slot>
+                    </div>
+
+                    <!-- SPメニュー下部 -->
+                    <div
+                        class="fixed flex items-center justify-between bottom-0 w-screen bg-dark text-white z-[999]"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
@@ -571,28 +591,6 @@
                                 />
                             </svg>
                         </div>
-                        <!-- エピソード 話数、タイトル -->
-                        <div class="truncate">
-                            {{ episode.number }}話
-
-                            <span class="px-2"
-                                >コメント（{{ commentCounts }}）</span
-                            >
-                        </div>
-                        <!-- SNSシェア -->
-                        <div class="p-3"></div>
-                    </div>
-
-                    <div
-                        class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
-                    >
-                        <slot></slot>
-                    </div>
-
-                    <!-- SPメニュー下部 -->
-                    <div
-                        class="fixed flex items-center justify-end bottom-0 w-screen bg-dark text-white z-[999]"
-                    >
                         <div class="flex items-center">
                             <!-- 次の話 -->
                             <div

@@ -102,10 +102,10 @@
   </div>
 @endif
 
-<div class="w-full mt-8 lg:mt-auto h-full bg-white dark:bg-dark">
+<div class="hidden lg:block w-full mt-8 lg:mt-auto h-full bg-white dark:bg-dark">
   <div class="max-w-7xl mx-auto md:py-8 flex flex-col md:flex-row justify-between">
     {{-- 左サイドバー --}}
-    <div class="hidden lg:block">
+    <div>
       @include('books.atoms.leftSidebar', [
           'sns_title' => $episode->number . __('話') . ' - ' . $book->title,
       ])
