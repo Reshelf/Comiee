@@ -325,7 +325,7 @@
             ページをリロードしてください
         </div>
 
-        <!-- 次のモーダル -->
+        <!-- 次の作品 モーダル -->
         <div @click.self="close">
             <transition name="modal" appear>
                 <div v-show="open" class="overlay" @click.self="close">
@@ -390,24 +390,8 @@
                     <div
                         class="window fixed flex items-center justify-between top-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
                     >
-                        <!-- 作品トップ -->
-                        <div class="p-3" @click="works_top">
-                            <svg
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-6 h-6 flex-shrink-0"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M15.75 19.5L8.25 12l7.5-7.5"
-                                />
-                            </svg>
-                        </div>
                         <!-- エピソード 話数、タイトル -->
-                        <div class="truncate">
+                        <div class="pl-4 pr-2 py-3 truncate">
                             {{ episode.number }}話
                             <span v-if="episode.title" class="px-2">{{
                                 episode.title
@@ -559,11 +543,11 @@
         <transition name="comment-menu" appear>
             <div v-show="comment_menu" class="overlay">
                 <div
-                    class="window fixed h-screen w-screen bg-dark-1 top-0 bottom-0 right-0 left-0 z-[1000]"
+                    class="window fixed h-screen w-screen dark:bg-dark-1 top-0 bottom-0 right-0 left-0 z-[1000]"
                 >
                     <!-- SPメニュー上部 -->
                     <div
-                        class="fixed top-0 mb-[50px] flex items-center justify-between w-screen bg-dark text-white z-[999]"
+                        class="fixed top-0 flex items-center justify-between w-screen bg-dark text-white z-[999]"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
@@ -599,86 +583,16 @@
                         <div class="p-3"></div>
                     </div>
 
-                    <div class="my-[50px]">
-                        <div
-                            v-for="(item, index) in comments"
-                            :key="index"
-                            class="text-white p-8"
-                        >
-                            {{ item.comment }}
-                        </div>
+                    <div
+                        class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
+                    >
+                        <slot></slot>
                     </div>
 
                     <!-- SPメニュー下部 -->
                     <div
-                        class="fixed flex items-center justify-between bottom-0 w-screen bg-dark text-white z-[999]"
+                        class="fixed flex items-center justify-end bottom-0 w-screen bg-dark text-white z-[999]"
                     >
-                        <div class="flex items-center">
-                            <!-- 作品トップ -->
-                            <div class="p-3" @click="works_top">
-                                <svg
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-6 h-6 flex-shrink-0"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15.75 19.5L8.25 12l7.5-7.5"
-                                    />
-                                </svg>
-                            </div>
-
-                            <!-- コメント -->
-                            <div
-                                class="p-3 flex items-center"
-                                @click="comment_menu = !comment_menu"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    class="w-6 h-6 flex-shrink-0"
-                                >
-                                    <path
-                                        d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-miterlimit="10"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M15.9965 11H16.0054"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M11.9955 11H12.0045"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M7.99451 11H8.00349"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                                <div
-                                    class="text-white text-xs ml-1 font-extralight"
-                                >
-                                    {{ commentCounts }}
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="flex items-center">
                             <!-- 次の話 -->
                             <div

@@ -11,7 +11,8 @@
     </a>
     <div class="flex flex-col mt-1 ml-4">
       <div class="flex items-start">
-        <div class="flex items-start leading-none">{{ $comment->user->name }}</div>
+        <div class="flex items-start max-w-[50px] lg:max-w-auto truncate leading-none">{{ $comment->user->name }}
+        </div>
         @if ($book->user->id === $comment->user->id)
           <svg class="ml-1 w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none">
             <path
