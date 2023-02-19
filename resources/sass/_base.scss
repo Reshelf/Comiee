@@ -198,7 +198,7 @@ input[type="file"] {
     }
 
     .header {
-        @apply relative min-h-[30px] bg-white dark:bg-dark-1 text-left rounded-t text-lg font-semibold py-3 pl-4 pr-8;
+        @apply relative min-h-[30px] bg-white dark:bg-dark-1 text-left rounded-t lg:text-lg text-[15px] font-semibold py-3 pl-4 pr-8;
     }
 
     .close {
