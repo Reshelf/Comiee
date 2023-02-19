@@ -372,7 +372,8 @@
         <div
             v-if="show"
             ref="sp_screen"
-            class="relative lg:hidden w-full flex flex-col my-[50px]"
+            class="relative lg:hidden w-full flex flex-col duration-300"
+            :class="[sp_menu ? 'my-[50px]' : '']"
             @click="sp_menu = !sp_menu"
         >
             <img
@@ -562,7 +563,7 @@
                     <div
                         class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
                     >
-                        <slot></slot>
+                        <slot name="comments"></slot>
                     </div>
 
                     <!-- SPメニュー下部 -->
