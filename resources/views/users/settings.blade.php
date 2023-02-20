@@ -243,6 +243,19 @@
                 </div>
               </div>
               <div class="pt-4 pb-12" id="account-delete">
+                {{-- ログアウト --}}
+                <div class="mt-4 mb-8">
+                  <h3 class="text-base font-semibold">{{ __('アカウントをログアウト') }}</h3>
+                  <div class="mt-6">
+                    <form id="logout-button" method="POST" action="{{ route('logout', app()->getLocale()) }}">
+                      @csrf
+                      <button type="submit" class="text-red border borde-red px-4 py-2 rounded-[5px]">
+                        {{ __('ログアウトする') }}
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                {{-- アカウントの削除 --}}
                 <div class="mt-4 mb-8">
                   <h3 class="text-base font-semibold">{{ __('アカウントの削除') }}</h3>
                   <div class="mt-6">
