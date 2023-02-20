@@ -117,7 +117,7 @@
                     <span class="light-checkbox-LabelText">{{ __('Comieeからのニュースやお得な情報を受け取ります') }}</span>
                   </label>
                   <div class="relative inline-block mt-12">
-                    <button type="submit" class="submit_btn3 btn-primary">
+                    <button type="submit" class="submit_btn3 btn-border">
                       {{ __('更新する') }}
                       <span class="load loading"></span>
                     </button>
