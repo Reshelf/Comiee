@@ -308,7 +308,7 @@
 
 
       {{-- 右サイドバー --}}
-      <div class="mg:pl-4 lg:w-1/3">
+      <div class="mt-8 lg:mt-0 px-6 lg:pr-0 mg:pl-4 lg:w-1/3">
         <div class="">
           {{-- あらすじ --}}
           @empty(!$book->story)
