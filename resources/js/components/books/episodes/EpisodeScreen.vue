@@ -2,7 +2,7 @@
     <div class="relative flex flex-col">
         <!-- 縦スクロール -->
         <template v-if="book.screen_type == 'vertical'">
-            <div v-if="show" class="bg-dark w-full hidden lg:block">
+            <div v-if="show" class="bg-f5 dark:bg-dark w-full hidden lg:block">
                 <img
                     v-for="image in images"
                     :key="image"
@@ -247,9 +247,23 @@
             <!-- 2段目 -->
             <div
                 v-if="show"
-                class="hidden w-full bg-dark-1 px-4 py-2 lg:flex justify-center"
+                class="hidden w-full bg-dark-1 px-4 lg:flex justify-between"
             >
-                <!-- <div class="text-eee">前のエピソード</div> -->
+                <div class="text-eee flex items-center">
+                    <span class="max-w-[100px] truncate">{{ book.title }}</span>
+                    {{ episode.number }}話
+
+                    <!-- コメント -->
+                    <div
+                        class="ml-4 p-3 flex items-center cursor-pointer"
+                        @click="comment_menu = !comment_menu"
+                    >
+                        コメント
+                        <div class="text-white text-xs ml-1 font-extralight">
+                            ({{ commentCounts }})
+                        </div>
+                    </div>
+                </div>
                 <div class="flex text-ccc">
                     <div
                         v-if="!fullScreen"
@@ -321,7 +335,51 @@
                         <span class="pl-2 text-xs">通常</span>
                     </div>
                 </div>
-                <!-- <div class="text-eee">次のエピソード</div> -->
+                <div class="flex items-center text-eee">
+                    <!-- 次の話 -->
+                    <div
+                        v-if="episode.number < episodeCount"
+                        class="p-3 flex items-center cursor-pointer"
+                        @click="locale_next"
+                    >
+                        <svg
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                        </svg>
+                        次話
+                    </div>
+
+                    <!-- 前の話 -->
+                    <div
+                        v-if="episode.number > 1"
+                        class="p-3 flex items-center cursor-pointer"
+                        @click="locale_prev"
+                    >
+                        前話
+                        <svg
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 flex-shrink-0"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                        </svg>
+                    </div>
+                </div>
             </div>
         </template>
 
@@ -542,13 +600,13 @@
 
         <!-- コメントメニュー -->
         <transition name="comment-menu" appear>
-            <div v-show="comment_menu" class="overlay">
+            <div v-show="comment_menu" class="overlay" @click.self="close">
                 <div
-                    class="window fixed h-screen w-screen dark:bg-dark-1 top-0 bottom-0 right-0 left-0 z-[1000]"
+                    class="window fixed h-screen w-screen lg:w-[500px] bg-dark-1 top-0 bottom-0 right-0 left-0 lg:left-auto z-[1000]"
                 >
                     <!-- コメント上部 -->
                     <div
-                        class="fixed top-0 flex items-center justify-center w-screen bg-dark text-white z-[999]"
+                        class="fixed top-0 flex items-center justify-center w-screen lg:w-[500px] bg-dark text-white z-[999]"
                     >
                         <!-- エピソード 話数、タイトル -->
                         <div class="truncate p-3">
@@ -569,7 +627,7 @@
 
                     <!-- コメント下部 -->
                     <div
-                        class="fixed flex items-center justify-between bottom-0 w-screen bg-dark z-[999]"
+                        class="fixed flex items-center justify-between bottom-0 w-screen lg:w-[500px] bg-dark z-[999]"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
@@ -818,7 +876,8 @@ export default {
             location.href = `/${this.lang}/books/${this.book.id}/${prevNumber}`;
         },
         close() {
-            this.open = false;
+            if (this.open) this.open = false;
+            if (this.comment_menu) this.comment_menu = false;
         },
         works_top() {
             location.href = "/" + this.lang + "/books/" + this.book.id;
