@@ -24,6 +24,7 @@
               <h3 class="text-2xl font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
               <a href="#mail-notification">{{ __('通知設定') }}</a>
               <a href="#site-display">{{ __('表示設定') }}</a>
+              <a href="#contract">{{ __('出版契約について') }}</a>
               <a href="#earnings">{{ __('収益の受け取り') }}</a>
               <a href="#account-delete">{{ __('アカウント管理') }}</a>
             </ul>
@@ -205,6 +206,40 @@
                   </div>
                 </div>
               </div>
+
+              {{-- 出版契約 --}}
+              <div class="pt-4 pb-12 border-b border-ccc" id="contract">
+                <div class="my-4">
+                  <h3 class="text-base font-semibold">{{ __('出版契約') }}</h3>
+                  <div class="my-4">
+                    {{ __('作品を有料化するには、作品毎に当サービスと出版契約書を締結する必要があります。') }}<br>
+                    {{ __('以下のボタンから契約書をダウンロードをして記入の上、この作品の契約書を送信してください。') }} <br>
+                    <a href="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/work_contract.pdf"
+                      target="_blank" rel="noopener noreferrer"
+                      class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
+                    <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit"
+                      target="_blank" rel="noopener noreferrer"
+                      class="btn-border inline-block mt-4">{{ __('出版契約書（電子配信）を送信する') }}</a>
+                  </div>
+                  <div class="flex mt-8">
+                    <div class="pr-12 font-semibold">
+                      契約中の作品
+                    </div>
+                    <div class="flex flex-col ">
+                      @foreach ($user->books as $book)
+                        @if ($book->is_contracted)
+                          <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+                            class="hover:text-primary mb-4">
+                            {{ $book->title }}
+                          </a>
+                        @endif
+                      @endforeach
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div class="pt-4 pb-12 border-b border-ccc" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base font-semibold">{{ __('収益受け取りの準備') }}</h3>

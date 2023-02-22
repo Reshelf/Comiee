@@ -5,7 +5,7 @@
 {{-- 有料選択 --}}
 <h3 class="tracking-widest my-4 font-semibold">{{ __('このエピソードを有料化する') }}</h3>
 <div class="checkbox">
-  @empty(!$book->user->stripe_user_id)
+  @if ($book->user->stripe_user_id && $book->is_contracted)
     <label class="light-checkbox">
       <input type="checkbox" name="is_free"
         @if ($update) {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }} @endif
@@ -23,13 +23,22 @@
           {{ $e->price ?? old('price') }}</strong>{{ __('円') }}〜
       </p>
     @endif
-  @endempty
-  @empty($book->user->stripe_user_id)
-    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings" class="text-primary">
-      {{ __('「収益を受け取る準備」') }}
+  @endif
+
+  @if (!$book->user->stripe_user_id || !$book->is_contracted)
+    <p class="mb-4">{{ __('有料販売を行うには、以下の設定を行なってください。') }}</p>
+  @endif
+
+  @if (!$book->is_contracted)
+    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#contract" target="_blank"
+      rel="noopener noreferrer" class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
+  @endif
+  @if (!$book->user->stripe_user_id)
+    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings"
+      class="btn-border inline-block mt-4">
+      {{ __('収益の受け取り準備を完了する') }}
     </a>
-    {{ __('を完了したら有料販売をすることができます') }}
-  @endempty
+  @endif
 </div>
 
 {{-- タイトル --}}
