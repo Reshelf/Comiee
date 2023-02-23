@@ -23,18 +23,18 @@
       <div class="w-full flex flex-col lg:flex-row py-4 lg:p-8">
         {{-- 左側 --}}
         <div class="w-full lg:w-3/4 lg:pr-20">
-          <div class="pb-4 mb-8 border-b border-ccc">
-            <h3 class="font-semibold lg:text-[16px]">{{ __('説明') }}</h3>
+          <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
+            <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('説明') }}</h3>
             <div class="py-4">{{ $user->body }}</div>
           </div>
-          <div class="pb-4 mb-8 border-b border-ccc">
-            <h3 class="font-semibold lg:text-[16px]">{{ __('リンク') }}</h3>
+          <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
+            <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
             <div class="py-4"></div>
           </div>
         </div>
         {{-- 右側 --}}
         <div class="w-full lg:w-1/4">
-          <h3 class="font-semibold lg:text-[16px]">{{ __('統計情報') }}</h3>
+          <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('統計情報') }}</h3>
           <div class="py-4">{{ $user->created_at->format('Y/m/d') }}{{ __('に登録') }}</div>
         </div>
       </div>
