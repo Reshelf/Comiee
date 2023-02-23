@@ -170,8 +170,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     |--------------------------------------------------------------------------
     |
      */
-    // Route::get('/user/setup', function () {return view('users.setup');});
-    Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
     Route::patch('/{username}', 'App\Http\Controllers\User\UpdateController')->name('users.update');
     Route::put('/{username}/follow', 'App\Http\Controllers\User\FollowController')->name('users.follow');
     Route::delete('/{username}/follow', 'App\Http\Controllers\User\UnfollowController')->name('users.unfollow');
@@ -181,4 +179,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('users.followings');
     Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('users.followers');
     Route::delete('/{username}/delete', 'App\Http\Controllers\User\DestroyController')->name('users.delete');
+    // セットアップ
+    Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
 });

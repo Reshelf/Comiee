@@ -249,8 +249,11 @@
                 v-if="show"
                 class="hidden w-full bg-dark-1 px-4 lg:flex justify-between"
             >
+                <!-- 左側 -->
                 <div class="text-eee flex items-center">
-                    <span class="max-w-[100px] truncate">{{ book.title }}</span>
+                    <span class="max-w-[100px] truncate pr-2">{{
+                        book.title
+                    }}</span>
                     {{ episode.number }}話
 
                     <!-- コメント -->
@@ -264,7 +267,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex text-ccc">
+
+                <!-- 真ん中 -->
+                <div class="lg:-ml-[200px] flex text-white">
                     <div
                         v-if="!fullScreen"
                         class="cursor-pointer flex items-center"
@@ -283,26 +288,26 @@
                                 <path
                                     d="M-902.5,259.5L-902.5,259.5c1.4,0,2.5-1.1,2.5-2.5v-22h22c1.4,0,2.5-1.1,2.5-2.5l0,0c0-1.4-1.1-2.5-2.5-2.5h-24.5
 		c-1.4,0-2.5,1.1-2.5,2.5V257C-905,258.4-903.9,259.5-902.5,259.5z"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                                 <path
                                     d="M-818,317h-22c-1.4,0-2.5,1.1-2.5,2.5l0,0c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5V295c0-1.4-1.1-2.5-2.5-2.5
 		l0,0c-1.4,0-2.5,1.1-2.5,2.5V317z"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                                 <path
                                     d="M-842.5,232.5L-842.5,232.5c0,1.4,1.1,2.5,2.5,2.5h22v22c0,1.4,1.1,2.5,2.5,2.5l0,0c1.4,0,2.5-1.1,2.5-2.5v-24.5
 		c0-1.4-1.1-2.5-2.5-2.5H-840C-841.4,230-842.5,231.1-842.5,232.5z"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                                 <path
                                     d="M-902.5,292.5L-902.5,292.5c-1.4,0-2.5,1.1-2.5,2.5v24.5c0,1.4,1.1,2.5,2.5,2.5h24.5c1.4,0,2.5-1.1,2.5-2.5l0,0
 		c0-1.4-1.1-2.5-2.5-2.5h-22v-22C-900,293.6-901.1,292.5-902.5,292.5z"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                             </g>
                         </svg>
-                        <span class="pl-2 text-xs">拡大</span>
+                        <span class="pl-2">拡大</span>
                     </div>
                     <div
                         v-if="fullScreen"
@@ -323,18 +328,20 @@
                                 <polygon
                                     points="1.707,36.293 0.293,37.707 26.293,63.707 27.707,62.293 15.414,50 28,37.414 28,46 30,46 30,35 29,34 18,34 18,36
 		26.586,36 14,48.586 	"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                                 <polygon
                                     points="34,18 34,29 35,30 46,30 46,28 37.414,28 50,15.414 62.293,27.707 63.707,26.293 37.707,0.293 36.293,1.707
 		48.586,14 36,26.586 36,18 	"
-                                    fill="#ccc"
+                                    fill="#fff"
                                 />
                             </g>
                         </svg>
-                        <span class="pl-2 text-xs">通常</span>
+                        <span class="pl-2">通常</span>
                     </div>
                 </div>
+
+                <!-- 右側 -->
                 <div class="flex items-center text-eee">
                     <!-- 次の話 -->
                     <div
@@ -600,14 +607,16 @@
 
         <!-- コメントメニュー -->
         <transition name="comment-menu" appear>
-            <div v-show="comment_menu" class="overlay" @click.self="close">
-                <div
-                    class="window fixed h-screen w-screen lg:w-[500px] bg-dark-1 top-0 bottom-0 right-0 left-0 lg:left-auto z-[1000]"
-                >
+            <div
+                v-show="comment_menu"
+                class="overlay"
+                @click.self="
+                    (comment_menu = !comment_menu), (sp_menu = !sp_menu)
+                "
+            >
+                <div class="window w-screen lg:w-[600px] h-screen lg:h-auto">
                     <!-- コメント上部 -->
-                    <div
-                        class="fixed top-0 flex items-center justify-center w-screen lg:w-[500px] bg-dark text-white z-[999]"
-                    >
+                    <div class="bg-dark text-white flex justify-between">
                         <!-- エピソード 話数、タイトル -->
                         <div class="truncate p-3">
                             {{ episode.number }}話
@@ -616,22 +625,26 @@
                                 >コメント（{{ commentCounts }}）</span
                             >
                         </div>
+
+                        <div class="p-3 flex items-center cursor-pointer">
+                            <slot name="add-comments"></slot>
+                        </div>
                     </div>
 
                     <!-- コメント内容 -->
                     <div
-                        class="fixed top-[50px] bottom-[50px] p-4 w-full overflow-y-scroll"
+                        class="h-full pb-[100px] lg:pb-6 lg:mb-auto p-6 bg-dark-1 lg:min-h-[500px] lg:max-h-[500px] overflow-y-scroll"
                     >
                         <slot name="comments"></slot>
                     </div>
 
                     <!-- コメント下部 -->
                     <div
-                        class="fixed flex items-center justify-between bottom-0 w-screen lg:w-[500px] bg-dark z-[999]"
+                        class="bg-dark flex items-center justify-between fixed lg:relative w-full bottom-0 lg:bottom-auto"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
-                            class="p-3 text-white"
+                            class="p-3 text-white flex items-center cursor-pointer"
                             @click="
                                 (comment_menu = !comment_menu),
                                     (sp_menu = !sp_menu)
@@ -650,9 +663,8 @@
                                     d="M15.75 19.5L8.25 12l7.5-7.5"
                                 />
                             </svg>
+                            <div class="hidden lg:block">閉じる</div>
                         </div>
-
-                        <slot name="add-comments"></slot>
 
                         <div class="flex items-center text-white">
                             <!-- 次の話 -->
@@ -1052,5 +1064,9 @@ export default {
         transform: translateY(100px);
         opacity: 0;
     }
+}
+
+.overlay {
+    @apply bg-black bg-opacity-50;
 }
 </style>

@@ -7,8 +7,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 // use App\Mail\user\RegisterdUserMail;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 // use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
@@ -37,8 +38,11 @@ class RegisterController extends Controller
     {
         $email = $data['email'];
         $password = Hash::make($data['password']);
-        // $gender = $data['gender'];
-        // $birthday = $data['birthday'];
+        $gender = $data['gender'];
+
+        // 誕生日
+        $date = Carbon::createFromFormat('Y-m-d', $data['birth']);
+        $birth = $date->format('Y-m-d');
 
         // ユーザー番号をランダムで生成する
         do {
@@ -69,8 +73,8 @@ class RegisterController extends Controller
             'email' => $email,
             'password' => $password,
             'lang' => $lang,
-            // 'gender' => $gender,
-            // 'birthday' => $birthday,
+            'birth' => $birth,
+            'gender' => $gender,
         ]);
     }
 

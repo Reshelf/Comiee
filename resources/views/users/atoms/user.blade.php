@@ -35,7 +35,7 @@
           enctype="multipart/form-data" onsubmit="submit_btn()">
           @csrf
           @method('PATCH')
-          @include('users.atoms.form')
+          @include('users.atoms.form', ['setup' => false, 'setup_update' => true])
           <div class="relative">
             <button type="submit" class="submit_btn2 btn-primary w-full lg:py-4">
               {{ __('更新する') }}

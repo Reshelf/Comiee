@@ -3,7 +3,7 @@
      <h3 class="text-[13px] mr-4 md:mr-0 md:text-lg font-semibold mb-4">{{ __('応援コメント') }}</h3>
      <comment-post-modal>
        <template #btn-trigger>
-         <span class="btn-border px-4 text-xs">{{ __('コメントをする') }}</span>
+         <span class="btn-border px-4 text-xs">{{ __('コメントを書く') }}</span>
        </template>
        <template #header>{{ __('応援コメントを投稿する') }}</template>
        <form method="POST"

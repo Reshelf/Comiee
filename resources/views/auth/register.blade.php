@@ -4,12 +4,12 @@
 
 @section('content')
   @include('atoms._simple_nav')
-  <div class="max-w-md m-8 md:mx-auto bg-white rounded border border-eee dark:border-none">
+  <div class="max-w-md m-8 md:mx-auto bg-white rounded-lg border border-eee dark:border-none">
     <h2 class="card-title">
       {{ __('アカウント登録') }}
     </h2>
 
-    <form method="POST" action="{{ route('register', app()->getLocale()) }}" class="px-6 dark:bg-dark-1 pt-6"
+    <form method="POST" action="{{ route('register', app()->getLocale()) }}" class="dark:bg-dark-1 p-6 pb-0"
       onsubmit="submit_btn()">
       @csrf
 
@@ -26,6 +26,30 @@
           {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
         </p>
         <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
+      </div>
+
+      {{-- 性別 --}}
+      <div class="filters flex flex-col mb-8">
+        <h3 class="tracking-widest text-[15px] font-semibold">{{ __('性別') }}</h3>
+        <div class="flex items-center mt-4">
+          {{-- 縦スク --}}
+          <input class="visually-hidden" type="radio" name="gender" value="man" id="gender_man" />
+          <label for="gender_man">
+            {{ __('男性') }}
+          </label>
+          {{-- 横読み --}}
+          <input class="visually-hidden" type="radio" name="gender" value="woman" id="gender_woman" />
+          <label for="gender_woman" class="ml-4">
+            {{ __('女性') }}
+          </label>
+        </div>
+      </div>
+
+
+      {{-- 誕生日 --}}
+      <h3 class="tracking-widest mb-4 font-semibold">{{ __('誕生日') }}</h3>
+      <div class="mb-8">
+        <input type="date" name="birth" id="birth">
       </div>
 
       <div class="mb-4">
