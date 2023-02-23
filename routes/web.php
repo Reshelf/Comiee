@@ -176,6 +176,7 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::get('/{username}/settings', 'App\Http\Controllers\User\Setting\IndexController')->name('users.settings');
     Route::patch('/{username}/settings', 'App\Http\Controllers\User\Setting\UpdateController')->name('users.settings.update');
     Route::get('/{username}', 'App\Http\Controllers\User\ShowController')->name('users.show');
+    Route::get('/{username}/about', 'App\Http\Controllers\User\AboutController')->name('users.about');
     Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('users.followings');
     Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('users.followers');
     Route::delete('/{username}/delete', 'App\Http\Controllers\User\DestroyController')->name('users.delete');
