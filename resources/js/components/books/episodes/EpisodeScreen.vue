@@ -2,7 +2,7 @@
     <div class="relative flex flex-col">
         <!-- 縦スクロール -->
         <template v-if="book.screen_type == 'vertical'">
-            <div v-if="show" class="bg-f5 dark:bg-dark w-full hidden lg:block">
+            <div v-if="show" class="bg-dark w-full hidden lg:block">
                 <img
                     v-for="image in images"
                     :key="image"
