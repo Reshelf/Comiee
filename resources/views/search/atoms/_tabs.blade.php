@@ -1,4 +1,7 @@
 <div class="flex items-center">
+  <a href="{{ route('ranking', app()->getLocale()) }}"
+    class="{{ $tab === 1 ? 'dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-ddd hover:font-semibold hover:dark:border-dark' }} py-3 px-4">{{ __('ホーム') }}</a>
+
   @guest
     <a href="{{ route('ranking', app()->getLocale()) }}"
       class="{{ $tab === 1 ? 'dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-ddd hover:font-semibold hover:dark:border-dark' }} py-3 px-4">{{ __('ランキング') }}</a>
