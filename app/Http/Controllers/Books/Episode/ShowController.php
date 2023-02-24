@@ -42,6 +42,11 @@ class ShowController extends Controller
         Episode::where(['book_id' => $book->id, 'number' => $request->episode_number])->first();
         // });
 
+        // 存在しないエピソードは404
+        if ($episode === null) {
+            abort(404);
+        }
+
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
         $comments =

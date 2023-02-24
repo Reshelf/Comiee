@@ -78,6 +78,7 @@
                             このエピソードは最新話です。次回作を楽しみにしてね！
                         </div>
                         <div
+                            v-if="episode.number > 1"
                             class="text-primary mt-4 cursor-pointer"
                             @click="locale_prev"
                         >
@@ -199,6 +200,7 @@
                                 このエピソードは最新話です。次回作を楽しみにしてね！
                             </div>
                             <div
+                                v-if="episode.number > 1"
                                 class="text-primary mt-4 cursor-pointer"
                                 @click="locale_prev"
                             >
@@ -422,6 +424,7 @@
                                 このまま次のエピソードを読む
                             </div>
                             <div
+                                v-if="episode.number > 1"
                                 class="text-primary text-center mt-4 cursor-pointer"
                                 @click="locale_prev"
                             >

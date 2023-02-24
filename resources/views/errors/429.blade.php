@@ -5,7 +5,7 @@
 @section('content')
   @include('atoms._simple_nav')
 
-  <div class="max-w-md m-8 md:mx-auto bg-white dark:bg-dark-1 rounded border border-eee dark:border-none">
+  <div class="card">
     <h2 class="card-title mb-6">
       429 | Too Many Requests
     </h2>

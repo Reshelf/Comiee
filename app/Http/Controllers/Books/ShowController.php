@@ -25,6 +25,11 @@ class ShowController extends Controller
         Book::where('id', $request->book_id)->first();
         // });
 
+        // 存在しない作品は404
+        if ($book === null) {
+            abort(404);
+        }
+
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
         $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
             return $tag->all_tag_names;

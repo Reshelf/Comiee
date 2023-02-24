@@ -674,12 +674,14 @@ button .loading {
     opacity: 0;
     visibility: hidden;
 }
-
+.card {
+    @apply max-w-md m-8 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none;
+}
 .card-title {
-    @apply dark:text-ddd border border-b border-eee text-base md:text-xl p-6;
+    @apply dark:text-ddd border border-b border-b-l-c text-base md:text-xl p-6;
 }
 .card-input {
-    @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-ccc dark:border-b-dark dark:bg-dark-2;
+    @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-b-l-c dark:border-b-dark dark:bg-dark-2;
 }
 
 .setting-tab {
@@ -696,7 +698,7 @@ button .loading {
     .tabContents {
         @apply w-full md:px-6 md:my-0;
         .tab-box {
-            @apply my-8 border-b border-ccc;
+            @apply my-8 border-b border-b-l-c;
         }
     }
 }

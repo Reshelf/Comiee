@@ -66,12 +66,12 @@
 
 
   {{-- 購入 --}}
-  @if (Auth::id() !== $book->user_id && !$book->is_hidden)
+  {{-- @if (Auth::id() !== $book->user_id && !$book->is_hidden)
     <div class="w-full flex flex-col mt-4 px-2">
       <button class="btn-border py-3 mb-2">{{ __('1話を読む') }}</button>
       <button class="btn-primary py-3">{{ __('全話をまとめて購入') }}</button>
     </div>
-  @endif
+  @endif --}}
 
   {{-- 作品内容の更新 --}}
   @if (Auth::id() === $book->user_id)

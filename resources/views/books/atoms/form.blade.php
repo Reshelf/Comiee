@@ -2,10 +2,19 @@
 
 @if ($update)
   {{-- 公開設定 --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('公開設定') }}</h3>
+  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">
+    {{ __('公開設定') }}
+    <span class="text-xs">
+      @if ($book->is_hidden)
+        （{{ __('現在非公開中') }}）
+      @else
+        （{{ __('現在公開中') }}）
+      @endif
+    </span>
+  </h3>
   <div class="checkbox mb-12">
     <label class="light-checkbox">
-      <input type="checkbox" name="is_hidden" {{ $book->is_hidden ?? old('is_hidden') ? '' : 'checked' }}
+      <input type="checkbox" name="is_hidden" {{ !$book->is_hidden ?? old('is_hidden') ? '' : 'checked' }}
         class="light-checkbox-Input">
       <span class="light-checkbox-DummyInput">
         <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
@@ -13,7 +22,7 @@
             stroke-linejoin="round" />
         </svg>
       </span>
-      <span class="light-checkbox-LabelText">{{ __('作品を公開する') }}</span>
+      <span class="light-checkbox-LabelText">{{ __('作品を非公開にする') }}</span>
     </label>
   </div>
 
