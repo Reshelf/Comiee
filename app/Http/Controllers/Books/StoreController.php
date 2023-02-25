@@ -43,7 +43,7 @@ class StoreController extends Controller
         $request->validate([
             'title' => 'required|string|max:50|unique:books,title,' . $book->id . ',id',
             'genre_id' => ['required', 'integer'],
-            'lang' => ['required', 'integer'],
+            'lang' => ['required', 'string'],
             'story' => ['nullable', 'string', 'max:400'],
             'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
         ]);

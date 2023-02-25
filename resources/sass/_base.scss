@@ -678,7 +678,7 @@ button .loading {
     @apply max-w-md m-8 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none;
 }
 .card-title {
-    @apply dark:text-ddd border border-b border-b-l-c text-base md:text-xl p-6;
+    @apply dark:bg-dark dark:text-ddd border border-b border-b-l-c dark:border-none text-base md:text-xl p-6;
 }
 .card-input {
     @apply w-full md:text-[15px] px-2 py-3 rounded-[5px] border border-l-0 border-r-0 border-t-0 border-b-b-l-c dark:border-b-dark dark:bg-dark-2;

@@ -27,7 +27,7 @@ return new class extends Migration
 
             $table->string('title')->unique()->comment('作品名');
             $table->string('screen_type')->default('horizontal')->comment('画面タイプ');
-            $table->boolean('lang')->default(0)->comment('作品の言語');
+            $table->string('lang')->default('ja')->comment('作品の言語');
             $table->boolean('genre_id')->default(0)->comment('ジャンル');
             $table->integer('views')->default(0)->comment('閲覧回数');
             $table->text('story', 400)->nullable()->comment('あらすじ');
