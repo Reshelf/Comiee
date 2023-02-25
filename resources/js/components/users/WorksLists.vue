@@ -8,7 +8,7 @@
                     'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
                         bookLang === selectedLang,
                 }"
-                class="cursor-pointer py-1 px-4 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="selectLang(bookLang)"
             >
                 <template v-if="bookLang === 'ja'"> 日本語 </template>
