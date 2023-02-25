@@ -25,7 +25,13 @@
         <div class="w-full lg:w-3/4 lg:pr-20">
           <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
             <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('説明') }}</h3>
-            <div class="py-4">{{ $user->body }}</div>
+            <div class="py-4">
+              @empty($user->body)
+                {{ __('自己紹介はありません。') }}
+              @else
+                {{ $user->body }}
+              @endempty
+            </div>
           </div>
           <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
             <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
