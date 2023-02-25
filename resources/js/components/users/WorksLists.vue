@@ -4,7 +4,7 @@
             <!-- 検索条件 -->
             <div class="flex flex-wrap items-center mb-4">
                 <!-- 作品言語 -->
-                <div>
+                <div class="mb-4">
                     <label class="pr-2">作品言語</label>
                     <select
                         v-model="language"
@@ -28,7 +28,7 @@
                 </div>
 
                 <!-- 画面タイプ -->
-                <div>
+                <div class="mb-4">
                     <label class="pr-2">画面タイプ</label>
                     <select
                         v-model="screen_type"
@@ -46,7 +46,7 @@
                         'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
                             is_complete,
                     }"
-                    class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                     @click="is_complete = !is_complete"
                 >
                     完結作品
@@ -58,7 +58,7 @@
                         'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
                             is_color,
                     }"
-                    class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                     @click="is_color = !is_color"
                 >
                     カラー作品
@@ -70,7 +70,7 @@
                         'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
                             is_suspend,
                     }"
-                    class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                     @click="is_suspend = !is_suspend"
                 >
                     休載作品
