@@ -21,8 +21,7 @@
   <div class="flex max-w-6xl w-full mx-auto mt-4 px-6 md:px-0 justify-center mb-8">
     <div class="w-full md:mx-12">
       <div class="w-full flex flex-wrap justify-center md:justify-start">
-        <works-lists :books='@json($books)' :lang='@json(Auth::user()->lang)'>
-        </works-lists>
+        <Works-lists :books='@json($books)' :lang='@json(Auth::user()->lang)' />
         @include('atoms.nomessage')
       </div>
     </div>

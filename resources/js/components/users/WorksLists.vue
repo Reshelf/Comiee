@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-full">
         <ul class="lang-lists">
             <li
                 v-for="(bookLang, index) in bookLangs"
@@ -34,31 +34,33 @@
                 <template v-else-if="bookLang === 'bn'"> ベンガル語 </template>
             </li>
         </ul>
-        <div v-for="(book, index) in books" :key="index" class="">
-            <div v-if="book.lang == selectedLang" class="list-item">
-                <a :href="`/${lang}/books/${book.id}`">
-                    <template v-if="book.thumbnail">
-                        <img
-                            :src="book.thumbnail"
-                            alt="thumbnail"
-                            class="w-full md:w-[200px] h-[200px] object-cover"
-                        />
-                    </template>
-                    <template v-else>
-                        <img
-                            src="{{ asset('/img/noimage.svg') }}"
-                            alt=""
-                            class="block dark:hidden min-h-[200px] max-h-[200px] w-full md:min-w-[200px] md:max-w-[200px] object-cover"
-                        />
-                        <img
-                            src="{{ asset('/img/noimage-dark.svg') }}"
-                            alt="thumbnail"
-                            class="hidden dark:block h-[200px] w-full md:w-[200px] object-cover"
-                        />
-                    </template>
-                    <span class="thumbnail-title">{{ book.title }}</span>
-                </a>
-            </div>
+        <div class="flex flex-wrap">
+            <template v-for="(book, index) in books" :key="index">
+                <div v-if="book.lang == selectedLang" class="list-item">
+                    <a :href="`/${lang}/books/${book.id}`">
+                        <template v-if="book.thumbnail">
+                            <img
+                                :src="book.thumbnail"
+                                alt="thumbnail"
+                                class="w-full md:w-[200px] h-[200px] object-cover"
+                            />
+                        </template>
+                        <template v-else>
+                            <img
+                                src="{{ asset('/img/noimage.svg') }}"
+                                alt=""
+                                class="block dark:hidden min-h-[200px] max-h-[200px] w-full md:min-w-[200px] md:max-w-[200px] object-cover"
+                            />
+                            <img
+                                src="{{ asset('/img/noimage-dark.svg') }}"
+                                alt="thumbnail"
+                                class="hidden dark:block h-[200px] w-full md:w-[200px] object-cover"
+                            />
+                        </template>
+                        <span class="thumbnail-title">{{ book.title }}</span>
+                    </a>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -98,9 +100,11 @@ export default {
         };
     },
     mounted() {
+        let lists = [];
         this.books.forEach((book) => {
-            this.bookLangs.push(book.lang);
+            lists.push(book.lang);
         });
+        this.bookLangs = new Set(lists);
     },
     methods: {
         selectLang(langList) {
