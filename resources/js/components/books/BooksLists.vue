@@ -66,13 +66,14 @@
             <!-- 閲覧数 -->
             <div class="mb-4 flex items-center">
                 <label class="pr-2">閲覧数</label>
-                <div
-                    class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    @click="views = !views"
+                <select
+                    v-model="views"
+                    class="dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <template v-if="views"> 多い順 </template>
-                    <template v-else> 少ない順 </template>
-                </div>
+                    <option value="">未設定</option>
+                    <option value="much">多い順</option>
+                    <option value="less">少ない順</option>
+                </select>
             </div>
         </div>
 
@@ -134,7 +135,7 @@ export default {
             screen_type: "",
             is_all_charge: false,
             is_new: false,
-            views: true,
+            views: "",
 
             // ロード
             mangas: [],
@@ -166,9 +167,9 @@ export default {
             }
 
             // 閲覧数 降順、昇順
-            if (this.views) {
+            if (this.views === "much") {
                 result = result.sort((a, b) => b.views - a.views);
-            } else {
+            } else if (this.views === "less") {
                 result = result.sort((a, b) => a.views - b.views);
             }
 
@@ -177,6 +178,9 @@ export default {
                     (manga) => manga.screen_type === this.screen_type
                 );
             }
+
+            // ランダムにする
+            result.sort(() => Math.random() - 0.5);
             return result;
         },
     },
