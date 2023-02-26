@@ -83,7 +83,7 @@
         </div>
 
         <!-- ローディング -->
-        <template v-if="loading">
+        <template v-if="loading && currentPage <= lastPage">
             <div class="p-4">取得中...</div>
         </template>
 
@@ -107,7 +107,6 @@ export default {
             is_complete: false,
             is_suspend: false,
             is_color: false,
-            language: "",
             screen_type: "",
 
             // ロード
