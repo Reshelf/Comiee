@@ -51,16 +51,28 @@
                 全話無料
             </div>
 
-            <!-- 休載作品 -->
+            <!-- 今日の新作 -->
             <div
                 :class="{
                     'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
-                        is_suspend,
+                        is_new,
                 }"
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                @click="is_suspend = !is_suspend"
+                @click="is_new = !is_new"
             >
-                休載作品
+                今日の新作
+            </div>
+
+            <!-- 閲覧数 -->
+            <div class="mb-4 flex items-center">
+                <label class="pr-2">閲覧数</label>
+                <div
+                    class="cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    @click="views = !views"
+                >
+                    <template v-if="views"> 多い順 </template>
+                    <template v-else> 少ない順 </template>
+                </div>
             </div>
         </div>
 
@@ -121,6 +133,8 @@ export default {
             is_color: false,
             screen_type: "",
             is_all_charge: false,
+            is_new: false,
+            views: true,
 
             // ロード
             mangas: [],
@@ -139,17 +153,25 @@ export default {
             if (this.is_complete) {
                 result = result.filter((manga) => manga.is_complete);
             }
-            if (this.is_suspend) {
-                result = result.filter((manga) => manga.is_suspend);
-            }
             if (this.is_color) {
                 result = result.filter((manga) => manga.is_color);
+            }
+            if (this.is_new) {
+                result = result.filter((manga) => manga.is_new);
             }
             if (this.is_all_charge) {
                 result = result.filter(
                     (manga) => manga.is_all_charge === "true"
                 );
             }
+
+            // 閲覧数 降順、昇順
+            if (this.views) {
+                result = result.sort((a, b) => b.views - a.views);
+            } else {
+                result = result.sort((a, b) => a.views - b.views);
+            }
+
             if (this.screen_type) {
                 result = result.filter(
                     (manga) => manga.screen_type === this.screen_type
