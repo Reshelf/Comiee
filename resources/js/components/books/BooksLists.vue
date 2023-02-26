@@ -39,6 +39,18 @@
                 カラー作品
             </div>
 
+            <!-- 全話無料 -->
+            <div
+                :class="{
+                    'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
+                        is_all_charge,
+                }"
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                @click="is_all_charge = !is_all_charge"
+            >
+                全話無料
+            </div>
+
             <!-- 休載作品 -->
             <div
                 :class="{
@@ -108,6 +120,7 @@ export default {
             is_suspend: false,
             is_color: false,
             screen_type: "",
+            is_all_charge: false,
 
             // ロード
             mangas: [],
@@ -132,8 +145,10 @@ export default {
             if (this.is_color) {
                 result = result.filter((manga) => manga.is_color);
             }
-            if (this.lang) {
-                result = result.filter((manga) => manga.lang === this.lang);
+            if (this.is_all_charge) {
+                result = result.filter(
+                    (manga) => manga.is_all_charge === "true"
+                );
             }
             if (this.screen_type) {
                 result = result.filter(

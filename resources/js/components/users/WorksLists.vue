@@ -91,12 +91,12 @@
                             </template>
                             <template v-else>
                                 <img
-                                    src="{{ asset('/img/noimage.svg') }}"
+                                    src="/img/noimage.svg"
                                     alt=""
                                     class="block dark:hidden min-h-[200px] max-h-[200px] w-full md:min-w-[200px] md:max-w-[200px] object-cover"
                                 />
                                 <img
-                                    src="{{ asset('/img/noimage-dark.svg') }}"
+                                    src="/img/noimage-dark.svg"
                                     alt="thumbnail"
                                     class="hidden dark:block h-[200px] w-full md:w-[200px] object-cover"
                                 />
@@ -120,6 +120,10 @@ export default {
         books: {
             type: Array,
             default: [],
+        },
+        lang: {
+            type: String,
+            default: "",
         },
     },
     data() {
