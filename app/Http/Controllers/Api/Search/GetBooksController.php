@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Api\Search;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\Models\Book;
 
 class GetBooksController extends Controller
 {
 
     /*
     |--------------------------------------------------------------------------
-    | キーワード検索
+    | トップページ
     |--------------------------------------------------------------------------
      */
     public function __invoke()
     {
-        $books = DB::table('books')->paginate(20);
+        // 非公開 & 休載は外す
+        $books = Book::where(['is_hidden' => false, 'is_suspend' => false])->paginate(20);
 
         return response()->json($books);
     }
