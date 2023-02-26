@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Search;
+namespace App\Http\Controllers\Api\Search;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
-class IndexController extends Controller
+class GetBooksController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
-    | トップページ
+    | キーワード検索
     |--------------------------------------------------------------------------
      */
     public function __invoke()
     {
-        return view('index');
+        $books = DB::table('books')->paginate(20);
+
+        return response()->json($books);
     }
 }

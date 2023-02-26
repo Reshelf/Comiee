@@ -6,6 +6,7 @@ import ToastModal from "../components/atoms/ToastModal.vue";
 // auth
 import AuthModal from "../components/auth/AuthModal.vue";
 import BookLike from "../components/books/BookLike.vue";
+import BooksLists from "../components/books/BooksLists.vue";
 // books
 import BookEditModal from "../components/books/BookEditModal.vue";
 import CreateModal from "../components/books/CreateModal.vue";
@@ -38,6 +39,7 @@ import WorksLists from "../components/users/WorksLists.vue";
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
 import SettingTab from "../components/users/SettingTab.vue";
 export default {
+    BooksLists,
     WorksLists,
     SetupModal,
     ChangePaymentPrice,

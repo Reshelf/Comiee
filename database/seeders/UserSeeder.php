@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             $param = [
                 'name' => $faker->name,
                 'username' => $faker->numberBetween(1001, 9999999999999999),
-                'phone_number' => $faker->phoneNumber(),
+
                 'body' => $faker->text(200),
                 'email' => $faker->email,
                 'password' => 'password',

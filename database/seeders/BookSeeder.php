@@ -2,12 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Book;
-use Dotenv\Util\Str;
 use Faker\Factory as Faker;
-use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class BookSeeder extends Seeder
 {
@@ -18,15 +15,23 @@ class BookSeeder extends Seeder
     {
         $faker = Faker::create('en_US');
 
-        for ($i = 0; $i < 10000; $i++) {
+        for ($i = 0; $i < 1000; $i++) {
             $param = [
-                'title' => $i,
-                'genre_id' => random_int(1, 5),
+                'user_id' => random_int(1, 100),
+
+                'is_contracted' => random_int(0, 1),
                 'is_complete' => random_int(0, 1),
                 'is_new' => random_int(0, 1),
+                'is_color' => random_int(0, 1),
+                'is_hidden' => random_int(0, 1),
+                'is_suspend' => random_int(0, 1),
+
+                'title' => $i,
+                'screen_type' => 'horizontal',
+                'lang' => 'ja',
+                'genre_id' => random_int(1, 4),
                 'views' => random_int(0, 99999999),
                 'story' => $faker->text(400),
-                'user_id' => random_int(1, 100),
             ];
             Book::create($param);
         }
