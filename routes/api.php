@@ -20,3 +20,6 @@ Route::get('/search-words', 'App\Http\Controllers\Api\Search\SearchWordControlle
 Route::get('/search-tags', 'App\Http\Controllers\Api\Search\SearchTagsController');
 Route::get('/book', 'App\Http\Controllers\Api\Search\GetBooksController');
 // Route::get('/posts', 'App\Http\Controllers\Api\Timeline\TimelineController');
+
+Route::get('/comments', 'App\Http\Controllers\Api\Books\Episode\Comment\IndexController');
+Route::post('/comments', 'App\Http\Controllers\Api\Books\Episode\Comment\StoreController');
