@@ -24,8 +24,8 @@
         onsubmit="submit_btn()">
         @csrf
         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-        <textarea class="count_6 dark:bg-dark-1 w-full h-[250px] rounded-[5px]" placeholder="{{ __('お問い合せ内容を記入してください。') }}"
-          autocomplete="off" autofocus="on" type="text" name="body" maxlength="400" required></textarea>
+        <textarea class="count_6 text-area" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off" autofocus="on"
+          type="text" name="body" maxlength="400" required></textarea>
         <div class="mb-4 text-right">
           <span class="string_count_6">0</span>
           <span>/400文字</span>

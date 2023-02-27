@@ -97,7 +97,6 @@ class ShelfController extends Controller
         }
 
         $books = $query->paginate(15);
-        // dd($books);
         return view('users.shelf.index', [
             'books' => $books,
             'feature' => $feature,

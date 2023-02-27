@@ -720,3 +720,7 @@ button .loading {
 .vue-tags-input .ti-tag::before {
     content: "#" !important;
 }
+
+.text-area {
+    @apply bg-white text-t-color dark:text-ddd dark:bg-dark-1 w-full h-[250px] rounded-[5px];
+}
