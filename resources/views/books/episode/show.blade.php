@@ -92,7 +92,7 @@
         !$episode->is_free &&
         $book->user->stripe_user_id &&
         $book->user->id !== Auth::user()->id)
-  <div class="w-full h-[70vh] bg-f8 flex flex-col items-center justify-center px-8">
+  <div class="w-full h-[70vh] bg-f8 dark:bg-dark-1 flex flex-col items-center justify-center px-8">
     <div class="text-3xl mt-4 tracking-widest">
       {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
     <div class="my-8">
@@ -106,8 +106,11 @@
         @csrf
         @method('POST')
         {{-- 料金変更 --}}
-        <change-payment-price></change-payment-price>
-
+        @if (Auth::user()->lang === 'ja')
+          <change-payment-price-jpy></change-payment-price-jpy>
+        @else
+          <change-payment-price-usd></change-payment-price-usd>
+        @endif
         <div class="relative mt-12">
           <button type="submit" class="submit_btn2 btn-primary lg:py-4 w-full">
             {{ __('スーパーエールでエピソードを読む') }}
@@ -117,7 +120,11 @@
       </form>
 
       <div class="text-[11px] mt-4">
-        50エールから応援することができます。(1エール = 1円)
+        @if (Auth::user()->lang === 'ja')
+          {{ __('50エールから応援することができます。(1エール = 1円)') }}
+        @else
+          {{ __('1エールから応援することができます。(1エール = 1ドル)') }}
+        @endif
       </div>
 
     </div>

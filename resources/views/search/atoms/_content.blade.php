@@ -4,10 +4,10 @@
 <div class="w-full flex flex-wrap justify-start">
   @isset($books)
     {{-- 閲覧履歴 or 購入履歴 --}}
-    @if ($type === 'view_history' || 'purchase_history')
+    @if ($type !== 'like')
       @foreach ($books as $episode)
         <div class="list-item">
-          <a href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_id' => $episode->book_id, 'episode_number' => $episode->number]) }}"
+          <a @empty(!$episode->book_id) href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_id' => $episode->book_id, 'episode_number' => $episode->number]) }}"   @endempty
             class="relative inline-block w-full">
             @empty($episode->thumbnail)
               <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden list-item-img">

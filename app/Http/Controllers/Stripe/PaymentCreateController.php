@@ -40,7 +40,11 @@ class PaymentCreateController extends Controller
             if ($book->user->stripe_user_id) {
                 $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
-                // 商品
+                /*
+                |--------------------------------------------------------------------------
+                | 商品を作成
+                |--------------------------------------------------------------------------
+                 */
                 $product = $stripe->products->create([
                     'name' => $book->title . ' - ' . $episode->number . '話',
                     "metadata" => [
@@ -51,20 +55,39 @@ class PaymentCreateController extends Controller
                 ], ['stripe_account' => $book->user->stripe_user_id],
                 );
 
-                // 価格
+                /*
+                |--------------------------------------------------------------------------
+                | 支払通貨の設定 作者が日本以外ならドル指定
+                |--------------------------------------------------------------------------
+                 */
+                $currency = 'jpy';
+                if (Auth::user()->lang) {
+                    $currency = 'usd';
+                };
+
+                /*
+                |--------------------------------------------------------------------------
+                | 価格設定
+                |--------------------------------------------------------------------------
+                 */
                 $price = $stripe->prices->create([
                     'product' => $product->id, // 作成した製品と紐づける
                     'unit_amount' => $request->price, // 単価
-                    'currency' => 'jpy', // 支払通貨
+                    'currency' => $currency,
                     'tax_behavior' => 'inclusive',
                 ], ['stripe_account' => $book->user->stripe_user_id]);
 
+                /*
+                |--------------------------------------------------------------------------
+                | 返す
+                |--------------------------------------------------------------------------
+                 */
                 return view('books.episode.payment', [
                     'lang' => app()->getLocale(),
                     'book' => $book,
                     'episode' => $episode,
                     'price' => $price,
-                    'instant_price' => $request->price, // エールは可変
+                    'instant_price' => $request->price, // エール金額は購入者によって可変
                 ]);
             }
         }

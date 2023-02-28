@@ -1,7 +1,8 @@
 // atoms
 import BasicModal from "../components/atoms/BasicModal.vue";
 import BookTab from "../components/atoms/BookTab.vue";
-import ChangePaymentPrice from "../components/atoms/ChangePaymentPrice.vue";
+import ChangePaymentPriceJpy from "../components/atoms/ChangePaymentPriceJpy.vue";
+import ChangePaymentPriceUsd from "../components/atoms/ChangePaymentPriceUsd.vue";
 import ToastModal from "../components/atoms/ToastModal.vue";
 // auth
 import AuthModal from "../components/auth/AuthModal.vue";
@@ -42,7 +43,8 @@ export default {
     BooksLists,
     WorksLists,
     SetupModal,
-    ChangePaymentPrice,
+    ChangePaymentPriceJpy,
+    ChangePaymentPriceUsd,
     SettingTab,
     CommentLike,
     BasicModal,
