@@ -61,7 +61,7 @@ class PaymentCreateController extends Controller
                 |--------------------------------------------------------------------------
                  */
                 $currency = 'jpy';
-                if (Auth::user()->lang) {
+                if (Auth::user()->lang != 'ja') {
                     $currency = 'usd';
                 };
 
