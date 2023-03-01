@@ -805,15 +805,15 @@ export default {
             }
 
             // スクショブロック
-            // if (
-            //     e.metaKey ||
-            //     e.key == "RightCommand" ||
-            //     e.key == "LeftCommand" ||
-            //     e.key == "F12" ||
-            //     e.keyCode == 91 // windows
-            // ) {
-            //     this.show = false;
-            // }
+            if (
+                e.metaKey ||
+                e.key == "RightCommand" ||
+                e.key == "LeftCommand" ||
+                e.key == "F12" ||
+                e.keyCode == 91 // windows
+            ) {
+                this.show = false;
+            }
         },
         setImages() {
             const all = this.images;
