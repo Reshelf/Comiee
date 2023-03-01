@@ -1,15 +1,14 @@
 @if (!$episode->is_free)
   @php
-
     // VIPユーザーは手数料20%に
-    $application_fee = 0.3;
-    if ($book->user->is_vip) {
-        $application_fee = 0.2;
-    }
-
+    // $application_fee = 0.3;
+    // if ($book->user->is_vip) {
+    //     $application_fee = 0.2;
+    // }
+    
     $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
     $price = $stripe->prices->retrieve($price->id, [], ['stripe_account' => $book->user->stripe_user_id]);
-
+    
     $session = $stripe->checkout->sessions->create(
         [
             'success_url' => config('app.top_url') . '/' . app()->getLocale() . '/books/' . $book->id . '/' . $episode->number,
@@ -22,7 +21,7 @@
                 ],
             ],
             'payment_intent_data' => [
-                'application_fee_amount' => $instant_price * $application_fee,
+                'application_fee_amount' => $instant_price * 0.3,
             ],
             'mode' => 'payment',
             'automatic_tax' => [

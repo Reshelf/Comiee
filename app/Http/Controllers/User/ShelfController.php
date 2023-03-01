@@ -49,7 +49,7 @@ class ShelfController extends Controller
         |
          */
 
-        if ($type == 'like') {
+        if ($type === 'like') {
             $query = $user->likes();
             $feature = $request->input('feature');
 
@@ -67,7 +67,7 @@ class ShelfController extends Controller
         |
          */
 
-        if ($type == 'view_history') {
+        if ($type === 'view_history') {
             $query = $user->reads();
             $feature = $request->input('feature');
 
@@ -85,7 +85,7 @@ class ShelfController extends Controller
         |
          */
 
-        if ($type == 'purchase_history') {
+        if ($type === 'purchase_history') {
             $query = $user->bought();
             $feature = $request->input('feature');
 
