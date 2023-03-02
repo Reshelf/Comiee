@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use \Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,9 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // 本番とテスト環境はhttpsを強制
-        if (config('app.app_env') === 'production' || config('app.app_env') === 'staging') {
-            URL::forceScheme('https');
+        // テスト環境はhttpsを強制
+        if (
+            // config('app.app_env') === 'production' ||
+            config('app.app_env') === 'staging'
+        ) {
+            \URL::forceScheme('https');
         }
     }
 }
