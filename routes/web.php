@@ -67,8 +67,7 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     |--------------------------------------------------------------------------
     |
      */
-    // トップページ
-    Route::get('/', 'App\Http\Controllers\Search\IndexController')->name('search.index');
+    Route::view('/', 'index')->name('top'); // トップページ
     // ランキング
     Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking');
     Route::any('/ranking/search', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking.search');

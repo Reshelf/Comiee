@@ -1,5 +1,5 @@
 <div class="flex items-center">
-  <a href="{{ route('search.index', app()->getLocale()) }}"
+  <a href="{{ route('top', app()->getLocale()) }}"
     class="{{ $tab === 0 ? 'dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-ddd hover:font-semibold hover:dark:border-dark' }} py-3 px-4">{{ __('ホーム') }}</a>
 
   @guest
