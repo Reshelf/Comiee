@@ -102,7 +102,7 @@
     <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col md:flex-row justify-between">
       <div class="md:w-1/2">
         <h4 class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</h4>
-        <a href="{{ route('others.user_guide', app()->getLocale()) }}"
+        <a href="{{ route('others.about.comiee', app()->getLocale()) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
         <a href="{{ route('others.user_guide', app()->getLocale()) }}"
           class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>

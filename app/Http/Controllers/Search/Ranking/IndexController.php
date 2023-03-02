@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Search\Ranking;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -14,7 +13,7 @@ class IndexController extends Controller
     | ランキングトップ
     |--------------------------------------------------------------------------
     |
-    */
+     */
     public function __invoke(Request $request)
     {
         $query = Book::query();
@@ -45,7 +44,7 @@ class IndexController extends Controller
             'books' => $books,
             'genre_id' => 0,
             'sort' => $sort,
-            'feature' => $feature
+            'feature' => $feature,
         ]);
     }
 }

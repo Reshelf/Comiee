@@ -115,21 +115,19 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     |--------------------------------------------------------------------------
     |
      */
-    Route::get('/company', 'App\Http\Controllers\Others\CompanyController')->name('others.company');
-    // ご利用ガイド
-    Route::get('/user_guide', 'App\Http\Controllers\Others\UserGuideController')->name('others.user_guide');
-    // 利用規約
-    Route::get('/terms_of_service', 'App\Http\Controllers\Others\TermsOfServiceController')->name('others.terms');
-    // プライバシーポリシー
-    Route::get('/privacy_policy', 'App\Http\Controllers\Others\PrivacyPolicyController')->name('others.privacy');
-    // 特許商取引
-    Route::get('/sct', 'App\Http\Controllers\Others\SctController')->name('others.sct');
+    Route::view('/about/comiee', 'others.about_comiee')->name('others.about.comiee'); // Comieeについて
+    Route::view('/company', 'others.company')->name('others.company'); // 会社概要
+    Route::view('/user_guide', 'others.user_guide')->name('others.user_guide'); // ご利用ガイド
+    Route::view('/terms_of_service', 'others.terms_of_service')->name('others.terms'); // 利用規約
+    Route::view('/privacy_policy', 'others.privacy_policy')->name('others.privacy'); // プライバシーポリシー
+    Route::view('/sct', 'others.sct')->name('others.sct'); // 特許商取引
+
+    // よくあるご質問
+    Route::get('/faq', 'App\Http\Controllers\Others\FaqController')->name('others.faq');
     // お問い合せ
     Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->middleware('throttle:2, 1')->name('others.contact');
     // 通報
     Route::post('/report', 'App\Http\Controllers\Others\ReportController')->middleware('throttle:2, 1')->name('others.report');
-    // よくあるご質問
-    Route::get('/faq', 'App\Http\Controllers\Others\FaqController')->name('others.faq');
 
     /*
     |--------------------------------------------------------------------------
