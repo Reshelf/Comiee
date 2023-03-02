@@ -47,7 +47,7 @@
     @endif
   </div>
   <div
-    class="flex flex-col lg:items-center md:flex-row mx-6 md:mx-12 pb-4 border-b dark:border-b-2 border-ccc dark:border-dark-1">
+    class="flex flex-col lg:items-center md:flex-row mx-6 md:mx-12 pb-4 border-b dark:border-b-2 border-[#dadce0] dark:border-dark-1">
     <div class="flex justify-between items-center">
       <div class="text-dark z-10 -mt-12 md:-mt-8">
         @empty($user->avatar)

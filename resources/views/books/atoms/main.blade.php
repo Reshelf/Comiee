@@ -12,7 +12,7 @@
       <episode-list @if (Session::has('store')) :store='true' @endif>
         <template #trigger>
           <div
-            class="tracking-widest w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[5px] border-dotted border-2 dark:border-4 border-ccc hover:border-aaa dark:border-dark-1">
+            class="tracking-widest w-full flex justify-center py-4 mb-2 cursor-pointer hover:bg-f5 dark:hover:bg-dark-1 rounded-[5px] border-dotted border-2 dark:border-4 border-[#dadce0] hover:border-aaa dark:border-dark-1">
             {{ __('作品のエピソードを追加する') }}
           </div>
         </template>

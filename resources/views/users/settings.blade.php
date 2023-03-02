@@ -29,7 +29,7 @@
               <a href="#account-delete">{{ __('アカウント管理') }}</a>
             </ul>
             <div class="tabContents">
-              <div class="pt-4 pb-12 border-b border-ccc" id="mail-notification">
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
                       'lang' => app()->getLocale(),
@@ -125,7 +125,7 @@
                   </div>
                 </form>
               </div>
-              <div class="pt-4 pb-12 border-b border-ccc" id="site-display">
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-display">
 
                 <div class="mt-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('表示言語') }}</h3>
@@ -208,7 +208,7 @@
               </div>
 
               {{-- 出版契約 --}}
-              <div class="pt-4 pb-12 border-b border-ccc" id="contract">
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="contract">
                 <div class="my-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('出版契約') }}</h3>
                   <div class="my-4">
@@ -240,7 +240,7 @@
               </div>
 
 
-              <div class="pt-4 pb-12 border-b border-ccc" id="earnings">
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('収益受け取りの準備') }}</h3>
                   <div class="mt-6">

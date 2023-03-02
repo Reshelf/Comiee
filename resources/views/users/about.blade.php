@@ -23,7 +23,7 @@
       <div class="w-full flex flex-col lg:flex-row py-4 lg:p-8">
         {{-- 左側 --}}
         <div class="w-full lg:w-3/4 lg:pr-20">
-          <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
+          <div class="pb-4 mb-8 border-b border-[#dadce0] dark:border-dark-1">
             <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('説明') }}</h3>
             <div class="py-4">
               @empty($user->body)
@@ -33,7 +33,7 @@
               @endempty
             </div>
           </div>
-          <div class="pb-4 mb-8 border-b border-ccc dark:border-dark-1">
+          <div class="pb-4 mb-8 border-b border-[#dadce0] dark:border-dark-1">
             <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
             <div class="py-4"></div>
           </div>

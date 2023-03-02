@@ -7,7 +7,7 @@
                 type="number"
                 min="50"
                 max="50000"
-                class="p-4 border border-ccc text-3xl outline-none rounded"
+                class="p-4 border border-[#dadce0] text-3xl outline-none rounded"
                 required
                 @input="change"
             />
