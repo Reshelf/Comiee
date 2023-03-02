@@ -2,7 +2,9 @@
     <div class="w-full">
         <template v-if="books.length > 0">
             <!-- 検索条件 -->
-            <div class="flex flex-wrap items-center mb-4">
+            <div
+                class="flex lg:flex-wrap whitespace-nowrap overflow-x-scroll scroll-none items-center mb-4"
+            >
                 <!-- 作品言語 -->
                 <div class="mb-4">
                     <label class="pr-2">作品言語</label>
