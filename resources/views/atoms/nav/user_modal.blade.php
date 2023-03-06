@@ -12,19 +12,6 @@
     @endif
   </template>
 
-  {{-- プロフィールを見る --}}
-  <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
-    class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-        stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-white" />
-      <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="#333333" stroke-width="1.5"
-        stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-white" />
-    </svg>
-    <span class="pl-5">{{ __('プロフィールを見る') }}</span>
-  </a>
-
   {{-- 本棚 --}}
   <a href="{{ route('user.shelf.like', app()->getLocale()) }}"
     class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
@@ -40,6 +27,19 @@
         stroke-linejoin="round" />
     </svg>
     <span class="pl-5">{{ __('本棚') }}</span>
+  </a>
+
+  {{-- プロフィールを見る --}}
+  <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
+    class="flex items-center text-sm cursor-pointer p-3 rounded hover:bg-f4 dark:hover:bg-dark-2 dark:hover:text-white whitespace-nowrap">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+        stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-white" />
+      <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="#333333" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round" class="dark:stroke-white" />
+    </svg>
+    <span class="pl-5">{{ __('プロフィールを見る') }}</span>
   </a>
 
   {{-- 設定 --}}
