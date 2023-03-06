@@ -21,8 +21,6 @@
           <div class="w-full max-w-8xl mx-auto mb-4">
             <div class="w-full flex flex-col">
               @include('search.atoms._term_tabs', [
-                  'todays_new' => false,
-                  'ranking' => true,
                   'genre' => $genre_id,
               ])
 

@@ -32,15 +32,6 @@
       {{ __('ランキング') }}
     </a>
   @endguest
-  <a href="{{ route('todays_new', app()->getLocale()) }}"
-    class="{{ $tab === 2 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M6.0901 13.28H9.1801V20.48C9.1801 22.16 10.0901 22.5 11.2001 21.24L18.7701 12.64C19.7001 11.59 19.3101 10.72 17.9001 10.72H14.8101V3.52002C14.8101 1.84002 13.9001 1.50002 12.7901 2.76002L5.2201 11.36C4.3001 12.42 4.6901 13.28 6.0901 13.28Z"
-        stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-    {{ __('今日の新作') }}
-  </a>
   @auth
     <a href="{{ route('ranking', app()->getLocale()) }}"
       class="{{ $tab === 1 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }}">

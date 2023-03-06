@@ -80,18 +80,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::get('/ranking/woman', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman');
     Route::any('/ranking/woman/search', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman.search');
 
-    // 今日の新作
-    Route::get('/todays_new', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new');
-    Route::any('/todays_new/search', 'App\Http\Controllers\Search\TodaysNew\IndexController')->name('todays_new.search');
-    Route::get('/todays_new/boys', 'App\Http\Controllers\Search\TodaysNew\BoysController')->name('todays_new.boys');
-    Route::any('/todays_new/boys/search', 'App\Http\Controllers\Search\TodaysNew\BoysController')->name('todays_new.boys.search');
-    Route::get('/todays_new/youth', 'App\Http\Controllers\Search\TodaysNew\YouthController')->name('todays_new.youth');
-    Route::any('/todays_new/youth/search', 'App\Http\Controllers\Search\TodaysNew\YouthController')->name('todays_new.youth.search');
-    Route::get('/todays_new/girls', 'App\Http\Controllers\Search\TodaysNew\GirlsController')->name('todays_new.girls');
-    Route::any('/todays_new/girls/search', 'App\Http\Controllers\Search\TodaysNew\GirlsController')->name('todays_new.girls.search');
-    Route::get('/todays_new/woman', 'App\Http\Controllers\Search\TodaysNew\WomanController')->name('todays_new.woman');
-    Route::any('/todays_new/woman/search', 'App\Http\Controllers\Search\TodaysNew\WomanController')->name('todays_new.woman.search');
-
     // タグ検索
     Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
     // 完結作品

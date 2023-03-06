@@ -125,11 +125,12 @@ h-stg:
 h-pro:
 	heroku git:remote --app comiee15
 ja-csv:
-	 cat resources/lang/ja.json | jq -r  > ja.csv
+	cat resources/lang/ja.json | jq -r  > ja.csv
 en-csv:
-	 cat resources/lang/en.json | jq -r  > en.csv
+	cat resources/lang/en.json | jq -r  > en.csv
 package-update:
 	 npx -p npm-check-updates  -c "ncu -u"
+	@make package-clear-legacy
 package-clear-legacy:
-	 npm install --legacy-peer-deps
-	 npm audit fix --force
+	npm install --legacy-peer-deps
+	npm audit fix --force
