@@ -53,12 +53,12 @@ class ShowController extends Controller
             | 国が未設定なら自動で設定
             |--------------------------------------------------------------------------
              */
-            if (empty($user->country)) {
-                $ip = ip2long($_SERVER['REMOTE_ADDR']); // ipアドレス取得
-                $url = file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip); // 地理apiで国を割り出す
-                $getInfo = json_decode($url); // データをjson形式に
-                $user->country = strtolower($getInfo->geoplugin_countryCode); // 国名を小文字で保存
-            }
+            // if (empty($user->country)) {
+            $ip = ip2long($_SERVER['REMOTE_ADDR']); // ipアドレス取得
+            $url = file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip); // 地理apiで国を割り出す
+            $getInfo = json_decode($url); // データをjson形式に
+            $user->country = strtolower($getInfo->geoplugin_countryCode); // 国名を小文字で保存
+            // }
             $user->save();
         };
 
