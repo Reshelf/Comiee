@@ -111,11 +111,7 @@
         </template>
 
         <!-- 0件 -->
-        <template
-            v-if="
-                filteredManga.length === 0 && loading && currentPage <= lastPage
-            "
-        >
+        <template v-if="filteredManga.length === 0 && !loading">
             <div class="p-4">表示する作品がまだありません</div>
         </template>
     </div>
