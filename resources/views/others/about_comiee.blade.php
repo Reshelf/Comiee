@@ -221,18 +221,16 @@
           <p class="mb-4">
             {{ __('より詳しい使い方は、Comieeヘルプセンターに記載してあります。このページだけでは伝えきれないことも書いてあるので、困ったときは一度ご覧ください。') }}
           </p>
-          <p class="mb-4">
+          <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="block mb-4 text-primary">
             {{ __('▼ Comieeヘルプセンター') }}
-          </p>
+          </a>
           <p class="mb-4">
             {{ __('もしComieeを使っていく上で、「〇〇だったらいいのにな…」と思うところがあれば、ぜひ以下のフォームからご意見をお聞かせください。') }}
           </p>
-          <p class="mb-4">
-            {{ __('▼ 機能に関するカイゼン・ご要望はこちら') }}
-          </p>
-          <p class="mb-4">
-            {{ __('▼ その他のお問い合わせはこちら') }}
-          </p>
+          <a href="mailto:support@comiee.one?subject={{ __('改善点のお問い合わせ') }}" class="block mb-4 text-primary"
+            target="_blank" rel="noopener noreferrer">
+            {{ __('▼ お問い合わせはこちら') }}
+          </a>
           <p class="mb-4">
             {{ __('Comieeはだれもが自由に創作を楽しんで、続けるためのサービスです。どう使うかは、あなた次第。好きなことや伝えたいことを投稿したり、クリエイターの記事を読んで応援したり、おなじ趣味や思いを持ったひととつながったり。') }}
           </p>
