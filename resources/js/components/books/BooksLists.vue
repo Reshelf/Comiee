@@ -19,9 +19,11 @@
 
             <!-- 完結作品 -->
             <div
-                :class="{
-                    active: is_complete,
-                }"
+                :class="
+                    is_complete
+                        ? 'active hover:bg-opacity-80'
+                        : 'hover:bg-opacity-10'
+                "
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_complete = !is_complete"
             >
@@ -30,9 +32,11 @@
 
             <!-- カラー作品 -->
             <div
-                :class="{
-                    active: is_color,
-                }"
+                :class="
+                    is_color
+                        ? 'active hover:bg-opacity-80'
+                        : 'hover:bg-opacity-10'
+                "
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_color = !is_color"
             >
@@ -41,10 +45,12 @@
 
             <!-- 全話無料 -->
             <div
-                :class="{
-                    active: is_all_charge,
-                }"
-                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                :class="
+                    is_all_charge
+                        ? 'active hover:bg-opacity-80'
+                        : 'hover:bg-opacity-10'
+                "
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_all_charge = !is_all_charge"
             >
                 全話無料
@@ -52,9 +58,11 @@
 
             <!-- 今日の新作 -->
             <div
-                :class="{
-                    active: is_new,
-                }"
+                :class="
+                    is_new
+                        ? 'active hover:bg-opacity-80'
+                        : 'hover:bg-opacity-10'
+                "
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_new = !is_new"
             >
@@ -222,7 +230,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .active {
-    @apply bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary;
+    @apply bg-primary hover:bg-primary dark:border-primary;
     color: white !important;
 }
 select {
