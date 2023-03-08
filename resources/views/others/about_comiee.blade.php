@@ -103,7 +103,7 @@
       </div>
 
       {{-- Comieeとは --}}
-      <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
+      {{-- <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
         <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('Comieeとは') }}</h2>
         <div class="w-full">
           <svg class="object-contain w-full" viewBox="0 0 1080 566" fill="none">
@@ -137,10 +137,10 @@
           </svg>
         </div>
         <p class="my-4">{{ __('だれもが自分の「マンガ」を簡単に公開することができる、プラットフォームです。Comieeでは、みんなが思い思いのジャンルでマンガを自由に楽しんでいます。') }}</p>
-      </div>
+      </div> --}}
 
       {{-- Comieeが大切にしていること --}}
-      <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
+      {{-- <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
         <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('Comieeが大切にしていること') }}
         </h2>
@@ -178,10 +178,10 @@
             {{ __('これからの人生で、長く付き合うことになるインターネット。うまく使いこなして楽しんだ方が、きっと楽しい人生につながるはずです。') }}
           </p>
         </div>
-      </div>
+      </div> --}}
 
       {{-- Comieeの特徴 --}}
-      <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
+      {{-- <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
         <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('Comieeの特徴') }}</h2>
         <div class="">
           <p class="mb-4">
@@ -194,7 +194,7 @@
             {{ __('さあ、ここまで読んでいただいたあなたは、もうComieeの一員です。早速Comieeを使って、あたらしい交流のかたちを楽しみながら、いっしょに、マンガの輪を広げていきましょう！') }}
           </p>
         </div>
-      </div>
+      </div> --}}
 
       {{-- Comieeで投稿するときに、まずやってほしいこと --}}
       {{-- <div id="to_do_first" class="my-12 leading-8 text-base whitespace-pre-line">
@@ -217,7 +217,7 @@
       </div> --}}
 
       {{-- 読者としてComieeを楽しむ方法 --}}
-      <div id="enjoy_as_a_reader" class="my-12 leading-8 text-base whitespace-pre-line">
+      {{-- <div id="enjoy_as_a_reader" class="my-12 leading-8 text-base whitespace-pre-line">
         <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('読者としてComieeを楽しむ方法') }}
         </h2>
@@ -229,7 +229,7 @@
             {{ __('ワクワクするマンガ、ほっこりするマンガ、タメになるマンガ、あなたに新しい視点を提示してくれるマンガ。そんな出会いがあったときは「お気に入り」や「フォロー」をしてみてください。コメントをしたり、SNSでシェアしたり…自分から反応すると、作者さんやそのファンとつながれるかもしれません。') }}
           </p>
         </div>
-      </div>
+      </div> --}}
 
       {{-- Comieeをもっと使いこなしたい方へ --}}
       {{-- <div id="want_to_use_more" class="my-12 leading-8 text-base whitespace-pre-line">
@@ -249,7 +249,7 @@
       </div> --}}
 
       {{-- 最後に --}}
-      <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
+      {{-- <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
         <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('最後に') }}</h2>
         <div class="">
           <p class="mb-4">
@@ -275,7 +275,7 @@
             {{ __('最後にもう一度。Comieeへ、ようこそ！') }}
           </p>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div> @include('atoms._footer')
 @endsection
