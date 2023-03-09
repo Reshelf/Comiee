@@ -128,9 +128,15 @@ ja-csv:
 	cat resources/lang/ja.json | jq -r  > ja.csv
 en-csv:
 	cat resources/lang/en.json | jq -r  > en.csv
+# npmパッケージ更新
 package-update:
 	 npx -p npm-check-updates  -c "ncu -u"
 	@make package-clear-legacy
 package-clear-legacy:
 	npm install --legacy-peer-deps
 	npm audit fix --force
+sail-art-about:
+	./vendor/bin/sail art about
+# 更新可能のパッケージ
+composer-outdated:
+	composer outdated -D
