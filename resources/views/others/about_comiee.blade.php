@@ -54,7 +54,7 @@
 
       {{-- はじめに --}}
       <div id="welcome" class="mt-8 mb-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold pt-4 mb-4">{{ __('はじめに') }}</h2>
+        <h2 class="dark:text-f5 text-2xl font-bold pt-4 mb-4">{{ __('はじめに') }}</h2>
         <p class="mb-4">
           {{ __('Comiee（コミー）へようこそ！') }}
         </p>
@@ -65,7 +65,7 @@
 
       {{-- Comieeとは --}}
       <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('Comieeとは') }}</h2>
         <div class="w-full">
           <svg class="object-contain w-full" viewBox="0 0 1080 566" fill="none">
@@ -103,7 +103,7 @@
 
       {{-- できること --}}
       <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('できること') }}
         </h2>
         <div class="mb-4">
@@ -114,7 +114,7 @@
 
       {{-- サービスの理念 --}}
       <div id="service_philosophy" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('サービスの理念') }}</h2>
         <div class="">
           <p class="mb-4">
@@ -130,7 +130,7 @@
 
       {{-- 特徴 --}}
       <div id="features" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('特徴') }}
         </h2>
         <div class="mb-4">
@@ -145,7 +145,7 @@
 
       {{-- 読者ガイド --}}
       <div id="reader_guide" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('読者ガイド') }}{{ __('(準備中)') }}
         </h2>
         <div class="">
@@ -165,7 +165,7 @@
 
       {{-- 作者ガイド --}}
       <div id="creater_guide" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('作者ガイド') }}{{ __('(準備中)') }}</h2>
         <div class="">
           <p>{{ __('・作品について') }}</p>
@@ -178,20 +178,20 @@
 
       {{-- 最後に --}}
       <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('最後に') }}</h2>
         <div class="">
           <p class="mb-4">
             {{ __('より詳しい使い方については、Comieeヘルプページをご覧ください。このページだけでは伝えきれないことも書いてあるので、困ったときは一度ご覧ください。') }}
           </p>
-          <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="block mb-4 text-primary">
+          <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="block mb-4 text-primary dark:text-f5">
             {{ __('▼ Comieeヘルプセンター') }}
           </a>
           <p class="mb-4">
             {{ __('Comieeをより使いやすいものにするために、日々改善に取り組んでいます。ぜひ以下のフォームからみなさまのご意見をお聞かせください。') }}
           </p>
-          <a href="mailto:support@comiee.one?subject={{ __('改善点のお問い合わせ') }}" class="block mb-4 text-primary"
-            target="_blank" rel="noopener noreferrer">
+          <a href="mailto:support@comiee.one?subject={{ __('改善点のお問い合わせ') }}"
+            class="block mb-4 text-primary dark:text-f5" target="_blank" rel="noopener noreferrer">
             {{ __('▼ お問い合わせはこちら') }}
           </a>
         </div>
