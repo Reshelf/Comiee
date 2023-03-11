@@ -3,8 +3,8 @@
 @section('title', __('Comieeについて'))
 @php
   $faq_number = 1;
-  $update_date = '2023/3/5';
-  $content = 'Comieeは作者がマンガを無料でアップロード・公開をして、ユーザーがそのコンテンツを楽しんで応援できるオンラインマンガプラットフォームです。だれもがマンガを楽しんで続けられるよう、安心できる雰囲気や、多様性を大切にしています。';
+  $update_date = '2023/3/11';
+  $content = __('Comiee（コミー）へようこそ！ このページでは、Comieeについての説明と、具体的なご利用方法についてお伝えしていきます。');
 @endphp
 
 @section('description')
@@ -30,19 +30,19 @@
             {{ __('メニュー') }}
           </h3>
           <a href="#welcome" class="pl-4 py-2 mb-2 block">
-            {{ __('Comieeへようこそ！') }}</a>
+            {{ __('はじめに') }}</a>
           <a href="#about_comiee" class="pl-4 py-2 mb-2 block">
             {{ __('Comieeとは') }}</a>
           <a href="#important" class="pl-4 py-2 mb-2 block">
-            {{ __('Comieeが大切にしていること') }}</a>
+            {{ __('できること') }}</a>
+          <a href="#service_philosophy" class="pl-4 py-2 mb-2 block">
+            {{ __('サービスの理念') }}</a>
           <a href="#features" class="pl-4 py-2 mb-2 block">
-            {{ __('Comieeの特徴') }}</a>
-          {{-- <a href="#to_do_first" class="pl-4 py-2 mb-2 block">
-            {{ __('Comieeで投稿するときに、まずやってほしいこと') }}</a> --}}
-          <a href="#enjoy_as_a_reader" class="pl-4 py-2 mb-2 block">
-            {{ __('読者としてComieeを楽しむ方法') }}</a>
-          {{-- <a href="#want_to_use_more" class="pl-4 py-2 mb-2 block">
-            {{ __('Comieeをもっと使いこなしたい方へ') }}</a> --}}
+            {{ __('特徴') }}</a>
+          <a href="#reader_guide" class="pl-4 py-2 mb-2 block">
+            {{ __('読者ガイド') }}{{ __('(準備中)') }}</a>
+          <a href="#creater_guide" class="pl-4 py-2 mb-2 block">
+            {{ __('作者ガイド') }}{{ __('(準備中)') }}</a>
           <a href="#lastly" class="pl-4 py-2 mb-2 block">
             {{ __('最後に') }}</a>
         </div>
@@ -52,6 +52,7 @@
     {{-- 本文 --}}
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
 
+      {{-- サムネイル --}}
       <div class="w-full">
         <svg class="object-contain w-full" viewBox="0 0 1340 566" fill="none">
           <g clip-path="url(#clip0_1020_3572)">
@@ -80,31 +81,23 @@
         </svg>
       </div>
 
-      <h2 class="mt-8 text-3xl font-semibold tracking-widest">
-        {{ __('Comieeについて') }}
-      </h2>
-      <span class="inline-block mt-4 text-bbb">{{ $update_date }} {{ __('更新') }}</span>
+      <div class="w-full flex justify-end mt-4 text-bbb">{{ $update_date }} {{ __('更新') }}</div>
 
-      {{-- Comieeへようこそ！ --}}
+      {{-- はじめに --}}
       <div id="welcome" class="mt-8 mb-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-2xl font-bold pt-4 mb-4">{{ __('Comieeへ、ようこそ！') }}</h2>
+        <h2 class="dark:text-ddd text-2xl font-bold pt-4 mb-4">{{ __('はじめに') }}</h2>
         <p class="mb-4">
-          {{ __('Comieeは作者がマンガを無料でアップロード・公開をして、ユーザーがそのコンテンツを楽しんで応援できるオンラインマンガプラットフォームです。だれもがマンガを楽しんで続けられるよう、安心できる雰囲気や、多様性を大切にしています。') }}
+          {{ __('Comiee（コミー）へようこそ！') }}
         </p>
         <p class="mb-4">
-          {{ __('このサービスでは、普通のひともプロの作者さんも、あらゆる人が好きなマンガを見つけたり、おもしろい人に出会えたりするチャンスが広がっています。あなたもComieeでの作品や交流を楽しんでください！') }}
+          {{ __('このページでは、Comieeについての説明と、具体的なご利用方法についてお伝えしていきます。') }}
         </p>
-        <h3 class="font-bold">{{ __('Comieeでできること') }}</h3>
-        <div class="mb-4">
-          <p>{{ __('・自分の描いたマンガ作品を投稿する') }}</p>
-          <p>{{ __('・好きな作者さんのマンガを応援して読む') }}</p>
-        </div>
-        <p class="mb-4">{{ __('この記事では、Comieeの特徴や過ごし方をご紹介します。') }}</p>
       </div>
 
       {{-- Comieeとは --}}
-      {{-- <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('Comieeとは') }}</h2>
+      <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('Comieeとは') }}</h2>
         <div class="w-full">
           <svg class="object-contain w-full" viewBox="0 0 1080 566" fill="none">
             <rect width="1080" height="566" fill="white" />
@@ -136,146 +129,104 @@
               fill="#16184B" />
           </svg>
         </div>
-        <p class="my-4">{{ __('だれもが自分の「マンガ」を簡単に公開することができる、プラットフォームです。Comieeでは、みんなが思い思いのジャンルでマンガを自由に楽しんでいます。') }}</p>
-      </div> --}}
+        <p class="my-4">{{ __('Comiee（コミー）は作者がマンガを投稿して、読者がそのコンテンツを楽しんで応援できるオンラインマンガプラットフォームです。') }}</p>
+      </div>
 
-      {{-- Comieeが大切にしていること --}}
-      {{-- <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
-          {{ __('Comieeが大切にしていること') }}
+      {{-- できること --}}
+      <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('できること') }}
+        </h2>
+        <div class="mb-4">
+          <p>{{ __('・自分の描いたマンガ作品を投稿する') }}</p>
+          <p>{{ __('・好きな作者さんのマンガを応援して読む') }}</p>
+        </div>
+      </div>
+
+      {{-- サービスの理念 --}}
+      <div id="service_philosophy" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('サービスの理念') }}</h2>
+        <div class="">
+          <p class="mb-4">
+            {{ __('Comieeは「作品を安心して継続的に投稿できるプラットフォームをクリエイターに提供することで、多くの素晴らしい作品が生まれるのをサポートする」ことをミッションに掲げています。そのため、以下の3つをサービスの理念として運営しています。') }}
+          </p>
+          <div class="mb-4">
+            <p>{{ __('・クリエイターの資産を守り、最大化する') }}</p>
+            <p>{{ __('・使いやすく、よりよい作品を生み出すきっかけになるようなプラットフォームをデザインする') }}</p>
+            <p>{{ __('・常に先見性を持って高付加価値サービスを追求、提供することで、マンガ業界に貢献する') }}</p>
+          </div>
+        </div>
+      </div>
+
+      {{-- 特徴 --}}
+      <div id="features" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('特徴') }}
+        </h2>
+        <div class="mb-4">
+          <p>{{ __('・好きなタイミングで投稿・公開ができる') }}</p>
+          <p>{{ __('・少年・青年・少女・女性の作品ジャンルで、アダルト作品の禁止') }}</p>
+          <p>{{ __('・作者の権利を守るために、作品の違法ダウンロードやスクリーンショット(PC)をできなくしている') }}</p>
+          <p>{{ __('・多言語化') }}</p>
+          <p>{{ __('・作品の細かい設定(カラー作品、非公開、休載など)') }}</p>
+          <p>{{ __('・分析（予定）') }}</p>
+        </div>
+      </div>
+
+      {{-- 読者ガイド --}}
+      <div id="reader_guide" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('読者ガイド') }}{{ __('(準備中)') }}
         </h2>
         <div class="">
-          <p class="mb-4">
-            {{ __('Comieeはマンガを自分の好きなタイミングで自由に投稿できる空間です。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('この空間で大事なことは、閲覧数を増やすことでも、お金を稼ぐことでも、あるいはフォロワーを集めることではありません。') }}
-            <span class="font-bold">{{ __('大事なことは、楽しんで公開し続けることです。') }}</span>
-          </p>
-          <p class="mb-4">
-            {{ __('なので、ここでは名作や超大作を仕上げようとして手が止まってしまう必要もありません。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('また、拙い構成や下手なマンガだったとしても恐れる必要もありません。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('駄作でも1話だけでも、とにかくチャレンジしてみて気軽に公開してみましょう。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('まずは、描きたいこと・マンガを通して伝えたいメッセージを世に送り出ること。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('マンガの表現力も応援してくれるファンも、あとから十分ついてきます。') }}
-          </p>
-          <p class="mb-4">
-            <span class="font-bold">{{ __('マンガを描くうえでもっとも大事なこと。それは「マンガを楽しみ続ける」「ずっと公開し続ける」こと。') }}</span>
-            {{ __('この2つを、頭のかたすみに置いておいてください。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('マンガを楽しみ続けるために、公開のときにほんの少し、意識してもらうとよいことをまとめました。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('これからの人生で、長く付き合うことになるインターネット。うまく使いこなして楽しんだ方が、きっと楽しい人生につながるはずです。') }}
-          </p>
+          <p>{{ __('・プロフィール') }}</p>
+          <p>{{ __('・作者をフォローする') }}</p>
+          <p>{{ __('・作品を探す') }}</p>
+          <p>{{ __('・作品を読む') }}</p>
+          <p>{{ __('・無料') }}</p>
+          <p>{{ __('・有料') }}</p>
+          <p>{{ __('・作品を買う') }}</p>
+          <p>{{ __('・スーパーギフト') }}</p>
+          <p>{{ __('・作品にコメントする') }}</p>
+          <p>{{ __('・本棚(お気に入り、閲覧履歴、購入履歴)') }}</p>
+          <p>{{ __('・設定') }}</p>
         </div>
-      </div> --}}
+      </div>
 
-      {{-- Comieeの特徴 --}}
-      {{-- <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('Comieeの特徴') }}</h2>
+      {{-- 作者ガイド --}}
+      <div id="creater_guide" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('作者ガイド') }}{{ __('(準備中)') }}</h2>
         <div class="">
-          <p class="mb-4">
-            {{ __('Comieeはジグソーパズルのような「空間」を目指しています。そこは、あらゆるマンガの宝石が、1つのピースとして誰もみたことのない空間が描かれていく場所。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('Comiee（コミー）というサービス名には、マンガ（Comic）に関わる作り手と読み手たちを表しています。作品に込められた世界観やメッセージを楽しみ、応援していける空間づくりをしています。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('さあ、ここまで読んでいただいたあなたは、もうComieeの一員です。早速Comieeを使って、あたらしい交流のかたちを楽しみながら、いっしょに、マンガの輪を広げていきましょう！') }}
-          </p>
+          <p>{{ __('・作品について') }}</p>
+          <p>{{ __('・エピソードについて') }}</p>
+          <p>{{ __('・スーパーギフトについて') }}</p>
+          <p>{{ __('・契約書の締結') }}</p>
+          <p>{{ __('・収益受け取りの設定') }}</p>
         </div>
-      </div> --}}
-
-      {{-- Comieeで投稿するときに、まずやってほしいこと --}}
-      {{-- <div id="to_do_first" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
-          {{ __('Comieeで投稿するときに、まずやってほしいこと') }}</h2>
-        <div class="">
-          <p class="mb-4">
-            {{ __('以下のリンクから、関連する記事をご紹介しています。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('▼ プロフィールを充実させる') }}
-          </p>
-          <p class="mb-4">
-            {{ __('▼ 投稿画面でできること') }}
-          </p>
-          <p class="mb-4">
-            {{ __('▼ 「スキ」リアクションの活用アイデアまとめ') }}
-          </p>
-        </div>
-      </div> --}}
-
-      {{-- 読者としてComieeを楽しむ方法 --}}
-      {{-- <div id="enjoy_as_a_reader" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
-          {{ __('読者としてComieeを楽しむ方法') }}
-        </h2>
-        <div class="">
-          <p class="mb-4">
-            {{ __('Comieeでは、マンガを描くひとだけでなく、作品を応援する読者も作品の一部です。読んだ感想をコメントで伝えたり、「お気に入り」に追加したりすることは、マンガを描いたひとを励まし、勇気づけ、ときには作品の一部となって、彼らの次の作品づくりにつながるかもしれません。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('ワクワクするマンガ、ほっこりするマンガ、タメになるマンガ、あなたに新しい視点を提示してくれるマンガ。そんな出会いがあったときは「お気に入り」や「フォロー」をしてみてください。コメントをしたり、SNSでシェアしたり…自分から反応すると、作者さんやそのファンとつながれるかもしれません。') }}
-          </p>
-        </div>
-      </div> --}}
-
-      {{-- Comieeをもっと使いこなしたい方へ --}}
-      {{-- <div id="want_to_use_more" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
-          {{ __('Comieeをもっと使いこなしたい方へ') }}</h2>
-        <div class="">
-          <p class="mb-4">
-            {{ __('Comieeは、クリエイターが創作の幅を広げるために、「コミュニティでつながる」「コンテンツをとどける」ための4つの機能をご用意しています。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('以下の記事では、それぞれの機能の特徴と、実際に活用しているクリエイターの代表的な事例を紹介しています。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('▼ 有料記事の活用事例') }}
-          </p>
-        </div>
-      </div> --}}
+      </div>
 
       {{-- 最後に --}}
-      {{-- <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="text-xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">{{ __('最後に') }}</h2>
+      <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
+        <h2 class="dark:text-ddd text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+          {{ __('最後に') }}</h2>
         <div class="">
           <p class="mb-4">
-            {{ __('より詳しい使い方は、Comieeヘルプセンターに記載してあります。このページだけでは伝えきれないことも書いてあるので、困ったときは一度ご覧ください。') }}
+            {{ __('より詳しい使い方については、Comieeヘルプページをご覧ください。このページだけでは伝えきれないことも書いてあるので、困ったときは一度ご覧ください。') }}
           </p>
           <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="block mb-4 text-primary">
             {{ __('▼ Comieeヘルプセンター') }}
           </a>
           <p class="mb-4">
-            {{ __('もしComieeを使っていく上で、「〇〇だったらいいのにな…」と思うところがあれば、ぜひ以下のフォームからご意見をお聞かせください。') }}
+            {{ __('Comieeをより使いやすいものにするために、日々改善に取り組んでいます。ぜひ以下のフォームからみなさまのご意見をお聞かせください。') }}
           </p>
           <a href="mailto:support@comiee.one?subject={{ __('改善点のお問い合わせ') }}" class="block mb-4 text-primary"
             target="_blank" rel="noopener noreferrer">
             {{ __('▼ お問い合わせはこちら') }}
           </a>
-          <p class="mb-4">
-            {{ __('Comieeはだれもが自由に創作を楽しんで、続けるためのサービスです。どう使うかは、あなた次第。好きなことや伝えたいことを投稿したり、クリエイターの記事を読んで応援したり、おなじ趣味や思いを持ったひととつながったり。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('この記事が、Comieeを歩いていくための羅針盤になれば、うれしいです。') }}
-          </p>
-          <p class="mb-4">
-            {{ __('最後にもう一度。Comieeへ、ようこそ！') }}
-          </p>
         </div>
-      </div> --}}
+      </div>
     </div>
   </div> @include('atoms._footer')
 @endsection
