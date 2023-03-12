@@ -80,7 +80,7 @@
                   @if (!$e->is_free && !$e->isBoughtBy(Auth::user()))
                     <div
                       class="mr-2 tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                      {{ $e->price }}{{ __('エール') }}
+                      {{ $e->price }}{{ __('円') }}〜
                     </div>
                   @else
                   @endif

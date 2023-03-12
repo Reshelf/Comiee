@@ -16,10 +16,10 @@
             stroke-linejoin="round" />
         </svg>
       </span>
-      <span class="light-checkbox-LabelText">{{ __('読者からスーパーエールを受け取る') }}</span>
+      <span class="light-checkbox-LabelText">{{ __('読者からギフトを受け取る') }}</span>
     </label>
     @if ($update && !$e->is_free)
-      <p class="mt-4 tracking-widest">{{ __('現在のエール下限価格：') }}<strong>
+      <p class="mt-4 tracking-widest">{{ __('現在のギフト下限価格：') }}<strong>
           {{ $e->price ?? old('price') }}</strong>{{ __('円') }}〜
       </p>
     @endif
