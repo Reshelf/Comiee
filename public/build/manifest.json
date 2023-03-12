@@ -1,19 +1,13 @@
 {
-  "_vendor-c2934cec.js": {
-    "file": "assets/vendor-c2934cec.js"
-  },
   "resources/js/app.css": {
-    "file": "assets/app-3dabcf88.css",
+    "file": "assets/app-476321c5.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-3dabcf88.css"
+      "assets/app-476321c5.css"
     ],
-    "file": "assets/app-abdd4b37.js",
-    "imports": [
-      "_vendor-c2934cec.js"
-    ],
+    "file": "assets/app-69089243.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -23,7 +17,7 @@
     "src": "resources/js/common/atoms/common.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-d060bd40.css",
+    "file": "assets/app-b9087b11.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
