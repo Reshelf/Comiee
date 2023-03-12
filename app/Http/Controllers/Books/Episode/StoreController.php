@@ -64,9 +64,6 @@ class StoreController extends Controller
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
-            $fileName = $file->getClientOriginalName();
-            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail/' . $fileName;
-
             $img = \Image::make($file)->resize(
                 1000,
                 null,
@@ -74,20 +71,17 @@ class StoreController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 }
-            )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+            )->limitColors(null)->encode('webp', 0.01);
 
-            Storage::disk('s3')->put($filePath, $img);
-            $episode->thumbnail = Storage::disk('s3')->url($filePath);
+            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail.webp';
+            Storage::disk('r2')->put($filePath, $img);
+            $episode->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
         }
 
         // コンテンツ
         if ($request->hasfile('images')) {
-            foreach ($request->file('images') as $image) {
-
+            foreach ($request->file('images') as $index => $image) {
                 $file = $image;
-                $fileName = $image->getClientOriginalName();
-                $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $fileName;
-
                 $img = \Image::make($file)->resize(
                     3200,
                     null,
@@ -95,10 +89,12 @@ class StoreController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     }
-                )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
+                )->limitColors(null)->encode('webp', 0.01);
 
-                Storage::disk('s3')->put($filePath, $img);
-                $imgData[] = Storage::disk('s3')->url($filePath);
+                $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $index . '.webp';
+                Storage::disk('r2')->put($filePath, $img);
+
+                $imgData[] = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
             }
             $episode->contents = json_encode($imgData);
         }

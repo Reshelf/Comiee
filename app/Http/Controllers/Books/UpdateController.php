@@ -96,9 +96,6 @@ class UpdateController extends Controller
         // サムネイル
         if ($request->has('thumbnail')) {
             $file = $request->file('thumbnail');
-            $fileName = $file->getClientOriginalName();
-            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail/' . $fileName;
-
             $img = \Image::make($file)->resize(
                 1000,
                 null,
@@ -108,8 +105,12 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            Storage::disk('s3')->put($filePath, $img);
-            $book->thumbnail = Storage::disk('s3')->url($filePath);
+            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail.webp';
+            Storage::disk('r2')->put($filePath, $img);
+            $book->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
+
+            // s3
+            // $book->thumbnail = Storage::disk('r2')->url($filePath);
         }
         // タグ
         $book->tags()->detach();
