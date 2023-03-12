@@ -724,3 +724,18 @@ button .loading {
 .text-area {
     @apply bg-white text-t-color dark:text-ddd dark:bg-dark-1 w-full h-[250px] rounded-[5px];
 }
+
+.payment-radio-box {
+    label {
+        @apply inline-block w-[47.5%] mb-4 cursor-pointer;
+        .box {
+            @apply w-full bg-white flex justify-center items-center p-4 border-2 border-[#eee] dark:border-[#7c7c7c] rounded whitespace-nowrap text-xl;
+        }
+    }
+    input[type="radio"]:checked + label {
+        @apply text-primary dark:text-f5;
+        .box {
+            @apply border-primary;
+        }
+    }
+}

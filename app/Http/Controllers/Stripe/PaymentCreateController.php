@@ -57,23 +57,13 @@ class PaymentCreateController extends Controller
 
                 /*
                 |--------------------------------------------------------------------------
-                | 支払通貨の設定 作者が日本以外ならドル指定
-                |--------------------------------------------------------------------------
-                 */
-                $currency = 'jpy';
-                if (Auth::user()->lang != 'ja') {
-                    $currency = 'usd';
-                };
-
-                /*
-                |--------------------------------------------------------------------------
                 | 価格設定
                 |--------------------------------------------------------------------------
                  */
                 $price = $stripe->prices->create([
                     'product' => $product->id, // 作成した製品と紐づける
                     'unit_amount' => $request->price, // 単価
-                    'currency' => $currency,
+                    'currency' => 'jpy', // 一旦円で統一
                     'tax_behavior' => 'inclusive',
                 ], ['stripe_account' => $book->user->stripe_user_id]);
 

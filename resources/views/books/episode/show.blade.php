@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-  
+
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -92,41 +92,93 @@
         !$episode->is_free &&
         $book->user->stripe_user_id &&
         $book->user->id !== Auth::user()->id)
-  <div class="w-full h-[70vh] bg-f8 dark:bg-dark-1 flex flex-col items-center justify-center px-8">
-    <div class="text-3xl mt-4 tracking-widest">
+  <div class="w-full lg:h-[70vh] bg-f5 dark:bg-dark flex flex-col items-center justify-center px-8">
+    <div class="text-3xl mt-12 lg:mt-0 mb-6 lg:mb-8 tracking-widest dark:text-f5">
       {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
-    <div class="my-8">
-      作者にスーパーエールを送って作品を読もう！
-    </div>
+    <div class="flex flex-col lg:flex-row">
+      <div class="lg:mr-4 mb-4">
+        <svg class="object-cover w-full max-h-[200px]" viewBox="0 0 560 356" fill="none">
+          <g filter="url(#filter0_d_1106_3573)">
+            <rect x="10" width="540" height="336" rx="25" fill="white" />
+            <mask id="mask0_1106_3573" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="172" y="83"
+              width="217" height="171">
+              <path
+                d="M206.014 92.2416C214.887 116.643 217.105 142.03 217.105 156.572C183.387 135.276 172.739 155.586 172 168.403C179.394 207.592 217.105 181.712 217.105 181.712C214.887 218.684 210.943 227.557 206.014 243.085C219.028 249.592 252.351 252.698 267.386 253.437C247.865 224.451 265.907 214.247 279.957 212.768C313.97 217.944 302.139 248.261 291.787 253.437C310.717 255.803 342.069 247.522 355.378 243.085C347.688 230.663 344.533 196.747 344.287 181.712C376.822 201.677 388.16 180.973 388.653 168.403C386.286 134.685 358.582 145.48 345.026 155.093C342.069 135.572 350.695 105.058 355.378 92.2416C337.632 82.7769 306.576 82.3825 293.266 83.3684C315.449 107.77 293.266 124.296 279.957 123.298C250.379 121.079 258.513 91.5021 268.126 83.3684C240.027 84.1078 215.133 88.7909 206.014 92.2416Z"
+                fill="#D7CCBE" />
+            </mask>
+            <g mask="url(#mask0_1106_3573)">
+              <mask id="mask1_1106_3573" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="155"
+                y="69" width="251" height="251">
+                <rect x="155" y="69" width="251" height="251" fill="white" />
+              </mask>
+              <g mask="url(#mask1_1106_3573)">
+                <path d="M398.046 130.49L241.647 365.412L160.614 283.053L398.046 130.49Z" fill="#F7D60D" />
+                <path d="M320.257 245.194L398.1 283.761L273.104 318.157L320.257 245.194Z" fill="#C13573" />
+                <path d="M319.122 246.241L433.937 190.763L434.142 301.294L319.122 246.241Z" fill="#581EB1" />
+                <path d="M318.75 247.135L400.374 122.411L452.556 181.449L318.75 247.135Z" fill="#F530D7" />
+                <path d="M265.726 147.337L401.853 129.124L191.797 263.081L265.726 147.337Z" fill="#FE9353" />
+                <path d="M162.411 159.514L265.39 147.988L195.067 257.855L162.411 159.514Z" fill="#07CAA3" />
+                <path d="M348.729 34.4655L457.524 123.76L265.205 147.752L348.729 34.4655Z" fill="#B717FF" />
+                <path d="M264.503 149.256L186.926 82.0171L325.794 66.6048L264.503 149.256Z" fill="#3156F4" />
+                <path d="M265.299 149.363L129.822 164.4L162.421 59.9408L265.299 149.363Z" fill="#0287FF" />
+              </g>
+            </g>
+          </g>
+          <defs>
+            <filter id="filter0_d_1106_3573" x="0" y="0" width="560" height="356"
+              filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dy="10" />
+              <feGaussianBlur stdDeviation="5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1106_3573" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1106_3573" result="shape" />
+            </filter>
+          </defs>
+        </svg>
 
-    <div class="">
-      <form method="POST"
-        action="{{ route('stripe.payment.create', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'payment' => true]) }}"
-        class="whitespace-pre-line" onsubmit="submit_btn()">
-        @csrf
-        @method('POST')
-        {{-- 料金変更 --}}
-        @if (Auth::user()->lang === 'ja')
-          <change-payment-price-jpy></change-payment-price-jpy>
-        @else
-          <change-payment-price-usd></change-payment-price-usd>
-        @endif
-        <div class="relative mt-12">
-          <button type="submit" class="submit_btn2 btn-primary lg:py-4 w-full">
-            {{ __('スーパーエールでエピソードを読む') }}
-            <span class="load loading"></span>
-          </button>
-        </div>
-      </form>
-
-      <div class="text-[11px] mt-4">
-        @if (Auth::user()->lang === 'ja')
-          {{ __('50エールから応援することができます。(1エール = 1円)') }}
-        @else
-          {{ __('1エールから応援することができます。(1エール = 1ドル)') }}
-        @endif
       </div>
 
+      <div class="lg:ml-4 lg:max-w-[400px]">
+        <form method="POST"
+          action="{{ route('stripe.payment.create', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'payment' => true]) }}"
+          class="whitespace-pre-line" onsubmit="submit_btn()">
+          @csrf
+          @method('POST')
+
+          {{-- ギフト選択 --}}
+          <div class="payment-radio-box w-full flex flex-wrap justify-between">
+            <input type="radio" id="option1" name="price" value="50" class="hidden">
+            <label for="option1">
+              <div class="box">50円</div>
+            </label>
+            <input type="radio" id="option2" name="price" value="100" class="hidden" checked>
+            <label for="option2">
+              <div class="box">100円</div>
+            </label>
+            <input type="radio" id="option3" name="price" value="250" class="hidden">
+            <label for="option3">
+              <div class="box">250円</div>
+            </label>
+            <input type="radio" id="option4" name="price" value="500" class="hidden">
+            <label for="option4">
+              <div class="box">500円</div>
+            </label>
+          </div>
+
+          <div class="relative mt-2">
+            <button type="submit" class="submit_btn2 btn-primary py-3 lg:py-4 w-full">
+              {{ __('スーパーギフトを送ってエピソードを読む') }}
+              <span class="load loading"></span>
+            </button>
+            <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+              class="inline-block text-sm mt-4 lg:hidden">{{ __('作品トップへ') }}</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 @endif
