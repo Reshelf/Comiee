@@ -129,7 +129,7 @@ ja-csv:
 en-csv:
 	cat resources/lang/en.json | jq -r  > en.csv
 # npmパッケージ更新
-package-update:
+npm-update:
 	 npx -p npm-check-updates  -c "ncu -u"
 	@make package-clear-legacy
 package-clear-legacy:
