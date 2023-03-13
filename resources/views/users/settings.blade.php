@@ -219,7 +219,7 @@
                       class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
                     <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit"
                       target="_blank" rel="noopener noreferrer"
-                      class="btn-border inline-block mt-4">{{ __('出版契約書（電子配信）を送信する') }}</a>
+                      class="btn-border inline-block mt-4">{{ __('出版契約書を送信する') }}</a>
                   </div>
                   <div class="flex mt-8">
                     <div class="pr-12 font-semibold">

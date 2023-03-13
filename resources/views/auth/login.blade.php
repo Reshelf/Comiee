@@ -38,7 +38,7 @@
         </a>
       </div>
 
-      <h2 class="text-2xl flex justify-center mt-4 px-10">
+      <h2 class="text-2xl flex justify-center mt-4 px-10 dark:text-f5">
         {{ __('ログイン') }}
       </h2>
       <p class="flex justify-center text-base mt-2">{{ __('お客様のメールアドレスを使用') }}</p>
@@ -60,7 +60,7 @@
         <input type="hidden" name="remember" value="on">
         <div class="relative w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
           <a href="{{ route('password.request', app()->getLocale()) }}"
-            class="cursor-pointer text-primary">{{ __('パスワードを忘れた場合') }}</a>
+            class="cursor-pointer text-primary dark:text-gray">{{ __('パスワードを忘れた場合') }}</a>
           <button type="submit" class="submit_btn3 btn-primary px-6 ml-auto">
             {{ __('次へ') }}
             <span class="load loading"></span>

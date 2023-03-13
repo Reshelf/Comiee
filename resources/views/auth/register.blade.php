@@ -37,7 +37,7 @@
           </h1>
         </a>
       </div>
-      <h2 class="text-2xl flex justify-center mt-4 px-10">
+      <h2 class="text-2xl flex justify-center mt-4 px-10 dark:text-f5">
         {{ __('アカウントを作成') }}
       </h2>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="w-full mb-6">
           <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
-          <p class="mt-2 text-primary py-2">
+          <p class="mt-2 text-primary dark:text-gray py-2">
             {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
           </p>
         </div>
