@@ -10,7 +10,7 @@
                     <label class="pr-2">作品言語</label>
                     <select
                         v-model="language"
-                        class="dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                        class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                     >
                         <option value="">すべて</option>
                         <option value="ja">日本語</option>
@@ -34,7 +34,7 @@
                     <label class="pr-2">画面タイプ</label>
                     <select
                         v-model="screen_type"
-                        class="dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                        class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                     >
                         <option value="">すべて</option>
                         <option value="horizontal">横読み</option>
