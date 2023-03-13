@@ -24,5 +24,5 @@
     <a href="/register" class="text-xs cursor-pointer">{{ __('または新規登録') }}</a>
   </div>
 </auth-modal> --}}
-<a href="{{ route('login') }}" class="hover:text-primary">ログイン</a>
-<a href="{{ route('register') }}" class="ml-4 hover:text-primary">新規登録</a>
+<a href="{{ route('login') }}" class="hover:text-primary dark:hover:text-f5">ログイン</a>
+<a href="{{ route('register') }}" class="ml-4 hover:text-primary dark:hover:text-f5">新規登録</a>
