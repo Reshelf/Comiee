@@ -1,4 +1,4 @@
-<auth-modal>
+{{-- <auth-modal>
   <template #trigger>{{ __('ログイン') }}</template>
   <template #header>{{ __('ログイン') }}</template>
 
@@ -23,6 +23,6 @@
       class="cursor-pointer text-xs">{{ __('パスワードを忘れた方') }}</a>
     <a href="/register" class="text-xs cursor-pointer">{{ __('または新規登録') }}</a>
   </div>
-</auth-modal>
-
+</auth-modal> --}}
+<a href="{{ route('login') }}" class="hover:text-primary">ログイン</a>
 <a href="{{ route('register') }}" class="ml-4 hover:text-primary">新規登録</a>

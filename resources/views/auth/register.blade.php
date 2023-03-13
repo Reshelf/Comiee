@@ -83,7 +83,7 @@
           <div class="mt-8 lg:mt-0 lg:ml-8">
             <h3 class="tracking-widest text-base">{{ __('誕生日') }}</h3>
             <div class="mt-4">
-              <input type="date" name="birth" id="birth">
+              <input type="date" name="birth" id="birth" required>
             </div>
           </div>
 
