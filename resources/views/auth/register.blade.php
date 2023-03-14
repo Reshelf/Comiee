@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="w-full h-screen flex justify-center items-center">
-    <div class="w-full card">
+    <div class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none">
       <div class="flex justify-center mt-12 px-10">
         <a href="{{ url('/', app()->getLocale()) }}" class="flex-none md:overflow-hidden md:w-auto">
           <span class="sr-only">Comiee - Manga Social Networking Service</span>
@@ -92,7 +92,7 @@
         <div class="flex justify-between items-center mb-8 lg:mb-12">
           <a href="/login" class="inline-block cursor-pointer hover:text-primary">{{ __('またはログイン') }}</a>
           <span class="relative">
-            <button type="submit" class="submit_btn btn-primary py-1.5 px-8">
+            <button type="submit" class="submit_btn btn-primary py-1 lg:py-1.5 px-6 lg:px-8">
               {{ __('次へ') }}
               <span class="load loading"></span>
             </button>

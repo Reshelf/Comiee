@@ -92,7 +92,7 @@ input[type="file"] {
     border-radius: 3px;
 }
 .btn-primary {
-    @apply tracking-widest rounded-[5px] cursor-pointer whitespace-nowrap bg-primary hover:bg-opacity-90 text-white py-[8px] px-[16px] border border-primary dark:border-none duration-200;
+    @apply tracking-widest rounded-[5px] cursor-pointer whitespace-nowrap bg-primary hover:bg-opacity-90 text-white py-1.5 px-[16px] border border-primary dark:border-none duration-200;
     box-shadow: 0 3px 12px 0 rgba(#0570de, 0.4);
 }
 .btn-border {
@@ -675,7 +675,7 @@ button .loading {
     visibility: hidden;
 }
 .card {
-    @apply max-w-[450px] m-8 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none;
+    @apply max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none;
 }
 .card-title {
     @apply dark:bg-dark dark:text-ddd border-b border-b-l-c dark:border-none text-base md:text-xl p-6;
