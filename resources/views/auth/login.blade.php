@@ -58,13 +58,15 @@
           <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
         </div>
         <input type="hidden" name="remember" value="on">
-        <div class="relative w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
+        <div class="w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
           <a href="{{ route('password.request', app()->getLocale()) }}"
             class="cursor-pointer text-primary dark:text-gray">{{ __('パスワードを忘れた場合') }}</a>
-          <button type="submit" class="submit_btn3 btn-primary px-6 ml-auto">
-            {{ __('次へ') }}
-            <span class="load loading"></span>
-          </button>
+          <span class="relative">
+            <button type="submit" class="submit_btn btn-primary py-1.5 px-8 ml-auto">
+              {{ __('次へ') }}
+              <span class="load loading"></span>
+            </button>
+          </span>
         </div>
       </form>
       <div class="w-full mb-8 lg:mb-12 flex justify-center">

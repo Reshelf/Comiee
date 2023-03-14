@@ -89,12 +89,14 @@
 
         </div>
 
-        <div class="relative flex justify-between items-center mb-8 lg:mb-12">
+        <div class="flex justify-between items-center mb-8 lg:mb-12">
           <a href="/login" class="inline-block cursor-pointer hover:text-primary">{{ __('またはログイン') }}</a>
-          <button class="submit_btn2 btn-primary px-6" type="submit">
-            {{ __('次へ') }}
-            <span class="load loading"></span>
-          </button>
+          <span class="relative">
+            <button type="submit" class="submit_btn btn-primary py-1.5 px-8">
+              {{ __('次へ') }}
+              <span class="load loading"></span>
+            </button>
+          </span>
         </div>
       </form>
     </div>
