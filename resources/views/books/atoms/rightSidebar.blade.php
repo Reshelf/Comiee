@@ -23,13 +23,13 @@
       <div class="w-1/2">{{ __('ジャンル') }}</div>
       <div class="w-1/2">
         @if ($book->genre_id === 1)
-          <a href="{{ route('ranking.boys', app()->getLocale()) }}" class="hover:text-primary">{{ __('少年') }}</a>
+          {{ __('少年') }}
         @elseif($book->genre_id === 2)
-          <a href="{{ route('ranking.youth', app()->getLocale()) }}" class="hover:text-primary">{{ __('青年') }}</a>
+          {{ __('青年') }}
         @elseif($book->genre_id === 3)
-          <a href="{{ route('ranking.girls', app()->getLocale()) }}" class="hover:text-primary">{{ __('少女') }}</a>
+          {{ __('少女') }}
         @elseif($book->genre_id === 4)
-          <a href="{{ route('ranking.woman', app()->getLocale()) }}" class="hover:text-primary">{{ __('女性') }}</a>
+          {{ __('女性') }}
         @endif
       </div>
     </div>

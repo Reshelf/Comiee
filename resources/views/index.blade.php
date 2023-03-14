@@ -1,16 +1,4 @@
 @extends('app')
-
-{{-- @php
-  //Get IP Address of User in PHP
-  $ip = ip2long($_SERVER['REMOTE_ADDR']);
-
-  //call api
-  $url = file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip);
-
-  //decode json data
-  $getInfo = json_decode($url);
-  dd($getInfo);
-@endphp --}}
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
@@ -19,7 +7,6 @@
 
       <div class="lg:mb-4">
         @include('books.atoms.tabs')
-        {{-- {{ strtolower($getInfo->geoplugin_countryCode) }} --}}
       </div>
 
       <div class="w-full md:w-4/5 rounded-lg md:ml-8">
