@@ -637,18 +637,6 @@ button[disabled] {
         animation: loading1 1s ease infinite;
         z-index: 10;
     }
-    &::before {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        border: 2px dashed #fff;
-        width: 20px;
-        height: 20px;
-        border-left: 2px solid transparent;
-        border-bottom: 2px solid transparent;
-        animation: loading1 2s linear infinite;
-        z-index: 5;
-    }
 }
 
 @keyframes loading1 {
