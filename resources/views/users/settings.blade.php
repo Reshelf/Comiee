@@ -20,15 +20,100 @@
         <h3 class="text-2xl font-semibold py-4 block lg:hidden">{{ __('設定') }}</h3>
         <div class="w-full lg:my-4 flex">
           <div class="setting-tab">
-            <ul class="tabMenu scroll-none sticky top-0 lg:h-[350px]">
+            <ul class="tabMenu scroll-none sticky top-0 lg:h-[400px] lg:min-w-[200px]">
               <h3 class="text-2xl dark:text-f5 font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
-              <a href="#mail-notification">{{ __('通知設定') }}</a>
-              <a href="#site-display">{{ __('表示設定') }}</a>
-              <a href="#contract">{{ __('出版契約について') }}</a>
-              <a href="#earnings">{{ __('収益の受け取り') }}</a>
-              <a href="#account-delete">{{ __('アカウント管理') }}</a>
+
+              <a href="#mail-notification"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="currentColor"
+                    stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {{ __('メール通知') }}
+              </a>
+              <a href="#site-display"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 17.22V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M2 13H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M7.5 22H16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                {{ __('外観') }}
+              </a>
+              <a href="#site-lang"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 25 24" fill="none">
+                  <path d="M16.9915 8.95996H7.01147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M12.0015 7.28003V8.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M14.5015 8.93994C14.5015 13.2399 11.1415 16.7199 7.00146 16.7199" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M17.0015 16.72C15.2015 16.72 13.6015 15.76 12.4515 14.25" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M9.00146 22H15.0015C20.0015 22 22.0015 20 22.0015 15V9C22.0015 4 20.0015 2 15.0015 2H9.00146C4.00146 2 2.00146 4 2.00146 9V15C2.00146 20 4.00146 22 9.00146 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {{ __('表示言語') }}
+              </a>
+              <a href="#contract"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7 9.5H17" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M7 14.5H14" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {{ __('出版契約について') }}
+              </a>
+              <a href="#earnings"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M8.67236 14.3298C8.67236 15.6198 9.66236 16.6598 10.8924 16.6598H13.4024C14.4724 16.6598 15.3424 15.7498 15.3424 14.6298C15.3424 13.4098 14.8124 12.9798 14.0224 12.6998L9.99236 11.2998C9.20236 11.0198 8.67236 10.5898 8.67236 9.36984C8.67236 8.24984 9.54236 7.33984 10.6124 7.33984H13.1224C14.3524 7.33984 15.3424 8.37984 15.3424 9.66984"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12.0005 6V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M15.0005 22H9.00049C4.00049 22 2.00049 20 2.00049 15V9C2.00049 4 4.00049 2 9.00049 2H15.0005C20.0005 2 22.0005 4 22.0005 9V15C22.0005 20 20.0005 22 15.0005 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                {{ __('収益の受け取り') }}
+              </a>
+              <a href="#account-delete"
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M8.92993 2L8.95993 3.53003C8.97993 4.34003 9.64993 5 10.4599 5H13.4799C14.3099 5 14.9799 4.32 14.9799 3.5V2"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M17 17L15 19L17 21" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M20 17L22 19L20 21" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M13 22H8C4.5 22 3 20 3 17V7C3 4 4.5 2 8 2H16C19.5 2 21 4 21 7V14" stroke="currentColor"
+                    stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {{ __('アカウント管理') }}
+              </a>
             </ul>
+
             <div class="tabContents">
+
+              {{-- メール通知 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0]" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
@@ -43,8 +128,8 @@
                   <h3 class="mb-8 mt-4 text-base dark:text-ddd font-semibold">
                     {{ __('フォロー') }}</h3>
                   <label class="light-checkbox mt-8">
-                    <input type="checkbox" name="m1" value="m1" @if ($user->m_notice_1 === 1) checked @endif
-                      class="light-checkbox-Input">
+                    <input type="checkbox" name="m1" value="m1"
+                      @if ($user->m_notice_1 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -55,8 +140,8 @@
                   </label>
 
                   <label class="light-checkbox mt-8">
-                    <input type="checkbox" name="m2" value="m2" @if ($user->m_notice_2 === 1) checked @endif
-                      class="light-checkbox-Input">
+                    <input type="checkbox" name="m2" value="m2"
+                      @if ($user->m_notice_2 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -68,8 +153,8 @@
 
                   <h3 class="my-8 text-base dark:text-ddd font-semibold">{{ __('お気に入り') }}</h3>
                   <label class="light-checkbox">
-                    <input type="checkbox" name="m3" value="m3" @if ($user->m_notice_3 === 1) checked @endif
-                      class="light-checkbox-Input">
+                    <input type="checkbox" name="m3" value="m3"
+                      @if ($user->m_notice_3 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -79,8 +164,8 @@
                     <span class="light-checkbox-LabelText">{{ __('あなたの作品がお気に入りに登録されたら通知をします') }}</span>
                   </label>
                   <label class="light-checkbox mt-8">
-                    <input type="checkbox" name="m4" value="m4" @if ($user->m_notice_4 === 1) checked @endif
-                      class="light-checkbox-Input">
+                    <input type="checkbox" name="m4" value="m4"
+                      @if ($user->m_notice_4 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -93,8 +178,8 @@
                   <h3 class="my-8 text-base dark:text-ddd font-semibold">{{ __('購入') }}</h3>
 
                   <label class="light-checkbox mt-8">
-                    <input type="checkbox" name="m5" value="m5" @if ($user->m_notice_5 === 1) checked @endif
-                      class="light-checkbox-Input">
+                    <input type="checkbox" name="m5" value="m5"
+                      @if ($user->m_notice_5 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
@@ -125,9 +210,20 @@
                   </div>
                 </form>
               </div>
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-display">
 
-                <div class="mt-4">
+              {{-- 外観 --}}
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-display">
+                <div class="my-4">
+                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('外観') }}</h3>
+                  <div class="mt-4">
+                    <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
+                  </div>
+                </div>
+              </div>
+
+              {{-- 表示言語 --}}
+              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-lang">
+                <div class="my-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('表示言語') }}</h3>
                   <div class="mt-4">
                     <div class="mb-4">
@@ -198,13 +294,6 @@
 
                   </div>
                 </div>
-
-                <div class="my-8">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('外観') }}</h3>
-                  <div class="mt-4">
-                    <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
-                  </div>
-                </div>
               </div>
 
               {{-- 出版契約 --}}
@@ -240,6 +329,7 @@
               </div>
 
 
+              {{-- 収益受け取りの準備 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0]" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('収益受け取りの準備') }}</h3>
@@ -277,7 +367,9 @@
                   </div>
                 </div>
               </div>
+
               <div class="pt-4 pb-12" id="account-delete">
+
                 {{-- ログアウト --}}
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('アカウントをログアウト') }}</h3>
@@ -290,6 +382,7 @@
                     </form>
                   </div>
                 </div>
+
                 {{-- アカウントの削除 --}}
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('アカウントの削除') }}</h3>

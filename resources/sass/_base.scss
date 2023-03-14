@@ -680,7 +680,7 @@ button .loading {
     .tabMenu {
         @apply flex lg:mb-4 md:flex-col bg-white dark:bg-dark overflow-x-auto z-50;
         a {
-            @apply tracking-widest w-auto whitespace-nowrap text-[13px] cursor-pointer py-4 pr-4 md:pr-12 hover:text-primary dark:hover:text-light;
+            @apply tracking-widest w-auto whitespace-nowrap cursor-pointer py-4 pr-4 md:pr-12 hover:text-primary dark:hover:text-light;
             &.active {
                 @apply font-semibold text-primary dark:text-ddd;
             }
