@@ -68,17 +68,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     |
      */
     Route::view('/', 'index')->name('top'); // トップページ
-    // ランキング
-    Route::get('/ranking', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking');
-    Route::any('/ranking/search', 'App\Http\Controllers\Search\Ranking\IndexController')->name('ranking.search');
-    Route::get('/ranking/boys', 'App\Http\Controllers\Search\Ranking\BoysController')->name('ranking.boys');
-    Route::any('/ranking/boys/search', 'App\Http\Controllers\Search\Ranking\BoysController')->name('ranking.boys.search');
-    Route::get('/ranking/youth', 'App\Http\Controllers\Search\Ranking\YouthController')->name('ranking.youth');
-    Route::any('/ranking/youth/search', 'App\Http\Controllers\Search\Ranking\YouthController')->name('ranking.youth.search');
-    Route::get('/ranking/girls', 'App\Http\Controllers\Search\Ranking\GirlsController')->name('ranking.girls');
-    Route::any('/ranking/girls/search', 'App\Http\Controllers\Search\Ranking\GirlsController')->name('ranking.girls.search');
-    Route::get('/ranking/woman', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman');
-    Route::any('/ranking/woman/search', 'App\Http\Controllers\Search\Ranking\WomanController')->name('ranking.woman.search');
 
     // タグ検索
     Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');

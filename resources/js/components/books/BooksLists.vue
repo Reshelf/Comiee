@@ -6,12 +6,11 @@
         >
             <!-- 画面タイプ -->
             <div class="mb-4">
-                <label class="pr-2">画面タイプ</label>
                 <select
                     v-model="screen_type"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">すべて</option>
+                    <option value="">画面タイプ</option>
                     <option value="horizontal">横読み</option>
                     <option value="vertical">縦スクロール</option>
                 </select>
@@ -71,14 +70,27 @@
 
             <!-- 閲覧数 -->
             <div class="mb-4 flex items-center">
-                <label class="pr-2">閲覧数</label>
                 <select
                     v-model="views"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">未設定</option>
+                    <option value="">閲覧数</option>
                     <option value="much">多い順</option>
                     <option value="less">少ない順</option>
+                </select>
+            </div>
+
+            <!-- ジャンル -->
+            <div class="mb-4 flex items-center">
+                <select
+                    v-model="genre_id"
+                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                >
+                    <option value="">ジャンル</option>
+                    <option value="1">少年</option>
+                    <option value="2">青年</option>
+                    <option value="3">少女</option>
+                    <option value="4">女性</option>
                 </select>
             </div>
         </div>
@@ -142,6 +154,7 @@ export default {
             is_all_charge: false,
             is_new: false,
             views: "",
+            genre_id: "",
 
             // ロード
             mangas: [],
@@ -179,9 +192,18 @@ export default {
                 result = result.sort((a, b) => a.views - b.views);
             }
 
+            // 画面タイプ
             if (this.screen_type) {
                 result = result.filter(
-                    (manga) => manga.screen_type === this.screen_type
+                    (manga) => manga.screen_type == this.screen_type
+                );
+            }
+
+            // ジャンル
+            if (this.genre_id) {
+                let selected_genre = parseInt(this.genre_id); // 文字列 → 数字変換
+                result = result.filter(
+                    (manga) => manga.genre_id === selected_genre
                 );
             }
 

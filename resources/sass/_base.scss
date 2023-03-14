@@ -629,11 +629,11 @@ button[disabled] {
         content: "";
         position: absolute;
         border-radius: 50%;
-        border: 2px solid #fff;
-        width: 20px;
-        height: 20px;
-        border-left: 2px solid transparent;
-        border-bottom: 2px solid transparent;
+        border: 1.75px solid #fff;
+        width: 18px;
+        height: 18px;
+        border-left: 1.75px solid transparent;
+        border-bottom: 1.75px solid transparent;
         animation: loading1 1s ease infinite;
         z-index: 10;
     }
