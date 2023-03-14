@@ -36,22 +36,30 @@
           <div class="pb-4 mb-8 border-b border-[#dadce0] dark:border-dark-1">
             <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
             <div class="p-6 flex flex-col lg:flex-row flex-wrap w-full tracking-widest">
-              <div class="lg:w-1/3 mb-8">
-                <a href="{{ $user->website }}" target="_blank" rel="noopener noreferrer"
-                  class="hover:text-primary">{{ __('ウェブサイト') }}</a>
-              </div>
-              <div class="lg:w-1/3 mb-8">
-                <a href="{{ $user->twitter }}" target="_blank" rel="noopener noreferrer"
-                  class="hover:text-[#1C9BEF]">{{ __('Twitter') }}</a>
-              </div>
-              <div class="lg:w-1/3 mb-8">
-                <a href="{{ $user->youtube }}" target="_blank" rel="noopener noreferrer"
-                  class="hover:text-[#FF0000]">{{ __('Youtube') }}</a>
-              </div>
-              <div class="lg:w-1/3">
-                <a href="{{ $user->instagram }}" target="_blank" rel="noopener noreferrer"
-                  class="hover:text-[#E23764]">{{ __('Instagram') }}</a>
-              </div>
+              @empty(!$user->website)
+                <div class="lg:w-1/3 mb-8">
+                  <a href="{{ $user->website }}" target="_blank" rel="noopener noreferrer"
+                    class="dark:hover:text-ddd hover:text-primary">{{ __('ウェブサイト') }}</a>
+                </div>
+              @endempty
+              @empty(!$user->twitter)
+                <div class="lg:w-1/3 mb-8">
+                  <a href="{{ $user->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="dark:hover:text-ddd hover:text-[#1C9BEF]">{{ __('Twitter') }}</a>
+                </div>
+              @endempty
+              @empty(!$user->youtube)
+                <div class="lg:w-1/3 mb-8">
+                  <a href="{{ $user->youtube }}" target="_blank" rel="noopener noreferrer"
+                    class="dark:hover:text-ddd hover:text-[#FF0000]">{{ __('Youtube') }}</a>
+                </div>
+              @endempty
+              @empty(!$user->instagram)
+                <div class="lg:w-1/3">
+                  <a href="{{ $user->instagram }}" target="_blank" rel="noopener noreferrer"
+                    class="dark:hover:text-ddd hover:text-[#E23764]">{{ __('Instagram') }}</a>
+                </div>
+              @endempty
             </div>
           </div>
         </div>
