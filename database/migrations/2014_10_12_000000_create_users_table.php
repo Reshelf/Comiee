@@ -44,6 +44,11 @@ return new class extends Migration
             $table->boolean('m_notice_5')->default(1)->comment('作品エピソードが購入されたときの通知フラグ');
             $table->boolean('m_notice_6')->default(1)->comment('Comieeからのニュースやお得な情報を受け取るフラグ');
 
+            $table->string('website')->nullable()->comment('webサイト');
+            $table->string('twitter')->nullable()->comment('Twitter');
+            $table->string('youtube')->nullable()->comment('YouTube');
+            $table->string('instagram')->nullable()->comment('Instagram');
+
             $table->rememberToken();
             $table->timestamps();
         });
