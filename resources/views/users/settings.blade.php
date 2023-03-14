@@ -24,7 +24,7 @@
               <h3 class="text-2xl dark:text-f5 font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
 
               <a href="#mail-notification"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
@@ -36,7 +36,7 @@
                 {{ __('メール通知') }}
               </a>
               <a href="#site-display"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z"
@@ -51,7 +51,7 @@
                 {{ __('外観') }}
               </a>
               <a href="#site-lang"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 25 24" fill="none">
                   <path d="M16.9915 8.95996H7.01147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -68,7 +68,7 @@
                 {{ __('表示言語') }}
               </a>
               <a href="#contract"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
                   <path d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -80,7 +80,7 @@
                 {{ __('出版契約について') }}
               </a>
               <a href="#earnings"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M8.67236 14.3298C8.67236 15.6198 9.66236 16.6598 10.8924 16.6598H13.4024C14.4724 16.6598 15.3424 15.7498 15.3424 14.6298C15.3424 13.4098 14.8124 12.9798 14.0224 12.6998L9.99236 11.2998C9.20236 11.0198 8.67236 10.5898 8.67236 9.36984C8.67236 8.24984 9.54236 7.33984 10.6124 7.33984H13.1224C14.3524 7.33984 15.3424 8.37984 15.3424 9.66984"
@@ -95,7 +95,7 @@
                 {{ __('収益の受け取り') }}
               </a>
               <a href="#account-delete"
-                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 rounded-full lg:rounded-lg">
+                class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M8.92993 2L8.95993 3.53003C8.97993 4.34003 9.64993 5 10.4599 5H13.4799C14.3099 5 14.9799 4.32 14.9799 3.5V2"
