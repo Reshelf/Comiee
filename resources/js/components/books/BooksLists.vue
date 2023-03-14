@@ -8,7 +8,7 @@
             <div class="mb-4">
                 <select
                     v-model="screen_type"
-                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
                     <option value="">画面タイプ</option>
                     <option value="horizontal">横読み</option>
@@ -23,7 +23,7 @@
                         ? 'active hover:bg-opacity-80'
                         : 'hover:bg-opacity-10'
                 "
-                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_complete = !is_complete"
             >
                 完結作品
@@ -36,7 +36,7 @@
                         ? 'active hover:bg-opacity-80'
                         : 'hover:bg-opacity-10'
                 "
-                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_color = !is_color"
             >
                 カラー作品
@@ -49,7 +49,7 @@
                         ? 'active hover:bg-opacity-80'
                         : 'hover:bg-opacity-10'
                 "
-                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary dark:text-[#8ab4f8] dark:border-[#626262]"
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_all_charge = !is_all_charge"
             >
                 全話無料
@@ -62,7 +62,7 @@
                         ? 'active hover:bg-opacity-80'
                         : 'hover:bg-opacity-10'
                 "
-                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_new = !is_new"
             >
                 今日の新作
@@ -72,7 +72,7 @@
             <div class="mb-4 flex items-center">
                 <select
                     v-model="views"
-                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
                     <option value="">閲覧数</option>
                     <option value="much">多い順</option>
@@ -84,7 +84,7 @@
             <div class="mb-4 flex items-center">
                 <select
                     v-model="genre_id"
-                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
                     <option value="">ジャンル</option>
                     <option value="1">少年</option>
@@ -92,6 +92,40 @@
                     <option value="3">少女</option>
                     <option value="4">女性</option>
                 </select>
+            </div>
+
+            <!-- 言語 -->
+            <div class="mb-4 flex items-center">
+                <select
+                    v-model="manga_lang"
+                    class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                >
+                    <option value="">作品言語</option>
+                    <option value="ja">日本語</option>
+                    <option value="en">English</option>
+                    <option value="tw">繁体字</option>
+                    <option value="cn">簡体字</option>
+                    <option value="es">スペイン語</option>
+                    <option value="fr">フランス語</option>
+                    <option value="it">イタリア語</option>
+                    <option value="id">インドネシア語</option>
+                    <option value="th">タイ語</option>
+                    <option value="ko">韓国語</option>
+                    <option value="de">ドイツ語</option>
+                </select>
+            </div>
+
+            <!-- 休載中 -->
+            <div
+                :class="
+                    is_suspend
+                        ? 'active hover:bg-opacity-80'
+                        : 'hover:bg-opacity-10'
+                "
+                class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                @click="is_suspend = !is_suspend"
+            >
+                休載中
             </div>
         </div>
 
@@ -155,6 +189,7 @@ export default {
             is_new: false,
             views: "",
             genre_id: "",
+            manga_lang: this.lang,
 
             // ロード
             mangas: [],
@@ -170,26 +205,28 @@ export default {
         },
         filteredManga() {
             let result = this.setManga;
-            if (this.is_complete) {
+            if (this.is_complete)
                 result = result.filter((manga) => manga.is_complete);
-            }
-            if (this.is_color) {
+            if (this.is_color)
                 result = result.filter((manga) => manga.is_color);
-            }
-            if (this.is_new) {
-                result = result.filter((manga) => manga.is_new);
-            }
-            if (this.is_all_charge) {
+            if (this.is_new) result = result.filter((manga) => manga.is_new);
+            if (this.is_suspend)
+                result = result.filter((manga) => manga.is_suspend);
+            if (this.is_all_charge)
                 result = result.filter(
                     (manga) => manga.is_all_charge === "false"
                 );
-            }
-
             // 閲覧数 降順、昇順
             if (this.views === "much") {
                 result = result.sort((a, b) => b.views - a.views);
             } else if (this.views === "less") {
                 result = result.sort((a, b) => a.views - b.views);
+            }
+            // 言語
+            if (this.manga_lang) {
+                result = result.filter(
+                    (manga) => manga.lang == this.manga_lang
+                );
             }
 
             // 画面タイプ
