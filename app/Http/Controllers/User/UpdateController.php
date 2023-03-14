@@ -34,6 +34,10 @@ class UpdateController extends Controller
                 'email' => 'required|email:filter,dns|unique:users,email,' . $user->id . ',id',
                 'body' => ['nullable', 'string', 'max:200'],
                 'gender' => ['nullable', 'string', 'max:50'],
+                'website' => ['nullable', 'string'],
+                'twitter' => ['nullable', 'string'],
+                'youtube' => ['nullable', 'string'],
+                'instagram' => ['nullable', 'string'],
                 'birth' => ['nullable', 'date'],
                 'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
                 'thumbnail' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:30720'],
@@ -50,6 +54,11 @@ class UpdateController extends Controller
         $user->email = $request->email;
         $user->gender = $request->gender;
         $user->birth = $request->input('birth');
+
+        $user->website = $request->website;
+        $user->twitter = $request->twitter;
+        $user->youtube = $request->youtube;
+        $user->instagram = $request->instagram;
 
         if ($request->has('avatar')) {
             // 画像加工
