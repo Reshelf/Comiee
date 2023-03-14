@@ -85,9 +85,8 @@
 {{-- タイトル --}}
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
 <div class="mb-12">
-  <input type="text" name="title"
-    class="w-full p-2 border-b dark:border-none border-[#dadce0] dark:bg-dark-1 rounded"
-    placeholder="{{ __('30字以内で入力してください') }}" required value="{{ $book->title ?? old('title') }}" maxlength="30">
+  <input type="text" name="title" class="card-input" placeholder="{{ __('30字以内で入力してください') }}" required
+    value="{{ $book->title ?? old('title') }}" maxlength="30">
 </div>
 
 {{-- サムネイル --}}
@@ -243,8 +242,7 @@
 {{-- あらすじ --}}
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
-  <textarea required name="story"
-    class="count_{{ $create_book_modal_count }} dark:bg-dark-1-2 border border-[#dadce0] dark:border-none p-3 h-24 rounded-[5px] mb-1 w-full"
+  <textarea required name="story" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
     placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>

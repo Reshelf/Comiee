@@ -45,8 +45,8 @@
 <div class="flex items-center mt-8 mb-4">
   <h3 class="tracking-widest font-semibold inline-block">{{ __('タイトル') }}</h3>
 </div>
-<input type="text" name="title" value="{{ $e->title ?? old('title') }}"
-  class="border border-[#dadce0] py-2 px-3 w-full rounded-[4px]" placeholder="50文字まで入力することができます" max="50">
+<input type="text" name="title" value="{{ $e->title ?? old('title') }}" class="card-input"
+  placeholder="50文字まで入力することができます" max="50">
 
 
 {{-- サムネイル --}}
@@ -99,15 +99,14 @@
 <input type="file" name="images[]" multiple="multiple" @if (!$update) required @endif>
 
 
-{{-- 作者から一言 --}}
+{{-- 読者さんへの一言 --}}
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('読者さんへの一言') }}</h3>
-  <textarea name="short_from_author"
-    class="count_{{ $create_book_modal_count }} dark:bg-dark-1-2 border border-[#dadce0] dark:border-none p-3 h-24 rounded-[5px] mb-1 w-full"
+  <textarea name="short_from_author" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
     placeholder="投稿できるのは400文字までです" maxlength="400" value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>
-    <span>/400文字</span>
+    <span>/400</span>
   </div>
 @endisset
 

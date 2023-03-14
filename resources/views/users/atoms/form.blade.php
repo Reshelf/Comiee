@@ -71,8 +71,7 @@
   {{-- 自己紹介 --}}
   <h3 class="tracking-widest mb-4 font-semibold">{{ __('自己紹介') }}</h3>
   <div class="mb-8">
-    <textarea name="body" placeholder="{{ __('200文字以内で入力してください。') }}" maxlength="200"
-      class="count_2 w-full md:text-[15px] dark:bg-dark-1 p-4 border border-b-l-c focus:border-2 focus:border-primary dark:border-dark transition-all rounded h-44">{{ $user->body ?? old('body') }}</textarea>
+    <textarea name="body" placeholder="{{ __('200文字以内で入力してください。') }}" maxlength="200" class="count_2 card-textarea">{{ $user->body ?? old('body') }}</textarea>
     <div class="text-right">
       <span class="string_count_2">0</span>
       <span>/200文字</span>

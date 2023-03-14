@@ -671,6 +671,9 @@ button .loading {
 .card-input {
     @apply w-full md:text-[15px] p-4 rounded-[5px] border border-b-l-c focus:border-2 focus:border-primary dark:border-dark dark:bg-dark-2 transition-all;
 }
+.card-textarea {
+    @apply w-full md:text-[15px] p-4 rounded-[5px] border border-b-l-c focus:border-2 focus:border-primary dark:border-dark dark:bg-dark-2 transition-all;
+}
 
 .setting-tab {
     @apply w-full flex flex-col md:flex-row;
