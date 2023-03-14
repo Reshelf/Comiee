@@ -1,22 +1,6 @@
 {
-  "_@sipec-329650a8.js": {
-    "file": "assets/@sipec-329650a8.js",
-    "imports": [
-      "_vue-1b528f8a.js"
-    ]
-  },
-  "_@vue-72b884e8.js": {
-    "file": "assets/@vue-72b884e8.js"
-  },
-  "_axios-bff3f665.js": {
-    "file": "assets/axios-bff3f665.js"
-  },
-  "_vue-1b528f8a.js": {
-    "file": "assets/vue-1b528f8a.js",
-    "imports": [
-      "_@vue-72b884e8.js",
-      "_@sipec-329650a8.js"
-    ]
+  "_vendor-d8543b39.js": {
+    "file": "assets/vendor-d8543b39.js"
   },
   "resources/js/app.css": {
     "file": "assets/app-4beef332.css",
@@ -26,12 +10,9 @@
     "css": [
       "assets/app-4beef332.css"
     ],
-    "file": "assets/app-eab895cd.js",
+    "file": "assets/app-e931e0e3.js",
     "imports": [
-      "_vue-1b528f8a.js",
-      "_axios-bff3f665.js",
-      "_@vue-72b884e8.js",
-      "_@sipec-329650a8.js"
+      "_vendor-d8543b39.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
