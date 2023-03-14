@@ -141,7 +141,10 @@
     @else id="screen_type_vertical_update" @endif
       @isset($book->screen_type)
         @if ($book->screen_type === 'vertical') checked @endif
-    @endisset />
+    @endisset
+      @empty($book->screen_type)
+        checked
+    @endempty />
     <label
       @if (!$update) for="screen_type_vertical" @else for="screen_type_vertical_update" @endif>
       {{ __('縦スクロール') }}
