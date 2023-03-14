@@ -49,25 +49,22 @@
   {{-- 名前 --}}
   <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('名前') }}</h3>
   <div class="mb-12">
-    <input type="text" name="name" value="{{ $user->name ?? old('name') }}"
-      class="w-full p-2 border-b dark:border-none border-[#dadce0] dark:bg-dark-1 rounded" maxlength="30">
+    <input type="text" name="name" value="{{ $user->name ?? old('name') }}" class="card-input" maxlength="30">
   </div>
 
 
   {{-- ユーザーID --}}
   <h3 class="tracking-widest mb-4 font-semibold">{{ __('ユーザーID') }}</h3>
   <div class="mb-12">
-    <input type="text" name="username" value="{{ $user->username ?? old('username') }}"
-      class="w-full p-2 border-b dark:border-none border-[#dadce0] dark:bg-dark-1 rounded" maxlength="20"
-      minlength="4">
+    <input type="text" name="username" value="{{ $user->username ?? old('username') }}" class="card-input"
+      maxlength="20" minlength="4">
   </div>
 
 
   {{-- メールアドレス --}}
   <h3 class="tracking-widest mb-4 font-semibold">{{ __('メールアドレス') }}</h3>
   <div class="mb-12">
-    <input type="email" name="email" value="{{ $user->email ?? old('email') }}"
-      class="w-full p-2 border-b dark:border-none border-[#dadce0] dark:bg-dark-1 rounded" maxlength="255">
+    <input type="email" name="email" value="{{ $user->email ?? old('email') }}" class="card-input" maxlength="255">
   </div>
 
 
@@ -75,7 +72,7 @@
   <h3 class="tracking-widest mb-4 font-semibold">{{ __('自己紹介') }}</h3>
   <div class="mb-8">
     <textarea name="body" placeholder="{{ __('200文字以内で入力してください。') }}" maxlength="200"
-      class="count_2 w-full dark:bg-dark-1 p-4 border dark:border-none border-ddd rounded h-44">{{ $user->body ?? old('body') }}</textarea>
+      class="count_2 w-full md:text-[15px] dark:bg-dark-1 p-4 border border-b-l-c focus:border-2 focus:border-primary dark:border-dark transition-all rounded h-44">{{ $user->body ?? old('body') }}</textarea>
     <div class="text-right">
       <span class="string_count_2">0</span>
       <span>/200文字</span>
@@ -85,7 +82,6 @@
 
 
 
-{{-- パーソナライズ用 --}}
 {{-- 性別 --}}
 <div class="filters flex flex-col mb-12">
   <h3 class="tracking-widest text-[15px] font-semibold">{{ __('性別') }}</h3>
@@ -122,13 +118,33 @@
 </div>
 
 
+{{-- ウェブサイト --}}
+<h3 class="tracking-widest mb-4 font-semibold">{{ __('ウェブサイト') }}</h3>
+<div class="mb-12">
+  <input type="text" name="website" value="{{ $user->website ?? old('website') }}" class="card-input"
+    placeholder="{{ __('URLを入れてください') }}" maxlength="255">
+</div>
 
 
+{{-- Twitter --}}
+<h3 class="tracking-widest mb-4 font-semibold">{{ __('Twitter') }}</h3>
+<div class="mb-12">
+  <input type="text" name="twitter" value="{{ $user->twitter ?? old('twitter') }}" class="card-input"
+    placeholder="{{ __('URLを入れてください') }}" maxlength="255">
+</div>
 
-{{-- <div class="flex w-full mb-12">
-        <div class="w-1/4 font-semibold mb-2">リンク</div>
-        <div class="w-3/4 pl-4">
-            <input type="text" name="website" value="{{ $user->website ?? old('website') }}"
-                class="w-full p-2 bg-white-1 dark:bg-dark-1-2 rounded">
-        </div>
-    </div> --}}
+
+{{-- Youtube --}}
+<h3 class="tracking-widest mb-4 font-semibold">{{ __('Youtube') }}</h3>
+<div class="mb-12">
+  <input type="text" name="youtube" value="{{ $user->youtube ?? old('youtube') }}" class="card-input"
+    placeholder="{{ __('URLを入れてください') }}" maxlength="255">
+</div>
+
+
+{{-- Instagram --}}
+<h3 class="tracking-widest mb-4 font-semibold">{{ __('Instagram') }}</h3>
+<div class="mb-12">
+  <input type="text" name="instagram" value="{{ $user->instagram ?? old('instagram') }}" class="card-input"
+    placeholder="{{ __('URLを入れてください') }}" maxlength="255">
+</div>
