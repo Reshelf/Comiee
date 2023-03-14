@@ -20,11 +20,12 @@
           <p class="mt-2">多くのマンガと出会い、輪を広げていきましょう！</p>
           <p class="mt-4">Comiee（コミー）について知りたい方向けに役立つページ</p>
           <p class="mt-2">
-            <a href="{{ route('others.about.comiee', app()->getLocale()) }}" class="text-primary">・Comieeについて</a>
+            <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="text-primary">・ご利用ガイド</a><br>
+            <a href="{{ route('others.about.comiee', app()->getLocale()) }}" class="text-primary">・Comieeについて</a><br>
+            <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
+              class="text-primary">・よくあるご質問</a><br>
           </p>
         </div>
-
-
       </setup-modal>
     </div>
   </div>
