@@ -806,6 +806,7 @@ export default {
 
             // スクショブロック
             if (
+                e.ctrlKey ||
                 e.metaKey ||
                 e.key == "RightCommand" ||
                 e.key == "LeftCommand" ||
