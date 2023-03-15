@@ -10,3 +10,7 @@
 
   gtag('config', 'G-R2R5224E52');
 </script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+  data-cf-beacon='{"token": "afdd1d945b264533b0d8135217c1d6f6"}'></script><!-- End Cloudflare Web Analytics -->
