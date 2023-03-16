@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use GuzzleHttp\Client;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -49,5 +52,49 @@ class Handler extends ExceptionHandler
                 return redirect()->route('login');
             };
         });
+    }
+
+    public function report(Throwable $exception)
+    {
+        parent::report($exception);
+
+        if ($this->shouldReport($exception)) {
+            $this->sendToSlack($exception);
+        }
+    }
+
+    protected function sendToSlack(Throwable $exception)
+    {
+        try {
+            $client = new Client();
+            $client->post(env('SLACK_WEBHOOK_URL'), [
+                'json' => [
+                    'text' => 'エラーが発生しました: ' . $exception->getMessage(),
+                    'attachments' => [
+                        [
+                            'fields' => [
+                                [
+                                    'title' => 'ファイル',
+                                    'value' => $exception->getFile(),
+                                    'short' => true,
+                                ],
+                                [
+                                    'title' => '行',
+                                    'value' => $exception->getLine(),
+                                    'short' => true,
+                                ],
+                                [
+                                    'title' => 'エラーコード',
+                                    'value' => $exception->getCode(),
+                                    'short' => true,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
+        } catch (Exception $e) {
+            Log::error('Slackへのエラー通知に失敗しました: ' . $e->getMessage());
+        }
     }
 }
