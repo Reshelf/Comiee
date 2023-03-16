@@ -35,18 +35,20 @@
               <table border="0" width="100%" cellspacing="0" cellpadding="0" align="center"
                 style="border-collapse:collapse;max-width:300px;word-break:break-word">
                 <tbody>
-                  <tr>
-                    <td width="80" align="center">
-                      <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
-                        style="color:#1b74e4;text-decoration:none" target="_blank">
-                        <img width="80" height="80" src="{{ $mailData['send_user']->avatar }}"
-                          style="border:solid 1px rgba(0,0,0,.15);border-radius:50%;object-fit:cover">
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td height="7" style="line-height:7px"></td>
-                  </tr>
+                  @empty(!$mailData['send_user']->avatar)
+                    <tr>
+                      <td width="80" align="center">
+                        <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
+                          style="color:#1b74e4;text-decoration:none" target="_blank">
+                          <img width="80" height="80" src="{{ $mailData['send_user']->avatar }}"
+                            style="border:solid 1px rgba(0,0,0,.15);border-radius:50%;object-fit:cover">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="7" style="line-height:7px"></td>
+                    </tr>
+                  @endempty
                   <tr>
                     <td width="100%" align="center">
                       <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
