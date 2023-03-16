@@ -1,21 +1,23 @@
 <template>
-    <div class="flex max-w-6xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
-        <div class="w-full lg:mt-4 lg:mx-12">
+    <div class="flex max-w-5xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
+        <div class="w-full lg:mt-4">
             <h3 class="text-2xl font-semibold py-4 block lg:hidden">本棚</h3>
             <div class="w-full lg:my-4 flex">
                 <div class="setting-tab">
                     <!-- 項目 -->
-                    <ul class="tabMenu scroll-none sticky top-0 lg:h-[300px]">
+                    <ul
+                        class="tabMenu scroll-none sticky top-0 lg:h-[300px] lg:min-w-[200px]"
+                    >
                         <h3
                             class="text-2xl font-semibold py-4 lg:pt-0 hidden lg:block"
                         >
                             本棚
                         </h3>
                         <h4
-                            class="hover:text-primary dark:hover:text-f5 p-4 whitespace-nowrap cursor-pointer"
+                            class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isLikes
-                                    ? 'text-primary dark:text-f5 font-semibold'
+                                    ? 'text-primary dark:text-f5 font-semibold bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -24,13 +26,30 @@
                                     (isBought = false)
                             "
                         >
+                            <svg
+                                width="22"
+                                height="22"
+                                class="mr-4 hidden lg:block"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12.62 20.8101C12.28 20.9301 11.72 20.9301 11.38 20.8101C8.48 19.8201 2 15.6901 2 8.6901C2 5.6001 4.49 3.1001 7.56 3.1001C9.38 3.1001 10.99 3.9801 12 5.3401C13.01 3.9801 14.63 3.1001 16.44 3.1001C19.51 3.1001 22 5.6001 22 8.6901C22 15.6901 15.52 19.8201 12.62 20.8101Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+
                             お気に入り
                         </h4>
+
                         <h4
-                            class="hover:text-primary dark:hover:text-f5 p-4 whitespace-nowrap cursor-pointer"
+                            class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isRead
-                                    ? 'text-primary dark:text-f5 font-semibold'
+                                    ? 'text-primary dark:text-f5 font-semibold bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -39,13 +58,84 @@
                                     (isBought = false)
                             "
                         >
+                            <svg
+                                width="22"
+                                height="22"
+                                class="mr-4 hidden lg:block"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M9.57002 12.46L6.52002 15.51"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M6.54999 12.49L9.59999 15.54"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M13.53 14H13.54"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M17.47 14H17.48"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M15.5 15.98V15.96"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M15.5 12.04V12.02"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M9 22H15C20 22 22 20 22 15V13C22 8 20 6 15 6H9C4 6 2 8 2 13V15C2 20 4 22 9 22Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M13.01 2L13 3.01C12.99 3.56 12.55 4 12 4H11.97C11.42 4 10.98 4.45 10.98 5C10.98 5.55 11.43 6 11.98 6H12.98"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+
                             閲覧履歴
                         </h4>
                         <h4
-                            class="hover:text-primary dark:hover:text-f5 p-4 whitespace-nowrap cursor-pointer"
+                            class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isBought
-                                    ? 'text-primary dark:text-f5 font-semibold'
+                                    ? 'text-primary dark:text-f5 font-semibold bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -54,6 +144,29 @@
                                     (isBought = true)
                             "
                         >
+                            <svg
+                                width="22"
+                                height="22"
+                                class="mr-4 hidden lg:block"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M10.4899 2.23006L5.49991 4.11006C4.34991 4.54006 3.40991 5.90006 3.40991 7.12006V14.5501C3.40991 15.7301 4.18991 17.2801 5.13991 17.9901L9.43991 21.2001C10.8499 22.2601 13.1699 22.2601 14.5799 21.2001L18.8799 17.9901C19.8299 17.2801 20.6099 15.7301 20.6099 14.5501V7.12006C20.6099 5.89006 19.6699 4.53006 18.5199 4.10006L13.5299 2.23006C12.6799 1.92006 11.3199 1.92006 10.4899 2.23006Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M9.05005 11.8702L10.66 13.4802L14.96 9.18018"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
                             購入履歴
                         </h4>
                     </ul>
@@ -65,7 +178,7 @@
                                 <template v-if="isLikes">
                                     <!-- 検索条件 -->
                                     <div
-                                        class="flex lg:flex-wrap whitespace-nowrap overflow-x-scroll scroll-none items-center mt-4 lg:mt-0 mb-4"
+                                        class="w-full flex whitespace-nowrap overflow-x-scroll scroll-none items-center mt-4 lg:mt-0 mb-4"
                                     >
                                         <!-- 画面タイプ -->
                                         <div class="mb-4">
