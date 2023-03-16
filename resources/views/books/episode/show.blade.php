@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-  
+
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -181,7 +181,9 @@
       </div>
     </div>
   </div>
-@else
+@endif
+
+@if (!Auth::check())
   <div class="flex flex-col items-center justify-center m-24">
     <p class="text-base">{{ __('エピソードを読むにはログインをしてください') }}</p>
     <p class="flex items-center mt-4">
