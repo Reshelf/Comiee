@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ShowController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-    }
-
     /*
     |--------------------------------------------------------------------------
     | エピソードの詳細
