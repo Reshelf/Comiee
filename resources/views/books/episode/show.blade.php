@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-
+  
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -153,19 +153,19 @@
           <div class="payment-radio-box w-full flex flex-wrap justify-between">
             <input type="radio" id="option1" name="price" value="50" class="hidden">
             <label for="option1">
-              <div class="box">50円</div>
+              <div class="box">¥ 50</div>
             </label>
             <input type="radio" id="option2" name="price" value="100" class="hidden" checked>
             <label for="option2">
-              <div class="box">100円</div>
+              <div class="box">¥ 100</div>
             </label>
             <input type="radio" id="option3" name="price" value="250" class="hidden">
             <label for="option3">
-              <div class="box">250円</div>
+              <div class="box">¥ 250</div>
             </label>
             <input type="radio" id="option4" name="price" value="500" class="hidden">
             <label for="option4">
-              <div class="box">500円</div>
+              <div class="box">¥ 500</div>
             </label>
           </div>
 
