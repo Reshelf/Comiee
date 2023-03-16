@@ -13,71 +13,77 @@ use Stripe\Stripe;
 
 class PaymentWebhookController extends Controller
 {
+    public function __invoke(Request $request)
+    {
+        $event = $this->getStripeEvent($request);
+
+        if (!$event) {
+            return response()->json('Invalid payload or signature', 400);
+        }
+
+        if ($event->type === 'checkout.session.completed') {
+            $this->handleCompletedCheckoutSession($event->data->object);
+            return response()->json('ok', 200);
+        }
+
+        return response()->json('Unexpected event type', 400);
+    }
+
     /*
     |--------------------------------------------------------------------------
-    | 決済完了後に Webhookを使いサービスへの反映を行う
+    | イベントの開始
     |--------------------------------------------------------------------------
+    |
      */
-    public function __invoke(Request $request)
+    private function getStripeEvent(Request $request)
     {
         Stripe::setApiKey(config('app.stripe_secret'));
 
         $endpoint_secret = config('app.stripe_endpoint_secret');
         $sig_header = $request->header('stripe-signature');
-        $event = null;
 
         try {
-            $event = \Stripe\Webhook::constructEvent(
+            return \Stripe\Webhook::constructEvent(
                 $request->getContent(), $sig_header, $endpoint_secret
             );
         } catch (\UnexpectedValueException$e) {
-            return response()->json('Invalid payload', 400);
+            return null;
         } catch (\Stripe\Exception\SignatureVerificationException$e) {
-            return response()->json('Invalid Signature', 400);
+            return null;
         }
-
-        switch ($event->type) {
-            case 'checkout.session.completed':
-                $session = $event->data->object;
-                $this->handleCompletedCheckoutSession($session);
-                return response()->json('ok', 200);
-            default:
-                return response()->json('Unexpected event type', 400);
-        }
-
     }
 
     /*
     |--------------------------------------------------------------------------
-    | サービスへの反映を行う
+    | webhookを受け取り、DBに保存
     |--------------------------------------------------------------------------
+    |
      */
     private function handleCompletedCheckoutSession($session)
     {
-
-        /*
-        |--------------------------------------------------------------------------
-        | Stripeの決済後のセッションIDから、購入者と作品情報を受け取る
-        |--------------------------------------------------------------------------
-         */
         $metadata = $session->metadata;
         $user_id = $metadata->user_id;
         $book_id = $metadata->book_id;
         $episode_number = $metadata->episode_number;
 
-        /*
-        |--------------------------------------------------------------------------
-        | 受け取った情報をComieeのDBに保存する
-        |--------------------------------------------------------------------------
-         */
         $book = Book::find($book_id);
         $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
         if ($book->user->id !== $user_id) {
             $episode->bought()->sync($user_id);
             $episode->save();
+            $this->sendBoughtEpisodeMail($book, $episode);
         }
+    }
 
+    /*
+    |--------------------------------------------------------------------------
+    | 購入メール
+    |--------------------------------------------------------------------------
+    |
+     */
+    private function sendBoughtEpisodeMail($book, $episode)
+    {
         $mailData = [
             'book' => $book,
             'episode' => $episode,
