@@ -168,3 +168,38 @@ function stripe_connectbtn() {
     }, 5000);
 }
 window.stripe_connectbtn = stripe_connectbtn;
+
+/*
+|--------------------------------------------------------------------------
+| フォーム input ラベル
+|--------------------------------------------------------------------------
+|
+|
+*/
+function updateLabel(input) {
+    const label = input.nextElementSibling;
+    if (input.value) {
+        label.classList.add(
+            "text-xs",
+            "text-gray-500",
+            "dark:bg-dark-1",
+            "-translate-y-5",
+            "bg-white",
+            "px-2",
+            "py-1",
+            "z-20"
+        );
+    } else {
+        label.classList.remove(
+            "text-xs",
+            "text-gray-500",
+            "dark:bg-dark-1",
+            "-translate-y-5",
+            "bg-white",
+            "px-2",
+            "py-1",
+            "z-20"
+        );
+    }
+}
+window.updateLabel = updateLabel;

@@ -755,3 +755,17 @@ button .loading {
         }
     }
 }
+
+.input-field {
+    &:focus + .label {
+        @apply text-xs text-primary dark:text-f5 -translate-y-5 bg-white dark:bg-dark-1 px-2 py-1 z-20;
+    }
+
+    &:focus {
+        @apply border border-primary;
+    }
+}
+
+.label {
+    @apply transform px-2 text-[#9BA3AF] tracking-widest translate-y-2.5 pointer-events-none;
+}

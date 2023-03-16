@@ -55,15 +55,35 @@
         @include('atoms.success')
 
 
-        <div class="w-full mb-3">
-          <input class="card-input" type="email" name="email" required placeholder="{{ __('メールアドレス') }}">
+        {{-- メアド --}}
+        <div class="relative mb-4">
+          <input type="text" name="email"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            required oninput="updateLabel(this)" />
+          <label for="email"
+            class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('メールアドレス') }}</label>
+          <div
+            class="border-wrapper absolute top-0 left-0 w-full h-full border border-b-l-c dark:border-none rounded pointer-events-none">
+          </div>
         </div>
-        <div class="w-full mb-6">
-          <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
-          <p class="mt-2 text-primary dark:text-gray py-2">
-            {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
-          </p>
+
+
+
+        {{-- パスワード --}}
+        <div class="relative">
+          <input type="password" name="password"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            required oninput="updateLabel(this)" />
+          <label for="password"
+            class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('パスワード') }}</label>
+          <div
+            class="border-wrapper absolute top-0 left-0 w-full h-full border border-b-l-c dark:border-none rounded pointer-events-none">
+          </div>
         </div>
+
+        <p class="mb-6 text-primary dark:text-gray py-2">
+          {{ __('8文字以上の数字、大文字小文字を含むパスワード') }}
+        </p>
 
         <div class="flex flex-col lg:flex-row mb-8">
           {{-- 性別 --}}

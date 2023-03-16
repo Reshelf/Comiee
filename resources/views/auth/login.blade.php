@@ -56,12 +56,30 @@
         @include('atoms.success')
 
 
-        <div class="w-full mb-3">
-          <input class="card-input" type="text" name="email" required placeholder="{{ __('メールアドレス') }}">
+        {{-- メアド --}}
+        <div class="relative mb-4">
+          <input type="text" name="email"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            required oninput="updateLabel(this)" />
+          <label for="email"
+            class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('メールアドレス') }}</label>
+          <div
+            class="border-wrapper absolute top-0 left-0 w-full h-full border border-b-l-c dark:border-none rounded pointer-events-none">
+          </div>
         </div>
-        <div class="w-full mb-6">
-          <input class="card-input" type="password" name="password" required placeholder="{{ __('パスワード') }}">
+
+        {{-- パスワード --}}
+        <div class="relative mb-6">
+          <input type="password" name="password"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            required oninput="updateLabel(this)" />
+          <label for="password"
+            class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('パスワード') }}</label>
+          <div
+            class="border-wrapper absolute top-0 left-0 w-full h-full border border-b-l-c dark:border-none rounded pointer-events-none">
+          </div>
         </div>
+
         <input type="hidden" name="remember" value="on">
         <div class="w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
           <a href="{{ route('password.request', app()->getLocale()) }}"
