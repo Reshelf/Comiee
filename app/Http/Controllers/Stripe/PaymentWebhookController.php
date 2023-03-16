@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\books\episodes\BoughtEpisodeMail;
 use App\Models\Book;
 use App\Models\Episode;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 
@@ -70,9 +70,9 @@ class PaymentWebhookController extends Controller
         $episode = Episode::where(['book_id' => $book->id, 'number' => $episode_number])->first();
 
         if ($book->user->id !== $user_id) {
-            $episode->bought()->sync($user_id);
+            $episode->bought()->attach($user_id);
             $episode->save();
-            $this->sendBoughtEpisodeMail($book, $episode);
+            $this->sendBoughtEpisodeMail($user_id, $book, $episode);
         }
     }
 
@@ -82,12 +82,14 @@ class PaymentWebhookController extends Controller
     |--------------------------------------------------------------------------
     |
      */
-    private function sendBoughtEpisodeMail($book, $episode)
+    private function sendBoughtEpisodeMail($user_id, $book, $episode)
     {
+        $user = User::find($user_id);
+
         $mailData = [
             'book' => $book,
             'episode' => $episode,
-            'user' => Auth::user(),
+            'user' => $user,
         ];
         Mail::send(new BoughtEpisodeMail($mailData));
     }
