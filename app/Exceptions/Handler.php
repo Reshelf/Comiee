@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
             $client = new Client();
             $client->post(env('SLACK_WEBHOOK_URL'), [
                 'json' => [
-                    'text' => 'エラーが発生しました: ' . $exception->getMessage(),
+                    'text' => env('APP_ENV') . '環境でエラーが発生しました: ' . $exception->getMessage(),
                     'attachments' => [
                         [
                             'fields' => [
