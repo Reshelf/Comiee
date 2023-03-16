@@ -4,7 +4,12 @@
 
 @section('content')
   <div class="w-full h-screen flex justify-center items-center">
-    <div class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none">
+    <div
+      class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none overflow-hidden">
+      <div class="progress" style="display: none;">
+        <div class="color"></div>
+      </div>
+
       <div class="flex justify-center mt-12 px-10">
         <a href="{{ url('/', app()->getLocale()) }}" class="flex-none md:overflow-hidden md:w-auto">
           <span class="sr-only">Comiee - Manga Social Networking Service</span>
@@ -41,8 +46,8 @@
         {{ __('アカウントを作成') }}
       </h2>
 
-      <form method="POST" action="{{ route('register', app()->getLocale()) }}"
-        class="dark:bg-dark-1 mt-8 px-6 lg:px-10 pb-0" onsubmit="submit_btn()">
+      <form id="registerForm" method="POST" action="{{ route('register', app()->getLocale()) }}"
+        class="dark:bg-dark-1 mt-8 px-6 lg:px-10 pb-0">
         @csrf
 
         {{-- エラー文 --}}

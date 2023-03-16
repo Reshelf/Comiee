@@ -125,13 +125,31 @@ function onKey_16() {
 |
 |
 */
+document.addEventListener("DOMContentLoaded", function () {
+    const registerForm = document.getElementById("registerForm");
+    const progress = document.querySelector(".progress");
+
+    if (!registerForm || !progress) {
+        console.error("registerForm or progress not found");
+        return;
+    }
+
+    registerForm.addEventListener("submit", function () {
+        progress.style.display = "block"; // .progress要素を表示
+
+        // ここでsubmit_btn関数を呼び出す
+        submit_btn();
+
+        // 非同期処理が終わったら、フォームを送信
+        registerForm.submit();
+    });
+});
+
 function submit_btn() {
-    let submit_btn = document.querySelector(".submit_btn");
-    let submit_btn2 = document.querySelector(".submit_btn2");
-    let submit_btn3 = document.querySelector(".submit_btn3");
-    submit_btn.classList.add("activeLoading");
-    submit_btn2.classList.add("activeLoading");
-    submit_btn3.classList.add("activeLoading");
+    const submitButtons = document.querySelectorAll(
+        ".submit_btn, .submit_btn2, .submit_btn3"
+    );
+    submitButtons.forEach((button) => button.classList.add("activeLoading"));
 }
 window.submit_btn = submit_btn;
 
