@@ -32,7 +32,7 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  @if ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id)
+  @if (Auth::check() && ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id))
     <episode-screen :episode-count='@json($book->episodes()->count())' :episode='@json($episode)'
       :lang='@json(Auth::user()->lang)' :book='@json($book)' :comments='@json($comments)'
       :comment-counts='@json(count($comments) ?? 0)'>
@@ -82,16 +82,16 @@
         </div>
       @endisset
     </template>
-
   </episode-screen>
 @endif
 
+
 {{-- 有料の場合 --}}
-@if (
-    !$episode->isBoughtBy(Auth::user()) &&
-        !$episode->is_free &&
-        $book->user->stripe_user_id &&
-        $book->user->id !== Auth::user()->id)
+@if (Auth::check() &&
+        (!$episode->isBoughtBy(Auth::user()) &&
+            !$episode->is_free &&
+            $book->user->stripe_user_id &&
+            $book->user->id !== Auth::user()->id))
   <div class="w-full lg:h-[70vh] bg-f5 dark:bg-dark flex flex-col items-center justify-center px-8">
     <div class="text-3xl mt-12 lg:mt-0 mb-6 lg:mb-8 tracking-widest dark:text-f5">
       {{ $book->title }} {{ $episode->number }}{{ __('話') }}</div>
@@ -180,6 +180,15 @@
         </form>
       </div>
     </div>
+  </div>
+@else
+  <div class="flex flex-col items-center justify-center m-24">
+    <p class="text-base">{{ __('エピソードを読むにはログインをしてください') }}</p>
+    <p class="flex items-center mt-4">
+      <a href="{{ route('login') }}" class="btn-primary">{{ __('ログイン') }}</a>
+      <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+        class="btn-border ml-4">{{ __('作品トップ') }}</a>
+    </p>
   </div>
 @endif
 
