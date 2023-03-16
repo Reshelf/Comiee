@@ -54,6 +54,12 @@ class Handler extends ExceptionHandler
         });
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Slackにエラーレポートを送信
+    |--------------------------------------------------------------------------
+    |
+     */
     public function report(Throwable $exception)
     {
         parent::report($exception);
@@ -62,7 +68,6 @@ class Handler extends ExceptionHandler
             $this->sendToSlack($exception);
         }
     }
-
     protected function sendToSlack(Throwable $exception)
     {
         try {
