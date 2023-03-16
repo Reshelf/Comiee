@@ -10,9 +10,9 @@
     @include('atoms.success')
   </div>
 
-  <shelf-lists :lang='@json(app()->getLocale())' :user='@json($user)'
-    :like-books='@json($likes)' :reads-books='@json($reads)'
-    :bought-books='@json($boughts)'></shelf-lists>
+  <shelf-lists :lang='@json(app()->getLocale())' :user='@json(Auth::user() ?? [])'
+    :like-books='@json($likes ?? [])' :reads-books='@json($reads ?? [])'
+    :bought-books='@json($boughts ?? [])'></shelf-lists>
 
   @include('atoms._footer')
 @endsection

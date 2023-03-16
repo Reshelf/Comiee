@@ -55,8 +55,7 @@
     </svg>
     {{ __('マイページ') }}
   </a>
-  <a href="{{ route('search.like', app()->getLocale()) }}"
-    class="{{ $tab === 3 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }} w-1/4 text-center">
+  <a class="{{ $tab === 3 ? 'stroke-primary text-primary font-semibold' : 'stroke-[#7c7c7c]' }} w-1/4 text-center">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path d="M3 7H21" stroke-width="1.5" stroke-linecap="round" />
       <path d="M3 12H21" stroke-width="1.5" stroke-linecap="round" />
