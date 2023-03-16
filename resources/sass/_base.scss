@@ -720,7 +720,7 @@ button .loading {
     label {
         @apply inline-block w-[47.5%] mb-4 cursor-pointer;
         .box {
-            @apply w-full bg-white flex justify-center items-center p-4 border-2 border-[#eee] dark:border-[#7c7c7c] rounded whitespace-nowrap text-xl;
+            @apply w-full bg-white dark:bg-dark flex justify-center items-center p-4 border-2 border-[#eee] dark:border-dark-1 rounded whitespace-nowrap text-xl;
         }
     }
     input[type="radio"]:checked + label {
