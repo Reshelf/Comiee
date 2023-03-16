@@ -48,7 +48,7 @@
       </h2>
       <p class="flex justify-center text-base mt-2">{{ __('お客様のメールアドレスを使用') }}</p>
       <form id="registerForm" method="POST" action="{{ route('login', app()->getLocale()) }}"
-        class="px-6 lg:px-10 dark:bg-dark-1 pt-6" onsubmit="submit_btn()">
+        class="px-6 lg:px-10 dark:bg-dark-1 pt-6">
         @csrf
 
         {{-- エラー文 --}}
@@ -67,9 +67,8 @@
           <a href="{{ route('password.request', app()->getLocale()) }}"
             class="cursor-pointer text-primary dark:text-gray">{{ __('パスワードを忘れた場合') }}</a>
           <span class="relative">
-            <button type="submit" class="submit_btn btn-primary py-1 lg:py-1.5 px-6 lg:px-8 ml-auto">
+            <button type="submit" class="btn-primary py-1.5 px-6 lg:px-8 ml-auto">
               {{ __('次へ') }}
-              <span class="load loading"></span>
             </button>
           </span>
         </div>
