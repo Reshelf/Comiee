@@ -53,7 +53,7 @@
                         style="color:#141823;text-decoration:none;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:18px;line-height:21px;font-weight:bold"
                         target="_blank">
                         {{ $mailData['book']->title }}<br>
-                        {{ $mailData['episode']->number }}話
+                        {{ $mailData['episode']->number }}{{ __('話') }}
                       </a>
                     </td>
                   </tr>
@@ -80,7 +80,7 @@
                                           <font size="3">
                                             <span
                                               style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold;vertical-align:middle;color:#ffffff;font-weight:500;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:14px;line-height:14px">
-                                              新しいエピソードを読む
+                                              {{ __('さっそくエピソードを読む') }}
                                             </span>
                                           </font>
                                         </center>
