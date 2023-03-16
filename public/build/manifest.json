@@ -3,14 +3,14 @@
     "file": "assets/vendor-c2934cec.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-4850ac49.css",
+    "file": "assets/app-36471e03.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-4850ac49.css"
+      "assets/app-36471e03.css"
     ],
-    "file": "assets/app-c1e744cd.js",
+    "file": "assets/app-2e945b02.js",
     "imports": [
       "_vendor-c2934cec.js"
     ],
