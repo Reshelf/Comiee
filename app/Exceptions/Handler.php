@@ -70,6 +70,11 @@ class Handler extends ExceptionHandler
     }
     protected function sendToSlack(Throwable $exception)
     {
+        // APP_ENV が 'local' の場合は Slack への通知を行わない
+        if (env('APP_ENV') === 'local') {
+            return;
+        }
+
         try {
             $client = new Client();
             $client->post(env('SLACK_WEBHOOK_URL'), [
