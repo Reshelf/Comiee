@@ -84,11 +84,10 @@
     <div class="dropdown-content">
       @if ($comment->user->id == Auth::id())
         <form method="POST"
-          action="{{ route('book.episode.comment.destroy', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}"
-          class="m-2">
+          action="{{ route('book.episode.comment.destroy', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}">
           @csrf
           @method('DELETE')
-          <button type="submit" class="flex w-full h-full py-2 px-4 hover:text-primary">{{ __('削除する') }}</button>
+          <button type="submit" class="flex w-full h-full py-2 px-4">{{ __('削除する') }}</button>
         </form>
       @endif
       {{-- 通報 --}}

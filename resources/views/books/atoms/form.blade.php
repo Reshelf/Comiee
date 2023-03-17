@@ -138,12 +138,10 @@
     <input class="visually-hidden" type="radio" name="screen_type" value="vertical"
       @if (!$update) id="screen_type_vertical"
     @else id="screen_type_vertical_update" @endif
-      @isset($book->screen_type)
+      @if ($update) @isset($book->screen_type)
         @if ($book->screen_type === 'vertical') checked @endif
-    @endisset
-      @empty($book->screen_type)
-        checked
-    @endempty />
+      @endisset @endif
+    />
     <label
       @if (!$update) for="screen_type_vertical" @else for="screen_type_vertical_update" @endif>
       {{ __('縦スクロール') }}
@@ -153,7 +151,8 @@
       @if (!$update) id="screen_type_horizontal" @else id="screen_type_horizontal_update" @endif
       @isset($book->screen_type)
         @if ($book->screen_type === 'horizontal') checked @endif
-    @endisset />
+      @endisset
+      @empty($book->screen_type) checked @endempty />
     <label
       @if (!$update) for="screen_type_horizontal"
     @else for="screen_type_horizontal_update" @endif
@@ -220,7 +219,8 @@
 <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('カラー作品') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">
-    <input type="checkbox" name="is_color" {{ $book->is_color ?? old('is_color') ? 'checked' : '' }}
+    <input type="checkbox" name="is_color"
+      @if ($update) {{ $book->is_color ?? old('is_color') ? 'checked' : '' }} @endif
       class="light-checkbox-Input">
     <span class="light-checkbox-DummyInput">
       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
