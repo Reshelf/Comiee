@@ -49,6 +49,8 @@ return new class extends Migration
             $table->string('youtube')->nullable()->comment('YouTube');
             $table->string('instagram')->nullable()->comment('Instagram');
 
+            $table->softDeletes()->comment('論理削除');
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -61,6 +63,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropSoftDeletes('users');
     }
 };
