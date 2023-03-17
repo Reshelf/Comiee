@@ -131,11 +131,11 @@
     <div class="max-w-8xl mx-4 md:mx-12 flex justify-between">
       <div class="relative flex items-center">
         <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-          class="{{ $work ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
+          class="{{ $work ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
         <a href="{{ route('users.about', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-          class="{{ $about ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
+          class="{{ $about ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
         <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
-          class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
+          class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
       </div>
 
       <div class="hidden lg:block">
