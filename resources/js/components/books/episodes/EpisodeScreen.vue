@@ -221,6 +221,7 @@
                     @keydown="scroll_next"
                 >
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                        <title>next</title>
                         <path
                             d="M15 19.92L8.47997 13.4C7.70997 12.63 7.70997 11.37 8.47997 10.6L15 4.08002"
                             stroke="#666"
@@ -239,6 +240,7 @@
                     @keydown="scroll_prev"
                 >
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                        <title>prev</title>
                         <path
                             d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
                             stroke="#666"

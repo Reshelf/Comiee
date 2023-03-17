@@ -3,6 +3,7 @@
     <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $comment->user->username]) }}">
       @empty($comment->user->avatar)
         <svg class="h-8 w-8 fill-dark" viewBox="0 0 42 42" fill="none">
+          <title>user avatar</title>
           <rect rx="21" />
           <path class="stroke-ccc"
             d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"
@@ -21,6 +22,7 @@
         </div>
         @if ($book->user->id === $comment->user->id)
           <svg class="ml-1 w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none">
+            <title>book author icon</title>
             <path
               d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z"
               class="fill-white" />
@@ -73,6 +75,7 @@
   <div class="dropdown">
     <button class="dropbtn">
       <svg class="w-[20px] h-[20px] stroke-ddd" viewBox="0 0 24 24" fill="none">
+        <title>dropdown menu</title>
         <path d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10Z"
           stroke-width="1.5" />
         <path d="M19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10Z"

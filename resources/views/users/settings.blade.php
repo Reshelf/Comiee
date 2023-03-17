@@ -26,6 +26,7 @@
               <a href="#mail-notification"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <title>mail</title>
                   <path
                     d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
                     stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
@@ -38,6 +39,7 @@
               <a href="#site-display"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <title>display</title>
                   <path
                     d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -53,6 +55,7 @@
               <a href="#site-lang"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 25 24" fill="none">
+                  <title>lang</title>
                   <path d="M16.9915 8.95996H7.01147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
                   <path d="M12.0015 7.28003V8.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -70,6 +73,7 @@
               <a href="#contract"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <title>contract</title>
                   <path d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M7 9.5H17" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
@@ -82,6 +86,7 @@
               <a href="#earnings"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <title>earnings</title>
                   <path
                     d="M8.67236 14.3298C8.67236 15.6198 9.66236 16.6598 10.8924 16.6598H13.4024C14.4724 16.6598 15.3424 15.7498 15.3424 14.6298C15.3424 13.4098 14.8124 12.9798 14.0224 12.6998L9.99236 11.2998C9.20236 11.0198 8.67236 10.5898 8.67236 9.36984C8.67236 8.24984 9.54236 7.33984 10.6124 7.33984H13.1224C14.3524 7.33984 15.3424 8.37984 15.3424 9.66984"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -97,6 +102,7 @@
               <a href="#account-delete"
                 class="m-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
+                  <title>account delete</title>
                   <path
                     d="M21.08 8.58003V15.42C21.08 16.54 20.48 17.58 19.51 18.15L13.57 21.58C12.6 22.14 11.4 22.14 10.42 21.58L4.48003 18.15C3.51003 17.59 2.91003 16.55 2.91003 15.42V8.58003C2.91003 7.46003 3.51003 6.41999 4.48003 5.84999L10.42 2.42C11.39 1.86 12.59 1.86 13.57 2.42L19.51 5.84999C20.48 6.41999 21.08 7.45003 21.08 8.58003Z"
                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -131,6 +137,7 @@
                       @if ($user->m_notice_1 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -143,6 +150,7 @@
                       @if ($user->m_notice_2 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -156,6 +164,7 @@
                       @if ($user->m_notice_3 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -167,6 +176,7 @@
                       @if ($user->m_notice_4 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -181,6 +191,7 @@
                       @if ($user->m_notice_5 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -195,6 +206,7 @@
                       @if ($user->m_notice_6 === 1) checked @endif class="light-checkbox-Input">
                     <span class="light-checkbox-DummyInput">
                       <svg width="10" height="8" class="stroke-white" viewBox="0 0 10 8" fill="none">
+                        <title>checkbox</title>
                         <path d="M0.75 3.99998L3.58 6.82998L9.25 1.16998" stroke-width="1.5" stroke-linecap="round"
                           stroke-linejoin="round" />
                       </svg>
@@ -350,6 +362,7 @@
                       <div
                         class="text-green bg-green bg-opacity-10 font-semibold rounded p-4 inline-flex items-center max-w-6xl mx-auto">
                         <svg class="mr-2 w-[20px] h-[20px] fill-green" viewBox="0 0 20 20" fill="none">
+                          <title>stripe connect success</title>
                           <path
                             d="M10 0C4.49 0 0 4.49 0 10C0 15.51 4.49 20 10 20C15.51 20 20 15.51 20 10C20 4.49 15.51 0 10 0ZM14.78 7.7L9.11 13.37C8.97 13.51 8.78 13.59 8.58 13.59C8.38 13.59 8.19 13.51 8.05 13.37L5.22 10.54C4.93 10.25 4.93 9.77 5.22 9.48C5.51 9.19 5.99 9.19 6.28 9.48L8.58 11.78L13.72 6.64C14.01 6.35 14.49 6.35 14.78 6.64C15.07 6.93 15.07 7.4 14.78 7.7Z" />
                         </svg>

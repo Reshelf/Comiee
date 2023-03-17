@@ -98,6 +98,7 @@
     <div class="flex flex-col lg:flex-row">
       <div class="lg:mr-4 mb-4">
         <svg class="object-cover w-full max-h-[200px]" viewBox="0 0 560 356" fill="none">
+          <title>Super Gift Icon</title>
           <g filter="url(#filter0_d_1106_3573)">
             <rect x="10" width="540" height="336" rx="25" fill="white" />
             <mask id="mask0_1106_3573" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="172" y="83"

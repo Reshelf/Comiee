@@ -19,6 +19,7 @@
           <span class="sr-only">Comiee - Manga Social Networking Service</span>
           <h1 class="text-2xl font-semibold dark:text-white">
             <svg class="h-[30px]" viewBox="0 0 382 301" fill="none">
+              <title>Comiee Logo</title>
               <mask id="mask0_793_3558" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                 width="382" height="301">
                 <path
@@ -116,7 +117,6 @@
                 max="{{ $max_birth }}">
             </div>
           </div>
-
         </div>
 
         <div class="flex justify-between items-center mb-8 lg:mb-12">

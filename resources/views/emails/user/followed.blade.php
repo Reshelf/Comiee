@@ -40,6 +40,7 @@
                         style="color:#1b74e4;text-decoration:none" target="_blank">
                         @empty($mailData['send_user']->avatar)
                           <svg width="80" height="80" viewBox="0 0 42 42" fill="none">
+                            <title>user icon</title>
                             <rect width="42" height="42" rx="21" fill="#ebebeb" />
                             <path
                               d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"

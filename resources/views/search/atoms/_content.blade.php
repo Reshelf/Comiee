@@ -43,6 +43,7 @@
               {{-- 閲覧回数 --}}
               <div class="flex items-center text-aaa pl-4">
                 <svg class="stroke-666 w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none">
+                  <title>view counts</title>
                   <path d="M16.5 9.5L12.3 13.7L10.7 11.3L7.5 14.5" stroke="#292D32" stroke-width="1.5"
                     stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M14.5 9.5H16.5V11.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

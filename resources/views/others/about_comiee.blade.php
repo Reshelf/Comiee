@@ -69,6 +69,7 @@
           {{ __('Comieeとは') }}</h2>
         <div class="w-full">
           <svg class="object-contain w-full" viewBox="0 0 1080 566" fill="none">
+            <title>Comiee logo</title>
             <rect width="1080" height="566" fill="white" />
             <mask id="mask0_1102_3572" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="215" y="206"
               width="196" height="154">

@@ -82,6 +82,7 @@ function reset() {
         <button @click="reset()" class="absolute top-[10px] right-2">
             <template v-if="open && state.search.length > 1">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <title>reset form</title>
                     <path
                         d="M5.00098 5L19 18.9991"
                         stroke="#aaa"

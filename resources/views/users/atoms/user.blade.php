@@ -20,6 +20,7 @@
           <div
             class="block md:hidden bg-white dark:bg-dark dark:bg-opacity-80 dark:stroke-ddd stroke-333 p-2 rounded-full">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <title>edit profile</title>
               <path
                 d="M13.2601 3.59997L5.0501 12.29C4.7401 12.62 4.4401 13.27 4.3801 13.72L4.0101 16.96C3.8801 18.13 4.7201 18.93 5.8801 18.73L9.1001 18.18C9.5501 18.1 10.1801 17.77 10.4901 17.43L18.7001 8.73997C20.1201 7.23997 20.7601 5.52997 18.5501 3.43997C16.3501 1.36997 14.6801 2.09997 13.2601 3.59997Z"
                 stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -54,6 +55,7 @@
       <div class="text-dark z-10 -mt-12 md:-mt-8">
         @empty($user->avatar)
           <svg class="avatar" viewBox="0 0 42 42" fill="none">
+            <title>avatar</title>
             <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-eee" />
             <path class="stroke-white dark:stroke-ccc"
               d="M21 21C23.7614 21 26 18.7614 26 16C26 13.2386 23.7614 11 21 11C18.2386 11 16 13.2386 16 16C16 18.7614 18.2386 21 21 21Z"
@@ -83,6 +85,7 @@
           @if ($user->is_pro)
             <div class="h-full flex items-center text-primary dark:text-white">
               <svg class="h-5 w-5 md:h-7 md:w-7" viewBox="0 0 20 20" fill="currentColor">
+                <title>pro account</title>
                 <path fill-rule="evenodd"
                   d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                   clip-rule="evenodd" />

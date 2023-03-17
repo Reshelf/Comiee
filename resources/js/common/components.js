@@ -3,7 +3,6 @@ import BasicModal from "../components/atoms/BasicModal.vue";
 import BookTab from "../components/atoms/BookTab.vue";
 import ChangePaymentPriceJpy from "../components/atoms/ChangePaymentPriceJpy.vue";
 import ChangePaymentPriceUsd from "../components/atoms/ChangePaymentPriceUsd.vue";
-import ToastModal from "../components/atoms/ToastModal.vue";
 // auth
 import AuthModal from "../components/auth/AuthModal.vue";
 import BookLike from "../components/books/BookLike.vue";
@@ -57,7 +56,6 @@ export default {
     BookTab,
     BookEditModal,
     CommentPostModal,
-    ToastModal,
     EpisodeScreen,
     EpisodeList,
     ThumbnailZoom,
