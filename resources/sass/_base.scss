@@ -371,7 +371,7 @@ button[disabled] {
     }
     &:hover {
         .tooltip-item {
-            @apply absolute block top-[35px] z-[999] rounded-[5px] p-2 text-white bg-dark whitespace-nowrap;
+            @apply absolute lg:block top-[35px] z-[999] rounded-[5px] p-2 text-white bg-dark whitespace-nowrap;
         }
     }
 }
