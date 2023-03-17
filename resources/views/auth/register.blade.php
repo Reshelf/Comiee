@@ -72,7 +72,7 @@
         {{-- パスワード --}}
         <div class="relative">
           <input type="password" name="password"
-            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark-1 focus:border-[3px] focus:border-primary transition-all"
             required oninput="updateLabel(this)" />
           <label for="password"
             class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('パスワード') }}</label>
