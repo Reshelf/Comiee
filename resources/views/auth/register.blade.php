@@ -5,7 +5,7 @@
 @section('content')
   <div class="w-full h-screen flex justify-center items-center">
     <div
-      class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark-1 rounded border border-b-l-c dark:border-none overflow-hidden">
+      class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark rounded border dark:lg:border-2 border-b-l-c dark:border-dark dark:lg:border-dark-1  overflow-hidden">
       <div class="progress" style="display: none;">
         <div class="color"></div>
       </div>
@@ -47,7 +47,7 @@
       </h2>
 
       <form id="registerForm" method="POST" action="{{ route('register', app()->getLocale()) }}"
-        class="dark:bg-dark-1 mt-8 px-6 lg:px-10 pb-0">
+        class="dark:bg-dark mt-8 px-6 lg:px-10 pb-0">
         @csrf
 
         {{-- エラー文 --}}
@@ -58,7 +58,7 @@
         {{-- メアド --}}
         <div class="relative mb-4">
           <input type="text" name="email"
-            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark focus:border-[3px] focus:border-primary transition-all"
+            class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark-1 focus:border-[3px] focus:border-primary transition-all"
             required oninput="updateLabel(this)" />
           <label for="email"
             class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('メールアドレス') }}</label>
