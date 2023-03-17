@@ -140,3 +140,5 @@ sail-art-about:
 # 更新可能のパッケージ
 composer-outdated:
 	composer outdated -D
+e2e:
+	npm run e2e
