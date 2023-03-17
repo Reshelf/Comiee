@@ -55,9 +55,9 @@
   </a>
 
   {{-- プロフィール --}}
-  <a @if (Auth::user()) href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
-        @else href="{{ route('login', app()->getLocale()) }}" @endif
-    class="{{ $tab === 4 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }}">
+  <a
+    @if (Auth::user()) href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
+        @else href="{{ route('login', app()->getLocale()) }}" @endif>
     @empty($user->avatar)
       <svg class="rounded-full shadow object-cover w-[28px] h-[28px]" viewBox="0 0 42 42" fill="none">
         <rect width="42" height="42" rx="21" class="dark:fill-dark-1 fill-eee" />
