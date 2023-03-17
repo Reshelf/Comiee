@@ -83,7 +83,7 @@
         <input type="hidden" name="remember" value="on">
         <div class="w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
           <a href="{{ route('password.request', app()->getLocale()) }}"
-            class="cursor-pointer text-primary dark:text-gray">{{ __('パスワードを忘れた場合') }}</a>
+            class="cursor-pointer text-primary dark:text-gray dark:hover:text-ddd">{{ __('パスワードを忘れた場合') }}</a>
           <span class="relative">
             <button type="submit" class="btn-primary py-1.5 px-6 lg:px-8 ml-auto">
               {{ __('次へ') }}
@@ -92,7 +92,7 @@
         </div>
       </form>
       <div class="w-full mb-8 lg:mb-12 flex justify-center">
-        <a href="/register" class="cursor-pointer">{{ __('または新規登録') }}</a>
+        <a href="/register" class="cursor-pointer dark:hover:text-ddd">{{ __('または新規登録') }}</a>
       </div>
     </div>
   </div>

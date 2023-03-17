@@ -115,7 +115,8 @@
         </div>
 
         <div class="flex justify-between items-center mb-8 lg:mb-12">
-          <a href="/login" class="inline-block cursor-pointer hover:text-primary">{{ __('またはログイン') }}</a>
+          <a href="/login"
+            class="inline-block cursor-pointer hover:text-primary dark:hover:text-ddd">{{ __('またはログイン') }}</a>
           <span class="relative">
             <button type="submit" class="btn-primary py-1.5 px-6 lg:px-8">
               {{ __('次へ') }}
