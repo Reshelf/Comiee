@@ -1,10 +1,5 @@
 // atoms
-import BasicModal from "../components/atoms/BasicModal.vue";
-import BookTab from "../components/atoms/BookTab.vue";
-import ChangePaymentPriceJpy from "../components/atoms/ChangePaymentPriceJpy.vue";
-import ChangePaymentPriceUsd from "../components/atoms/ChangePaymentPriceUsd.vue";
 // auth
-import AuthModal from "../components/auth/AuthModal.vue";
 import BookLike from "../components/books/BookLike.vue";
 import BooksLists from "../components/books/BooksLists.vue";
 // books
@@ -20,7 +15,6 @@ import BookTagsInput from "../components/BookTagsInput.vue";
 import CountAnimation from "../components/CountAnimation.vue";
 import FollowButton from "../components/FollowButton.vue";
 import HeaderUserModal from "../components/HeaderUserModal.vue";
-import HoverMenu from "../components/HoverMenu.vue";
 // search
 import GenreSearch from "../components/search/GenreSearch.vue";
 import RankingSortModal from "../components/search/RankingSortModal.vue";
@@ -44,16 +38,12 @@ export default {
     ShelfLists,
     WorksLists,
     SetupModal,
-    ChangePaymentPriceJpy,
-    ChangePaymentPriceUsd,
     SettingTab,
     CommentLike,
-    BasicModal,
     TagSearchModal,
     GenreSearch,
     SearchForm,
     RankingSortModal,
-    BookTab,
     BookEditModal,
     CommentPostModal,
     EpisodeScreen,
@@ -61,9 +51,7 @@ export default {
     ThumbnailZoom,
     FollowModal,
     AvatarZoom,
-    AuthModal,
     DeleteModal,
-    HoverMenu,
     CreateModal,
     CountAnimation,
     HeaderUserModal,

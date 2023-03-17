@@ -36,11 +36,6 @@ select {
     @apply outline-none;
 }
 
-h1 {
-    font-family: "Josefin Sans", sans-serif;
-    // font-family: "Lobster", cursive;
-}
-
 // ダウンロードブロック
 img,
 svg {
@@ -56,10 +51,6 @@ svg {
 }
 input[type="file"] {
     @apply cursor-pointer;
-}
-
-.st {
-    font-family: "Reggae One", cursive;
 }
 
 .sr-only {
