@@ -134,6 +134,8 @@
           class="{{ $work ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
         <a href="{{ route('users.about', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
           class="{{ $about ? 'border-primary text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
+        <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
+          class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark py-3 px-3 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
       </div>
 
       <div class="hidden lg:block">
