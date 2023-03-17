@@ -30,23 +30,24 @@ class LikeController extends Controller
             $book->likes()->detach($request->user()->id);
             $book->likes()->attach($request->user()->id);
 
-            $sessionKey = "liked_book_email_{$request->user()->id}_to_{$book->user->id}";
-            $emailCooldown = 1440; // 送信間隔を1日に設定
-            $now = \Carbon\Carbon::now();
-
-            $lastEmailSentAt = $request->session()->get($sessionKey);
-
             // お気に入りされたらメールを送る
-            if (!$lastEmailSentAt || $now->diffInMinutes($lastEmailSentAt) > $emailCooldown) {
-                $mailData = [
-                    'send_user' => $request->user(),
-                    'received_user' => $book->user,
-                    'book' => $book,
-                ];
-                Mail::send(new LikedBookMail($mailData));
+            if ($book->user->m_notice_3 === 1) {
+                $sessionKey = "liked_book_email_{$request->user()->id}_to_{$book->user->id}";
+                $emailCooldown = 1440; // 送信間隔を1日に設定
+                $now = \Carbon\Carbon::now();
+                $lastEmailSentAt = $request->session()->get($sessionKey);
 
-                // セッションに最後に送信されたメールの日時を保存
-                $request->session()->put($sessionKey, $now);
+                if (!$lastEmailSentAt || $now->diffInMinutes($lastEmailSentAt) > $emailCooldown) {
+                    $mailData = [
+                        'send_user' => $request->user(),
+                        'received_user' => $book->user,
+                        'book' => $book,
+                    ];
+                    Mail::send(new LikedBookMail($mailData));
+
+                    // セッションに最後に送信されたメールの日時を保存
+                    $request->session()->put($sessionKey, $now);
+                }
             }
         }
 

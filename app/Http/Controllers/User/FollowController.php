@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Mail\user\NewFollowedUserMail;
 use App\Models\User;
 // メール
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\user\NewFollowedUserMail;
-
-use Illuminate\Support\Facades\Auth;
 
 class FollowController extends Controller
 {
@@ -23,7 +21,7 @@ class FollowController extends Controller
     |--------------------------------------------------------------------------
     | フォローする
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, Request $request, string $username)
     {
         $user = User::where(['username' => $username])->first();
@@ -35,17 +33,24 @@ class FollowController extends Controller
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
 
-        // フォローされたらメール通知を送る
         if ($user->m_notice_2 === 1) {
-            $email = $user->email;
+            $sessionKey = "follow_user_{$request->user()->id}_to_{$user->id}";
+            $emailCooldown = 1440; // 送信間隔を1日に設定
+            $now = \Carbon\Carbon::now();
+            $lastEmailSentAt = $request->session()->get($sessionKey);
 
-            $mailData = [
-                'send_user' => $request->user(),
-                'received_user' => $user,
-            ];
-            Mail::send(new NewFollowedUserMail($mailData));
+            // フォローされたらメール通知を送る
+            if (!$lastEmailSentAt || $now->diffInMinutes($lastEmailSentAt) > $emailCooldown) {
+                $mailData = [
+                    'send_user' => $request->user(),
+                    'received_user' => $user,
+                ];
+                Mail::send(new NewFollowedUserMail($mailData));
+
+                // セッションに最後に送信されたメールの日時を保存
+                $request->session()->put($sessionKey, $now);
+            }
         }
-
 
         return ['username' => $username];
     }
