@@ -77,7 +77,7 @@ class ShowController extends Controller
          */
         if (Auth::user()) {
             if ($book->user->id !== Auth::user()->id) {
-                if ($episode->is_free || $episode->isBoughtBy(Auth::user())) {
+                if ($episode->is_free || (!$episode->is_free && $episode->isBoughtBy(Auth::user()))) {
                     $episode->reads()->detach($request->user()->id);
                     $episode->reads()->attach($request->user()->id);
                     $episode->views = $episode->count_reads;
