@@ -10,11 +10,11 @@
     </div>
     <div class="w-full md:w-[70%] p-8 md:py-8 md:pl-20 md:pr-48">
 
-      <h2 class="text-3xl font-semibold tracking-widest">{{ $title }}</h2>
+      <h2 class="text-3xl font-semibold tracking-widest dark:text-ddd">{{ $title }}</h2>
       <span class="inline-block mt-4 text-bbb">{{ $update_date }} {{ __('更新') }}</span>
 
       <div class="my-8 text-base">
-        <div class="flex flex-col text-primary mt-2 text-base">
+        <div class="flex flex-col text-primary dark:text-[#8ab4f8] mt-2 text-base">
           @foreach ($faqs as $key => $faq)
             <a href="#{{ $key }}" class="my-2">・{{ $faq['title'] }}</a>
           @endforeach
