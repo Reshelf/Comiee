@@ -85,6 +85,8 @@
 </template>
 
 <script>
+import { computed, ref } from "vue";
+
 export default {
     props: {
         books: {
@@ -96,52 +98,59 @@ export default {
             default: "",
         },
     },
-    data() {
-        return {
-            // 検索条件
-            filters: [
-                { label: "完結", prop: "is_complete", active: false },
-                { label: "休載", prop: "is_suspend", active: false },
-                { label: "非公開", prop: "is_hidden", active: false },
-                { label: "カラー", prop: "is_color", active: false },
-                { label: "今日の新作", prop: "is_new", active: false },
-            ],
+    setup(props) {
+        const filters = ref([
+            { label: "完結", prop: "is_complete", active: false },
+            { label: "休載", prop: "is_suspend", active: false },
+            { label: "非公開", prop: "is_hidden", active: false },
+            { label: "カラー", prop: "is_color", active: false },
+            { label: "今日の新作", prop: "is_new", active: false },
+        ]);
 
-            language: "",
-            screen_type: "",
-        };
-    },
-    computed: {
-        filteredManga() {
-            return this.books.filter((book) => this.applyFilters(book));
-        },
-    },
-    methods: {
-        applyFilters(book) {
-            for (const filter of this.filters) {
+        const language = ref("");
+        const screen_type = ref("");
+
+        const applyFilters = (book) => {
+            for (const filter of filters.value) {
                 if (filter.active && !book[filter.prop]) {
                     return false;
                 }
             }
 
             if (
-                (this.language && book.lang !== this.language) ||
-                (this.screen_type && book.screen_type !== this.screen_type)
+                (language.value && book.lang !== language.value) ||
+                (screen_type.value && book.screen_type !== screen_type.value)
             ) {
                 return false;
             }
 
             return true;
-        },
-        filterClasses(filter) {
+        };
+
+        const filterClasses = (filter) => {
             return {
                 "active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary":
                     filter.active,
             };
-        },
-        toggleFilter(filter) {
+        };
+
+        const toggleFilter = (filter) => {
             filter.active = !filter.active;
-        },
+        };
+
+        const filteredManga = computed(() => {
+            return props.books.filter((book) => applyFilters(book));
+        });
+
+        return {
+            filters,
+            language,
+            screen_type,
+            applyFilters,
+            filterClasses,
+            toggleFilter,
+            filteredManga,
+        };
     },
 };
 </script>
