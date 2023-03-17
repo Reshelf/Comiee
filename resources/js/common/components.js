@@ -16,8 +16,6 @@ import CountAnimation from "../components/CountAnimation.vue";
 import FollowButton from "../components/FollowButton.vue";
 import HeaderUserModal from "../components/HeaderUserModal.vue";
 // search
-import GenreSearch from "../components/search/GenreSearch.vue";
-import RankingSortModal from "../components/search/RankingSortModal.vue";
 import SearchForm from "../components/search/SearchForm.vue";
 import TagSearchModal from "../components/search/TagSearchModal.vue";
 //
@@ -41,9 +39,7 @@ export default {
     SettingTab,
     CommentLike,
     TagSearchModal,
-    GenreSearch,
     SearchForm,
-    RankingSortModal,
     BookEditModal,
     CommentPostModal,
     EpisodeScreen,
