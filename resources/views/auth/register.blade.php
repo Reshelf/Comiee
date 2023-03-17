@@ -2,6 +2,10 @@
 
 @section('title', __('アカウント登録'))
 
+@php
+  $min_birth = date('Y-m-d', strtotime('-120 years'));
+  $max_birth = date('Y-m-d', strtotime('-5 years'));
+@endphp
 @section('content')
   <div class="w-full h-screen flex justify-center items-center">
     <div
@@ -108,7 +112,8 @@
           <div class="mt-8 lg:mt-0 lg:ml-8">
             <h3 class="tracking-widest text-base">{{ __('誕生日') }}</h3>
             <div class="mt-4">
-              <input type="date" name="birth" id="birth" required>
+              <input type="date" name="birth" id="birth" required min="{{ $min_birth }}"
+                max="{{ $max_birth }}">
             </div>
           </div>
 
