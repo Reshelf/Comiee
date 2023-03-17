@@ -7,12 +7,8 @@
             >
                 <!-- 作品言語 -->
                 <div class="mb-4">
-                    <label class="pr-2">作品言語</label>
-                    <select
-                        v-model="language"
-                        class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    >
-                        <option value="">すべて</option>
+                    <select v-model="language" class="select-menu">
+                        <option value="">作品の言語</option>
                         <option value="ja">日本語</option>
                         <option value="en">英語</option>
                         <option value="tw">繁体字</option>
@@ -31,52 +27,23 @@
 
                 <!-- 画面タイプ -->
                 <div class="mb-4">
-                    <label class="pr-2">画面タイプ</label>
-                    <select
-                        v-model="screen_type"
-                        class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    >
-                        <option value="">すべて</option>
+                    <select v-model="screen_type" class="select-menu">
+                        <option value="">画面タイプ</option>
                         <option value="horizontal">横読み</option>
                         <option value="vertical">縦スクロール</option>
                     </select>
                 </div>
 
-                <!-- 完結作品 -->
-                <div
-                    :class="{
-                        'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
-                            is_complete,
-                    }"
-                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    @click="is_complete = !is_complete"
-                >
-                    完結作品
-                </div>
-
-                <!-- カラー作品 -->
-                <div
-                    :class="{
-                        'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
-                            is_color,
-                    }"
-                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    @click="is_color = !is_color"
-                >
-                    カラー作品
-                </div>
-
-                <!-- 休載作品 -->
-                <div
-                    :class="{
-                        'active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary':
-                            is_suspend,
-                    }"
-                    class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
-                    @click="is_suspend = !is_suspend"
-                >
-                    休載作品
-                </div>
+                <!-- その他の検索条件 -->
+                <template v-for="(filter, index) in filters" :key="index">
+                    <div
+                        :class="filterClasses(filter)"
+                        class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
+                        @click="toggleFilter(filter)"
+                    >
+                        {{ filter.label }}
+                    </div>
+                </template>
             </div>
 
             <!-- 作品 -->
@@ -116,6 +83,7 @@
         </template>
     </div>
 </template>
+
 <script>
 export default {
     props: {
@@ -131,43 +99,59 @@ export default {
     data() {
         return {
             // 検索条件
-            is_complete: false,
-            is_suspend: false,
-            is_color: false,
+            filters: [
+                { label: "完結", prop: "is_complete", active: false },
+                { label: "休載", prop: "is_suspend", active: false },
+                { label: "非公開", prop: "is_hidden", active: false },
+                { label: "カラー", prop: "is_color", active: false },
+                { label: "契約中", prop: "is_contracted", active: false },
+                { label: "今日の新作", prop: "is_new", active: false },
+            ],
+
             language: "",
             screen_type: "",
         };
     },
     computed: {
         filteredManga() {
-            let result = this.books;
-            if (this.is_complete) {
-                result = result.filter((manga) => manga.is_complete);
+            return this.books.filter((book) => this.applyFilters(book));
+        },
+    },
+    methods: {
+        applyFilters(book) {
+            for (const filter of this.filters) {
+                if (filter.active && !book[filter.prop]) {
+                    return false;
+                }
             }
-            if (this.is_suspend) {
-                result = result.filter((manga) => manga.is_suspend);
+
+            if (
+                (this.language && book.lang !== this.language) ||
+                (this.screen_type && book.screen_type !== this.screen_type)
+            ) {
+                return false;
             }
-            if (this.is_color) {
-                result = result.filter((manga) => manga.is_color);
-            }
-            if (this.language) {
-                result = result.filter((manga) => manga.lang === this.language);
-            }
-            if (this.screen_type) {
-                result = result.filter(
-                    (manga) => manga.screen_type === this.screen_type
-                );
-            }
-            return result;
+
+            return true;
+        },
+        filterClasses(filter) {
+            return {
+                "active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary":
+                    filter.active,
+            };
+        },
+        toggleFilter(filter) {
+            filter.active = !filter.active;
         },
     },
 };
 </script>
+
 <style lang="scss" scoped>
 .active {
     color: white !important;
 }
-select {
-    @apply appearance-none;
+.select-menu {
+    @apply bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262] appearance-none;
 }
 </style>
