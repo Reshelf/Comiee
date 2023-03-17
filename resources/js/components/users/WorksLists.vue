@@ -104,7 +104,6 @@ export default {
                 { label: "休載", prop: "is_suspend", active: false },
                 { label: "非公開", prop: "is_hidden", active: false },
                 { label: "カラー", prop: "is_color", active: false },
-                { label: "契約中", prop: "is_contracted", active: false },
                 { label: "今日の新作", prop: "is_new", active: false },
             ],
 
