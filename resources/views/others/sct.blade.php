@@ -12,7 +12,7 @@
         {{ __('代表者 田中俊一朗') }}<br>
         {{ __('所在地 〒107-0062 東京都港区南青山２丁目２番１５号 WIN青山531') }}<br>
         {{ __('お問合せ先') }}　<a href="mailto:support@comiee.one?subject={{ __('お問い合わせ') }}"
-          class="text-primary dark:text-[#8ab4f8]" target="_blank" rel="noopener noreferrer">support@comiee.one</a>
+          class="text-primary dark:text-[#8ab4f8]" target="_blank" rel="noopener">support@comiee.one</a>
       </p>
     </div>
 

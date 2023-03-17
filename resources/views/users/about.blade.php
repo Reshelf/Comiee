@@ -38,25 +38,25 @@
             <div class="p-6 flex flex-col lg:flex-row flex-wrap w-full tracking-widest">
               @empty(!$user->website)
                 <div class="lg:w-1/3 mb-8">
-                  <a href="{{ $user->website }}" target="_blank" rel="noopener noreferrer"
+                  <a href="{{ $user->website }}" target="_blank" rel="nofollow noopener noreferrer"
                     class="dark:hover:text-ddd hover:text-primary">{{ __('ウェブサイト') }}</a>
                 </div>
               @endempty
               @empty(!$user->twitter)
                 <div class="lg:w-1/3 mb-8">
-                  <a href="{{ $user->twitter }}" target="_blank" rel="noopener noreferrer"
+                  <a href="{{ $user->twitter }}" target="_blank" rel="nofollow noopener noreferrer"
                     class="dark:hover:text-ddd hover:text-[#1C9BEF]">{{ __('Twitter') }}</a>
                 </div>
               @endempty
               @empty(!$user->youtube)
                 <div class="lg:w-1/3 mb-8">
-                  <a href="{{ $user->youtube }}" target="_blank" rel="noopener noreferrer"
+                  <a href="{{ $user->youtube }}" target="_blank" rel="nofollow noopener noreferrer"
                     class="dark:hover:text-ddd hover:text-[#FF0000]">{{ __('Youtube') }}</a>
                 </div>
               @endempty
               @empty(!$user->instagram)
                 <div class="lg:w-1/3">
-                  <a href="{{ $user->instagram }}" target="_blank" rel="noopener noreferrer"
+                  <a href="{{ $user->instagram }}" target="_blank" rel="nofollow noopener noreferrer"
                     class="dark:hover:text-ddd hover:text-[#E23764]">{{ __('Instagram') }}</a>
                 </div>
               @endempty

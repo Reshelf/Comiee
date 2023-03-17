@@ -303,10 +303,10 @@
                     {{ __('作品を有料化するには、作品毎に当サービスと出版契約書を締結する必要があります。') }}<br>
                     {{ __('以下のボタンから契約書をダウンロードをして記入の上、この作品の契約書を送信してください。') }} <br>
                     <a href="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/work_contract.pdf"
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank" rel="nofollow noopener noreferrer"
                       class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
                     <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit"
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank" rel="nofollow noopener noreferrer"
                       class="btn-border inline-block mt-4">{{ __('出版契約書を送信する') }}</a>
                   </div>
                   <div class="flex mt-8">

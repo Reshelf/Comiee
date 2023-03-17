@@ -8,7 +8,8 @@
         <tbody>
           <tr>
             <td><span
-                style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823"><a
+                style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823">
+                <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/books/' . $mailData['book']->id }}"
                   style="color:#050505;text-decoration:none;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:17px;line-height:21px;font-weight:600"
                   target="_blank">
                   {{ $mailData['book']->title }}</a> の新着エピソードが投稿されました。</span>

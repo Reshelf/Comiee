@@ -191,7 +191,7 @@
             {{ __('Comieeをより使いやすいものにするために、日々改善に取り組んでいます。ぜひ以下のフォームからみなさまのご意見をお聞かせください。') }}
           </p>
           <a href="mailto:support@comiee.one?subject={{ __('改善点のお問い合わせ') }}"
-            class="block mb-4 text-primary dark:text-f5" target="_blank" rel="noopener noreferrer">
+            class="block mb-4 text-primary dark:text-f5" target="_blank" rel="noopener">
             {{ __('▼ お問い合わせはこちら') }}
           </a>
         </div>

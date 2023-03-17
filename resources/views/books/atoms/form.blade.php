@@ -34,7 +34,7 @@
     @endif
     @if (!$book->is_contracted)
       <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#contract" target="_blank"
-        rel="noopener noreferrer" class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
+        rel="nofollow noopener noreferrer" class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
     @endif
     @if (!$book->user->stripe_user_id)
       <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings"
