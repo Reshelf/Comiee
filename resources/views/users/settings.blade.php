@@ -119,7 +119,7 @@
             <div class="tabContents">
 
               {{-- メール通知 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="mail-notification">
+              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
                       'lang' => app()->getLocale(),
@@ -223,7 +223,7 @@
               </div>
 
               {{-- 外観 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-display">
+              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="site-display">
                 <div class="my-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('外観') }}</h3>
                   <div class="mt-4">
@@ -233,7 +233,7 @@
               </div>
 
               {{-- 表示言語 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="site-lang">
+              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="site-lang">
                 <div class="my-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('表示言語') }}</h3>
                   <div class="mt-4">
@@ -308,7 +308,7 @@
               </div>
 
               {{-- 出版契約 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="contract">
+              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="contract">
                 <div class="my-4">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('出版契約') }}</h3>
                   <div class="my-4">
@@ -341,7 +341,7 @@
 
 
               {{-- 収益受け取りの準備 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0]" id="earnings">
+              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="earnings">
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-semibold">{{ __('収益受け取りの準備') }}</h3>
                   <div class="mt-6">
