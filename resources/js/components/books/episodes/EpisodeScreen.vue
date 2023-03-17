@@ -16,7 +16,7 @@
                 class="hidden lg:block min-w-[100vw] max-w-[100vw] w-full"
             >
                 <div
-                    class="min-w-[800px] max-w-[800px] bg-white p-10 flex flex-col justify-center mx-auto"
+                    class="min-w-[800px] max-w-[800px] bg-white dark:bg-dark p-10 flex flex-col justify-center mx-auto"
                 >
                     <div v-if="episode.short_from_author" class="mb-10">
                         <h3 class="text-lg font-semibold">
@@ -86,7 +86,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="min-w-[800px] max-w-[800px] bg-white p-10 mx-auto">
+                <div
+                    class="min-w-[800px] max-w-[800px] bg-white dark:bg-dark p-10 mx-auto"
+                >
                     <div class="mb-8">
                         <h3 class="text-lg">関連作品</h3>
                     </div>
@@ -129,7 +131,9 @@
                     ref="next"
                     class="min-w-[100vw] max-w-[100vw] flex justify-center bg-dark"
                 >
-                    <div class="min-w-[35%] max-w-[35%] bg-white p-10">
+                    <div
+                        class="min-w-[35%] max-w-[35%] bg-white dark:bg-dark-1 p-10"
+                    >
                         <div class="mb-8">
                             <h3 class="text-lg">関連作品</h3>
                         </div>
@@ -138,7 +142,7 @@
                         </div>
                     </div>
                     <div
-                        class="min-w-[35%] max-w-[35%] bg-white p-10 flex flex-col justify-center"
+                        class="min-w-[35%] max-w-[35%] bg-white dark:bg-dark-1 p-10 flex flex-col justify-center"
                     >
                         <div v-if="episode.short_from_author" class="mb-10">
                             <h3 class="text-lg font-semibold">
