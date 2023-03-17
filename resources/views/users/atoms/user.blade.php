@@ -1,12 +1,14 @@
 <div class="max-w-6xl mx-auto">
   <div class="relative z-auto">
     @empty($user->thumbnail)
-      <img src="/img/bg.svg" alt="" class="dark:hidden h-[100px] lg:h-[250px] rounded-b flex w-full object-cover">
-      <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex h-[100px] lg:h-[250px] rounded w-full object-cover">
+      <img src="/img/bg.svg" alt="" class="dark:hidden h-[100px] lg:h-[250px] rounded-b flex w-full object-cover"
+        loading="lazy">
+      <img src="/img/bg-dark.svg" alt="" class="hidden dark:flex h-[100px] lg:h-[250px] rounded w-full object-cover"
+        loading="lazy">
     @else
       <thumbnail-zoom :thumbnail='@json($user->thumbnail)'>
         <template #thumbnail>
-          <img class="profile-img" src="{{ $user->thumbnail }}" alt="profile_thumbnail">
+          <img class="profile-img" src="{{ $user->thumbnail }}" alt="profile_thumbnail" loading="lazy">
         </template>
       </thumbnail-zoom>
     @endempty
@@ -60,7 +62,7 @@
               class="stroke-white dark:stroke-ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         @else
-          <img src="{{ $user->avatar }}" alt="avatar" class="avatar">
+          <img src="{{ $user->avatar }}" alt="avatar" class="avatar" loading="lazy">
         @endempty
       </div>
       <div class="block lg:hidden">

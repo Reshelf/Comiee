@@ -68,7 +68,8 @@
           class="stroke-white dark:stroke-ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     @else
-      <img src="{{ $user->avatar }}" alt="avatar" class="rounded-full shadow object-cover w-[28px] h-[28px]">
+      <img src="{{ $user->avatar }}" alt="avatar" class="rounded-full shadow object-cover w-[28px] h-[28px]"
+        loading="lazy">
     @endempty
   </a>
 </div>

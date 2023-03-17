@@ -41,7 +41,7 @@
                         <a href="{{ config('app.top_url') . '/' . app()->getLocale() . '/' . $mailData['send_user']->username }}"
                           style="color:#1b74e4;text-decoration:none" target="_blank">
                           <img width="80" height="80" src="{{ $mailData['send_user']->avatar }}"
-                            style="border:solid 1px rgba(0,0,0,.15);border-radius:50%;object-fit:cover">
+                            style="border:solid 1px rgba(0,0,0,.15);border-radius:50%;object-fit:cover" loading="lazy">
                         </a>
                       </td>
                     </tr>

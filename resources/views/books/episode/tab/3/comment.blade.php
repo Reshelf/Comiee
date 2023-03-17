@@ -11,7 +11,7 @@
             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       @else
-        <img src="{{ $comment->user->avatar }}" alt="" class="h-8 w-8 rounded-full shadow">
+        <img src="{{ $comment->user->avatar }}" alt="" class="h-8 w-8 rounded-full shadow" loading="lazy">
       @endempty
     </a>
     <div class="flex flex-col mt-1 ml-4">

@@ -1,9 +1,9 @@
 <div class="lg:top-0 lg:sticky md:py-8 px-6 lg:px-4 md:pr-4 w-full lg:max-w-[266px] lg:min-w-[266px]">
   @empty($book->thumbnail)
-    <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-full md:w-[250px] h-[250px] object-cover rounded">
-    <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover">
+    <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-full md:w-[250px] h-[250px] object-cover rounded" loading="lazy">
+    <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover" loading="lazy">
   @else
-    <img src="{{ $book->thumbnail }}" alt="book thumbnail" class="w-full md:w-[250px] h-[250px] object-cover">
+    <img src="{{ $book->thumbnail }}" alt="book thumbnail" class="w-full md:w-[250px] h-[250px] object-cover" loading="lazy">
   @endempty
 
   {{-- 作品タイトル --}}

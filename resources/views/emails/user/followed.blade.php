@@ -48,7 +48,8 @@
                           </svg>
                         @else
                           <img width="80" src="{{ $mailData['send_user']->avatar }}" height="80"
-                            style="border:solid 1px rgba(0,0,0,.15);background-color:#ebe9e7;border-radius:50%;object-fit:cover">
+                            style="border:solid 1px rgba(0,0,0,.15);background-color:#ebe9e7;border-radius:50%;object-fit:cover"
+                            loading="lazy">
                         @endempty
                       </a>
                     </td>

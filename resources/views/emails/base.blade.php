@@ -37,7 +37,8 @@
                                             style="color:#1b74e4;text-decoration:none" target="_blank">
                                             {{-- アイコン --}}
                                             <img height="32" style="object-fit: cover"
-                                              src="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/logo.png">
+                                              src="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/logo.png"
+                                              loading="lazy">
                                           </a>
                                         </td>
                                       </tr>

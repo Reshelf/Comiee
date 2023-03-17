@@ -6,9 +6,11 @@
 <header-user-modal>
   <template #avatar>
     @if (empty(Auth::user()->avatar))
-      <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="w-10 h-10 object-cover rounded-full">
+      <img src="{{ asset('/img/noimage-user.svg') }}" alt="" class="w-10 h-10 object-cover rounded-full"
+        loading="lazy">
     @else
-      <img src="{{ Auth::user()->avatar }}" alt="w-10 h-10  rounded-full" class="w-10 h-10 object-cover rounded-full">
+      <img src="{{ Auth::user()->avatar }}" alt="w-10 h-10  rounded-full" class="w-10 h-10 object-cover rounded-full"
+        loading="lazy">
     @endif
   </template>
 

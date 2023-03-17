@@ -43,10 +43,12 @@
         <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_number' => $e->number]) }}" @endif
           class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
           @empty($e->thumbnail)
-            <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover">
-            <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-[160px] h-[80px] object-cover">
+            <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover"
+              loading="lazy">
+            <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-[160px] h-[80px] object-cover"
+              loading="lazy">
           @else
-            <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover">
+            <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover" loading="lazy">
           @endempty
 
           {{-- タイトル --}}
