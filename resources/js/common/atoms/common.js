@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const progress = document.querySelector(".progress");
 
     if (!registerForm || !progress) {
-        console.error("registerForm or progress not found");
         return;
     }
 
