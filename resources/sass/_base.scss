@@ -16,7 +16,7 @@ html {
 
 body {
     @apply bg-white dark:bg-dark text-t-color dark:text-gray;
-    font-family: "Noto Sans JP";
+    // font-family: "Noto Sans JP";
     font-size: 14px;
 }
 
@@ -325,7 +325,7 @@ button[disabled] {
 }
 
 .ti-input {
-    @apply dark:bg-dark;
+    @apply dark:bg-dark dark:border-none;
     border: none !important;
 }
 .ti-valid,
@@ -334,25 +334,6 @@ button[disabled] {
 }
 .ti-selected-item {
     background: var(--primary) !important;
-}
-
-// 並び替え検索
-.sort-select {
-    @apply relative;
-    &::after {
-        @apply absolute right-[9px] top-[17px];
-        content: "";
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 4.5px solid #bbb;
-        width: 0;
-    }
-    select {
-        @apply appearance-none outline-none rounded-[5px] cursor-pointer w-full p-2 border border-bbb;
-        option {
-            @apply w-full;
-        }
-    }
 }
 
 .tooltip {
@@ -475,13 +456,6 @@ button[disabled] {
     }
 }
 
-.acd-content {
-    @apply h-0 opacity-0 invisible duration-200;
-}
-.acd-check:checked + .acd-label + .acd-content {
-    @apply h-[210px] px-4 opacity-100 visible;
-}
-
 .filters {
     label {
         @apply relative cursor-pointer pl-[35px] duration-[.25s];
@@ -551,9 +525,6 @@ button[disabled] {
     @apply flex-shrink-0;
 }
 
-.uploadOuter {
-    @apply text-center mt-4;
-}
 .dragBox {
     @apply w-full h-[80px] text-666 px-8 py-4 mx-auto relative rounded text-center font-semibold inline-flex items-center justify-center duration-300;
     border: 2px dashed #ccc;
@@ -564,16 +535,6 @@ button[disabled] {
 .draging {
     transform: scale(1.1);
 }
-#thumbnail-preview {
-    img {
-        @apply w-full min-h-[150px] max-h-[150px] mx-auto object-cover;
-    }
-}
-#avatar-preview {
-    img {
-        @apply w-[150px] h-[150px] mx-auto object-cover rounded-full;
-    }
-}
 
 .mobile-menu {
     @apply w-full bg-white dark:bg-dark dark:text-white m-auto flex lg:hidden fixed bottom-0 z-[999] justify-around items-center shadow-lg duration-300;
@@ -583,10 +544,6 @@ button[disabled] {
             @apply mx-auto;
         }
     }
-}
-
-.shadow-primary {
-    box-shadow: 0 3px 12px 0 rgba(#2473e1, 0.4);
 }
 
 .dropbtn {
@@ -711,15 +668,14 @@ button .loading {
 }
 
 .vue-tags-input {
-    @apply rounded-[5px];
+    @apply rounded-[5px] border border-ccc dark:border-none p-2;
     max-width: inherit !important;
-    border: 1px solid #ccc !important;
 }
 
 .vue-tags-input .ti-tag {
+    @apply text-t-color dark:text-ddd;
     background: transparent !important;
     border: 1px solid #747373 !important;
-    color: #747373 !important;
     margin-right: 4px !important;
     border-radius: 0px !important;
     font-size: 13px !important;
