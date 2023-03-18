@@ -48,9 +48,9 @@
 
   {{-- 完結作品 --}}
   @if ($book->is_complete)
-    <a href="{{ route('search.complete', app()->getLocale()) }}"
+    <span
       class="inline-block text-[#e19324] dark:text-white dark:bg-[#e19324] text-xs border dark:border-none px-2 py-0.5 rounded-[5px] ml-2 mb-2">
-      {{ __('完結') }}</a>
+      {{ __('完結') }}</span>
   @endif
 
   {{-- 非公開作品 --}}

@@ -71,8 +71,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
 
     // タグ検索
     Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
-    // 完結作品
-    Route::get('/complete', 'App\Http\Controllers\Search\CompleteController')->name('search.complete');
     Route::middleware(['verified', 'auth'])->group(function () {
         // お気に入り
         Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
