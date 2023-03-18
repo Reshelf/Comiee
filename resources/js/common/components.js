@@ -17,6 +17,7 @@ import FollowButton from "../components/FollowButton.vue";
 import HeaderUserModal from "../components/HeaderUserModal.vue";
 // search
 import SearchForm from "../components/search/SearchForm.vue";
+import SpSearchForm from "../components/search/SpSearchForm.vue";
 import TagSearchModal from "../components/search/TagSearchModal.vue";
 //
 import ThemeToggle from "../components/ThemeToggle.vue";
@@ -33,6 +34,7 @@ import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
 import SettingTab from "../components/users/SettingTab.vue";
 export default {
     BooksLists,
+    SpSearchForm,
     ShelfLists,
     WorksLists,
     SetupModal,

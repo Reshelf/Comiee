@@ -2,7 +2,7 @@
 
   {{-- ホーム --}}
   <a href="{{ url('/') }}"
-    class="{{ $tab === 0 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} text-center">
+    class="{{ $tab === 0 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>home</title>
       <path
@@ -14,12 +14,17 @@
 
   {{-- 検索 --}}
   <span
-    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} text-center">
-    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <title>search</title>
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-    </svg>
+    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
+
+    <sp-search-form :search='@json(__('検索する'))'>
+      <template #trigger>
+        <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <title>search</title>
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+      </template>
+    </sp-search-form>
   </span>
 
   {{-- 投稿 --}}
@@ -45,7 +50,7 @@
 
   {{-- 本棚 --}}
   <a href="{{ route('search.like', app()->getLocale()) }}"
-    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} text-center">
+    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>shelf</title>
       <path

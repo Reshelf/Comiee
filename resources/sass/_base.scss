@@ -537,8 +537,8 @@ button[disabled] {
 
 .mobile-menu {
     @apply w-full bg-white dark:bg-dark dark:text-white m-auto flex lg:hidden fixed bottom-0 z-[999] justify-around items-center shadow-lg duration-300;
-    a {
-        @apply py-4 text-[10px] flex justify-center items-center flex-col;
+    &-icon {
+        @apply text-center py-4 text-[10px] flex justify-center items-center flex-col;
         svg {
             @apply mx-auto;
         }
@@ -667,7 +667,7 @@ button .loading {
 }
 
 .vue-tags-input {
-    @apply rounded-[5px] border border-ccc dark:border-none p-2;
+    @apply rounded-[5px] border border-ccc dark:border-none;
     max-width: inherit !important;
     background: transparent !important;
 }
