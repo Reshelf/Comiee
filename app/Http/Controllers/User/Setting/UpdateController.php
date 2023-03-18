@@ -19,34 +19,19 @@ class UpdateController extends Controller
     |--------------------------------------------------------------------------
     | 設定の更新
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, Request $request, User $user)
     {
         $user = Auth::user();
 
-        $m1 = $request->input('m1');
-        $m2 = $request->input('m2');
-        $m3 = $request->input('m3');
-        $m4 = $request->input('m4');
-        $m5 = $request->input('m5');
-        $m6 = $request->input('m6');
-
-        $user->m_notice_1 = false;
-        $user->m_notice_2 = false;
-        $user->m_notice_3 = false;
-        $user->m_notice_4 = false;
-        $user->m_notice_5 = false;
-        $user->m_notice_6 = false;
-        if ($m1 === 'm1') $user->m_notice_1 = true;
-        if ($m2 === 'm2') $user->m_notice_2 = true;
-        if ($m3 === 'm3') $user->m_notice_3 = true;
-        if ($m4 === 'm4') $user->m_notice_4 = true;
-        if ($m5 === 'm5') $user->m_notice_5 = true;
-        if ($m6 === 'm6') $user->m_notice_6 = true;
+        for ($i = 1; $i <= 6; $i++) {
+            $m = $request->input("m{$i}");
+            $user->{"m_notice_{$i}"} = ($m === "m{$i}");
+        }
 
         $user->save();
 
         // 新しいユーザーIDのページへ遷移
-        return back()->withSuccess("設定を更新しました！");
+        return back()->withSuccess(__("設定を更新しました。"));
     }
 }
