@@ -185,12 +185,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /*
     |--------------------------------------------------------------------------
-    | usernameからユーザーを取得　　：　　スコープ
+    | usernameからユーザーを取得　(論理削除ユーザーは除く)　：　　スコープ
     |--------------------------------------------------------------------------
      */
     public function scopeByUsername($query, $username)
     {
-        return $query->where('username', $username);
+        return $query->where('username', $username)->whereNull('deleted_at');
     }
 
 }

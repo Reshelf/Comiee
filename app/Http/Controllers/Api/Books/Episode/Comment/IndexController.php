@@ -16,13 +16,19 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $user_id = $request->input('user_id');
-        $book_id = $request->input('book_id');
-        $episode_id = $request->input('episode_id');
-        $episode_number = $request->input('episode_number');
+        $data = $this->getCommentsAndUser($request->only(['user_id', 'book_id', 'episode_id', 'episode_number']));
 
-        $data['comments'] = Comment::where(['user_id' => $user_id, 'book_id' => $book_id, 'episode_id' => $episode_id, 'episode_number' => $episode_number])->latest()->get();
-        $data['user'] = User::find($request->input('user_id'));
         return response()->json($data);
+    }
+
+    private function getCommentsAndUser($filters)
+    {
+        $comments = Comment::where($filters)->latest()->get();
+        $user = User::find($filters['user_id']);
+
+        return [
+            'comments' => $comments,
+            'user' => $user,
+        ];
     }
 }
