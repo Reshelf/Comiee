@@ -13,10 +13,8 @@
   </a>
 
   {{-- 検索 --}}
-  <span
-    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
-
-    <sp-search-form :search='@json(__('検索する'))'>
+  <span class="stroke-[#7c7c7c] dark:stroke-ddd mobile-menu-icon">
+    <sp-search-form :search='@json(__('検索する'))' :zero='@json(__('検索結果がありません'))'>
       <template #trigger>
         <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <title>search</title>

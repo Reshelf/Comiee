@@ -36,7 +36,7 @@
                     </div>
                     <transition name="modal" appear>
                         <button
-                            v-show="result && state.search.length > 1"
+                            v-show="result && state.search.length > 0"
                             class="px-4 whitespace-nowrap text-f5 text-[14px]"
                             @click="reset()"
                         >
@@ -74,6 +74,13 @@
                 </div>
 
                 <div
+                    v-if="state.search.length > 1 && filter.length === 0"
+                    class="text-[14px]"
+                >
+                    {{ zero }}
+                </div>
+
+                <div
                     class="flex justify-center text-gray text-[14px] py-8"
                     @click="show = false"
                 >
@@ -91,6 +98,10 @@ export default {
             default: "",
         },
         search: {
+            type: String,
+            default: "",
+        },
+        zero: {
             type: String,
             default: "",
         },

@@ -384,13 +384,13 @@
                                         </template>
 
                                         <!-- 0件 -->
-                                        <template
+                                        <div
                                             v-if="
                                                 filteredLikesManga.length === 0
                                             "
                                         >
                                             {{ message }}
-                                        </template>
+                                        </div>
                                     </div>
                                 </template>
 
@@ -441,9 +441,12 @@
                                     </div>
 
                                     <!-- 0件 -->
-                                    <template v-if="readsBooks.length === 0">
+                                    <div
+                                        v-if="readsBooks.length === 0"
+                                        class="py-8"
+                                    >
                                         {{ message }}
-                                    </template>
+                                    </div>
                                 </template>
 
                                 <!-- 購入履歴 -->
@@ -493,15 +496,16 @@
                                     </div>
 
                                     <!-- 0件 -->
-                                    <template v-if="boughtBooks.length === 0">
+                                    <div
+                                        v-if="boughtBooks.length === 0"
+                                        class="py-8"
+                                    >
                                         {{ message }}
-                                    </template>
+                                    </div>
                                 </template>
 
                                 <!-- ローディング -->
-                                <template v-if="loading">
-                                    <div class="p-4">取得中...</div>
-                                </template>
+                                <div v-if="loading" class="p-4">取得中...</div>
                             </div>
                         </div>
                     </div>
