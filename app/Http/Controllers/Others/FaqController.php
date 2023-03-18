@@ -14,10 +14,21 @@ class FaqController extends Controller
      */
     public function __invoke(Request $request)
     {
-        switch ($request->number) {
-            case 1:
-                $faq_title = __('サービスについて');
-                $faqs = [
+        $faqData = $this->getFaqData($request->number);
+
+        return view('others.faq', [
+            'faqs' => $faqData['faqs'],
+            'faq_number' => $request->number,
+            'faq_title' => $faqData['faq_title'],
+        ]);
+    }
+
+    private function getFaqData($number)
+    {
+        $faqData = [
+            1 => [
+                'faq_title' => __('サービスについて'),
+                'faqs' => [
                     [
                         'title' => __('Comieeってどんなアプリ？'),
                         'description' => __('Comieeは、誰もがマンガを投稿でき、マンガを楽しむことのできるプラットフォームです。気になる作者を応援したり、自分で投稿して収入を得ることもできます。'),
@@ -34,11 +45,11 @@ class FaqController extends Controller
                         'title' => __('無料で利用できますか？'),
                         'description' => __('有料作品の閲覧以外は、無料で利用できます。'),
                     ],
-                ];
-                break;
-            case 2:
-                $faq_title = __('会員登録・ログインについて');
-                $faqs = [
+                ],
+            ],
+            2 => [
+                'faq_title' => __('会員登録・ログインについて'),
+                'faqs' => [
                     [
                         'title' => __('会員登録には何が必要ですか？'),
                         'description' => __('メールアドレスと生年月日の入力が必要です。'),
@@ -67,11 +78,11 @@ class FaqController extends Controller
                         'title' => __('アカウントを削除した後で、復旧はできますか？'),
                         'description' => __('一度削除してしまった場合、復旧はできません。'),
                     ],
-                ];
-                break;
-            case 3:
-                $faq_title = __('作人の購入について');
-                $faqs = [
+                ],
+            ],
+            3 => [
+                'faq_title' => __('作人の購入について'),
+                'faqs' => [
                     [
                         'title' => __('作品を購入する際の支払い方法には何がありますか？'),
                         'description' => __('以下の通りです。ApplePayクレジットカード（Visa、JCB、MasterCard、アメリカン・エキスプレス、ダイナースクラブ）'),
@@ -84,11 +95,11 @@ class FaqController extends Controller
                         'title' => __('アカウントを削除した場合、購入済みの作品はどうなりますか？'),
                         'description' => __('購入済みの作品も読めなくなります。ご注意ください。'),
                     ],
-                ];
-                break;
-            case 4:
-                $faq_title = __('その他');
-                $faqs = [
+                ],
+            ],
+            4 => [
+                'faq_title' => __('その他'),
+                'faqs' => [
                     [
                         'title' => __('「いいね！」とは何ですか？'),
                         'description' => __('「面白い」と思った作品を評価できる機能です。作品の「いいね！」が増えることで、ランキングに反映されます。作者への応援にもなります。'),
@@ -109,11 +120,11 @@ class FaqController extends Controller
                         'title' => __('自分のコメント/リプライが消されてしまいました'),
                         'description' => __('利用規約に違反していたり、作者や読者からの一定の通報があった場合、削除されることがあります。'),
                     ],
-                ];
-                break;
-            case 5:
-                $faq_title = __('作品の投稿について');
-                $faqs = [
+                ],
+            ],
+            5 => [
+                'faq_title' => __('作品の投稿について'),
+                'faqs' => [
                     [
                         'title' => __('作品の投稿はどこからできますか？'),
                         'description' => __('PCブラウザ版であれば画面右上にあるプラスボタンから、モバイル端末のブラウザ版又はモバイルアプリ版であれば画面右下にある青い丸のプラスボタンから、投稿できます。'),
@@ -138,11 +149,11 @@ class FaqController extends Controller
                         'title' => __('追加したエピソードを削除することはできますか？'),
                         'description' => __('できません。その代わり、該当するエピソード右上の編集ボタン（鉛筆マーク）から、「非公開」にできます。非公開にしたエピソードを、後から「公開」にすることもできます。'),
                     ],
-                ];
-                break;
-            case 6:
-                $faq_title = __('作品の収益化について');
-                $faqs = [
+                ],
+            ],
+            6 => [
+                'faq_title' => __('作品の収益化について'),
+                'faqs' => [
                     [
                         'title' => __('作品の売上は全て作者のものになりますか？'),
                         'description' => __('（消費税引き後売上金額–決済手数料 ※）× 70% ＝ 作者の収入になります。詳しくはこちらをご覧ください。※ 決済手数料は、消費税を引いた後の売上金額の3.6%です。'),
@@ -151,11 +162,11 @@ class FaqController extends Controller
                         'title' => __('作品の値段を作者側で変更することはできますか？無料にしたりできますか？'),
                         'description' => __('作品の閲覧を無料/有料のどちらにするか、何度でも変更可能です。ただし、販売価格は1話あたり50円を初期値としてスタートします。価格は作品の閲覧数やお気に入り登録者数、作品の投稿(更新)ペースなどによって変動し、作者側で操作することはできません。'),
                     ],
-                ];
-                break;
-            case 7:
-                $faq_title = __('その他');
-                $faqs = [
+                ],
+            ],
+            7 => [
+                'faq_title' => __('その他'),
+                'faqs' => [
                     [
                         'title' => __('他の作者との合作はできますか？'),
                         'description' => __('できます。ただし、著作権の帰属や収益の配分については、当事者間で決めていただく必要があります。また、万一トラブルが起きても、Comieeは責任を負いかねます。'),
@@ -176,14 +187,10 @@ class FaqController extends Controller
                         'title' => __('他の出版誌やメディアで連載/掲載している作品を投稿することはできますか？'),
                         'description' => __('作品が他者の権利を侵害するものでない限り、投稿していただくことに問題はありません。ただし、他の出版誌やメディア、賞での規約については関知しませんので、違反のないことをご確認のうえ投稿してください。'),
                     ],
-                ];
-                break;
-        }
+                ],
+            ],
+        ];
 
-        return view('others.faq', [
-            'faqs' => $faqs,
-            'faq_number' => $request->number,
-            'faq_title' => $faq_title,
-        ]);
+        return $faqData[$number] ?? ['faq_title' => '', 'faqs' => []];
     }
 }
