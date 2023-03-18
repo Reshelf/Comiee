@@ -73,8 +73,6 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
     Route::middleware(['verified', 'auth'])->group(function () {
         // お気に入り
-        Route::get('/like', 'App\Http\Controllers\Search\Like\IndexController')->name('search.like');
-        Route::post('/like/search', 'App\Http\Controllers\Search\Like\IndexController')->name('like.search');
         Route::get('/shelf/like', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.like');
         Route::get('/shelf/purchase_history', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.purchase');
         Route::get('/shelf/view_history', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.view');

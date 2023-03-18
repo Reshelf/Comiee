@@ -47,7 +47,7 @@
   @endauth
 
   {{-- 本棚 --}}
-  <a href="{{ route('search.like', app()->getLocale()) }}"
+  <a href="{{ route('user.shelf.like', app()->getLocale()) }}"
     class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>shelf</title>
