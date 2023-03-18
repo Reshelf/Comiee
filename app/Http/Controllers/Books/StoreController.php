@@ -67,7 +67,7 @@ class StoreController extends Controller
 
         // カラー設定
         $book->is_color = false;
-        if ($request->is_color == null) {
+        if ($request->is_color !== null) {
             $book->is_color = true;
         }
 
