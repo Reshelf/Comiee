@@ -11,6 +11,13 @@ module.exports = {
     ],
     theme: {
       extend: {
+        fontWeight: {
+        'light': 300,
+        'normal': 400,
+        'semibold': 500,
+        'bold': 700,
+        'extrabold': 800,
+      },
         colors: {
             'transparent': 'transparent',
             'current': 'currentColor',
