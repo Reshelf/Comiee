@@ -85,11 +85,9 @@ sql:
 redis:
 	./vendor/bin/sail exec redis redis-cli
 composer-clear:
-	./vendor/bin/sail rm -Rf vendor/
-	./vendor/bin/sail rm composer.lock
-	./vendor/bin/sail composer self-update
-	./vendor/bin/sail composer update
-	./vendor/bin/sail composer install
+	composer self-update
+	composer update
+	composer install
 reset:
 	rm -rf node_modules
 	rm package-lock.json
@@ -140,6 +138,7 @@ sail-art-about:
 # 更新可能のパッケージ
 composer-outdated:
 	composer outdated -D
+# e22テスト
 e2e-open:
 	npm run e2e:open
 e2e-run:
