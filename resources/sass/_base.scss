@@ -19,8 +19,7 @@ html {
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    src: url("https://media.comiee.one/app/fonts/NotoSansJP-Regular.otf")
-        format("opentype");
+    src: url("/public/fonts/NotoSansJP-Regular.otf") format("opentype");
 }
 
 @font-face {
@@ -28,8 +27,7 @@ html {
     font-weight: 600;
     font-style: normal;
     font-display: swap;
-    src: url("https://media.comiee.one/app/fonts/NotoSansJP-Medium.otf")
-        format("opentype");
+    src: url("/public/fonts/NotoSansJP-Medium.otf") format("opentype");
 }
 
 @font-face {
@@ -37,13 +35,12 @@ html {
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-    src: url("https://media.comiee.one/app/fonts/NotoSansJP-Bold.otf")
-        format("opentype");
+    src: url("/public/fonts/NotoSansJP-Bold.otf") format("opentype");
 }
 
 body {
     @apply bg-white dark:bg-dark text-t-color dark:text-gray;
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP" !important;
     font-size: 14px;
 }
 
