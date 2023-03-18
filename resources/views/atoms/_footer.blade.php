@@ -102,55 +102,66 @@
         </div>
       </div>
     </div>
-    <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col md:flex-row justify-between">
-      <div class="md:w-1/2">
-        <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</div>
-        <a href="{{ route('others.about.comiee', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
-        <a href="{{ route('others.user_guide', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
-        <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('よくあるご質問') }}</a>
-        @auth
-          <comment-post-modal>
-            <template #btn-trigger>
-              <span class="block mb-2 hover:text-primary dark:hover:text-ddd">
-                {{ __('お問い合わせ') }}
-              </span>
-            </template>
-            <template #header>{{ __('運営へのお問い合せ') }}</template>
-            <form method="POST"
-              action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}"
-              onsubmit="submit_btn()">
-              @csrf
-              <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
-              <textarea class="count_7 text-area" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off" autofocus="on"
-                type="text" name="body" maxlength="400" required></textarea>
-              <div class="mb-4 text-right">
-                <span class="string_count_7">0</span>
-                <span>/400文字</span>
-              </div>
+    <div class="md:w-3/5 mt-8 md:mt-0 flex flex-col">
+      <div class="w-full flex flex-col md:flex-row justify-between">
+        <div class="md:w-1/2">
+          <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</div>
+          <a href="{{ route('others.about.comiee', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
+          <a href="{{ route('others.user_guide', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
+          <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('よくあるご質問') }}</a>
+          @auth
+            <comment-post-modal>
+              <template #btn-trigger>
+                <span class="block mb-2 hover:text-primary dark:hover:text-ddd">
+                  {{ __('お問い合わせ') }}
+                </span>
+              </template>
+              <template #header>{{ __('運営へのお問い合せ') }}</template>
+              <form method="POST"
+                action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}"
+                onsubmit="submit_btn()">
+                @csrf
+                <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                <textarea class="count_7 text-area" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off" autofocus="on"
+                  type="text" name="body" maxlength="400" required></textarea>
+                <div class="mb-4 text-right">
+                  <span class="string_count_7">0</span>
+                  <span>/400文字</span>
+                </div>
 
-              <div class="relative">
-                <button type="submit" class="submit_btn3 btn-primary py-4 w-full">
-                  {{ __('送信する') }}
-                  <span class="load loading"></span>
-                </button>
-              </div>
-            </form>
-          </comment-post-modal>
-        @endauth
-        <a href="{{ route('others.company', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('会社概要（運営会社）') }}</a>
+                <div class="relative">
+                  <button type="submit" class="submit_btn3 btn-primary py-4 w-full">
+                    {{ __('送信する') }}
+                    <span class="load loading"></span>
+                  </button>
+                </div>
+              </form>
+            </comment-post-modal>
+          @endauth
+          <a href="{{ route('others.company', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('会社概要（運営会社）') }}</a>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0">
+          <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('利用規約とポリシー') }}</div>
+          <a href="{{ route('others.terms', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('利用規約') }}</a>
+          <a href="{{ route('others.privacy', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('プライバシーポリシー') }}</a>
+          <a href="{{ route('others.sct', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
+        </div>
       </div>
-      <div class="md:w-1/2 mt-8 md:mt-0">
-        <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('利用規約とポリシー') }}</div>
-        <a href="{{ route('others.terms', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('利用規約') }}</a>
-        <a href="{{ route('others.privacy', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('プライバシーポリシー') }}</a>
-        <a href="{{ route('others.sct', app()->getLocale()) }}"
-          class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
+      <div class="mt-8 w-full flex flex-col md:flex-row justify-between">
+        <div class="md:w-1/2">
+          <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ニュース') }}</div>
+          <span
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('お知らせ') }}{{ __('(準備中)') }}</span>
+          <span
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('リリースノート') }}{{ __('(準備中)') }}</span>
+        </div>
       </div>
     </div>
   </div>
