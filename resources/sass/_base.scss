@@ -667,7 +667,7 @@ button .loading {
 }
 
 .vue-tags-input {
-    @apply rounded-[5px] border border-ccc dark:border-none p-2;
+    @apply rounded-[5px] border border-ccc dark:border-none dark:bg-dark p-2;
     max-width: inherit !important;
 }
 
@@ -677,7 +677,7 @@ button .loading {
     border: 1px solid #747373 !important;
     margin-right: 4px !important;
     border-radius: 0px !important;
-    font-size: 13px !important;
+    font-size: 15px !important;
 }
 .vue-tags-input .ti-tag::before {
     content: "#" !important;

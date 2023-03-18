@@ -74,7 +74,7 @@
                   {{-- 値段 --}}
                   @if (!$e->is_hidden && $e->is_free && !$e->isReadBy(Auth::user()) && !$e->isBoughtBy(Auth::user()))
                     <div
-                      class="mr-2 tracking-widest inline-block text-xs bg-[#E50111] dark:bg-opacity-50 dark:text-ccc text-white py-0.5 px-1.5 rounded-[5px]">
+                      class="mr-2 tracking-widest inline-block text-xs bg-[#E50111] text-white py-0.5 px-1.5 rounded-[5px]">
                       {{ __('無料') }}
                     </div>
                   @endif
@@ -82,9 +82,8 @@
                   @if (!$e->is_free && !$e->isBoughtBy(Auth::user()))
                     <div
                       class="mr-2 tracking-widest inline-block text-xs bg-eee dark:bg-primary dark:text-white py-0.5 px-1.5 rounded-[5px]">
-                      {{ $e->price }}{{ __('円') }}〜
+                      ¥{{ $e->price }}~
                     </div>
-                  @else
                   @endif
 
                   {{-- 非公開 --}}
