@@ -12,6 +12,7 @@ class DestroyController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
     }
 
     /*
@@ -21,7 +22,7 @@ class DestroyController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $user = User::byUsername($request->username)->first();
 
         if (Auth::user()->id === $user->id) {
             $user->delete();
