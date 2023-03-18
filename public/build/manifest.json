@@ -1,6 +1,6 @@
 {
-  "_vendor-866bbfb7.js": {
-    "file": "assets/vendor-866bbfb7.js"
+  "_vendor-95a2348e.js": {
+    "file": "assets/vendor-95a2348e.js"
   },
   "resources/js/app.css": {
     "file": "assets/app-67884255.css",
@@ -10,9 +10,9 @@
     "css": [
       "assets/app-67884255.css"
     ],
-    "file": "assets/app-4fa70bf3.js",
+    "file": "assets/app-b34bd548.js",
     "imports": [
-      "_vendor-866bbfb7.js"
+      "_vendor-95a2348e.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
