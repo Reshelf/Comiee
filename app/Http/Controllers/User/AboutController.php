@@ -20,7 +20,7 @@ class AboutController extends Controller
     {
         $user =
         // \Cache::rememberForever("user.{$username}", function () use ($username) {
-        User::where('username', $username)->first();
+        User::byUsername($username)->first();
         // });
 
         // 存在しないユーザーページにアクセスしたら 404を返す

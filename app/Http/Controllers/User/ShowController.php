@@ -25,7 +25,7 @@ class ShowController extends Controller
          */
         $user =
         // \Cache::rememberForever("user.{$username}", function () use ($username) {
-        User::where('username', $username)->first();
+        User::byUsername($username)->first();
         // });
 
         /*

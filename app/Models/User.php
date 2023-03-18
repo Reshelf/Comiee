@@ -182,4 +182,15 @@ class User extends Authenticatable implements MustVerifyEmail
         ? (bool) $this->followers->where('id', $user->id)->count()
         : false;
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | usernameからユーザーを取得　　：　　スコープ
+    |--------------------------------------------------------------------------
+     */
+    public function scopeByUsername($query, $username)
+    {
+        return $query->where('username', $username);
+    }
+
 }

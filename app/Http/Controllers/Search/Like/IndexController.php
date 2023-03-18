@@ -24,7 +24,7 @@ class IndexController extends Controller
     {
         $username = Auth::user()->username;
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
-            return User::where('username', $username)->first();
+            return User::byUsername($username)->first();
         });
 
         $query = $user->likes();

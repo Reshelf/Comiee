@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UnfollowController extends Controller
 {
@@ -18,10 +18,10 @@ class UnfollowController extends Controller
     |--------------------------------------------------------------------------
     | フォロー解除
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, Request $request, string $username)
     {
-        $user = User::where('username', $username)->first();
+        $user = User::byUsername($username)->first();
 
         if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');

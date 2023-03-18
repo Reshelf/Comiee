@@ -16,11 +16,11 @@ class FollowersController extends Controller
     |--------------------------------------------------------------------------
     | フォロワー一覧
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke($lang, string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
-            return User::where('username', $username)->first();
+            return User::byUsername($username)->first();
         });
 
         $followers = $user->followers->sortByDesc('created_at');
