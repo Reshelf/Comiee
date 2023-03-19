@@ -1,54 +1,39 @@
 # Welcome to Comiee! 🚀
+
 Comiee is an online manga platform where creators can post their manga works and readers can enjoy and support their favorite content.
 
 ## What is Comiee?
+
 Comiee (コミー) is an online manga platform where authors can post their manga works, and readers can enjoy and support the content.
 
 ## Features
-- Post your manga works at your preferred timing
-- Supports various genres, excluding adult content
-- Protects authors' rights by disabling illegal downloads and screenshots (PC)
-- Multilingual support
-- Detailed settings for works (color, private, hiatus, etc.)
-- Analytics (planned)
+
+-   Post your manga works at your preferred timing
+-   Supports various genres, excluding adult content
+-   Protects authors' rights by disabling illegal downloads and screenshots (PC)
+-   Multilingual support
+-   Detailed settings for works (color, private, hiatus, etc.)
+-   Analytics (planned)
 
 ## Philosophy
+
 Our mission is to "support the birth of many wonderful works by providing creators with a platform where they can securely and continuously post their works." We operate with the following three principles in mind:
 
 1. Protect and maximize the creators' assets
 2. Design a user-friendly platform that encourages the creation of better works
 3. Contribute to the manga industry by pursuing and providing high value-added services with foresight
 
-## Reader's Guide (Work in progress)
-- Profile
-- Following authors
-- Discovering works
-- Reading works
-- Free content
-- Paid content
-- Purchasing works
-- Super gifts
-- Commenting on works
-- Bookshelf (favorites, reading history, purchase history)
-- Settings
-
-## Author's Guide (Work in progress)
-- About works
-- About episodes
-- About Super gifts
-- Contract signing
-- Setting up revenue collection
-
 ## Tech Stack
-- PaaS: **Heroku**
-- Backend: **Laravel**
-- Frontend: **Blade** and **Vue.js**
-- Domain: **Google Domains** (DNS management: **Cloudflare**)
-- CDN: **Cloudflare**
-- Image Storage: **Cloudflare R2**
-- Text Editor: **VSCode**
-- Local Environment: **Sail** (Docker)
-- Frontend Compilation: **Vite**
-- E2E Testing: **Cypress**
-- Analytics: **Google Analytics** and **Cloudflare Analytics**
-- Styling: **TailwindCSS**
+
+-   PaaS: **Heroku**
+-   Backend: **Laravel**
+-   Frontend: **Blade** and **Vue.js**
+-   Domain: **Google Domains** (DNS management: **Cloudflare**)
+-   CDN: **Cloudflare**
+-   Image Storage: **Cloudflare R2**
+-   Text Editor: **VSCode**
+-   Local Environment: **Sail** (Docker)
+-   Frontend Compilation: **Vite**
+-   E2E Testing: **Cypress**
+-   Analytics: **Google Analytics** and **Cloudflare Analytics**
+-   Styling: **TailwindCSS**
