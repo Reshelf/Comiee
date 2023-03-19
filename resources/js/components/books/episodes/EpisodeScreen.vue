@@ -625,7 +625,9 @@
             >
                 <div class="window w-screen lg:w-[600px] h-screen lg:h-auto">
                     <!-- コメント上部 -->
-                    <div class="bg-dark text-white flex justify-between">
+                    <div
+                        class="bg-dark text-white flex justify-between h-[55px]"
+                    >
                         <!-- エピソード 話数、タイトル -->
                         <div class="truncate p-3">
                             {{ episode.number }}話
@@ -649,7 +651,7 @@
 
                     <!-- コメント下部 -->
                     <div
-                        class="bg-dark flex items-center justify-between fixed lg:relative w-full bottom-0 lg:bottom-auto"
+                        class="bg-dark flex items-center justify-between fixed lg:relative w-full bottom-0 lg:bottom-auto h-[55px]"
                     >
                         <!-- コメントメニュー 閉じる -->
                         <div
