@@ -22,7 +22,6 @@ return new class extends Migration
 
             $table->string('gender')->nullable()->comment('性別');
             $table->date('birth')->nullable()->comment('誕生日');
-            $table->integer('age')->nullable()->comment('年齢');
             $table->string('country')->nullable()->comment('国');
             $table->string('lang')->nullable()->comment('言語');
 
