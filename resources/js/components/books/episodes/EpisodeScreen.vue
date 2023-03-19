@@ -463,7 +463,7 @@
             <transition name="sp-menu-top" appear>
                 <div v-show="sp_menu">
                     <div
-                        class="window fixed flex items-center justify-between top-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+                        class="window fixed flex items-center justify-between top-0 right-0 left-0 w-screen bg-dark text-white z-[999] h-[55px]"
                     >
                         <!-- エピソード 話数、タイトル -->
                         <div class="pl-4 pr-2 py-3 truncate">
@@ -496,7 +496,7 @@
             <transition name="sp-menu-bottom" appear>
                 <div v-show="sp_menu">
                     <div
-                        class="window fixed flex items-center justify-between bottom-0 right-0 left-0 w-screen bg-dark text-white z-[999]"
+                        class="window fixed flex items-center justify-between bottom-0 right-0 left-0 w-screen bg-dark text-white z-[999] h-[55px]"
                     >
                         <div class="flex items-center">
                             <!-- 作品トップ -->

@@ -171,7 +171,7 @@
                     </ul>
 
                     <div class="tabContents">
-                        <div class="w-full flex flex-col mb-4">
+                        <div class="w-full flex flex-col my-4">
                             <div ref="box" class="w-full">
                                 <!-- お気に入り -->
                                 <template v-if="isLikes">
