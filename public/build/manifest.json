@@ -23,7 +23,7 @@
     "src": "resources/js/common/atoms/common.js"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-a655f14f.css",
+    "file": "assets/app-b48efb90.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
