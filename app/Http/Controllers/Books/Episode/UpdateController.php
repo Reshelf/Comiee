@@ -24,19 +24,9 @@ class UpdateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        /*
-        |--------------------------------------------------------------------------
-        | データのセット | 作品
-        |--------------------------------------------------------------------------
-         */
         $book = Book::find($request->book_id);
         $episode = Episode::find($request->episode_id);
 
-        /*
-        |--------------------------------------------------------------------------
-        | データの保存 | エピソード
-        |--------------------------------------------------------------------------
-         */
         if ($book->user->id === Auth::user()->id) {
             $request->validate([
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
@@ -44,70 +34,54 @@ class UpdateController extends Controller
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
             ]);
 
-            // タイトル
             if ($request->has('title')) {
                 $episode->title = $request->title;
             }
 
-            // 作者から一言
             if ($request->has('short_from_author')) {
                 $episode->short_from_author = $request->short_from_author;
             }
 
-            // 非公開設定
-            $episode->is_hidden = true;
-            if ($request->is_hidden == null) {
-                $episode->is_hidden = false;
-            }
+            $episode->is_hidden = $request->is_hidden == null ? false : true;
+            $episode->is_free = $request->is_free == null ? true : false;
 
-            // 値段設定
-            $episode->is_free = false;
-            if ($request->is_free == null) {
-                $episode->is_free = true;
-            }
-
-            // サムネイル
             if ($request->has('thumbnail')) {
-                $file = $request->file('thumbnail');
-                $img = \Image::make($file)->resize(
-                    1000,
-                    null,
-                    function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    }
-                )->limitColors(null)->encode('webp', 0.01);
-
-                $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail.webp';
-                Storage::disk('r2')->put($filePath, $img);
-                $episode->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
+                $episode->thumbnail = $this->processImage($request->file('thumbnail'), $book->title, $episode->number, 'thumbnail', 1000);
             }
 
-            // コンテンツ
             if ($request->hasfile('images')) {
+                $imgData = [];
                 foreach ($request->file('images') as $index => $image) {
-                    $file = $image;
-                    $img = \Image::make($file)->resize(
-                        3200,
-                        null,
-                        function ($constraint) {
-                            $constraint->aspectRatio();
-                            $constraint->upsize();
-                        }
-                    )->limitColors(null)->encode('webp', 0.01);
-
-                    $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $index . '.webp';
-                    Storage::disk('r2')->put($filePath, $img);
-
-                    $imgData[] = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
+                    $imgData[] = $this->processImage($image, $book->title, $episode->number, $index);
                 }
                 $episode->contents = json_encode($imgData);
             }
-
         }
 
         $episode->save();
 
         return back()->with('success', __('エピソードを更新しました！'));
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 画像圧縮
+    |--------------------------------------------------------------------------
+     */
+    private function processImage($image, $bookTitle, $episodeNumber, $fileName, $resizeWidth = 3200)
+    {
+        $img = \Image::make($image)->resize(
+            $resizeWidth,
+            null,
+            function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            }
+        )->limitColors(null)->encode('webp', 0.01);
+
+        $filePath = 'app/' . env('APP_ENV') . '/books/' . $bookTitle . '/' . $episodeNumber . '/' . $fileName . '.webp';
+        Storage::disk('r2')->put($filePath, $img);
+
+        return env('CLOUDFLARE_R2_URL') . '/' . $filePath;
     }
 }
