@@ -626,7 +626,7 @@
                 <div class="window w-screen lg:w-[600px] h-screen lg:h-auto">
                     <!-- コメント上部 -->
                     <div
-                        class="bg-dark text-white flex justify-between h-[55px]"
+                        class="bg-dark text-white flex justify-between items-center h-[55px]"
                     >
                         <!-- エピソード 話数、タイトル -->
                         <div class="truncate p-3">
