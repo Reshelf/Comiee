@@ -48,7 +48,8 @@ svg {
     user-select: none !important;
     -khtml-user-select: none !important;
 }
-input[type="file"] {
+input[type="file"],
+a {
     @apply cursor-pointer;
 }
 
