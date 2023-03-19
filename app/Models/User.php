@@ -193,4 +193,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $query->where('username', $username)->whereNull('deleted_at');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | 誕生日から年齢を計算　：　　アクセサ
+    |--------------------------------------------------------------------------
+     */
+    public function getAgeAttribute()
+    {
+        return $this->birth ? \Carbon\Carbon::parse($this->birth)->age : null;
+    }
+
 }
