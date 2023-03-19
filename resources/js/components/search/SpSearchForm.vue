@@ -1,6 +1,6 @@
 <template>
     <div class="relative flex items-center mx-auto">
-        <div class="" @click="show = true">
+        <div class="" @click="openSearchForm">
             <slot name="trigger"></slot>
         </div>
 
@@ -26,7 +26,7 @@
                             </svg>
                         </div>
                         <input
-                            ref="anyName"
+                            ref="inputToFocus"
                             v-model="state.search"
                             type="text"
                             :placeholder="search"
@@ -145,6 +145,12 @@ export default {
         },
         reset() {
             this.state.search = "";
+        },
+        openSearchForm() {
+            this.show = true;
+            this.$nextTick(() => {
+                this.$refs.inputToFocus.focus();
+            });
         },
     },
 };
