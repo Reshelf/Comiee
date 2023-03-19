@@ -81,4 +81,26 @@ class Episode extends Model
         ? (bool) $this->bought->where('id', $user->id)->count()
         : false;
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 既読処理 メソッド
+    |--------------------------------------------------------------------------
+    | 与えられたユーザーによる読み込みを登録し、閲覧数を更新
+     */
+    public function registerReadBy(User $user)
+    {
+        $this->reads()->detach($user->id);
+        $this->reads()->attach($user->id);
+        $this->views = $this->count_reads;
+        $this->save();
+    }
+
+    public function commentsWithLikesCount()
+    {
+        return Comment::where(['book_id' => $this->book_id, 'episode_id' => $this->id, 'episode_number' => $this->number])
+            ->withCount('likes')
+            ->orderBy('likes_count', 'desc')
+            ->get();
+    }
 }

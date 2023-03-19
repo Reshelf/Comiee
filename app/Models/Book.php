@@ -118,4 +118,15 @@ class Book extends Model
         ? (bool) $this->likes->where('id', $user->id)->count()
         : false;
     }
+
+    // すべてのエピソードの閲覧数を合計して、作品の閲覧数を更新
+    public function updateViews()
+    {
+        $totalViews = 0;
+        foreach ($this->episodes as $episode) {
+            $totalViews += $episode->views;
+        }
+        $this->views = $totalViews;
+        $this->save();
+    }
 }
