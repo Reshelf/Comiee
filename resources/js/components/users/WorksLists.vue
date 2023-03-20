@@ -37,6 +37,11 @@
                 <!-- その他の検索条件 -->
                 <template v-for="(filter, index) in filters" :key="index">
                     <div
+                        v-if="
+                            filter.label !== '非公開' ||
+                            (filter.label === '非公開' &&
+                                shouldShowHiddenFilter)
+                        "
                         :class="filterClasses(filter)"
                         class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-4 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                         @click="toggleFilter(filter)"
@@ -85,10 +90,16 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
-
 export default {
     props: {
+        authUser: {
+            type: Object,
+            default: {},
+        },
+        bookUser: {
+            type: Object,
+            default: {},
+        },
         books: {
             type: Array,
             default: [],
@@ -98,59 +109,53 @@ export default {
             default: "",
         },
     },
-    setup(props) {
-        const filters = ref([
-            { label: "完結", prop: "is_complete", active: false },
-            { label: "休載", prop: "is_suspend", active: false },
-            { label: "非公開", prop: "is_hidden", active: false },
-            { label: "カラー", prop: "is_color", active: false },
-            { label: "今日の新作", prop: "is_new", active: false },
-        ]);
-
-        const language = ref("");
-        const screen_type = ref("");
-
-        const applyFilters = (book) => {
-            for (const filter of filters.value) {
+    data() {
+        return {
+            filters: [
+                { label: "完結", prop: "is_complete", active: false },
+                { label: "休載", prop: "is_suspend", active: false },
+                { label: "非公開", prop: "is_hidden", active: false },
+                { label: "カラー", prop: "is_color", active: false },
+                { label: "今日の新作", prop: "is_new", active: false },
+            ],
+            language: "",
+            screen_type: "",
+        };
+    },
+    computed: {
+        filteredManga() {
+            return this.books.filter((book) => this.applyFilters(book));
+        },
+        shouldShowHiddenFilter() {
+            return this.books.some(
+                (book) => this.authUser.id === this.bookUser.id
+            );
+        },
+    },
+    methods: {
+        applyFilters(book) {
+            for (const filter of this.filters) {
                 if (filter.active && !book[filter.prop]) {
                     return false;
                 }
             }
-
             if (
-                (language.value && book.lang !== language.value) ||
-                (screen_type.value && book.screen_type !== screen_type.value)
+                (this.language && book.lang !== this.language) ||
+                (this.screen_type && book.screen_type !== this.screen_type)
             ) {
                 return false;
             }
-
             return true;
-        };
-
-        const filterClasses = (filter) => {
+        },
+        filterClasses(filter) {
             return {
                 "active bg-primary hover:bg-primary hover:bg-opacity-100 dark:border-primary":
                     filter.active,
             };
-        };
-
-        const toggleFilter = (filter) => {
+        },
+        toggleFilter(filter) {
             filter.active = !filter.active;
-        };
-
-        const filteredManga = computed(() => {
-            return props.books.filter((book) => applyFilters(book));
-        });
-
-        return {
-            filters,
-            language,
-            screen_type,
-            applyFilters,
-            filterClasses,
-            toggleFilter,
-            filteredManga,
-        };
+        },
     },
 };
 </script>
