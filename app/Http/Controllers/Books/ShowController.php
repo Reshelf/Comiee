@@ -19,14 +19,10 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
-        $book =
-        // \Cache::rememberForever("book.{$request->book_id}", function () use ($request) {
-        //     return
-        Book::where('id', $request->book_id)->first();
-        // });
+        $book = Book::where('id', $request->book_id)->first();
 
-        // 存在しない作品は404
-        if ($book === null) {
+        // 存在しない作品、非公開作品は404
+        if ($book === null || $book->is_hidden) {
             abort(404);
         }
 
