@@ -42,35 +42,35 @@
       <div class="w-1/2">{{ __('言語') }}</div>
       <div class="w-1/2">
         @if ($book->lang === 'ja')
-          <a href="" class="hover:text-primary">{{ __('日本語') }}</a>
+          <a href="" class="hover:text-primary">日本語</a>
         @elseif($book->lang === 'en')
-          <a href="" class="hover:text-primary">{{ __('英語') }}</a>
+          <a href="" class="hover:text-primary">英語</a>
         @elseif($book->lang === 'tw')
-          <a href="" class="hover:text-primary">{{ __('繁体字') }}</a>
+          <a href="" class="hover:text-primary">繁体字</a>
         @elseif($book->lang === 'cn')
-          <a href="" class="hover:text-primary">{{ __('簡体字') }}</a>
+          <a href="" class="hover:text-primary">簡体字</a>
         @elseif($book->lang === 'es')
-          <a href="" class="hover:text-primary">{{ __('スペイン語') }}</a>
+          <a href="" class="hover:text-primary">スペイン語</a>
         @elseif($book->lang === 'fr')
-          <a href="" class="hover:text-primary">{{ __('フランス語') }}</a>
+          <a href="" class="hover:text-primary">フランス語</a>
         @elseif($book->lang === 'it')
-          <a href="" class="hover:text-primary">{{ __('イタリア語') }}</a>
+          <a href="" class="hover:text-primary">イタリア語</a>
         @elseif($book->lang === 'id')
-          <a href="" class="hover:text-primary">{{ __('インドネシア語') }}</a>
+          <a href="" class="hover:text-primary">インドネシア語</a>
         @elseif($book->lang === 'th')
-          <a href="" class="hover:text-primary">{{ __('タイ語') }}</a>
+          <a href="" class="hover:text-primary">タイ語</a>
         @elseif($book->lang === 'ko')
-          <a href="" class="hover:text-primary">{{ __('韓国語') }}</a>
+          <a href="" class="hover:text-primary">韓国語</a>
         @elseif($book->lang === 'hi')
-          <a href="" class="hover:text-primary">{{ __('ヒンディー語') }}</a>
+          <a href="" class="hover:text-primary">ヒンディー語</a>
         @elseif($book->lang === 'ar')
-          <a href="" class="hover:text-primary">{{ __('アラビア語') }}</a>
+          <a href="" class="hover:text-primary">アラビア語</a>
         @elseif($book->lang === 'pr')
-          <a href="" class="hover:text-primary">{{ __('ポルトガル語') }}</a>
+          <a href="" class="hover:text-primary">ポルトガル語</a>
         @elseif($book->lang === 'bn')
-          <a href="" class="hover:text-primary">{{ __('ベンガル語') }}</a>
+          <a href="" class="hover:text-primary">ベンガル語</a>
         @elseif($book->lang === 'de')
-          <a href="" class="hover:text-primary">{{ __('ドイツ語') }}</a>
+          <a href="" class="hover:text-primary">ドイツ語</a>
         @endif
       </div>
     </div>
