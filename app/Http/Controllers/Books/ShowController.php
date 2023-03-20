@@ -21,8 +21,8 @@ class ShowController extends Controller
     {
         $book = Book::where('id', $request->book_id)->first();
 
-        // 存在しない作品、非公開作品は404
-        if ($book === null || $book->is_hidden) {
+        // 存在しない作品は404
+        if ($book === null) {
             abort(404);
         }
 
@@ -46,6 +46,11 @@ class ShowController extends Controller
                 }
                 $book->views = $episode_total_views;
                 $book->save();
+
+                // 非公開作品は404
+                if ($book->is_hidden) {
+                    abort(404);
+                }
             }
         }
 
