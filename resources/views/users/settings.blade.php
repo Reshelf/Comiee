@@ -241,27 +241,27 @@
                     <div class="mb-4">
                       <span class="mr-4">{{ __('現在の言語') }} : </span>
                       @if (App::getLocale() == 'ja')
-                        {{ __('日本語') }}
+                        日本語
                       @elseif(App::getLocale() == 'en')
-                        {{ __('英語') }}
+                        英語
                       @elseif(App::getLocale() == 'tw')
-                        {{ __('繁體中文') }}
+                        繁體中文
                       @elseif(App::getLocale() == 'cn')
-                        {{ __('簡体中文') }}
+                        簡体中文
                       @elseif(App::getLocale() == 'es')
-                        {{ __('Español') }}
+                        Español
                       @elseif(App::getLocale() == 'fr')
-                        {{ __('Français') }}
+                        Français
                       @elseif(App::getLocale() == 'it')
-                        {{ __('Italiano') }}
+                        Italiano
                       @elseif(App::getLocale() == 'id')
-                        {{ __('Bahasa Indonesia') }}
+                        Bahasa Indonesia
                       @elseif(App::getLocale() == 'th')
-                        {{ __('ภาษาไทย') }}
+                        ภาษาไทย
                       @elseif(App::getLocale() == 'ko')
-                        {{ __('한국어') }}
+                        한국어
                       @elseif(App::getLocale() == 'de')
-                        {{ __('Deutsch') }}
+                        Deutsch
                       @endif
                     </div>
                     <form action="{{ route('change.lang') }}" method="post">
@@ -269,37 +269,37 @@
                       <div class="filters flex flex-wrap">
                         <input type="radio" name="lang" class="visually-hidden" id="ja" value="ja"
                           @if (App::getLocale() == 'ja') checked @endif />
-                        <label for="ja" class="mb-4 mr-4">{{ __('日本語') }}</label>
+                        <label for="ja" class="mb-4 mr-4">日本語</label>
                         <input type="radio" name="lang" class="visually-hidden" id="en" value="en"
                           @if (App::getLocale() == 'en') checked @endif />
-                        <label for="en" class="mb-4 mr-4">{{ __('英語') }}</label>
+                        <label for="en" class="mb-4 mr-4">英語</label>
                         <input type="radio" name="lang" class="visually-hidden" id="tw" value="tw"
                           @if (App::getLocale() == 'tw') checked @endif />
-                        <label for="tw" class="mb-4 mr-4">{{ __('繁體中文') }}</label>
+                        <label for="tw" class="mb-4 mr-4">繁體中文</label>
                         <input type="radio" name="lang" class="visually-hidden" id="cn" value="cn"
                           @if (App::getLocale() == 'cn') checked @endif />
-                        <label for="cn" class="mb-4 mr-4">{{ __('簡体中文') }}</label>
+                        <label for="cn" class="mb-4 mr-4">簡体中文</label>
                         <input type="radio" name="lang" class="visually-hidden" id="es" value="es"
                           @if (App::getLocale() == 'es') checked @endif />
-                        <label for="es" class="mb-4 mr-4">{{ __('Español') }}</label>
+                        <label for="es" class="mb-4 mr-4">Español</label>
                         <input type="radio" name="lang" class="visually-hidden" id="fr" value="fr"
                           @if (App::getLocale() == 'fr') checked @endif />
-                        <label for="fr" class="mb-4 mr-4">{{ __('Français') }}</label>
+                        <label for="fr" class="mb-4 mr-4">Français</label>
                         <input type="radio" name="lang" class="visually-hidden" id="it" value="it"
                           @if (App::getLocale() == 'it') checked @endif />
-                        <label for="it" class="mb-4 mr-4">{{ __('Italiano') }}</label>
+                        <label for="it" class="mb-4 mr-4">Italiano</label>
                         <input type="radio" name="lang" class="visually-hidden" id="id" value="id"
                           @if (App::getLocale() == 'id') checked @endif />
-                        <label for="id" class="mb-4 mr-4">{{ __('Bahasa Indonesia') }}</label>
+                        <label for="id" class="mb-4 mr-4">Bahasa Indonesia</label>
                         <input type="radio" name="lang" class="visually-hidden" id="th" value="th"
                           @if (App::getLocale() == 'th') checked @endif />
-                        <label for="th" class="mb-4 mr-4">{{ __('ภาษาไทย') }}</label>
+                        <label for="th" class="mb-4 mr-4">ภาษาไทย</label>
                         <input type="radio" name="lang" class="visually-hidden" id="ko" value="ko"
                           @if (App::getLocale() == 'ko') checked @endif />
-                        <label for="ko" class="mb-4 mr-4">{{ __('한국어') }}</label>
+                        <label for="ko" class="mb-4 mr-4">한국어</label>
                         <input type="radio" name="lang" class="visually-hidden" id="de" value="de"
                           @if (App::getLocale() == 'de') checked @endif />
-                        <label for="de" class="mb-4 mr-4">{{ __('Deutsch') }}</label>
+                        <label for="de" class="mb-4 mr-4">Deutsch</label>
                       </div>
                       <button type="submit" class="btn-border mt-6">{{ __('変更する') }}</button>
                     </form>

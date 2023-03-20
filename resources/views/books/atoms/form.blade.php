@@ -170,50 +170,50 @@
   <select name="lang" class="flex flex-col items-center">
     <option type="text" value="ja"
       @isset($book->lang) @if ('ja' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('日本語') }}</option>
+      日本語</option>
     <option type="text" value="en"
       @isset($book->lang) @if ('en' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('英語') }}</option>
+      英語</option>
     <option type="text" value="tw"
       @isset($book->lang) @if ('tw' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('繁體中文') }}</option>
+      繁體中文</option>
     <option type="text" value="cn"
       @isset($book->lang) @if ('cn' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('簡体中文') }}</option>
+      簡体中文</option>
     <option type="text" value="es"
       @isset($book->lang) @if ('es' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Español') }}</option>
+      Español</option>
     <option type="text" value="fr"
       @isset($book->lang) @if ('fr' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Français') }}</option>
+      Français</option>
     <option type="text" value="it"
       @isset($book->lang) @if ('it' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Italiano') }}</option>
+      Italiano</option>
     <option type="text" value="id"
       @isset($book->lang) @if ('id' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Bahasa Indonesia') }}</option>
+      Bahasa Indonesia</option>
     <option type="text" value="th"
       @isset($book->lang) @if ('th' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('ภาษาไทย') }}</option>
+      ภาษาไทย</option>
     <option type="text" value="es"
       @isset($book->lang) @if ('es' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Español') }}</option>
+      Español</option>
     <option type="text" value="ko"
       @isset($book->lang) @if ('ko' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('한국어') }}
+      한국어
     </option>
     <option type="text" value="ar"
       @isset($book->lang) @if ('ar' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('العربية') }}</option>
+      العربية</option>
     <option type="text" value="pt"
       @isset($book->lang) @if ('pt' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Português') }}</option>
+      Português</option>
     <option type="text" value="bn"
       @isset($book->lang) @if ('bn' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('বাংলা') }}</option>
+      বাংলা</option>
     <option type="text" value="de"
       @isset($book->lang) @if ('de' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('Deutsch') }}</option>
+      Deutsch</option>
   </select>
 </div>
 
