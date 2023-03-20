@@ -176,44 +176,44 @@
       {{ __('英語') }}</option>
     <option type="text" value="tw"
       @isset($book->lang) @if ('tw' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('繁体字') }}</option>
+      {{ __('繁體中文') }}</option>
     <option type="text" value="cn"
       @isset($book->lang) @if ('cn' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('簡体字') }}</option>
+      {{ __('簡体中文') }}</option>
     <option type="text" value="es"
       @isset($book->lang) @if ('es' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('スペイン語') }}</option>
+      {{ __('Español') }}</option>
     <option type="text" value="fr"
       @isset($book->lang) @if ('fr' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('フランス語') }}</option>
+      {{ __('Français') }}</option>
     <option type="text" value="it"
       @isset($book->lang) @if ('it' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('イタリア語') }}</option>
+      {{ __('Italiano') }}</option>
     <option type="text" value="id"
       @isset($book->lang) @if ('id' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('インドネシア語') }}</option>
+      {{ __('Bahasa Indonesia') }}</option>
     <option type="text" value="th"
       @isset($book->lang) @if ('th' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('タイ語') }}</option>
+      {{ __('ภาษาไทย') }}</option>
     <option type="text" value="es"
       @isset($book->lang) @if ('es' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('スペイン語') }}</option>
+      {{ __('Español') }}</option>
     <option type="text" value="ko"
       @isset($book->lang) @if ('ko' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('韓国語') }}
+      {{ __('한국어') }}
     </option>
     <option type="text" value="ar"
       @isset($book->lang) @if ('ar' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('アラビア語') }}</option>
+      {{ __('العربية') }}</option>
     <option type="text" value="pt"
       @isset($book->lang) @if ('pt' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('ポルトガル語') }}</option>
+      {{ __('Português') }}</option>
     <option type="text" value="bn"
       @isset($book->lang) @if ('bn' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('ベンガル語') }}</option>
+      {{ __('বাংলা') }}</option>
     <option type="text" value="de"
       @isset($book->lang) @if ('de' === old('lang', $book->lang)) selected @endif @endisset>
-      {{ __('ドイツ語') }}</option>
+      {{ __('Deutsch') }}</option>
   </select>
 </div>
 
@@ -246,10 +246,10 @@
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
   <textarea required name="story" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
-    placeholder="投稿できるのは400文字までです" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
+    placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>
-    <span>/400文字</span>
+    <span>/400</span>
   </div>
 @endisset
 

@@ -8,29 +8,31 @@
                 <!-- 作品言語 -->
                 <div class="mb-4">
                     <select v-model="language" class="select-menu">
-                        <option value="">作品の言語</option>
+                        <option value="">{{ t("作品の言語") }}</option>
                         <option value="ja">日本語</option>
                         <option value="en">英語</option>
-                        <option value="tw">繁体字</option>
+                        <option value="tw">繁體中文</option>
                         <option value="cn">中国語</option>
-                        <option value="es">スペイン語</option>
-                        <option value="fr">フランス語</option>
-                        <option value="it">イタリア語</option>
-                        <option value="id">インドネシア語</option>
-                        <option value="th">タイ語</option>
-                        <option value="ko">韓国語</option>
-                        <option value="de">ドイツ語</option>
-                        <option value="pr">ポルトガル語</option>
-                        <option value="ar">アラビア語</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="it">Italiano</option>
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="th">ภาษาไทย</option>
+                        <option value="ko">한국어</option>
+                        <option value="de">Deutsch</option>
+                        <option value="pr">Português</option>
+                        <option value="ar">العربية</option>
                     </select>
                 </div>
 
                 <!-- 画面タイプ -->
                 <div class="mb-4">
                     <select v-model="screen_type" class="select-menu">
-                        <option value="">画面タイプ</option>
-                        <option value="horizontal">横読み</option>
-                        <option value="vertical">縦スクロール</option>
+                        <option value="">{{ t("画面タイプ") }}</option>
+                        <option value="horizontal">{{ t("横読み") }}</option>
+                        <option value="vertical">
+                            {{ t("縦スクロール") }}
+                        </option>
                     </select>
                 </div>
 
@@ -38,8 +40,8 @@
                 <template v-for="(filter, index) in filters" :key="index">
                     <div
                         v-if="
-                            filter.label !== '非公開' ||
-                            (filter.label === '非公開' &&
+                            filter.label !== t('非公開') ||
+                            (filter.label === t('非公開') &&
                                 shouldShowHiddenFilter)
                         "
                         :class="filterClasses(filter)"
@@ -84,7 +86,7 @@
             </div>
         </template>
         <template v-else>
-            <div class="p-4">表示する作品がまだありません</div>
+            <div class="p-4">{{ t("表示する作品がまだありません") }}</div>
         </template>
     </div>
 </template>
@@ -112,11 +114,11 @@ export default {
     data() {
         return {
             filters: [
-                { label: "完結", prop: "is_complete", active: false },
-                { label: "休載", prop: "is_suspend", active: false },
-                { label: "非公開", prop: "is_hidden", active: false },
-                { label: "カラー", prop: "is_color", active: false },
-                { label: "今日の新作", prop: "is_new", active: false },
+                { label: this.t("完結"), prop: "is_complete", active: false },
+                { label: this.t("休載"), prop: "is_suspend", active: false },
+                { label: this.t("非公開"), prop: "is_hidden", active: false },
+                { label: this.t("カラー"), prop: "is_color", active: false },
+                { label: this.t("今日の新作"), prop: "is_new", active: false },
             ],
             language: "",
             screen_type: "",

@@ -31,14 +31,12 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 import WorksLists from "../components/users/WorksLists.vue";
 
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
-import SettingTab from "../components/users/SettingTab.vue";
 export default {
     BooksLists,
     SpSearchForm,
     ShelfLists,
     WorksLists,
     SetupModal,
-    SettingTab,
     CommentLike,
     TagSearchModal,
     SearchForm,

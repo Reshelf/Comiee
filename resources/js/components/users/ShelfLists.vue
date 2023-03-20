@@ -1,7 +1,9 @@
 <template>
     <div class="flex max-w-5xl w-full mx-auto px-6 md:px-0 justify-center mb-8">
         <div class="w-full lg:mt-4">
-            <h3 class="text-2xl font-semibold py-4 block lg:hidden">本棚</h3>
+            <h3 class="text-2xl font-semibold py-4 block lg:hidden">
+                {{ t("本棚") }}
+            </h3>
             <div class="w-full lg:my-4 flex">
                 <div class="setting-tab">
                     <!-- 項目 -->
@@ -9,9 +11,9 @@
                         class="tabMenu scroll-none sticky top-0 lg:h-[300px] lg:min-w-[200px]"
                     >
                         <h3
-                            class="text-2xl font-semibold py-4 lg:pt-0 hidden lg:block"
+                            class="text-2xl font-bold py-4 lg:pt-0 hidden lg:block"
                         >
-                            本棚
+                            {{ t("本棚") }}
                         </h3>
                         <h4
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
@@ -41,8 +43,7 @@
                                     stroke-linejoin="round"
                                 />
                             </svg>
-
-                            お気に入り
+                            {{ t("お気に入り") }}
                         </h4>
 
                         <h4
@@ -129,7 +130,7 @@
                                 />
                             </svg>
 
-                            閲覧履歴
+                            {{ t("閲覧履歴") }}
                         </h4>
                         <h4
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
@@ -166,7 +167,7 @@
                                     stroke-linejoin="round"
                                 />
                             </svg>
-                            購入履歴
+                            {{ t("購入履歴") }}
                         </h4>
                     </ul>
 
@@ -186,13 +187,13 @@
                                                 class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             >
                                                 <option value="">
-                                                    画面タイプ
+                                                    {{ t("画面タイプ") }}
                                                 </option>
                                                 <option value="horizontal">
-                                                    横読み
+                                                    {{ __("横読み") }}
                                                 </option>
                                                 <option value="vertical">
-                                                    縦スクロール
+                                                    {{ t("縦スクロール") }}
                                                 </option>
                                             </select>
                                         </div>
@@ -207,7 +208,7 @@
                                             class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             @click="is_complete = !is_complete"
                                         >
-                                            完結作品
+                                            {{ t("完結作品") }}
                                         </div>
 
                                         <!-- カラー作品 -->
@@ -220,7 +221,7 @@
                                             class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             @click="is_color = !is_color"
                                         >
-                                            カラー作品
+                                            {{ t("カラー作品") }}
                                         </div>
 
                                         <!-- 全話無料 -->
@@ -235,7 +236,7 @@
                                                 is_all_charge = !is_all_charge
                                             "
                                         >
-                                            全話無料
+                                            {{ __("全話無料") }}
                                         </div>
 
                                         <!-- 今日の新作 -->
@@ -248,7 +249,7 @@
                                             class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             @click="is_new = !is_new"
                                         >
-                                            今日の新作
+                                            {{ t("今日の新作") }}
                                         </div>
 
                                         <!-- 閲覧数 -->
@@ -257,12 +258,14 @@
                                                 v-model="views"
                                                 class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             >
-                                                <option value="">閲覧数</option>
+                                                <option value="">
+                                                    {{ t("閲覧数") }}
+                                                </option>
                                                 <option value="much">
-                                                    多い順
+                                                    {{ t("多い順") }}
                                                 </option>
                                                 <option value="less">
-                                                    少ない順
+                                                    {{ t("少ない順") }}
                                                 </option>
                                             </select>
                                         </div>
@@ -274,12 +277,20 @@
                                                 class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             >
                                                 <option value="">
-                                                    ジャンル
+                                                    {{ t("ジャンル") }}
                                                 </option>
-                                                <option value="1">少年</option>
-                                                <option value="2">青年</option>
-                                                <option value="3">少女</option>
-                                                <option value="4">女性</option>
+                                                <option value="1">
+                                                    {{ t("少年") }}
+                                                </option>
+                                                <option value="2">
+                                                    {{ t("青年") }}
+                                                </option>
+                                                <option value="3">
+                                                    {{ t("少女") }}
+                                                </option>
+                                                <option value="4">
+                                                    {{ t("女性") }}
+                                                </option>
                                             </select>
                                         </div>
 
@@ -290,7 +301,7 @@
                                                 class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             >
                                                 <option value="">
-                                                    作品言語
+                                                    {{ t("作品言語") }}
                                                 </option>
                                                 <option value="ja">
                                                     日本語
@@ -299,31 +310,43 @@
                                                     English
                                                 </option>
                                                 <option value="tw">
-                                                    繁体字
+                                                    繁體中文
                                                 </option>
                                                 <option value="cn">
-                                                    簡体字
+                                                    簡体中文
                                                 </option>
                                                 <option value="es">
-                                                    スペイン語
+                                                    Español
                                                 </option>
                                                 <option value="fr">
-                                                    フランス語
+                                                    Français
                                                 </option>
                                                 <option value="it">
-                                                    イタリア語
+                                                    Italiano
                                                 </option>
                                                 <option value="id">
-                                                    インドネシア語
+                                                    Bahasa Indonesia
                                                 </option>
                                                 <option value="th">
-                                                    タイ語
+                                                    ภาษาไทย
                                                 </option>
                                                 <option value="ko">
-                                                    韓国語
+                                                    한국어
                                                 </option>
                                                 <option value="de">
-                                                    ドイツ語
+                                                    Deutsch
+                                                </option>
+                                                <option value="hi">
+                                                    हिन्दी
+                                                </option>
+                                                <option value="ar">
+                                                    العربية
+                                                </option>
+                                                <option value="pt">
+                                                    Português
+                                                </option>
+                                                <option value="bn">
+                                                    বাংলা
                                                 </option>
                                             </select>
                                         </div>
@@ -338,7 +361,7 @@
                                             class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                                             @click="is_suspend = !is_suspend"
                                         >
-                                            休載中
+                                            {{ t("休載中") }}
                                         </div>
                                     </div>
 
@@ -431,9 +454,8 @@
                                                     <span
                                                         class="thumbnail-title"
                                                         >{{ episode.title }}
-                                                        {{
-                                                            episode.number
-                                                        }}話</span
+                                                        {{ episode.number
+                                                        }}{{ t("話") }}</span
                                                     >
                                                 </a>
                                             </div>
@@ -486,9 +508,8 @@
                                                     <span
                                                         class="thumbnail-title"
                                                         >{{ episode.title }}
-                                                        {{
-                                                            episode.number
-                                                        }}話</span
+                                                        {{ episode.number
+                                                        }}{{ t("話") }}</span
                                                     >
                                                 </a>
                                             </div>
@@ -505,7 +526,9 @@
                                 </template>
 
                                 <!-- ローディング -->
-                                <div v-if="loading" class="p-4">取得中...</div>
+                                <div v-if="loading" class="p-4">
+                                    {{ t("取得中...") }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -554,7 +577,7 @@ export default {
             // ロード
             loading: false,
             error: null,
-            message: "表示する作品がまだありません",
+            message: this.t("表示する作品がまだありません"),
 
             // 選択タブ
             isLikes: true,

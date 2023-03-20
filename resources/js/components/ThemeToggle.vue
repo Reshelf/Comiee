@@ -12,18 +12,6 @@ function changeTheme() {
         localStorage.theme = "dark";
     }
 }
-
-//  eslint-disable-next-line
-const props = defineProps({
-    one: {
-        type: String,
-        default: "",
-    },
-    two: {
-        type: String,
-        default: "",
-    },
-});
 </script>
 <template>
     <div
@@ -76,7 +64,11 @@ const props = defineProps({
                 />
             </svg>
         </button>
-        <span class="block dark:hidden pl-5">{{ props.one }}</span>
-        <span class="hidden dark:block pl-5">{{ props.two }}</span>
+        <span class="block dark:hidden pl-5">{{
+            t("ダークモードにする")
+        }}</span>
+        <span class="hidden dark:block pl-5">{{
+            t("ライトモードにする")
+        }}</span>
     </div>
 </template>

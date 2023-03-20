@@ -33,7 +33,7 @@
           type="text" name="body" maxlength="400" required></textarea>
         <div class="mb-4 text-right">
           <span class="string_count_6">0</span>
-          <span>/400文字</span>
+          <span>/400</span>
         </div>
 
         <div class="relative">

@@ -1,6 +1,5 @@
 <div class="mobile-menu">
 
-  {{-- ホーム --}}
   <a href="{{ url('/') }}"
     class="{{ $tab === 0 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -14,8 +13,7 @@
 
   {{-- 検索 --}}
   <span class="stroke-[#7c7c7c] dark:stroke-ddd mobile-menu-icon">
-    <sp-search-form :lang='@json(app()->getLocale())' :search='@json(__('検索する'))'
-      :zero='@json(__('検索結果がありません'))'>
+    <sp-search-form :lang='@json(app()->getLocale())'>
       <template #trigger>
         <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <title>search</title>

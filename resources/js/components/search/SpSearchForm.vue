@@ -29,7 +29,7 @@
                             ref="inputToFocus"
                             v-model="state.search"
                             type="text"
-                            :placeholder="search"
+                            :placeholder="t('検索する')"
                             class="my-2 mx-6 w-full py-2 pl-10 pr-10 bg-dark-1 text-white rounded-2xl"
                             @focus="result = true"
                         />
@@ -39,7 +39,7 @@
                         class="pr-4 whitespace-nowrap text-f5 text-[14px]"
                         @click="reset()"
                     >
-                        キャンセル
+                        {{ t("キャンセル") }}
                     </button>
                 </div>
 
@@ -75,14 +75,14 @@
                     v-if="state.search.length > 1 && filter.length === 0"
                     class="text-ddd"
                 >
-                    {{ zero }}
+                    {{ t("検索結果がありません") }}
                 </div>
 
                 <div
                     class="flex justify-center text-gray text-base py-8"
                     @click="show = false"
                 >
-                    閉じる
+                    {{ t("閉じる") }}
                 </div>
             </div>
         </div>
@@ -92,14 +92,6 @@
 export default {
     props: {
         lang: {
-            type: String,
-            default: "",
-        },
-        search: {
-            type: String,
-            default: "",
-        },
-        zero: {
             type: String,
             default: "",
         },

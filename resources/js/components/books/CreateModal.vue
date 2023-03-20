@@ -32,7 +32,9 @@ const open = ref(false);
                     stroke-linejoin="round"
                 />
             </svg>
-            <span class="tooltip-item right-[-40px]">新しく作品を投稿する</span>
+            <span class="tooltip-item right-[-40px]">{{
+                t("新しく作品を投稿する")
+            }}</span>
         </div>
         <transition name="modal" appear>
             <div v-show="open" class="overlay" @click.self="open = false">
@@ -50,7 +52,7 @@ const open = ref(false);
                                 ></path>
                             </svg>
                         </button>
-                        <div class="title">新しく作品を投稿する</div>
+                        <div class="title">{{ t("新しく作品を投稿する") }}</div>
                     </div>
                     <div
                         class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll scroll-none"
@@ -79,15 +81,6 @@ const open = ref(false);
 }
 
 @keyframes bounce-in {
-    // 0% {
-    //   transform: scale(0);
-    // }
-    // 50% {
-    //   transform: scale(1.1);
-    // }
-    // 100% {
-    //   transform: scale(1);
-    // }
     0% {
         transform: translateY(30px);
         opacity: 0;

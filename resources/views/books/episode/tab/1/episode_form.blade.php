@@ -106,7 +106,7 @@
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('読者さんへの一言') }}</h3>
   <textarea name="short_from_author" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
-    placeholder="投稿できるのは400文字までです" maxlength="400" value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
+    placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400" value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>
     <span>/400</span>

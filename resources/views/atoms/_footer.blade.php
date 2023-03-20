@@ -1,6 +1,3 @@
-{{-- <div class="w-full h-[550px] bg-eee dark:bg-dark-1 flex items-center justify-center text-2xl">
-    フッター
-</div> --}}
 <footer class="w-full mb-16 md:mb-0 bg-f8 dark:bg-dark-1 py-8 md:py-16 text-[#7c7c7c] dark:text-[#939599]">
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row pb-8 md:pb-12 px-8 md:px-0 border-b border-[#7c7c7c]">
     <div class="md:w-2/5 flex flex-col items-start">
@@ -129,7 +126,7 @@
                   type="text" name="body" maxlength="400" required></textarea>
                 <div class="mb-4 text-right">
                   <span class="string_count_7">0</span>
-                  <span>/400文字</span>
+                  <span>/400</span>
                 </div>
 
                 <div class="relative">

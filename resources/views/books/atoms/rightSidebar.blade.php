@@ -46,31 +46,31 @@
         @elseif($book->lang === 'en')
           <a href="" class="hover:text-primary">英語</a>
         @elseif($book->lang === 'tw')
-          <a href="" class="hover:text-primary">繁体字</a>
+          <a href="" class="hover:text-primary">繁體中文</a>
         @elseif($book->lang === 'cn')
-          <a href="" class="hover:text-primary">簡体字</a>
+          <a href="" class="hover:text-primary">簡体中文</a>
         @elseif($book->lang === 'es')
-          <a href="" class="hover:text-primary">スペイン語</a>
+          <a href="" class="hover:text-primary">Español</a>
         @elseif($book->lang === 'fr')
-          <a href="" class="hover:text-primary">フランス語</a>
+          <a href="" class="hover:text-primary">Français</a>
         @elseif($book->lang === 'it')
-          <a href="" class="hover:text-primary">イタリア語</a>
+          <a href="" class="hover:text-primary">Italiano</a>
         @elseif($book->lang === 'id')
-          <a href="" class="hover:text-primary">インドネシア語</a>
+          <a href="" class="hover:text-primary">Bahasa Indonesia</a>
         @elseif($book->lang === 'th')
-          <a href="" class="hover:text-primary">タイ語</a>
+          <a href="" class="hover:text-primary">ภาษาไทย</a>
         @elseif($book->lang === 'ko')
-          <a href="" class="hover:text-primary">韓国語</a>
+          <a href="" class="hover:text-primary">한국어</a>
         @elseif($book->lang === 'hi')
-          <a href="" class="hover:text-primary">ヒンディー語</a>
+          <a href="" class="hover:text-primary">हिन्दी</a>
         @elseif($book->lang === 'ar')
-          <a href="" class="hover:text-primary">アラビア語</a>
+          <a href="" class="hover:text-primary">العربية</a>
         @elseif($book->lang === 'pr')
-          <a href="" class="hover:text-primary">ポルトガル語</a>
+          <a href="" class="hover:text-primary">Português</a>
         @elseif($book->lang === 'bn')
-          <a href="" class="hover:text-primary">ベンガル語</a>
+          <a href="" class="hover:text-primary">বাংলা</a>
         @elseif($book->lang === 'de')
-          <a href="" class="hover:text-primary">ドイツ語</a>
+          <a href="" class="hover:text-primary">Deutsch</a>
         @endif
       </div>
     </div>

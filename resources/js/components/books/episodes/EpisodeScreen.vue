@@ -20,7 +20,7 @@
                 >
                     <div v-if="episode.short_from_author" class="mb-10">
                         <h3 class="text-lg font-semibold">
-                            マンガ家さんからの一言
+                            {{ t("クリエイターさんからの一言") }}
                         </h3>
                         <div class="mt-4">
                             <div class="flex items-center mb-4">
@@ -72,17 +72,21 @@
                             class="btn-primary text-center py-4 cursor-pointer"
                             @click="locale_next"
                         >
-                            次のエピソードを読む
+                            {{ t("次のエピソードを読む") }}
                         </div>
                         <div v-else class="mt-8 mb-4">
-                            このエピソードは最新話です。次回作を楽しみにしてね！
+                            {{
+                                t(
+                                    "このエピソードは最新話です。次回作を楽しみにしてね！"
+                                )
+                            }}
                         </div>
                         <div
                             v-if="episode.number > 1"
                             class="text-primary mt-4 cursor-pointer"
                             @click="locale_prev"
                         >
-                            前のエピソードを読む
+                            {{ t("前のエピソードを読む") }}
                         </div>
                     </div>
                 </div>
@@ -90,10 +94,10 @@
                     class="min-w-[800px] max-w-[800px] bg-white dark:bg-dark p-10 mx-auto"
                 >
                     <div class="mb-8">
-                        <h3 class="text-lg">関連作品</h3>
+                        <h3 class="text-lg">{{ t("関連作品") }}</h3>
                     </div>
                     <div class="">
-                        <h3 class="text-lg">広告</h3>
+                        <h3 class="text-lg">{{ t("広告") }}</h3>
                     </div>
                 </div>
             </div>
@@ -135,10 +139,10 @@
                         class="min-w-[35%] max-w-[35%] bg-white dark:bg-dark-1 p-10"
                     >
                         <div class="mb-8">
-                            <h3 class="text-lg">関連作品</h3>
+                            <h3 class="text-lg">{{ t("関連作品") }}</h3>
                         </div>
                         <div class="">
-                            <h3 class="text-lg">広告</h3>
+                            <h3 class="text-lg">{{ t("広告") }}</h3>
                         </div>
                     </div>
                     <div
@@ -146,7 +150,7 @@
                     >
                         <div v-if="episode.short_from_author" class="mb-10">
                             <h3 class="text-lg font-semibold">
-                                マンガ家さんからの一言
+                                {{ t("クリエイターさんからの一言") }}
                             </h3>
                             <div class="mt-4">
                                 <div class="flex items-center mb-4">
@@ -198,17 +202,21 @@
                                 class="btn-primary text-center py-4 cursor-pointer"
                                 @click="locale_next"
                             >
-                                次のエピソードを読む
+                                {{ t("次のエピソードを読む") }}
                             </div>
                             <div v-else class="mt-8 mb-4">
-                                このエピソードは最新話です。次回作を楽しみにしてね！
+                                {{
+                                    t(
+                                        "このエピソードは最新話です。次回作を楽しみにしてね！"
+                                    )
+                                }}
                             </div>
                             <div
                                 v-if="episode.number > 1"
                                 class="text-primary mt-4 cursor-pointer"
                                 @click="locale_prev"
                             >
-                                前のエピソードを読む
+                                {{ t("前のエピソードを読む") }}
                             </div>
                         </div>
                     </div>
@@ -262,14 +270,14 @@
                     <span class="max-w-[100px] truncate pr-2">{{
                         book.title
                     }}</span>
-                    {{ episode.number }}話
+                    {{ episode.number }}{{ t("話") }}
 
                     <!-- コメント -->
                     <div
                         class="ml-4 p-3 flex items-center cursor-pointer"
                         @click="comment_menu = !comment_menu"
                     >
-                        コメント
+                        {{ t("コメント") }}
                         <div class="text-white text-xs ml-1 font-extralight">
                             ({{ commentCounts }})
                         </div>
@@ -315,7 +323,7 @@
                                 />
                             </g>
                         </svg>
-                        <span class="pl-2">拡大</span>
+                        <span class="pl-2">{{ t("拡大") }}</span>
                     </div>
                     <div
                         v-if="fullScreen"
@@ -345,7 +353,7 @@
                                 />
                             </g>
                         </svg>
-                        <span class="pl-2">通常</span>
+                        <span class="pl-2">{{ t("通常") }}</span>
                     </div>
                 </div>
 
@@ -370,7 +378,7 @@
                                 d="M15.75 19.5L8.25 12l7.5-7.5"
                             />
                         </svg>
-                        次話
+                        {{ t("次話") }}
                     </div>
 
                     <!-- 前の話 -->
@@ -379,7 +387,7 @@
                         class="p-3 flex items-center cursor-pointer"
                         @click="locale_prev"
                     >
-                        前話
+                        {{ t("前話") }}
                         <svg
                             fill="none"
                             viewBox="0 0 24 24"
@@ -417,7 +425,7 @@
                                 </svg>
                             </button>
                             <div class="title">
-                                この作品には続きがあります！
+                                {{ t("この作品には続きがあります！") }}
                             </div>
                         </div>
                         <div
@@ -427,14 +435,14 @@
                                 class="btn-primary text-center py-4 cursor-pointer"
                                 @click="locale_next"
                             >
-                                このまま次のエピソードを読む
+                                {{ t("このまま次のエピソードを読む") }}
                             </div>
                             <div
                                 v-if="episode.number > 1"
                                 class="text-primary text-center mt-4 cursor-pointer"
                                 @click="locale_prev"
                             >
-                                ひとつ前のエピソードを読む
+                                {{ t("ひとつ前のエピソードを読む") }}
                             </div>
                         </div>
                     </div>
@@ -630,10 +638,12 @@
                     >
                         <!-- エピソード 話数、タイトル -->
                         <div class="truncate p-3">
-                            {{ episode.number }}話
+                            {{ episode.number }}{{ t("話") }}
 
                             <span class="px-2"
-                                >コメント（{{ commentCounts }}）</span
+                                >{{ t("コメント") }}（{{
+                                    commentCounts
+                                }}）</span
                             >
                         </div>
 
@@ -674,7 +684,7 @@
                                     d="M15.75 19.5L8.25 12l7.5-7.5"
                                 />
                             </svg>
-                            <div class="hidden lg:block">閉じる</div>
+                            <div class="hidden lg:block">{{ t("閉じる") }}</div>
                         </div>
 
                         <div class="flex items-center text-white">
@@ -697,7 +707,7 @@
                                         d="M15.75 19.5L8.25 12l7.5-7.5"
                                     />
                                 </svg>
-                                次話
+                                {{ t("次話") }}
                             </div>
 
                             <!-- 前の話 -->
@@ -706,7 +716,7 @@
                                 class="p-3 flex items-center"
                                 @click="locale_prev"
                             >
-                                前話
+                                {{ t("前話") }}
                                 <svg
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -733,9 +743,8 @@
             ref="policy"
             class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-semibold py-12 lg:py-20 px-4 flex items-center justify-center"
         >
-            作品保護のため<br />
-            このページの画面操作はできません<br />
-            ページをリロードしてください
+            {{ t("作品保護のため、このページの画面操作はできません") }}
+            {{ t("ページをリロードしてください") }}
         </div>
     </div>
 </template>

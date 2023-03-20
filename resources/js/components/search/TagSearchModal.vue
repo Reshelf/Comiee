@@ -56,7 +56,7 @@ onMounted(() => {
                         <input
                             v-model="state.search"
                             type="text"
-                            placeholder="検索"
+                            :placeholder="t('検索')"
                             class="py-2 px-4 border w-full border-bbb rounded dark:bg-dark-1 dark:border-dark"
                             @focus="open = true"
                         />
@@ -86,15 +86,6 @@ onMounted(() => {
     animation: slide-in 0.3s;
 }
 @keyframes bounce-in {
-    // 0% {
-    //   transform: scale(0);
-    // }
-    // 50% {
-    //   transform: scale(1.1);
-    // }
-    // 100% {
-    //   transform: scale(1);
-    // }
     0% {
         transform: translateY(30px);
         opacity: 0;
