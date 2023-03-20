@@ -7,6 +7,7 @@
   $light = __('ライトモードにする');
 @endphp
 
+
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 

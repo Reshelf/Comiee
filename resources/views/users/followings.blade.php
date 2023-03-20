@@ -2,6 +2,15 @@
 
 @section('title', $user->name . __('さんのフォロー'))
 
+@php
+  $content = $user->name . __('さんのフォロー');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
+
 @section('content')
   @include('atoms._nav', ['tab' => 0])
   <div class="">

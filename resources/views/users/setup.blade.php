@@ -1,6 +1,15 @@
 @extends('app')
 
-@section('title', $user->name . __('さんのフォロワー'))
+@section('title', __('アカウント登録が正常に完了しました。'))
+
+@php
+  $content = __('アカウント登録が正常に完了しました。');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
 
 @section('content')
   @include('atoms._nav', ['tab' => 0])
