@@ -85,7 +85,7 @@
                 </template>
             </div>
         </template>
-        <template v-else>
+        <template v-if="filteredManga">
             <div class="p-4">{{ t("表示する作品がまだありません") }}</div>
         </template>
     </div>
@@ -126,12 +126,16 @@ export default {
     },
     computed: {
         filteredManga() {
-            return this.books.filter((book) => this.applyFilters(book));
+            return this.books.filter((book) => {
+                // 非公開作品の除外
+                if (book.is_hidden && this.authUser.id !== this.bookUser.id) {
+                    return false;
+                }
+                return this.applyFilters(book);
+            });
         },
         shouldShowHiddenFilter() {
-            return this.books.some(
-                (book) => this.authUser.id === this.bookUser.id
-            );
+            return this.authUser.id === this.bookUser.id;
         },
     },
     methods: {
