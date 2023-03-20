@@ -2,6 +2,15 @@
 
 @section('title', '利用規約')
 
+@php
+  $content = __('Comiee（コミー）の利用規約ページでは、本サービスを利用する際に遵守すべきルールや条件について説明しています。Comieeは、マンガのクリエイターが安全に作品を投稿し、読者が楽しんでサポートできるオンラインプラットフォームです。利用規約には、著作権保護、免責事項、禁止事項、アカウントの取り扱い、個人情報保護方針など、利用者の権利と責任に関する重要な情報が含まれています。利用者は、Comieeを利用する前に、これらの規約をよく理解し、同意する必要があります。このページでは、サービスの適切な利用方法や、問題が発生した場合の対処法なども明確に説明しています。');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
+
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 

@@ -2,6 +2,15 @@
 
 @section('title', __('会社概要（運営会社）'))
 
+@php
+  $content = __('Comiee（コミー）の会社概要ページでは、弊社の基本情報やビジョン、経営方針、組織構成、沿革などについて紹介しています。私たちは、創作活動をサポートするために安全で便利なオンラインマンガプラットフォームを提供し、クリエイターや読者と共に業界の発展に貢献していくことを目指しています。会社概要ページでは、私たちがどのような取り組みを行っているのか、事業内容や今後の展望についても詳しく説明しております。');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
+
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 

@@ -2,6 +2,15 @@
 
 @section('title', 'プライバシーポリシー')
 
+@php
+  $content = __('Comiee（コミー）のプライバシーポリシーでは、個人情報の取り扱いに関する基本方針や適用範囲、収集する情報の種類、利用目的、第三者への提供、個人情報の管理・保護、クッキー・アクセス解析ツールの利用、本ポリシーの変更手続きなどを明確に説明しています。Comieeは、利用者のプライバシーを尊重し、適切な法律および規制に従って個人情報を保護・管理することを重要視しています。本ポリシーは、利用者がサービスを安心して利用できる環境を提供するためのものです。');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
+
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 

@@ -1,5 +1,15 @@
 @extends('app')
 @section('title', __('ご利用ガイド'))
+
+@php
+  $content = __('Comiee（コミー）のご利用ガイドページでは、クリエイターと読者が本サービスを効果的に利用するためのヒントや手順について説明しています。ガイドは、作品の投稿方法、プロフィールの設定、作品の検索や閲覧方法、お気に入りの作品やクリエイターのフォロー、フィードバックやサポートの方法など、Comieeでの活動を円滑に進めるための情報を提供します。また、サービスの機能や最適な利用方法についても触れています。このページは、Comieeを始めて利用する方にもわかりやすく、効果的なサービス利用のための貴重なリソースとなります。');
+@endphp
+@section('description')
+  <meta name="description" itemprop="description" content="{{ $content }}">
+  <meta property="og:description" content="{{ $content }}">
+  <meta name="twitter:description" content="{{ $content }}">
+@endsection
+
 @section('content')
   @include('atoms._help_nav')
   <div class="w-full bg-f8 dark:bg-dark p-8">
