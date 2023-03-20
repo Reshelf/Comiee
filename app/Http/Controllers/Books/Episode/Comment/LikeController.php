@@ -21,12 +21,12 @@ class LikeController extends Controller
     |--------------------------------------------------------------------------
     | コメントにいいね
     |--------------------------------------------------------------------------
-    */
+     */
     public function __invoke(Request $request)
     {
         $comment = Comment::find($request->comment);
 
-        // 作者以外のユーザー
+        // クリエイター以外のユーザー
         if ($comment->user->id !== $request->user()->id) {
             $comment->likes()->detach($request->user()->id);
             $comment->likes()->attach($request->user()->id);

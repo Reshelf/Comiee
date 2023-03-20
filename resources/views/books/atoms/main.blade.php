@@ -133,7 +133,7 @@
           </div>
         </a>
 
-        {{-- 作者欄 --}}
+        {{-- クリエイター欄 --}}
         @if (Auth::id() === $book->user_id)
           <episode-list>
             <template #trigger>

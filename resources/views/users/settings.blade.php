@@ -143,7 +143,7 @@
                           stroke-linejoin="round" />
                       </svg>
                     </span>
-                    <span class="light-checkbox-LabelText">{{ __('あなたがフォローしている作者が作品を投稿したときに通知をします') }}</span>
+                    <span class="light-checkbox-LabelText">{{ __('あなたがフォローしているクリエイターが作品を投稿したときに通知をします') }}</span>
                   </label>
 
                   <label class="light-checkbox mt-8">

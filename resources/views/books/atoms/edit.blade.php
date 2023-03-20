@@ -1,4 +1,4 @@
-{{-- 作者だったら --}}
+{{-- クリエイターだったら --}}
 <div class="mt-6 px-2 w-full">
   <book-edit-modal>
     <template #trigger>{{ __('作品の設定を編集する') }}</template>

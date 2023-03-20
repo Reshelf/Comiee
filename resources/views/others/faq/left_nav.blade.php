@@ -24,7 +24,7 @@
   </div>
 
   <div class="">
-    <h3 class="text-xs mb-4 cursor-default">{{ __('作者の方からよくあるご質問') }}</h3>
+    <h3 class="text-xs mb-4 cursor-default">{{ __('クリエイターの方からよくあるご質問') }}</h3>
     <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 5]) }}"
       class="{{ $faq_number == 5 ? 'font-semibold border-l-4' : 'hover:text-primary dark:hover:text-ddd' }} pl-4 py-2 mb-2 block">
       {{ __('作品の投稿について') }}</a>

@@ -11,7 +11,7 @@
   {{-- 原作 --}}
   @empty(!$book->user->name)
     <div class="w-full flex items-center mb-4 pl-2">
-      <div class="w-1/2">{{ __('作者') }}</div>
+      <div class="w-1/2">{{ __('クリエイター') }}</div>
       <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $book->user->username]) }}"
         class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
     </div>

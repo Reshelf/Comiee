@@ -36,7 +36,7 @@ return new class extends Migration
             $table->text('body', 200)->nullable();
             $table->string('password')->nullable();
 
-            $table->boolean('m_notice_1')->default(1)->comment('フォローしている作者が作品を投稿したときのメール通知フラグ');
+            $table->boolean('m_notice_1')->default(1)->comment('フォローしているクリエイターが作品を投稿したときのメール通知フラグ');
             $table->boolean('m_notice_2')->default(1)->comment('ユーザーにフォローされたときの通知フラグ');
             $table->boolean('m_notice_3')->default(1)->comment('作品がお気に入りに登録されたときの通知フラグ');
             $table->boolean('m_notice_4')->default(1)->comment('お気に入り作品の新着エピソードが公開されたときの通知フラグ');

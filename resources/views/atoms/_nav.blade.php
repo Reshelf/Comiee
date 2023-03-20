@@ -1,5 +1,5 @@
 @php
-  $search = __('作品名、作者で調べる');
+  $search = __('作品名、クリエイターで調べる');
 @endphp
 <div class="bg-white dark:bg-dark w-full flex-none">
   <div class="max-w-8xl mx-auto">
