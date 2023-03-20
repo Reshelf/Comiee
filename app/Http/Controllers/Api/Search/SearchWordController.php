@@ -31,6 +31,7 @@ class SearchWordController extends Controller
                 ->whereHas('user', function ($q) {
                     $q->whereNull('deleted_at');
                 })
+                ->where('is_hidden', false) // 非公開の作品を除外
                 ->get()
                 ->map(function ($book) {
                     return [
