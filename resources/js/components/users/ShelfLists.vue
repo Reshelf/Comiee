@@ -190,7 +190,7 @@
                                                     {{ t("画面タイプ") }}
                                                 </option>
                                                 <option value="horizontal">
-                                                    {{ __("横読み") }}
+                                                    {{ t("横読み") }}
                                                 </option>
                                                 <option value="vertical">
                                                     {{ t("縦スクロール") }}
@@ -236,7 +236,7 @@
                                                 is_all_charge = !is_all_charge
                                             "
                                         >
-                                            {{ __("全話無料") }}
+                                            {{ t("全話無料") }}
                                         </div>
 
                                         <!-- 今日の新作 -->
