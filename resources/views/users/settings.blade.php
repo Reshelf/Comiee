@@ -18,11 +18,11 @@
   @if (Auth::id() === $user->id)
     <div class="flex max-w-6xl w-full mx-auto px-8 md:px-0 justify-center mb-8">
       <div class="w-full lg:mt-4 lg:mx-12">
-        <h3 class="text-2xl font-semibold py-4 block lg:hidden">{{ __('設定') }}</h3>
+        <h3 class="text-2xl font-bold py-4 block lg:hidden">{{ __('設定') }}</h3>
         <div class="w-full lg:my-4 flex">
           <div class="setting-tab">
             <ul class="tabMenu scroll-none sticky top-0 lg:h-[400px] lg:min-w-[200px]">
-              <h3 class="text-2xl dark:text-f5 font-semibold py-4 hidden lg:block">{{ __('設定') }}</h3>
+              <h3 class="text-2xl dark:text-f5 font-bold py-4 hidden lg:block">{{ __('設定') }}</h3>
 
               <a href="#mail-notification"
                 class="mr-2 mb-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
@@ -131,7 +131,7 @@
                   @csrf
                   @method('PATCH')
 
-                  <h3 class="mb-8 mt-4 text-base dark:text-ddd font-semibold">
+                  <h3 class="mb-8 mt-4 text-base dark:text-ddd font-bold">
                     {{ __('フォロー') }}</h3>
                   <label class="light-checkbox mt-8">
                     <input type="checkbox" name="m1" value="m1"
@@ -159,7 +159,7 @@
                     <span class="light-checkbox-LabelText">{{ __('あなたがユーザーにフォローされたときに通知をします') }}</span>
                   </label>
 
-                  <h3 class="my-8 text-base dark:text-ddd font-semibold">{{ __('お気に入り') }}</h3>
+                  <h3 class="my-8 text-base dark:text-ddd font-bold">{{ __('お気に入り') }}</h3>
                   <label class="light-checkbox">
                     <input type="checkbox" name="m3" value="m3"
                       @if ($user->m_notice_3 === 1) checked @endif class="light-checkbox-Input">
@@ -185,7 +185,7 @@
                     <span class="light-checkbox-LabelText">{{ __('あなたのお気に入り作品の新着エピソードが公開されたときに通知をします') }}</span>
                   </label>
 
-                  <h3 class="my-8 text-base dark:text-ddd font-semibold">{{ __('購入') }}</h3>
+                  <h3 class="my-8 text-base dark:text-ddd font-bold">{{ __('購入') }}</h3>
 
                   <label class="light-checkbox mt-8">
                     <input type="checkbox" name="m5" value="m5"
@@ -200,7 +200,7 @@
                     <span class="light-checkbox-LabelText">{{ __('あなたの作品エピソードが購入されたときに通知をします') }}</span>
                   </label>
 
-                  <h3 class="my-8 text-base dark:text-ddd font-semibold">NEWS</h3>
+                  <h3 class="my-8 text-base dark:text-ddd font-bold">NEWS</h3>
 
                   <label class="light-checkbox mt-8">
                     <input type="checkbox" name="m6" value="m6"
@@ -226,7 +226,7 @@
               {{-- 外観 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="site-display">
                 <div class="my-4">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('外観') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('外観') }}</h3>
                   <div class="mt-4">
                     <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
                   </div>
@@ -236,7 +236,7 @@
               {{-- 表示言語 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="site-lang">
                 <div class="my-4">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('表示言語') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('表示言語') }}</h3>
                   <div class="mt-4">
                     <div class="mb-4">
                       <span class="mr-4">{{ __('現在の言語') }} : </span>
@@ -311,7 +311,7 @@
               {{-- 出版契約 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="contract">
                 <div class="my-4">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('出版契約') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('出版契約') }}</h3>
                   <div class="my-4">
                     {{ __('作品を有料化するには、作品毎に当サービスと出版契約書を締結する必要があります。') }}<br>
                     {{ __('以下のボタンから契約書をダウンロードをして記入の上、この作品の契約書を送信してください。') }} <br>
@@ -323,7 +323,7 @@
                       class="btn-border inline-block mt-4">{{ __('出版契約書を送信する') }}</a>
                   </div>
                   <div class="flex mt-8">
-                    <div class="pr-12 font-semibold">
+                    <div class="pr-12 font-bold">
                       契約中の作品
                     </div>
                     <div class="flex flex-col ">
@@ -344,7 +344,7 @@
               {{-- 収益受け取りの準備 --}}
               <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="earnings">
                 <div class="mt-4 mb-8">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('収益受け取りの準備') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('収益受け取りの準備') }}</h3>
                   <div class="mt-6">
                     @if (empty(Auth::user()->stripe_user_id))
                       <p class="mb-6">
@@ -361,7 +361,7 @@
                       </div>
                     @else
                       <div
-                        class="text-green bg-green bg-opacity-10 font-semibold rounded p-4 inline-flex items-center max-w-6xl mx-auto">
+                        class="text-green bg-green bg-opacity-10 font-bold rounded p-4 inline-flex items-center max-w-6xl mx-auto">
                         <svg class="mr-2 w-[20px] h-[20px] fill-green" viewBox="0 0 20 20" fill="none">
                           <title>stripe connect success</title>
                           <path
@@ -372,7 +372,7 @@
                     @endif
                   </div>
 
-                  <h3 class="text-base dark:text-ddd font-semibold mt-12">{{ __('収益について') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold mt-12">{{ __('収益について') }}</h3>
                   <div class="mt-4">
                     {{ __('日本時間の毎週金曜日0時に、4営業日前までに購入処理が完了した分の売上が入金されます。') }}<br>
                     詳しくは <a href="/{{ app()->getLocale() . '/terms_of_service' . '#sales_and_author_profit' }}"
@@ -385,7 +385,7 @@
 
                 {{-- ログアウト --}}
                 <div class="mt-4 mb-8">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('アカウントをログアウト') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('アカウントをログアウト') }}</h3>
                   <div class="mt-6">
                     <form id="logout-button" method="POST" action="{{ route('logout', app()->getLocale()) }}">
                       @csrf
@@ -398,7 +398,7 @@
 
                 {{-- アカウントの削除 --}}
                 <div class="mt-4 mb-8">
-                  <h3 class="text-base dark:text-ddd font-semibold">{{ __('アカウントの削除') }}</h3>
+                  <h3 class="text-base dark:text-ddd font-bold">{{ __('アカウントの削除') }}</h3>
                   <div class="mt-6">
                     <div class="relative inline-block">
                       <delete-modal>

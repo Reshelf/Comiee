@@ -74,7 +74,7 @@ function reset() {
                 v-model="state.search"
                 type="text"
                 :placeholder="search"
-                class="p-3 md:pl-12 md:pr-8 bg-[#F0F3F4] dark:bg-dark-1"
+                class="search-form-input"
                 @focus="open = true"
             />
         </div>
@@ -140,3 +140,12 @@ function reset() {
         </div>
     </div>
 </template>
+<style lang="scss" scoped>
+.search-form-input {
+    @apply p-3 md:pl-12 md:pr-8 bg-[#F0F3F4] dark:bg-dark-1 focus:bg-white transition-all;
+    &:focus {
+        box-shadow: 0 1px 2px 0 rgba(48, 48, 48, 0.3),
+            0 1px 3px 1px rgba(48, 48, 48, 0.15);
+    }
+}
+</style>

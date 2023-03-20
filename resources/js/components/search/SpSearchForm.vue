@@ -10,7 +10,7 @@
                 <div class="flex items-center w-full">
                     <!-- 検索ボックス -->
                     <div class="flex items-center w-full">
-                        <div class="text-gray absolute pl-5 py-2 flex-shrink-0">
+                        <div class="text-gray absolute pl-8 py-2 flex-shrink-0">
                             <svg
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -30,19 +30,17 @@
                             v-model="state.search"
                             type="text"
                             :placeholder="search"
-                            class="m-2 w-full py-2 pl-10 pr-10 bg-dark-1 text-white rounded-2xl"
+                            class="my-2 mx-6 w-full py-2 pl-10 pr-10 bg-dark-1 text-white rounded-2xl"
                             @focus="result = true"
                         />
                     </div>
-                    <transition name="modal" appear>
-                        <button
-                            v-show="result && state.search.length > 0"
-                            class="px-4 whitespace-nowrap text-f5 text-[14px]"
-                            @click="reset()"
-                        >
-                            キャンセル
-                        </button>
-                    </transition>
+                    <button
+                        v-show="result && state.search.length > 0"
+                        class="pr-4 whitespace-nowrap text-f5 text-[14px]"
+                        @click="reset()"
+                    >
+                        キャンセル
+                    </button>
                 </div>
 
                 <div
@@ -75,13 +73,13 @@
 
                 <div
                     v-if="state.search.length > 1 && filter.length === 0"
-                    class="text-[14px]"
+                    class="text-ddd"
                 >
                     {{ zero }}
                 </div>
 
                 <div
-                    class="flex justify-center text-gray text-[14px] py-8"
+                    class="flex justify-center text-gray text-base py-8"
                     @click="show = false"
                 >
                     閉じる
