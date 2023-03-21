@@ -43,32 +43,19 @@ Route::get('/', function (Request $request) {
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->group(function () {
 
-    /*
-    |--------------------------------------------------------------------------
-    | 検索
-    |--------------------------------------------------------------------------
-    |
-     */
-    Route::view('/', 'index')->name('top'); // トップページ
+    // トップページ
+    Route::view('/', 'index')->name('top');
 
     // タグ検索
     Route::get('/tags/{name}', 'App\Http\Controllers\Search\TagController')->name('search.tag_name');
-    Route::middleware(['verified', 'auth'])->group(function () {
-        // お気に入り
-        Route::get('/shelf', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.like');
-        Route::get('/shelf/purchase_history', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.purchase');
-        Route::get('/shelf/view_history', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.view');
-        // 購入
-        Route::get('/payment', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.loading');
-        Route::post('/payment/create/product', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.create');
-    });
 
-    /*
-    |--------------------------------------------------------------------------
-    | その他
-    |--------------------------------------------------------------------------
-    |
-     */
+    // 本棚
+    Route::get('/shelf', 'App\Http\Controllers\User\ShelfController')->name('user.shelf.like');
+
+    // 購入
+    Route::get('/payment', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.loading');
+    Route::post('/payment/create/product', 'App\Http\Controllers\Stripe\PaymentCreateController')->name('stripe.payment.create');
+
     Route::view('/about/comiee', 'others.about_comiee')->name('others.about.comiee'); // Comieeについて
     Route::view('/company', 'others.company')->name('others.company'); // 会社概要
     Route::view('/user_guide', 'others.user_guide')->name('others.user_guide'); // ご利用ガイド
@@ -132,6 +119,5 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->
     Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsController')->name('users.followings');
     Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('users.followers');
     Route::delete('/{username}/delete', 'App\Http\Controllers\User\DestroyController')->name('users.delete');
-    // セットアップ
     Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
 });
