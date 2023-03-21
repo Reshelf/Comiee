@@ -243,7 +243,7 @@
                       @if (App::getLocale() == 'ja')
                         日本語
                       @elseif(App::getLocale() == 'en')
-                        英語
+                        English
                       @elseif(App::getLocale() == 'tw')
                         繁體中文
                       @elseif(App::getLocale() == 'cn')
@@ -272,7 +272,7 @@
                         <label for="ja" class="mb-4 mr-4">日本語</label>
                         <input type="radio" name="lang" class="visually-hidden" id="en" value="en"
                           @if (App::getLocale() == 'en') checked @endif />
-                        <label for="en" class="mb-4 mr-4">英語</label>
+                        <label for="en" class="mb-4 mr-4">English</label>
                         <input type="radio" name="lang" class="visually-hidden" id="tw" value="tw"
                           @if (App::getLocale() == 'tw') checked @endif />
                         <label for="tw" class="mb-4 mr-4">繁體中文</label>

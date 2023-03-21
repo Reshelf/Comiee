@@ -44,7 +44,7 @@
         @if ($book->lang === 'ja')
           <a href="" class="hover:text-primary">日本語</a>
         @elseif($book->lang === 'en')
-          <a href="" class="hover:text-primary">英語</a>
+          <a href="" class="hover:text-primary">English</a>
         @elseif($book->lang === 'tw')
           <a href="" class="hover:text-primary">繁體中文</a>
         @elseif($book->lang === 'cn')

@@ -10,7 +10,7 @@
                     <select v-model="language" class="select-menu">
                         <option value="">{{ t("作品の言語") }}</option>
                         <option value="ja">日本語</option>
-                        <option value="en">英語</option>
+                        <option value="en">English</option>
                         <option value="tw">繁體中文</option>
                         <option value="cn">中国語</option>
                         <option value="es">Español</option>

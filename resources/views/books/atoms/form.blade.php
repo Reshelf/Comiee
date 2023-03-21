@@ -173,7 +173,7 @@
       日本語</option>
     <option type="text" value="en"
       @isset($book->lang) @if ('en' === old('lang', $book->lang)) selected @endif @endisset>
-      英語</option>
+      English</option>
     <option type="text" value="tw"
       @isset($book->lang) @if ('tw' === old('lang', $book->lang)) selected @endif @endisset>
       繁體中文</option>
