@@ -29,10 +29,6 @@ const props = defineProps({
         type: String,
         default: "",
     },
-    search: {
-        type: String,
-        default: "",
-    },
 });
 
 const getData = async () => {
@@ -73,7 +69,7 @@ function reset() {
                 ref="anyName"
                 v-model="state.search"
                 type="text"
-                :placeholder="search"
+                :placeholder="t('作品名、クリエイターで調べる')"
                 class="search-form-input"
                 @focus="open = true"
             />

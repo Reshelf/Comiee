@@ -324,7 +324,7 @@
                   </div>
                   <div class="flex mt-8">
                     <div class="pr-12 font-bold">
-                      契約中の作品
+                      {{ __('契約中の作品') }}
                     </div>
                     <div class="flex flex-col ">
                       @foreach ($user->books as $book)
