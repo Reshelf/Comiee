@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-// use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,7 +50,6 @@ class UpdateController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->body = $request->body;
-        $user->email = $request->email;
         $user->gender = $request->gender;
         $user->birth = $request->input('birth');
 
@@ -98,34 +96,22 @@ class UpdateController extends Controller
             $user->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
         }
 
-        $user->m_notice_1 = false;
-        $user->m_notice_2 = false;
-        $user->m_notice_3 = false;
-        $user->m_notice_4 = false;
-        $user->m_notice_5 = false;
-        $user->m_notice_6 = false;
-        if ($request->input('m1') === null) {
-            $user->m_notice_1 = true;
+        // 設定
+        for ($i = 1; $i <= 6; $i++) {
+            $user->{"m_notice_$i"} = $request->input("m$i") === null;
         }
 
-        if ($request->input('m2') === null) {
-            $user->m_notice_2 = true;
-        }
+        // メール更新の場合は確認メール
+        $oldEmail = $user->email;
+        $newEmail = $request->email;
+        if ($oldEmail !== $newEmail) {
+            $user->email = $newEmail;
+            $user->email_verified_at = null;
+            $user->save();
 
-        if ($request->input('m3') === null) {
-            $user->m_notice_3 = true;
-        }
+            event(new Registered($user));
 
-        if ($request->input('m4') === null) {
-            $user->m_notice_4 = true;
-        }
-
-        if ($request->input('m5') === null) {
-            $user->m_notice_5 = true;
-        }
-
-        if ($request->input('m6') === null) {
-            $user->m_notice_6 = true;
+            return back()->with('resent', true)->withSuccess(__("メールアドレスが更新されました！確認メールをお送りしましたので、ご確認ください。"));
         }
 
         $user->save();
