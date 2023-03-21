@@ -47,7 +47,11 @@ class ShowController extends Controller
             $user->lang = App::getLocale();
         }
 
-        $ip = ip2long($_SERVER['REMOTE_ADDR']);
+        if (getenv('APP_ENV') === 'production') {
+            $ip = $_SERVER['HTTP_CF_CONNECTING_IP']; // cloudflareを通す場合
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
         $url = file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip);
         $getInfo = json_decode($url);
         $user->country = strtolower($getInfo->geoplugin_countryCode);
