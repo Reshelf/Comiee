@@ -85,7 +85,7 @@
                 </template>
             </div>
         </template>
-        <template v-if="filteredManga">
+        <template v-if="isEmpty(filteredManga)">
             <div class="p-4">{{ t("表示する作品がまだありません") }}</div>
         </template>
     </div>
