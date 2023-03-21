@@ -48,7 +48,7 @@ function locate(item) {
     location.href = "/" + props.lang + "/books/" + item.id;
 }
 function reset() {
-    this.state.search = "";
+    state.search = "";
 }
 </script>
 <template>
