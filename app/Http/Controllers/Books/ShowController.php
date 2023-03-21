@@ -19,17 +19,10 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
-        $book = Book::where('id', $request->book_id)->first();
-
-        // 存在しない作品は404
-        if ($book === null) {
-            abort(404);
-        }
+        $book = Book::findOrFail($request->book_id);
 
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
-        $allTags = \Cache::remember("allTags", $expiresAt, function () use ($tag) {
-            return $tag->all_tag_names;
-        });
+        $allTags = $tag->all_tag_names;
 
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
