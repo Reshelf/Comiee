@@ -10,9 +10,9 @@
                     v-model="screen_type"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">{{ t('画面タイプ') }}</option>
-                    <option value="horizontal">{{ t('横読み') }}</option>
-                    <option value="vertical">{{ t('縦スクロール') }}</option>
+                    <option value="">{{ t("画面タイプ") }}</option>
+                    <option value="horizontal">{{ t("横読み") }}</option>
+                    <option value="vertical">{{ t("縦スクロール") }}</option>
                 </select>
             </div>
 
@@ -26,7 +26,7 @@
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_complete = !is_complete"
             >
-                {{ t('完結作品') }}
+                {{ t("完結作品") }}
             </div>
 
             <!-- カラー作品 -->
@@ -39,7 +39,7 @@
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_color = !is_color"
             >
-                {{ t('カラー作品') }}
+                {{ t("カラー作品") }}
             </div>
 
             <!-- 全話無料 -->
@@ -52,7 +52,7 @@
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_all_charge = !is_all_charge"
             >
-                {{ t('全話無料') }}
+                {{ t("全話無料") }}
             </div>
 
             <!-- 今日の新作 -->
@@ -65,7 +65,7 @@
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_new = !is_new"
             >
-                {{ t('今日の新作') }}
+                {{ t("今日の新作") }}
             </div>
 
             <!-- 閲覧数 -->
@@ -74,9 +74,9 @@
                     v-model="views"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">{{ t('閲覧数') }}</option>
-                    <option value="much">{{ t('多い順') }}</option>
-                    <option value="less">{{ t('少ない順') }}</option>
+                    <option value="">{{ t("閲覧数") }}</option>
+                    <option value="much">{{ t("多い順") }}</option>
+                    <option value="less">{{ t("少ない順") }}</option>
                 </select>
             </div>
 
@@ -86,11 +86,11 @@
                     v-model="genre_id"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">{{ t('ジャンル') }}</option>
-                    <option value="1">{{ t('少年') }}</option>
-                    <option value="2">{{ t('青年') }}</option>
-                    <option value="3">{{ t('少女') }}</option>
-                    <option value="4">{{ t('女性') }}</option>
+                    <option value="">{{ t("ジャンル") }}</option>
+                    <option value="1">{{ t("少年") }}</option>
+                    <option value="2">{{ t("青年") }}</option>
+                    <option value="3">{{ t("少女") }}</option>
+                    <option value="4">{{ t("女性") }}</option>
                 </select>
             </div>
 
@@ -100,7 +100,7 @@
                     v-model="manga_lang"
                     class="bg-white dark:bg-transparent cursor-pointer py-1 px-2 inline-flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 >
-                    <option value="">{{ t('作品言語') }}</option>
+                    <option value="">{{ t("作品言語") }}</option>
                     <option value="ja">日本語</option>
                     <option value="en">English</option>
                     <option value="tw">繁體中文</option>
@@ -125,7 +125,7 @@
                 class="mb-4 cursor-pointer py-1 px-2 flex justify-center items-center border border-primary rounded-full mr-2 text-primary hover:bg-primary hover:bg-opacity-10 dark:text-[#8ab4f8] dark:border-[#626262]"
                 @click="is_suspend = !is_suspend"
             >
-                {{ t('休載中') }}
+                {{ t("休載中") }}
             </div>
         </div>
 
@@ -161,12 +161,12 @@
 
         <!-- ローディング -->
         <template v-if="loading && currentPage <= lastPage">
-            <div class="p-4">{{ t('取得中...') }}</div>
+            <div class="p-4">{{ t("取得中...") }}</div>
         </template>
 
         <!-- 0件 -->
         <template v-if="filteredManga.length === 0 && !loading">
-            <div class="p-4">{{ t('表示する作品がまだありません') }}</div>
+            <div class="p-4">{{ t("表示する作品がまだありません") }}</div>
         </template>
     </div>
 </template>
