@@ -17,28 +17,19 @@ Route::post('change/lang', 'App\Http\Controllers\Others\SetLocaleController')->n
 Auth::routes(['verify' => true]);
 
 Route::get('/', function (Request $request) {
-    if (Auth::check()) {
-        return redirect(app()->getLocale());
+    $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
+    $langs_val = array();
+
+    foreach ($langs as $lang) {
+        $langs_val[] = substr($lang, 0, 2);
     }
 
-    if (app()->getLocale() == null) {
-        $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
-        $path = $request->getPathInfo();
-        $langs_val = array();
+    $redirectLocale = match($langs_val[0]) {
+        'ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de' => $langs_val[0],
+    default=> 'en',
+    };
 
-        foreach ($langs as $lang) {
-            $langs_val[] = substr($lang, 0, 2);
-        }
-
-        $redirectLocale = match($langs_val[0]) {
-            'ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de' => $langs_val[0],
-        default=> 'en',
-        };
-
-        return redirect("/{$redirectLocale}{$path}");
-    }
-
-    return redirect(app()->getLocale());
+    return redirect("/{$redirectLocale}");
 });
 
 Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->group(function () {
