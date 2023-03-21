@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <template v-if="books.length > 0">
+        <template v-if="!isEmpty(books)">
             <!-- 検索条件 -->
             <div
                 class="flex lg:flex-wrap whitespace-nowrap overflow-x-scroll scroll-none items-center mb-4"
