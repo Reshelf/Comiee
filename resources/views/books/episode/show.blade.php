@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-
+  
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -32,7 +32,9 @@
   </div>
 
   {{-- エピソードスクリーン --}}
-  @if (Auth::check() && ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id))
+  @if (Auth::check() &&
+          !$book->is_hidden &&
+          ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id))
     <episode-screen :episode-count='@json($book->episodes()->count())' :episode='@json($episode)'
       :lang='@json(Auth::user()->lang)' :book='@json($book)' :comments='@json($comments)'
       :comment-counts='@json(count($comments) ?? 0)'>
