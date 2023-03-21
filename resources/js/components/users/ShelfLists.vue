@@ -637,8 +637,69 @@ export default {
             return result;
         },
     },
-    mounted() {},
-    methods: {},
+    watch: {
+        is_complete: function (newValue) {
+            this.saveFilters("is_complete", newValue);
+        },
+        is_suspend: function (newValue) {
+            this.saveFilters("is_suspend", newValue);
+        },
+        is_color: function (newValue) {
+            this.saveFilters("is_color", newValue);
+        },
+        screen_type: function (newValue) {
+            this.saveFilters("screen_type", newValue);
+        },
+        is_all_charge: function (newValue) {
+            this.saveFilters("is_all_charge", newValue);
+        },
+        is_new: function (newValue) {
+            this.saveFilters("is_new", newValue);
+        },
+        views: function (newValue) {
+            this.saveFilters("views", newValue);
+        },
+        genre_id: function (newValue) {
+            this.saveFilters("genre_id", newValue);
+        },
+        manga_lang: function (newValue) {
+            this.saveFilters("manga_lang", newValue);
+        },
+    },
+    mounted() {
+        this.loadFilters();
+    },
+    methods: {
+        saveFilters(key, value) {
+            localStorage.setItem(`manga_search_${key}`, value);
+        },
+        loadFilters() {
+            const filterKeys = [
+                "is_complete",
+                "is_suspend",
+                "is_color",
+                "screen_type",
+                "is_all_charge",
+                "is_new",
+                "views",
+                "genre_id",
+                "manga_lang",
+            ];
+
+            filterKeys.forEach((key) => {
+                const storedValue = localStorage.getItem(`manga_search_${key}`);
+
+                if (storedValue) {
+                    this[key] =
+                        storedValue === "true"
+                            ? true
+                            : storedValue === "false"
+                            ? false
+                            : storedValue;
+                }
+            });
+        },
+    },
 };
 </script>
 <style lang="scss" scoped>
