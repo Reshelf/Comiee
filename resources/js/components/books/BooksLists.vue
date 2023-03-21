@@ -249,8 +249,38 @@ export default {
             return result;
         },
     },
+    watch: {
+        is_complete: function () {
+            this.saveFilters();
+        },
+        is_suspend: function () {
+            this.saveFilters();
+        },
+        is_color: function () {
+            this.saveFilters();
+        },
+        screen_type: function () {
+            this.saveFilters();
+        },
+        is_all_charge: function () {
+            this.saveFilters();
+        },
+        is_new: function () {
+            this.saveFilters();
+        },
+        views: function () {
+            this.saveFilters();
+        },
+        genre_id: function () {
+            this.saveFilters();
+        },
+        manga_lang: function () {
+            this.saveFilters();
+        },
+    },
     mounted() {
         this.loadMore();
+        this.loadFilters();
 
         window.onscroll = () => {
             //一定位置以上スクロールされればtrueを返す
@@ -283,6 +313,59 @@ export default {
                 .finally(() => {
                     this.loading = false;
                 });
+        },
+        saveFilters() {
+            localStorage.setItem("manga_search_is_complete", this.is_complete);
+            localStorage.setItem("manga_search_is_suspend", this.is_suspend);
+            localStorage.setItem("manga_search_is_color", this.is_color);
+            localStorage.setItem("manga_search_screen_type", this.screen_type);
+            localStorage.setItem(
+                "manga_search_is_all_charge",
+                this.is_all_charge
+            );
+            localStorage.setItem("manga_search_is_new", this.is_new);
+            localStorage.setItem("manga_search_views", this.views);
+            localStorage.setItem("manga_search_genre_id", this.genre_id);
+            localStorage.setItem("manga_search_manga_lang", this.manga_lang);
+        },
+        loadFilters() {
+            if (localStorage.getItem("manga_search_is_complete")) {
+                this.is_complete =
+                    localStorage.getItem("manga_search_is_complete") === "true";
+            }
+            if (localStorage.getItem("manga_search_is_suspend")) {
+                this.is_suspend =
+                    localStorage.getItem("manga_search_is_suspend") === "true";
+            }
+            if (localStorage.getItem("manga_search_is_color")) {
+                this.is_color =
+                    localStorage.getItem("manga_search_is_color") === "true";
+            }
+            if (localStorage.getItem("manga_search_screen_type")) {
+                this.screen_type = localStorage.getItem(
+                    "manga_search_screen_type"
+                );
+            }
+            if (localStorage.getItem("manga_search_is_all_charge")) {
+                this.is_all_charge =
+                    localStorage.getItem("manga_search_is_all_charge") ===
+                    "true";
+            }
+            if (localStorage.getItem("manga_search_is_new")) {
+                this.is_new =
+                    localStorage.getItem("manga_search_is_new") === "true";
+            }
+            if (localStorage.getItem("manga_search_views")) {
+                this.views = localStorage.getItem("manga_search_views");
+            }
+            if (localStorage.getItem("manga_search_genre_id")) {
+                this.genre_id = localStorage.getItem("manga_search_genre_id");
+            }
+            if (localStorage.getItem("manga_search_manga_lang")) {
+                this.manga_lang = localStorage.getItem(
+                    "manga_search_manga_lang"
+                );
+            }
         },
     },
 };
