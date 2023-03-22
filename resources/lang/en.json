@@ -423,5 +423,12 @@
     "作品投稿後の流れ": "Flow after posting the work",
     "作品を投稿したら、続いてエピソードを追加してみましょう！": "After posting the work, let's add an episode next!",
     "プロフィールを見る": "See your profile",
+    "詳しくは <a href=\"/:1/terms_of_service#sales_and_author_profit\" class=\"text-primary\">こちら</a>": "For more information <a href=\"/:1/Terms_of_service#sales_and_author_profit\" class=\"text-primary\"> Click here </a>",
+    "トレンド\n": "trend\n",
+    "休載": "Resting",
+    "カラー": "Color",
+    "クリエイター": "creator",
+    "言語": "language",
+    "コメントを書く": "Comment",
     "": "#VALUE!"
 }

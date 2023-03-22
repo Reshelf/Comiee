@@ -423,5 +423,12 @@
     "作品投稿後の流れ": "Flux après avoir publié le travail",
     "作品を投稿したら、続いてエピソードを追加してみましょう！": "Après avoir publié le travail, ajoutons un épisode ensuite!",
     "プロフィールを見る": "Voir votre profil",
+    "詳しくは <a href=\"/:1/terms_of_service#sales_and_author_profit\" class=\"text-primary\">こちら</a>": "Pour plus d'informations, <a href=\"/:1/terms_of_service#sales_and_author_profit\" class=\"text-primary\"> Cliquez ici </a>",
+    "トレンド\n": "s'orienter\n",
+    "休載": "Repos",
+    "カラー": "Couleur",
+    "クリエイター": "créateur",
+    "言語": "langue",
+    "コメントを書く": "Commentaire",
     "": "#VALUE!"
 }
