@@ -112,6 +112,10 @@
                     <option value="th">ภาษาไทย</option>
                     <option value="ko">한국어</option>
                     <option value="de">Deutsch</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ar">العربية</option>
+                    <option value="pt">Português</option>
+                    <option value="bn">বাংলা</option>
                 </select>
             </div>
 

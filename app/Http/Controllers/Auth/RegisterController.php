@@ -62,7 +62,7 @@ class RegisterController extends Controller
         }
         $lang = $langs_val[0];
         \App::setLocale($lang);
-        if ($lang !== 'ja' && 'en' && 'tw' && 'cn' && 'es' && 'fr' && 'it' && 'id' && 'th' && 'ko' && 'de') {
+        if ($lang !== 'ja' && 'en' && 'tw' && 'cn' && 'es' && 'fr' && 'it' && 'id' && 'th' && 'ko' && 'de' && 'hi' && 'ar' && 'pt' && 'bn') {
             \App::setLocale('en');
             $lang = 'en';
         }
