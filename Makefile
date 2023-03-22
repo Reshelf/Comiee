@@ -57,7 +57,7 @@ dacapo:
 refresh:
 	./vendor/bin/sail artisan migrate:refresh
 tinker:
-	./vendor/bin/sail artisan tinker
+	php artisan tinker
 key:
 	cp .env.example .env
 	php artisan key:generate
