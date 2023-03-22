@@ -202,6 +202,12 @@
       @isset($book->lang) @if ('ko' === old('lang', $book->lang)) selected @endif @endisset>
       한국어
     </option>
+    <option type="text" value="de"
+      @isset($book->lang) @if ('de' === old('lang', $book->lang)) selected @endif @endisset>
+      Deutsch</option>
+    <option type="text" value="hi"
+      @isset($book->lang) @if ('hi' === old('lang', $book->lang)) selected @endif @endisset>
+      हिन्दी</option>
     <option type="text" value="ar"
       @isset($book->lang) @if ('ar' === old('lang', $book->lang)) selected @endif @endisset>
       العربية</option>
@@ -211,9 +217,7 @@
     <option type="text" value="bn"
       @isset($book->lang) @if ('bn' === old('lang', $book->lang)) selected @endif @endisset>
       বাংলা</option>
-    <option type="text" value="de"
-      @isset($book->lang) @if ('de' === old('lang', $book->lang)) selected @endif @endisset>
-      Deutsch</option>
+
   </select>
 </div>
 

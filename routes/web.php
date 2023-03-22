@@ -25,7 +25,7 @@ Route::get('/', function (Request $request) {
     }
 
     $redirectLocale = match($langs_val[0]) {
-        'ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de' => $langs_val[0],
+        'ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de', 'hi', 'ar', 'pt', 'bn', => $langs_val[0],
     default=> 'en',
     };
 

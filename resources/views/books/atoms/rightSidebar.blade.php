@@ -61,6 +61,8 @@
           <a href="" class="hover:text-primary">ภาษาไทย</a>
         @elseif($book->lang === 'ko')
           <a href="" class="hover:text-primary">한국어</a>
+        @elseif($book->lang === 'de')
+          <a href="" class="hover:text-primary">Deutsch</a>
         @elseif($book->lang === 'hi')
           <a href="" class="hover:text-primary">हिन्दी</a>
         @elseif($book->lang === 'ar')
@@ -69,8 +71,6 @@
           <a href="" class="hover:text-primary">Português</a>
         @elseif($book->lang === 'bn')
           <a href="" class="hover:text-primary">বাংলা</a>
-        @elseif($book->lang === 'de')
-          <a href="" class="hover:text-primary">Deutsch</a>
         @endif
       </div>
     </div>
