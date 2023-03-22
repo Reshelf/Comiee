@@ -16,22 +16,26 @@ Route::post('change/lang', 'App\Http\Controllers\Others\SetLocaleController')->n
  */
 Auth::routes(['verify' => true]);
 
+/*
+|--------------------------------------------------------------------------
+| 言語未設定ユーザーのリダイレクト
+|--------------------------------------------------------------------------
+| app/Http/Middleware/SetLocale.php でアプリケーションのロケール設定
+ */
 Route::get('/', function (Request $request) {
-    $langs = explode(',', $request->server('HTTP_ACCEPT_LANGUAGE'));
-    $langs_val = array();
-
-    foreach ($langs as $lang) {
-        $langs_val[] = substr($lang, 0, 2);
-    }
-
-    $redirectLocale = match($langs_val[0]) {
-        'ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de', 'hi', 'ar', 'pt', 'bn', => $langs_val[0],
-    default=> 'en',
-    };
-
-    return redirect("/{$redirectLocale}");
+    // サポートされている言語のリスト
+    $supportedLanguages = ['ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de', 'hi', 'ar', 'pt', 'bn'];
+    // クライアントが受け入れる言語の中で、サポートされている言語を選択
+    $preferredLanguage = $request->getPreferredLanguage($supportedLanguages);
+    // ない場合はenへ
+    return redirect("/{$preferredLanguage}") ?? 'en';
 });
 
+/*
+|--------------------------------------------------------------------------
+| ルーティング
+|--------------------------------------------------------------------------
+ */
 Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de|hi|ar|pt|bn'])->group(function () {
 
     // トップページ

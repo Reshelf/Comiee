@@ -11,16 +11,24 @@ class SetLocale
 {
     /*
     |--------------------------------------------------------------------------
-    | ロケールの設定
+    | アプリケーションのロケール設定
     |--------------------------------------------------------------------------
      */
     public function handle(Request $request, Closure $next)
     {
+        // サポートされている言語のリスト
+        $supportedLanguages = ['ja', 'en', 'tw', 'cn', 'es', 'fr', 'it', 'id', 'th', 'ko', 'de', 'hi', 'ar', 'pt', 'bn'];
+
         // Prefix を判断して言語切替
         $route = Route::getCurrentRoute();
-        $lang = $route->parameter('lang', 'en');
-        App::setLocale($lang);
+        $lang = $route->parameter('lang');
 
+        // クライアントが受け入れる言語の中で、サポートされている言語を選択
+        if ($lang === null) {
+            $lang = $request->getPreferredLanguage($supportedLanguages) ?? 'en';
+        }
+
+        App::setLocale($lang);
         return $next($request);
     }
 }
