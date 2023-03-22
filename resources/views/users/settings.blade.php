@@ -310,16 +310,16 @@
                         <label for="de" class="mb-4 mr-4">Deutsch</label>
                         <input type="radio" name="lang" class="visually-hidden" id="hi" value="hi"
                           @if (App::getLocale() == 'hi') checked @endif />
-                        <label for="de" class="mb-4 mr-4">हिन्दी</label>
+                        <label for="hi" class="mb-4 mr-4">हिन्दी</label>
                         <input type="radio" name="lang" class="visually-hidden" id="ar" value="ar"
                           @if (App::getLocale() == 'ar') checked @endif />
-                        <label for="de" class="mb-4 mr-4">العربية</label>
+                        <label for="ar" class="mb-4 mr-4">العربية</label>
                         <input type="radio" name="lang" class="visually-hidden" id="pt" value="pt"
                           @if (App::getLocale() == 'pt') checked @endif />
-                        <label for="de" class="mb-4 mr-4">Português</label>
+                        <label for="pt" class="mb-4 mr-4">Português</label>
                         <input type="radio" name="lang" class="visually-hidden" id="bn" value="bn"
                           @if (App::getLocale() == 'bn') checked @endif />
-                        <label for="de" class="mb-4 mr-4">বাংলা</label>
+                        <label for="bn" class="mb-4 mr-4">বাংলা</label>
                       </div>
                       <button type="submit" class="btn-border mt-6">{{ __('変更する') }}</button>
                     </form>

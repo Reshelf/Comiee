@@ -32,7 +32,7 @@ Route::get('/', function (Request $request) {
     return redirect("/{$redirectLocale}");
 });
 
-Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de'])->group(function () {
+Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de|hi|ar|pt|bn'])->group(function () {
 
     // トップページ
     Route::view('/', 'index')->name('top');
