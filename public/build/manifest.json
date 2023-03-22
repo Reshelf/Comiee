@@ -1,0 +1,30 @@
+{
+  "_vendor-95a2348e.js": {
+    "file": "assets/vendor-95a2348e.js"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-4e1da5c0.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-4e1da5c0.css"
+    ],
+    "file": "assets/app-767a72c9.js",
+    "imports": [
+      "_vendor-95a2348e.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/common/atoms/common.js": {
+    "file": "assets/common-6f1cf146.js",
+    "isEntry": true,
+    "src": "resources/js/common/atoms/common.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-7557f605.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
