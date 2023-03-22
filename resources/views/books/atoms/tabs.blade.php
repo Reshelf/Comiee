@@ -47,8 +47,8 @@
     </comment-post-modal>
   @endauth
 
-  <h3 class="font-semibold mt-8 mb-2">{{ __('トレンド') }}</h3>
+  {{-- <h3 class="font-semibold mt-8 mb-2">{{ __('トレンド') }}</h3>
   <tag-search-modal class="px-3 py-2 text-xs">
     <template #trigger>{{ __('タグからさがす') }}</template>
-  </tag-search-modal>
+  </tag-search-modal> --}}
 </div>
