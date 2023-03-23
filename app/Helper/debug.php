@@ -18,12 +18,12 @@ if (!function_exists('slack_log')) {
 
         Log::info($message);
 
-        $slack_webhook_url = env('SLACK_DEBUG_WEBHOOK_URL');
+        $SLACK_ERR_WEBHOOK_URL = env('SLACK_DEBUG_WEBHOOK_URL');
 
-        if (!empty($slack_webhook_url)) {
+        if (!empty($SLACK_ERR_WEBHOOK_URL)) {
             $client = new Client();
 
-            $client->post($slack_webhook_url, [
+            $client->post($SLACK_ERR_WEBHOOK_URL, [
                 'json' => [
                     'text' => $message,
                 ],

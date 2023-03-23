@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use Illuminate\Notifications\Messages\SlackMessage;
+use GuzzleHttp\Client;
 use Illuminate\Notifications\Notification;
 
 class UserAndBookCountNotification extends Notification
@@ -16,9 +16,20 @@ class UserAndBookCountNotification extends Notification
         $this->bookCount = $bookCount;
     }
 
-    public function toSlack()
+    public function via($notifiable)
     {
-        return (new SlackMessage)
-            ->content("現在のユーザー数: {$this->userCount}\n現在の作品数: {$this->bookCount}");
+        return ['mail'];
+    }
+
+    public function toMail($notifiable)
+    {
+        $message = "現在のユーザー数: {$this->userCount}\n現在の作品数: {$this->bookCount}";
+
+        $client = new Client();
+        $client->post(env('SLACK_WEBHOOK_URL'), [
+            'json' => ['text' => $message],
+        ]);
+
+        return;
     }
 }
