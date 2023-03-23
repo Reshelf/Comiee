@@ -18,11 +18,6 @@ class UserAndBookCountNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['mail'];
-    }
-
-    public function toMail($notifiable)
-    {
         $message = "現在のユーザー数: {$this->userCount}\n現在の作品数: {$this->bookCount}";
 
         $client = new Client();
@@ -30,6 +25,6 @@ class UserAndBookCountNotification extends Notification
             'json' => ['text' => $message],
         ]);
 
-        return;
+        return []; // Return an empty array to prevent using any other channels
     }
 }
