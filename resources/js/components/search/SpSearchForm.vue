@@ -73,7 +73,7 @@
 
                 <div
                     v-if="state.search.length > 1 && filter.length === 0"
-                    class="text-ddd"
+                    class="text-ddd text-base"
                 >
                     {{ t("検索結果がありません") }}
                 </div>
