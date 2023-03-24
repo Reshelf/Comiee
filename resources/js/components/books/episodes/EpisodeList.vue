@@ -43,7 +43,7 @@ onMounted(() => {
                         <div class="title"><slot name="header"></slot></div>
                     </div>
                     <div
-                        class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll scroll-none"
+                        class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll overflow-x-hidden scroll-none"
                     >
                         <slot></slot>
                     </div>

@@ -55,7 +55,7 @@ const open = ref(false);
                         <div class="title">{{ t("新しく作品を投稿する") }}</div>
                     </div>
                     <div
-                        class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll scroll-none"
+                        class="p-4 md:p-6 max-h-[60vh] overflow-y-scroll overflow-x-hidden scroll-none"
                     >
                         <slot></slot>
                     </div>
