@@ -156,8 +156,8 @@
           <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ニュース') }}</div>
           <span
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('お知らせ') }}{{ __('(準備中)') }}</span>
-          <span
-            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('リリースノート') }}{{ __('(準備中)') }}</span>
+          <a href="{{ route('others.release_note', app()->getLocale()) }}"
+            class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('リリースノート') }}</a>
         </div>
       </div>
     </div>

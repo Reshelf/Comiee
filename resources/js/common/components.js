@@ -31,6 +31,7 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 import WorksLists from "../components/users/WorksLists.vue";
 
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
+import ReleaseNote from "../components/ReleaseNote.vue";
 export default {
     BooksLists,
     SpSearchForm,
@@ -39,6 +40,7 @@ export default {
     SetupModal,
     CommentLike,
     TagSearchModal,
+    ReleaseNote,
     SearchForm,
     BookEditModal,
     CommentPostModal,
