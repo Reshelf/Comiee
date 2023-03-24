@@ -9,11 +9,11 @@
                 class="p-6 lg:p-8 border border-b-l-c dark:border-dark-1 rounded-lg mb-6"
             >
                 <h3 class="text-xl lg:text-2xl mb-4 dark:text-f5">
-                    【{{ note.version }}】{{ note.title }}
+                    【{{ note.version }}】{{ t(note.title) }}
                 </h3>
                 <div class="mt-4 text-[15px]">
                     <p class="whitespace-pre-line">
-                        {{ note.content }}
+                        {{ t(note.content) }}
                     </p>
                     <p>
                         {{ note.date }}

@@ -215,7 +215,7 @@
     "自分のコメント/リプライが消されてしまいました": "My comment/reply has been erased",
     "利用規約に違反していたり、作者や読者からの一定の通報があった場合、削除されることがあります。": "If you violate the Terms of Use or have a certain report from the author or the reader, you may be deleted.",
     "作品の投稿はどこからできますか？": "Where can I post the work?",
-    "PCブラウザ版であれば画面右上にあるプラスボタンから、モバイル端末のブラウザ版又はモバイルアプリ版であれば画面右下にある青い丸のプラスボタンから、投稿できます。": "If it is a PC browser version, you can post from the positive button at the top right of the screen, and from the browser version of the mobile device or the mobile app version, you can post from the blue circle plus button at the bottom right of the screen.",
+    "PCブラウザ版であれば画面右上にあるプラスボタンから、モバイル端末のブラウザ版又はモバイルアプリ版であれば画面右下にある青い丸のプラスボタンから、投稿できます。": "If it is a PC browser version, you can post from the plus button at the top right of the screen, and from the browser version of the mobile terminal or the mobile app version, you can post from the blue circle plus button at the bottom right of the screen.",
     "「作品」、「エピソード」とは何ですか？": "What are \"works\" and \"episodes\"?",
     "「作品」は、投稿するマンガのシリーズの単位です。「エピソード」は、その一作品内にある話の単位です。エピソードのことを単に「話」とも数えたりします。手順としてはまず「作品」を投稿し、そこに「エピソード」を追加していく流れになります。\\n（例）このアカウントでは今までに3作品を投稿し、どれも10話以内に完結した。一方で4作品目は長編になり、来週分のエピソードを追加すれば全20話になる。": "\"Work\" is the unit of the manga series to be posted. \"Episode\" is the unit of the story in that work. Episode is simply counted as a \"story\". As a procedure, first post \"work\" and add \"episode\" to it. \\ n (example) This account has posted three works so far, all of which have been completed within 10 episodes. On the other hand, the fourth work will be a feature film, and if you add an episode for next week, it will be 20 episodes.",
     "投稿した作品の設定(作品タイトル、ジャンル、作品トップページのサムネイル)を後から編集することはできますか？": "Is it possible to edit the settings of the posted works (work titles, genres, and thumbnails in the top page of the work) later?",
@@ -430,5 +430,9 @@
     "クリエイター": "creator",
     "言語": "language",
     "コメントを書く": "Comment",
+    "リリースノート機能を追加しました": "Added release notes function",
+    "お客様にComieeの改善点をお伝えするため、リリースノート機能を追加いたしました。これにより、アップデート情報を確認することができるようになります。": "We have added a release notebook function to tell customers about the improvements of Comiee. This allows you to check the update information.",
+    "Comieeをローンチしました！": "I launched COMIEE!",
+    "ローンチを行いました。機能としては、投稿、コメント、お気に入り、フォロー、購入、本棚、閲覧などが基本機能になります。これからお客様の声を反映し更なるバージョンアップを行っていきます。": "I had a launch. The basic functions include posting, comments, favorite, follow -up, purchase, bookshelf, browsing, etc. From now on, we will further upgrade the customers' voices.",
     "": "#VALUE!"
 }
