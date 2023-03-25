@@ -70,30 +70,27 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de|hi|a
     |
      */
     Route::prefix('books')->name('book.')->group(function () {
-        Route::post('/', 'App\Http\Controllers\Books\StoreController')
-            ->middleware('throttle:2, 1')
-            ->name('store');
+
+        // 作品
+        Route::get('/{book_title}', 'App\Http\Controllers\Books\ShowController')->name('show');
+        Route::post('/', 'App\Http\Controllers\Books\StoreController')->middleware('throttle:2, 1')->name('store');
         Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
         Route::patch('/{book_id}', 'App\Http\Controllers\Books\UpdateController')->name('update');
-        // Route::get('/{book}/edit', 'App\Http\Controllers\Books\EditController')->name('edit');
-        Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
-        Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
         // エピソード
-        Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')
-            ->middleware('throttle:3, 1')
-            ->name('episode.store');
+        Route::get('/{book_title}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
+        Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')->middleware('throttle:3, 1')->name('episode.store');
         Route::patch('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
+
         // コメント
-        Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')
-            ->middleware('throttle:3, 1')
-            ->name('episode.comment.store');
+        Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->middleware('throttle:3, 1')->name('episode.comment.store');
         Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
         Route::put('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
         Route::delete('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
 
-        Route::get('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
-        Route::get('/{book_id}', 'App\Http\Controllers\Books\ShowController')->name('show');
+        // お気に入り
+        Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
+        Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
     });
 
     /*

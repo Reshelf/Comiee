@@ -26,7 +26,7 @@ class ShowController extends Controller
         $book = Book::with(['comments', 'episodes' => function ($query) {
             $query->orderBy('created_at', 'desc');
         }])
-            ->where('id', $request->book_id)
+            ->where('title', $request->book_title)
             ->firstOrFail();
 
         $episode = $book->episodes->firstWhere('number', $request->episode_number);

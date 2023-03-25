@@ -5,7 +5,7 @@
     <img src="{{ asset('/img/noimage-dark.svg') }}" alt="thumbnail"
       class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover" loading="lazy">
   @else
-    <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}">
+    <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}">
       <img src="{{ $book->thumbnail }}" alt="thumbnail" class="w-[250px] h-[250px] object-cover" loading="lazy">
       <span class="thumbnail-title">{{ $book->title }}</span>
     </a>

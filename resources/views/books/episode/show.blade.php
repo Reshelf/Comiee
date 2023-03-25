@@ -177,7 +177,7 @@
               {{ __('スーパーギフトを送ってエピソードを読む') }}
               <span class="load loading"></span>
             </button>
-            <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+            <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
               class="inline-block text-sm mt-4 lg:hidden">{{ __('作品トップへ') }}</a>
           </div>
         </form>
@@ -191,7 +191,7 @@
     <p class="text-base">{{ __('エピソードを読むにはログインをしてください') }}</p>
     <p class="flex items-center mt-4">
       <a href="{{ route('login') }}" class="btn-primary">{{ __('ログイン') }}</a>
-      <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+      <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
         class="btn-border ml-4">{{ __('作品トップ') }}</a>
     </p>
   </div>

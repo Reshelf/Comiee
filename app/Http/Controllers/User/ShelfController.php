@@ -28,6 +28,11 @@ class ShelfController extends Controller
 
             // フォロー中の作者の作品一覧
             $followedBooks = Book::whereIn('user_id', $followedUserIds)->where('is_hidden', false)->get();
+
+            $this->addBookTitles($user->likes);
+            $this->addBookTitles($user->reads);
+            $this->addBookTitles($user->boughts);
+            $this->addBookTitles($followedBooks);
         }
 
         return view('users.shelf.index', [
@@ -37,5 +42,20 @@ class ShelfController extends Controller
             'boughts' => $user->bought ?? [], // 購入履歴
             'followedBooks' => $followedBooks ?? [], // お気に入り
         ]);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 本のタイトルを追加
+    |--------------------------------------------------------------------------
+    |
+     */
+    private function addBookTitles($episodes)
+    {
+        if (isset($episodes)) {
+            foreach ($episodes as $episode) {
+                $episode->book_title = $episode['title'];
+            }
+        }
     }
 }

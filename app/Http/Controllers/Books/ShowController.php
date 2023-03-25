@@ -19,7 +19,7 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, Tag $tag, Episode $episode)
     {
-        $book = Book::findOrFail($request->book_id);
+        $book = Book::where('title', $request->book_title)->firstOrFail();
 
         $expiresAt = Carbon::now()->endOfDay()->addSecond();
         $allTags = $tag->all_tag_names;

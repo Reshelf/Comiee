@@ -10,7 +10,7 @@
   @endempty
 
   {{-- 作品タイトル --}}
-  <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+  <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
     class="inline-block text-2xl dark:text-white font-semibold my-4 px-2">{{ $book->title }}</a>
 
   {{-- 閲覧数 --}}

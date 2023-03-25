@@ -349,7 +349,7 @@
                     <div class="flex flex-col ">
                       @foreach ($user->books as $book)
                         @if ($book->is_contracted)
-                          <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+                          <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
                             class="hover:text-primary mb-4">
                             {{ $book->title }}
                           </a>
