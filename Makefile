@@ -145,3 +145,7 @@ e2e-open:
 	npm run e2e:open
 e2e-run:
 	npm run e2e:run
+backup-local:
+	 ./vendor/bin/sail artisan backup:run
+backup-production:
+	 php artisan backup:run
