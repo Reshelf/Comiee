@@ -166,11 +166,11 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'your@example.com',
+            'to' => 'support@comiee.one',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-                'name' => env('MAIL_FROM_NAME', 'Example'),
+                'address' => 'support@comiee.one',
+                'name' => 'Comiee Teams',
             ],
         ],
 
@@ -180,9 +180,9 @@ return [
             /*
              * If this is set to null the default channel of the webhook will be used.
              */
-            'channel' => null,
+            'channel' => '000_アナウンス',
 
-            'username' => null,
+            'username' => 'DBバックアップ',
 
             'icon' => null,
 
