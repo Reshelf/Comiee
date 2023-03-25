@@ -169,8 +169,8 @@ return [
             'to' => 'support@comiee.one',
 
             'from' => [
-                'address' => 'support@comiee.one',
-                'name' => 'Comiee Teams',
+                'address' => env('MAIL_FROM_ADDRESS', 'support@comiee.one'),
+                'name' => env('MAIL_FROM_NAME', 'Comiee Teams'),
             ],
         ],
 
