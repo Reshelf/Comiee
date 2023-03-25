@@ -12,7 +12,7 @@
 
   <shelf-lists :lang='@json(app()->getLocale())' :user='@json(Auth::user() ?? [])'
     :like-books='@json($likes ?? [])' :reads-books='@json($reads ?? [])'
-    :bought-books='@json($boughts ?? [])'></shelf-lists>
+    :bought-books='@json($boughts ?? [])' :followed-books='@json($followedBooks ?? [])'></shelf-lists>
 
   @include('atoms._footer')
 @endsection
