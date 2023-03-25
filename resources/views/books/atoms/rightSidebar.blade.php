@@ -13,7 +13,7 @@
     <div class="w-full flex items-center mb-4 pl-2">
       <div class="w-1/2">{{ __('クリエイター') }}</div>
       <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $book->user->username]) }}"
-        class="w-1/2 hover:text-primary">{{ $book->user->name }}</a>
+        class="w-1/2 hover:text-primary truncate">{{ $book->user->name }}</a>
     </div>
   @endempty
 
