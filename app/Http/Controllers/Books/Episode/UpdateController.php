@@ -30,7 +30,7 @@ class UpdateController extends Controller
         if ($book->user->id === Auth::user()->id) {
             $request->validate([
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
-                'images' => 'array|min:10|max:100',
+                'images' => 'array|min:8|max:50',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
             ]);
 

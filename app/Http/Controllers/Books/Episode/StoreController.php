@@ -27,7 +27,7 @@ class StoreController extends Controller
     {
         $validatedData = $request->validate([
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:30720',
-            'images' => 'required|array|min:10|max:100',
+            'images' => 'required|array|min:8|max:50',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
         ]);
 
