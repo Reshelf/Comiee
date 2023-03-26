@@ -8,7 +8,6 @@
        <template #header>{{ __('応援コメントを投稿する') }}</template>
        <form method="POST"
          action="{{ route('book.episode.comment.store', [
-             'lang' => app()->getLocale(),
              'book_id' => $book->id,
              'episode_id' => $episode->id,
              'episode_number' => $episode->number,

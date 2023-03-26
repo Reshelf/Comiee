@@ -73,7 +73,6 @@ class PaymentCreateController extends Controller
                 |--------------------------------------------------------------------------
                  */
                 return view('books.episode.payment', [
-                    'lang' => app()->getLocale(),
                     'book' => $book,
                     'episode' => $episode,
                     'price' => $price,

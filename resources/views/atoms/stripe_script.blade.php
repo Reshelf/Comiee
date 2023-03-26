@@ -11,7 +11,7 @@
 
     $session = $stripe->checkout->sessions->create(
         [
-            'success_url' => config('app.top_url') . '/' . app()->getLocale() . '/b/' . $book->title . '/' . $episode->number,
+            'success_url' => config('app.top_url') . '/b/' . $book->title . '/' . $episode->number,
             'cancel_url' => config('app.top_url'),
             'payment_method_types' => ['card'],
             'line_items' => [

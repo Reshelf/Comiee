@@ -57,7 +57,7 @@
             <div class="flex flex-wrap">
                 <template v-for="book in filteredManga" :key="book.id">
                     <div class="list-item">
-                        <a :href="`/${lang}/b/${book.title}`">
+                        <a :href="`/b/${book.title}`">
                             <template v-if="book.thumbnail">
                                 <img
                                     :src="book.thumbnail"
@@ -105,10 +105,6 @@ export default {
         books: {
             type: Array,
             default: [],
-        },
-        lang: {
-            type: String,
-            default: "",
         },
     },
     data() {

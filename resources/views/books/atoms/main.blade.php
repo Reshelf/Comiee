@@ -18,7 +18,7 @@
         </template>
         <template #header>{{ __('作品のエピソードを追加する') }}</template>
         <form method="POST"
-          action="{{ route('book.episode.store', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
+          action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
           enctype="multipart/form-data" onsubmit="submit_btn()">
           @csrf
 
@@ -40,7 +40,7 @@
     @foreach ($episodes_latest as $e)
       <div
         class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[5px] dark:hover:bg-dark-1 hover:bg-f5">
-        <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['lang' => app()->getLocale(), 'book_title' => $book->title, 'episode_number' => $e->number]) }}" @endif
+        <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_title' => $book->title, 'episode_number' => $e->number]) }}" @endif
           class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
           @empty($e->thumbnail)
             <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover"
@@ -150,7 +150,7 @@
       </template>
       <template #header>{{ __('エピソードを更新する') }}</template>
       <form method="POST"
-        action="{{ route('book.episode.update', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $e->id]) }}"
+        action="{{ route('book.episode.update', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
         enctype="multipart/form-data" class="whitespace-pre-line" onsubmit="submit_btn()">
         @csrf
         @method('PATCH')

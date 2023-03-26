@@ -6,8 +6,7 @@
       @include('atoms.success')
 
 
-      <form method="POST" action="{{ route('book.store', app()->getLocale()) }}" enctype="multipart/form-data"
-        onsubmit="submit_btn()">
+      <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data" onsubmit="submit_btn()">
         @include('books.atoms.form', ['update' => false, 'create_book_modal_count' => 12])
         <div class="w-full relative">
           <button type="submit" class="submit_btn btn-primary w-full py-4">

@@ -21,8 +21,8 @@
     <div class="w-full md:w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end">
       <div class="lg:h-[500px] top-[20px] sticky  w-full md:w-auto md:pr-8">
         <div class="flex justify-start mb-12 text-xs">
-          <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="pr-2">Help Center</a>>
-          <a href="{{ route('others.about.comiee', app()->getLocale()) }}" class="pl-2">{{ __('Comieeについて') }}</a>
+          <a href="{{ route('others.user_guide') }}" class="pr-2">Help Center</a>>
+          <a href="{{ route('others.about.comiee') }}" class="pl-2">{{ __('Comieeについて') }}</a>
         </div>
 
         <div class="my-12">
@@ -185,7 +185,7 @@
           <p class="mb-4">
             {{ __('より詳しい使い方については、Comieeヘルプページをご覧ください。このページだけでは伝えきれないことも書いてあるので、困ったときは一度ご覧ください。') }}
           </p>
-          <a href="{{ route('others.user_guide', app()->getLocale()) }}" class="block mb-4 text-primary dark:text-f5">
+          <a href="{{ route('others.user_guide') }}" class="block mb-4 text-primary dark:text-f5">
             {{ __('▼ Comieeヘルプセンター') }}
           </a>
           <p class="mb-4">

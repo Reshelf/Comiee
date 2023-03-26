@@ -24,7 +24,7 @@ class StoreController extends Controller
     | 作品の投稿
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, BookRequest $request, Book $book, Tag $tag)
+    public function __invoke(BookRequest $request, Book $book, Tag $tag)
     {
         /*
         |--------------------------------------------------------------------------
@@ -126,7 +126,7 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
         |
          */
-        return redirect('/' . app()->getLocale() . '/b/' . $book->title)->with([
+        return redirect('/' . '/b/' . $book->title)->with([
             'success' => __('作品を作成しました。続いて作品のエピソードを追加しましょう！'),
             'store' => true,
         ]);

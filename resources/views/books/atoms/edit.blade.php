@@ -9,7 +9,7 @@
 
 
     <form method="POST" enctype="multipart/form-data"
-      action="{{ route('book.update', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}" onsubmit="submit_btn()">
+      action="{{ route('book.update', ['book_id' => $book->id]) }}" onsubmit="submit_btn()">
       @csrf
       @method('PATCH')
       @include('books.atoms.form', ['update' => true, 'create_book_modal_count' => 15])

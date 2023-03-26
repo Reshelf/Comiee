@@ -54,7 +54,7 @@ class ShelfController extends Controller
     {
         if (isset($episodes)) {
             foreach ($episodes as $episode) {
-                $episode->book_title = $episode['title'];
+                $episode->book_title = $episode->book ? $episode->book->title : '';
             }
         }
     }

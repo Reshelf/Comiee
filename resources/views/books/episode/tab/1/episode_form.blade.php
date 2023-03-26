@@ -31,12 +31,11 @@
   @endif
 
   @if (!$book->is_contracted)
-    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#contract" target="_blank"
-      rel="nofollow noopener noreferrer" class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
+    <a href="/{{ Auth::user()->username }}/settings#contract" target="_blank" rel="nofollow noopener noreferrer"
+      class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
   @endif
   @if (!$book->user->stripe_user_id)
-    <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings"
-      class="btn-border inline-block mt-4">
+    <a href="/{{ Auth::user()->username }}/settings#earnings" class="btn-border inline-block mt-4">
       {{ __('収益の受け取り準備を完了する') }}
     </a>
   @endif
@@ -106,7 +105,8 @@
 @isset($create_book_modal_count)
   <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('読者さんへの一言') }}</h3>
   <textarea name="short_from_author" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
-    placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400" value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
+    placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400"
+    value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
   <div class="mb-4 text-right">
     <span class="string_count_{{ $create_book_modal_count }}">0</span>
     <span>/400</span>

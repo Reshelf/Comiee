@@ -12,7 +12,7 @@
   @empty(!$book->user->name)
     <div class="w-full flex items-center mb-4 pl-2">
       <div class="w-1/2">{{ __('クリエイター') }}</div>
-      <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $book->user->username]) }}"
+      <a href="{{ route('users.show', ['username' => $book->user->username]) }}"
         class="w-1/2 hover:text-primary truncate">{{ $book->user->name }}</a>
     </div>
   @endempty
@@ -84,7 +84,7 @@
         @foreach ($book->tags as $tag)
           @if ($loop->first)
           @endif
-          <a href="{{ route('search.tag_name', ['lang' => app()->getLocale(), 'name' => $tag->name]) }}"
+          <a href="{{ route('search.tag_name', ['name' => $tag->name]) }}"
             class="inline-block mr-2 mb-2 text-xs text-666 dark:text-ddd rounded-[5px] border border-aaa  hover:text-primary p-1.5 px-2">
             {{ $tag->hashtag }}
           </a>

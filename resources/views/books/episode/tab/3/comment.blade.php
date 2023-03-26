@@ -1,6 +1,6 @@
 <div class="flex items-start justify-between">
   <div class="flex items-start">
-    <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $comment->user->username]) }}">
+    <a href="{{ route('users.show', ['username' => $comment->user->username]) }}">
       @empty($comment->user->avatar)
         <svg class="h-8 w-8 fill-dark" viewBox="0 0 42 42" fill="none">
           <title>user avatar</title>
@@ -51,7 +51,6 @@
             <template #header>{{ $comment->user->username }}{{ __('さんに返信する') }}</template>
             <form method="POST"
               action="{{ route('book.episode.comment.store', [
-                  'lang' => app()->getLocale(),
                   'book_id' => $book->id,
                   'episode_id' => $episode->id,
                   'episode_number' => $episode->number,
@@ -87,7 +86,7 @@
     <div class="dropdown-content">
       @if ($comment->user->id == Auth::id())
         <form method="POST"
-          action="{{ route('book.episode.comment.destroy', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}">
+          action="{{ route('book.episode.comment.destroy', ['book_id' => $book->id, 'episode_id' => $episode->id, 'comment_id' => $comment->id]) }}">
           @csrf
           @method('DELETE')
           <button type="submit" class="flex w-full h-full py-2 px-4">{{ __('削除する') }}</button>
@@ -103,7 +102,7 @@
           </template>
           <template #header>{{ __('コメントに対して通報する') }}</template>
           <form method="POST"
-            action="{{ route('others.report', ['lang' => app()->getLocale(), 'user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
+            action="{{ route('others.report', ['user' => Auth::user(), 'reportedUser' => $comment->user->email, 'comment' => $comment->comment]) }}"
             class="flex flex-col">
             @csrf
             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />

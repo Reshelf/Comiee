@@ -5,7 +5,7 @@
     <img src="{{ asset('/img/noimage-dark.svg') }}" alt="thumbnail"
       class="hidden dark:block w-full md:w-[250px] h-[250px] object-cover" loading="lazy">
   @else
-    <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}">
+    <a href="{{ route('book.show', ['book_title' => $book->title]) }}">
       <img src="{{ $book->thumbnail }}" alt="thumbnail" class="w-[250px] h-[250px] object-cover" loading="lazy">
       <span class="thumbnail-title">{{ $book->title }}</span>
     </a>
@@ -19,8 +19,7 @@
         @include('atoms.success')
 
 
-        <form method="POST"
-          action="{{ route('book.update', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}">
+        <form method="POST" action="{{ route('book.update', ['book_id' => $book->id]) }}">
           @csrf
           @method('PATCH')
           @include('books.atoms.form')
@@ -28,9 +27,7 @@
         </form>
       </edit-modal>
       <delete-modal>
-        <form method="POST"
-          action="{{ route('book.episode.destroy', ['lang' => app()->getLocale(), 'book_id' => $book->id]) }}"
-          class="p-2 rounded">
+        <form method="POST" action="{{ route('book.episode.destroy', ['book_id' => $book->id]) }}" class="p-2 rounded">
           @csrf
           @method('DELETE')
           <button type="submit" class="btn-danger">{{ __('削除する') }}</button>
@@ -45,7 +42,7 @@
         <div class="">
           <div class="">
       @endif
-      <a href="{{ route('search.tag_name', ['lang' => app()->getLocale(), 'name' => $tag->name]) }}"
+      <a href="{{ route('search.tag_name', ['name' => $tag->name]) }}"
         class="inline-block text-xs btn-border p-1.5 px-2 m-1">
         {{ $tag->hashtag }}
       </a>

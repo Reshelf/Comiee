@@ -21,7 +21,7 @@ class LikeController extends Controller
     | 作品をお気に入りに追加する
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, Request $request, Book $book)
+    public function __invoke(Request $request, Book $book)
     {
         if ($book->user->id !== $request->user()->id) {
             $this->addToFavorites($request, $book);

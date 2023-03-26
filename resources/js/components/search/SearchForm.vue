@@ -23,14 +23,6 @@ const filter = computed(() => {
     }
 });
 
-//  eslint-disable-next-line
-const props = defineProps({
-    lang: {
-        type: String,
-        default: "",
-    },
-});
-
 const getData = async () => {
     /* eslint-disable */
     let result = await axios.get("/api/search-words");
@@ -41,7 +33,7 @@ onMounted(() => {
 });
 
 function locate(item) {
-    location.href = "/" + props.lang + "/b/" + item.title;
+    location.href = "/b/" + item.title;
 }
 function reset() {
     state.search = "";

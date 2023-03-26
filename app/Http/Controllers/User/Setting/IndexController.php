@@ -18,7 +18,7 @@ class IndexController extends Controller
     | 設定ページを返す
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, string $username)
+    public function __invoke(string $username)
     {
         $user = User::byUsername($username)->first();
 

@@ -103,11 +103,11 @@
       <div class="w-full flex flex-col md:flex-row justify-between">
         <div class="md:w-1/2">
           <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ヘルプ') }}</div>
-          <a href="{{ route('others.about.comiee', app()->getLocale()) }}"
+          <a href="{{ route('others.about.comiee') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('Comieeについて') }}</a>
-          <a href="{{ route('others.user_guide', app()->getLocale()) }}"
+          <a href="{{ route('others.user_guide') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('ご利用ガイド') }}</a>
-          <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
+          <a href="{{ route('others.faq', ['number' => 1]) }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('よくあるご質問') }}</a>
           @auth
             <comment-post-modal>
@@ -117,8 +117,7 @@
                 </span>
               </template>
               <template #header>{{ __('運営へのお問い合せ') }}</template>
-              <form method="POST"
-                action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}"
+              <form method="POST" action="{{ route('others.contact', ['user' => Auth::user()]) }}"
                 onsubmit="submit_btn()">
                 @csrf
                 <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
@@ -138,16 +137,16 @@
               </form>
             </comment-post-modal>
           @endauth
-          <a href="{{ route('others.company', app()->getLocale()) }}"
+          <a href="{{ route('others.company') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('会社概要（運営会社）') }}</a>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0">
           <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('利用規約とポリシー') }}</div>
-          <a href="{{ route('others.terms', app()->getLocale()) }}"
+          <a href="{{ route('others.terms') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('利用規約') }}</a>
-          <a href="{{ route('others.privacy', app()->getLocale()) }}"
+          <a href="{{ route('others.privacy') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('プライバシーポリシー') }}</a>
-          <a href="{{ route('others.sct', app()->getLocale()) }}"
+          <a href="{{ route('others.sct') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('特定商取引法に基づく表記') }}</a>
         </div>
       </div>
@@ -156,7 +155,7 @@
           <div class="tracking-widest text-xl mb-4 cursor-default dark:text-[#c9cacc]">{{ __('ニュース') }}</div>
           {{-- <span
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('お知らせ') }}{{ __('(準備中)') }}</span> --}}
-          <a href="{{ route('others.release_note', app()->getLocale()) }}"
+          <a href="{{ route('others.release_note') }}"
             class="block mb-2 hover:text-primary dark:hover:text-ddd">{{ __('リリースノート') }}</a>
         </div>
       </div>

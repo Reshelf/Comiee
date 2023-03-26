@@ -22,7 +22,7 @@
     <div class="w-full md:mx-12">
       <div class="w-full flex flex-wrap justify-center md:justify-start">
         <works-lists :auth-user='@json(Auth::user() ?? [])' :book-user='@json($user ?? [])'
-          :books='@json($books)' :lang='@json(app()->getLocale())' />
+          :books='@json($books)' />
         @include('atoms.nomessage')
       </div>
     </div>

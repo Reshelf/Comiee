@@ -12,7 +12,7 @@ class AboutController extends Controller
     | 概要ページ
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, string $username)
+    public function __invoke(string $username)
     {
         $user = User::byUsername($username)->first();
 

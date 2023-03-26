@@ -90,12 +90,6 @@
 </template>
 <script>
 export default {
-    props: {
-        lang: {
-            type: String,
-            default: "",
-        },
-    },
     data() {
         return {
             show: false,
@@ -131,7 +125,7 @@ export default {
             this.state.array = result.data;
         },
         locate(item) {
-            location.href = "/" + this.lang + "/b/" + item.title;
+            location.href = "/b/" + item.title;
         },
         reset() {
             this.state.search = "";

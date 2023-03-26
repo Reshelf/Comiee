@@ -17,7 +17,7 @@ class FollowersController extends Controller
     | フォロワー一覧
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, string $username)
+    public function __invoke(string $username)
     {
         $user = \Cache::rememberForever("user.{$username}", function () use ($username) {
             return User::byUsername($username)->first();

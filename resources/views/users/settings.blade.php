@@ -123,7 +123,6 @@
               <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="mail-notification">
                 <form method="POST"
                   action="{{ route('users.settings.update', [
-                      'lang' => app()->getLocale(),
                       'name' => $user->name,
                       'username' => $user->username,
                   ]) }}"
@@ -349,7 +348,7 @@
                     <div class="flex flex-col ">
                       @foreach ($user->books as $book)
                         @if ($book->is_contracted)
-                          <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
+                          <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
                             class="hover:text-primary mb-4">
                             {{ $book->title }}
                           </a>
@@ -395,7 +394,7 @@
                   <h3 class="text-base dark:text-ddd font-bold mt-12">{{ __('収益について') }}</h3>
                   <div class="mt-4">
                     {{ __('日本時間の毎週金曜日0時に、4営業日前までに購入処理が完了した分の売上が入金されます。') }}<br>
-                    {{ __('詳しくは <a href="/:1/terms_of_service#sales_and_author_profit" class="text-primary">こちら</a>', ['1' => app()->getLocale()]) }}
+                    {{ __('詳しくは <a href="/terms_of_service#sales_and_author_profit" class="text-primary">こちら</a>') }}
                   </div>
                 </div>
               </div>
@@ -406,7 +405,7 @@
                 <div class="mt-4 mb-8">
                   <h3 class="text-base dark:text-ddd font-bold">{{ __('アカウントをログアウト') }}</h3>
                   <div class="mt-6">
-                    <form id="logout-button" method="POST" action="{{ route('logout', app()->getLocale()) }}">
+                    <form id="logout-button" method="POST" action="{{ route('logout') }}">
                       @csrf
                       <button type="submit" class="text-red border borde-red px-4 py-2 rounded-[5px]">
                         {{ __('ログアウトする') }}
@@ -430,8 +429,7 @@
                           </button>
                         </template>
 
-                        <form method="POST"
-                          action="{{ route('users.delete', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+                        <form method="POST" action="{{ route('users.delete', ['username' => $user->username]) }}"
                           class="p-2 rounded w-full">
                           @csrf
                           @method('DELETE')

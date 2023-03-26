@@ -5,7 +5,7 @@
   $b = __('作品情報');
   $c = __('コメント');
   $d = __('件');
-  
+
 @endphp
 
 @section('title', $episode->number . __('話') . ' - ' . $book->title)
@@ -36,7 +36,7 @@
           !$book->is_hidden &&
           ($episode->is_free || $episode->isBoughtBy(Auth::user()) || $book->user->id === Auth::user()->id))
     <episode-screen :episode-count='@json($book->episodes()->count())' :episode='@json($episode)'
-      :lang='@json(Auth::user()->lang)' :book='@json($book)' :comments='@json($comments)'
+      :book='@json($book)' :comments='@json($comments)'
       :comment-counts='@json(count($comments) ?? 0)'>
 
       <template #comments>
@@ -68,7 +68,6 @@
             <template #header>{{ __('応援コメントを投稿する') }}</template>
             <form method="POST"
               action="{{ route('book.episode.comment.store', [
-                  'lang' => app()->getLocale(),
                   'book_id' => $book->id,
                   'episode_id' => $episode->id,
                   'episode_number' => $episode->number,
@@ -147,7 +146,7 @@
 
       <div class="lg:ml-4 lg:max-w-[400px]">
         <form method="POST"
-          action="{{ route('stripe.payment.create', ['lang' => app()->getLocale(), 'book_id' => $book->id, 'episode_id' => $episode->id, 'payment' => true]) }}"
+          action="{{ route('stripe.payment.create', ['book_id' => $book->id, 'episode_id' => $episode->id, 'payment' => true]) }}"
           class="whitespace-pre-line" onsubmit="submit_btn()">
           @csrf
           @method('POST')
@@ -177,7 +176,7 @@
               {{ __('スーパーギフトを送ってエピソードを読む') }}
               <span class="load loading"></span>
             </button>
-            <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
+            <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
               class="inline-block text-sm mt-4 lg:hidden">{{ __('作品トップへ') }}</a>
           </div>
         </form>
@@ -191,7 +190,7 @@
     <p class="text-base">{{ __('エピソードを読むにはログインをしてください') }}</p>
     <p class="flex items-center mt-4">
       <a href="{{ route('login') }}" class="btn-primary">{{ __('ログイン') }}</a>
-      <a href="{{ route('book.show', ['lang' => app()->getLocale(), 'book_title' => $book->title]) }}"
+      <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
         class="btn-border ml-4">{{ __('作品トップ') }}</a>
     </p>
   </div>

@@ -15,7 +15,7 @@
       </div>
 
       <div class="flex justify-center mt-12 px-10">
-        <a href="{{ url('/', app()->getLocale()) }}" class="flex-none md:overflow-hidden md:w-auto">
+        <a href="{{ url('/') }}" class="flex-none md:overflow-hidden md:w-auto">
           <span class="sr-only">Comiee - Manga Social Networking Service</span>
           <h1 class="text-2xl font-semibold dark:text-white">
             <svg class="h-[30px]" viewBox="0 0 382 301" fill="none">
@@ -51,7 +51,7 @@
         {{ __('アカウントを作成') }}
       </h2>
 
-      <form id="registerForm" method="POST" action="{{ route('register', app()->getLocale()) }}"
+      <form id="registerForm" method="POST" action="{{ route('register') }}"
         class="dark:bg-dark mt-8 px-6 lg:px-10 pb-0">
         @csrf
 

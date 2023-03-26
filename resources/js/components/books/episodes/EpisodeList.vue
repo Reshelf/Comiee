@@ -57,25 +57,6 @@ onMounted(() => {
     @apply text-[#5A5777] dark:text-ddd tracking-widest;
     animation: slide-in 0.3s;
 }
-@keyframes bounce-in {
-    // 0% {
-    //   transform: scale(0);
-    // }
-    // 50% {
-    //   transform: scale(1.1);
-    // }
-    // 100% {
-    //   transform: scale(1);
-    // }
-    0% {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
 @keyframes slide-in {
     0% {
         transform: translateX(-30px);

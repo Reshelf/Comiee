@@ -34,12 +34,11 @@
       <p class="mb-4">{{ __('有料販売を行うには、以下の設定を行なってください。') }}</p>
     @endif
     @if (!$book->is_contracted)
-      <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#contract" target="_blank"
-        rel="nofollow noopener noreferrer" class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
+      <a href="/{{ Auth::user()->username }}/settings#contract" target="_blank" rel="nofollow noopener noreferrer"
+        class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
     @endif
     @if (!$book->user->stripe_user_id)
-      <a href="/{{ app()->getLocale() }}/{{ Auth::user()->username }}/settings#earnings"
-        class="btn-border inline-block mt-4">
+      <a href="/{{ Auth::user()->username }}/settings#earnings" class="btn-border inline-block mt-4">
         {{ __('収益の受け取り準備を完了する') }}
       </a>
     @endif

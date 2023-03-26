@@ -33,8 +33,7 @@
           </div>
         </template>
         <template #header>{{ __('プロフィールの更新') }}</template>
-        <form method="POST"
-          action="{{ route('users.update', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+        <form method="POST" action="{{ route('users.update', ['username' => $user->username]) }}"
           enctype="multipart/form-data" onsubmit="submit_btn()">
           @csrf
           @method('PATCH')
@@ -105,20 +104,18 @@
         @endisset
 
         <div class="flex justify-start items-center text-sm pt-2">
-          <a href="{{ route('users.followings', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-            class="">
+          <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
             <span class="font-semibold lg:text-lg">{{ number_format($user->count_followings) }}</span>
             <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロー') }}</span>
           </a>
-          <a href="{{ route('users.followers', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
-            class="ml-2">
+          <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
             <span class="font-semibold lg:text-lg">{{ number_format($user->count_followers) }}</span>
             <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロワー') }}</span>
           </a>
           @if (Auth::id() !== $user->id)
             <follow-button class="ml-auto block md:hidden" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
               :authorized='@json(Auth::check())'
-              endpoint="{{ route('users.follow', ['lang' => app()->getLocale(), 'username' => $user->username]) }}">
+              endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
             </follow-button>
           @endif
         </div>
@@ -126,7 +123,7 @@
       @if (Auth::id() !== $user->id)
         <follow-button class="ml-auto hidden md:block" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
           :authorized='@json(Auth::check())'
-          endpoint="{{ route('users.follow', ['lang' => app()->getLocale(), 'username' => $user->username]) }}">
+          endpoint="{{ route('users.follow', ['username' => $user->username]) }}">
         </follow-button>
       @endif
     </div>
@@ -135,12 +132,12 @@
   <div class="bg-white dark:bg-dark w-full lg:z-20">
     <div class="max-w-8xl mx-4 md:mx-12 flex justify-between">
       <div class="relative flex items-center">
-        <a href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+        <a href="{{ route('users.show', ['username' => $user->username]) }}"
           class="{{ $work ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
-        <a href="{{ route('users.about', ['lang' => app()->getLocale(), 'username' => $user->username]) }}"
+        <a href="{{ route('users.about', ['username' => $user->username]) }}"
           class="{{ $about ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
         @if (Auth::id() === $user->id)
-          <a href="{{ route('users.settings', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
+          <a href="{{ route('users.settings', ['username' => Auth::user()->username]) }}"
             class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
         @endif
       </div>

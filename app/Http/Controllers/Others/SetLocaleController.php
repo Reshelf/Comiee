@@ -20,12 +20,15 @@ class SetLocaleController extends Controller
      */
     public function __invoke(Request $request)
     {
-        \App::setLocale($request->lang);
-
+        $lang = $request->lang;
+        // 言語設定を変更し、データベースに保存
+        \App::setLocale($lang);
         $user = Auth::user();
-        $user->lang = $request->lang;
+        $user->lang = $lang;
         $user->save();
 
-        return redirect('/' . $request->lang . '/' . Auth::user()->username . '/settings');
+        // 設定ページにリダイレクト
+        return redirect('/' . Auth::user()->username . '/settings');
+
     }
 }

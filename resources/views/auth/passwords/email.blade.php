@@ -8,7 +8,7 @@
     <h2 class="card-title">
       {{ __('パスワード再設定のメールを送信') }}
     </h2>
-    <form method="POST" action="{{ route('password.email', app()->getLocale()) }}" class="px-6 dark:bg-dark-1 pt-6">
+    <form method="POST" action="{{ route('password.email') }}" class="px-6 dark:bg-dark-1 pt-6">
       @csrf
 
       {{-- エラー文 --}}

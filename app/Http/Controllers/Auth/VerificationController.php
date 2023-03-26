@@ -16,6 +16,6 @@ class VerificationController extends Controller
         $this->middleware('throttle:3,1')->only('verify', 'resend');
 
         // ユーザーの好み選択ページに飛ばす
-        $this->redirectTo = '/' . app()->getLocale() . '/users/setup';
+        $this->redirectTo = '/users/setup';
     }
 }

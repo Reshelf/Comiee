@@ -13,7 +13,7 @@
 
   {{-- 検索 --}}
   <span class="stroke-[#7c7c7c] dark:stroke-ddd mobile-menu-icon">
-    <sp-search-form :lang='@json(app()->getLocale())'>
+    <sp-search-form>
       <template #trigger>
         <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <title>search</title>
@@ -29,8 +29,7 @@
     <create-modal>
       @include('atoms._error_card_list')
       @include('atoms.success')
-      <form method="POST" action="{{ route('book.store', app()->getLocale()) }}" enctype="multipart/form-data"
-        onsubmit="submit_btn()">
+      <form method="POST" action="{{ route('book.store') }}" enctype="multipart/form-data" onsubmit="submit_btn()">
         @include('books.atoms.form', ['update' => false, 'create_book_modal_count' => 14])
         <div class="w-full relative">
           <button type="submit" class="submit_btn3 btn-primary w-full lg:py-4">
@@ -43,7 +42,7 @@
   </div>
 
   {{-- 本棚 --}}
-  <a href="{{ route('user.shelf.like', app()->getLocale()) }}"
+  <a href="{{ route('user.shelf.like') }}"
     class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>shelf</title>
@@ -58,8 +57,8 @@
 
   {{-- プロフィール --}}
   <a
-    @if (Auth::user()) href="{{ route('users.show', ['lang' => app()->getLocale(), 'username' => Auth::user()->username]) }}"
-        @else href="{{ route('login', app()->getLocale()) }}" @endif>
+    @if (Auth::user()) href="{{ route('users.show', ['username' => Auth::user()->username]) }}"
+        @else href="{{ route('login') }}" @endif>
     @empty($user->avatar)
       <svg class="rounded-full shadow object-cover w-[28px] h-[28px]" viewBox="0 0 42 42" fill="none">
         <title>profile</title>

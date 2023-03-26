@@ -11,7 +11,7 @@
       </div>
 
       <div class="flex justify-center mt-12 px-10">
-        <a href="{{ url('/', app()->getLocale()) }}" class="flex-none md:overflow-hidden md:w-auto">
+        <a href="{{ url('/') }}" class="flex-none md:overflow-hidden md:w-auto">
           <span class="sr-only">Comiee - Manga Social Networking Service</span>
           <h1 class="text-2xl font-semibold dark:text-white">
             <svg class="h-[30px]" viewBox="0 0 382 301" fill="none">
@@ -48,8 +48,7 @@
         {{ __('ログイン') }}
       </h2>
       <p class="flex justify-center text-base mt-2">{{ __('お客様のメールアドレスを使用') }}</p>
-      <form id="registerForm" method="POST" action="{{ route('login', app()->getLocale()) }}"
-        class="px-6 lg:px-10 dark:bg-dark pt-6">
+      <form id="registerForm" method="POST" action="{{ route('login') }}" class="px-6 lg:px-10 dark:bg-dark pt-6">
         @csrf
 
         {{-- エラー文 --}}
@@ -83,7 +82,7 @@
 
         <input type="hidden" name="remember" value="on">
         <div class="w-full flex justify-between items-center pb-6 mb-6 border-b border-b-l-c dark:border-dark-1">
-          <a href="{{ route('password.request', app()->getLocale()) }}"
+          <a href="{{ route('password.request') }}"
             class="cursor-pointer text-primary dark:text-gray dark:hover:text-ddd">{{ __('パスワードを忘れた場合') }}</a>
           <span class="relative">
             <button type="submit" class="btn-primary py-1.5 px-6 lg:px-8 ml-auto">

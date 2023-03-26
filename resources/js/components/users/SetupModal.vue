@@ -14,7 +14,7 @@ export default {
     methods: {
         close() {
             this.open = false;
-            location.href = "/" + this.user.lang + "/" + this.user.username;
+            location.href = "/" + this.user.username;
         },
     },
 };

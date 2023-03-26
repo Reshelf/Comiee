@@ -14,7 +14,7 @@ class ShowController extends Controller
     | プロフィール
     |--------------------------------------------------------------------------
      */
-    public function __invoke($lang, string $username)
+    public function __invoke(string $username)
     {
         $user = $this->getUserByUsername($username);
 

@@ -1,16 +1,16 @@
 <div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
   <h3 class="font-semibold mb-2">{{ __('Comieeを楽しもう') }}</h3>
-  <a href="{{ route('others.about.comiee', app()->getLocale()) }}"
+  <a href="{{ route('others.about.comiee') }}"
     class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('Comieeについて') }}
   </a>
-  <a href="{{ route('others.user_guide', app()->getLocale()) }}"
+  <a href="{{ route('others.user_guide') }}"
     class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('ご利用ガイド') }}
   </a>
-  <a href="{{ route('others.faq', ['lang' => app()->getLocale(), 'number' => 1]) }}"
+  <a href="{{ route('others.faq', ['number' => 1]) }}"
     class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('よくあるご質問') }}
@@ -25,8 +25,7 @@
         </span>
       </template>
       <template #header>{{ __('運営へのお問い合せ') }}</template>
-      <form method="POST" action="{{ route('others.contact', ['lang' => app()->getLocale(), 'user' => Auth::user()]) }}"
-        onsubmit="submit_btn()">
+      <form method="POST" action="{{ route('others.contact', ['user' => Auth::user()]) }}" onsubmit="submit_btn()">
         @csrf
         <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
         <textarea class="count_6 text-area" placeholder="{{ __('お問い合せ内容を記入してください。') }}" autocomplete="off" autofocus="on"
