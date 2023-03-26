@@ -3,14 +3,14 @@
     "file": "assets/vendor-95a2348e.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-1993d5a4.css",
+    "file": "assets/app-5e871b63.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-1993d5a4.css"
+      "assets/app-5e871b63.css"
     ],
-    "file": "assets/app-0a1dd506.js",
+    "file": "assets/app-ef381f63.js",
     "imports": [
       "_vendor-95a2348e.js"
     ],
