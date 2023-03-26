@@ -431,7 +431,7 @@
                                         >
                                             <div class="list-item">
                                                 <a
-                                                    :href="`/${lang}/books/${manga.title}`"
+                                                    :href="`/${lang}/b/${manga.title}`"
                                                 >
                                                     <template
                                                         v-if="manga.thumbnail"
@@ -674,7 +674,7 @@
                                         >
                                             <div class="list-item">
                                                 <a
-                                                    :href="`/${lang}/books/${manga.title}`"
+                                                    :href="`/${lang}/b/${manga.title}`"
                                                 >
                                                     <template
                                                         v-if="manga.thumbnail"
@@ -727,7 +727,7 @@
                                         >
                                             <div class="list-item">
                                                 <a
-                                                    :href="`/${lang}/books/${episode.book_title}/${episode.number}`"
+                                                    :href="`/${lang}/b/${episode.book_title}/${episode.number}`"
                                                 >
                                                     <template
                                                         v-if="episode.thumbnail"
@@ -781,7 +781,7 @@
                                         >
                                             <div class="list-item">
                                                 <a
-                                                    :href="`/${lang}/books/${episode.book_title}/${episode.number}`"
+                                                    :href="`/${lang}/b/${episode.book_title}/${episode.number}`"
                                                 >
                                                     <template
                                                         v-if="episode.thumbnail"

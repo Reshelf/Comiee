@@ -57,7 +57,7 @@
             <div class="flex flex-wrap">
                 <template v-for="book in filteredManga" :key="book.id">
                     <div class="list-item">
-                        <a :href="`/${lang}/books/${book.title}`">
+                        <a :href="`/${lang}/b/${book.title}`">
                             <template v-if="book.thumbnail">
                                 <img
                                     :src="book.thumbnail"

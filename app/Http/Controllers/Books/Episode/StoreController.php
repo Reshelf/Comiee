@@ -79,7 +79,7 @@ class StoreController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01);
 
-            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/thumbnail.webp';
+            $filePath = 'app/' . env('APP_ENV') . '/b/' . $book->title . '/' . $episode->number . '/thumbnail.webp';
             Storage::disk('r2')->put($filePath, $img);
             $episode->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
         }
@@ -106,7 +106,7 @@ class StoreController extends Controller
                     }
                 )->limitColors(null)->encode('webp', 0.01);
 
-                $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/' . $episode->number . '/' . $index . '.webp';
+                $filePath = 'app/' . env('APP_ENV') . '/b/' . $book->title . '/' . $episode->number . '/' . $index . '.webp';
                 Storage::disk('r2')->put($filePath, $img);
                 $imgData[] = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
             }

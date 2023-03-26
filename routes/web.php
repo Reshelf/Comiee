@@ -69,7 +69,7 @@ Route::prefix('{lang}')->where(['lang' => 'ja|en|tw|cn|es|fr|it|id|th|ko|de|hi|a
     |--------------------------------------------------------------------------
     |
      */
-    Route::prefix('books')->name('book.')->group(function () {
+    Route::prefix('b')->name('book.')->group(function () {
 
         // 作品
         Route::get('/{book_title}', 'App\Http\Controllers\Books\ShowController')->name('show');

@@ -105,7 +105,7 @@ class UpdateController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail.webp';
+            $filePath = 'app/' . env('APP_ENV') . '/b/' . $book->title . '/thumbnail.webp';
             Storage::disk('r2')->put($filePath, $img);
             $book->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
 

@@ -83,7 +83,7 @@ class StoreController extends Controller
                 }
             )->limitColors(null)->encode('webp', 0.01); // 多分最大は0.1
 
-            $filePath = 'app/' . env('APP_ENV') . '/books/' . $book->title . '/thumbnail.webp';
+            $filePath = 'app/' . env('APP_ENV') . '/b/' . $book->title . '/thumbnail.webp';
             Storage::disk('r2')->put($filePath, $img);
             $book->thumbnail = env('CLOUDFLARE_R2_URL') . '/' . $filePath;
         }
@@ -126,7 +126,7 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
         |
          */
-        return redirect('/' . app()->getLocale() . '/books/' . $book->title)->with([
+        return redirect('/' . app()->getLocale() . '/b/' . $book->title)->with([
             'success' => __('作品を作成しました。続いて作品のエピソードを追加しましょう！'),
             'store' => true,
         ]);

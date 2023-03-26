@@ -131,7 +131,7 @@ export default {
             this.state.array = result.data;
         },
         locate(item) {
-            location.href = "/" + this.lang + "/books/" + item.id;
+            location.href = "/" + this.lang + "/b/" + item.title;
         },
         reset() {
             this.state.search = "";

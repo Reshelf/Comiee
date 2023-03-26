@@ -5,13 +5,13 @@
     // if ($book->user->is_vip) {
     //     $application_fee = 0.2;
     // }
-    
+
     $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
     $price = $stripe->prices->retrieve($price->id, [], ['stripe_account' => $book->user->stripe_user_id]);
-    
+
     $session = $stripe->checkout->sessions->create(
         [
-            'success_url' => config('app.top_url') . '/' . app()->getLocale() . '/books/' . $book->id . '/' . $episode->number,
+            'success_url' => config('app.top_url') . '/' . app()->getLocale() . '/b/' . $book->title . '/' . $episode->number,
             'cancel_url' => config('app.top_url'),
             'payment_method_types' => ['card'],
             'line_items' => [
@@ -29,7 +29,7 @@
             ],
             'metadata' => [
                 'user_id' => Auth::user()->id,
-                'book_id' => $book->id,
+                'book_id' => title,
                 'episode_number' => $episode->number,
             ],
         ],

@@ -901,19 +901,19 @@ export default {
         locale_next() {
             if (this.episode.number < this.episodeCount) {
                 const nextNumber = this.episode.number + 1;
-                location.href = `/${this.lang}/books/${this.book.id}/${nextNumber}`;
+                location.href = `/${this.lang}/b/${this.book.title}/${nextNumber}`;
             }
         },
         locale_prev() {
             const prevNumber = this.episode.number - 1;
-            location.href = `/${this.lang}/books/${this.book.id}/${prevNumber}`;
+            location.href = `/${this.lang}/b/${this.book.title}/${prevNumber}`;
         },
         close() {
             if (this.open) this.open = false;
             if (this.comment_menu) this.comment_menu = false;
         },
         works_top() {
-            location.href = "/" + this.lang + "/books/" + this.book.id;
+            location.href = "/" + this.lang + "/b/" + this.book.title;
         },
     },
 };
