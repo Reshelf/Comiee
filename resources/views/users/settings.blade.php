@@ -349,7 +349,9 @@
                   <h3 class="text-base dark:text-ddd font-bold mt-12">{{ __('収益について') }}</h3>
                   <div class="mt-4">
                     {{ __('日本時間の毎週金曜日0時に、4営業日前までに購入処理が完了した分の売上が入金されます。') }}<br>
-                    {{ __('詳しくは <a href="/terms_of_service#sales_and_author_profit" class="text-primary">こちら</a>') }}
+                    {!! __(
+                        '詳しくは <a href="/terms_of_service#sales_and_author_profit" class="text-primary dark:text-[#8ab4f8]">こちら</a>',
+                    ) !!}
                   </div>
                 </div>
               </div>
