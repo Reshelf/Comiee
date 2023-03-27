@@ -51,8 +51,7 @@
         {{ __('アカウントを作成') }}
       </h2>
 
-      <form id="registerForm" method="POST" action="{{ route('register') }}"
-        class="dark:bg-dark mt-8 px-6 lg:px-10 pb-0">
+      <form id="sendForm" method="POST" action="{{ route('register') }}" class="dark:bg-dark mt-8 px-6 lg:px-10 pb-0">
         @csrf
 
         {{-- エラー文 --}}

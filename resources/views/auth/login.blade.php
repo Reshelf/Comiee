@@ -5,7 +5,7 @@
 @section('content')
   <div class="w-full h-screen flex justify-center items-center">
     <div
-      class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark rounded border dark:lg:border-2 border-b-l-c dark:border-dark dark:lg:border-dark-1  overflow-hidden">
+      class="sendFormBox w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark rounded border dark:lg:border-2 border-b-l-c dark:border-dark dark:lg:border-dark-1  overflow-hidden">
       <div class="progress" style="display: none;">
         <div class="color"></div>
       </div>
@@ -48,7 +48,7 @@
         {{ __('ログイン') }}
       </h2>
       <p class="flex justify-center text-base mt-2">{{ __('お客様のメールアドレスを使用') }}</p>
-      <form id="registerForm" method="POST" action="{{ route('login') }}" class="px-6 lg:px-10 dark:bg-dark pt-6">
+      <form id="sendForm" method="POST" action="{{ route('login') }}" class="px-6 lg:px-10 dark:bg-dark pt-6">
         @csrf
 
         {{-- エラー文 --}}

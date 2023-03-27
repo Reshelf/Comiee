@@ -126,21 +126,21 @@ function onKey_16() {
 |
 */
 document.addEventListener("DOMContentLoaded", function () {
-    const registerForm = document.getElementById("registerForm");
+    const sendForm = document.getElementById("sendForm");
     const progress = document.querySelector(".progress");
 
-    if (!registerForm || !progress) {
+    if (!sendForm || !progress) {
         return;
     }
 
-    registerForm.addEventListener("submit", function () {
+    sendForm.addEventListener("submit", function () {
         progress.style.display = "block"; // .progress要素を表示
 
         // ここでsubmit_btn関数を呼び出す
         submit_btn();
 
         // 非同期処理が終わったら、フォームを送信
-        registerForm.submit();
+        sendForm.submit();
     });
 });
 
