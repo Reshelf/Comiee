@@ -76,7 +76,7 @@
     <div class="w-full md:px-6 flex justify-between md:mt-2">
       <div class="w-full flex flex-col">
         <div class="flex items-center justify-start">
-          <h3 class="font-semibold pr-2 text-2xl md:text-[30px] dark:text-ddd">
+          <h3 class="font-bold pr-2 text-2xl md:text-[30px] dark:text-ddd">
             {{ $user->name }}
           </h3>
 
@@ -93,7 +93,7 @@
           @endif
         </div>
 
-        <div class="text-left font-semibold mt-1 lg:text-[15px] text-t-color-3">
+        <div class="text-left font-bold mt-1 lg:text-[15px] text-t-color-3">
           <span>@</span>{{ $user->username }}
         </div>
 
@@ -105,11 +105,11 @@
 
         <div class="flex justify-start items-center text-sm pt-2">
           <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
-            <span class="font-semibold lg:text-lg">{{ number_format($user->count_followings) }}</span>
+            <span class="font-bold lg:text-lg">{{ number_format($user->count_followings) }}</span>
             <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロー') }}</span>
           </a>
           <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
-            <span class="font-semibold lg:text-lg">{{ number_format($user->count_followers) }}</span>
+            <span class="font-bold lg:text-lg">{{ number_format($user->count_followers) }}</span>
             <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロワー') }}</span>
           </a>
           @if (Auth::id() !== $user->id)
@@ -133,12 +133,12 @@
     <div class="max-w-8xl mx-4 md:mx-12 flex justify-between">
       <div class="relative flex items-center">
         <a href="{{ route('users.show', ['username' => $user->username]) }}"
-          class="{{ $work ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
+          class="{{ $work ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-bold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('作品') }}</a>
         <a href="{{ route('users.about', ['username' => $user->username]) }}"
-          class="{{ $about ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
+          class="{{ $about ? 'border-primary dark:border-[#8ab4f8] text-primary dark:text-ddd font-bold' : 'border-transparent hover:text-primary dark:hover:text-light hover:font-bold  dark:border-dark' }} py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('概要') }}</a>
         @if (Auth::id() === $user->id)
           <a href="{{ route('users.settings', ['username' => Auth::user()->username]) }}"
-            class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-semibold  dark:border-dark py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
+            class="lg:hidden border-transparent hover:text-primary dark:hover:text-light hover:font-bold  dark:border-dark py-3 px-4 lg:px-6 border-b-2 tracking-widest">{{ __('設定') }}</a>
         @endif
       </div>
 

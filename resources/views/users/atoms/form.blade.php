@@ -4,7 +4,7 @@
 @if (!$setup)
   {{-- カバー画像 --}}
   <div class="relative flex items-center mb-4">
-    <h3 class="tracking-widest font-semibold">{{ __('カバー画像') }}</h3>
+    <h3 class="tracking-widest font-bold">{{ __('カバー画像') }}</h3>
     <div class="tooltip cursor-pointer ml-1">
       <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
         <title>cover image</title>
@@ -27,7 +27,7 @@
 
   {{-- プロフィール画像 --}}
   <div class="relative flex items-center mt-12 mb-4">
-    <h3 class="tracking-widest font-semibold">{{ __('プロフィール画像') }}</h3>
+    <h3 class="tracking-widest font-bold">{{ __('プロフィール画像') }}</h3>
     <div class="tooltip cursor-pointer ml-1">
       <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
         <title>profile image</title>
@@ -49,14 +49,14 @@
 
 
   {{-- 名前 --}}
-  <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('名前') }}</h3>
+  <h3 class="tracking-widest mt-12 mb-4 font-bold">{{ __('名前') }}</h3>
   <div class="mb-12">
     <input type="text" name="name" value="{{ $user->name ?? old('name') }}" class="card-input" maxlength="30">
   </div>
 
 
   {{-- ユーザーID --}}
-  <h3 class="tracking-widest mb-4 font-semibold">{{ __('ユーザーID') }}</h3>
+  <h3 class="tracking-widest mb-4 font-bold">{{ __('ユーザーID') }}</h3>
   <div class="mb-12">
     <input type="text" name="username" value="{{ $user->username ?? old('username') }}" class="card-input"
       maxlength="20" minlength="4">
@@ -64,14 +64,14 @@
 
 
   {{-- メールアドレス --}}
-  <h3 class="tracking-widest mb-4 font-semibold">{{ __('メールアドレス') }}</h3>
+  <h3 class="tracking-widest mb-4 font-bold">{{ __('メールアドレス') }}</h3>
   <div class="mb-12">
     <input type="email" name="email" value="{{ $user->email ?? old('email') }}" class="card-input" maxlength="255">
   </div>
 
 
   {{-- 自己紹介 --}}
-  <h3 class="tracking-widest mb-4 font-semibold">{{ __('自己紹介') }}</h3>
+  <h3 class="tracking-widest mb-4 font-bold">{{ __('自己紹介') }}</h3>
   <div class="mb-8">
     <textarea name="body" placeholder="{{ __('200文字以内で入力してください。') }}" maxlength="200" class="count_2 card-textarea">{{ $user->body ?? old('body') }}</textarea>
     <div class="text-right">
@@ -85,7 +85,7 @@
 
 {{-- 性別 --}}
 <div class="filters flex flex-col mb-12">
-  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('性別') }}</h3>
+  <h3 class="tracking-widest text-[15px] font-bold">{{ __('性別') }}</h3>
   <div class="flex items-center mt-4">
     {{-- 縦スク --}}
     <input class="visually-hidden" type="radio" name="gender" value="man"
@@ -113,14 +113,14 @@
 
 
 {{-- 誕生日 --}}
-<h3 class="tracking-widest mb-4 font-semibold">{{ __('誕生日') }}</h3>
+<h3 class="tracking-widest mb-4 font-bold">{{ __('誕生日') }}</h3>
 <div class="mb-12">
   <input type="date" name="birth" id="birth" value="{{ $user->birth ?? old('birth') }}">
 </div>
 
 
 {{-- ウェブサイト --}}
-<h3 class="tracking-widest mb-4 font-semibold">{{ __('ウェブサイト') }}</h3>
+<h3 class="tracking-widest mb-4 font-bold">{{ __('ウェブサイト') }}</h3>
 <div class="mb-12">
   <input type="text" name="website" value="{{ $user->website ?? old('website') }}" class="card-input"
     placeholder="{{ __('URLを入れてください') }}" maxlength="255">
@@ -128,7 +128,7 @@
 
 
 {{-- Twitter --}}
-<h3 class="tracking-widest mb-4 font-semibold">{{ __('Twitter') }}</h3>
+<h3 class="tracking-widest mb-4 font-bold">{{ __('Twitter') }}</h3>
 <div class="mb-12">
   <input type="text" name="twitter" value="{{ $user->twitter ?? old('twitter') }}" class="card-input"
     placeholder="{{ __('URLを入れてください') }}" maxlength="255">
@@ -136,7 +136,7 @@
 
 
 {{-- Youtube --}}
-<h3 class="tracking-widest mb-4 font-semibold">{{ __('Youtube') }}</h3>
+<h3 class="tracking-widest mb-4 font-bold">{{ __('Youtube') }}</h3>
 <div class="mb-12">
   <input type="text" name="youtube" value="{{ $user->youtube ?? old('youtube') }}" class="card-input"
     placeholder="{{ __('URLを入れてください') }}" maxlength="255">
@@ -144,7 +144,7 @@
 
 
 {{-- Instagram --}}
-<h3 class="tracking-widest mb-4 font-semibold">{{ __('Instagram') }}</h3>
+<h3 class="tracking-widest mb-4 font-bold">{{ __('Instagram') }}</h3>
 <div class="mb-12">
   <input type="text" name="instagram" value="{{ $user->instagram ?? old('instagram') }}" class="card-input"
     placeholder="{{ __('URLを入れてください') }}" maxlength="255">

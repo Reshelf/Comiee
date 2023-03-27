@@ -1,6 +1,6 @@
  @isset($episode)
    <div class="flex justify-between items-center mb-4">
-     <h3 class="text-[13px] mr-4 md:mr-0 md:text-lg font-semibold mb-4">{{ __('応援コメント') }}</h3>
+     <h3 class="text-[13px] mr-4 md:mr-0 md:text-lg font-bold mb-4">{{ __('応援コメント') }}</h3>
      <comment-post-modal>
        <template #btn-trigger>
          <span class="btn-border px-4 text-xs">{{ __('コメントを書く') }}</span>

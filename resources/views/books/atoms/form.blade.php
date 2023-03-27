@@ -2,7 +2,7 @@
 
 @if ($update)
   {{-- 公開設定 --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">
     {{ __('公開設定') }}
     <span class="text-xs">
       @if ($book->is_hidden)
@@ -28,7 +28,7 @@
   </div>
 
   {{-- 全エピソードを有料化する --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('全エピソードを有料化する') }}</h3>
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('全エピソードを有料化する') }}</h3>
   <div class="filters mb-12">
     @if (!$book->user->stripe_user_id)
       <p class="mb-4">{{ __('有料販売を行うには、以下の設定を行なってください。') }}</p>
@@ -79,7 +79,7 @@
 @endif
 
 {{-- タイトル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タイトル') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('タイトル') }}</h3>
 <div class="mb-12">
   <input type="text" name="title" class="card-input" placeholder="{{ __('30字以内で入力してください') }}" required
     value="{{ $book->title ?? old('title') }}" maxlength="30">
@@ -87,7 +87,7 @@
 
 {{-- サムネイル --}}
 <div class="relative flex items-center mt-8 mb-4">
-  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('サムネイル') }}</h3>
+  <h3 class="tracking-widest text-[15px] font-bold">{{ __('サムネイル') }}</h3>
   <div class="tooltip cursor-pointer ml-1">
     <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
       <title>thumbnail</title>
@@ -109,7 +109,7 @@
   @if (!$update) required @endif>
 
 {{-- ジャンル --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('ジャンル') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('ジャンル') }}</h3>
 <div class="mb-12">
   <select name="genre_id" class="flex flex-col items-center">
     <option type="text" value="1"
@@ -129,7 +129,7 @@
 
 {{-- 画面タイプ --}}
 <div class="filters flex flex-col mb-12">
-  <h3 class="tracking-widest text-[15px] font-semibold">{{ __('画面タイプ') }}</h3>
+  <h3 class="tracking-widest text-[15px] font-bold">{{ __('画面タイプ') }}</h3>
   <div class="flex items-center mt-4">
     {{-- 縦スク --}}
     <input class="visually-hidden" type="radio" name="screen_type" value="vertical"
@@ -160,7 +160,7 @@
 </div>
 
 {{-- 作品言語 --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品言語') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('作品言語') }}</h3>
 <div class="mb-12">
   <select name="lang" class="flex flex-col items-center">
     <option type="text" value="ja"
@@ -217,7 +217,7 @@
 </div>
 
 {{-- カラー作品 --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('カラー作品') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('カラー作品') }}</h3>
 <div class="checkbox mb-12">
   <label class="light-checkbox">
     <input type="checkbox" name="is_color"
@@ -235,7 +235,7 @@
 </div>
 
 {{-- タグ --}}
-<h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('タグ') }}</h3>
+<h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('タグ') }}</h3>
 <div class="mb-12">
   <book-tags-input :initial-tags='@json($book->tag_names ?? [])' :autocomplete-items='@json($allTags ?? [])'>
   </book-tags-input>
@@ -243,7 +243,7 @@
 
 {{-- あらすじ --}}
 @isset($create_book_modal_count)
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('あらすじ') }}</h3>
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('あらすじ') }}</h3>
   <textarea required name="story" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
     placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400">{{ $book->story ?? old('story') }}</textarea>
   <div class="mb-4 text-right">
@@ -254,7 +254,7 @@
 
 @if ($update)
   {{-- 完結作品 --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('完結作品の設定') }}</h3>
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('完結作品の設定') }}</h3>
   <div class="checkbox mb-12">
     <label class="light-checkbox">
       <input type="checkbox" name="is_complete" {{ $book->is_complete ?? old('is_complete') ? 'checked' : '' }}
@@ -271,7 +271,7 @@
   </div>
 
   {{-- 休載 --}}
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('休載設定') }}</h3>
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('休載設定') }}</h3>
   <div class="checkbox mb-12">
     <label class="light-checkbox">
       <input type="checkbox" name="is_suspend" {{ $book->is_suspend ?? old('is_suspend') ? 'checked' : '' }}
@@ -289,8 +289,8 @@
 @endif
 
 @if (!$update)
-  <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('作品投稿後の流れ') }}</h3>
-  <p class="mb-6 bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+  <h3 class="tracking-widest mb-4 text-[15px] font-bold">{{ __('作品投稿後の流れ') }}</h3>
+  <p class="mb-6 bg-primary bg-opacity-10 text-primary px-4 py-2 font-bold">
     {{ __('作品を投稿したら、続いてエピソードを追加してみましょう！') }}
   </p>
 @endif

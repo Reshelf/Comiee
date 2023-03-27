@@ -79,7 +79,7 @@ a {
 }
 
 .btn {
-    @apply cursor-pointer font-semibold whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-[8px] px-[16px];
+    @apply cursor-pointer font-bold whitespace-nowrap text-sm text-primary hover:bg-primary hover:bg-opacity-10 bg-transparent border border-primary dark:bg-primary dark:hover:bg-opacity-90 dark:text-white py-[8px] px-[16px];
     border-radius: 3px;
 }
 .btn-primary {
@@ -90,7 +90,7 @@ a {
     @apply tracking-widest rounded-[5px] cursor-pointer whitespace-nowrap text-sm text-primary dark:text-[#8ab4f8] hover:bg-primary dark:hover:bg-[#8ab4f8] hover:bg-opacity-10 dark:hover:bg-opacity-10 bg-transparent border border-[#8AB4F7] dark:border-[#626262] py-[8px] px-[16px];
 }
 .btn-sub {
-    @apply tracking-widest cursor-pointer whitespace-nowrap font-semibold text-sm dark:text-ccc  hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-[8px] px-[16px];
+    @apply tracking-widest cursor-pointer whitespace-nowrap font-bold text-sm dark:text-ccc  hover:bg-eee dark:bg-dark dark:hover:bg-dark-1 rounded-sm py-[8px] px-[16px];
 }
 .btn-danger {
     @apply cursor-pointer text-sm bg-red hover:bg-opacity-90 text-white rounded-sm py-2 px-6;
@@ -189,7 +189,7 @@ a {
     }
 
     .header {
-        @apply relative min-h-[30px] bg-white dark:bg-dark-1 text-left rounded-t lg:text-lg text-[15px] font-semibold py-3 pl-4 pr-8;
+        @apply relative min-h-[30px] bg-white dark:bg-dark-1 text-left rounded-t lg:text-lg text-[15px] font-bold py-3 pl-4 pr-8;
     }
 
     .close {
@@ -230,7 +230,7 @@ a {
 .thumbnail {
     @apply object-cover cursor-pointer w-full md:w-[250px] md:h-[250px];
     &-title {
-        @apply w-full cursor-pointer font-semibold mt-2 text-lg dark:text-white;
+        @apply w-full cursor-pointer font-bold mt-2 text-lg dark:text-white;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
@@ -321,7 +321,7 @@ button[disabled] {
     }
 }
 .ranking-rabel {
-    @apply absolute left-0 top-0 p-1.5 bg-[#DA463D] text-white font-semibold w-[35px] h-[35px] flex items-center justify-center;
+    @apply absolute left-0 top-0 p-1.5 bg-[#DA463D] text-white font-bold w-[35px] h-[35px] flex items-center justify-center;
 }
 
 .ti-input {
@@ -526,7 +526,7 @@ button[disabled] {
 }
 
 .dragBox {
-    @apply w-full h-[80px] text-666 px-8 py-4 mx-auto relative rounded text-center font-semibold inline-flex items-center justify-center duration-300;
+    @apply w-full h-[80px] text-666 px-8 py-4 mx-auto relative rounded text-center font-bold inline-flex items-center justify-center duration-300;
     border: 2px dashed #ccc;
     input[type="file"] {
         @apply absolute h-full w-full opacity-0 top-0 left-0;
@@ -655,7 +655,7 @@ button .loading {
         a {
             @apply tracking-widest w-auto whitespace-nowrap cursor-pointer py-4 pr-4 md:pr-12 hover:text-primary dark:hover:text-light;
             &.active {
-                @apply font-semibold text-primary dark:text-ddd;
+                @apply font-bold text-primary dark:text-ddd;
             }
         }
     }

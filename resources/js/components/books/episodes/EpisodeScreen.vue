@@ -19,7 +19,7 @@
                     class="min-w-[800px] max-w-[800px] bg-white dark:bg-dark p-10 flex flex-col justify-center mx-auto"
                 >
                     <div v-if="episode.short_from_author" class="mb-10">
-                        <h3 class="text-lg font-semibold">
+                        <h3 class="text-lg font-bold">
                             {{ t("クリエイターさんからの一言") }}
                         </h3>
                         <div class="mt-4">
@@ -57,7 +57,7 @@
                                         stroke-linejoin="round"
                                     />
                                 </svg>
-                                <div class="ml-2 font-semibold">
+                                <div class="ml-2 font-bold">
                                     {{ book.user.name }}
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                         class="min-w-[35%] max-w-[35%] bg-white dark:bg-dark-1 p-10 flex flex-col justify-center"
                     >
                         <div v-if="episode.short_from_author" class="mb-10">
-                            <h3 class="text-lg font-semibold">
+                            <h3 class="text-lg font-bold">
                                 {{ t("クリエイターさんからの一言") }}
                             </h3>
                             <div class="mt-4">
@@ -187,7 +187,7 @@
                                             stroke-linejoin="round"
                                         />
                                     </svg>
-                                    <div class="ml-2 font-semibold">
+                                    <div class="ml-2 font-bold">
                                         {{ book.user.name }}
                                     </div>
                                 </div>
@@ -741,7 +741,7 @@
         <div
             v-if="!show"
             ref="policy"
-            class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-semibold py-12 lg:py-20 px-4 flex items-center justify-center"
+            class="bg-dark-1 text-white-2 text-xl lg:text-2xl font-bold py-12 lg:py-20 px-4 flex items-center justify-center"
         >
             {{ t("作品保護のため、このページの画面操作はできません") }}
             {{ t("ページをリロードしてください") }}

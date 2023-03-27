@@ -4,7 +4,7 @@
 
 <div class="w-full max-h-[600px] overflow-y-auto scroll-none">
   @if (Auth::id() !== $book->user_id && $book->is_hidden)
-    <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-semibold">
+    <div class="bg-primary bg-opacity-10 text-primary px-4 py-2 font-bold">
       {{ __('この作品は現在非公開になっています') }}
     </div>
   @else
@@ -17,8 +17,7 @@
           </div>
         </template>
         <template #header>{{ __('作品のエピソードを追加する') }}</template>
-        <form method="POST"
-          action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
+        <form method="POST" action="{{ route('book.episode.store', ['book_id' => $book->id]) }}"
           enctype="multipart/form-data" onsubmit="submit_btn()">
           @csrf
 
@@ -149,8 +148,7 @@
         </div>
       </template>
       <template #header>{{ __('エピソードを更新する') }}</template>
-      <form method="POST"
-        action="{{ route('book.episode.update', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
+      <form method="POST" action="{{ route('book.episode.update', ['book_id' => $book->id, 'episode_id' => $e->id]) }}"
         enctype="multipart/form-data" class="whitespace-pre-line" onsubmit="submit_btn()">
         @csrf
         @method('PATCH')

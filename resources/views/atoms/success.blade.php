@@ -1,5 +1,5 @@
 @if (session('success'))
-  <li class="text-green bg-green bg-opacity-10 font-semibold rounded p-4 flex items-center mb-4 max-w-6xl mx-auto">
+  <li class="text-green bg-green bg-opacity-10 font-bold rounded p-4 flex items-center mb-4 max-w-6xl mx-auto">
     <svg class="mr-2 w-[20px] h-[20px] fill-green" viewBox="0 0 20 20" fill="none">
       <title>success icon</title>
       <path

@@ -4,7 +4,7 @@
   @include('atoms._simple_nav')
 
   <div class="max-w-lg mx-4 mt-8 md:mx-auto bg-white rounded shadow">
-    <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-semibold text-lg py-3 px-4">
+    <h2 class="text-[#5A5777] dark:text-ddd bg-[#F2F2F2] dark:bg-dark-1 font-bold text-lg py-3 px-4">
       {{ __('認証メールを送信しました') }}
     </h2>
 

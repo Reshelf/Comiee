@@ -61,7 +61,7 @@
                             />
                         </div>
                         <div class="ml-4 text-left">
-                            <div class="text-xl text-ddd font-semibold">
+                            <div class="text-xl text-ddd font-bold">
                                 {{ item.title }}
                             </div>
                             <div class="text-ddd mt-1">

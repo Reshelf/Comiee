@@ -14,11 +14,11 @@
     </h2>
     <div class="m-6">
       @if ($success)
-        <p class="bg-green bg-opacity-10 text-green px-4 py-2 font-semibold">
+        <p class="bg-green bg-opacity-10 text-green px-4 py-2 font-bold">
           {{ __('Stripeとの連携に成功しました！') }}
         </p>
       @else
-        <p class="bg-red bg-opacity-10 text-red px-4 py-2 font-semibold">
+        <p class="bg-red bg-opacity-10 text-red px-4 py-2 font-bold">
           {{ __('Stripeとの連携に失敗しました') }}
         </p>
       @endif

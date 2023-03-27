@@ -1,6 +1,6 @@
 <a href="{{ url('/') }}" class="mr-3 flex-none md:overflow-hidden md:w-auto">
   <span class="sr-only">Comiee - Manga Social Networking Service</span>
-  <h1 class="text-2xl font-semibold dark:text-white">
+  <h1 class="text-2xl font-bold dark:text-white">
     <svg class="h-[24px] md:h-[30px]" viewBox="0 0 206 40" fill="none">
       <title>Comiee Logo</title>
       <path class="dark:fill-white"

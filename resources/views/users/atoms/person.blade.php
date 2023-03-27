@@ -6,7 +6,7 @@
     @else
       <img src="{{ $person->avatar }}" alt="avatar" class="h-12 w-12 object-cover rounded-full" loading="lazy">
     @endempty
-    <span class="ml-4 font-semibold truncate max-w-[140px]">{{ $person->name }}</span>
+    <span class="ml-4 font-bold truncate max-w-[140px]">{{ $person->name }}</span>
   </a>
 
   @if (Auth::id() !== $person->id)

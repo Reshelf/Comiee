@@ -3,7 +3,7 @@
 @endphp
 
 {{-- 有料選択 --}}
-<h3 class="tracking-widest my-4 font-semibold">{{ __('このエピソードを有料化する') }}</h3>
+<h3 class="tracking-widest my-4 font-bold">{{ __('このエピソードを有料化する') }}</h3>
 <div class="checkbox">
   @if ($book->user->stripe_user_id)
     <label class="light-checkbox">
@@ -39,7 +39,7 @@
 
 {{-- タイトル --}}
 <div class="flex items-center mt-8 mb-4">
-  <h3 class="tracking-widest font-semibold inline-block">{{ __('タイトル') }}</h3>
+  <h3 class="tracking-widest font-bold inline-block">{{ __('タイトル') }}</h3>
 </div>
 <input type="text" name="title" value="{{ $e->title ?? old('title') }}" class="card-input"
   placeholder="50文字まで入力することができます" max="50">
@@ -47,7 +47,7 @@
 
 {{-- サムネイル --}}
 <div class="flex items-center mt-8 mb-4">
-  <h3 class="tracking-widest font-semibold inline-block">{{ __('サムネイル') }}</h3>
+  <h3 class="tracking-widest font-bold inline-block">{{ __('サムネイル') }}</h3>
   <div class="tooltip cursor-pointer ml-1">
     <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
       <title>info</title>
@@ -70,7 +70,7 @@
 
 {{-- コンテンツ --}}
 <div class="flex items-center mt-8 mb-4">
-  <h3 class="tracking-widest font-semibold">{{ __('コンテンツ') }}</h3>
+  <h3 class="tracking-widest font-bold">{{ __('コンテンツ') }}</h3>
   <div class="tooltip cursor-pointer ml-1">
     <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
       <title>info</title>
@@ -99,7 +99,7 @@
 
 {{-- 読者さんへの一言 --}}
 @isset($create_book_modal_count)
-  <h3 class="tracking-widest mt-12 mb-4 font-semibold">{{ __('読者さんへの一言') }}</h3>
+  <h3 class="tracking-widest mt-12 mb-4 font-bold">{{ __('読者さんへの一言') }}</h3>
   <textarea name="short_from_author" class="count_{{ $create_book_modal_count }} card-textarea mb-1"
     placeholder="{{ __('投稿できるのは400文字までです') }}" maxlength="400"
     value="{{ $e->short_from_author ?? old('short_from_author') }}"></textarea>
@@ -110,7 +110,7 @@
 @endisset
 
 {{-- 公開設定 --}}
-<h3 class="tracking-widest mt-4 mb-4 font-semibold">{{ __('公開設定') }}</h3>
+<h3 class="tracking-widest mt-4 mb-4 font-bold">{{ __('公開設定') }}</h3>
 <div class="checkbox">
   <label class="light-checkbox">
     <input type="checkbox" name="is_hidden"
@@ -130,7 +130,7 @@
 
 {{-- ご注意点 --}}
 <div class="flex items-center mt-8 mb-4">
-  <h3 class="tracking-widest font-semibold">{{ __('ご注意点') }}</h3>
+  <h3 class="tracking-widest font-bold">{{ __('ご注意点') }}</h3>
   <div class="tooltip cursor-pointer ml-1">
     <svg class="stroke-primary w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
       <title>info</title>

@@ -24,7 +24,7 @@
         {{-- 左側 --}}
         <div class="w-full lg:w-3/4 lg:pr-20">
           <div class="pb-4 mb-8 border-b border-[#dadce0] dark:border-dark-1">
-            <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('説明') }}</h3>
+            <h3 class="font-bold lg:text-[16px] dark:text-ddd">{{ __('説明') }}</h3>
             <div class="py-4">
               @empty($user->body)
                 {{ __('自己紹介はありません。') }}
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="pb-4 mb-8 border-b border-[#dadce0] dark:border-dark-1">
-            <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
+            <h3 class="font-bold lg:text-[16px] dark:text-ddd">{{ __('リンク') }}</h3>
             <div class="p-6 flex flex-col lg:flex-row flex-wrap w-full tracking-widest">
               @empty(!$user->website)
                 <div class="lg:w-1/3 mb-8">
@@ -65,7 +65,7 @@
         </div>
         {{-- 右側 --}}
         <div class="w-full lg:w-1/4">
-          <h3 class="font-semibold lg:text-[16px] dark:text-ddd">{{ __('統計情報') }}</h3>
+          <h3 class="font-bold lg:text-[16px] dark:text-ddd">{{ __('統計情報') }}</h3>
           <div class="py-4">{{ $user->created_at->format('Y/m/d') }}{{ __('に登録') }}</div>
         </div>
       </div>

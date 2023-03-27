@@ -1,7 +1,7 @@
 <div class="mobile-menu">
 
   <a href="{{ url('/') }}"
-    class="{{ $tab === 0 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
+    class="{{ $tab === 0 ? 'stroke-primary dark:stroke-white text-primary font-bold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>home</title>
       <path
@@ -43,7 +43,7 @@
 
   {{-- 本棚 --}}
   <a href="{{ route('user.shelf.like') }}"
-    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-semibold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
+    class="{{ $tab === 3 ? 'stroke-primary dark:stroke-white text-primary font-bold' : 'stroke-[#7c7c7c] dark:stroke-ddd' }} mobile-menu-icon">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <title>shelf</title>
       <path

@@ -11,7 +11,7 @@
 
   {{-- 作品タイトル --}}
   <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
-    class="inline-block text-2xl dark:text-white font-semibold my-4 px-2">{{ $book->title }}</a>
+    class="inline-block text-2xl dark:text-white font-bold my-4 px-2">{{ $book->title }}</a>
 
   {{-- 閲覧数 --}}
   {{-- @empty(!$book) --}}

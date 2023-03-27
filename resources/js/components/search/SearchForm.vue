@@ -116,7 +116,7 @@ function reset() {
                     </template>
 
                     <div class="ml-4 w-[200px]">
-                        <div class="text-xl font-semibold">
+                        <div class="text-xl font-bold">
                             {{ item.title }}
                         </div>
                         <div class="text-666 dark:text-ddd">
