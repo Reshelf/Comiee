@@ -343,11 +343,11 @@
                   </div>
                   <div class="flex mt-8">
                     <div class="pr-12 font-bold">
-                      {{ __('契約中の作品') }}
+                      {{ __('公開中の作品') }}
                     </div>
                     <div class="flex flex-col ">
                       @foreach ($user->books as $book)
-                        @if ($book->is_contracted)
+                        @if (!$book->is_hidden)
                           <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
                             class="hover:text-primary mb-4">
                             {{ $book->title }}

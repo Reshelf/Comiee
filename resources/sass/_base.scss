@@ -193,7 +193,7 @@ a {
     }
 
     .close {
-        @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-1 p-[6px] rounded duration-300 cursor-pointer shadow dark:shadow-dark dark:shadow-xl hover:shadow-lg;
+        @apply absolute text-666 dark:text-ddd bg-white dark:bg-dark-2 p-[6px] rounded duration-300 cursor-pointer shadow dark:shadow-dark dark:shadow-xl hover:shadow-lg;
         top: -10px;
         right: -10px;
         &:hover {

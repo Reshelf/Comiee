@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedbigInteger('user_id')->comment('ユーザー');
 
-            $table->boolean('is_contracted')->default(0)->comment('契約済フラグ');
             $table->boolean('is_complete')->default(0)->comment('完結作品フラグ');
             $table->boolean('is_new')->default(0)->comment('今日の新作フラグ');
             $table->boolean('is_color')->default(0)->comment('カラー作品');

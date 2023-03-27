@@ -5,7 +5,7 @@
 {{-- 有料選択 --}}
 <h3 class="tracking-widest my-4 font-semibold">{{ __('このエピソードを有料化する') }}</h3>
 <div class="checkbox">
-  @if ($book->user->stripe_user_id && $book->is_contracted)
+  @if ($book->user->stripe_user_id)
     <label class="light-checkbox">
       <input type="checkbox" name="is_free"
         @if ($update) {{ !$e->is_free ?? old('is_free') ? 'checked' : '' }} @endif
@@ -26,14 +26,10 @@
     @endif
   @endif
 
-  @if (!$book->user->stripe_user_id || !$book->is_contracted)
+  @if (!$book->user->stripe_user_id)
     <p class="mb-4">{{ __('有料販売を行うには、以下の設定を行なってください。') }}</p>
   @endif
 
-  @if (!$book->is_contracted)
-    <a href="/{{ Auth::user()->username }}/settings#contract" target="_blank" rel="nofollow noopener noreferrer"
-      class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
-  @endif
   @if (!$book->user->stripe_user_id)
     <a href="/{{ Auth::user()->username }}/settings#earnings" class="btn-border inline-block mt-4">
       {{ __('収益の受け取り準備を完了する') }}

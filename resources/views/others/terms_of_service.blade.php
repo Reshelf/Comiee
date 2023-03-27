@@ -193,6 +193,30 @@
       </p>
     </div>
 
+    <h3 id="" class="text-2xl font-bold my-4">3条 配信に関するComieeの権利</h3>
+    <div class="mb-10 mt-4 text-[16px]">
+      <p class="my-2">
+      <p class="font-bold">配信範囲</p>
+      Comieeは、クリエイターが投稿した作品を主にプラットフォーム内で配信する権利を持ちます。ただし、プロモーション目的で、InstagramやTwitterや他のメディアで作品を使用することがあります。
+      </p>
+      <p class="my-2">
+      <p class="font-bold">配信期間</p>
+      Comieeは、クリエイターが作品を公開している間、作品の配信を行う権利を持ちます。
+      </p>
+      <p class="my-2">
+      <p class="font-bold">改変権</p>
+      Comieeは、クリエイターの作品を改変・編集する権利を持ちません。
+      </p>
+      <p class="my-2">
+      <p class="font-bold">第三者への再配信・譲渡権</p>
+      原則として、Comieeは作品を第三者に再配信や譲渡する権利を持ちません。ただし、特定の状況下で第三者への再配信や譲渡が必要となる場合があります。その際は、クリエイターと事前に協議し、同意を得た上で行います。
+      </p>
+      <p class="my-2">
+      <p class="font-bold">クリエイターの保証と責任</p>
+      クリエイターは、Comieeで配信する作品が他者の知的財産権を侵害しないことを保証します。万が一、作品が他者の知的財産権を侵害した場合、クリエイターは、その責任を負い、Comieeおよび第三者に対して損害賠償を行うものとします。
+      </p>
+    </div>
+
 
     <h3 class="text-2xl font-bold my-4">3条 禁止事項</h3>
     <div class="mb-10 mt-4 text-[16px]">

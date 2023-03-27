@@ -19,7 +19,6 @@ class BookSeeder extends Seeder
             $param = [
                 'user_id' => random_int(1, 100),
 
-                'is_contracted' => random_int(0, 1),
                 'is_complete' => random_int(0, 1),
                 'is_new' => random_int(0, 1),
                 'is_color' => random_int(0, 1),

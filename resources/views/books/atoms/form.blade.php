@@ -30,12 +30,8 @@
   {{-- 全エピソードを有料化する --}}
   <h3 class="tracking-widest mb-4 text-[15px] font-semibold">{{ __('全エピソードを有料化する') }}</h3>
   <div class="filters mb-12">
-    @if (!$book->user->stripe_user_id || !$book->is_contracted)
+    @if (!$book->user->stripe_user_id)
       <p class="mb-4">{{ __('有料販売を行うには、以下の設定を行なってください。') }}</p>
-    @endif
-    @if (!$book->is_contracted)
-      <a href="/{{ Auth::user()->username }}/settings#contract" target="_blank" rel="nofollow noopener noreferrer"
-        class="btn-border inline-block">{{ __('Comieeと作品の出版契約を結ぶ') }}</a><br>
     @endif
     @if (!$book->user->stripe_user_id)
       <a href="/{{ Auth::user()->username }}/settings#earnings" class="btn-border inline-block mt-4">
@@ -43,7 +39,7 @@
       </a>
     @endif
 
-    @if ($book->user->stripe_user_id && $book->is_contracted)
+    @if ($book->user->stripe_user_id)
       {{-- 有料化 --}}
       <input class="visually-hidden" type="radio" name="is_all_charge" value="true"
         @if (!$update) id="is_all_charge_true"
