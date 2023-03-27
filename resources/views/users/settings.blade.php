@@ -71,19 +71,6 @@
                 </svg>
                 {{ __('表示言語') }}
               </a>
-              <a href="#contract"
-                class="mr-2 mb-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
-                <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
-                  <title>contract</title>
-                  <path d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M7 9.5H17" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M7 14.5H14" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                {{ __('出版契約について') }}
-              </a>
               <a href="#earnings"
                 class="mr-2 mb-2 lg:m-0 hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg">
                 <svg width="22" height="22" class="mr-4 hidden lg:block" viewBox="0 0 24 24" fill="none">
@@ -323,38 +310,6 @@
                       <button type="submit" class="btn-border mt-6">{{ __('変更する') }}</button>
                     </form>
 
-                  </div>
-                </div>
-              </div>
-
-              {{-- 出版契約 --}}
-              <div class="pt-4 pb-12 border-b border-[#dadce0] dark:border-dark-1" id="contract">
-                <div class="my-4">
-                  <h3 class="text-base dark:text-ddd font-bold">{{ __('出版契約') }}</h3>
-                  <div class="my-4">
-                    {{ __('作品を有料化するには、作品毎に当サービスと出版契約書を締結する必要があります。') }}<br>
-                    {{ __('以下のボタンから契約書をダウンロードをして記入の上、この作品の契約書を送信してください。') }} <br>
-                    <a href="https://comiee.s3.ap-northeast-1.amazonaws.com/app/system/work_contract.pdf"
-                      target="_blank" rel="nofollow noopener noreferrer"
-                      class="btn-border inline-block mt-4">{{ __('契約書をダウンロード') }}</a><br>
-                    <a href="https://docs.google.com/forms/d/1BJP0Z7yXIi50QcMRd4cTEOLAEvc90fIjGJhzvuOXQUs/edit"
-                      target="_blank" rel="nofollow noopener noreferrer"
-                      class="btn-border inline-block mt-4">{{ __('出版契約書を送信する') }}</a>
-                  </div>
-                  <div class="flex mt-8">
-                    <div class="pr-12 font-bold">
-                      {{ __('公開中の作品') }}
-                    </div>
-                    <div class="flex flex-col ">
-                      @foreach ($user->books as $book)
-                        @if (!$book->is_hidden)
-                          <a href="{{ route('book.show', ['book_title' => $book->title]) }}"
-                            class="hover:text-primary mb-4">
-                            {{ $book->title }}
-                          </a>
-                        @endif
-                      @endforeach
-                    </div>
                   </div>
                 </div>
               </div>
