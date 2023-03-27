@@ -126,7 +126,7 @@ class StoreController extends Controller
         |--------------------------------------------------------------------------
         |
          */
-        return redirect('/' . '/b/' . $book->title)->with([
+        return redirect('/b/' . $book->title)->with([
             'success' => __('作品を作成しました。続いて作品のエピソードを追加しましょう！'),
             'store' => true,
         ]);
