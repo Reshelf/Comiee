@@ -1,13 +1,11 @@
 <template>
-    <div>
-        <button
-            :class="buttonColor"
-            class="px-4 md:px-6 text-xs"
-            @click="clickFollow"
-        >
-            {{ buttonText }}
-        </button>
-    </div>
+    <button
+        :class="buttonColor"
+        class="px-4 md:px-6 text-xs"
+        @click="clickFollow"
+    >
+        {{ buttonText }}
+    </button>
 </template>
 <script>
 export default {
