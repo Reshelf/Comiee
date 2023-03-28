@@ -39,16 +39,19 @@
     @foreach ($episodes_latest as $e)
       <div
         class="my-2 py-2 border-b border-ddd dark:border-dark-1 flex justify-between w-full overflow-hidden rounded-[5px] dark:hover:bg-dark-1 hover:bg-f5">
-        <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_title' => $book->title, 'episode_number' => $e->number]) }}" @endif
-          class="flex items-center w-full {{ Auth::id() === $book->user_id || !$e->is_hidden ?? 'cursor-pointer' }}">
-          @empty($e->thumbnail)
-            <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover"
-              loading="lazy">
-            <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-[160px] h-[80px] object-cover"
-              loading="lazy">
-          @else
-            <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover" loading="lazy">
-          @endempty
+        <div class="flex items-center w-full">
+          <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_title' => $book->title, 'episode_number' => $e->number]) }}" @endif
+            class="cursor-pointer">
+            @empty($e->thumbnail)
+              <img src="/img/noimage.svg" alt="thumbnail" class="block dark:hidden w-[160px] h-[80px] object-cover"
+                loading="lazy">
+              <img src="/img/noimage-dark.svg" alt="thumbnail" class="hidden dark:block w-[160px] h-[80px] object-cover"
+                loading="lazy">
+            @else
+              <img src="{{ $e->thumbnail }}" alt="" class="w-[160px] h-[80px] object-cover" loading="lazy">
+            @endempty
+          </a>
+
 
           {{-- タイトル --}}
           <div class="w-full h-full flex flex-col justify-around lg:justify-center pl-4 overflow-hidden">
@@ -60,15 +63,48 @@
             <div class="w-full flex justify-between items-end">
               {{-- 話数 --}}
               <div class="flex flex-col">
-                <div class="mr-2 flex flex-col lg:flex-row lg:items-center">
+                <a @if (Auth::id() === $book->user_id || !$e->is_hidden) href="{{ route('book.episode.show', ['book_title' => $book->title, 'episode_number' => $e->number]) }}" @endif
+                  class="mr-2 flex flex-col lg:flex-row lg:items-center cursor-pointer hover:text-primary dark:hover:text-f5">
                   <div>{{ __('第') }}{{ $e->number }}{{ __('話') }}</div>
                   @isset($e->title)
                     <div class="lg:ml-4 truncate text-sm">
                       {{ $e->title }}</div>
                   @endisset
-                </div>
+                </a>
 
                 <div class="flex items-center mt-1">
+
+                  @if (Auth::user() && $book->user->id === Auth::user()->id)
+                    <div class="flex items-center cursor-not-allowed">
+                      <svg height="16" class="stroke-red" viewBox="0 0 22 20" fill="none">
+                        <title>like icon</title>
+                        <path
+                          d="M11.62 18.8101C11.28 18.9301 10.72 18.9301 10.38 18.8101C7.48 17.8201 1 13.6901 1 6.6901C1 3.6001 3.49 1.1001 6.56 1.1001C8.38 1.1001 9.99 1.9801 11 3.3401C12.01 1.9801 13.63 1.1001 15.44 1.1001C18.51 1.1001 21 3.6001 21 6.6901C21 13.6901 14.52 17.8201 11.62 18.8101Z"
+                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span class="ml-2">{{ $e->count_likes }}</span>
+                    </div>
+                  @else
+                    <episode-like :initial-is-liked-by='@json($e->isLikedBy(Auth::user()))'
+                      :initial-count-likes='@json($e->count_likes)' :authorized='@json(Auth::check())'
+                      endpoint="{{ route('book.episode.like', [
+                          'episode_id' => $e->id,
+                      ]) }}">
+                    </episode-like>
+                  @endif
+
+                  {{-- 閲覧回数 --}}
+                  <div class="flex items-center mx-2 text-666 dark:text-ddd">
+                    <svg height="18" class="mr-1" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M15.5799 11.9999C15.5799 13.9799 13.9799 15.5799 11.9999 15.5799C10.0199 15.5799 8.41992 13.9799 8.41992 11.9999C8.41992 10.0199 10.0199 8.41992 11.9999 8.41992C13.9799 8.41992 15.5799 10.0199 15.5799 11.9999Z"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M12.0001 20.2702C15.5301 20.2702 18.8201 18.1902 21.1101 14.5902C22.0101 13.1802 22.0101 10.8102 21.1101 9.40021C18.8201 5.80021 15.5301 3.72021 12.0001 3.72021C8.47009 3.72021 5.18009 5.80021 2.89009 9.40021C1.99009 10.8102 1.99009 13.1802 2.89009 14.5902C5.18009 18.1902 8.47009 20.2702 12.0001 20.2702Z"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ number_format($e->views) }}
+                  </div>
 
                   {{-- 値段 --}}
                   @if (!$e->is_hidden && $e->is_free && !$e->isReadBy(Auth::user()) && !$e->isBoughtBy(Auth::user()))
@@ -93,11 +129,6 @@
                     </div>
                   @endif
 
-
-                  {{-- 閲覧回数 --}}
-                  <div class="mr-2 text-666 dark:text-ddd">
-                    {{ number_format($e->views) }} <span class="text-xs">{{ __('回') }}</span>
-                  </div>
 
                   {{-- 既読 --}}
                   @auth
@@ -128,7 +159,7 @@
   </div>
   </div>
   </div>
-  </a>
+  </div>
 
   {{-- クリエイター欄 --}}
   @if (Auth::id() === $book->user_id)

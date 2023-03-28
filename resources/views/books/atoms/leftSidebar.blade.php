@@ -21,6 +21,8 @@
       <span class=" text-aaa pl-2">{{ __('回閲覧') }}</span>
     </div>
   </div>
+
+  {{ $total_likes }}
   {{-- @endempty --}}
 
   {{-- お気に入り --}}

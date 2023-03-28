@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Episode;
 use App\Models\Tag;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,10 +20,13 @@ class ShowController extends Controller
     {
         $book = Book::where('title', $request->book_title)->firstOrFail();
 
-        $expiresAt = Carbon::now()->endOfDay()->addSecond();
         $allTags = $tag->all_tag_names;
 
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
+
+        $total_likes = $book->episodes->sum(function ($episode) {
+            return $episode->countLikes;
+        });
 
         /*
         |--------------------------------------------------------------------------
@@ -51,6 +53,7 @@ class ShowController extends Controller
             'book' => $book,
             'episodes_latest' => $episodes_latest,
             'allTags' => $allTags,
+            'total_likes' => $total_likes,
         ]);
     }
 }

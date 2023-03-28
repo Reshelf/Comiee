@@ -31,10 +31,12 @@ import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
 import WorksLists from "../components/users/WorksLists.vue";
 
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
+import EpisodeLike from "../components/books/episodes/EpisodeLike.vue";
 import ReleaseNote from "../components/ReleaseNote.vue";
 export default {
     BooksLists,
     SpSearchForm,
+    EpisodeLike,
     ShelfLists,
     WorksLists,
     SetupModal,

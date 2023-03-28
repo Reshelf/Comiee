@@ -63,6 +63,8 @@ Route::prefix('b')->name('book.')->group(function () {
     Route::get('/{book_title}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
     Route::post('/{book_id}/episode', 'App\Http\Controllers\Books\Episode\StoreController')->middleware('throttle:3, 1')->name('episode.store');
     Route::patch('/{book_id}/{episode_id}', 'App\Http\Controllers\Books\Episode\UpdateController')->name('episode.update');
+    Route::put('/{episode_id}/like', 'App\Http\Controllers\Books\Episode\LikeController')->name('episode.like');
+    Route::delete('/{episode_id}/like', 'App\Http\Controllers\Books\Episode\UnlikeController')->name('episode.unlike');
 
     // コメント
     Route::post('/{book_id}/{episode_number}', 'App\Http\Controllers\Books\Episode\Comment\StoreController')->middleware('throttle:3, 1')->name('episode.comment.store');
