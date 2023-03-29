@@ -36,6 +36,8 @@ class ShowController extends Controller
 
         $allTags = \Cache::remember("allTags", now()->addHour(), fn() => $tag->all_tag_names);
 
+        $total_likes = $book->totalLikes();
+
         /*
         |--------------------------------------------------------------------------
         | 既読処理
@@ -62,6 +64,7 @@ class ShowController extends Controller
             'episodes_latest' => $book->episodes,
             'comments' => $episode->commentsWithLikesCount(),
             'allTags' => $allTags,
+            'total_likes' => $total_likes,
         ]);
     }
 }

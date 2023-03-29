@@ -16,13 +16,30 @@
   {{-- 閲覧数 --}}
   {{-- @empty(!$book) --}}
   <div class="w-full flex items-center px-2 mb-2">
+    <div class="flex items-center cursor-default mr-4">
+      <svg :class="{ clicked: isLikedBy }" height="16px" class="stroke-red" viewBox="0 0 22 20" fill="none">
+        <path
+          d="M11.62 18.8101C11.28 18.9301 10.72 18.9301 10.38 18.8101C7.48 17.8201 1 13.6901 1 6.6901C1 3.6001 3.49 1.1001 6.56 1.1001C8.38 1.1001 9.99 1.9801 11 3.3401C12.01 1.9801 13.63 1.1001 15.44 1.1001C18.51 1.1001 21 3.6001 21 6.6901C21 13.6901 14.52 17.8201 11.62 18.8101Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="ml-2 text-666 dark:text-ddd">{{ $total_likes }}</span>
+    </div>
+
     <div class="flex items-center">
+      <svg height="18" class="mr-1" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M15.5799 11.9999C15.5799 13.9799 13.9799 15.5799 11.9999 15.5799C10.0199 15.5799 8.41992 13.9799 8.41992 11.9999C8.41992 10.0199 10.0199 8.41992 11.9999 8.41992C13.9799 8.41992 15.5799 10.0199 15.5799 11.9999Z"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M12.0001 20.2702C15.5301 20.2702 18.8201 18.1902 21.1101 14.5902C22.0101 13.1802 22.0101 10.8102 21.1101 9.40021C18.8201 5.80021 15.5301 3.72021 12.0001 3.72021C8.47009 3.72021 5.18009 5.80021 2.89009 9.40021C1.99009 10.8102 1.99009 13.1802 2.89009 14.5902C5.18009 18.1902 8.47009 20.2702 12.0001 20.2702Z"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
       <span class="text-666 dark:text-white text-lg">{{ number_format($book->views) }}</span>
-      <span class=" text-aaa pl-2">{{ __('回閲覧') }}</span>
     </div>
   </div>
 
-  {{ $total_likes }}
+
+
   {{-- @endempty --}}
 
   {{-- お気に入り --}}

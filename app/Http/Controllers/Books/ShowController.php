@@ -24,9 +24,7 @@ class ShowController extends Controller
 
         $episodes_latest = $book->episodes()->orderBy('created_at', 'desc')->get();
 
-        $total_likes = $book->episodes->sum(function ($episode) {
-            return $episode->countLikes;
-        });
+        $total_likes = $book->totalLikes();
 
         /*
         |--------------------------------------------------------------------------

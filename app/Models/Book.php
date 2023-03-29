@@ -136,4 +136,16 @@ class Book extends Model
         $this->views = $totalViews;
         $this->save();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | すべてのエピソードのいいねの総数　　　：　　メソッド
+    |--------------------------------------------------------------------------
+     */
+    public function totalLikes()
+    {
+        return $this->episodes->sum(function ($episode) {
+            return $episode->countLikes;
+        });
+    }
 }
