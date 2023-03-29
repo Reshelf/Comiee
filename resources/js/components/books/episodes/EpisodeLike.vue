@@ -62,7 +62,6 @@ export default {
             this.gotToLike = true;
         },
         async unlike() {
-            console.log("きてるぞ");
             // eslint-disable-next-line
             const response = await axios.delete(this.endpoint);
 

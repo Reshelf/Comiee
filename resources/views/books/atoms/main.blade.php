@@ -91,6 +91,7 @@
                     <episode-like :initial-is-liked-by='@json($e->isLikedBy(Auth::user()))'
                       :initial-count-likes='@json($e->count_likes)' :authorized='@json(Auth::check())'
                       endpoint="{{ route('book.episode.like', [
+                          'book_id' => $book->id,
                           'episode_id' => $e->id,
                       ]) }}">
                     </episode-like>
