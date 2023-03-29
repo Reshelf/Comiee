@@ -11,6 +11,6 @@
   @else
     {{-- お気に入り --}}
     <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))' :initial-count-likes='@json($book->count_likes)'
-      :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book' => $book]) }}">
+      :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">
     </book-like>
   @endif

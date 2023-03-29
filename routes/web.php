@@ -58,6 +58,8 @@ Route::prefix('b')->name('book.')->group(function () {
     Route::post('/', 'App\Http\Controllers\Books\StoreController')->middleware('throttle:2, 1')->name('store');
     Route::delete('/{book_id}', 'App\Http\Controllers\Books\DestroyController')->name('destroy');
     Route::patch('/{book_id}', 'App\Http\Controllers\Books\UpdateController')->name('update');
+    Route::put('/{book_id}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
+    Route::delete('/{book_id}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 
     // エピソード
     Route::get('/{book_title}/{episode_number}', 'App\Http\Controllers\Books\Episode\ShowController')->name('episode.show');
@@ -72,9 +74,6 @@ Route::prefix('b')->name('book.')->group(function () {
     Route::put('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
     Route::delete('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
 
-    // お気に入り
-    Route::put('/{book}/like', 'App\Http\Controllers\Books\LikeController')->name('like');
-    Route::delete('/{book}/like', 'App\Http\Controllers\Books\UnlikeController')->name('unlike');
 });
 
 /*

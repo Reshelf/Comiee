@@ -18,9 +18,10 @@ class UnlikeController extends Controller
     |--------------------------------------------------------------------------
     | 作品のお気に入りを解除する
     |--------------------------------------------------------------------------
-    */
-    public function __invoke(Request $request, Book $book)
+     */
+    public function __invoke(Request $request)
     {
+        $book = Book::find($request->book_id);
         $book->likes()->detach($request->user()->id);
 
         return [
