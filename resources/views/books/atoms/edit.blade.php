@@ -1,5 +1,5 @@
 {{-- クリエイターだったら --}}
-<div class="mt-6 px-2 w-full">
+<div class="mt-2 px-2 w-full">
   <book-edit-modal>
     <template #trigger>{{ __('作品の設定を編集する') }}</template>
     <template #header>{{ __('作品の設定を編集する') }}</template>
@@ -8,8 +8,8 @@
     @include('atoms.success')
 
 
-    <form method="POST" enctype="multipart/form-data"
-      action="{{ route('book.update', ['book_id' => $book->id]) }}" onsubmit="submit_btn()">
+    <form method="POST" enctype="multipart/form-data" action="{{ route('book.update', ['book_id' => $book->id]) }}"
+      onsubmit="submit_btn()">
       @csrf
       @method('PATCH')
       @include('books.atoms.form', ['update' => true, 'create_book_modal_count' => 15])
