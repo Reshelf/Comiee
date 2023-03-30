@@ -118,7 +118,7 @@
                   @method('PATCH')
 
                   <h3 class="mb-8 mt-4 text-base dark:text-ddd font-bold">
-                    {{ __('チャンネル登録') }}</h3>
+                    {{ __('フォロー') }}</h3>
                   <label class="light-checkbox mt-8">
                     <input type="checkbox" name="m1" value="m1"
                       @if ($user->m_notice_1 === 1) checked @endif class="light-checkbox-Input">
@@ -129,7 +129,7 @@
                           stroke-linejoin="round" />
                       </svg>
                     </span>
-                    <span class="light-checkbox-LabelText">{{ __('あなたがチャンネル登録しているクリエイターが作品を投稿したときに通知をします') }}</span>
+                    <span class="light-checkbox-LabelText">{{ __('あなたがフォローしているクリエイターが作品を投稿したときに通知をします') }}</span>
                   </label>
 
                   <label class="light-checkbox mt-8">
@@ -142,7 +142,7 @@
                           stroke-linejoin="round" />
                       </svg>
                     </span>
-                    <span class="light-checkbox-LabelText">{{ __('あなたがユーザーにチャンネル登録されたときに通知をします') }}</span>
+                    <span class="light-checkbox-LabelText">{{ __('あなたがユーザーにフォローされたときに通知をします') }}</span>
                   </label>
 
                   <h3 class="my-8 text-base dark:text-ddd font-bold">{{ __('お気に入り') }}</h3>

@@ -3,24 +3,24 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 @hasSection('title')
-  <title>@yield('title') | {{ config('app.name') }}</title>
+  <title>@yield('title') | {{ config('app.name') }}（コミー）</title>
   <meta property="og:title" content="@yield('title') | {{ config('app.name') }}">
   <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
 @else
-  <title>{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
-  <meta property="og:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
-  <meta name="twitter:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <title>{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
+  <meta property="og:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <meta name="twitter:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
 @endif
 
 @hasSection('description')
   @yield('description')
 @else
   <meta name="description" itemprop="description"
-    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターを作品を読んだり、自分で投稿して収入を得ることもできます。') }}">
+    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターをフォローして応援したり、自分で投稿して収入を得ることもできます。') }}">
   <meta property="og:description"
-    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターを作品を読んだり、自分で投稿して収入を得ることもできます。') }}">
+    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターをフォローして応援したり、自分で投稿して収入を得ることもできます。') }}">
   <meta name="twitter:description"
-    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターを作品を読んだり、自分で投稿して収入を得ることもできます。') }}">
+    content="{{ __('Comiee（コミー）は誰もがマンガを投稿でき、創作を楽しめる場所です。気になるクリエイターをフォローして応援したり、自分で投稿して収入を得ることもできます。') }}">
 @endif
 
 @hasSection('image')

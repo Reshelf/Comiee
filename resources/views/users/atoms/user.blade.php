@@ -93,28 +93,25 @@
           @endif
         </div>
 
-
-        <div class="flex items-center lg:text-[15px] lg:mt-1">
-          <div class="text-left font-semibold text-t-color-3 mr-2">
-            <span>@</span>{{ $user->username }}
-          </div>
-          <div class="">
-            {{ __('チャンネル登録者数') }}
-            <span class="ml-2 h-full">{{ number_format($user->count_followers) }}{{ __('人') }}</span>
-          </div>
+        <div class="text-left font-bold mt-1 lg:text-[15px] text-t-color-3">
+          <span>@</span>{{ $user->username }}
         </div>
 
-        <a href="{{ route('users.about', ['username' => $user->username]) }}"
-          class="hidden text-sm lg:flex items-center mt-2 hover:text-primary dark:hover:text-f5">{{ __('このチャンネルの詳細') }}
-          <svg width="16" height="16" class="ml-1" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002" stroke="currentColor"
-              stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
+        @isset($user->body)
+          <div class="my-2 md:hidden">
+            {{ $user->body }}
+          </div>
+        @endisset
 
-
-        <div class="flex justify-start items-center text-sm pt-2 mr-auto">
+        <div class="flex justify-start items-center text-sm pt-2">
+          <a href="{{ route('users.followings', ['username' => $user->username]) }}" class="">
+            <span class="font-bold lg:text-lg">{{ number_format($user->count_followings) }}</span>
+            <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロー') }}</span>
+          </a>
+          <a href="{{ route('users.followers', ['username' => $user->username]) }}" class="ml-2">
+            <span class="font-bold lg:text-lg">{{ number_format($user->count_followers) }}</span>
+            <span class="text-t-color-3 pl-1 text-xs lg:text-[14px]">{{ __('フォロワー') }}</span>
+          </a>
           @if (Auth::id() !== $user->id)
             <follow-button class="ml-auto block md:hidden" :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
               :authorized='@json(Auth::check())'
