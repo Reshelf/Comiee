@@ -1,7 +1,7 @@
 <template>
     <button
         :class="buttonColor"
-        class="px-4 md:px-6 text-xs"
+        class="px-4 md:px-6 text-sm h-[40px]"
         @click="clickFollow"
     >
         {{ buttonText }}
@@ -34,8 +34,8 @@ export default {
         },
         buttonText() {
             return this.isFollowedBy
-                ? this.t("フォロー中")
-                : this.t("フォローする");
+                ? this.t("登録済み")
+                : this.t("チャンネル登録");
         },
     },
     methods: {

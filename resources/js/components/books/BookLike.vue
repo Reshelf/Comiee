@@ -30,7 +30,6 @@ export default {
     data() {
         return {
             isLikedBy: this.initialIsLikedBy,
-            gotToLike: false,
         };
     },
     computed: {
@@ -40,7 +39,7 @@ export default {
         buttonText() {
             return this.isLikedBy
                 ? this.t("お気に入り作品")
-                : this.t("お気に入りに追加する");
+                : this.t("お気に入りに追加");
         },
     },
     methods: {
@@ -55,13 +54,11 @@ export default {
             // eslint-disable-next-line
             await axios.put(this.endpoint);
             this.isLikedBy = true;
-            this.gotToLike = true;
         },
         async unlike() {
             // eslint-disable-next-line
             await axios.delete(this.endpoint);
             this.isLikedBy = false;
-            this.gotToLike = false;
         },
     },
 };

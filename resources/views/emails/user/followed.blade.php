@@ -12,7 +12,7 @@
                 <a href="{{ config('app.top_url') . '/' . $mailData['send_user']->username }}"
                   style="color:#050505;text-decoration:none;font-family:Roboto-Medium,Roboto,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:17px;line-height:21px;font-weight:600"
                   target="_blank">
-                  {{ $mailData['send_user']->name }}</a> さんからComieeで新しくフォローされました。</span>
+                  {{ $mailData['send_user']->name }}</a> さんからComieeで新しくチャンネル登録されました。</span>
             </td>
           </tr>
         </tbody>
