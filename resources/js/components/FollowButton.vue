@@ -1,7 +1,7 @@
 <template>
     <button
         :class="buttonColor"
-        class="px-4 md:px-6 text-xs"
+        class="px-4 md:px-6 text-xs max-h-[40px]"
         @click="clickFollow"
     >
         {{ buttonText }}
