@@ -128,10 +128,10 @@ ja-csv:
 	cat resources/lang/ja.json | jq -r  > ja.csv
 en-csv:
 	cat resources/lang/en.json | jq -r  > en.csv
-# npmパッケージ更新
-npm-update:
+update:
 	 npx -p npm-check-updates  -c "ncu -u"
 	@make package-clear-legacy
+	@make ci
 package-clear-legacy:
 	npm install --legacy-peer-deps
 	npm audit fix --force
