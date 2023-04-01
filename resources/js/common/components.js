@@ -1,40 +1,93 @@
-// atoms
-// auth
-import BookLike from "../components/books/BookLike.vue";
-import BooksLists from "../components/books/BooksLists.vue";
-// books
-import BookEditModal from "../components/books/BookEditModal.vue";
-import CreateModal from "../components/books/CreateModal.vue";
-import DeleteModal from "../components/books/DeleteModal.vue";
-import EditModal from "../components/books/EditModal.vue";
-import CommentPostModal from "../components/books/episodes/comments/CommentPostModal.vue";
-import EpisodeList from "../components/books/episodes/EpisodeList.vue";
-import EpisodeScreen from "../components/books/episodes/EpisodeScreen.vue";
-// others
-import BookTagsInput from "../components/BookTagsInput.vue";
-import CountAnimation from "../components/CountAnimation.vue";
-import FollowButton from "../components/FollowButton.vue";
-import HeaderUserModal from "../components/HeaderUserModal.vue";
-// search
-import SearchForm from "../components/search/SearchForm.vue";
-import SpSearchForm from "../components/search/SpSearchForm.vue";
-import TagSearchModal from "../components/search/TagSearchModal.vue";
-//
-import ThemeToggle from "../components/ThemeToggle.vue";
-// users
-import AvatarZoom from "../components/users/AvatarZoom.vue";
-import EditUserModal from "../components/users/EditUserModal.vue";
-import FollowModal from "../components/users/FollowModal.vue";
-import SetupModal from "../components/users/SetupModal.vue";
-import ShelfLists from "../components/users/ShelfLists.vue";
-import ThumbnailZoom from "../components/users/ThumbnailZoom.vue";
-import WorksLists from "../components/users/WorksLists.vue";
+import { defineAsyncComponent } from "vue";
 
-import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
-import EpisodeLike from "../components/books/episodes/EpisodeLike.vue";
-import ReleaseNote from "../components/ReleaseNote.vue";
+const BookLike = defineAsyncComponent(() =>
+    import("../components/books/BookLike.vue")
+);
+const BooksLists = defineAsyncComponent(() =>
+    import("../components/books/BooksLists.vue")
+);
+const BookEditModal = defineAsyncComponent(() =>
+    import("../components/books/BookEditModal.vue")
+);
+const CreateModal = defineAsyncComponent(() =>
+    import("../components/books/CreateModal.vue")
+);
+const DeleteModal = defineAsyncComponent(() =>
+    import("../components/books/DeleteModal.vue")
+);
+const EditModal = defineAsyncComponent(() =>
+    import("../components/books/EditModal.vue")
+);
+const CommentPostModal = defineAsyncComponent(() =>
+    import("../components/books/episodes/comments/CommentPostModal.vue")
+);
+const EpisodeList = defineAsyncComponent(() =>
+    import("../components/books/episodes/EpisodeList.vue")
+);
+const EpisodeScreen = defineAsyncComponent(() =>
+    import("../components/books/episodes/EpisodeScreen.vue")
+);
+const BookTagsInput = defineAsyncComponent(() =>
+    import("../components/BookTagsInput.vue")
+);
+const CountAnimation = defineAsyncComponent(() =>
+    import("../components/CountAnimation.vue")
+);
+const FollowButton = defineAsyncComponent(() =>
+    import("../components/FollowButton.vue")
+);
+const HeaderUserModal = defineAsyncComponent(() =>
+    import("../components/HeaderUserModal.vue")
+);
+const SearchForm = defineAsyncComponent(() =>
+    import("../components/search/SearchForm.vue")
+);
+const SpSearchForm = defineAsyncComponent(() =>
+    import("../components/search/SpSearchForm.vue")
+);
+const TagSearchModal = defineAsyncComponent(() =>
+    import("../components/search/TagSearchModal.vue")
+);
+const ThemeToggle = defineAsyncComponent(() =>
+    import("../components/ThemeToggle.vue")
+);
+const AvatarZoom = defineAsyncComponent(() =>
+    import("../components/users/AvatarZoom.vue")
+);
+const EditUserModal = defineAsyncComponent(() =>
+    import("../components/users/EditUserModal.vue")
+);
+const FollowModal = defineAsyncComponent(() =>
+    import("../components/users/FollowModal.vue")
+);
+const SetupModal = defineAsyncComponent(() =>
+    import("../components/users/SetupModal.vue")
+);
+const ShelfLists = defineAsyncComponent(() =>
+    import("../components/users/ShelfLists.vue")
+);
+const ThumbnailZoom = defineAsyncComponent(() =>
+    import("../components/users/ThumbnailZoom.vue")
+);
+const WorksLists = defineAsyncComponent(() =>
+    import("../components/users/WorksLists.vue")
+);
+const CommentLike = defineAsyncComponent(() =>
+    import("../components/books/episodes/comments/CommentLike.vue")
+);
+const EpisodeLike = defineAsyncComponent(() =>
+    import("../components/books/episodes/EpisodeLike.vue")
+);
+const ReleaseNote = defineAsyncComponent(() =>
+    import("../components/ReleaseNote.vue")
+);
+const GetUserInfo = defineAsyncComponent(() =>
+    import("../components/analytics/GetUserInfo.vue")
+);
+
 export default {
     BooksLists,
+    GetUserInfo,
     SpSearchForm,
     EpisodeLike,
     ShelfLists,

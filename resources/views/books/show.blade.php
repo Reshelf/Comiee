@@ -37,6 +37,9 @@
         {{-- メインコンテンツ --}}
         <div class="px-6 lg:w-2/3">
           @include('books.atoms.main')
+
+          {{-- ユーザー情報を取得 --}}
+          <get-user-info endpoint="'{{ route('analytics.book.store') }}'"></get-user-info>
         </div>
 
         {{-- 右サイドバー --}}

@@ -95,3 +95,4 @@ Route::delete('/{username}/delete', 'App\Http\Controllers\User\DestroyController
 Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
 
 Route::get('/{username}/analytics', 'App\Http\Controllers\Analytics\IndexController')->name('analytics');
+Route::post('/book-analytics', 'App\Http\Controllers\Analytics\BookStoreController')->name('analytics.book.store');
