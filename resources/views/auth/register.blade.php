@@ -10,6 +10,7 @@
   <div class="w-full h-screen flex justify-center items-center">
     <div
       class="w-full max-w-[450px] mx-4 md:mx-auto bg-white dark:bg-dark rounded border dark:lg:border-2 border-b-l-c dark:border-dark dark:lg:border-dark-1  overflow-hidden">
+      <div id="overlay" class="fixed inset-0 bg-white z-[999] dark:bg-dark opacity-50 hidden"></div>
       <div class="progress" style="display: none;">
         <div class="color"></div>
       </div>

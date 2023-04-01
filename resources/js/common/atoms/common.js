@@ -128,19 +128,22 @@ function onKey_16() {
 document.addEventListener("DOMContentLoaded", function () {
     const sendForm = document.getElementById("sendForm");
     const progress = document.querySelector(".progress");
+    const overlay = document.getElementById("overlay");
 
-    if (!sendForm || !progress) {
+    if (!sendForm || !progress || !overlay) {
         return;
     }
 
     sendForm.addEventListener("submit", function () {
+        event.preventDefault();
         progress.style.display = "block"; // .progress要素を表示
+        overlay.classList.remove("hidden"); // #overlay要素を表示
 
         // ここでsubmit_btn関数を呼び出す
         submit_btn();
 
         // 非同期処理が終わったら、フォームを送信
-        sendForm.submit();
+        // sendForm.submit();
     });
 });
 
