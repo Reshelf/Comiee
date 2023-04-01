@@ -93,3 +93,5 @@ Route::get('/{username}/followings', 'App\Http\Controllers\User\FollowingsContro
 Route::get('/{username}/followers', 'App\Http\Controllers\User\FollowersController')->name('users.followers');
 Route::delete('/{username}/delete', 'App\Http\Controllers\User\DestroyController')->name('users.delete');
 Route::get('/users/setup', 'App\Http\Controllers\User\SetupController')->name('users.setup');
+
+Route::get('/{username}/analytics', 'App\Http\Controllers\Analytics\IndexController')->name('analytics');
