@@ -39,7 +39,7 @@
           @include('books.atoms.main')
 
           {{-- ユーザー情報を取得 --}}
-          <get-user-info endpoint="'{{ route('analytics.book.store') }}'"></get-user-info>
+          {{-- <get-user-info endpoint="'{{ route('analytics.book.store') }}'"></get-user-info> --}}
         </div>
 
         {{-- 右サイドバー --}}
