@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.2",
         "ext-gd": "*",
-        "aws/aws-sdk-php": "^3.263",
+        "aws/aws-sdk-php": "^3.2",
         "google/apiclient": "^2.13",
         "guzzlehttp/guzzle": "^7.5",
         "intervention/image": "^2.7",
