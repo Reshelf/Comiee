@@ -1,6 +1,6 @@
 import vue from "@vitejs/plugin-vue";
 import laravel from "laravel-vite-plugin";
-import { defineConfig } from "vite";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
@@ -16,11 +16,12 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/sass/app.scss",
-                "resources/js/app.ts",
-                "resources/js/common/atoms/common.ts",
+                "resources/js/app.js",
+                "resources/js/common/atoms/common.js",
             ],
             refresh: true,
         }),
         viteCompression(),
+        splitVendorChunkPlugin(),
     ],
 });

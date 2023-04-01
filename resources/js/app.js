@@ -1,4 +1,4 @@
-import { App, Component, createApp } from "vue";
+import { createApp } from "vue/dist/vue.esm-bundler";
 import "./common/bootstrap";
 import GlobalMethods from "./common/globalMethods";
 import "./common/theme";
@@ -6,12 +6,8 @@ import "./common/theme";
 import components from "./common/components";
 import i18n from "./common/i18n";
 
-interface AppComponent {
-    [key: string]: Component;
-}
-
-const app: App<Element> = createApp({
-    components: components as AppComponent,
+const app = createApp({
+    components,
 });
 
 app.use(i18n);
