@@ -1,4 +1,4 @@
-// atoms
+import type { Component } from "vue";
 // auth
 import BookLike from "../components/books/BookLike.vue";
 import BooksLists from "../components/books/BooksLists.vue";
@@ -12,14 +12,13 @@ import EpisodeList from "../components/books/episodes/EpisodeList.vue";
 import EpisodeScreen from "../components/books/episodes/EpisodeScreen.vue";
 // others
 import BookTagsInput from "../components/BookTagsInput.vue";
-import CountAnimation from "../components/CountAnimation.vue";
 import FollowButton from "../components/FollowButton.vue";
 import HeaderUserModal from "../components/HeaderUserModal.vue";
 // search
 import SearchForm from "../components/search/SearchForm.vue";
 import SpSearchForm from "../components/search/SpSearchForm.vue";
 import TagSearchModal from "../components/search/TagSearchModal.vue";
-//
+
 import ThemeToggle from "../components/ThemeToggle.vue";
 // users
 import AvatarZoom from "../components/users/AvatarZoom.vue";
@@ -33,7 +32,8 @@ import WorksLists from "../components/users/WorksLists.vue";
 import CommentLike from "../components/books/episodes/comments/CommentLike.vue";
 import EpisodeLike from "../components/books/episodes/EpisodeLike.vue";
 import ReleaseNote from "../components/ReleaseNote.vue";
-export default {
+
+const components: { [key: string]: Component } = {
     BooksLists,
     SpSearchForm,
     EpisodeLike,
@@ -53,7 +53,6 @@ export default {
     AvatarZoom,
     DeleteModal,
     CreateModal,
-    CountAnimation,
     HeaderUserModal,
     ThemeToggle,
     EditModal,
@@ -62,3 +61,5 @@ export default {
     BookTagsInput,
     FollowButton,
 };
+
+export default components;
