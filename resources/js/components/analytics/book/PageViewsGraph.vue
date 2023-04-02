@@ -78,7 +78,7 @@
                 </div>
             </div>
 
-            <line-chart :data="toChartData" />
+            <line-chart :data="toChartData" :type="setPeriodWord" />
         </div>
     </div>
 </template>
@@ -107,11 +107,11 @@ export default {
     },
     computed: {
         setPeriodWord() {
-            if (this.period === "daily") return this.t("1日");
-            if (this.period === "weekly") return this.t("1週間");
-            if (this.period === "monthly") return this.t("1ヶ月");
-            if (this.period === "yearly") return this.t("1年");
-            return this.t("1週間");
+            if (this.period === "daily") return this.t("daily");
+            if (this.period === "weekly") return this.t("weekly");
+            if (this.period === "monthly") return this.t("monthly");
+            if (this.period === "yearly") return this.t("yearly");
+            return this.t("weekly");
         },
         toChartData() {
             if (this.period === "daily") return this.dailyData;
@@ -121,8 +121,30 @@ export default {
             return false;
         },
         dailyData() {
-            // 日間データの処理
-            return false;
+            // データを日付でグループ化
+            const groupedData = this.pageViews.reduce((acc, currentValue) => {
+                const date = currentValue.created_at.split("T")[0];
+                if (!acc[date]) {
+                    acc[date] = 0;
+                }
+                acc[date] += 1;
+                return acc;
+            }, {});
+
+            // 今日までのデータを作成
+            const data = [];
+            const date = new Date();
+            const dateString = date.toISOString().split("T")[0];
+            data.push({
+                date: dateString,
+                count: groupedData[dateString] || 0,
+            });
+
+            return data.map((d, i) => ({
+                x: i,
+                y: isNaN(d.count) ? 0 : d.count,
+                date: d.date,
+            }));
         },
         weeklyData() {
             // データを日付でグループ化
@@ -155,12 +177,70 @@ export default {
         },
         monthlyData() {
             // 月間データの処理
-            return false;
+            const groupedData = this.pageViews.reduce((acc, currentValue) => {
+                const date = new Date(currentValue.created_at);
+                const dateString = date.toISOString().split("T")[0];
+                if (!acc[dateString]) {
+                    acc[dateString] = 0;
+                }
+                acc[dateString] += 1;
+                return acc;
+            }, {});
+
+            // 過去30日間のデータを作成
+            const data = [];
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                const dateString = date.toISOString().split("T")[0];
+                data.push({
+                    date: dateString,
+                    count: groupedData[dateString] || 0,
+                });
+            }
+
+            return data.map((d, i) => ({
+                x: i,
+                y: isNaN(d.count) ? 0 : d.count,
+                date: d.date,
+            }));
         },
         yearlyData() {
             // 年間データの処理
-            return false;
+            const groupedData = this.pageViews.reduce((acc, currentValue) => {
+                const date = new Date(currentValue.created_at);
+                date.setMonth(date.getMonth(), 1);
+                const dateString = `${date.getFullYear()}-${String(
+                    date.getMonth() + 1
+                ).padStart(2, "0")}-01`;
+                if (!acc[dateString]) {
+                    acc[dateString] = 0;
+                }
+                acc[dateString] += 1;
+                return acc;
+            }, {});
+
+            // 過去12ヶ月のデータを作成
+            const data = [];
+            for (let i = 11; i >= 0; i--) {
+                const date = new Date();
+                date.setMonth(date.getMonth() - i, 1);
+                const dateString = `${date.getFullYear()}-${String(
+                    date.getMonth() + 1
+                ).padStart(2, "0")}-01`;
+                data.push({
+                    date: dateString,
+                    count: groupedData[dateString] || 0,
+                });
+            }
+
+            return data.map((d, i) => ({
+                x: i,
+                y: isNaN(d.count) ? 0 : d.count,
+                date: d.date,
+            }));
         },
+
         linePath() {
             const pathData = this.weeklyData.reduce((acc, point, index) => {
                 if (index === 0) {

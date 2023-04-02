@@ -77,7 +77,7 @@
                     text-anchor="middle"
                     font-size="12"
                 >
-                    {{ formatDate(data[index].date) }}
+                    {{ formatDate(point.date) }}
                 </text>
             </g>
 
@@ -108,6 +108,10 @@ export default {
             type: Array,
             required: true,
         },
+        type: {
+            type: String,
+            required: true,
+        },
     },
     data() {
         return {
@@ -125,19 +129,34 @@ export default {
     },
     computed: {
         points() {
-            const xScale =
-                (this.width - this.paddingLeft - this.paddingRight) /
-                (this.data.length - 1);
             const yScale =
                 (this.height - this.paddingTop - this.paddingBottom) /
                 (this.yMax * 2);
 
-            const limitedData = this.data.slice(-7);
+            let limit;
+            if (this.type === "daily") {
+                limit = this.data.length;
+            } else if (this.type === "weekly") {
+                limit = Math.min(this.data.length, 7);
+            } else if (this.type === "monthly") {
+                limit = Math.min(this.data.length, 30);
+            } else if (this.type === "yearly") {
+                limit = Math.min(this.data.length, 12);
+            } else {
+                limit = 7;
+            }
+
+            const limitedData = this.data.slice(-limit);
+
+            const xScale =
+                (this.width - this.paddingLeft - this.paddingRight) /
+                (limitedData.length - 1);
 
             return limitedData.map((d, i) => {
                 return {
                     x: this.paddingLeft + i * xScale,
                     y: this.height - this.paddingBottom - d.y * yScale,
+                    date: d.date,
                 };
             });
         },
@@ -198,7 +217,28 @@ export default {
     methods: {
         formatDate(date) {
             const d = new Date(date);
-            return `${d.getMonth() + 1}-${d.getDate()}`;
+            const month = d.getMonth() + 1;
+            const day = d.getDate();
+
+            if (this.type === "daily") {
+                return `${month}-${day}`;
+            } else if (this.type === "weekly") {
+                return `${month}/${day}`;
+            } else if (this.type === "monthly") {
+                const firstDayOfMonth = new Date(
+                    d.getFullYear(),
+                    d.getMonth(),
+                    1
+                );
+                const dayDifference = Math.ceil(
+                    (d - firstDayOfMonth) / (1000 * 60 * 60 * 24)
+                );
+                return `${month}/${dayDifference}`;
+            } else if (this.type === "yearly") {
+                return `${d.getFullYear()}/${month}`;
+            } else {
+                return `${month}-${day}`;
+            }
         },
         formatNumber(value) {
             if (value >= 1000000000000) {
