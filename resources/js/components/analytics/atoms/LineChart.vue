@@ -66,16 +66,14 @@
             </g>
 
             <g v-for="(point, index) in points" :key="index">
-                <circle class="fill-primary" :cx="point.x" :cy="point.y" r="4">
-                    <animate
-                        attributeName="r"
-                        from="0"
-                        to="4"
-                        dur="1s"
-                        begin="0s"
-                        fill="freeze"
-                    />
-                </circle>
+                <circle
+                    :cx="point.x"
+                    :cy="point.y"
+                    r="4"
+                    class="rounded-full fill-primary cursor-pointer z-50"
+                    @mouseover="showTooltip(index)"
+                    @mouseout="hideTooltip"
+                />
                 <text
                     :x="point.x"
                     :y="height - paddingBottom + 20"
@@ -85,6 +83,23 @@
                     {{ formatDate(data[index].date) }}
                 </text>
             </g>
+
+            <foreignObject
+                v-if="tooltipVisible"
+                :x="tooltipPosition.x"
+                :y="tooltipPosition.y"
+                width="100"
+                height="100"
+            >
+                <div
+                    class="bg-white rounded text-xs border border-[#dadce0] dark:border-dark-1 p-2"
+                >
+                    {{ t("ページビュー") }}
+                    <p class="text-2xl">
+                        {{ formatNumber(tooltipData.pageViews) }}
+                    </p>
+                </div>
+            </foreignObject>
         </svg>
     </div>
 </template>
@@ -105,6 +120,10 @@ export default {
             paddingRight: 20,
             paddingTop: 20,
             paddingBottom: 40,
+
+            tooltipVisible: false,
+            tooltipData: {},
+            tooltipPosition: { x: 0, y: 0 },
         };
     },
     computed: {
@@ -196,6 +215,19 @@ export default {
             } else {
                 return value;
             }
+        },
+        showTooltip(index) {
+            this.tooltipVisible = true;
+            this.tooltipData = {
+                pageViews: this.data[index].y,
+            };
+            this.tooltipPosition = {
+                x: this.points[index].x - 50,
+                y: this.points[index].y - 70,
+            };
+        },
+        hideTooltip() {
+            this.tooltipVisible = false;
         },
     },
 };
