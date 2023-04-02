@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Analytics;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
-use App\Models\User;
+use App\Models\BookPageView;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -17,13 +16,14 @@ class IndexController extends Controller
      */
     public function __invoke()
     {
-        $user = [];
+        $user = Auth::user();
+
+        // ユーザーと作品情報を含むページビューを取得
+        $pageViews = BookPageView::withUserAndBook()->get();
+
         return view('analytics.index', [
             'user' => $user,
-            'likes' => $user->likes ?? [], // お気に入り
-            'reads' => $user->reads ?? [], // 閲覧履歴
-            'boughts' => $user->bought ?? [], // 購入履歴
-            'followedBooks' => $followedBooks ?? [], // お気に入り
+            'pageViews' => $pageViews ?? [], // ページビュー
         ]);
     }
 

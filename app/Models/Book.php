@@ -148,4 +148,15 @@ class Book extends Model
             return $episode->countLikes;
         });
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 作品のページビュー数　　：　　リレーション
+    |--------------------------------------------------------------------------
+     */
+    public function pageViews()
+    {
+        return $this->hasMany(BookPageView::class);
+    }
+
 }

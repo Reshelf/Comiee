@@ -719,3 +719,7 @@ button .loading {
 .label {
     @apply transform px-2 text-[#9BA3AF] tracking-widest translate-y-2.5 pointer-events-none;
 }
+
+.count-up {
+    transition: opacity 0.3s ease-in-out;
+}

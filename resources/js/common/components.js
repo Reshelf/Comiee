@@ -6,6 +6,9 @@ const BookLike = defineAsyncComponent(() =>
 const BooksLists = defineAsyncComponent(() =>
     import("../components/books/BooksLists.vue")
 );
+const PageViewsGraph = defineAsyncComponent(() =>
+    import("../components/analytics/book/PageViewsGraph.vue")
+);
 const BookEditModal = defineAsyncComponent(() =>
     import("../components/books/BookEditModal.vue")
 );
@@ -87,6 +90,7 @@ const GetUserInfo = defineAsyncComponent(() =>
 
 export default {
     BooksLists,
+    PageViewsGraph,
     GetUserInfo,
     SpSearchForm,
     EpisodeLike,
