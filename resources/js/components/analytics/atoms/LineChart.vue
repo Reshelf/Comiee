@@ -53,7 +53,7 @@
                     :d="linePath"
                     fill="none"
                     stroke="#0076f0"
-                    stroke-width="3"
+                    stroke-width="4"
                 >
                     <animate
                         attributeName="stroke-dasharray"
@@ -70,7 +70,7 @@
                     :cx="point.x"
                     :cy="point.y"
                     r="4"
-                    class="rounded-full fill-primary cursor-pointer z-50"
+                    class="rounded-full opacity-0 hover:opacity-100 fill-primary cursor-pointer z-50"
                     @mouseover="showTooltip(index)"
                     @mouseout="hideTooltip"
                 />
