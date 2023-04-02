@@ -1,8 +1,5 @@
 <template>
-    <div
-        ref="graph"
-        class="duration-300 w-full py-8 flex justify-center items-center"
-    >
+    <div ref="graph" class="w-full pt-8 flex justify-center items-center">
         <svg class="w-full" :height="height">
             <line
                 :x1="paddingLeft"
@@ -44,7 +41,7 @@
                     attributeName="opacity"
                     from="0"
                     to="1"
-                    dur="1s"
+                    dur=".5s"
                     fill="freeze"
                 />
             </path>
@@ -59,7 +56,7 @@
                         attributeName="stroke-dasharray"
                         from="0, 1000"
                         to="1000, 0"
-                        dur="1s"
+                        dur=".5s"
                         fill="freeze"
                     />
                 </path>
