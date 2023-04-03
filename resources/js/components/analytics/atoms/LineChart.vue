@@ -67,9 +67,20 @@
                     :cx="point.x"
                     :cy="point.y"
                     r="4"
-                    class="rounded-full opacity-0 hover:opacity-100 fill-primary cursor-pointer z-50"
-                    @mouseover="showTooltip(index)"
-                    @mouseout="hideTooltip"
+                    class="rounded-full fill-primary z-50"
+                    @mouseover="() => handleMouseover(index)"
+                    @mouseleave="() => handleMouseleave()"
+                />
+                <!-- Modify this line element -->
+                <line
+                    v-show="borderVisible[index]"
+                    :x1="point.x"
+                    :y1="height - paddingBottom"
+                    :x2="point.x"
+                    :y2="height - paddingBottom - intervalYScale * 4"
+                    stroke="#aaa"
+                    stroke-width="1"
+                    stroke-dasharray="2,2"
                 />
                 <text
                     :x="point.x"
@@ -125,6 +136,7 @@ export default {
             tooltipVisible: false,
             tooltipData: {},
             tooltipPosition: { x: 0, y: 0 },
+            borderVisible: [],
         };
     },
     computed: {
@@ -212,6 +224,7 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.width = this.$refs.graph.clientWidth;
+            this.borderVisible = Array(this.points.length).fill(false);
         });
     },
     methods: {
@@ -265,6 +278,33 @@ export default {
         },
         hideTooltip() {
             this.tooltipVisible = false;
+        },
+        showBorder(index) {
+            this.borderVisible[index] = true;
+        },
+        hideBorder() {
+            this.borderVisible = this.borderVisible.map(() => false);
+        },
+        handleMouseover(index) {
+            this.showTooltip(index);
+            this.showBorder(index);
+            // Clear any existing mouseleave debounced calls
+            if (this.hideTooltipDebounced) {
+                this.hideTooltipDebounced.cancel();
+            }
+            if (this.hideBorderDebounced) {
+                this.hideBorderDebounced.cancel();
+            }
+        },
+        handleMouseleave() {
+            this.hideTooltipDebounced = _.debounce(
+                () => this.hideTooltip(),
+                100
+            );
+            this.hideTooltipDebounced();
+
+            this.hideBorderDebounced = _.debounce(() => this.hideBorder(), 100);
+            this.hideBorderDebounced();
         },
     },
 };
