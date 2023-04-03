@@ -10,7 +10,7 @@
                 stroke-width="2"
             />
 
-            <g v-for="i in 4" :key="i">
+            <g v-for="i in 3" :key="i">
                 <text
                     :x="paddingLeft - 10"
                     :y="height - paddingBottom - i * intervalYScale"
@@ -67,7 +67,7 @@
                     :cx="point.x"
                     :cy="point.y"
                     r="4"
-                    class="rounded-full fill-primary z-50"
+                    class="rounded-full opacity-0 hover:opacity-100 fill-primary z-50"
                     @mouseover="() => handleMouseover(index)"
                     @mouseleave="() => handleMouseleave()"
                 />
@@ -77,8 +77,8 @@
                     :x1="point.x"
                     :y1="height - paddingBottom"
                     :x2="point.x"
-                    :y2="height - paddingBottom - intervalYScale * 4"
-                    stroke="#aaa"
+                    :y2="height - paddingBottom - intervalYScale * 3"
+                    stroke="#bbb"
                     stroke-width="1"
                     stroke-dasharray="2,2"
                 />
@@ -143,7 +143,7 @@ export default {
         points() {
             const yScale =
                 (this.height - this.paddingTop - this.paddingBottom) /
-                (this.yMax * 2);
+                (this.yMax * 1.5);
 
             let limit;
             if (this.type === "daily") {
@@ -206,12 +206,13 @@ export default {
             return shadowPathString;
         },
         yMax() {
-            return Math.max(...this.data.map((d) => d.y)) || 1;
+            const maxValue = Math.max(...this.data.map((d) => d.y)) || 1;
+            return maxValue > 2 ? maxValue : 2;
         },
         yScale() {
             return (
                 (this.height - this.paddingTop - this.paddingBottom) /
-                (this.yMax * 2)
+                (this.yMax * 1.5)
             );
         },
         interval() {
