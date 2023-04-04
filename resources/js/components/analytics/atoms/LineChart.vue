@@ -100,13 +100,15 @@
                 v-if="tooltipVisible"
                 :x="tooltipPosition.x"
                 :y="tooltipPosition.y"
-                width="100"
+                width="200"
                 height="100"
             >
                 <div
-                    class="bg-white rounded text-xs border border-[#dadce0] dark:border-dark-1 p-2"
+                    class="bg-white rounded border border-[#dadce0] dark:border-dark-1 p-2 shadow-md"
                 >
-                    {{ t("ページビュー") }}
+                    <p class="text-[11px] whitespace-nowrap">
+                        {{ tooltipData.date }}のページビュー
+                    </p>
                     <p class="text-2xl">
                         {{ formatNumber(tooltipData.pageViews) }}
                     </p>
@@ -274,12 +276,34 @@ export default {
         showTooltip(index) {
             this.tooltipVisible = true;
             this.tooltipData = {
+                date: this.formatTooltipDate(this.data[index].date),
                 pageViews: this.data[index].y,
             };
+
+            const tooltipWidth = 200;
+            const tooltipHeight = 100;
+            const xOffset = tooltipWidth / 2;
+            const yOffset = tooltipHeight - 20;
+
+            const xPosition = Math.min(
+                Math.max(this.points[index].x - xOffset, this.paddingLeft),
+                this.width - this.paddingRight - tooltipWidth
+            );
+            const yPosition = this.points[index].y - yOffset;
+
             this.tooltipPosition = {
-                x: this.points[index].x - 50,
-                y: this.points[index].y - 70,
+                x: xPosition,
+                y: yPosition,
             };
+        },
+        formatTooltipDate(date) {
+            const d = new Date(date);
+            const year = d.getFullYear();
+            const month = d.getMonth() + 1;
+            const day = d.getDate();
+            const week = ["日", "月", "火", "水", "木", "金", "土"][d.getDay()];
+
+            return `${year}年${month}月${day}日(${week})`;
         },
         hideTooltip() {
             this.tooltipVisible = false;
