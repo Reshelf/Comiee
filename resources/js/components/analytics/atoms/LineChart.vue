@@ -107,7 +107,7 @@
                     class="bg-white rounded border border-[#dadce0] dark:border-dark-1 p-2 shadow-md"
                 >
                     <p class="text-[11px] whitespace-nowrap">
-                        {{ tooltipData.date }}のページビュー
+                        {{ tooltipData.date }}{{ t("のページビュー") }}
                     </p>
                     <p class="text-2xl">
                         {{ formatNumber(tooltipData.pageViews) }}
@@ -303,7 +303,11 @@ export default {
             const day = d.getDate();
             const week = ["日", "月", "火", "水", "木", "金", "土"][d.getDay()];
 
-            return `${year}年${month}月${day}日(${week})`;
+            if (this.type === "yearly") {
+                return `${year}年${month}月`;
+            } else {
+                return `${year}年${month}月${day}日(${week})`;
+            }
         },
         hideTooltip() {
             this.tooltipVisible = false;
