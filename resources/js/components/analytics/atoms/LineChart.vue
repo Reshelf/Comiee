@@ -1,6 +1,11 @@
 <template>
     <div ref="graph" class="w-full pt-8 flex justify-center items-center">
-        <svg class="w-full" :height="height">
+        <svg
+            class="w-full"
+            :height="height"
+            @mousemove="handleLineMouseover"
+            @mouseleave="handleMouseleave"
+        >
             <line
                 :x1="paddingLeft"
                 :y1="height - paddingBottom"
@@ -63,15 +68,6 @@
             </g>
 
             <g v-for="(point, index) in points" :key="index">
-                <circle
-                    :cx="point.x"
-                    :cy="point.y"
-                    r="4"
-                    class="rounded-full opacity-0 hover:opacity-100 fill-primary z-50"
-                    @mouseover="() => handleMouseover(index)"
-                    @mouseleave="() => handleMouseleave()"
-                />
-                <!-- Modify this line element -->
                 <line
                     :x1="point.x"
                     :y1="height - paddingBottom"
@@ -81,9 +77,15 @@
                     stroke="#bbb"
                     stroke-width="1"
                     stroke-dasharray="2,2"
-                    @mouseover="() => handleLineMouseover(index)"
-                    @mouseleave="() => handleMouseleave()"
                 />
+                <circle
+                    :cx="point.x"
+                    :cy="point.y"
+                    r="4"
+                    class="rounded-full fill-primary z-50"
+                    :opacity="borderVisible[index] ? 1 : 0"
+                />
+
                 <text
                     :x="point.x"
                     :y="height - paddingBottom + 20"
@@ -288,22 +290,36 @@ export default {
         hideBorder() {
             this.borderVisible = this.borderVisible.map(() => false);
         },
-        handleLineMouseover(index) {
-            this.showBorder(index);
-            // Clear any existing mouseleave debounced calls
-            if (this.hideBorderDebounced) {
-                this.hideBorderDebounced.cancel();
-            }
-        },
         handleMouseleave() {
-            this.hideTooltipDebounced = _.debounce(
-                () => this.hideTooltip(),
-                100
-            );
-            this.hideTooltipDebounced();
+            this.hideBorder();
+            this.hideTooltip();
+        },
+        handleLineMouseover(event) {
+            const mouseX =
+                event.clientX - this.$refs.graph.getBoundingClientRect().left;
 
-            this.hideBorderDebounced = _.debounce(() => this.hideBorder(), 100);
-            this.hideBorderDebounced();
+            let closestIndex = 0;
+            let minDistanceX = Number.MAX_VALUE;
+
+            this.points.forEach((point, index) => {
+                const distanceX = Math.abs(point.x - mouseX);
+
+                if (distanceX < minDistanceX) {
+                    minDistanceX = distanceX;
+                    closestIndex = index;
+                }
+            });
+
+            const xScale = this.points[1].x - this.points[0].x;
+
+            if (minDistanceX < xScale * 0.5) {
+                this.borderVisible = this.borderVisible.map(() => false); // Add this line
+                this.showBorder(closestIndex);
+                this.showTooltip(closestIndex);
+            } else {
+                this.hideBorder();
+                this.hideTooltip();
+            }
         },
     },
 };
