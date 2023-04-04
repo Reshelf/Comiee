@@ -73,14 +73,16 @@
                 />
                 <!-- Modify this line element -->
                 <line
-                    v-show="borderVisible[index]"
                     :x1="point.x"
                     :y1="height - paddingBottom"
                     :x2="point.x"
                     :y2="height - paddingBottom - intervalYScale * 3"
+                    :stroke-opacity="borderVisible[index] ? 1 : 0"
                     stroke="#bbb"
                     stroke-width="1"
                     stroke-dasharray="2,2"
+                    @mouseover="() => handleLineMouseover(index)"
+                    @mouseleave="() => handleMouseleave()"
                 />
                 <text
                     :x="point.x"
@@ -286,13 +288,9 @@ export default {
         hideBorder() {
             this.borderVisible = this.borderVisible.map(() => false);
         },
-        handleMouseover(index) {
-            this.showTooltip(index);
+        handleLineMouseover(index) {
             this.showBorder(index);
             // Clear any existing mouseleave debounced calls
-            if (this.hideTooltipDebounced) {
-                this.hideTooltipDebounced.cancel();
-            }
             if (this.hideBorderDebounced) {
                 this.hideBorderDebounced.cancel();
             }
