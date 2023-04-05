@@ -85,14 +85,38 @@ const ReleaseNote = defineAsyncComponent(() =>
     import("../components/ReleaseNote.vue")
 );
 const GetUserInfo = defineAsyncComponent(() =>
-    import("../components/analytics/GetUserInfo.vue")
+    import("../components/analytics/atoms/GetUserInfo.vue")
 );
 const AnalyticsDashboard = defineAsyncComponent(() =>
     import("../components/analytics/AnalyticsDashboard.vue")
 );
+const CommentsDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/CommentsDashboard.vue")
+);
+const ContentsDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/ContentsDashboard.vue")
+);
+const RankingDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/RankingDashboard.vue")
+);
+const UserDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/UserDashboard.vue")
+);
+const TrendDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/TrendDashboard.vue")
+);
+const SalesDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/SalesDashboard.vue")
+);
 
 export default {
+    SalesDashboard,
+    TrendDashboard,
+    UserDashboard,
+    RankingDashboard,
+    ContentsDashboard,
     BooksLists,
+    CommentsDashboard,
     AnalyticsDashboard,
     PageViewsGraph,
     GetUserInfo,

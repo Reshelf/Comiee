@@ -292,6 +292,24 @@
                                 v-if="selected === 'dashboard'"
                                 :page-views="pageViews"
                             ></page-views-graph>
+                            <comments-dashboard
+                                v-if="selected === 'comments'"
+                            ></comments-dashboard>
+                            <trend-dashboard
+                                v-if="selected === 'trend'"
+                            ></trend-dashboard>
+                            <ranking-dashboard
+                                v-if="selected === 'ranking'"
+                            ></ranking-dashboard>
+                            <sales-dashboard
+                                v-if="selected === 'sales'"
+                            ></sales-dashboard>
+                            <contents-dashboard
+                                v-if="selected === 'contents'"
+                            ></contents-dashboard>
+                            <user-dashboard
+                                v-if="selected === 'user'"
+                            ></user-dashboard>
                         </div>
                     </main>
                 </div>
