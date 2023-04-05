@@ -38,6 +38,24 @@
                             />
                         </svg>
                     </div>
+                    <div class="flex items-center text-green text-sm">
+                        <svg
+                            class="mr-1"
+                            width="18"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+                            />
+                        </svg>
+
+                        <span class="">{{ growthRate }}%</span>
+                    </div>
                 </div>
                 <div class="relative">
                     <div
@@ -252,6 +270,9 @@ export default {
             }, "");
             return pathData;
         },
+        growthRate() {
+            return this.calculateGrowthRate(this.period);
+        },
     },
     mounted() {
         // ページビュー数アニメーション
@@ -267,6 +288,82 @@ export default {
         setPeriod(period) {
             this.period = period;
             this.menuVisible = false;
+        },
+        calculateGrowthRate(period) {
+            const dataPoints = this.toChartData;
+            const previousPeriodData = this.getPreviousPeriodData(period);
+            const currentTotal = dataPoints.reduce(
+                (acc, data) => acc + data.y,
+                0
+            );
+            const previousTotal = previousPeriodData.reduce(
+                (acc, data) => acc + data.y,
+                0
+            );
+
+            if (previousTotal === 0) {
+                return currentTotal > 0 ? 100 : 0;
+            }
+
+            const growthRate =
+                ((currentTotal - previousTotal) / previousTotal) * 100;
+            return growthRate.toFixed(2);
+        },
+
+        getPreviousPeriodData(period) {
+            if (period === "daily") {
+                const previousDay = new Date();
+                previousDay.setDate(previousDay.getDate() - 2);
+                const dateString = previousDay.toISOString().split("T")[0];
+                const count = this.pageViews.filter(
+                    (view) => view.created_at.split("T")[0] === dateString
+                ).length;
+                return [{ y: count }];
+            }
+
+            if (period === "weekly") {
+                const data = [];
+                for (let i = 13; i >= 7; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateString = date.toISOString().split("T")[0];
+                    const count = this.pageViews.filter(
+                        (view) => view.created_at.split("T")[0] === dateString
+                    ).length;
+                    data.push({ y: count });
+                }
+                return data;
+            }
+
+            if (period === "monthly") {
+                const data = [];
+                for (let i = 59; i >= 30; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateString = date.toISOString().split("T")[0];
+                    const count = this.pageViews.filter(
+                        (view) => view.created_at.split("T")[0] === dateString
+                    ).length;
+                    data.push({ y: count });
+                }
+                return data;
+            }
+
+            if (period === "yearly") {
+                const data = [];
+                for (let i = 23; i >= 12; i--) {
+                    const date = new Date();
+                    date.setMonth(date.getMonth() - i, 1);
+                    const dateString = `${date.getFullYear()}-${String(
+                        date.getMonth() + 1
+                    ).padStart(2, "0")}-01`;
+                    const count = this.pageViews.filter(
+                        (view) => view.created_at.split("T")[0] === dateString
+                    ).length;
+                    data.push({ y: count });
+                }
+                return data;
+            }
         },
     },
 };
