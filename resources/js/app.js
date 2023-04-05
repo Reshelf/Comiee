@@ -10,6 +10,11 @@ const app = createApp({
     components,
 });
 
+// コンポーネント間のインポート
+Object.keys(components).forEach((componentName) => {
+    app.component(componentName, components[componentName]);
+});
+
 app.use(i18n);
 GlobalMethods.install(app);
 app.mount("#app");

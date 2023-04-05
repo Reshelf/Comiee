@@ -87,9 +87,13 @@ const ReleaseNote = defineAsyncComponent(() =>
 const GetUserInfo = defineAsyncComponent(() =>
     import("../components/analytics/GetUserInfo.vue")
 );
+const AnalyticsDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/AnalyticsDashboard.vue")
+);
 
 export default {
     BooksLists,
+    AnalyticsDashboard,
     PageViewsGraph,
     GetUserInfo,
     SpSearchForm,
