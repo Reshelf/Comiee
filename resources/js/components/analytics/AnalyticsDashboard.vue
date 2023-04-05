@@ -5,7 +5,7 @@
                 <!-- Main content -->
                 <div class="flex-grow flex">
                     <!-- Sidebar -->
-                    <nav class="bg-f8 p-8 w-1/5 min-h-full">
+                    <nav class="bg-f8 dark:bg-dark p-8 w-1/5 min-h-full">
                         <ul>
                             <li
                                 :class="{
@@ -286,7 +286,7 @@
                     </nav>
 
                     <main class="p-8 w-full">
-                        <div class="bg-white rounded-md p-4">
+                        <div class="rounded-md p-4">
                             <h2 class="text-2xl mb-4">{{ title }}</h2>
                             <page-views-graph
                                 v-if="selected === 'dashboard'"
