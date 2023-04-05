@@ -38,7 +38,7 @@
                             />
                         </svg>
                     </div>
-                    <div class="flex items-center text-green text-sm">
+                    <div class="flex items-center text-[#2BB974] text-sm">
                         <svg
                             class="mr-1"
                             width="18"
@@ -54,7 +54,9 @@
                             />
                         </svg>
 
-                        <span class="">{{ growthRate }}%</span>
+                        <span class="">{{
+                            growthRate === Infinity ? "∞" : growthRate + "%"
+                        }}</span>
                     </div>
                 </div>
                 <div class="relative">
@@ -302,14 +304,17 @@ export default {
             );
 
             if (previousTotal === 0) {
-                return currentTotal > 0 ? 100 : 0;
+                if (currentTotal > 0) {
+                    return 100;
+                } else {
+                    return 0;
+                }
             }
 
             const growthRate =
                 ((currentTotal - previousTotal) / previousTotal) * 100;
             return growthRate.toFixed(2);
         },
-
         getPreviousPeriodData(period) {
             if (period === "daily") {
                 const previousDay = new Date();
