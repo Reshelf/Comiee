@@ -1,19 +1,5 @@
 import { defineAsyncComponent } from "vue";
-import CreateModal from "../components/books/CreateModal.vue";
-import CommentPostModal from "../components/books/episodes/comments/CommentPostModal.vue";
 
-const HeaderUserModal = defineAsyncComponent(() =>
-    import("../components/HeaderUserModal.vue")
-);
-const FollowModal = defineAsyncComponent(() =>
-    import("../components/users/FollowModal.vue")
-);
-const SetupModal = defineAsyncComponent(() =>
-    import("../components/users/SetupModal.vue")
-);
-const TagSearchModal = defineAsyncComponent(() =>
-    import("../components/search/TagSearchModal.vue")
-);
 const BookLike = defineAsyncComponent(() =>
     import("../components/books/BookLike.vue")
 );
@@ -26,12 +12,17 @@ const PageViewsGraph = defineAsyncComponent(() =>
 const BookEditModal = defineAsyncComponent(() =>
     import("../components/books/BookEditModal.vue")
 );
-
+const CreateModal = defineAsyncComponent(() =>
+    import("../components/books/CreateModal.vue")
+);
 const DeleteModal = defineAsyncComponent(() =>
     import("../components/books/DeleteModal.vue")
 );
 const EditModal = defineAsyncComponent(() =>
     import("../components/books/EditModal.vue")
+);
+const CommentPostModal = defineAsyncComponent(() =>
+    import("../components/books/episodes/comments/CommentPostModal.vue")
 );
 const EpisodeList = defineAsyncComponent(() =>
     import("../components/books/episodes/EpisodeList.vue")
@@ -48,11 +39,17 @@ const CountAnimation = defineAsyncComponent(() =>
 const FollowButton = defineAsyncComponent(() =>
     import("../components/FollowButton.vue")
 );
+const HeaderUserModal = defineAsyncComponent(() =>
+    import("../components/HeaderUserModal.vue")
+);
 const SearchForm = defineAsyncComponent(() =>
     import("../components/search/SearchForm.vue")
 );
 const SpSearchForm = defineAsyncComponent(() =>
     import("../components/search/SpSearchForm.vue")
+);
+const TagSearchModal = defineAsyncComponent(() =>
+    import("../components/search/TagSearchModal.vue")
 );
 const ThemeToggle = defineAsyncComponent(() =>
     import("../components/ThemeToggle.vue")
@@ -62,6 +59,12 @@ const AvatarZoom = defineAsyncComponent(() =>
 );
 const EditUserModal = defineAsyncComponent(() =>
     import("../components/users/EditUserModal.vue")
+);
+const FollowModal = defineAsyncComponent(() =>
+    import("../components/users/FollowModal.vue")
+);
+const SetupModal = defineAsyncComponent(() =>
+    import("../components/users/SetupModal.vue")
 );
 const ShelfLists = defineAsyncComponent(() =>
     import("../components/users/ShelfLists.vue")
