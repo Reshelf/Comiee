@@ -47,15 +47,14 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <title>Comiee Analytics</title>
       <path
-        d="M22 16.7399V4.66994C22 3.46994 21.02 2.57994 19.83 2.67994H19.77C17.67 2.85994 14.48 3.92994 12.7 5.04994L12.53 5.15994C12.24 5.33994 11.76 5.33994 11.47 5.15994L11.22 5.00994C9.44 3.89994 6.26 2.83994 4.16 2.66994C2.97 2.56994 2 3.46994 2 4.65994V16.7399C2 17.6999 2.78 18.5999 3.74 18.7199L4.03 18.7599C6.2 19.0499 9.55 20.1499 11.47 21.1999L11.51 21.2199C11.78 21.3699 12.21 21.3699 12.47 21.2199C14.39 20.1599 17.75 19.0499 19.93 18.7599L20.26 18.7199C21.22 18.5999 22 17.6999 22 16.7399Z"
+        d="M21.08 8.58003V15.42C21.08 16.54 20.48 17.58 19.51 18.15L13.57 21.58C12.6 22.14 11.4 22.14 10.42 21.58L4.48004 18.15C3.51004 17.59 2.91003 16.55 2.91003 15.42V8.58003C2.91003 7.46003 3.51004 6.41999 4.48004 5.84999L10.42 2.42C11.39 1.86 12.59 1.86 13.57 2.42L19.51 5.84999C20.48 6.41999 21.08 7.45003 21.08 8.58003Z"
         class="stroke-333 dark:stroke-white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      <path class="stroke-333 dark:stroke-white" d="M12 5.48999V20.49" stroke-width="1.5" stroke-linecap="round"
-        stroke-linejoin="round" />
-      <path class="stroke-333 dark:stroke-white" d="M7.75 8.48999H5.5" stroke-width="1.5" stroke-linecap="round"
-        stroke-linejoin="round" />
-      <path class="stroke-333 dark:stroke-white" d="M8.5 11.49H5.5" stroke-width="1.5" stroke-linecap="round"
+      <path
+        d="M9.75 12V10.8C9.75 9.26001 10.84 8.63005 12.17 9.40005L13.21 10L14.25 10.6C15.58 11.37 15.58 12.63 14.25 13.4L13.21 14L12.17 14.6C10.84 15.37 9.75 14.74 9.75 13.2V12Z"
+        class="stroke-333 dark:stroke-white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
         stroke-linejoin="round" />
     </svg>
+
     <span class="pl-5">{{ __('Comiee Analytics') }}</span>
   </a>
 
