@@ -4,6 +4,18 @@ import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes("node_modules")) {
+                        return "vendor";
+                    }
+                },
+            },
+        },
+        chunkSizeWarningLimit: 1000, // 1000 KB (1 MB)
+    },
     plugins: [
         vue({
             template: {

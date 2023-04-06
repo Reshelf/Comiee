@@ -1,0 +1,1 @@
+import{_ as t}from"./_plugin-vue_export-helper-c27b6911.js";import{o,b as e}from"./vendor-3de5d8e5.js";const r={data(){return{}}};function n(a,s,c,p,_,d){return o(),e("div",null,"コンテンツ")}const l=t(r,[["render",n]]);export{l as default};
