@@ -9,7 +9,8 @@
                         <ul>
                             <li
                                 :class="{
-                                    'font-bold': selected === 'dashboard',
+                                    'font-bold dark:text-f5':
+                                        selected === 'dashboard',
                                 }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'dashboard'"
@@ -55,7 +56,10 @@
                                 {{ t("ダッシュボード") }}
                             </li>
                             <li
-                                :class="{ 'font-bold': selected === 'sales' }"
+                                :class="{
+                                    'font-bold dark:text-f5':
+                                        selected === 'sales',
+                                }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'sales'"
                             >
@@ -107,7 +111,8 @@
                             </li>
                             <li
                                 :class="{
-                                    'font-bold': selected === 'contents',
+                                    'font-bold dark:text-f5':
+                                        selected === 'contents',
                                 }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'contents'"
@@ -138,7 +143,10 @@
                                 {{ t("コンテンツ分析") }}
                             </li>
                             <li
-                                :class="{ 'font-bold': selected === 'user' }"
+                                :class="{
+                                    'font-bold dark:text-f5':
+                                        selected === 'user',
+                                }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'user'"
                             >
@@ -194,7 +202,8 @@
                             </li>
                             <li
                                 :class="{
-                                    'font-bold': selected === 'comments',
+                                    'font-bold dark:text-f5':
+                                        selected === 'comments',
                                 }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'comments'"
@@ -229,7 +238,10 @@
                                 {{ t("コメント管理") }}
                             </li>
                             <li
-                                :class="{ 'font-bold': selected === 'trend' }"
+                                :class="{
+                                    'font-bold dark:text-f5':
+                                        selected === 'trend',
+                                }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'trend'"
                             >
@@ -263,7 +275,10 @@
                                 {{ t("トレンド分析") }}
                             </li>
                             <li
-                                :class="{ 'font-bold': selected === 'ranking' }"
+                                :class="{
+                                    'font-bold dark:text-f5':
+                                        selected === 'ranking',
+                                }"
                                 class="py-2 px-4 rounded-lg flex items-center hover:text-primary dark:hover:text-f5 hover:cursor-pointer"
                                 @click="selected = 'ranking'"
                             >
@@ -318,7 +333,23 @@
     </div>
 </template>
 <script>
+import CommentsDashboard from "@/components/analytics/CommentsDashboard.vue";
+import ContentsDashboard from "@/components/analytics/ContentsDashboard.vue";
+import RankingDashboard from "@/components/analytics/RankingDashboard.vue";
+import SalesDashboard from "@/components/analytics/SalesDashboard.vue";
+import TrendDashboard from "@/components/analytics/TrendDashboard.vue";
+import UserDashboard from "@/components/analytics/UserDashboard.vue";
+import PageViewsGraph from "@/components/analytics/book/PageViewsGraph.vue";
 export default {
+    components: {
+        PageViewsGraph,
+        CommentsDashboard,
+        TrendDashboard,
+        RankingDashboard,
+        SalesDashboard,
+        ContentsDashboard,
+        UserDashboard,
+    },
     props: {
         pageViews: {
             type: Array,
