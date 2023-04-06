@@ -302,8 +302,8 @@
                         </ul>
                     </nav>
 
-                    <main class="px-8 w-full">
-                        <div class="rounded-md p-4">
+                    <main class="p-12 w-full">
+                        <div class="">
                             <h2 class="text-2xl mb-4">{{ title }}</h2>
                             <comments-dashboard
                                 v-if="selected === 'comments'"

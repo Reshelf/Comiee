@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-dark w-full flex-none">
+<div class="bg-white dark:bg-dark w-full flex-none border-b border-[#dadce0] dark:border-dark-1">
   <div class="max-w-8xl mx-auto">
     <div class="py-4 lg:px-8 lg:border-0 mx-4 lg:mx-0">
       <div class="relative flex items-center">
