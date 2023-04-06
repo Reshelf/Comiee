@@ -68,28 +68,28 @@
                     </div>
                     <div
                         v-if="menuVisible"
-                        class="absolute bg-white border border-[#dadce0] dark:border-dark-1 rounded-lg p-2 mt-2"
+                        class="absolute bg-white dark:bg-dark-1 border border-[#dadce0] dark:border-dark-1 rounded-lg p-2 mt-2"
                     >
                         <div
-                            class="cursor-pointer py-1 px-3 hover:text-primary whitespace-nowrap"
+                            class="cursor-pointer py-1 px-3 hover:text-primary dark:hover:text-f5 whitespace-nowrap"
                             @click="setPeriod('daily')"
                         >
                             {{ t("1日") }}
                         </div>
                         <div
-                            class="cursor-pointer py-1 px-3 hover:text-primary whitespace-nowrap"
+                            class="cursor-pointer py-1 px-3 hover:text-primary dark:hover:text-f5 whitespace-nowrap"
                             @click="setPeriod('weekly')"
                         >
                             {{ t("1週間") }}
                         </div>
                         <div
-                            class="cursor-pointer py-1 px-3 hover:text-primary whitespace-nowrap"
+                            class="cursor-pointer py-1 px-3 hover:text-primary dark:hover:text-f5 whitespace-nowrap"
                             @click="setPeriod('monthly')"
                         >
                             {{ t("1ヶ月") }}
                         </div>
                         <div
-                            class="cursor-pointer py-1 px-3 hover:text-primary whitespace-nowrap"
+                            class="cursor-pointer py-1 px-3 hover:text-primary dark:hover:text-f5 whitespace-nowrap"
                             @click="setPeriod('yearly')"
                         >
                             {{ t("1年間") }}

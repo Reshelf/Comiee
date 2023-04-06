@@ -1,5 +1,5 @@
 <template>
-    <div>ランキング</div>
+    <div>準備中</div>
 </template>
 <script>
 export default {

@@ -1,5 +1,5 @@
 <template>
-    <div>収益</div>
+    <div>準備中</div>
 </template>
 <script>
 export default {

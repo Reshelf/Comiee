@@ -104,7 +104,7 @@
                 height="100"
             >
                 <div
-                    class="bg-white rounded border border-[#dadce0] dark:border-dark-1 p-2 shadow-md"
+                    class="bg-white dark:bg-dark-1 rounded border border-[#dadce0] dark:border-dark-1 p-2 shadow-md"
                 >
                     <p class="text-[11px] whitespace-nowrap">
                         {{ tooltipData.date }}{{ t("のページビュー") }}
