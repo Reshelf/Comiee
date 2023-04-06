@@ -303,10 +303,6 @@
                     <main class="p-8 w-full">
                         <div class="rounded-md p-4">
                             <h2 class="text-2xl mb-4">{{ title }}</h2>
-                            <page-views-graph
-                                v-if="selected === 'dashboard'"
-                                :page-views="pageViews"
-                            ></page-views-graph>
                             <comments-dashboard
                                 v-if="selected === 'comments'"
                             ></comments-dashboard>
@@ -321,6 +317,7 @@
                             ></sales-dashboard>
                             <contents-dashboard
                                 v-if="selected === 'contents'"
+                                :page-views="pageViews"
                             ></contents-dashboard>
                             <user-dashboard
                                 v-if="selected === 'user'"
@@ -339,10 +336,8 @@ import RankingDashboard from "@/components/analytics/RankingDashboard.vue";
 import SalesDashboard from "@/components/analytics/SalesDashboard.vue";
 import TrendDashboard from "@/components/analytics/TrendDashboard.vue";
 import UserDashboard from "@/components/analytics/UserDashboard.vue";
-import PageViewsGraph from "@/components/analytics/book/PageViewsGraph.vue";
 export default {
     components: {
-        PageViewsGraph,
         CommentsDashboard,
         TrendDashboard,
         RankingDashboard,
