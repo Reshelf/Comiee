@@ -302,7 +302,7 @@
                         </ul>
                     </nav>
 
-                    <main class="p-8 w-full">
+                    <main class="px-8 w-full">
                         <div class="rounded-md p-4">
                             <h2 class="text-2xl mb-4">{{ title }}</h2>
                             <comments-dashboard
