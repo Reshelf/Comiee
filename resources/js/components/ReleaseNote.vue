@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="text-2xl lg:text-3xl dark:text-f5 font-bold my-8 lg:mb-10">
+        <h2 class="text-2xl lg:text-3xl dark:text-f5 my-8 lg:mb-10">
             {{ t("リリースノート") }}
         </h2>
 

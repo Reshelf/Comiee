@@ -54,7 +54,7 @@
 
       {{-- はじめに --}}
       <div id="welcome" class="mt-8 mb-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold pt-4 mb-4">{{ __('はじめに') }}</h2>
+        <h2 class="dark:text-f5 text-2xl pt-4 mb-4">{{ __('はじめに') }}</h2>
         <p class="mb-4">
           {{ __('Comiee（コミー）へようこそ！') }}
         </p>
@@ -65,7 +65,7 @@
 
       {{-- Comieeとは --}}
       <div id="about_comiee" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('Comieeとは') }}</h2>
         <div class="w-full">
           <svg class="object-contain w-full" viewBox="0 0 1080 566" fill="none">
@@ -104,7 +104,7 @@
 
       {{-- できること --}}
       <div id="important" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('できること') }}
         </h2>
         <div class="mb-4">
@@ -115,7 +115,7 @@
 
       {{-- サービスの理念 --}}
       <div id="service_philosophy" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('サービスの理念') }}</h2>
         <div class="">
           <p class="mb-4">
@@ -131,7 +131,7 @@
 
       {{-- 特徴 --}}
       <div id="features" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('特徴') }}
         </h2>
         <div class="mb-4">
@@ -146,7 +146,7 @@
 
       {{-- 読者ガイド --}}
       <div id="reader_guide" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('読者ガイド') }}{{ __('(準備中)') }}
         </h2>
         <div class="">
@@ -166,7 +166,7 @@
 
       {{-- クリエイターガイド --}}
       <div id="creater_guide" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('クリエイターガイド') }}{{ __('(準備中)') }}</h2>
         <div class="">
           <p>{{ __('・作品について') }}</p>
@@ -179,7 +179,7 @@
 
       {{-- 最後に --}}
       <div id="lastly" class="my-12 leading-8 text-base whitespace-pre-line">
-        <h2 class="dark:text-f5 text-2xl font-bold mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
+        <h2 class="dark:text-f5 text-2xl mb-4 py-4 border-b border-[#dadce0] dark:border-dark-1">
           {{ __('最後に') }}</h2>
         <div class="">
           <p class="mb-4">
