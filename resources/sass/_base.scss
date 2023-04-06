@@ -15,8 +15,8 @@ html {
 }
 
 body {
-    @apply bg-white dark:bg-dark text-t-color dark:text-gray;
-    // font-family: "Noto Sans JP";
+    @apply bg-white dark:bg-dark text-t-color dark:text-gray text-[14px];
+    font-family: "Noto Sans JP";
 }
 
 input[type="text"],

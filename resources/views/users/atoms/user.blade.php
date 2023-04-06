@@ -76,7 +76,7 @@
     <div class="w-full md:px-6 flex justify-between md:mt-2">
       <div class="w-full flex flex-col">
         <div class="flex items-center justify-start">
-          <h3 class="font-bold pr-2 text-2xl md:text-[30px] dark:text-ddd">
+          <h3 class="pr-2 text-2xl md:text-[30px] dark:text-ddd">
             {{ $user->name }}
           </h3>
 
