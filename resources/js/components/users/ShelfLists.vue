@@ -237,7 +237,7 @@
                                 <template v-if="isLikes">
                                     <!-- 検索条件 -->
                                     <div
-                                        class="w-full flex whitespace-nowrap overflow-x-scroll scroll-none items-center mt-4 lg:mt-0 mb-4"
+                                        class="text-[14px] w-full flex whitespace-nowrap overflow-x-scroll scroll-none items-center mt-4 lg:mt-0 mb-4"
                                     >
                                         <!-- 画面タイプ -->
                                         <div class="mb-4">

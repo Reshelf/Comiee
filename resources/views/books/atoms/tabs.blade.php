@@ -1,17 +1,17 @@
 <div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
-  <h3 class="font-bold mb-2">{{ __('Comieeを楽しもう') }}</h3>
+  <h3 class="mb-2">{{ __('Comieeを楽しもう') }}</h3>
   <a href="{{ route('others.about.comiee') }}"
-    class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+    class="w-full h-full flex items-center px-3 py-2 rounded text-sm hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('Comieeについて') }}
   </a>
   <a href="{{ route('others.user_guide') }}"
-    class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+    class="w-full h-full flex items-center px-3 py-2 rounded text-sm hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('ご利用ガイド') }}
   </a>
   <a href="{{ route('others.faq', ['number' => 1]) }}"
-    class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+    class="w-full h-full flex items-center px-3 py-2 rounded text-sm hover:text-primary dark:hover:text-ddd"
     aria-current="page">
     {{ __('よくあるご質問') }}
   </a>
@@ -19,7 +19,7 @@
   @auth
     <comment-post-modal>
       <template #btn-trigger>
-        <span class="w-full h-full flex items-center px-3 py-2 rounded text-xs hover:text-primary dark:hover:text-ddd"
+        <span class="w-full h-full flex items-center px-3 py-2 rounded text-sm hover:text-primary dark:hover:text-ddd"
           aria-current="page">
           {{ __('お問い合わせ') }}
         </span>
@@ -47,7 +47,7 @@
   @endauth
 
   {{-- <h3 class="font-bold mt-8 mb-2">{{ __('トレンド') }}</h3>
-  <tag-search-modal class="px-3 py-2 text-xs">
+  <tag-search-modal class="px-3 py-2 text-sm">
     <template #trigger>{{ __('タグからさがす') }}</template>
   </tag-search-modal> --}}
 </div>
