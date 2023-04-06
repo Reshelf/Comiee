@@ -1,10 +1,19 @@
 import { defineAsyncComponent } from "vue";
-import HeaderUserModal from "../components/HeaderUserModal.vue";
 import CreateModal from "../components/books/CreateModal.vue";
-import TagSearchModal from "../components/search/TagSearchModal.vue";
-import FollowModal from "../components/users/FollowModal.vue";
-import SetupModal from "../components/users/SetupModal.vue";
+import CommentPostModal from "../components/books/episodes/comments/CommentPostModal.vue";
 
+const HeaderUserModal = defineAsyncComponent(() =>
+    import("../components/HeaderUserModal.vue")
+);
+const FollowModal = defineAsyncComponent(() =>
+    import("../components/users/FollowModal.vue")
+);
+const SetupModal = defineAsyncComponent(() =>
+    import("../components/users/SetupModal.vue")
+);
+const TagSearchModal = defineAsyncComponent(() =>
+    import("../components/search/TagSearchModal.vue")
+);
 const BookLike = defineAsyncComponent(() =>
     import("../components/books/BookLike.vue")
 );
@@ -23,9 +32,6 @@ const DeleteModal = defineAsyncComponent(() =>
 );
 const EditModal = defineAsyncComponent(() =>
     import("../components/books/EditModal.vue")
-);
-const CommentPostModal = defineAsyncComponent(() =>
-    import("../components/books/episodes/comments/CommentPostModal.vue")
 );
 const EpisodeList = defineAsyncComponent(() =>
     import("../components/books/episodes/EpisodeList.vue")
