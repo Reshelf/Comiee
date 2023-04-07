@@ -3,10 +3,10 @@
         <div class="flex w-full mx-auto justify-center">
             <div class="w-full h-screen flex flex-col">
                 <!-- Main content -->
-                <div class="flex-grow flex">
+                <div class="flex-grow flex flex-col lg:flex-row">
                     <!-- Sidebar -->
                     <nav
-                        class="bg-white dark:bg-dark w-1/5 min-h-full lg:border-r border-[#dadce0] dark:border-dark-1"
+                        class="bg-white dark:bg-dark w-full lg:w-1/5 lg:min-h-full lg:border-r border-[#dadce0] dark:border-dark-1"
                     >
                         <ul class="py-4">
                             <li
@@ -302,29 +302,27 @@
                         </ul>
                     </nav>
 
-                    <main class="p-12 w-full">
-                        <div class="">
-                            <h2 class="text-2xl mb-4">{{ title }}</h2>
-                            <comments-dashboard
-                                v-if="selected === 'comments'"
-                            ></comments-dashboard>
-                            <trend-dashboard
-                                v-if="selected === 'trend'"
-                            ></trend-dashboard>
-                            <ranking-dashboard
-                                v-if="selected === 'ranking'"
-                            ></ranking-dashboard>
-                            <sales-dashboard
-                                v-if="selected === 'sales'"
-                            ></sales-dashboard>
-                            <contents-dashboard
-                                v-if="selected === 'contents'"
-                                :page-views="pageViews"
-                            ></contents-dashboard>
-                            <user-dashboard
-                                v-if="selected === 'user'"
-                            ></user-dashboard>
-                        </div>
+                    <main class="p-8 lg:p-12 w-full">
+                        <comments-dashboard
+                            v-if="selected === 'comments'"
+                        ></comments-dashboard>
+                        <trend-dashboard
+                            v-if="selected === 'trend'"
+                        ></trend-dashboard>
+                        <ranking-dashboard
+                            v-if="selected === 'ranking'"
+                        ></ranking-dashboard>
+                        <sales-dashboard
+                            v-if="selected === 'sales'"
+                        ></sales-dashboard>
+                        <contents-dashboard
+                            v-if="selected === 'contents'"
+                            :page-views="pageViews"
+                            :books="books"
+                        ></contents-dashboard>
+                        <user-dashboard
+                            v-if="selected === 'user'"
+                        ></user-dashboard>
                     </main>
                 </div>
             </div>
@@ -352,31 +350,15 @@ export default {
             type: Array,
             required: true,
         },
+        books: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
             selected: "dashboard",
         };
-    },
-    computed: {
-        title() {
-            if (this.selected === "dashboard") {
-                return "ダッシュボード";
-            } else if (this.selected === "sales") {
-                return "収益";
-            } else if (this.selected === "contents") {
-                return "コンテンツ分析";
-            } else if (this.selected === "user") {
-                return "ユーザー分析";
-            } else if (this.selected === "comments") {
-                return "コメント管理";
-            } else if (this.selected === "trend") {
-                return "トレンド分析";
-            } else if (this.selected === "ranking") {
-                return "ランキング";
-            }
-            return false;
-        },
     },
 };
 </script>

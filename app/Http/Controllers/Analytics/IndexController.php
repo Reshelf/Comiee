@@ -23,6 +23,7 @@ class IndexController extends Controller
 
         return view('analytics.index', [
             'user' => $user,
+            'books' => $user->books()->latest()->get() ?? [],
             'pageViews' => $pageViews ?? [], // ページビュー
         ]);
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="my-8">
+    <div class="">
         <h3 class="text-xs text-[#9aa0a6] leading-6">作品名</h3>
         <div class="text-3xl mb-8">
             {{ book.title }}
