@@ -556,7 +556,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-8360a5ad.css",
+    "file": "assets/app-47d3715e.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
