@@ -44,7 +44,7 @@
       "resources/js/components/analytics/TrendDashboard.vue",
       "resources/js/components/analytics/SalesDashboard.vue"
     ],
-    "file": "assets/app-81bd950e.js",
+    "file": "assets/app-e4a051f3.js",
     "imports": [
       "_vendor-3de5d8e5.js"
     ],
@@ -107,7 +107,7 @@
     "src": "resources/js/components/HeaderUserModal.vue"
   },
   "resources/js/components/ReleaseNote.vue": {
-    "file": "assets/ReleaseNote-da249078.js",
+    "file": "assets/ReleaseNote-19864038.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -124,7 +124,7 @@
     "src": "resources/js/components/ThemeToggle.vue"
   },
   "resources/js/components/analytics/AnalyticsDashboard.vue": {
-    "file": "assets/AnalyticsDashboard-fb334c07.js",
+    "file": "assets/AnalyticsDashboard-d461593d.js",
     "imports": [
       "resources/js/components/analytics/CommentsDashboard.vue",
       "resources/js/components/analytics/ContentsDashboard.vue",
@@ -132,15 +132,15 @@
       "resources/js/components/analytics/SalesDashboard.vue",
       "resources/js/components/analytics/TrendDashboard.vue",
       "resources/js/components/analytics/UserDashboard.vue",
-      "resources/js/components/analytics/book/PageViewsGraph.vue",
       "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
+      "_vendor-3de5d8e5.js",
+      "resources/js/components/analytics/book/PageViewsGraph.vue"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/AnalyticsDashboard.vue"
   },
   "resources/js/components/analytics/CommentsDashboard.vue": {
-    "file": "assets/CommentsDashboard-33d561c9.js",
+    "file": "assets/CommentsDashboard-8f27fb76.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -148,17 +148,25 @@
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/CommentsDashboard.vue"
   },
+  "resources/js/components/analytics/ContentsDashboard.css": {
+    "file": "assets/ContentsDashboard-1294dfaa.css",
+    "src": "resources/js/components/analytics/ContentsDashboard.css"
+  },
   "resources/js/components/analytics/ContentsDashboard.vue": {
-    "file": "assets/ContentsDashboard-70035ce3.js",
+    "css": [
+      "assets/ContentsDashboard-1294dfaa.css"
+    ],
+    "file": "assets/ContentsDashboard-7365bb30.js",
     "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
+      "resources/js/components/analytics/book/PageViewsGraph.vue",
+      "_vendor-3de5d8e5.js",
+      "__plugin-vue_export-helper-c27b6911.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/ContentsDashboard.vue"
   },
   "resources/js/components/analytics/RankingDashboard.vue": {
-    "file": "assets/RankingDashboard-5937c4b1.js",
+    "file": "assets/RankingDashboard-8cce7de7.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -167,7 +175,7 @@
     "src": "resources/js/components/analytics/RankingDashboard.vue"
   },
   "resources/js/components/analytics/SalesDashboard.vue": {
-    "file": "assets/SalesDashboard-1012474f.js",
+    "file": "assets/SalesDashboard-eeb211cb.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -176,7 +184,7 @@
     "src": "resources/js/components/analytics/SalesDashboard.vue"
   },
   "resources/js/components/analytics/TrendDashboard.vue": {
-    "file": "assets/TrendDashboard-17e2656e.js",
+    "file": "assets/TrendDashboard-2b3225b2.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -198,8 +206,15 @@
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/atoms/GetUserInfo.vue"
   },
+  "resources/js/components/analytics/book/PageViewsGraph.css": {
+    "file": "assets/PageViewsGraph-aa0e75cc.css",
+    "src": "resources/js/components/analytics/book/PageViewsGraph.css"
+  },
   "resources/js/components/analytics/book/PageViewsGraph.vue": {
-    "file": "assets/PageViewsGraph-bc001314.js",
+    "css": [
+      "assets/PageViewsGraph-aa0e75cc.css"
+    ],
+    "file": "assets/PageViewsGraph-79fa6126.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
@@ -233,14 +248,14 @@
     "src": "resources/js/components/books/BookLike.vue"
   },
   "resources/js/components/books/BooksLists.css": {
-    "file": "assets/BooksLists-58d95679.css",
+    "file": "assets/BooksLists-a90d04e2.css",
     "src": "resources/js/components/books/BooksLists.css"
   },
   "resources/js/components/books/BooksLists.vue": {
     "css": [
-      "assets/BooksLists-58d95679.css"
+      "assets/BooksLists-a90d04e2.css"
     ],
-    "file": "assets/BooksLists-9394474d.js",
+    "file": "assets/BooksLists-ecc516c6.js",
     "imports": [
       "_vendor-3de5d8e5.js",
       "__plugin-vue_export-helper-c27b6911.js"
@@ -473,14 +488,14 @@
     "src": "resources/js/components/users/SetupModal.vue"
   },
   "resources/js/components/users/ShelfLists.css": {
-    "file": "assets/ShelfLists-8a565a14.css",
+    "file": "assets/ShelfLists-2cf4bb70.css",
     "src": "resources/js/components/users/ShelfLists.css"
   },
   "resources/js/components/users/ShelfLists.vue": {
     "css": [
-      "assets/ShelfLists-8a565a14.css"
+      "assets/ShelfLists-2cf4bb70.css"
     ],
-    "file": "assets/ShelfLists-10dda6a6.js",
+    "file": "assets/ShelfLists-d478be60.js",
     "imports": [
       "_vendor-3de5d8e5.js",
       "__plugin-vue_export-helper-c27b6911.js"
@@ -497,14 +512,14 @@
     "src": "resources/js/components/users/ThumbnailZoom.vue"
   },
   "resources/js/components/users/WorksLists.css": {
-    "file": "assets/WorksLists-255f81c5.css",
+    "file": "assets/WorksLists-1a99f693.css",
     "src": "resources/js/components/users/WorksLists.css"
   },
   "resources/js/components/users/WorksLists.vue": {
     "css": [
-      "assets/WorksLists-255f81c5.css"
+      "assets/WorksLists-1a99f693.css"
     ],
-    "file": "assets/WorksLists-2df09437.js",
+    "file": "assets/WorksLists-9e52679a.js",
     "imports": [
       "_vendor-3de5d8e5.js",
       "__plugin-vue_export-helper-c27b6911.js"
@@ -513,7 +528,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-8f60d286.css",
+    "file": "assets/app-b31cb482.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
