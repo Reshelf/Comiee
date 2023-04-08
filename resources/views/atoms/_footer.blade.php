@@ -1,5 +1,7 @@
-<footer class="w-full mb-16 md:mb-0 bg-f8 dark:bg-dark-1 py-8 md:py-16 text-[#7c7c7c] dark:text-[#939599]">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row pb-8 md:pb-12 px-8 md:px-0 border-b border-[#7c7c7c]">
+<footer
+  class="w-full mb-16 md:mb-0 bg-f8 dark:bg-dark py-8 md:py-16 text-[#7c7c7c] dark:text-[#939599] dark:border-t dark:border-dark-1">
+  <div
+    class="max-w-5xl mx-auto flex flex-col md:flex-row pb-8 md:pb-12 px-8 md:px-0 border-b border-[#7c7c7c] dark:border-dark-1">
     <div class="md:w-2/5 flex flex-col items-start">
       <svg class="h-[35px] md:h-[40px]" viewBox="0 0 206 40" fill="none" alt="comiee logo">
         <title>Comiee Logo</title>
