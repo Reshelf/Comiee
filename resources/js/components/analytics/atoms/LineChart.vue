@@ -1,8 +1,9 @@
 <template>
     <div ref="graph" class="w-full pt-8 flex justify-center items-center">
         <svg
-            class="w-full"
+            class="graph-svg w-full"
             :height="height"
+            preserveAspectRatio="none"
             @mousemove="handleLineMouseover"
             @mouseleave="handleMouseleave"
         >
@@ -352,3 +353,10 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.graph-svg {
+    // width: 100% !important;
+    // height: 300px !important;
+    preserveaspectratio: "none" !important;
+}
+</style>

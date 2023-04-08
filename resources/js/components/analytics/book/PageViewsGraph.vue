@@ -1,11 +1,11 @@
 <template>
-    <div class="">
+    <div class="w-full">
         <h3 class="text-xs text-[#9aa0a6] leading-6">作品名</h3>
         <div class="text-3xl mb-8">
             {{ book.title }}
         </div>
         <div
-            class="p-4 lg:p-10 border border-[#dadce0] dark:border-dark-1 rounded-lg"
+            class="w-full p-4 lg:p-10 border border-[#dadce0] dark:border-dark-1 rounded-lg"
         >
             <div class="flex justify-between">
                 <div>
@@ -46,6 +46,7 @@
                             viewBox="0 0 24 24"
                             stroke-width="1.5"
                             stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
                                 stroke-linecap="round"
