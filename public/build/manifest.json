@@ -5,33 +5,13 @@
   "_vendor-3de5d8e5.js": {
     "file": "assets/vendor-3de5d8e5.js"
   },
-  "resources/fonts/NotoSansCJKjp-Black.woff": {
-    "file": "assets/NotoSansCJKjp-Black-299bca88.woff",
-    "src": "resources/fonts/NotoSansCJKjp-Black.woff"
-  },
   "resources/fonts/NotoSansCJKjp-Bold.woff": {
     "file": "assets/NotoSansCJKjp-Bold-55dd945d.woff",
     "src": "resources/fonts/NotoSansCJKjp-Bold.woff"
   },
-  "resources/fonts/NotoSansCJKjp-DemiLight.woff": {
-    "file": "assets/NotoSansCJKjp-DemiLight-20eee55c.woff",
-    "src": "resources/fonts/NotoSansCJKjp-DemiLight.woff"
-  },
-  "resources/fonts/NotoSansCJKjp-Light.woff": {
-    "file": "assets/NotoSansCJKjp-Light-bf4195cc.woff",
-    "src": "resources/fonts/NotoSansCJKjp-Light.woff"
-  },
-  "resources/fonts/NotoSansCJKjp-Medium.woff": {
-    "file": "assets/NotoSansCJKjp-Medium-d4393798.woff",
-    "src": "resources/fonts/NotoSansCJKjp-Medium.woff"
-  },
   "resources/fonts/NotoSansCJKjp-Regular.woff": {
     "file": "assets/NotoSansCJKjp-Regular-057d4656.woff",
     "src": "resources/fonts/NotoSansCJKjp-Regular.woff"
-  },
-  "resources/fonts/NotoSansCJKjp-Thin.woff": {
-    "file": "assets/NotoSansCJKjp-Thin-23582028.woff",
-    "src": "resources/fonts/NotoSansCJKjp-Thin.woff"
   },
   "resources/js/app.js": {
     "dynamicImports": [
@@ -556,7 +536,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-47d3715e.css",
+    "file": "assets/app-2e2f96ac.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
