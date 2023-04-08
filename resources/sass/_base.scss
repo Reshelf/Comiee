@@ -188,7 +188,7 @@ a {
     }
 
     .header {
-        @apply relative min-h-[30px] bg-white dark:bg-dark-1 text-left rounded-t lg:text-lg text-[15px] font-bold py-3 pl-4 pr-8;
+        @apply relative min-h-[30px] bg-[#EFEFEF] dark:bg-dark-1 text-left rounded-t lg:text-lg text-[15px] py-3 pl-4 pr-8;
     }
 
     .close {

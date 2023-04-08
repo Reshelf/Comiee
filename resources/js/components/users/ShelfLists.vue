@@ -10,9 +10,7 @@
                     <ul
                         class="tabMenu scroll-none sticky top-0 lg:h-[300px] lg:min-w-[200px]"
                     >
-                        <h3
-                            class="text-2xl font-bold py-4 lg:pt-0 hidden lg:block"
-                        >
+                        <h3 class="text-2xl py-4 lg:pt-0 hidden lg:block">
                             {{ t("本棚") }}
                         </h3>
                         <!-- お気に入り -->
@@ -20,7 +18,7 @@
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isLikes
-                                    ? 'text-primary dark:text-f5 font-bold bg-f5 dark:bg-dark-1'
+                                    ? 'text-primary dark:text-f5 bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -53,7 +51,7 @@
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isFollow
-                                    ? 'text-primary dark:text-f5 font-bold bg-f5 dark:bg-dark-1'
+                                    ? 'text-primary dark:text-f5 bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -106,7 +104,7 @@
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isRead
-                                    ? 'text-primary dark:text-f5 font-bold bg-f5 dark:bg-dark-1'
+                                    ? 'text-primary dark:text-f5 bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
@@ -194,7 +192,7 @@
                             class="hover:bg-primary hover:text-white lg:hover:text-primary dark:lg:hover:text-ddd flex items-center px-4 py-2 lg:py-3 lg:hover:bg-f5 dark:lg:hover:bg-dark-1 rounded-full lg:rounded-lg whitespace-nowrap cursor-pointer tracking-widest"
                             :class="
                                 isBought
-                                    ? 'text-primary dark:text-f5 font-bold bg-f5 dark:bg-dark-1'
+                                    ? 'text-primary dark:text-f5 bg-f5 dark:bg-dark-1'
                                     : ''
                             "
                             @click="
