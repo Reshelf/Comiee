@@ -14,6 +14,11 @@ export default {
                     : formattedNum + unit;
             };
 
+            // 3桁ごとにカンマを挿入
+            const numberWithCommas = (x) => {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            };
+
             if (value >= 1e12) {
                 return format(1e12, "t"); // 1兆以上
             } else if (value >= 1e9) {
@@ -21,7 +26,7 @@ export default {
             } else if (value >= 1e6) {
                 return format(1e6, "m"); // 1百万以上
             } else if (value >= 1e3) {
-                return format(1e3, "k"); // 1千以上
+                return numberWithCommas(value); // 1千以上
             } else {
                 return value;
             }
