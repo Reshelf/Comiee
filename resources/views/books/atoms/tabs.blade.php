@@ -1,5 +1,5 @@
 <div class="w-full hidden lg:flex flex-col items-start justify-center p-2 mb-4 tracking-widest">
-  <h3 class="mb-2">{{ __('Comieeを楽しもう') }}</h3>
+  <div class="mb-2">{{ __('Comieeを楽しもう') }}</div>
   <a href="{{ route('others.about.comiee') }}"
     class="w-full h-full flex items-center px-3 py-2 rounded text-sm hover:text-primary dark:hover:text-ddd"
     aria-current="page">
