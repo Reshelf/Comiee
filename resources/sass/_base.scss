@@ -14,6 +14,11 @@ html {
     }
 }
 
+// vueの要素をロード前は非表示にする
+#app {
+    display: none;
+}
+
 body {
     @apply bg-white dark:bg-dark text-t-color dark:text-gray;
 }

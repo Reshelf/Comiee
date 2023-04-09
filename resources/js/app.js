@@ -13,3 +13,6 @@ const app = createApp({
 app.use(i18n);
 GlobalMethods.install(app);
 app.mount("#app");
+
+// Vueアプリケーションがマウントされた後に、<div id="app">を表示する
+document.getElementById("app").style.display = "block";
