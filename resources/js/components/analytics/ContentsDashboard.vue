@@ -219,11 +219,11 @@ export default {
 <style lang="scss" scoped>
 .animation-bg-enter-active {
     animation-name: PageIn;
-    animation-duration: 0.2s;
+    animation-duration: 0.15s;
 }
 .animation-bg-leave-active {
     animation-name: PageLeave;
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
 }
 
 @keyframes PageIn {

@@ -221,7 +221,4 @@
   </div>
 </div>
 
-<div class="hidden lg:block">
-  @include('atoms._footer')
-</div>
 @endsection

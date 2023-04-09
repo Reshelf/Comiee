@@ -50,5 +50,4 @@
     </div>
   </div>
 
-  @include('atoms._footer')
 @endsection
