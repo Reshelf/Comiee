@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Analytics;
 
 use App\Http\Controllers\Controller;
-use App\Models\BookPageView;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | 本棚
+    | 分析ページ
     |--------------------------------------------------------------------------
     |
      */
@@ -18,13 +17,12 @@ class IndexController extends Controller
     {
         $user = Auth::user();
 
-        // ユーザーと作品情報を含むページビューを取得
-        $pageViews = BookPageView::withUserAndBook()->get();
+        // 作品とページビューを一緒に取得
+        $books = $user->books()->with('pageViews')->latest()->get();
 
         return view('analytics.index', [
             'user' => $user,
-            'books' => $user->books()->latest()->get() ?? [],
-            'pageViews' => $pageViews ?? [], // ページビュー
+            'books' => $books ?? [],
         ]);
     }
 

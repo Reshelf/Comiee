@@ -1,7 +1,10 @@
 <template>
     <div class="">
         <h2 class="text-2xl mb-8">{{ t("コンテンツ分析") }}</h2>
+
+        <!-- テーブル -->
         <section class="">
+            <!-- thead -->
             <div
                 class="w-full flex items-center whitespace-nowrap mb-4 py-4 border-y border-[#dadce0] dark:border-dark-1 text-xs text-aaa"
             >
@@ -13,14 +16,12 @@
                 <div class="px-4 min-w-[100px] text-right">コメント数</div>
                 <div class="px-4 min-w-[100px] text-right">売上金額</div>
             </div>
-            <div
-                v-for="book in books"
-                :key="book.id"
-                class="flex cursor-pointer"
-                @click="show = !show"
-            >
+
+            <!-- tbody -->
+            <div v-for="book in books" :key="book.id" class="flex">
                 <div
-                    class="flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="cursor-pointer flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    @click="selectBook(book)"
                 >
                     <img
                         :src="book.thumbnail"
@@ -118,65 +119,74 @@
                     > -->
                 </div>
 
-                <!-- 閲覧回数 -->
+                <!-- ページビュー -->
                 <div
                     class="flex justify-end px-4 min-w-[120px] max-w-[120px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
                 >
-                    {{ formatNumber(book.views) }}
+                    {{ formatNumber(book.page_views.length) }}
                 </div>
+                <!-- 閲覧回数 -->
                 <div
                     class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
                 >
-                    {{ formatNumber(book.views) }}
+                    0
                 </div>
+                <!-- ユーザー数 -->
                 <div
                     class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
                 >
-                    {{ formatNumber(book.views) }}
+                    0
                 </div>
+                <!-- コメント数 -->
                 <div
                     class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
                 >
-                    {{ formatNumber(book.views) }}
+                    0
                 </div>
+                <!-- 売上金額 -->
                 <div
                     class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
                 >
-                    {{ formatNumber(book.views) }}
+                    0
                 </div>
+
+                <!-- 作品詳細アナリティクス -->
+                <transition name="animation-bg">
+                    <div
+                        v-show="show"
+                        class="absolute h-screen w-screen left-0 right-0 top-0 bottom-0 bg-white dark:bg-dark z-50"
+                    >
+                        <div class="p-12 w-full">
+                            <div
+                                class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-[#dadce0] dark:border-dark-1"
+                                @click="show = false"
+                            >
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 mr-4"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                                    />
+                                </svg>
+                                {{ t("戻る") }}
+                            </div>
+
+                            <!-- グラフ -->
+                            <page-views-graph
+                                v-if="selectedBook"
+                                :book="selectedBook"
+                            ></page-views-graph>
+                        </div>
+                    </div>
+                </transition>
             </div>
         </section>
-        <transition name="animation-bg">
-            <div
-                v-show="show"
-                class="absolute w-screen left-0 right-0 top-0 bottom-0 bg-white dark:bg-dark z-50"
-            >
-                <div class="p-12 w-full">
-                    <div
-                        class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-[#dadce0] dark:border-dark-1"
-                        @click="show = !show"
-                    >
-                        <svg
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="w-6 h-6 mr-4"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                            />
-                        </svg>
-                        {{ t("戻る") }}
-                    </div>
-                    <page-views-graph
-                        :page-views="pageViews"
-                    ></page-views-graph>
-                </div>
-            </div>
-        </transition>
     </div>
 </template>
 <script>
@@ -186,10 +196,6 @@ export default {
         PageViewsGraph,
     },
     props: {
-        pageViews: {
-            type: Array,
-            required: true,
-        },
         books: {
             type: Array,
             required: true,
@@ -198,7 +204,15 @@ export default {
     data() {
         return {
             show: false,
+            selectedBook: null, // 選択中の作品
         };
+    },
+    methods: {
+        // 作品を選択
+        selectBook(book) {
+            this.selectedBook = book;
+            this.show = true;
+        },
     },
 };
 </script>

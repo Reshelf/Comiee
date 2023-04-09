@@ -14,7 +14,7 @@
                     </h3>
                     <div class="flex items-center">
                         <span class="lg:text-[28px] text-2xl">{{
-                            animatedCount
+                            book.page_views.length
                         }}</span>
                         <svg
                             height="18"
@@ -105,22 +105,19 @@
 </template>
 
 <script>
-import CountUp from "@/common/utils/CountUp";
 import LineChart from "@/components/analytics/atoms/LineChart.vue";
 export default {
     components: {
         LineChart,
     },
     props: {
-        pageViews: {
-            type: Array,
+        book: {
+            type: Object,
             required: true,
         },
     },
     data() {
         return {
-            book: this.pageViews[0].book,
-            animatedCount: 0,
             // 期間
             menuVisible: false,
             period: "weekly",
@@ -143,14 +140,17 @@ export default {
         },
         dailyData() {
             // データを日付でグループ化
-            const groupedData = this.pageViews.reduce((acc, currentValue) => {
-                const date = currentValue.created_at.split("T")[0];
-                if (!acc[date]) {
-                    acc[date] = 0;
-                }
-                acc[date] += 1;
-                return acc;
-            }, {});
+            const groupedData = this.book.page_views.reduce(
+                (acc, currentValue) => {
+                    const date = currentValue.created_at.split("T")[0];
+                    if (!acc[date]) {
+                        acc[date] = 0;
+                    }
+                    acc[date] += 1;
+                    return acc;
+                },
+                {}
+            );
 
             // 今日までのデータを作成
             const data = [];
@@ -169,14 +169,17 @@ export default {
         },
         weeklyData() {
             // データを日付でグループ化
-            const groupedData = this.pageViews.reduce((acc, currentValue) => {
-                const date = currentValue.created_at.split("T")[0];
-                if (!acc[date]) {
-                    acc[date] = 0;
-                }
-                acc[date] += 1; // ここを変更
-                return acc;
-            }, {});
+            const groupedData = this.book.page_views.reduce(
+                (acc, currentValue) => {
+                    const date = currentValue.created_at.split("T")[0];
+                    if (!acc[date]) {
+                        acc[date] = 0;
+                    }
+                    acc[date] += 1; // ここを変更
+                    return acc;
+                },
+                {}
+            );
 
             // 過去7日間のデータを作成
             const data = [];
@@ -198,15 +201,18 @@ export default {
         },
         monthlyData() {
             // 月間データの処理
-            const groupedData = this.pageViews.reduce((acc, currentValue) => {
-                const date = new Date(currentValue.created_at);
-                const dateString = date.toISOString().split("T")[0];
-                if (!acc[dateString]) {
-                    acc[dateString] = 0;
-                }
-                acc[dateString] += 1;
-                return acc;
-            }, {});
+            const groupedData = this.book.page_views.reduce(
+                (acc, currentValue) => {
+                    const date = new Date(currentValue.created_at);
+                    const dateString = date.toISOString().split("T")[0];
+                    if (!acc[dateString]) {
+                        acc[dateString] = 0;
+                    }
+                    acc[dateString] += 1;
+                    return acc;
+                },
+                {}
+            );
 
             // 過去30日間のデータを作成
             const data = [];
@@ -228,18 +234,21 @@ export default {
         },
         yearlyData() {
             // 年間データの処理
-            const groupedData = this.pageViews.reduce((acc, currentValue) => {
-                const date = new Date(currentValue.created_at);
-                date.setMonth(date.getMonth(), 1);
-                const dateString = `${date.getFullYear()}-${String(
-                    date.getMonth() + 1
-                ).padStart(2, "0")}-01`;
-                if (!acc[dateString]) {
-                    acc[dateString] = 0;
-                }
-                acc[dateString] += 1;
-                return acc;
-            }, {});
+            const groupedData = this.book.page_views.reduce(
+                (acc, currentValue) => {
+                    const date = new Date(currentValue.created_at);
+                    date.setMonth(date.getMonth(), 1);
+                    const dateString = `${date.getFullYear()}-${String(
+                        date.getMonth() + 1
+                    ).padStart(2, "0")}-01`;
+                    if (!acc[dateString]) {
+                        acc[dateString] = 0;
+                    }
+                    acc[dateString] += 1;
+                    return acc;
+                },
+                {}
+            );
 
             // 過去12ヶ月のデータを作成
             const data = [];
@@ -276,13 +285,6 @@ export default {
         growthRate() {
             return this.calculateGrowthRate(this.period);
         },
-    },
-    mounted() {
-        // ページビュー数アニメーション
-        const counter = new CountUp(this.pageViews.length);
-        counter.start((value) => {
-            this.animatedCount = value;
-        });
     },
     methods: {
         toggleMenu() {
@@ -321,7 +323,7 @@ export default {
                 const previousDay = new Date();
                 previousDay.setDate(previousDay.getDate() - 2);
                 const dateString = previousDay.toISOString().split("T")[0];
-                const count = this.pageViews.filter(
+                const count = this.book.page_views.filter(
                     (view) => view.created_at.split("T")[0] === dateString
                 ).length;
                 return [{ y: count }];
@@ -333,7 +335,7 @@ export default {
                     const date = new Date();
                     date.setDate(date.getDate() - i);
                     const dateString = date.toISOString().split("T")[0];
-                    const count = this.pageViews.filter(
+                    const count = this.book.page_views.filter(
                         (view) => view.created_at.split("T")[0] === dateString
                     ).length;
                     data.push({ y: count });
@@ -347,7 +349,7 @@ export default {
                     const date = new Date();
                     date.setDate(date.getDate() - i);
                     const dateString = date.toISOString().split("T")[0];
-                    const count = this.pageViews.filter(
+                    const count = this.book.page_views.filter(
                         (view) => view.created_at.split("T")[0] === dateString
                     ).length;
                     data.push({ y: count });
@@ -363,7 +365,7 @@ export default {
                     const dateString = `${date.getFullYear()}-${String(
                         date.getMonth() + 1
                     ).padStart(2, "0")}-01`;
-                    const count = this.pageViews.filter(
+                    const count = this.book.page_views.filter(
                         (view) => view.created_at.split("T")[0] === dateString
                     ).length;
                     data.push({ y: count });

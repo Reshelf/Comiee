@@ -317,7 +317,6 @@
                         ></sales-dashboard>
                         <contents-dashboard
                             v-if="selected === 'contents'"
-                            :page-views="pageViews"
                             :books="books"
                         ></contents-dashboard>
                         <user-dashboard
@@ -346,10 +345,6 @@ export default {
         UserDashboard,
     },
     props: {
-        pageViews: {
-            type: Array,
-            required: true,
-        },
         books: {
             type: Array,
             required: true,
