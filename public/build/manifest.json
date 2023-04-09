@@ -5,13 +5,13 @@
   "_vendor-3de5d8e5.js": {
     "file": "assets/vendor-3de5d8e5.js"
   },
-  "resources/fonts/NotoSansCJKjp-Bold.woff2": {
-    "file": "assets/NotoSansCJKjp-Bold-92bcd63b.woff2",
-    "src": "resources/fonts/NotoSansCJKjp-Bold.woff2"
+  "resources/fonts/NotoSansJP-Bold.woff2": {
+    "file": "assets/NotoSansJP-Bold-1d8be1a5.woff2",
+    "src": "resources/fonts/NotoSansJP-Bold.woff2"
   },
-  "resources/fonts/NotoSansCJKjp-Regular.woff2": {
-    "file": "assets/NotoSansCJKjp-Regular-951fdaf4.woff2",
-    "src": "resources/fonts/NotoSansCJKjp-Regular.woff2"
+  "resources/fonts/NotoSansJP-Regular.woff2": {
+    "file": "assets/NotoSansJP-Regular-851d61f5.woff2",
+    "src": "resources/fonts/NotoSansJP-Regular.woff2"
   },
   "resources/js/app.js": {
     "dynamicImports": [
@@ -536,7 +536,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-2d3ebfaa.css",
+    "file": "assets/app-63c3526e.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
