@@ -104,8 +104,7 @@
           <main class="tabContents">
 
             {{-- メール通知 --}}
-            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-              id="mail-notification">
+            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-comiee rounded-lg" id="mail-notification">
               <h3 class="dark:text-ddd text-xl mb-8">{{ __('メール通知') }}</h3>
               <form method="POST"
                 action="{{ route('users.settings.update', [
@@ -197,8 +196,7 @@
             </div>
 
             {{-- 外観 --}}
-            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-              id="site-display">
+            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-comiee rounded-lg" id="site-display">
               <h3 class="text-xl dark:text-ddd">{{ __('外観') }}</h3>
               <div class="mt-4">
                 <theme-toggle :one='@json($dark)' :two='@json($light)'></theme-toggle>
@@ -206,8 +204,7 @@
             </div>
 
             {{-- 表示言語 --}}
-            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-              id="site-lang">
+            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-comiee rounded-lg" id="site-lang">
               <h3 class="text-xl dark:text-ddd">{{ __('表示言語') }}</h3>
               <div class="mt-4">
                 <div class="mb-4">
@@ -300,8 +297,7 @@
             </div>
 
             {{-- 収益受け取りの準備 --}}
-            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-              id="earnings">
+            <div class="p-8 m-4 lg:p-10 lg:mx-0 lg:mb-8 border border-comiee rounded-lg" id="earnings">
               <h3 class="text-xl dark:text-ddd">{{ __('収益受け取りの準備') }}</h3>
               <div class="mt-6">
                 @if (empty(Auth::user()->stripe_user_id))
@@ -339,8 +335,7 @@
             </div>
 
             {{-- アカウント管理 --}}
-            <div class="p-8 m-4 lg:p-10 lg:mx-0 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-              id="account-delete">
+            <div class="p-8 m-4 lg:p-10 lg:mx-0 border border-comiee rounded-lg" id="account-delete">
 
               {{-- ログアウト --}}
               <div class="mb-8">

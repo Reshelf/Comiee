@@ -1,7 +1,7 @@
 <div class="">
   {{-- あらすじ --}}
   @empty(!$book->story)
-    <div class="w-full flex flex-col border-b border-[#dadce0] dark:border-dark-1 pb-6 mb-6 pl-2">
+    <div class="w-full flex flex-col border-b border-comiee pb-6 mb-6 pl-2">
       <div class="text-sm">
         {!! nl2br($book->story) !!}
       </div>

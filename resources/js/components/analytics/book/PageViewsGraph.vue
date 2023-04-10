@@ -4,9 +4,7 @@
         <div class="text-3xl mb-8">
             {{ book.title }}
         </div>
-        <div
-            class="w-full p-4 lg:p-10 border border-[#dadce0] dark:border-dark-1 rounded-lg"
-        >
+        <div class="w-full p-4 lg:p-10 border border-comiee rounded-lg">
             <div class="flex justify-between">
                 <div>
                     <h3 class="text-xs text-[#9aa0a6] leading-6">
@@ -62,14 +60,14 @@
                 </div>
                 <div class="relative">
                     <div
-                        class="cursor-pointer px-4 py-1.5 border border-[#dadce0] dark:border-dark-1 rounded-lg"
+                        class="cursor-pointer px-4 py-1.5 border border-comiee rounded-lg"
                         @click="toggleMenu"
                     >
                         {{ setPeriodWord }}
                     </div>
                     <div
                         v-if="menuVisible"
-                        class="absolute bg-white dark:bg-dark-1 border border-[#dadce0] dark:border-dark-1 rounded-lg p-2 mt-2"
+                        class="absolute bg-white dark:bg-dark-1 border border-comiee rounded-lg p-2 mt-2"
                     >
                         <div
                             class="cursor-pointer py-1 px-3 hover:text-primary dark:hover:text-f5 whitespace-nowrap"

@@ -6,7 +6,7 @@
         <section class="overflow-auto">
             <!-- thead -->
             <div
-                class="w-full flex items-center whitespace-nowrap mb-4 py-4 border-y border-[#dadce0] dark:border-dark-1 text-xs text-aaa"
+                class="w-full flex items-center whitespace-nowrap mb-4 py-4 border-y border-comiee text-xs text-aaa"
             >
                 <div class="px-4 min-w-[382px]">作品</div>
                 <div class="px-4 min-w-[100px]">公開設定</div>
@@ -25,7 +25,7 @@
             <!-- tbody -->
             <div v-for="book in books" :key="book.id" class="flex">
                 <div
-                    class="cursor-pointer flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="cursor-pointer flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-comiee"
                     @click="selectBook(book)"
                 >
                     <img
@@ -43,7 +43,7 @@
                 </div>
                 <!-- 公開設定 -->
                 <div
-                    class="flex text-[13px] justify-start px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex text-[13px] justify-start px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-comiee"
                 >
                     <template v-if="book.is_hidden">
                         <div class="flex items-start">
@@ -126,31 +126,31 @@
 
                 <!-- ページビュー -->
                 <div
-                    class="flex justify-end px-4 min-w-[120px] max-w-[120px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex justify-end px-4 min-w-[120px] max-w-[120px] mb-2 pb-2 border-b border-comiee"
                 >
                     {{ formatNumber(book.page_views.length) }}
                 </div>
                 <!-- 閲覧回数 -->
                 <div
-                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-comiee"
                 >
                     0
                 </div>
                 <!-- ユーザー数 -->
                 <div
-                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-comiee"
                 >
                     0
                 </div>
                 <!-- コメント数 -->
                 <div
-                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-comiee"
                 >
                     0
                 </div>
                 <!-- 売上金額 -->
                 <div
-                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-[#dadce0] dark:border-dark-1"
+                    class="flex justify-end px-4 min-w-[100px] max-w-[100px] mb-2 pb-2 border-b border-comiee"
                 >
                     0
                 </div>
@@ -163,7 +163,7 @@
                     >
                         <div class="p-12 w-full">
                             <div
-                                class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-[#dadce0] dark:border-dark-1"
+                                class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-comiee"
                                 @click="show = false"
                             >
                                 <svg

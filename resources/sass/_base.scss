@@ -726,3 +726,7 @@ button .loading {
 .count-up {
     transition: opacity 0.3s ease-in-out;
 }
+
+.border-comiee {
+    @apply border-[#dadce0] dark:border-dark-1 rounded-lg;
+}

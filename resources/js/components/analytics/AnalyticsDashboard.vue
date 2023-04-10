@@ -6,9 +6,9 @@
                 <div class="flex-grow flex flex-col lg:flex-row">
                     <!-- Sidebar -->
                     <nav
-                        class="bg-white dark:bg-dark w-full lg:w-1/5 lg:min-h-full lg:border-r border-[#dadce0] dark:border-dark-1"
+                        class="bg-white dark:bg-dark w-full lg:w-1/5 lg:min-h-full lg:border-r border-comiee"
                     >
-                        <ul class="py-4">
+                        <ul class="py-8">
                             <li
                                 :class="{
                                     'bg-f5 dark:bg-dark-1 dark:text-f5':
@@ -302,9 +302,11 @@
                         </ul>
                     </nav>
 
-                    <main class="p-8 lg:p-12 w-full overflow-x-hidden">
+                    <main class="p-8 w-full overflow-x-hidden">
                         <top-dashboard
                             v-if="selected === 'dashboard'"
+                            :user="user"
+                            :books="books"
                         ></top-dashboard>
                         <comments-dashboard
                             v-if="selected === 'comments'"
@@ -350,6 +352,10 @@ export default {
         UserDashboard,
     },
     props: {
+        user: {
+            type: Object,
+            required: true,
+        },
         books: {
             type: Array,
             required: true,
