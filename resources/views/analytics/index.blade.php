@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-  @include('atoms._nav', ['tab' => 0])
+  @include('atoms._nav', ['tab' => 0, 'analytics' => true])
 
   <analytics-dashboard :books="{{ $books }}"></analytics-dashboard>
 @endsection

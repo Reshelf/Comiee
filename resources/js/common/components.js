@@ -91,26 +91,30 @@ const AnalyticsDashboard = defineAsyncComponent(() =>
     import("../components/analytics/AnalyticsDashboard.vue")
 );
 const CommentsDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/CommentsDashboard.vue")
+    import("../components/analytics/page/CommentsDashboard.vue")
+);
+const TopDashboard = defineAsyncComponent(() =>
+    import("../components/analytics/page/TopDashboard.vue")
 );
 const ContentsDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/ContentsDashboard.vue")
+    import("../components/analytics/page/ContentsDashboard.vue")
 );
 const RankingDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/RankingDashboard.vue")
+    import("../components/analytics/page/RankingDashboard.vue")
 );
 const UserDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/UserDashboard.vue")
+    import("../components/analytics/page/UserDashboard.vue")
 );
 const TrendDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/TrendDashboard.vue")
+    import("../components/analytics/page/TrendDashboard.vue")
 );
 const SalesDashboard = defineAsyncComponent(() =>
-    import("../components/analytics/SalesDashboard.vue")
+    import("../components/analytics/page/SalesDashboard.vue")
 );
 
 export default {
     SalesDashboard,
+    TopDashboard,
     TrendDashboard,
     UserDashboard,
     RankingDashboard,

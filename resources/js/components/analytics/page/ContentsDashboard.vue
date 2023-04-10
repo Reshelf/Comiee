@@ -3,7 +3,7 @@
         <h2 class="text-2xl mb-8">{{ t("コンテンツ分析") }}</h2>
 
         <!-- テーブル -->
-        <section class="">
+        <section class="overflow-auto">
             <!-- thead -->
             <div
                 class="w-full flex items-center whitespace-nowrap mb-4 py-4 border-y border-[#dadce0] dark:border-dark-1 text-xs text-aaa"
@@ -13,8 +13,13 @@
                 <div class="px-4 min-w-[120px] text-right">ページビュー数</div>
                 <div class="px-4 min-w-[100px] text-right">閲覧回数</div>
                 <div class="px-4 min-w-[100px] text-right">ユーザー数</div>
-                <div class="px-4 min-w-[100px] text-right">コメント数</div>
+                <div class="px-4 min-w-[100px] text-right">離脱率</div>
+                <div class="px-4 min-w-[100px] text-right">平均滞在時間</div>
                 <div class="px-4 min-w-[100px] text-right">売上金額</div>
+                <div class="px-4 min-w-[100px] text-right">
+                    コンバージョン率
+                </div>
+                <div class="px-4 min-w-[100px] text-right">コメント数</div>
             </div>
 
             <!-- tbody -->

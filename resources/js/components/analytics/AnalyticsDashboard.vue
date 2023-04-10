@@ -302,7 +302,10 @@
                         </ul>
                     </nav>
 
-                    <main class="p-8 lg:p-12 w-full">
+                    <main class="p-8 lg:p-12 w-full overflow-x-hidden">
+                        <top-dashboard
+                            v-if="selected === 'dashboard'"
+                        ></top-dashboard>
                         <comments-dashboard
                             v-if="selected === 'comments'"
                         ></comments-dashboard>
@@ -329,14 +332,16 @@
     </div>
 </template>
 <script>
-import CommentsDashboard from "@/components/analytics/CommentsDashboard.vue";
-import ContentsDashboard from "@/components/analytics/ContentsDashboard.vue";
-import RankingDashboard from "@/components/analytics/RankingDashboard.vue";
-import SalesDashboard from "@/components/analytics/SalesDashboard.vue";
-import TrendDashboard from "@/components/analytics/TrendDashboard.vue";
-import UserDashboard from "@/components/analytics/UserDashboard.vue";
+import CommentsDashboard from "@/components/analytics/page/CommentsDashboard.vue";
+import ContentsDashboard from "@/components/analytics/page/ContentsDashboard.vue";
+import RankingDashboard from "@/components/analytics/page/RankingDashboard.vue";
+import SalesDashboard from "@/components/analytics/page/SalesDashboard.vue";
+import TopDashboard from "@/components/analytics/page/TopDashboard.vue";
+import TrendDashboard from "@/components/analytics/page/TrendDashboard.vue";
+import UserDashboard from "@/components/analytics/page/UserDashboard.vue";
 export default {
     components: {
+        TopDashboard,
         CommentsDashboard,
         TrendDashboard,
         RankingDashboard,
