@@ -14,7 +14,7 @@
                     </h3>
                     <div class="flex items-center">
                         <span class="lg:text-[28px] text-2xl">{{
-                            book.page_views.length
+                            totalPageViews
                         }}</span>
                         <svg
                             height="18"
@@ -282,8 +282,14 @@ export default {
             }, "");
             return pathData;
         },
+        // 成長率
         growthRate() {
             return this.calculateGrowthRate(this.period);
+        },
+        // ページビューを動的に変更
+        totalPageViews() {
+            const dataPoints = this.toChartData;
+            return dataPoints.reduce((acc, data) => acc + data.y, 0);
         },
     },
     methods: {
