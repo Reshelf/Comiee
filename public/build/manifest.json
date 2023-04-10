@@ -45,14 +45,15 @@
       "resources/js/components/ReleaseNote.vue",
       "resources/js/components/analytics/atoms/GetUserInfo.vue",
       "resources/js/components/analytics/AnalyticsDashboard.vue",
-      "resources/js/components/analytics/CommentsDashboard.vue",
-      "resources/js/components/analytics/ContentsDashboard.vue",
-      "resources/js/components/analytics/RankingDashboard.vue",
-      "resources/js/components/analytics/UserDashboard.vue",
-      "resources/js/components/analytics/TrendDashboard.vue",
-      "resources/js/components/analytics/SalesDashboard.vue"
+      "resources/js/components/analytics/page/CommentsDashboard.vue",
+      "resources/js/components/analytics/page/TopDashboard.vue",
+      "resources/js/components/analytics/page/ContentsDashboard.vue",
+      "resources/js/components/analytics/page/RankingDashboard.vue",
+      "resources/js/components/analytics/page/UserDashboard.vue",
+      "resources/js/components/analytics/page/TrendDashboard.vue",
+      "resources/js/components/analytics/page/SalesDashboard.vue"
     ],
-    "file": "assets/app-f5982a0a.js",
+    "file": "assets/app-c1e14aa5.js",
     "imports": [
       "_vendor-3de5d8e5.js"
     ],
@@ -132,14 +133,15 @@
     "src": "resources/js/components/ThemeToggle.vue"
   },
   "resources/js/components/analytics/AnalyticsDashboard.vue": {
-    "file": "assets/AnalyticsDashboard-d461593d.js",
+    "file": "assets/AnalyticsDashboard-b6185733.js",
     "imports": [
-      "resources/js/components/analytics/CommentsDashboard.vue",
-      "resources/js/components/analytics/ContentsDashboard.vue",
-      "resources/js/components/analytics/RankingDashboard.vue",
-      "resources/js/components/analytics/SalesDashboard.vue",
-      "resources/js/components/analytics/TrendDashboard.vue",
-      "resources/js/components/analytics/UserDashboard.vue",
+      "resources/js/components/analytics/page/CommentsDashboard.vue",
+      "resources/js/components/analytics/page/ContentsDashboard.vue",
+      "resources/js/components/analytics/page/RankingDashboard.vue",
+      "resources/js/components/analytics/page/SalesDashboard.vue",
+      "resources/js/components/analytics/page/TopDashboard.vue",
+      "resources/js/components/analytics/page/TrendDashboard.vue",
+      "resources/js/components/analytics/page/UserDashboard.vue",
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js",
       "resources/js/components/analytics/book/PageViewsGraph.vue"
@@ -147,88 +149,97 @@
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/AnalyticsDashboard.vue"
   },
-  "resources/js/components/analytics/CommentsDashboard.vue": {
-    "file": "assets/CommentsDashboard-8f27fb76.js",
-    "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/CommentsDashboard.vue"
-  },
-  "resources/js/components/analytics/ContentsDashboard.css": {
-    "file": "assets/ContentsDashboard-1294dfaa.css",
-    "src": "resources/js/components/analytics/ContentsDashboard.css"
-  },
-  "resources/js/components/analytics/ContentsDashboard.vue": {
-    "css": [
-      "assets/ContentsDashboard-1294dfaa.css"
-    ],
-    "file": "assets/ContentsDashboard-7365bb30.js",
-    "imports": [
-      "resources/js/components/analytics/book/PageViewsGraph.vue",
-      "_vendor-3de5d8e5.js",
-      "__plugin-vue_export-helper-c27b6911.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/ContentsDashboard.vue"
-  },
-  "resources/js/components/analytics/RankingDashboard.vue": {
-    "file": "assets/RankingDashboard-8cce7de7.js",
-    "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/RankingDashboard.vue"
-  },
-  "resources/js/components/analytics/SalesDashboard.vue": {
-    "file": "assets/SalesDashboard-eeb211cb.js",
-    "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/SalesDashboard.vue"
-  },
-  "resources/js/components/analytics/TrendDashboard.vue": {
-    "file": "assets/TrendDashboard-2b3225b2.js",
-    "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/TrendDashboard.vue"
-  },
-  "resources/js/components/analytics/UserDashboard.vue": {
-    "file": "assets/UserDashboard-25860428.js",
-    "imports": [
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-3de5d8e5.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/components/analytics/UserDashboard.vue"
-  },
   "resources/js/components/analytics/atoms/GetUserInfo.vue": {
     "file": "assets/GetUserInfo-c47646dc.js",
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/atoms/GetUserInfo.vue"
   },
   "resources/js/components/analytics/book/PageViewsGraph.css": {
-    "file": "assets/PageViewsGraph-aa0e75cc.css",
+    "file": "assets/PageViewsGraph-b9cc739e.css",
     "src": "resources/js/components/analytics/book/PageViewsGraph.css"
   },
   "resources/js/components/analytics/book/PageViewsGraph.vue": {
     "css": [
-      "assets/PageViewsGraph-aa0e75cc.css"
+      "assets/PageViewsGraph-b9cc739e.css"
     ],
-    "file": "assets/PageViewsGraph-79fa6126.js",
+    "file": "assets/PageViewsGraph-a28a2a47.js",
     "imports": [
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-3de5d8e5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/book/PageViewsGraph.vue"
+  },
+  "resources/js/components/analytics/page/CommentsDashboard.vue": {
+    "file": "assets/CommentsDashboard-8f27fb76.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/CommentsDashboard.vue"
+  },
+  "resources/js/components/analytics/page/ContentsDashboard.css": {
+    "file": "assets/ContentsDashboard-276aa248.css",
+    "src": "resources/js/components/analytics/page/ContentsDashboard.css"
+  },
+  "resources/js/components/analytics/page/ContentsDashboard.vue": {
+    "css": [
+      "assets/ContentsDashboard-276aa248.css"
+    ],
+    "file": "assets/ContentsDashboard-5ebe08f3.js",
+    "imports": [
+      "resources/js/components/analytics/book/PageViewsGraph.vue",
+      "_vendor-3de5d8e5.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/ContentsDashboard.vue"
+  },
+  "resources/js/components/analytics/page/RankingDashboard.vue": {
+    "file": "assets/RankingDashboard-8cce7de7.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/RankingDashboard.vue"
+  },
+  "resources/js/components/analytics/page/SalesDashboard.vue": {
+    "file": "assets/SalesDashboard-eeb211cb.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/SalesDashboard.vue"
+  },
+  "resources/js/components/analytics/page/TopDashboard.vue": {
+    "file": "assets/TopDashboard-67ea78f4.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/TopDashboard.vue"
+  },
+  "resources/js/components/analytics/page/TrendDashboard.vue": {
+    "file": "assets/TrendDashboard-2b3225b2.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/TrendDashboard.vue"
+  },
+  "resources/js/components/analytics/page/UserDashboard.vue": {
+    "file": "assets/UserDashboard-25860428.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/page/UserDashboard.vue"
   },
   "resources/js/components/books/BookEditModal.css": {
     "file": "assets/BookEditModal-09185afd.css",
@@ -496,14 +507,14 @@
     "src": "resources/js/components/users/SetupModal.vue"
   },
   "resources/js/components/users/ShelfLists.css": {
-    "file": "assets/ShelfLists-2cf4bb70.css",
+    "file": "assets/ShelfLists-0e23a65a.css",
     "src": "resources/js/components/users/ShelfLists.css"
   },
   "resources/js/components/users/ShelfLists.vue": {
     "css": [
-      "assets/ShelfLists-2cf4bb70.css"
+      "assets/ShelfLists-0e23a65a.css"
     ],
-    "file": "assets/ShelfLists-d478be60.js",
+    "file": "assets/ShelfLists-642c3937.js",
     "imports": [
       "_vendor-3de5d8e5.js",
       "__plugin-vue_export-helper-c27b6911.js"
@@ -536,7 +547,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-63c3526e.css",
+    "file": "assets/app-ae0fbea4.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
