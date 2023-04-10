@@ -3,12 +3,7 @@
     <div class="py-4 lg:px-8 lg:border-0 mx-4 lg:mx-0">
       <div class="relative flex items-center">
 
-        {{-- ロゴ --}}
-        @isset($analytics)
-          @include('atoms.nav.analytics_logo')
-        @else
-          @include('atoms.nav.logo')
-        @endisset
+        @include('atoms.nav.logo')
 
         <div class="hidden md:flex items-center ml-16 mr-auto">
           @include('search.atoms._tabs', ['tab' => $tab])
