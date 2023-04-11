@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     sendForm.addEventListener("submit", function () {
-        event.preventDefault();
+        // event.preventDefault();
         progress.style.display = "block"; // .progress要素を表示
         overlay.classList.remove("hidden"); // #overlay要素を表示
 

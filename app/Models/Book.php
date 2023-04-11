@@ -159,4 +159,18 @@ class Book extends Model
         return $this->hasMany(BookPageView::class);
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | エピソードのいいね総数　　：　　アクセサ
+    |--------------------------------------------------------------------------
+     */
+    public function countEpisodeLikes(): Attribute
+    {
+        return new Attribute(
+            get:fn($value) => $this->episodes->sum(function ($episode) {
+                return $episode->likes->count();
+            })
+        );
+    }
+
 }
