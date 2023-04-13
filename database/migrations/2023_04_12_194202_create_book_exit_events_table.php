@@ -8,13 +8,13 @@ return new class extends Migration
 {
     /*
     |--------------------------------------------------------------------------
-    | 作品ページビュー
+    | 作品 離脱率
     |--------------------------------------------------------------------------
     |
      */
     public function up(): void
     {
-        Schema::create('book_page_views', function (Blueprint $table) {
+        Schema::create('book_exit_events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_page_views');
+        Schema::dropIfExists('book_exit_events');
     }
 };

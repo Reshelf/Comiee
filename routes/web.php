@@ -44,6 +44,8 @@ Route::view('/release_note', 'others.release_note')->name('others.release_note')
 Route::get('/faq', 'App\Http\Controllers\Others\FaqController')->name('others.faq'); // よくあるご質問
 Route::post('/contact', 'App\Http\Controllers\Others\ContactController')->middleware('throttle:2, 1')->name('others.contact'); // お問い合せ
 Route::post('/report', 'App\Http\Controllers\Others\ReportController')->middleware('throttle:2, 1')->name('others.report'); // 通報
+// アナリティクス
+Route::post('analytics/books/bounce_rate', 'App\Http\Controllers\Analytics\BounceRateController')->name('analytics.book.bounce_rate');
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +75,6 @@ Route::prefix('b')->name('book.')->group(function () {
     Route::delete('/{book_id}/{episode_id}/{comment_id}', 'App\Http\Controllers\Books\Episode\Comment\DestroyController')->name('episode.comment.destroy');
     Route::put('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\LikeController')->name('episode.comment.like');
     Route::delete('/{book_id}/{episode_id}/{comment}/like', 'App\Http\Controllers\Books\Episode\Comment\UnlikeController')->name('episode.comment.unlike');
-
 });
 
 /*

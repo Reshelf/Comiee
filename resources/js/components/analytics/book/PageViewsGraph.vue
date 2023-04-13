@@ -284,7 +284,7 @@ export default {
         growthRate() {
             return this.calculateGrowthRate(this.period);
         },
-        // ページビューを動的に変更
+        // 作品ページビューを動的に変更
         totalPageViews() {
             const dataPoints = this.toChartData;
             return dataPoints.reduce((acc, data) => acc + data.y, 0);

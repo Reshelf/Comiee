@@ -111,8 +111,12 @@ const TrendDashboard = defineAsyncComponent(() =>
 const SalesDashboard = defineAsyncComponent(() =>
     import("../components/analytics/page/SalesDashboard.vue")
 );
+const BounceRateTracker = defineAsyncComponent(() =>
+    import("../components/analytics/atoms/BounceRateTracker.vue")
+);
 
 export default {
+    BounceRateTracker,
     SalesDashboard,
     TopDashboard,
     TrendDashboard,

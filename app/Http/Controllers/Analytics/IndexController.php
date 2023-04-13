@@ -23,7 +23,7 @@ class IndexController extends Controller
     {
         $user = Auth::user();
 
-        // ページビュー,お気に入り数、いいね数を取得
+        // 作品ページビュー,お気に入り数、いいね数を取得
         $books = $user->books()
             ->with('pageViews')
             ->withCount('likes')

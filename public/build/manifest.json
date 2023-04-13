@@ -51,9 +51,10 @@
       "resources/js/components/analytics/page/RankingDashboard.vue",
       "resources/js/components/analytics/page/UserDashboard.vue",
       "resources/js/components/analytics/page/TrendDashboard.vue",
-      "resources/js/components/analytics/page/SalesDashboard.vue"
+      "resources/js/components/analytics/page/SalesDashboard.vue",
+      "resources/js/components/analytics/atoms/BounceRateTracker.vue"
     ],
-    "file": "assets/app-7a6bb813.js",
+    "file": "assets/app-deca8e3c.js",
     "imports": [
       "_vendor-3de5d8e5.js"
     ],
@@ -133,7 +134,7 @@
     "src": "resources/js/components/ThemeToggle.vue"
   },
   "resources/js/components/analytics/AnalyticsDashboard.vue": {
-    "file": "assets/AnalyticsDashboard-6dfd04a1.js",
+    "file": "assets/AnalyticsDashboard-a66dace1.js",
     "imports": [
       "resources/js/components/analytics/page/CommentsDashboard.vue",
       "resources/js/components/analytics/page/ContentsDashboard.vue",
@@ -148,6 +149,15 @@
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/AnalyticsDashboard.vue"
+  },
+  "resources/js/components/analytics/atoms/BounceRateTracker.vue": {
+    "file": "assets/BounceRateTracker-bce22b98.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-3de5d8e5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/analytics/atoms/BounceRateTracker.vue"
   },
   "resources/js/components/analytics/atoms/GetUserInfo.vue": {
     "file": "assets/GetUserInfo-c47646dc.js",
@@ -180,14 +190,14 @@
     "src": "resources/js/components/analytics/page/CommentsDashboard.vue"
   },
   "resources/js/components/analytics/page/ContentsDashboard.css": {
-    "file": "assets/ContentsDashboard-26aac9f8.css",
+    "file": "assets/ContentsDashboard-fe62f09c.css",
     "src": "resources/js/components/analytics/page/ContentsDashboard.css"
   },
   "resources/js/components/analytics/page/ContentsDashboard.vue": {
     "css": [
-      "assets/ContentsDashboard-26aac9f8.css"
+      "assets/ContentsDashboard-fe62f09c.css"
     ],
-    "file": "assets/ContentsDashboard-81157d84.js",
+    "file": "assets/ContentsDashboard-e172464a.js",
     "imports": [
       "resources/js/components/analytics/book/PageViewsGraph.vue",
       "_vendor-3de5d8e5.js",
@@ -547,7 +557,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-fe8eeb46.css",
+    "file": "assets/app-0eddbaf3.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
