@@ -20,8 +20,6 @@ class BounceRateController extends Controller
             'book_id' => $request->book_id,
         ]);
 
-        slack_log($bookExitEvent);
-
         $bookExitEvent->save();
         return response()->json(['message' => 'Bounce rate event recorded successfully.']);
     }
