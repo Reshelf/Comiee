@@ -6,11 +6,11 @@
     "file": "assets/vendor-00f83d9f.js"
   },
   "resources/fonts/NotoSansJP-Bold.woff2": {
-    "file": "assets/NotoSansJP-Bold-1d8be1a5.woff2",
+    "file": "assets/NotoSansJP-Bold-f94a93b4.woff2",
     "src": "resources/fonts/NotoSansJP-Bold.woff2"
   },
   "resources/fonts/NotoSansJP-Regular.woff2": {
-    "file": "assets/NotoSansJP-Regular-851d61f5.woff2",
+    "file": "assets/NotoSansJP-Regular-7049274f.woff2",
     "src": "resources/fonts/NotoSansJP-Regular.woff2"
   },
   "resources/js/app.js": {
@@ -557,7 +557,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-ffe19c63.css",
+    "file": "assets/app-49e2ca51.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
