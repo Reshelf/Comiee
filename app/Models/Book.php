@@ -183,4 +183,41 @@ class Book extends Model
         return $this->hasMany(BookExitEvent::class);
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | 作品のページビューの総数を取得　　：　　メソッド
+    |--------------------------------------------------------------------------
+     */
+    public function totalPageViews()
+    {
+        return $this->pageViews->count();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の離脱イベントの総数を取得　　：　　メソッド
+    |--------------------------------------------------------------------------
+     */
+    public function totalExitEvents()
+    {
+        return $this->exitEvents->count();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 作品の離脱率を計算 　：　　メソッド
+    |--------------------------------------------------------------------------
+     */
+    public function bounceRate()
+    {
+        $totalPageViews = $this->totalPageViews();
+        $totalExitEvents = $this->totalExitEvents();
+
+        if ($totalPageViews == 0) {
+            return 0;
+        }
+
+        // 離脱回数 / ページビュー数 × 100 = 離脱率
+        return ($totalExitEvents / $totalPageViews) * 100;
+    }
 }

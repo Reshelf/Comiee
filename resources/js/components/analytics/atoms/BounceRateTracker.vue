@@ -1,7 +1,8 @@
-<!-- This is a Vue component that tracks whether a user has bounced from a book page
-or not. It tracks this by sending a POST request to the bounceRateEndpoint when
-the user navigates away from the book page. The component is only mounted if the
-user is logged in, so it only tracks bounce rate for logged in users. -->
+<!--
+    ユーザーが書籍のページから離脱したかどうかを追跡します
+    ユーザが書籍ページから移動したときに、bounceRateEndpointにPOSTリクエストを送信することで追跡します
+    ログインしているユーザの離脱率のみを追跡します
+ -->
 <template>
     <div class="hidden"></div>
 </template>

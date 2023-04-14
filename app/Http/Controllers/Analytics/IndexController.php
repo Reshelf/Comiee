@@ -23,14 +23,15 @@ class IndexController extends Controller
     {
         $user = Auth::user();
 
-        // 作品ページビュー,お気に入り数、いいね数を取得
+        // 作品ページビュー,お気に入り数、いいね数、離脱率を取得
         $books = $user->books()
-            ->with('pageViews')
+            ->with(['pageViews', 'exitEvents'])
             ->withCount('likes')
             ->latest()
             ->get()
             ->map(function ($book) {
-                $book->count_episode_likes = $book->countEpisodeLikes();
+                $book->count_episode_likes = $book->countEpisodeLikes(); // エピソードのいいね数
+                $book->bounce_rate = $book->bounceRate(); // 離脱率
                 return $book;
             });
 
