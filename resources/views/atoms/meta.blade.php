@@ -3,6 +3,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="author" content="Comiee">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="canonical" href="{{ url()->current() }}">
 
 @hasSection('title')
   <title>@yield('title') | {{ config('app.name') }}</title>
