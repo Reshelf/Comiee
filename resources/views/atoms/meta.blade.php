@@ -5,13 +5,13 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @hasSection('title')
-  <title>@yield('title') | {{ config('app.name') }}（コミー）</title>
+  <title>@yield('title') | {{ config('app.name') }}</title>
   <meta property="og:title" content="@yield('title') | {{ config('app.name') }}">
   <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
 @else
-  <title>{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
-  <meta property="og:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
-  <meta name="twitter:title" content="{{ config('app.name') }}（コミー） | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <title>{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}</title>
+  <meta property="og:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
+  <meta name="twitter:title" content="{{ config('app.name') }} | {{ __('ニッチなマンガが集まるプラットフォーム') }}">
 @endif
 
 @hasSection('description')
