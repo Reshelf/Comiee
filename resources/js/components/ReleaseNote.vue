@@ -4,7 +4,7 @@
             {{ t("リリースノート") }}
         </h2>
 
-        <template v-for="(note, index) in displayedNotes" :key="index">
+        <template v-for="note in displayedNotes" :key="note.version">
             <div
                 class="p-6 lg:p-8 border border-b-l-c dark:border-dark-1 rounded-lg mb-6"
             >
