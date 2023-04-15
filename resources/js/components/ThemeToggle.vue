@@ -1,5 +1,5 @@
-<script setup>
-function changeTheme() {
+<script lang="ts" setup>
+const changeTheme = (): void => {
     if (
         localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
@@ -11,7 +11,7 @@ function changeTheme() {
         document.documentElement.classList.add("dark");
         localStorage.theme = "dark";
     }
-}
+};
 </script>
 <template>
     <div

@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper-c27b6911.js";import{o as t,b as e}from"./vendor-00f83d9f.js";const r={data(){return{}}};function a(n,s,c,p,_,m){return t(),e("div",null,"準備中")}const i=o(r,[["render",a]]);export{i as default};
