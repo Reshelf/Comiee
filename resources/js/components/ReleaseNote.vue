@@ -19,43 +19,38 @@
         </template>
     </div>
 </template>
+<script lang="ts" setup>
+import notesData from "@/util/notes.ts";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
-<script>
-import notesData from "@/util/notes.json";
+const notes = ref(notesData);
+const displayedNotes = ref([]);
+const itemsPerLoad = 5;
+const currentIndex = ref(0);
 
-export default {
-    data() {
-        return {
-            notes: notesData,
-            displayedNotes: [],
-            itemsPerLoad: 5,
-            currentIndex: 0,
-        };
-    },
-    mounted() {
-        this.loadMore();
-        window.addEventListener("scroll", this.handleScroll);
-    },
-    beforeUnmount() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
-    methods: {
-        loadMore() {
-            this.currentIndex += this.itemsPerLoad;
-            this.displayedNotes = this.notes.slice(0, this.currentIndex);
-        },
-        handleScroll() {
-            const scrollTop =
-                document.documentElement.scrollTop || document.body.scrollTop;
-            const windowHeight = window.innerHeight;
-            const scrollHeight =
-                document.documentElement.scrollHeight ||
-                document.body.scrollHeight;
+onMounted(() => {
+    loadMore();
+    window.addEventListener("scroll", handleScroll);
+});
 
-            if (scrollHeight - (scrollTop + windowHeight) < 20) {
-                this.loadMore();
-            }
-        },
-    },
-};
+onBeforeUnmount(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+
+function loadMore() {
+    currentIndex.value += itemsPerLoad;
+    displayedNotes.value = notes.value.slice(0, currentIndex.value);
+}
+
+function handleScroll() {
+    const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+    const windowHeight = window.innerHeight;
+    const scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight;
+
+    if (scrollHeight - (scrollTop + windowHeight) < 20) {
+        loadMore();
+    }
+}
 </script>
