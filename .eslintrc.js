@@ -3,6 +3,15 @@ module.exports = {
     env: {
         node: true,
     },
-    extends: ["plugin:vue/vue3-recommended", "eslint:recommended", "prettier"],
-    rules: {},
+    parser: "@typescript-eslint/parser",
+    plugins: ["@typescript-eslint"],
+    extends: [
+        "plugin:vue/vue3-recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+    ],
+    rules: {
+        // ここで独自のルールを追加・調整できます
+    },
 };

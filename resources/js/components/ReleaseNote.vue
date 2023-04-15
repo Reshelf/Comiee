@@ -20,11 +20,11 @@
     </div>
 </template>
 <script lang="ts" setup>
-import notesData from "@/util/notes";
+import { notesData, Note } from "@/util/notes";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const notes = ref(notesData);
-const displayedNotes = ref([]);
+const displayedNotes = ref<Note[]>([]);
 const itemsPerLoad = 5;
 const currentIndex = ref(0);
 
