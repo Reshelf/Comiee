@@ -149,3 +149,5 @@ backup-local:
 	 ./vendor/bin/sail artisan backup:run
 backup-production:
 	 php artisan backup:run
+autogpt:
+	 cd ../AutoGPT && python3 -m autogpt --continuous
