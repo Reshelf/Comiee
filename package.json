@@ -15,7 +15,7 @@
         "axios": "^1.3",
         "eslint": "^8.38.0",
         "eslint-config-prettier": "^8.8.0",
-        "eslint-plugin-vue": "^9.10.0",
+        "eslint-plugin-vue": "^9.11.0",
         "laravel-vite-plugin": "^0.7.4",
         "lodash": "^4.17.21",
         "postcss": "^8.4.21",
