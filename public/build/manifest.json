@@ -28,7 +28,7 @@
     "file": "assets/NotoSansJP-Regular-f7524e7e.woff2",
     "src": "resources/fonts/NotoSansJP-Regular.woff2"
   },
-  "resources/js/app.js": {
+  "resources/js/app.ts": {
     "dynamicImports": [
       "resources/js/components/books/BookLike.vue",
       "resources/js/components/books/BooksLists.vue",
@@ -69,12 +69,12 @@
       "resources/js/components/analytics/page/SalesDashboard.vue",
       "resources/js/components/analytics/atoms/BounceRateTracker.vue"
     ],
-    "file": "assets/app-d161dfb6.js",
+    "file": "assets/app-243bac16.js",
     "imports": [
       "_vendor-7cf07269.js"
     ],
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "resources/js/app.ts"
   },
   "resources/js/common/atoms/common.js": {
     "file": "assets/common-10f6f365.js",
