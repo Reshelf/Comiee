@@ -29,7 +29,7 @@ export default defineConfig({
             input: [
                 "resources/sass/app.scss",
                 "resources/js/app.ts",
-                "resources/js/common/atoms/common.js",
+                "resources/js/common/atoms/common.ts",
             ],
             refresh: true,
         }),

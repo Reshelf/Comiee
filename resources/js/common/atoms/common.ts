@@ -5,15 +5,16 @@
 |
 |
 */
-function updateCount(countSelector, stringCountSelector) {
+function updateCount(countSelector: string, stringCountSelector: string): void {
     const countElement = document.querySelector(countSelector);
     const stringCountElement = document.querySelector(stringCountSelector);
 
     if (countElement && stringCountElement) {
         countElement.addEventListener("keyup", () => {
-            const input = countElement.value;
+            const input = (countElement as HTMLInputElement).value;
             if (input !== null) {
-                stringCountElement.innerText = input.length;
+                (stringCountElement as HTMLElement).textContent =
+                    input.length.toString();
             }
         });
     }
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function submit_btn() {
+function submit_btn(): void {
     const submitButtons = document.querySelectorAll(
         ".submit_btn, .submit_btn2, .submit_btn3"
     );
@@ -84,10 +85,12 @@ window.submit_btn = submit_btn;
 */
 function stripe_connectbtn() {
     const stripe_connectbtn = document.querySelector(".stripe_connectbtn");
-    stripe_connectbtn.classList.add("activeLoading");
-    window.setTimeout(function () {
-        stripe_connectbtn.classList.remove("activeLoading");
-    }, 5000);
+    if (stripe_connectbtn) {
+        stripe_connectbtn.classList.add("activeLoading");
+        window.setTimeout(function () {
+            stripe_connectbtn.classList.remove("activeLoading");
+        }, 5000);
+    }
 }
 window.stripe_connectbtn = stripe_connectbtn;
 
@@ -98,8 +101,8 @@ window.stripe_connectbtn = stripe_connectbtn;
 |
 |
 */
-function updateLabel(input) {
-    const label = input.nextElementSibling;
+function updateLabel(input: HTMLInputElement): void {
+    const label = input.nextElementSibling as HTMLElement;
     if (input.value) {
         label.classList.add(
             "text-xs",
@@ -124,4 +127,5 @@ function updateLabel(input) {
         );
     }
 }
-window.updateLabel = updateLabel;
+
+(window as any).updateLabel = updateLabel;

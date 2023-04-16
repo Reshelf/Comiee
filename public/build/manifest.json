@@ -76,10 +76,10 @@
     "isEntry": true,
     "src": "resources/js/app.ts"
   },
-  "resources/js/common/atoms/common.js": {
-    "file": "assets/common-10f6f365.js",
+  "resources/js/common/atoms/common.ts": {
+    "file": "assets/common-402c3c6e.js",
     "isEntry": true,
-    "src": "resources/js/common/atoms/common.js"
+    "src": "resources/js/common/atoms/common.ts"
   },
   "resources/js/components/BookTagsInput.vue": {
     "file": "assets/BookTagsInput-a75b5a7c.js",
@@ -565,7 +565,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-77e6558a.css",
+    "file": "assets/app-9d51dea1.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }
