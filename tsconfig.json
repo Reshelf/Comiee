@@ -8,6 +8,7 @@
     "checkJs": true,
     "esModuleInterop": true,
     "sourceMap": true,
+    "resolveJsonModule": true, // Required for importing JSON files
     "outDir": "public/js",
     "baseUrl": ".",
     "paths": {
