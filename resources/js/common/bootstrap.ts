@@ -1,4 +1,11 @@
 import _ from "lodash";
+declare global {
+    interface Window {
+        _: typeof _;
+        axios: typeof axios;
+        csrf_token: string;
+    }
+}
 window._ = _;
 
 /**
@@ -9,6 +16,7 @@ window._ = _;
 import axios from "axios";
 window.axios = axios;
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -29,4 +37,4 @@ axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 window.csrf_token = "{{ csrf_token() }}";
 
 // ページ遷移後はスクロール位置をトップにする
-window.addEventListener("load", window.scrollTo(0, 0));
+window.addEventListener("load", () => window.scrollTo(0, 0));
