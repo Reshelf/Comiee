@@ -4,7 +4,7 @@
         "dev": "vite",
         "build": "vite build",
         "watch": "vite build --watch",
-        "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore resources/",
+        "lint": "eslint --ext .js, .ts, .vue --fix --ignore-path .gitignore resources/",
         "heroku-postbuild": "npm run build"
     },
     "devDependencies": {

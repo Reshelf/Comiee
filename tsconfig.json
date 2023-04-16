@@ -15,5 +15,5 @@
     }
   },
   "exclude": ["node_modules"],
-  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue"]
+  "include": ["resources/js/**/*.ts", "resources/js/**/*.vue", "resources/js/types/**/*.ts"]
 }
