@@ -18,4 +18,7 @@ export interface Book {
     created_at: string;
     updated_at: string;
     deleted_at: string | null;
+
+    likes_count: number; // お気に入り数
+    count_episode_likes: number; // エピソードいいね数
 }

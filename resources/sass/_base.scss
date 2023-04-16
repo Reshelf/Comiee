@@ -730,3 +730,47 @@ button .loading {
 .border-comiee {
     @apply border-[#dadce0] dark:border-dark-1;
 }
+
+.animation-bg-enter-active {
+    animation-name: PageIn;
+    animation-duration: 0.15s;
+}
+.animation-bg-leave-active {
+    animation-name: PageLeave;
+    animation-duration: 0.2s;
+}
+
+@keyframes PageIn {
+    0% {
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+    100% {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+.animation-bg {
+    animation-name: PageLeave;
+}
+@keyframes PageLeave {
+    0% {
+        transform-origin: right;
+        transform: scaleX(1);
+    }
+    100% {
+        transform-origin: right;
+        transform: scaleX(0);
+    }
+}
+
+.bounceRate {
+    @apply w-[420px] gap-[30px] flex flex-col items-center rounded-[8px] bg-white p-4;
+}
+.circular-progress {
+    @apply relative h-[200px] w-[200px] rounded-full flex items-center justify-center;
+}
+.circular-progress::before {
+    @apply absolute  h-[180px] w-[180px]  rounded-full bg-white;
+    content: "";
+}

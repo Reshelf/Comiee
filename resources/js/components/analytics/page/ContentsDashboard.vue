@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <h2 class="text-2xl mb-8">{{ t("コンテンツ分析") }}</h2>
 
         <section class="overflow-auto">
