@@ -15,7 +15,7 @@
   @include('atoms._nav', ['tab' => 0])
 
   <div class="max-w-4xl m-8 md:my-16 md:mx-auto leading-8">
-    <h2 class="text-3xl ">利用規約</h2>
+    <h2 class="text-2xl lg:text-3xl">利用規約</h2>
     <div class="mt-8 mb-16 text-[16px]">
       <p class="my-2">このComiee利用規約（以下、「本利用規約」といいます）は、Comiee（以下、「本サービス」といいます）の利用者に適用される、サービス利用のための契約です。</p>
       <p class="my-2">本利用規約は、以下の3つの規約から構成されています。</p>
@@ -29,7 +29,7 @@
     </div>
 
 
-    <h2 class="text-3xl ">Comiee基本規約</h2>
+    <h2 class="text-2xl lg:text-3xl">Comiee基本規約</h2>
 
     <h3 class="text-2xl  my-4">1条 定義</h3>
     <div class="mb-10 mt-4 text-[16px]">
@@ -162,7 +162,7 @@
 
 
 
-    <h2 class="text-3xl ">Comieeクリエイター規約</h2>
+    <h2 class="text-2xl lg:text-3xl">Comieeクリエイター規約</h2>
 
     <h3 class="text-2xl  my-4">1条 販売価格</h3>
     <div class="mb-10 mt-4 text-[16px]">
@@ -265,7 +265,7 @@
 
 
 
-    <h2 class="text-3xl ">Comiee読者規約</h2>
+    <h2 class="text-2xl lg:text-3xl">Comiee読者規約</h2>
 
     <h3 class="text-2xl  my-4">1条 購入</h3>
     <div class="mb-10 mt-4 text-[16px]">
