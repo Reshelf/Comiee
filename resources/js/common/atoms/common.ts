@@ -47,9 +47,9 @@ updateCount(".count_16", ".string_count_16");
 |
 */
 document.addEventListener("DOMContentLoaded", function () {
-    const sendForm = document.getElementById("sendForm");
-    const progress = document.querySelector(".progress");
-    const overlay = document.getElementById("overlay");
+    const sendForm = document.getElementById("sendForm") as HTMLElement | null;
+    const progress = document.querySelector(".progress") as HTMLElement | null;
+    const overlay = document.getElementById("overlay") as HTMLElement | null;
 
     if (!sendForm || !progress || !overlay) {
         return;

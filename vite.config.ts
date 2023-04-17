@@ -1,6 +1,7 @@
 import vue from "@vitejs/plugin-vue";
 import laravel from "laravel-vite-plugin";
 import { defineConfig } from "vite";
+import Checker from "vite-plugin-checker";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
@@ -34,5 +35,6 @@ export default defineConfig({
             refresh: true,
         }),
         viteCompression(),
+        Checker({ typescript: true }), // tsの型チェック
     ],
 });
