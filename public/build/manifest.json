@@ -1,16 +1,9 @@
 {
-  "ContentsDashboard.css": {
-    "file": "assets/ContentsDashboard-3fb4430b.css",
-    "src": "ContentsDashboard.css"
-  },
-  "_ContentsDashboard.vue_vue_type_script_setup_true_lang-cc049a92.js": {
-    "css": [
-      "assets/ContentsDashboard-3fb4430b.css"
-    ],
-    "file": "assets/ContentsDashboard.vue_vue_type_script_setup_true_lang-cc049a92.js",
+  "_ContentsDashboard.vue_vue_type_script_setup_true_lang-0f0beba4.js": {
+    "file": "assets/ContentsDashboard.vue_vue_type_script_setup_true_lang-0f0beba4.js",
     "imports": [
-      "resources/js/components/analytics/book/PageViewsGraph.vue",
       "_vendor-7cf07269.js",
+      "resources/js/components/analytics/book/PageViewsGraph.vue",
       "__plugin-vue_export-helper-c27b6911.js"
     ]
   },
@@ -67,9 +60,14 @@
       "resources/js/components/analytics/page/UserDashboard.vue",
       "resources/js/components/analytics/page/TrendDashboard.vue",
       "resources/js/components/analytics/page/SalesDashboard.vue",
-      "resources/js/components/analytics/atoms/BounceRateTracker.vue"
+      "resources/js/components/analytics/atoms/BounceRateTracker.vue",
+      "resources/js/components/others/TermsOfService.vue",
+      "resources/js/components/others/SctContents.vue",
+      "resources/js/components/others/AboutComiee.vue",
+      "resources/js/components/others/ConpanyContents.vue",
+      "resources/js/components/others/PrivacyPolicy.vue"
     ],
-    "file": "assets/app-faa117b9.js",
+    "file": "assets/app-fc002912.js",
     "imports": [
       "_vendor-7cf07269.js"
     ],
@@ -132,7 +130,7 @@
     "src": "resources/js/components/HeaderUserModal.vue"
   },
   "resources/js/components/ReleaseNote.vue": {
-    "file": "assets/ReleaseNote-5aa1d064.js",
+    "file": "assets/ReleaseNote-271a4a71.js",
     "imports": [
       "_vendor-7cf07269.js"
     ],
@@ -148,10 +146,10 @@
     "src": "resources/js/components/ThemeToggle.vue"
   },
   "resources/js/components/analytics/AnalyticsDashboard.vue": {
-    "file": "assets/AnalyticsDashboard-3890672d.js",
+    "file": "assets/AnalyticsDashboard-c49e5f09.js",
     "imports": [
       "resources/js/components/analytics/page/CommentsDashboard.vue",
-      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-cc049a92.js",
+      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-0f0beba4.js",
       "resources/js/components/analytics/page/RankingDashboard.vue",
       "resources/js/components/analytics/page/SalesDashboard.vue",
       "resources/js/components/analytics/page/TopDashboard.vue",
@@ -174,7 +172,7 @@
     "src": "resources/js/components/analytics/atoms/BounceRateTracker.vue"
   },
   "resources/js/components/analytics/atoms/GetUserInfo.vue": {
-    "file": "assets/GetUserInfo-c47646dc.js",
+    "file": "assets/GetUserInfo-9cfaf30f.js",
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/atoms/GetUserInfo.vue"
   },
@@ -204,12 +202,12 @@
     "src": "resources/js/components/analytics/page/CommentsDashboard.vue"
   },
   "resources/js/components/analytics/page/ContentsDashboard.vue": {
-    "file": "assets/ContentsDashboard-1bb1b70f.js",
+    "file": "assets/ContentsDashboard-45940afc.js",
     "imports": [
-      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-cc049a92.js",
+      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-0f0beba4.js",
+      "_vendor-7cf07269.js",
       "resources/js/components/analytics/book/PageViewsGraph.vue",
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_vendor-7cf07269.js"
+      "__plugin-vue_export-helper-c27b6911.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/analytics/page/ContentsDashboard.vue"
@@ -420,6 +418,51 @@
     "isDynamicEntry": true,
     "src": "resources/js/components/books/episodes/comments/CommentPostModal.vue"
   },
+  "resources/js/components/others/AboutComiee.vue": {
+    "file": "assets/AboutComiee-6fbd5080.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-7cf07269.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/others/AboutComiee.vue"
+  },
+  "resources/js/components/others/ConpanyContents.vue": {
+    "file": "assets/ConpanyContents-0eea3b05.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-7cf07269.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/others/ConpanyContents.vue"
+  },
+  "resources/js/components/others/PrivacyPolicy.vue": {
+    "file": "assets/PrivacyPolicy-da08a942.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-7cf07269.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/others/PrivacyPolicy.vue"
+  },
+  "resources/js/components/others/SctContents.vue": {
+    "file": "assets/SctContents-889e96d0.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-7cf07269.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/others/SctContents.vue"
+  },
+  "resources/js/components/others/TermsOfService.vue": {
+    "file": "assets/TermsOfService-0e17d55f.js",
+    "imports": [
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_vendor-7cf07269.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/others/TermsOfService.vue"
+  },
   "resources/js/components/search/SearchForm.css": {
     "file": "assets/SearchForm-9c3585c7.css",
     "src": "resources/js/components/search/SearchForm.css"
@@ -565,7 +608,7 @@
     "src": "resources/js/components/users/WorksLists.vue"
   },
   "resources/sass/app.scss": {
-    "file": "assets/app-9d51dea1.css",
+    "file": "assets/app-4e1871d4.css",
     "isEntry": true,
     "src": "resources/sass/app.scss"
   }

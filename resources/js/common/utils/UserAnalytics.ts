@@ -1,3 +1,10 @@
+/*
+|--------------------------------------------------------------------------
+| 新規ユーザーかどうかをチェックする
+|--------------------------------------------------------------------------
+|
+|
+*/
 export function checkNewUser(): boolean {
     if (localStorage.getItem("user_first_visit") === null) {
         localStorage.setItem("user_first_visit", new Date().toString());
@@ -7,7 +14,7 @@ export function checkNewUser(): boolean {
     }
 }
 
-export function getDeviceType(userAgent: string): "mobile" | "desktop" {
+export function getDeviceType(userAgent: string): string {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         userAgent
     )
@@ -34,11 +41,14 @@ export function getOS(userAgent: string, platform: string): string {
     return "unknown";
 }
 
-export function getUserDeviceInfo(): {
-    type: "mobile" | "desktop";
-    browser: string;
-    os: string;
-} {
+/*
+|--------------------------------------------------------------------------
+| ユーザーのデバイス情報を取得する
+|--------------------------------------------------------------------------
+|
+|
+*/
+export function getUserDeviceInfo() {
     const userAgent = window.navigator.userAgent;
     const platform = window.navigator.platform;
 
@@ -49,10 +59,14 @@ export function getUserDeviceInfo(): {
     };
 }
 
-export async function getLocationInfo(): Promise<{
-    country?: string;
-    city?: string;
-}> {
+/*
+|--------------------------------------------------------------------------
+| ユーザーの位置情報を取得する
+|--------------------------------------------------------------------------
+|
+|
+*/
+export async function getLocationInfo() {
     try {
         const response = await fetch("https://ipapi.co/json/");
         if (!response.ok) {
@@ -69,6 +83,13 @@ export async function getLocationInfo(): Promise<{
     }
 }
 
+/*
+|--------------------------------------------------------------------------
+| ユーザーのセッション情報を取得する
+|--------------------------------------------------------------------------
+|
+|
+*/
 export function getSessionDuration(): number {
     const sessionStart = localStorage.getItem("session_start");
     if (sessionStart === null) {
@@ -82,7 +103,7 @@ export function getSessionDuration(): number {
     }
 }
 
-function isFromSearchEngine(referrer: string): boolean {
+export function isFromSearchEngine(referrer: string): boolean {
     const searchEngines = [
         "google.com",
         "bing.com",
@@ -96,7 +117,7 @@ function isFromSearchEngine(referrer: string): boolean {
     return searchEngines.some((engine) => domain.includes(engine));
 }
 
-function isFromSocialMedia(referrer: string): boolean {
+export function isFromSocialMedia(referrer: string): boolean {
     const socialMedia = [
         "facebook.com",
         "twitter.com",
@@ -107,4 +128,60 @@ function isFromSocialMedia(referrer: string): boolean {
     ];
     const domain = new URL(referrer).hostname;
     return socialMedia.some((platform) => domain.includes(platform));
+}
+
+/*
+|--------------------------------------------------------------------------
+| ユーザーのトラフィックソースを取得する
+|--------------------------------------------------------------------------
+|
+|
+*/
+export function getTrafficSource() {
+    const referrer = document.referrer;
+
+    if (!referrer) {
+        return "direct";
+    } else if (isFromSearchEngine(referrer)) {
+        return "search engine";
+    } else if (isFromSocialMedia(referrer)) {
+        return "social media";
+    } else {
+        return "other";
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| 分析データを送信する
+|--------------------------------------------------------------------------
+|
+|
+*/
+export async function submitAnalyticsData(
+    endpoint: string,
+    data: object
+): Promise<void> {
+    try {
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN":
+                    document
+                        .querySelector('meta[name="csrf-token"]')
+                        ?.getAttribute("content") || "",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log(responseData);
+    } catch (error) {
+        console.error("Error submitting analytics data:", error);
+    }
 }
