@@ -123,7 +123,11 @@ const SctContents = defineAsyncComponent(
 const AboutComiee = defineAsyncComponent(
     () => import("../components/others/AboutComiee.vue")
 );
+const ConpanyContents = defineAsyncComponent(
+    () => import("../components/others/ConpanyContents.vue")
+);
 export default {
+    ConpanyContents,
     AboutComiee,
     SctContents,
     TermsOfService,
