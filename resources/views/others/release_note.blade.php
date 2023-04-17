@@ -12,8 +12,8 @@
 
 @section('content')
   @include('atoms._nav', ['tab' => 0])
-  <div class="max-w-4xl m-6 md:my-16 md:mx-auto leading-8">
-    <release-note></release-note>
-  </div>
+
+  <release-note></release-note>
+
   @include('atoms._footer')
 @endsection

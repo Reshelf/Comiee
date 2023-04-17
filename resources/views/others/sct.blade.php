@@ -1,4 +1,5 @@
 @extends('app')
+
 @section('title', __('「特定商取引に関する法律」及び「資金決済に関する法律」に基づく表示'))
 
 @php
@@ -12,6 +13,8 @@
 
 @section('content')
   @include('atoms._nav', ['tab' => 0])
+
   <sct-contents></sct-contents>
+
   @include('atoms._footer')
 @endsection

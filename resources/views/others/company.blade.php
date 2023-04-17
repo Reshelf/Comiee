@@ -13,6 +13,8 @@
 
 @section('content')
   @include('atoms._nav', ['tab' => 0])
+
   <conpany-contents></conpany-contents>
+
   @include('atoms._footer')
 @endsection

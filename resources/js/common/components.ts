@@ -126,7 +126,11 @@ const AboutComiee = defineAsyncComponent(
 const ConpanyContents = defineAsyncComponent(
     () => import("../components/others/ConpanyContents.vue")
 );
+const PrivacyPolicy = defineAsyncComponent(
+    () => import("../components/others/PrivacyPolicy.vue")
+);
 export default {
+    PrivacyPolicy,
     ConpanyContents,
     AboutComiee,
     SctContents,

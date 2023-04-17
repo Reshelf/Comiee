@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="max-w-4xl m-6 md:my-16 md:mx-auto leading-8">
         <h2 class="text-2xl lg:text-3xl dark:text-f5 my-8 lg:mb-10">
             {{ t("リリースノート") }}
         </h2>
@@ -20,7 +20,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { notesData, Note } from "@/util/notes";
+import { Note, notesData } from "@/util/notes";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const notes = ref(notesData);
