@@ -6,7 +6,7 @@ import {
     getTrafficSource,
     getUserDeviceInfo,
     submitAnalyticsData,
-} from "@/common/utils/UserAnalytics";
+} from "@/common/atoms/UserAnalytics.js";
 
 export default {
     props: {

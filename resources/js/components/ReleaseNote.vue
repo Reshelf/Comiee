@@ -20,7 +20,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { Note, notesData } from "@/util/notes";
+import { Note, notesData } from "@/common/utils/notes";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const notes = ref(notesData);
