@@ -120,7 +120,11 @@ const TermsOfService = defineAsyncComponent(
 const SctContents = defineAsyncComponent(
     () => import("../components/others/SctContents.vue")
 );
+const AboutComiee = defineAsyncComponent(
+    () => import("../components/others/AboutComiee.vue")
+);
 export default {
+    AboutComiee,
     SctContents,
     TermsOfService,
     BounceRateTracker,
