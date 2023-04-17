@@ -13,7 +13,6 @@
       </p>
     </div>
 
-
     <h2 class="text-xl lg:text-2xl">Comiee基本規約</h2>
 
     <h3 class="text-xl lg:text-2xl my-4">1条 定義</h3>

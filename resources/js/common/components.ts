@@ -117,7 +117,11 @@ const BounceRateTracker = defineAsyncComponent(
 const TermsOfService = defineAsyncComponent(
     () => import("../components/others/TermsOfService.vue")
 );
+const SctContents = defineAsyncComponent(
+    () => import("../components/others/SctContents.vue")
+);
 export default {
+    SctContents,
     TermsOfService,
     BounceRateTracker,
     SalesDashboard,
