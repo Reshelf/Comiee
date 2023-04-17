@@ -14,7 +14,7 @@
 @section('content')
   @include('atoms._nav', ['tab' => 0])
 
-  <conpany-contents></conpany-contents>
+  <company-contents></company-contents>
 
   @include('atoms._footer')
 @endsection
