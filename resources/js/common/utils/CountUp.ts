@@ -1,13 +1,16 @@
 export default class CountUp {
-    constructor(endValue, duration = 700) {
+    private endValue: number;
+    private duration: number;
+
+    constructor(endValue: number, duration = 700) {
         this.endValue = endValue;
         this.duration = duration;
     }
 
-    start(callback) {
+    public start(callback: (value: number) => void): void {
         const startTime = performance.now();
 
-        const updateCounter = (time) => {
+        const updateCounter = (time: number) => {
             const elapsedTime = time - startTime;
             const progress = Math.min(elapsedTime / this.duration, 1);
             const currentValue = Math.floor(progress * this.endValue);
