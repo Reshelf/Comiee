@@ -1,59 +1,85 @@
 <template>
-    <div>
-        <div class="p-12 w-full">
-            <div
-                class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-comiee"
-                @click="closeBookDetail"
+    <div class="p-12 w-full">
+        <div
+            class="w-full flex items-center pb-4 cursor-pointer border-b border-comiee"
+            @click="closeBookDetail"
+        >
+            <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 mr-4"
             >
-                <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6 mr-4"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                    />
-                </svg>
-                {{ t("戻る") }}
-            </div>
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+            </svg>
+            {{ t("戻る") }}
+        </div>
 
-            <div class=""></div>
-
-            <div class="w-full flex">
-                <div class="w-1/5 p-8 flex flex-col">
-                    <div class="">離脱率</div>
-                    <div class="">ページビュー</div>
-                    <div class="">平均滞在時間</div>
-                    <div class=""></div>
+        <div class="w-full flex">
+            <div class="w-1/5 p-8 flex flex-col">
+                <div class="">
+                    <h3 class="text-xs text-[#9aa0a6] leading-6">作品名</h3>
+                    <div class="text-3xl mb-8">
+                        {{ selectedBook.title }}
+                    </div>
                 </div>
-                <div class="w-4/5 p-8">
-                    <div class="">
-                        <div class="bounceRate">
-                            <div
-                                class="circular-progress"
-                                :style="
-                                    circularProgressStyle(
+                <div
+                    @click="selectMode = 'bounce'"
+                    class="cursor-pointer py-2 px-4"
+                >
+                    離脱率
+                </div>
+                <div
+                    @click="selectMode = 'pageview'"
+                    class="cursor-pointer py-2 px-4"
+                >
+                    ページビュー
+                </div>
+                <div
+                    @click="selectMode = 'averageTime'"
+                    class="cursor-pointer py-2 px-4"
+                >
+                    平均滞在時間
+                </div>
+                <div
+                    @click="selectMode = 'episode'"
+                    class="cursor-pointer py-2 px-4"
+                >
+                    エピソード
+                </div>
+            </div>
+            <div class="w-4/5 p-8">
+                <template v-if="selectMode == 'bounce'">
+                    <div class="bounceRate">
+                        <div
+                            class="circular-progress"
+                            :style="
+                                circularProgressStyle(selectedBook.bounce_rate)
+                            "
+                        >
+                            <span class="relative text-2xl"
+                                >{{
+                                    roundToZeroDecimal(
                                         selectedBook.bounce_rate
                                     )
-                                "
+                                }}%</span
                             >
-                                <span class="relative text-2xl"
-                                    >{{
-                                        roundToZeroDecimal(
-                                            selectedBook.bounce_rate
-                                        )
-                                    }}%</span
-                                >
-                            </div>
-                            <span class="">離脱率</span>
                         </div>
+                        <span class="">離脱率</span>
                     </div>
-                    <!-- テーブル -->
-                    <section class="overflow-auto">
+                </template>
+
+                <!-- テーブル -->
+                <template v-if="selectMode == 'episode'">
+                    <section
+                        v-show="selectMode == 'episode'"
+                        class="overflow-auto"
+                    >
                         <!-- thead -->
                         <div
                             class="w-full flex items-center whitespace-nowrap mb-4 py-4 border-y border-comiee text-xs text-aaa"
@@ -97,7 +123,7 @@
                         >
                             <div
                                 class="cursor-pointer flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-comiee"
-                                @click="selectBook(episode)"
+                                @click="selectEpisode(episode)"
                             >
                                 <img
                                     :src="episode.thumbnail"
@@ -170,13 +196,15 @@
                             </div>
                         </div>
                     </section>
+                </template>
 
-                    <!-- グラフ -->
+                <!-- グラフ -->
+                <template v-if="selectMode == 'pageview'">
                     <page-views-graph
-                        v-if="selectedBook"
+                        v-show="selectMode == 'pageview'"
                         :book="selectedBook"
                     ></page-views-graph>
-                </div>
+                </template>
             </div>
         </div>
     </div>
@@ -187,6 +215,7 @@ export default {
     data() {
         return {
             show: false,
+            selectMode: "episode",
         };
     },
     components: {
@@ -202,7 +231,7 @@ export default {
             this.$emit("close-book-detail");
         },
         // 作品を選択
-        selectBook(book) {
+        selectEpisode(book) {
             this.selectedBook = book;
             this.show = true;
         },
