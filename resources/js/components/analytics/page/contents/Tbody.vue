@@ -140,10 +140,14 @@
     <template v-if="selectedBook">
         <transition name="animation-bg">
             <div
-                v-show="show"
+                v-show="isBookDetail"
                 class="absolute h-screen w-screen left-0 right-0 top-0 bottom-0 bg-white dark:bg-dark z-50"
             >
-                <BookDetail :selectedBook="selectedBook" />
+                <BookDetail
+                    :isBookDetail="isBookDetail"
+                    @close-book-detail="closeBookDetail"
+                    :selectedBook="selectedBook"
+                />
             </div>
         </transition>
     </template>
@@ -161,13 +165,16 @@ const props = defineProps({
 });
 
 // data
-const show = ref(false);
+const isBookDetail = ref(false);
 const selectedBook: Ref<Book | null> = ref(null);
 
 // methods
 const selectBook = (book: Book) => {
     selectedBook.value = book;
-    show.value = true;
+    isBookDetail.value = true;
+};
+const closeBookDetail = () => {
+    isBookDetail.value = false;
 };
 </script>
 <style lang="scss" scoped></style>

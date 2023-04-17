@@ -3,7 +3,7 @@
         <div class="p-12 w-full">
             <div
                 class="w-full flex items-center mb-8 pb-4 cursor-pointer border-b border-comiee"
-                @click="show = false"
+                @click="closeBookDetail"
             >
                 <svg
                     fill="none"
@@ -193,9 +193,14 @@ export default {
         PageViewsGraph,
     },
     props: {
+        isBookDetail: Boolean,
         selectedBook: Object,
     },
     methods: {
+        // 作品詳細を閉じる
+        closeBookDetail() {
+            this.$emit("close-book-detail");
+        },
         // 作品を選択
         selectBook(book) {
             this.selectedBook = book;
