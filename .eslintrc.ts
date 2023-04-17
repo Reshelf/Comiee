@@ -1,4 +1,6 @@
-module.exports = {
+import { Linter } from "eslint";
+
+const config: Linter.Config = {
     root: true,
     env: {
         node: true,
@@ -15,3 +17,5 @@ module.exports = {
         // ここで独自のルールを追加・調整できます
     },
 };
+
+export default config;
