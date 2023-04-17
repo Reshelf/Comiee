@@ -59,9 +59,9 @@
 
         {{-- メアド --}}
         <div class="relative mb-4">
-          <input type="text" name="email"
+          <input id="email" type="text" name="email"
             class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark-1 focus:border-[3px] focus:border-primary transition-all"
-            required oninput="updateLabel(this)" />
+            required />
           <label for="email"
             class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('メールアドレス') }}</label>
           <div
@@ -71,9 +71,9 @@
 
         {{-- パスワード --}}
         <div class="relative mb-6">
-          <input type="password" name="password"
+          <input id="password" type="password" name="password"
             class="input-field w-full p-4 border-transparent rounded bg-white dark:bg-dark-1 focus:border-[3px] focus:border-primary transition-all"
-            required oninput="updateLabel(this)" />
+            required />
           <label for="password"
             class="label absolute top-[5px] left-[10px] text-gray-500 transition-all duration-200 dark:text-f5">{{ __('パスワード') }}</label>
           <div

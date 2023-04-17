@@ -101,31 +101,47 @@ window.stripe_connectbtn = stripe_connectbtn;
 |
 |
 */
-function updateLabel(input: HTMLInputElement): void {
+function addLabelClass(input: HTMLInputElement): void {
     const label = input.nextElementSibling as HTMLElement;
-    if (input.value) {
-        label.classList.add(
-            "text-xs",
-            "text-gray-500",
-            "dark:bg-dark-1",
-            "-translate-y-5",
-            "bg-white",
-            "px-2",
-            "py-1",
-            "z-20"
-        );
+    label.classList.add("label-focused");
+}
+
+function removeLabelClass(input: HTMLInputElement): void {
+    const label = input.nextElementSibling as HTMLElement;
+    label.classList.remove("label-focused");
+}
+
+function updateLabel(input: HTMLInputElement): void {
+    if (input.value !== null && input.value !== "") {
+        addLabelClass(input);
     } else {
-        label.classList.remove(
-            "text-xs",
-            "text-gray-500",
-            "dark:bg-dark-1",
-            "-translate-y-5",
-            "bg-white",
-            "px-2",
-            "py-1",
-            "z-20"
-        );
+        removeLabelClass(input);
     }
 }
 
 (window as any).updateLabel = updateLabel;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll("#sendForm .input-field");
+
+    inputs.forEach((inputElement) => {
+        const input = inputElement as HTMLInputElement;
+
+        input.addEventListener("input", () => {
+            updateLabel(input);
+        });
+
+        input.addEventListener("focus", () => {
+            updateLabel(input);
+        });
+
+        input.addEventListener("blur", () => {
+            updateLabel(input);
+        });
+
+        // 初回ページロード時に、値が入力されている場合にラベルを上に移動する
+        if (input.value) {
+            updateLabel(input);
+        }
+    });
+});
