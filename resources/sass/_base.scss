@@ -763,13 +763,14 @@ button .loading {
     }
 }
 
+// 離脱率
 .bounceRate {
-    @apply w-[420px] gap-[30px] flex flex-col items-center rounded-[8px] bg-white p-4;
+    @apply w-[420px] gap-[30px] flex flex-col items-center rounded-[8px] bg-white dark:bg-dark p-4;
 }
 .circular-progress {
     @apply relative h-[200px] w-[200px] rounded-full flex items-center justify-center;
 }
 .circular-progress::before {
-    @apply absolute  h-[180px] w-[180px]  rounded-full bg-white;
+    @apply absolute  h-[180px] w-[180px]  rounded-full bg-white dark:bg-dark;
     content: "";
 }
