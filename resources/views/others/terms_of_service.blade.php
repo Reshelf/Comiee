@@ -16,5 +16,5 @@
 
   <terms-of-service></terms-of-service>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection

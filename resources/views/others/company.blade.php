@@ -16,5 +16,5 @@
 
   <company-contents></company-contents>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection

@@ -129,7 +129,11 @@ const CompanyContents = defineAsyncComponent(
 const PrivacyPolicy = defineAsyncComponent(
     () => import("../components/others/PrivacyPolicy.vue")
 );
+const FooterContents = defineAsyncComponent(
+    () => import("../components/atoms/FooterContents.vue")
+);
 export default {
+    FooterContents,
     PrivacyPolicy,
     CompanyContents,
     AboutComiee,

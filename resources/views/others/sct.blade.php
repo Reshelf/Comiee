@@ -16,5 +16,5 @@
 
   <sct-contents></sct-contents>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection

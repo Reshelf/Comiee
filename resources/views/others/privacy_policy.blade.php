@@ -16,5 +16,5 @@
 
   <privacy-policy></privacy-policy>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection

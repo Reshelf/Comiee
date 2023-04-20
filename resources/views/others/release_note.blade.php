@@ -15,5 +15,5 @@
 
   <release-note></release-note>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection

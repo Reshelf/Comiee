@@ -27,5 +27,5 @@
     </div>
   </div>
 
-  @include('atoms._footer')
+  <footer-contents></footer-contents>
 @endsection
