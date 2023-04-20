@@ -2,7 +2,7 @@
     <div class="w-full flex flex-col md:flex-row">
         <!-- {{-- メニュー --}} -->
         <div
-            class="w-full md:w-[30%] bg-f8 dark:bg-dark p-8 flex flex-col items-end"
+            class="hidden lg:flex w-full md:w-[30%] bg-f8 dark:bg-dark p-8 flex-col items-end"
         >
             <div
                 class="lg:h-[500px] top-[20px] sticky w-full md:w-auto md:pr-8"
@@ -51,9 +51,9 @@
             <!-- {{-- はじめに --}} -->
             <div
                 id="welcome"
-                class="mt-8 mb-12 leading-8 text-base whitespace-pre-line"
+                class="lg:mt-8 mb-12 leading-8 text-base whitespace-pre-line"
             >
-                <h2 class="dark:text-f5 text-2xl pt-4 mb-4">
+                <h2 class="dark:text-f5 text-2xl lg:pt-4 mb-4">
                     {{ t("はじめに") }}
                 </h2>
                 <p class="mb-4">
