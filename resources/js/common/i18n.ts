@@ -37,12 +37,12 @@ const translations: Translations = {
 
 const locale = document.documentElement.lang;
 
-const t = (key: string): string => {
+// グローバルミックスイン機能を使う
+export const t = (key: string): string => {
     const translation: Translation = translations[locale] || {};
     return translation[key] || key;
 };
 
-// グローバルミックスイン機能を使う
 export default {
     install: (app: App): void => {
         app.config.globalProperties.t = t;

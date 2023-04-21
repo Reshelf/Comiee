@@ -13,8 +13,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["resources/js/*"]
-    }
+    },
+    "types": ["vue", "node"]
   },
   "exclude": ["node_modules"],
-  "include": ["vite.config.ts", "resources/js/**/*.ts", "resources/js/**/*.vue"]
+  "include": ["vite.config.ts", "resources/js/**/*.ts", "resources/js/**/*.vue", "resources/js/**/*.d.ts"]
 }

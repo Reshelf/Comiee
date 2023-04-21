@@ -1,1 +1,6 @@
-declare module "vue/dist/vue.esm-bundler"; // ビルド時にエラーが出ないようにするために必要
+import { t } from "../common/i18n";
+declare module "@vue/runtime-core" {
+    interface ComponentCustomProperties {
+        t: typeof t;
+    }
+}
