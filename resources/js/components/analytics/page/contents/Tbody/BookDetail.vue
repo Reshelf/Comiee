@@ -35,24 +35,30 @@
                 <div
                     @click="selectMode = 'pageview'"
                     class="cursor-pointer py-2 px-4"
+                    :class="selectMode == 'pageview' ? 'bg-f5 rounded-lg' : ''"
                 >
                     {{ t("ページビュー") }}
                 </div>
                 <div
                     @click="selectMode = 'bounce'"
                     class="cursor-pointer py-2 px-4"
+                    :class="selectMode == 'bounce' ? 'bg-f5 rounded-lg' : ''"
                 >
                     {{ t("離脱率") }}
                 </div>
                 <div
                     @click="selectMode = 'averageTime'"
                     class="cursor-pointer py-2 px-4"
+                    :class="
+                        selectMode == 'averageTime' ? 'bg-f5 rounded-lg' : ''
+                    "
                 >
                     {{ t("平均滞在時間") }}
                 </div>
                 <div
                     @click="selectMode = 'episode'"
                     class="cursor-pointer py-2 px-4"
+                    :class="selectMode == 'episode' ? 'bg-f5 rounded-lg' : ''"
                 >
                     {{ t("エピソード一覧") }}
                 </div>
