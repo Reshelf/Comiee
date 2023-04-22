@@ -1,4 +1,4 @@
- <template>
+<template>
     <div
         class="cursor-pointer flex text-[13px] min-w-[382px] max-w-[382px] mb-2 pb-2 border-b border-comiee"
         @click="selectBook(book)"
