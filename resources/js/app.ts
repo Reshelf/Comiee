@@ -1,24 +1,43 @@
-import { createApp } from "vue/dist/vue.esm-bundler";
-import "./common/bootstrap";
+import axios from "axios";
+import { App, createApp } from "vue/dist/vue.esm-bundler";
 import GlobalMethods from "./common/globalMethods";
 import "./common/theme";
 
+import _ from "lodash";
 import components from "./common/components";
 import i18n from "./common/i18n";
 
-const app = createApp({
-    components,
-});
+function createVueApp() {
+    const app = createApp({
+        components,
+    });
 
-const appElement = document.getElementById("app");
-
-if (appElement) {
+    app.provide("axios", axios);
+    app.provide("_", _);
     app.use(i18n);
     GlobalMethods.install(app);
-    app.mount("#app");
 
-    // Vueアプリケーションがマウントされた後に、<div id="app">を表示する
-    appElement.style.display = "block";
-} else {
-    console.error("App element not found.");
+    return app;
 }
+
+function mountVueApp(app: App<Element>) {
+    const appElement = document.getElementById("app");
+
+    if (appElement) {
+        app.mount("#app");
+        appElement.style.display = "block";
+    } else {
+        console.error("App element not found.");
+    }
+}
+
+function configureGlobalSettings() {
+    window.csrf_token = "{{ csrf_token() }}";
+
+    // ページ遷移後はスクロール位置をトップにする
+    window.addEventListener("load", () => window.scrollTo(0, 0));
+}
+
+const app = createVueApp();
+configureGlobalSettings();
+mountVueApp(app);

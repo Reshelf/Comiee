@@ -6,46 +6,56 @@
 <template>
     <div class="hidden"></div>
 </template>
-<script>
-export default {
-    props: {
-        user: Object,
-        book: Object,
-        bounceRateEndpoint: String,
-    },
-    mounted() {
-        if (this.user) {
-            window.addEventListener("beforeunload", this.sendBounceRateEvent);
-        }
-    },
-    beforeUnmount() {
-        if (this.user) {
-            window.removeEventListener(
-                "beforeunload",
-                this.sendBounceRateEvent
-            );
-        }
-    },
-    methods: {
-        async sendBounceRateEvent() {
-            try {
-                const response = await fetch(this.bounceRateEndpoint, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": document
+<script setup lang="ts">
+import { Book } from "@/types/book";
+import { User } from "@/types/user";
+import { inject, onBeforeUnmount, onMounted } from "vue";
+const axios = inject<Window["axios"]>("axios");
+
+const props = defineProps<{
+    user: User | null;
+    book: Book | null;
+    bounceRateEndpoint: string | null;
+}>();
+
+const sendBounceRateEvent = () => {
+    if (!props.user || !props.book || !props.bounceRateEndpoint || !axios)
+        return;
+
+    axios
+        .post(
+            props.bounceRateEndpoint,
+            {
+                user_id: props.user.id,
+                book_id: props.book.id,
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN":
+                        document
                             .querySelector('meta[name="csrf-token"]')
-                            .getAttribute("content"),
-                    },
-                    body: JSON.stringify({
-                        user_id: this.user.id,
-                        book_id: this.book.id,
-                    }),
-                });
-            } catch (error) {
-                console.error("Error sending bounce rate event:", error);
+                            ?.getAttribute("content") ?? "",
+                },
             }
-        },
-    },
+        )
+        .then((response) => {
+            // 必要に応じて、response を利用した処理を行う
+        })
+        .catch((error) => {
+            console.error("Error sending bounce rate event:", error);
+        });
 };
+
+onMounted(() => {
+    if (props.user) {
+        window.addEventListener("beforeunload", sendBounceRateEvent);
+    }
+});
+
+onBeforeUnmount(() => {
+    if (props.user) {
+        window.removeEventListener("beforeunload", sendBounceRateEvent);
+    }
+});
 </script>
