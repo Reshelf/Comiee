@@ -40,8 +40,14 @@
 
           {{-- ユーザー情報を取得 --}}
           {{-- <get-user-info endpoint="'{{ route('analytics.book.store') }}'"></get-user-info> --}}
-          <bounce-rate-tracker :user="{{ json_encode(Auth::user()) }}" :book="{{ json_encode($book) }}"
-            bounce-rate-endpoint="{{ route('analytics.book.bounce_rate') }}"></bounce-rate-tracker>
+
+          {{-- ログインユーザー & 作者以外のトラッキング --}}
+          @auth
+            @if ($book->user->id !== Auth::id())
+              <bounce-rate-tracker :user="{{ json_encode(Auth::user()) }}" :book="{{ json_encode($book) }}"
+                bounce-rate-endpoint="{{ route('analytics.book.bounce_rate') }}"></bounce-rate-tracker>
+            @endif
+          @endauth
         </div>
 
         {{-- 右サイドバー --}}

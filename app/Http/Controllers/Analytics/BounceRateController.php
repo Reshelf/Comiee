@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Analytics;
 use App\Http\Controllers\Controller;
 use App\Models\BookExitEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BounceRateController extends Controller
 {
@@ -15,12 +16,15 @@ class BounceRateController extends Controller
             'book_id' => 'required|integer|exists:books,id',
         ]);
 
-        $bookExitEvent = new BookExitEvent([
-            'user_id' => $request->user_id,
-            'book_id' => $request->book_id,
-        ]);
+        // 作者以外ならば、作品の離脱率を記録する
+        if ($request->user_id !== Auth::user()->id) {
+            $bookExitEvent = new BookExitEvent([
+                'user_id' => $request->user_id,
+                'book_id' => $request->book_id,
+            ]);
 
-        $bookExitEvent->save();
-        return response()->json(['message' => 'Bounce rate event recorded successfully.']);
+            $bookExitEvent->save();
+            return response()->json(['message' => 'Bounce rate event recorded successfully.']);
+        }
     }
 }
