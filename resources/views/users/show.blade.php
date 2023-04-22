@@ -22,7 +22,11 @@
       <div class="w-full flex flex-wrap justify-center md:justify-start">
         <works-lists :auth-user='@json(Auth::user() ?? [])' :book-user='@json($user ?? [])'
           :books='@json($books)' />
-        @include('atoms.nomessage')
+        @if (!$books->count() > 0)
+          <div class="p-2 my-4">
+            {{ __('表示する作品がありません') }}
+          </div>
+        @endif
       </div>
     </div>
   </div>
