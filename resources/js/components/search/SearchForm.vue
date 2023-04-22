@@ -1,4 +1,5 @@
 <script setup>
+import axios from "axios";
 import { computed, onMounted, reactive, ref } from "vue";
 
 const open = ref(false);

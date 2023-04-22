@@ -9,8 +9,8 @@
 <script setup lang="ts">
 import { Book } from "@/types/book";
 import { User } from "@/types/user";
-import { inject, onBeforeUnmount, onMounted } from "vue";
-const axios = inject<Window["axios"]>("axios");
+import { onBeforeUnmount, onMounted } from "vue";
+import axios from "axios";
 
 const props = defineProps<{
     user: User | null;

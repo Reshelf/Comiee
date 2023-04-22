@@ -1,9 +1,7 @@
-import axios from "axios";
 import { App, createApp } from "vue/dist/vue.esm-bundler";
 import GlobalMethods from "./common/globalMethods";
 import "./common/theme";
 
-import _ from "lodash";
 import components from "./common/components";
 import i18n from "./common/i18n";
 
@@ -12,8 +10,6 @@ function createVueApp() {
         components,
     });
 
-    app.provide("axios", axios);
-    app.provide("_", _);
     app.use(i18n);
     GlobalMethods.install(app);
 

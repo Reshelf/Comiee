@@ -7,58 +7,51 @@
         {{ buttonText }}
     </button>
 </template>
-<script>
-export default {
-    props: {
-        initialIsFollowedBy: {
-            type: Boolean,
-            default: false,
-        },
-        authorized: {
-            type: Boolean,
-            default: false,
-        },
-        endpoint: {
-            type: String,
-            default: "",
-        },
-    },
-    data() {
-        return {
-            isFollowedBy: this.initialIsFollowedBy,
-        };
-    },
-    computed: {
-        buttonColor() {
-            return this.isFollowedBy ? "btn-border" : "btn-primary";
-        },
-        buttonText() {
-            return this.isFollowedBy
-                ? this.t("フォロー中")
-                : this.t("フォローする");
-        },
-    },
-    methods: {
-        clickFollow() {
-            if (!this.authorized) {
-                alert(this.t("フォロー機能はログイン中のみ使用できます"));
-                return;
-            }
+<script setup lang="ts">
+import { computed  } from "vue";
+import axios from "axios";
+import { ref } from "vue";
 
-            this.isFollowedBy ? this.unfollow() : this.follow();
-        },
-        async follow() {
-            // eslint-disable-next-line
-            const response = await axios.put(this.endpoint);
-
-            this.isFollowedBy = true;
-        },
-        async unfollow() {
-            // eslint-disable-next-line
-            const response = await axios.delete(this.endpoint);
-
-            this.isFollowedBy = false;
-        },
+const props = defineProps({
+    initialIsFollowedBy: {
+        type: Boolean,
+        default: false,
     },
+    authorized: {
+        type: Boolean,
+        default: false,
+    },
+    endpoint: {
+        type: String,
+        default: "",
+    },
+});
+
+const isFollowedBy = ref(props.initialIsFollowedBy);
+
+const buttonColor = computed(() =>
+    isFollowedBy.value ? "btn-border" : "btn-primary"
+);
+const buttonText = computed(() =>
+    isFollowedBy.value ? t("フォロー中") : t("フォローする")
+);
+
+const clickFollow = async () => {
+    if (!props.authorized) {
+        alert(t("フォロー機能はログイン中のみ使用できます"));
+        return;
+    }
+
+    isFollowedBy.value ? await unfollow() : await follow();
+};
+
+const follow = async () => {
+    const response = await axios.put(props.endpoint);
+    isFollowedBy.value = true;
+};
+
+const unfollow = async () => {
+    const response = await axios.delete(props.endpoint);
+    isFollowedBy.value = false;
 };
 </script>

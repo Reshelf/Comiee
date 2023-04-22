@@ -8,6 +8,7 @@
     </button>
 </template>
 <script>
+import axios from "axios";
 export default {
     props: {
         initialIsLikedBy: {
