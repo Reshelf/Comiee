@@ -5,7 +5,7 @@
 
 @php
   $parsedUrl = parse_url(url()->current());
-  $decodedPath = implode('/', array_map('rawurldecode', explode('/', $parsedUrl['path'])));
+  $decodedPath = isset($parsedUrl['path']) ? implode('/', array_map('rawurldecode', explode('/', $parsedUrl['path']))) : '';
   $properUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $decodedPath;
 @endphp
 <link rel="canonical" href="{{ $properUrl }}">
