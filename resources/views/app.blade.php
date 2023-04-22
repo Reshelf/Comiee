@@ -3,7 +3,7 @@
 
 <head>
   @include('atoms.meta')
-  @includeWhen(env('GA_ENABLE'), 'atoms.analytics')
+  @includeWhen(env('GA_ENABLE'), 'atoms.ga4')
   @yield('header-scripts')
   @vite(['resources/sass/app.scss', 'resources/js/app.ts', 'resources/js/common/atoms/common.ts'])
 </head>
