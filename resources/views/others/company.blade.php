@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('会社概要（運営会社）'))
 
 @php

@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', $episode->name)
 
 @section('content')

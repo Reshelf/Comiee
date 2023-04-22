@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('Unauthorized'))
 
 @section('content')

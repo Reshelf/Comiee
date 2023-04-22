@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('アカウント登録が正常に完了しました。'))
 
 @php

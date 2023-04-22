@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('Stripe連携が成功しました'))
 
 @section('content')

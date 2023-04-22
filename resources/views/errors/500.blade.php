@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('Server Error'))
 
 @section('content')

@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', $user->name)
 
 @include('users.atoms.meta')

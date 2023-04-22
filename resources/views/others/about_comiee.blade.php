@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('Comieeについて'))
 @php
   $faq_number = 1;

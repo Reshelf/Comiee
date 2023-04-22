@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('Service Unavailable'))
 
 @section('content')

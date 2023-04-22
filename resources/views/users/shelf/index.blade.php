@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', __('本棚'))
 
 @section('content')

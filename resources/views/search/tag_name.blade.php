@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', $tag->hashtag)
 
 @section('content')

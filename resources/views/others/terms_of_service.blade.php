@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('title', '利用規約')
 
 @php
