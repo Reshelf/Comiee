@@ -155,7 +155,7 @@
 <script lang="ts" setup>
 import BookDetail from "@/components/analytics/page/contents/Tbody/BookDetail.vue";
 import { Book } from "@/types/book";
-import { defineProps, ref, Ref } from "vue";
+import { ref, Ref } from "vue";
 // props
 const props = defineProps({
     book: {
