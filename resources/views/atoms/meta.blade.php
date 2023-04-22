@@ -2,7 +2,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Comiee">
 <meta name="csrf-token" content="{{ csrf_token() }}"> {{-- axios apiで使用 --}}
-<link rel="canonical" href="{{ url()->current() }}"> {{-- URLの重複を防ぐ --}}
+
+@php
+  $parsedUrl = parse_url(url()->current());
+  $decodedPath = implode('/', array_map('rawurldecode', explode('/', $parsedUrl['path'])));
+  $properUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $decodedPath;
+@endphp
+<link rel="canonical" href="{{ $properUrl }}">
 
 @hasSection('title')
   <title>@yield('title') | {{ config('app.name') }}</title>
