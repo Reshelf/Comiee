@@ -3,12 +3,13 @@
 <meta name="author" content="Comiee">
 <meta name="csrf-token" content="{{ csrf_token() }}"> {{-- axios apiで使用 --}}
 
+{{-- インデックスされるURLの重複を防ぐcanonical設定 パラメーターも削除 --}}
 @php
   $parsedUrl = parse_url(url()->current());
   $decodedPath = isset($parsedUrl['path']) ? implode('/', array_map('rawurldecode', explode('/', $parsedUrl['path']))) : '';
   $properUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . $decodedPath;
 @endphp
-<link rel="canonical" href="{{ $properUrl }}">
+<link rel="canonical" href="{{ strtok($properUrl, '?#') }}">
 
 @hasSection('title')
   <title>@yield('title') | {{ config('app.name') }}</title>
