@@ -19,4 +19,13 @@
   </div>
 
   <footer-contents></footer-contents>
+
+
+  {{-- ログイン後、Piniaにデータを保存 --}}
+@section('footer-scripts')
+  <script>
+    window.userData = @json(Auth::user());
+  </script>
+@endsection
+
 @endsection

@@ -1,14 +1,19 @@
+import { createPinia } from "pinia";
 import { App, createApp } from "vue/dist/vue.esm-bundler";
-import GlobalMethods from "./common/globalMethods";
-import "./common/theme";
-
 import components from "./common/components";
+import GlobalMethods from "./common/globalMethods";
 import i18n from "./common/i18n";
+import "./common/theme";
+import { useUserStore } from "./stores/user";
 
 function createVueApp() {
     const app = createApp({
         components,
     });
+
+    // Piniaのインスタンスを作成し、Vueアプリにインストールします。
+    const pinia = createPinia();
+    app.use(pinia);
 
     app.use(i18n);
     GlobalMethods.install(app);
@@ -37,3 +42,16 @@ function configureGlobalSettings() {
 const app = createVueApp();
 configureGlobalSettings();
 mountVueApp(app);
+
+// CSRFトークンの取得
+const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+if (csrfTokenMeta) {
+    const csrfToken = csrfTokenMeta.getAttribute("content");
+    // CSRFトークンをAxiosなどで使用する場合、ここで設定します。
+}
+
+// ユーザーデータの取得
+const userStore = useUserStore();
+if (window.userData) {
+    userStore.loginUser(window.userData);
+}
