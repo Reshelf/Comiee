@@ -48,7 +48,7 @@ class PaymentCreateController extends Controller
                 $product = $stripe->products->create([
                     'name' => $book->title . ' - ' . $episode->number . '話',
                     "metadata" => [
-                        "user_id" => Auth::user()->id,
+                        "user_id" => Auth::id(),
                         "book_id" => $book->id,
                         "episode_number" => $episode->number,
                     ],

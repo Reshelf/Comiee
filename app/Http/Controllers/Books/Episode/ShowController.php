@@ -43,7 +43,7 @@ class ShowController extends Controller
         | 既読処理
         |--------------------------------------------------------------------------
          */
-        if (Auth::user() && $book->user->id !== Auth::user()->id) {
+        if (Auth::user() && $book->user->id !== Auth::id()) {
             $episode->registerReadBy(Auth::user());
             $book->updateViews();
         }

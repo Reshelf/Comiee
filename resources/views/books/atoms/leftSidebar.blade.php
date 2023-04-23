@@ -43,7 +43,7 @@
   {{-- @endempty --}}
 
   {{-- お気に入り --}}
-  @if (Auth::user() && $book->user->id !== Auth::user()->id)
+  @if (Auth::user() && $book->user->id !== Auth::id())
     <div class="w-full flex items-center px-2 mb-4">
       <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))' :initial-count-likes='@json($book->count_likes)'
         :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">

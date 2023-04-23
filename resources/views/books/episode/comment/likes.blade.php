@@ -1,4 +1,4 @@
-@if (Auth::user() && $comment->user->id === Auth::user()->id)
+@if (Auth::user() && $comment->user->id === Auth::id())
   <div class="flex items-center cursor-not-allowed">
     <svg height="16" class="stroke-red" viewBox="0 0 22 20" fill="none">
       <title>like icon</title>

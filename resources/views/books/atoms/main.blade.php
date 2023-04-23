@@ -77,7 +77,7 @@
 
                 <div class="flex items-center mt-1">
 
-                  @if (Auth::user() && $book->user->id === Auth::user()->id)
+                  @if (Auth::user() && $book->user->id === Auth::id())
                     <div class="flex items-center cursor-not-allowed">
                       <svg height="16" class="stroke-red" viewBox="0 0 22 20" fill="none">
                         <title>like icon</title>
@@ -136,7 +136,7 @@
 
                   {{-- 既読 --}}
                   @auth
-                    @if ($book->user->id !== Auth::user()->id)
+                    @if ($book->user->id !== Auth::id())
                       @if ($e->isReadBy(Auth::user()))
                         <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                           {{ __('既読') }}
@@ -152,7 +152,7 @@
                   {{-- 購入済 --}}
                   @if (!$e->is_hidden && !$e->is_free)
                     @auth
-                      @if ($book->user->id !== Auth::user()->id && $e->isBoughtBy(Auth::user()))
+                      @if ($book->user->id !== Auth::id() && $e->isBoughtBy(Auth::user()))
                         <span class="inline-block text-xs text-666 dark:text-ddd mr-2">
                           {{ __('購入済') }}
                         </span>

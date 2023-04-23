@@ -18,7 +18,7 @@ class ShowController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-        if (Auth::user() && $user->id === Auth::user()->id) {
+        if (Auth::user() && $user->id === Auth::id()) {
             $this->updateUserLanguageAndCountry($user);
         }
 

@@ -55,7 +55,7 @@
 <div class="card-body pt-0 pb-2 pl-3">
   <div class="card-text">
     {{-- お気に入り --}}
-    @if (Auth::user() && $book->user->id !== Auth::user()->id)
+    @if (Auth::user() && $book->user->id !== Auth::id())
       <book-like :initial-is-liked-by='@json($book->isLikedBy(Auth::user()))' :initial-count-likes='@json($book->count_likes)'
         :authorized='@json(Auth::check())' endpoint="{{ route('book.like', ['book_id' => $book->id]) }}">
       </book-like>

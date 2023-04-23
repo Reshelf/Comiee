@@ -33,7 +33,7 @@ class ShowController extends Controller
         |--------------------------------------------------------------------------
          */
         if (Auth::check()) {
-            if ($book->user->id !== Auth::user()->id) {
+            if ($book->user->id !== Auth::id()) {
                 $episode_total_views = 0;
                 foreach ($book->episodes as $episode) {
                     $episode_total_views += $episode->views;

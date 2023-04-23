@@ -27,7 +27,7 @@ class UpdateController extends Controller
         $book = Book::find($request->book_id);
         $episode = Episode::find($request->episode_id);
 
-        if ($book->user->id === Auth::user()->id) {
+        if ($book->user->id === Auth::id()) {
             $request->validate([
                 'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,webp|max:30720',
                 'images' => 'array|min:8|max:50',

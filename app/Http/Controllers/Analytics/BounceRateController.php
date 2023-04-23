@@ -17,7 +17,7 @@ class BounceRateController extends Controller
         ]);
 
         // 作者以外ならば、作品の離脱率を記録する
-        if ($request->user_id !== Auth::user()->id) {
+        if ($request->user_id !== Auth::id()) {
             $bookExitEvent = new BookExitEvent([
                 'user_id' => $request->user_id,
                 'book_id' => $request->book_id,

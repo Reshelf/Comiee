@@ -5,10 +5,10 @@
     // if ($book->user->is_vip) {
     //     $application_fee = 0.2;
     // }
-
+    
     $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
     $price = $stripe->prices->retrieve($price->id, [], ['stripe_account' => $book->user->stripe_user_id]);
-
+    
     $session = $stripe->checkout->sessions->create(
         [
             'success_url' => config('app.top_url') . '/b/' . $book->title . '/' . $episode->number,
@@ -28,7 +28,7 @@
                 'enabled' => true,
             ],
             'metadata' => [
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::id(),
                 'book_id' => title,
                 'episode_number' => $episode->number,
             ],

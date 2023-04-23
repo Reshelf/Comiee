@@ -24,7 +24,7 @@ class DestroyController extends Controller
     {
         $user = User::byUsername($request->username)->first();
 
-        if (Auth::user()->id === $user->id) {
+        if (Auth::id() === $user->id) {
             $user->delete();
             return back();
         }
