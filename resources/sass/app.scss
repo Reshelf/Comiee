@@ -72,6 +72,9 @@ img {
     user-select: none !important;
     -khtml-user-select: none !important;
 }
+svg {
+    @apply flex-shrink-0;
+}
 input[type="file"],
 a {
     @apply cursor-pointer;
