@@ -27,13 +27,12 @@ Our mission is to "support the birth of many wonderful works by providing creato
 
 -   PaaS: **Heroku**
 -   Backend: **Laravel**
--   Frontend: **Blade** and **Vue.js**
+-   Frontend: **Blade** and **Vue.js** and **Typescript**
 -   Domain: **Google Domains** (DNS management: **Cloudflare**)
 -   CDN: **Cloudflare**
 -   Image Storage: **Cloudflare R2**
 -   Text Editor: **VSCode**
 -   Local Environment: **Sail** (Docker)
 -   Frontend Compilation: **Vite**
--   E2E Testing: **Cypress**
 -   Analytics: **Google Analytics** and **Cloudflare Analytics**
 -   Styling: **TailwindCSS**
