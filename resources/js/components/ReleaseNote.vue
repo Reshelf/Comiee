@@ -1,6 +1,6 @@
 <template>
     <div class="max-w-4xl m-6 md:my-16 md:mx-auto leading-8">
-        <h2 class="text-2xl lg:text-3xl dark:text-f5 my-8 lg:mb-10">
+        <h2 class="text-2xl dark:text-f5 my-8 lg:mb-10">
             {{ t("リリースノート") }}
         </h2>
 
@@ -8,7 +8,7 @@
             <div
                 class="p-6 lg:p-8 border border-b-l-c dark:border-dark-1 rounded-lg mb-6"
             >
-                <h3 class="text-xl lg:text-2xl mb-4 dark:text-f5">
+                <h3 class="text-lg mb-4 dark:text-f5">
                     【{{ note.version }}】{{ t(note.title) }}
                 </h3>
                 <div class="mt-4 text-[15px]">

@@ -282,11 +282,11 @@
                             class="block mb-2 hover:text-primary dark:hover:text-ddd"
                             >{{ t("よくあるご質問") }}</a
                         >
-                        <a
+                        <!-- <a
                             href="/company"
                             class="block mb-2 hover:text-primary dark:hover:text-ddd"
                             >{{ t("会社概要（運営会社）") }}</a
-                        >
+                        > -->
                     </div>
                     <div class="md:w-1/2 mt-8 md:mt-0">
                         <div
