@@ -17,5 +17,5 @@
     "types": ["vue", "node"]
   },
   "exclude": ["node_modules"],
-  "include": ["vite.config.ts", "resources/js/**/*.ts", "resources/js/**/*.vue", "resources/js/**/*.d.ts"]
+  "include": ["vite.config.ts", "resources/js/**/*.ts", "resources/js/**/*.vue", "resources/js/**/*.d.ts", "resources/js/types/vite-plugin-auto-import.ts"]
 }
