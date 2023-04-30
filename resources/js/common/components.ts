@@ -1,180 +1,118 @@
 import { defineAsyncComponent } from "vue";
 
-const BookLike = defineAsyncComponent(
-    () => import("../components/books/BookLike.vue")
-);
-const BooksLists = defineAsyncComponent(
-    () => import("../components/books/BooksLists.vue")
-);
-const PageViewsGraph = defineAsyncComponent(
-    () => import("../components/analytics/atoms/PageViewsGraph.vue")
-);
-const BookEditModal = defineAsyncComponent(
-    () => import("../components/books/BookEditModal.vue")
-);
-const CreateModal = defineAsyncComponent(
-    () => import("../components/books/CreateModal.vue")
-);
-const DeleteModal = defineAsyncComponent(
-    () => import("../components/books/DeleteModal.vue")
-);
-const EditModal = defineAsyncComponent(
-    () => import("../components/books/EditModal.vue")
-);
-const CommentPostModal = defineAsyncComponent(
-    () => import("../components/books/episodes/comments/CommentPostModal.vue")
-);
-const EpisodeList = defineAsyncComponent(
-    () => import("../components/books/episodes/EpisodeList.vue")
-);
-const EpisodeScreen = defineAsyncComponent(
-    () => import("../components/books/episodes/EpisodeScreen.vue")
-);
-const BookTagsInput = defineAsyncComponent(
-    () => import("../components/BookTagsInput.vue")
-);
-const CountAnimation = defineAsyncComponent(
-    () => import("../components/CountAnimation.vue")
-);
-const FollowButton = defineAsyncComponent(
-    () => import("../components/FollowButton.vue")
-);
-const HeaderUserModal = defineAsyncComponent(
-    () => import("../components/HeaderUserModal.vue")
-);
-const SearchForm = defineAsyncComponent(
-    () => import("../components/search/SearchForm.vue")
-);
-const SpSearchForm = defineAsyncComponent(
-    () => import("../components/search/SpSearchForm.vue")
-);
-const TagSearchModal = defineAsyncComponent(
-    () => import("../components/search/TagSearchModal.vue")
-);
-const ThemeToggle = defineAsyncComponent(
-    () => import("../components/ThemeToggle.vue")
-);
-const AvatarZoom = defineAsyncComponent(
-    () => import("../components/users/AvatarZoom.vue")
-);
-const EditUserModal = defineAsyncComponent(
-    () => import("../components/users/EditUserModal.vue")
-);
-const FollowModal = defineAsyncComponent(
-    () => import("../components/users/FollowModal.vue")
-);
-const SetupModal = defineAsyncComponent(
-    () => import("../components/users/SetupModal.vue")
-);
-const ShelfLists = defineAsyncComponent(
-    () => import("../components/users/ShelfLists.vue")
-);
-const ThumbnailZoom = defineAsyncComponent(
-    () => import("../components/users/ThumbnailZoom.vue")
-);
-const WorksLists = defineAsyncComponent(
-    () => import("../components/users/WorksLists.vue")
-);
-const CommentLike = defineAsyncComponent(
-    () => import("../components/books/episodes/comments/CommentLike.vue")
-);
-const EpisodeLike = defineAsyncComponent(
-    () => import("../components/books/episodes/EpisodeLike.vue")
-);
-const ReleaseNote = defineAsyncComponent(
-    () => import("../components/ReleaseNote.vue")
-);
-const GetUserInfo = defineAsyncComponent(
-    () => import("../components/analytics/atoms/GetUserInfo.vue")
-);
-const AnalyticsDashboard = defineAsyncComponent(
-    () => import("../components/analytics/AnalyticsDashboard.vue")
-);
-const CommentsDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/CommentsDashboard.vue")
-);
-const TopDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/TopDashboard.vue")
-);
-const ContentsDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/ContentsDashboard.vue")
-);
-const RankingDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/RankingDashboard.vue")
-);
-const UserDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/UserDashboard.vue")
-);
-const TrendDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/TrendDashboard.vue")
-);
-const SalesDashboard = defineAsyncComponent(
-    () => import("../components/analytics/page/SalesDashboard.vue")
-);
-const BounceRateTracker = defineAsyncComponent(
-    () => import("../components/analytics/atoms/BounceRateTracker.vue")
-);
-const TermsOfService = defineAsyncComponent(
-    () => import("../components/others/TermsOfService.vue")
-);
-const SctContents = defineAsyncComponent(
-    () => import("../components/others/SctContents.vue")
-);
-const AboutComiee = defineAsyncComponent(
-    () => import("../components/others/AboutComiee.vue")
-);
-const CompanyContents = defineAsyncComponent(
-    () => import("../components/others/CompanyContents.vue")
-);
-const PrivacyPolicy = defineAsyncComponent(
-    () => import("../components/others/PrivacyPolicy.vue")
-);
-const FooterContents = defineAsyncComponent(
-    () => import("../components/atoms/FooterContents.vue")
-);
-export default {
-    FooterContents,
-    PrivacyPolicy,
-    CompanyContents,
-    AboutComiee,
-    SctContents,
-    TermsOfService,
-    BounceRateTracker,
-    SalesDashboard,
-    TopDashboard,
-    TrendDashboard,
-    UserDashboard,
-    RankingDashboard,
-    ContentsDashboard,
-    BooksLists,
-    CommentsDashboard,
-    AnalyticsDashboard,
-    PageViewsGraph,
-    GetUserInfo,
-    SpSearchForm,
-    EpisodeLike,
-    ShelfLists,
-    WorksLists,
-    SetupModal,
-    CommentLike,
-    TagSearchModal,
-    ReleaseNote,
-    SearchForm,
-    BookEditModal,
-    CommentPostModal,
-    EpisodeScreen,
-    EpisodeList,
-    ThumbnailZoom,
-    FollowModal,
-    AvatarZoom,
-    DeleteModal,
-    CreateModal,
-    CountAnimation,
-    HeaderUserModal,
-    ThemeToggle,
-    EditModal,
-    EditUserModal,
-    BookLike,
-    BookTagsInput,
-    FollowButton,
+const components = {
+    /*
+    |--------------------------------------------------------------------------
+    | atoms
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    BookTagsInput: "@/components/atoms/BookTagsInput.vue",
+    CountAnimation: "@/components/atoms/CountAnimation.vue",
+    FooterContents: "@/components/atoms/FooterContents.vue",
+    ThemeToggle: "@/components/ThemeToggle.vue",
+
+    /*
+    |--------------------------------------------------------------------------
+    | molecules
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    // analytics
+    PageViewsGraph: "@/components/analytics/atoms/PageViewsGraph.vue",
+
+    // books
+    BookLike: "@/components/molecules/books/BookLike.vue",
+    BooksLists: "@/components/molecules/books/BooksLists.vue",
+    BookEditModal: "@/components/molecules/books/BookEditModal.vue",
+    CreateModal: "@/components/molecules/books/CreateModal.vue",
+    DeleteModal: "@/components/molecules/books/DeleteModal.vue",
+    EditModal: "@/components/molecules/books/EditModal.vue",
+
+    // books/episodes
+    EpisodeList: "@/components/molecules/books/episodes/EpisodeList.vue",
+    EpisodeScreen: "@/components/molecules/books/episodes/EpisodeScreen.vue",
+    EpisodeLike: "@/components/molecules/books/episodes/EpisodeLike.vue",
+
+    // book/episodes/comments
+    CommentPostModal:
+        "@/components/molecules/books/episodes/comments/CommentPostModal.vue",
+    CommentLike:
+        "@/components/molecules/books/episodes/comments/CommentLike.vue",
+
+    // users
+    FollowButton: "@/components/molecules/users/FollowButton.vue",
+    HeaderUserModal: "@/components/molecules/users/HeaderUserModal.vue",
+    AvatarZoom: "@/components/molecules/users/AvatarZoom.vue",
+    EditUserModal: "@/components/molecules/users/EditUserModal.vue",
+    FollowModal: "@/components/molecules/users/FollowModal.vue",
+    SetupModal: "@/components/molecules/users/SetupModal.vue",
+    ShelfLists: "@/components/molecules/users/ShelfLists.vue",
+    ThumbnailZoom: "@/components/molecules/users/ThumbnailZoom.vue",
+    WorksLists: "@/components/molecules/users/WorksLists.vue",
+
+    // search
+    SearchForm: "@/components/molecules/search/SearchForm.vue",
+    SpSearchForm: "@/components/molecules/search/SpSearchForm.vue",
+    TagSearchModal: "@/components/molecules/search/TagSearchModal.vue",
+
+    /*
+    |--------------------------------------------------------------------------
+    | organisms
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | templates
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | pages
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    ReleaseNote: "@/components/pages/ReleaseNote.vue",
+    SctContents: "@/components/pages/SctContents.vue",
+    AboutComiee: "@/components/pages/AboutComiee.vue",
+    TermsOfService: "@/components/pages/TermsOfService.vue",
+    CompanyContents: "@/components/pages/CompanyContents.vue",
+    PrivacyPolicy: "@/components/pages/PrivacyPolicy.vue",
+
+    // analytics
+    AnalyticsDashboard: "@/components/pages/analytics/AnalyticsDashboard.vue",
+
+    // analytics/page
+    TopDashboard: "@/components/pages/analytics/page/TopDashboard.vue",
+    CommentsDashboard:
+        "@/components/pages/analytics/page/CommentsDashboard.vue",
+    ContentsDashboard:
+        "@/components/pages/analytics/page/ContentsDashboard.vue",
+    RankingDashboard: "@/components/pages/analytics/page/RankingDashboard.vue",
+    UserDashboard: "@/components/pages/analytics/page/UserDashboard.vue",
+    TrendDashboard: "@/components/pages/analytics/page/TrendDashboard.vue",
+    SalesDashboard: "@/components/pages/analytics/page/SalesDashboard.vue",
+
+    // analytics/atoms
+    GetUserInfo: "@/components/pages/analytics/atoms/GetUserInfo.vue",
+    BounceRateTracker:
+        "@/components/pages/analytics/atoms/BounceRateTracker.vue",
 };
+
+const asyncComponents = Object.fromEntries(
+    Object.entries(components).map(([key, value]) => [
+        key,
+        defineAsyncComponent(() => import(value)),
+    ])
+);
+
+export default asyncComponents;

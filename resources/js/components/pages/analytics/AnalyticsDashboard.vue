@@ -4,7 +4,7 @@
             <!-- Main content -->
             <div class="flex-grow flex flex-col lg:flex-row">
                 <!-- Sidebar -->
-                <nav
+                <sidebar
                     class="bg-white dark:bg-dark w-full lg:w-1/5 lg:min-h-full lg:border-r border-comiee"
                 >
                     <ul class="py-8">
@@ -299,7 +299,7 @@
                             {{ t("ランキング") }}
                         </li>
                     </ul>
-                </nav>
+                </sidebar>
 
                 <main class="p-8 w-full overflow-x-hidden">
                     <top-dashboard
