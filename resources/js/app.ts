@@ -1,25 +1,14 @@
-import './common/theme';
-
-import { createPinia } from 'pinia';
-import { App, createApp, defineAsyncComponent } from 'vue/dist/vue.esm-bundler';
-
-import components from '@/types/vite-plugin-auto-import';
-
-import GlobalMethods from './common/globalMethods';
-import i18n from './common/i18n';
-import { useUserStore } from './stores/user';
+import { createPinia } from "pinia";
+import { App, createApp } from "vue/dist/vue.esm-bundler";
+import components from "./common/components";
+import GlobalMethods from "./common/globalMethods";
+import i18n from "./common/i18n";
+import "./common/theme";
+import { useUserStore } from "./stores/user";
 
 function createVueApp() {
     const app = createApp({
-        // コンポーネントを自動インポート
-        components: Object.fromEntries(
-            Object.entries(components).map(([key, value]) => [
-                key,
-                defineAsyncComponent(
-                    () => import(/* @vite-ignore */ `${value}`)
-                ),
-            ])
-        ),
+        components,
     });
 
     // Piniaのインスタンスを作成し、Vueアプリにインストールします。

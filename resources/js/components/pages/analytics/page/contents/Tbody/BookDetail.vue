@@ -230,12 +230,16 @@
     </div>
 </template>
 <script>
+import PageViewsGraph from "@/components/analytics/atoms/PageViewsGraph.vue";
 export default {
     data() {
         return {
             show: false,
             selectMode: "pageview",
         };
+    },
+    components: {
+        PageViewsGraph,
     },
     props: {
         isBookDetail: Boolean,

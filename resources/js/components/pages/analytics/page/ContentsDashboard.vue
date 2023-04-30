@@ -13,11 +13,22 @@
 
 <script lang="ts" setup>
 import { Book } from "@/types/book";
+import { defineComponent } from "vue";
+
+import Tbody from "@/components/analytics/page/contents/Tbody.vue";
+import Thead from "@/components/analytics/page/contents/Thead.vue";
 
 defineProps({
     books: {
         type: Array as () => Book[],
         required: true,
+    },
+});
+
+defineComponent({
+    components: {
+        Thead,
+        Tbody,
     },
 });
 </script>
