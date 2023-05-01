@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{e as r,o}from"./vendor-66ba3070.js";const t={data(){return{}}};function a(s,n,c,p,_,d){return o(),r("div",null,"ユーザー分析")}const l=e(t,[["render",a]]);export{l as default};
