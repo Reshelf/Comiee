@@ -1,15 +1,20 @@
-import { createPinia } from "pinia";
-import { App, createApp } from "vue/dist/vue.esm-bundler";
-import components from "./common/components";
-import GlobalMethods from "./common/globalMethods";
-import i18n from "./common/i18n";
-import "./common/theme";
-import { useUserStore } from "./stores/user";
+import './common/theme';
+
+import { createPinia } from 'pinia';
+import { App, createApp } from 'vue/dist/vue.esm-bundler';
+
+import components from './common/components';
+import GlobalMethods from './common/globalMethods';
+import i18n from './common/i18n';
+import { useUserStore } from './stores/user';
 
 function createVueApp() {
-    const app = createApp({
-        components,
-    });
+    const app = createApp({});
+
+    // Register all components
+    for (const [name, component] of Object.entries(components)) {
+        app.component(name, component);
+    }
 
     // Piniaのインスタンスを作成し、Vueアプリにインストールします。
     const pinia = createPinia();

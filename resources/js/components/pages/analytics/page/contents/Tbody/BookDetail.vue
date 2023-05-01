@@ -230,7 +230,7 @@
     </div>
 </template>
 <script>
-import PageViewsGraph from "@/components/analytics/atoms/PageViewsGraph.vue";
+import PageViewsGraph from "@/components/pages/analytics/atoms/PageViewsGraph.vue";
 export default {
     data() {
         return {

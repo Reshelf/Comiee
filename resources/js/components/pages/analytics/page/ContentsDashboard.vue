@@ -15,8 +15,8 @@
 import { Book } from "@/types/book";
 import { defineComponent } from "vue";
 
-import Tbody from "@/components/analytics/page/contents/Tbody.vue";
-import Thead from "@/components/analytics/page/contents/Thead.vue";
+import Tbody from "@/components/pages/analytics/page/contents/Tbody.vue";
+import Thead from "@/components/pages/analytics/page/contents/Thead.vue";
 
 defineProps({
     books: {
