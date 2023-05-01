@@ -1,61 +1,61 @@
 sail-init:
 	alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 up:
-	./vendor/bin/sail up -d
-sail-build:
-	./vendor/bin/sail build --no-cache && ./vendor/bin/sail up -d
+	docker-compose up -d
+docker-build:
+	docker-compose build --no-cache && docker-compose up -d
 down:
-	./vendor/bin/sail down
+	docker-compose down
 init:
 	composer install
 	@make key
-	@make sail-build
+	@make docker-build
 	@make down
 	@make up
 	@make migrate
 	@make fresh
 destroy:
-	./vendor/bin/sail down --rmi all -v
+	docker-compose down --rmi all -v
 	docker system prune --volumes -f
 share:
-	./vendor/bin/sail share
+	docker-compose exec laravel.test share
 logs:
-	./vendor/bin/sail logs
+	docker-compose exec laravel.test logs
 ci:
 	composer update && composer install
 dev-container:
-	./vendor/bin/sail artisan sail:install --devcontainer
+	docker-compose exec laravel.test php artisan sail:install --devcontainer
 master:
 	git fetch && git pull origin master && git push
 logs-watch:
-	./vendor/bin/sail logs --follow
+	docker-compose exec laravel.test logs --follow
 log-web:
-	./vendor/bin/sail logs web
+	docker-compose exec laravel.test logs web
 log-web-watch:
-	./vendor/bin/sail logs --follow web
+	docker-compose exec laravel.test logs --follow web
 log-app:
-	./vendor/bin/sail logs app
+	docker-compose exec laravel.test logs app
 log-app-watch:
-	./vendor/bin/sail logs --follow app
+	docker-compose exec laravel.test logs --follow app
 log-db:
-	./vendor/bin/sail logs mysql
+	docker-compose exec laravel.test logs mysql
 log-db-watch:
-	./vendor/bin/sail logs --follow mysql
+	docker-compose exec laravel.test logs --follow mysql
 app:
-	./vendor/bin/sail bash
+	docker-compose exec laravel.test bash
 migrate:
-	./vendor/bin/sail artisan migrate
+	docker-compose exec laravel.test php artisan migrate
 roll:
-	./vendor/bin/sail artisan migrate:rollback
+	docker-compose exec laravel.test php artisan migrate:rollback
 fresh:
-	./vendor/bin/sail artisan migrate:fresh
+	docker-compose exec laravel.test php artisan migrate:fresh
 seed:
-	./vendor/bin/sail artisan db:seed --class UserSeeder
-	./vendor/bin/sail artisan db:seed --class BookSeeder
+	docker-compose exec laravel.test php artisan db:seed --class UserSeeder
+	docker-compose exec laravel.test php artisan db:seed --class BookSeeder
 dacapo:
-	./vendor/bin/sail artisan dacapo
+	docker-compose exec laravel.test php artisan dacapo
 refresh:
-	./vendor/bin/sail artisan migrate:refresh
+	docker-compose exec laravel.test php artisan migrate:refresh
 tinker:
 	php artisan tinker
 key:
@@ -79,11 +79,11 @@ cache:
 	php artisan route:cache
 	php artisan route:clear
 db:
-	./vendor/bin/sail exec mysql bash
+	docker-compose exec laravel.test exec mysql bash
 sql:
-	./vendor/bin/sail exec mysql bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
+	docker-compose exec laravel.test exec mysql bash -c 'mysql -u $$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE'
 redis:
-	./vendor/bin/sail exec redis redis-cli
+	docker-compose exec laravel.test exec redis redis-cli
 composer-clear:
 	composer self-update
 	composer update
@@ -107,11 +107,11 @@ format:
 cron:
 	crontab -e
 sche-run:
-	./vendor/bin/sail artisan schedule:run
+	docker-compose exec laravel.test php artisan schedule:run
 sche-list:
-	./vendor/bin/sail artisan schedule:list
+	docker-compose exec laravel.test php artisan schedule:list
 sche-work:
-	./vendor/bin/sail artisan schedule:work
+	docker-compose exec laravel.test php artisan schedule:work
 h-master:
 	git push heroku master
 h-log:
@@ -136,7 +136,7 @@ package-clear-legacy:
 	npm install --legacy-peer-deps
 	npm audit fix --force
 sail-art-about:
-	./vendor/bin/sail art about
+	docker-compose exec laravel.test art about
 # 更新可能のパッケージ
 composer-outdated:
 	composer outdated -D
@@ -146,7 +146,7 @@ e2e-open:
 e2e-run:
 	npm run e2e:run
 backup-local:
-	 ./vendor/bin/sail artisan backup:run
+	 docker-compose exec laravel.test php artisan backup:run
 backup-production:
 	 php artisan backup:run
 autogpt:

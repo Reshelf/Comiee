@@ -1,30 +1,22 @@
-# For more information: https://laravel.com/docs/sail
 version: "3"
+
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.2
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: "${WWWGROUP}"
-        image: sail-8.2/app
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
+            context: .
+            dockerfile: docker/Dockerfile
+            extra_hosts:
+                - "host.docker.internal:host-gateway"
         ports:
-            - "${APP_PORT:-80}:80"
-            - "${VITE_PORT:-5173}:${VITE_PORT:-5173}"
-        environment:
-            WWWUSER: "${WWWUSER}"
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: "${SAIL_XDEBUG_MODE:-off}"
-            XDEBUG_CONFIG: "${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}"
+            - "80:80"
         volumes:
             - ".:/var/www/html"
         networks:
-            - sail
+            - backend
         depends_on:
             - mysql
             - mailhog
+
     mysql:
         image: "mysql/mysql-server:8.0.21"
         ports:
@@ -37,26 +29,26 @@ services:
             MYSQL_PASSWORD: "${DB_PASSWORD}"
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - "sail-mysql:/var/lib/mysql"
-            - "./vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh"
+            - "mysql-data:/var/lib/mysql"
         networks:
-            - sail
+            - backend
         healthcheck:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
+
     mailhog:
         image: "mailhog/mailhog:latest"
         ports:
             - "${FORWARD_MAILHOG_PORT:-1025}:1025"
             - "${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025"
         networks:
-            - sail
+            - backend
+
 networks:
-    sail:
+    backend:
         driver: bridge
+
 volumes:
-    sail-mysql:
-        driver: local
-    sail-redis:
+    mysql-data:
         driver: local
