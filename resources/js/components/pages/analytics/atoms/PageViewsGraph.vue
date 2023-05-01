@@ -95,11 +95,7 @@
 </template>
 
 <script>
-import LineChart from "@/components/pages/analytics/atoms/LineChart.vue";
 export default {
-    components: {
-        LineChart,
-    },
     props: {
         book: {
             type: Object,

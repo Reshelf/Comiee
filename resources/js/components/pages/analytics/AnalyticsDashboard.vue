@@ -330,15 +330,6 @@
     </div>
 </template>
 <script lang="ts" setup>
-import CommentsDashboard from "@/components/pages/analytics/page/CommentsDashboard.vue";
-import ContentsDashboard from "@/components/pages/analytics/page/ContentsDashboard.vue";
-import RankingDashboard from "@/components/pages/analytics/page/RankingDashboard.vue";
-import SalesDashboard from "@/components/pages/analytics/page/SalesDashboard.vue";
-import TopDashboard from "@/components/pages/analytics/page/TopDashboard.vue";
-import TrendDashboard from "@/components/pages/analytics/page/TrendDashboard.vue";
-import UserDashboard from "@/components/pages/analytics/page/UserDashboard.vue";
-import { defineComponent, ref } from "vue";
-
 defineProps<{
     user: Object;
     books: Array<any>;
@@ -349,17 +340,5 @@ const selected = ref("dashboard");
 // 外部に公開するプロパティとメソッドを指定し
 defineExpose({
     selected,
-});
-
-defineComponent({
-    components: {
-        TopDashboard,
-        CommentsDashboard,
-        TrendDashboard,
-        RankingDashboard,
-        SalesDashboard,
-        ContentsDashboard,
-        UserDashboard,
-    },
 });
 </script>

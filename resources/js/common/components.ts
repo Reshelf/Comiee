@@ -1,4 +1,4 @@
-// components.ts
+// コンポーネントの自動インポート
 import {
   ComponentOptions, ComponentPublicInstance, defineAsyncComponent, FunctionalComponent
 } from 'vue';
@@ -10,7 +10,8 @@ const asyncComponents = Object.fromEntries(
         const componentName = path
             .replace(/^.+\/([^/]+)\.vue$/, "$1") // ファイル名を取得
             .replace(/^\w/, (c) => c.toUpperCase()) // 最初の文字を大文字に
-            .replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : "")); // ケバブケースをパスカルケースに変換
+            .replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : "")) // ケバブケースをパスカルケースに変換
+            .replace(/\//g, "_"); // ファイルパスのスラッシュをアンダースコアに変換
         return [
             componentName,
             defineAsyncComponent(() =>

@@ -1,19 +1,4 @@
 {
-  "_ContentsDashboard.vue_vue_type_script_setup_true_lang-fdd4290a.js": {
-    "file": "assets/ContentsDashboard.vue_vue_type_script_setup_true_lang-fdd4290a.js",
-    "imports": [
-      "_Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js",
-      "resources/js/components/pages/analytics/page/contents/Thead.vue",
-      "_vendor-66ba3070.js"
-    ]
-  },
-  "_Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js": {
-    "file": "assets/Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js",
-    "imports": [
-      "_vendor-66ba3070.js",
-      "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue"
-    ]
-  },
   "__plugin-vue_export-helper-c27b6911.js": {
     "file": "assets/_plugin-vue_export-helper-c27b6911.js"
   },
@@ -75,7 +60,7 @@
       "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue",
       "resources/js/components/pages/analytics/page/contents/Thead.vue"
     ],
-    "file": "assets/app-7b394c17.js",
+    "file": "assets/app-a89b2adb.js",
     "imports": [
       "_vendor-66ba3070.js"
     ],
@@ -512,22 +497,9 @@
     "src": "resources/js/components/pages/TermsOfService.vue"
   },
   "resources/js/components/pages/analytics/AnalyticsDashboard.vue": {
-    "file": "assets/AnalyticsDashboard-0749ee15.js",
+    "file": "assets/AnalyticsDashboard-3efc7f82.js",
     "imports": [
-      "resources/js/components/pages/analytics/page/CommentsDashboard.vue",
-      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-fdd4290a.js",
-      "resources/js/components/pages/analytics/page/RankingDashboard.vue",
-      "resources/js/components/pages/analytics/page/SalesDashboard.vue",
-      "resources/js/components/pages/analytics/page/TopDashboard.vue",
-      "resources/js/components/pages/analytics/page/TrendDashboard.vue",
-      "resources/js/components/pages/analytics/page/UserDashboard.vue",
-      "_vendor-66ba3070.js",
-      "__plugin-vue_export-helper-c27b6911.js",
-      "_Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js",
-      "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue",
-      "resources/js/components/pages/analytics/atoms/PageViewsGraph.vue",
-      "resources/js/components/pages/analytics/atoms/LineChart.vue",
-      "resources/js/components/pages/analytics/page/contents/Thead.vue"
+      "_vendor-66ba3070.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/pages/analytics/AnalyticsDashboard.vue"
@@ -562,9 +534,8 @@
     "src": "resources/js/components/pages/analytics/atoms/LineChart.vue"
   },
   "resources/js/components/pages/analytics/atoms/PageViewsGraph.vue": {
-    "file": "assets/PageViewsGraph-62bd5c8f.js",
+    "file": "assets/PageViewsGraph-51a809c2.js",
     "imports": [
-      "resources/js/components/pages/analytics/atoms/LineChart.vue",
       "__plugin-vue_export-helper-c27b6911.js",
       "_vendor-66ba3070.js"
     ],
@@ -581,16 +552,9 @@
     "src": "resources/js/components/pages/analytics/page/CommentsDashboard.vue"
   },
   "resources/js/components/pages/analytics/page/ContentsDashboard.vue": {
-    "file": "assets/ContentsDashboard-eb46a24d.js",
+    "file": "assets/ContentsDashboard-cf5cc33b.js",
     "imports": [
-      "_ContentsDashboard.vue_vue_type_script_setup_true_lang-fdd4290a.js",
-      "_Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js",
-      "_vendor-66ba3070.js",
-      "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue",
-      "resources/js/components/pages/analytics/atoms/PageViewsGraph.vue",
-      "resources/js/components/pages/analytics/atoms/LineChart.vue",
-      "__plugin-vue_export-helper-c27b6911.js",
-      "resources/js/components/pages/analytics/page/contents/Thead.vue"
+      "_vendor-66ba3070.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/pages/analytics/page/ContentsDashboard.vue"
@@ -641,25 +605,18 @@
     "src": "resources/js/components/pages/analytics/page/UserDashboard.vue"
   },
   "resources/js/components/pages/analytics/page/contents/Tbody.vue": {
-    "file": "assets/Tbody-3fc7791d.js",
+    "file": "assets/Tbody-5d8f25be.js",
     "imports": [
-      "_Tbody.vue_vue_type_script_setup_true_lang-9e0339f1.js",
-      "_vendor-66ba3070.js",
-      "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue",
-      "resources/js/components/pages/analytics/atoms/PageViewsGraph.vue",
-      "resources/js/components/pages/analytics/atoms/LineChart.vue",
-      "__plugin-vue_export-helper-c27b6911.js"
+      "_vendor-66ba3070.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/pages/analytics/page/contents/Tbody.vue"
   },
   "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue": {
-    "file": "assets/BookDetail-63798016.js",
+    "file": "assets/BookDetail-4b07a6f0.js",
     "imports": [
-      "resources/js/components/pages/analytics/atoms/PageViewsGraph.vue",
       "_vendor-66ba3070.js",
-      "__plugin-vue_export-helper-c27b6911.js",
-      "resources/js/components/pages/analytics/atoms/LineChart.vue"
+      "__plugin-vue_export-helper-c27b6911.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/pages/analytics/page/contents/Tbody/BookDetail.vue"

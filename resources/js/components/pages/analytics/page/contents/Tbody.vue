@@ -153,7 +153,6 @@
     </template>
 </template>
 <script lang="ts" setup>
-import BookDetail from "@/components/pages/analytics/page/contents/Tbody/BookDetail.vue";
 import { Book } from "@/types/book";
 import { ref, Ref } from "vue";
 // props
