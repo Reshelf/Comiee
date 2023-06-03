@@ -2,6 +2,12 @@
 
 Comiee is an online manga platform where creators can post their manga works and readers can enjoy and support their favorite content.
 
+## 画面
+### 新規登録・ログイン
+https://github.com/kuroro-31/Comiee/assets/34049491/ed485e0d-e5fb-44d6-bf57-3f3e588f0f57
+
+
+
 ## What is Comiee?
 
 Comiee (コミー) is an online manga platform where authors can post their manga works, and readers can enjoy and support the content.
