@@ -7,7 +7,7 @@
 - アダルトコンテンツを除く、様々なジャンルに対応
 - 違法ダウンロードやスクリーンショットを禁止し、作者の権利を保護（PC）。
 - 多言語対応
-- 作品の詳細設定（カラー、非公開、休載など）
+- 作品の詳細設定（カラー、公開設定、休載設定, 完結作品, 有料作品）
 - 作品アナリティクス(予定)
 
 ## 理念
@@ -20,16 +20,16 @@
 ## 技術
 
 - PaaS： Heroku
-- バックエンド **Laravel**
-- フロントエンド **Blade**と**Vue.js**と**Typescript**。
-- DNS **Google Domains**（DNS管理：**Cloudflare**)
-- CDN： CDN：**クラウドフレア**（DNS管理：*Cloudflare
+- バックエンド Laravel
+- フロントエンド Blade, Vue.js, Typescript
+- DNS Cloudflare
+- CDN： Cloudflare
 - 画像ストレージ： Cloudflare R2
 - ローカル環境： Docker
-- コンパイル **Vite**
-- アナリティクス **Google Analytics**、**Cloudflare Analytics**
-- スタイル **TailwindCSS**
-- 決済 **Stripe Connect**
+- コンパイル Vite
+- アナリティクス Google Analytics, Cloudflare Analytics
+- スタイル TailwindCSS
+- 決済 Stripe Connect
 
 ## 画面
 ### 新規登録
