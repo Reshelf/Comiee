@@ -42,6 +42,10 @@
 
 
 - アカウント削除
+<img width="1470" alt="スクリーンショット 2023-06-13 23 57 37" src="https://github.com/kuroro-31/Comiee/assets/34049491/044ddd86-68e3-4632-9798-055b6d116e9c">
+<img width="1440" alt="スクリーンショット 2023-06-13 23 57 52" src="https://github.com/kuroro-31/Comiee/assets/34049491/b5f02536-c032-4781-923a-71fa1323a731">
+
+
 - マンガの投稿・編集・削除
 - マンガへのコメント機能
 - フォロー機能
