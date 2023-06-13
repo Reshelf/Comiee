@@ -32,8 +32,14 @@
 - スタイル TailwindCSS
 - 決済 Stripe Connect
 
-## 画面
-### 新規登録
+## 機能
+- 新規登録
 https://github.com/kuroro-31/Comiee/assets/34049491/04c68c1e-c21a-43c2-95bc-b968a09240b8
-### ログイン
+- ログイン
 https://github.com/kuroro-31/Comiee/assets/34049491/ed485e0d-e5fb-44d6-bf57-3f3e588f0f57
+- パスワード再設定
+- マンガの投稿・編集・削除
+- マンガへのコメント機能
+- フォロー機能
+- メール通知機能
+- 決済機能
