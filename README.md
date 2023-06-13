@@ -34,11 +34,7 @@
 
 ## 機能
 - 新規登録
-https://github.com/kuroro-31/Comiee/assets/34049491/04c68c1e-c21a-43c2-95bc-b968a09240b8
-
 - ログイン
-https://github.com/kuroro-31/Comiee/assets/34049491/ed485e0d-e5fb-44d6-bf57-3f3e588f0f57
-
 - パスワード再設定
 - マンガの投稿・編集・削除
 - マンガへのコメント機能
@@ -47,5 +43,6 @@ https://github.com/kuroro-31/Comiee/assets/34049491/ed485e0d-e5fb-44d6-bf57-3f3e
 <img width="1467" alt="スクリーンショット 2023-06-13 14 38 47" src="https://github.com/kuroro-31/Comiee/assets/34049491/ee4700b2-5b15-4e6e-9b53-f5b06fa7c6f6">
 - 決済機能
 - ダークモード
-https://github.com/kuroro-31/Comiee/assets/34049491/a29c6234-53ab-4a9d-8ab4-5e2d49683123
+<img width="1470" alt="スクリーンショット 2023-06-13 14 41 19" src="https://github.com/kuroro-31/Comiee/assets/34049491/dba9e8dc-cfbd-4104-9fa5-601680192d80">
+<img width="1470" alt="スクリーンショット 2023-06-13 14 41 29" src="https://github.com/kuroro-31/Comiee/assets/34049491/2559c6d8-cb41-4937-8fc2-b0e4fcb53df6">
 - 
