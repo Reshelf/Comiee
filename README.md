@@ -37,11 +37,13 @@
 - ログイン
 - パスワード再設定
 - プロフィール更新
+
 <img width="1470" alt="スクリーンショット 2023-06-13 14 44 49" src="https://github.com/kuroro-31/Comiee/assets/34049491/30b25892-f8f1-44fb-9977-9b97fe5e317d">
 
 
 
 - アカウント削除
+
 <img width="1470" alt="スクリーンショット 2023-06-13 23 57 37" src="https://github.com/kuroro-31/Comiee/assets/34049491/044ddd86-68e3-4632-9798-055b6d116e9c">
 <img width="1440" alt="スクリーンショット 2023-06-13 23 57 52" src="https://github.com/kuroro-31/Comiee/assets/34049491/b5f02536-c032-4781-923a-71fa1323a731">
 
@@ -52,6 +54,7 @@
 
 
 - メール通知機能
+
 <img width="1467" alt="スクリーンショット 2023-06-13 14 38 47" src="https://github.com/kuroro-31/Comiee/assets/34049491/ee4700b2-5b15-4e6e-9b53-f5b06fa7c6f6">
 
 
@@ -61,6 +64,9 @@
 - ダークモード
 <img width="1470" alt="スクリーンショット 2023-06-13 14 41 19" src="https://github.com/kuroro-31/Comiee/assets/34049491/dba9e8dc-cfbd-4104-9fa5-601680192d80">
 <img width="1470" alt="スクリーンショット 2023-06-13 14 41 29" src="https://github.com/kuroro-31/Comiee/assets/34049491/2559c6d8-cb41-4937-8fc2-b0e4fcb53df6">
+
+- Q&A
+<img width="1470" alt="スクリーンショット 2023-06-14 0 38 23" src="https://github.com/kuroro-31/Comiee/assets/34049491/027197e2-26b1-4030-b10e-d69b03fada24">
 
 
 - 利用規約
