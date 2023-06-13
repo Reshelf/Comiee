@@ -22,6 +22,7 @@
 - PaaS： Heroku
 - バックエンド Laravel
 - フロントエンド Blade, Vue.js, Typescript
+- デザイン Figma
 - DNS Cloudflare
 - CDN： Cloudflare
 - 画像ストレージ： Cloudflare R2
