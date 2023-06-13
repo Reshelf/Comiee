@@ -39,10 +39,18 @@
 - マンガの投稿・編集・削除
 - マンガへのコメント機能
 - フォロー機能
+
+
 - メール通知機能
 <img width="1467" alt="スクリーンショット 2023-06-13 14 38 47" src="https://github.com/kuroro-31/Comiee/assets/34049491/ee4700b2-5b15-4e6e-9b53-f5b06fa7c6f6">
+
+
 - 決済機能
+
+
 - ダークモード
 <img width="1470" alt="スクリーンショット 2023-06-13 14 41 19" src="https://github.com/kuroro-31/Comiee/assets/34049491/dba9e8dc-cfbd-4104-9fa5-601680192d80">
 <img width="1470" alt="スクリーンショット 2023-06-13 14 41 29" src="https://github.com/kuroro-31/Comiee/assets/34049491/2559c6d8-cb41-4937-8fc2-b0e4fcb53df6">
-- 
+
+
+- 利用規約
