@@ -72,5 +72,9 @@
 - 利用規約
 
 
+<img width="1470" alt="スクリーンショット 2023-06-14 0 39 44" src="https://github.com/kuroro-31/Comiee/assets/34049491/5fb69608-8701-4f5d-b96e-a99df7e58f44">
+
+
+
 - 404
 <img width="1470" alt="スクリーンショット 2023-06-13 14 45 15" src="https://github.com/kuroro-31/Comiee/assets/34049491/5aa93b93-7f38-4b20-906e-13e24c3de0d5">
