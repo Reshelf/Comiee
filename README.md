@@ -20,17 +20,18 @@
 ## 技術
 
 - PaaS： Heroku
-- バックエンド Laravel
-- フロントエンド Blade, Vue.js, Typescript
+- バックエンド Laravel `v10.13.5`
+- フロントエンド Blade, Vue.js `v3.2`, Typescript `v5.1.3`
 - デザイン Figma
 - DNS Cloudflare
 - CDN： Cloudflare
 - 画像ストレージ： Cloudflare R2
 - ローカル環境： Docker
-- コンパイル Vite
+- コンパイル Vite `v4.3.9`
 - アナリティクス Google Analytics, Cloudflare Analytics
-- スタイル TailwindCSS
+- スタイル TailwindCSS `v3.3.2`
 - 決済 Stripe Connect
+- コード整形 Prettier, Eslint `v8.42.0`
 
 ## 機能
 - 新規登録
